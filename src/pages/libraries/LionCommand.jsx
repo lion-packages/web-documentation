@@ -1,6 +1,4 @@
-import Button from "react-bootstrap/Button";
 import { useState } from "react";
-import { Link } from "react-router-dom";
 import CodeBlock from "../components/CodeBlock";
 import ListTabs from "../components/ListTabs";
 
@@ -100,8 +98,8 @@ function LionCommand() {
             />
 
             <p>
-              To create custom commands the following must be executed, For more
-              information on creating custom commands read on Symfony-Console.
+              To create custom commands the following must be executed, For more information on
+              creating custom commands read on Symfony-Console.
             </p>
 
             <CodeBlock
@@ -119,10 +117,7 @@ function LionCommand() {
           <div className="mb-3">
             <h3 className="pb-2">Credits</h3>
 
-            <a
-              href="https://github.com/symfony/console"
-              target="_blank"
-            >
+            <a href="https://github.com/symfony/console" target="_blank">
               Symfony-Console
             </a>
           </div>

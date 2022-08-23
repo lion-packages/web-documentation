@@ -5,7 +5,7 @@ import Tab from "react-bootstrap/Tab";
 
 function ListTabs(props) {
   return (
-    <div className="my-5">
+    <div className="my-4">
       <Tab.Container id="left-tabs-example" defaultActiveKey={props.default}>
         <Row>
           <Col sm={3}>

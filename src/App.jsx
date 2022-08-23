@@ -1,16 +1,16 @@
-import { Routes, Route } from 'react-router-dom'
-import './assets/css/index.css'
-import NavbarNavigation from './pages/components/NavbarNavigation'
-import Dashboard from './pages/dashboard'
-import NotFound from './pages/NotFound'
-import LionRoute from './pages/libraries/LionRoute'
-import LibraryContent from './pages/LibraryContent'
-import LionFiles from './pages/libraries/LionFiles'
-import LionCommand from './pages/libraries/LionCommand'
-import LionMailer from './pages/libraries/LionMailer'
-import LionRequest from './pages/libraries/LionRequest'
-import LionSQL from './pages/libraries/LionSQL'
-import LionSecurity from './pages/libraries/LionSecurity'
+import { Routes, Route } from 'react-router-dom';
+import './assets/css/index.css';
+import NavbarNavigation from './pages/components/NavbarNavigation';
+import Dashboard from './pages/dashboard';
+import NotFound from './pages/NotFound';
+import LionRoute from './pages/libraries/LionRoute';
+import LibraryContent from './pages/LibraryContent';
+import LionFiles from './pages/libraries/LionFiles';
+import LionCommand from './pages/libraries/LionCommand';
+import LionMailer from './pages/libraries/LionMailer';
+import LionRequest from './pages/libraries/LionRequest';
+import LionSQL from './pages/libraries/LionSQL';
+import LionSecurity from './pages/libraries/LionSecurity';
 
 function App() {
   return (
@@ -32,7 +32,7 @@ function App() {
         </Route>
       </Routes>
     </>
-  )
+  );
 }
 
-export default App
+export default App;
