@@ -43,7 +43,7 @@ function LionMailer() {
           </div>
 
           <div className="mb-3">
-            <h2 className="pb-2">Install</h2>
+            <h4 className="pb-2">INSTALL</h4>
 
             <CodeBlock
               language="powershell"
@@ -52,7 +52,7 @@ function LionMailer() {
           </div>
 
           <div className="mb-3">
-            <h2 className="pb-2">Usage</h2>
+            <h4 className="pb-2">USAGE</h4>
 
             <CodeBlock
               language="php"
@@ -89,7 +89,7 @@ function LionMailer() {
           </div>
 
           <div className="mb-3">
-            <h5 className="pb-2">or</h5>
+            <h4 className="pb-2">or</h4>
 
             <CodeBlock
               language="php"
@@ -119,7 +119,7 @@ function LionMailer() {
       content: (
         <>
           <div className="mb-3">
-            <h2 className="pb-2">INSTRUCTIONS</h2>
+            <h4 className="pb-2">INSTRUCTIONS</h4>
 
             <p>
               The mailer class must be initialized using the init function and
@@ -178,7 +178,7 @@ function LionMailer() {
       content: (
         <>
           <div>
-            <h2 className="pb-2">SEND EMAILS TO MULTIPLE ACCOUNTS</h2>
+            <h4 className="pb-2">SEND EMAILS TO MULTIPLE ACCOUNTS</h4>
 
             <CodeBlock
               language="php"
@@ -213,7 +213,7 @@ function LionMailer() {
       content: (
         <>
           <div className="mb-3">
-            <h2 className="pb-2">Credits</h2>
+            <h4 className="pb-2">CREDITS</h4>
 
             <a href="https://github.com/PHPMailer/PHPMailer" target={"_blank"}>
               PHPMailer
@@ -221,7 +221,7 @@ function LionMailer() {
           </div>
 
           <div className="mb-3">
-            <h2 className="pb-2">License</h2>
+            <h4 className="pb-2">LICENSE</h4>
 
             <p>
               Copyright © 2022{" "}

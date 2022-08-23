@@ -19,15 +19,15 @@ function LionRequest() {
     },
     {
       event: "json",
-      name: "JSON"
+      name: "JSON",
     },
     {
-      event: 'header',
-      name: 'Header'
+      event: "header",
+      name: "Header",
     },
     {
-      event: 'finish',
-      name: 'Finish'
+      event: "finish",
+      name: "Finish",
     },
     {
       event: "credits-license",
@@ -47,7 +47,7 @@ function LionRequest() {
           </div>
 
           <div className="mb-3">
-            <h2 className="pb-2">Install</h2>
+            <h4 className="pb-2">INSTALL</h4>
 
             <CodeBlock
               language="powershell"
@@ -62,7 +62,7 @@ function LionRequest() {
       content: (
         <>
           <div className="mb-3">
-            <h2 className="pb-2">REQUEST</h2>
+            <h4 className="pb-2">REQUEST</h4>
 
             <p>
               The Request class allows us to return different data from
@@ -108,11 +108,12 @@ function LionRequest() {
       content: (
         <>
           <div className="mb-3">
-            <h2 className="pb-2">RESPONSE</h2>
+            <h4 className="pb-2">RESPONSE</h4>
 
             <p>
-              The Response class allows us to return different types of response, either for a
-              successful response or for one with an error.
+              The Response class allows us to return different types of
+              response, either for a successful response or for one with an
+              error.
             </p>
 
             <CodeBlock
@@ -132,7 +133,8 @@ function LionRequest() {
 
           <div className="mb-3">
             <p>
-              They can create an object of the Response class and call the methods.
+              They can create an object of the Response class and call the
+              methods.
             </p>
 
             <CodeBlock
@@ -158,16 +160,17 @@ function LionRequest() {
       content: (
         <>
           <div className="mb-4">
-            <h2 className="pb-2">JSON</h2>
+            <h4 className="pb-2">JSON</h4>
 
             <p>
-              The Json class allows us to work with different data and properties either to
-              encode them to a JSON format or decode them to an array format.
+              The Json class allows us to work with different data and
+              properties either to encode them to a JSON format or decode them
+              to an array format.
             </p>
           </div>
 
           <div className="mb-3">
-            <h2 className="pb-3">ENCODE</h2>
+            <h4 className="pb-3">ENCODE</h4>
 
             <CodeBlock
               language="php"
@@ -183,29 +186,26 @@ function LionRequest() {
           </div>
 
           <div className="mb-3">
-            <h2 className="pb-3">DECODE</h2>
+            <h4 className="pb-3">DECODE</h4>
 
             <CodeBlock
               language="php"
               content={
-                "$decode = Json::decode($encode);\n" +
-                "var_dump($decode);"
+                "$decode = Json::decode($encode);\n" + "var_dump($decode);"
               }
             />
           </div>
         </>
-      )
+      ),
     },
     {
-      event: 'header',
+      event: "header",
       content: (
         <>
           <div className="mb-4">
-            <h2 className="pb-2">HEADER</h2>
+            <h4 className="pb-2">HEADER</h4>
 
-            <p>
-              The Request class allows us to create headers.
-            </p>
+            <p>The Request class allows us to create headers.</p>
 
             <CodeBlock
               language="php"
@@ -219,17 +219,18 @@ function LionRequest() {
             />
           </div>
         </>
-      )
+      ),
     },
     {
-      event: 'finish',
+      event: "finish",
       content: (
         <>
           <div className="mb-4">
-            <h2 className="pb-2">FINISH</h2>
+            <h4 className="pb-2">FINISH</h4>
 
             <p>
-              The finish function executes a die internally with its respective response.
+              The finish function executes a die internally with its respective
+              response.
             </p>
 
             <CodeBlock
@@ -243,14 +244,14 @@ function LionRequest() {
             />
           </div>
         </>
-      )
+      ),
     },
     {
       event: "credits-license",
       content: (
         <>
           <div className="mb-3">
-            <h3 className="pb-2">License</h3>
+            <h4 className="pb-2">LICENSE</h4>
             <p>
               Copyright © 2022{" "}
               <a
@@ -266,7 +267,7 @@ function LionRequest() {
     },
   ]);
 
-  return <ListTabs default="credits-license" items={items} panes={panes} />;
+  return <ListTabs default="getting-started" items={items} panes={panes} />;
 }
 
 export default LionRequest;

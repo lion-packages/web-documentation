@@ -77,7 +77,7 @@ function LionFiles() {
           </div>
 
           <div className="mb-3">
-            <h3 className="pb-2">Install</h3>
+            <h4 className="pb-2">INSTALL</h4>
 
             <CodeBlock
               language="powershell"
@@ -92,7 +92,7 @@ function LionFiles() {
       content: (
         <>
           <div className="mb-3">
-            <h2 className="pb-2">GET EXTENSION</h2>
+            <h4 className="pb-2">GET EXTENSION</h4>
 
             <p>
               The <Badge bg="secondary">getExtension</Badge> function is available to get the
@@ -117,7 +117,7 @@ function LionFiles() {
       content: (
         <>
           <div className="mb-3">
-            <h2 className="pb-2">GET NAME</h2>
+            <h4 className="pb-2">GET NAME</h4>
 
             <p>
               The <Badge bg="secondary">getName</Badge> function is available to get the name
@@ -142,7 +142,7 @@ function LionFiles() {
       content: (
         <>
           <div className="mb-3">
-            <h2 className="pb-2">GET BASE NAME</h2>
+            <h4 className="pb-2">GET BASE NAME</h4>
 
             <p>
               The <Badge bg="secondary">getBasename</Badge> function is available to get the
@@ -167,7 +167,7 @@ function LionFiles() {
       content: (
         <>
           <div className="mb-3">
-            <h2 className="pb-2">FOLDER</h2>
+            <h4 className="pb-2">FOLDER</h4>
 
             <p>
               The <Badge bg="secondary">folder</Badge> function checks if the directory path
@@ -192,7 +192,7 @@ function LionFiles() {
       content: (
         <>
           <div className="mb-3">
-            <h2 className="pb-2">VALIDATE</h2>
+            <h4 className="pb-2">VALIDATE</h4>
 
             <p>
               The <Badge bg="secondary">validate</Badge> function checks if a
@@ -224,7 +224,7 @@ function LionFiles() {
       content: (
         <>
           <div className="mb-3">
-            <h2 className="pb-2">UPLOAD</h2>
+            <h4 className="pb-2">UPLOAD</h4>
 
             <p>
               The <Badge bg="secondary">upload</Badge> function allows you to
@@ -255,7 +255,7 @@ function LionFiles() {
       content: (
         <>
           <div className="mb-3">
-            <h2 className="pb-2">RENAME</h2>
+            <h4 className="pb-2">RENAME</h4>
 
             <p>
               upload files to a path
@@ -293,7 +293,7 @@ function LionFiles() {
       content: (
         <>
           <div className="mb-3">
-            <h2 className="pb-2">EXIST</h2>
+            <h4 className="pb-2">EXIST</h4>
 
             <p>
               The <Badge bg="secondary">exist</Badge> function allows you to check if a folder or
@@ -320,7 +320,7 @@ function LionFiles() {
       content: (
         <>
           <div className="mb-3">
-            <h2 className="pb-2">REMOVE</h2>
+            <h4 className="pb-2">REMOVE</h4>
 
             <p>
               The <Badge bg="secondary">remove</Badge> function allows you to delete files.
@@ -346,7 +346,7 @@ function LionFiles() {
       content: (
         <>
           <div className="mb-3">
-            <h2 className="pb-2">VIEW</h2>
+            <h4 className="pb-2">VIEW</h4>
 
             <p>
               The <Badge bg="secondary">view</Badge> function gets a list of the files found
@@ -373,7 +373,7 @@ function LionFiles() {
       content: (
         <>
           <div className="mb-3">
-            <h2 className="pb-2">SIZE</h2>
+            <h4 className="pb-2">SIZE</h4>
 
             <p>
               The <Badge bg="secondary">size</Badge> function checks if a file meets the required
@@ -400,7 +400,7 @@ function LionFiles() {
       content: (
         <>
           <div className="mb-3">
-            <h2 className="pb-2">IMAGE SIZE</h2>
+            <h4 className="pb-2">IMAGE SIZE</h4>
 
             <p>
               The <Badge bg="secondary">imageSize</Badge> function allows you to check if an image
@@ -427,7 +427,7 @@ function LionFiles() {
       content: (
         <>
           <div className="mb-3">
-            <h3 className="pb-2">License</h3>
+            <h4 className="pb-2">LICENSE</h4>
             <p>
               Copyright © 2022{" "}
               <a

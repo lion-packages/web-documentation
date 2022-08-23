@@ -32,7 +32,7 @@ function LionCommand() {
           </div>
 
           <div className="mb-3">
-            <h3 className="pb-2">Install</h3>
+            <h4 className="pb-2">INSTALL</h4>
 
             <CodeBlock
               language="powershell"
@@ -41,7 +41,7 @@ function LionCommand() {
           </div>
 
           <div className="mb-3">
-            <h3 className="pb-2">Usage</h3>
+            <h4 className="pb-2">USAGE</h4>
 
             <CodeBlock
               language="php"
@@ -71,7 +71,7 @@ function LionCommand() {
       content: (
         <>
           <div className="mb-3">
-            <h3 className="pb-2">Available commands</h3>
+            <h4 className="pb-2">AVAILABLE COMMANDS</h4>
 
             <CodeBlock
               language="powershell"
@@ -90,7 +90,7 @@ function LionCommand() {
           </div>
 
           <div className="mb-3">
-            <h3 className="pb-2">Optional</h3>
+            <h4 className="pb-2">OPTIONAL</h4>
 
             <CodeBlock
               language="powershell"
@@ -115,7 +115,7 @@ function LionCommand() {
       content: (
         <>
           <div className="mb-3">
-            <h3 className="pb-2">Credits</h3>
+            <h4 className="pb-2">CREDITS</h4>
 
             <a href="https://github.com/symfony/console" target="_blank">
               Symfony-Console
@@ -123,7 +123,7 @@ function LionCommand() {
           </div>
 
           <div className="mb-3">
-            <h3 className="pb-2">License</h3>
+            <h4 className="pb-2">LICENSE</h4>
             <p>
               Copyright © 2022{" "}
               <a
