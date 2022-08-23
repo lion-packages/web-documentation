@@ -27,7 +27,7 @@ function LionCommand() {
             <h2 className="pb-2">Lion-Command</h2>
 
             <p>
-              Library created with the function of executing commands from PHP
+              Library created with the function of executing commands from PHP.
             </p>
           </div>
 
@@ -127,7 +127,7 @@ function LionCommand() {
             <p>
               Copyright © 2022{" "}
               <a
-                href="https://github.com/Sleon4/Lion-Framework/blob/main/LICENSE"
+                href="https://github.com/Sleon4/Lion-Command/blob/main/LICENSE"
                 target="_blank"
               >
                 MIT License
