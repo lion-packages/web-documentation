@@ -99,7 +99,7 @@ function LionCommand() {
 
             <p>
               To create custom commands the following must be executed, For more information on
-              creating custom commands read on Symfony-Console.
+              creating custom commands read on <a href="https://github.com/symfony/console" target={"_blank"}>Symfony-Console</a>.
             </p>
 
             <CodeBlock

@@ -69,7 +69,7 @@ function LionFiles() {
       content: (
         <>
           <div className="mb-4">
-            <h2 className="pb-2">Lion-Command</h2>
+            <h2 className="pb-2">Lion-Files</h2>
 
             <p>
               Library created with the function of working internal system files.
