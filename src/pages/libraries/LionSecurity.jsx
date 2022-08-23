@@ -1,5 +1,23 @@
+import { useState } from "react";
+import CodeBlock from "../components/CodeBlock";
+import ListTabs from "../components/ListTabs";
+
 function LionSecurity() {
-    return <h1>Security</h1>
+    const [items, setItems] = useState([{
+        event: 'getting-started',
+        name: 'Getting started'
+    }]);
+
+    const [panes, setPanes] = useState([{
+        event: 'getting-started',
+        content: (
+            <>
+                Hola
+            </>
+        )
+    }]);
+
+    return <ListTabs default="getting-started" items={items} panes={panes} />;
 }
 
-export default LionSecurity
+export default LionSecurity;
