@@ -14,7 +14,7 @@ function NavbarNavigation() {
       childs: [],
     },
     {
-      display_name: "Librerias",
+      display_name: "Libraries",
       type: "items",
       url: "#",
       childs: [
@@ -30,9 +30,11 @@ function NavbarNavigation() {
   ]);
 
   return (
-    <Navbar bg="dark" variant="dark" expand="lg">
+    <Navbar bg="dark-blue" variant="dark" expand="lg" sticky="top">
       <Container>
-        <Navbar.Brand href="#home">LION</Navbar.Brand>
+        <LinkContainer to="/">
+          <Navbar.Brand>LION</Navbar.Brand>
+        </LinkContainer>
 
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
 
@@ -46,7 +48,7 @@ function NavbarNavigation() {
                   </Nav.Link>
                 </LinkContainer>
               ) : (
-                <NavDropdown key={index} title={link.display_name}>
+                <NavDropdown key={index} title={link.display_name} menuVariant="dark">
                   {link.childs.map((child, indexChild) => (
                     <LinkContainer to={child.url} key={indexChild}>
                       <NavDropdown.Item>

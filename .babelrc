@@ -1,0 +1,13 @@
+{
+  "plugins": [
+    [
+      "prismjs",
+      {
+        "languages": ["php"],
+        "plugins": ["line-numbers"],
+        "theme": "okaidia",
+        "css": true
+      }
+    ]
+  ]
+}

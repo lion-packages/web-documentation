@@ -1,4 +1,5 @@
 import { Routes, Route } from 'react-router-dom'
+import './assets/css/index.css'
 import NavbarNavigation from './pages/components/NavbarNavigation'
 import Dashboard from './pages/dashboard'
 import NotFound from './pages/NotFound'
