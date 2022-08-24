@@ -11,6 +11,19 @@ import LionMailer from './pages/libraries/LionMailer';
 import LionRequest from './pages/libraries/LionRequest';
 import LionSQL from './pages/libraries/LionSQL';
 import LionSecurity from './pages/libraries/LionSecurity';
+import FrameworkContent from './pages/FrameworkContent';
+import GettingStarted from './pages/framework/GettingStarted';
+import Commands from './pages/framework/Commands';
+import Headers from './pages/framework/Headers';
+import Request from './pages/framework/Request';
+import Response from './pages/framework/Response';
+import Security from './pages/framework/Security';
+import Carbon from './pages/framework/Carbon';
+import FrameworkRoutes from './pages/framework/Routes';
+import Controllers from './pages/framework/Controllers';
+import Middleware from './pages/framework/Middleware';
+import Models from './pages/framework/Models';
+import Rules from './pages/framework/Rules';
 
 function App() {
   return (
@@ -20,6 +33,21 @@ function App() {
       <Routes>
         <Route path='*' element={<NotFound />} />
         <Route path='/' element={<Dashboard />} />
+
+        <Route path='framework' element={<FrameworkContent />}>
+          <Route path='getting-started' element={<GettingStarted />} />
+          <Route path='commands' element={<Commands />} />
+          <Route path='headers' element={<Headers />} />
+          <Route path='request' element={<Request />} />
+          <Route path='response' element={<Response />} />
+          <Route path='security' element={<Security />} />
+          <Route path='carbon' element={<Carbon/>} />
+          <Route path='routes' element={<FrameworkRoutes />} />
+          <Route path='controllers' element={<Controllers />} />
+          <Route path='middleware' element={<Middleware />} />
+          <Route path='models' element={<Models />} />
+          <Route path='rules' element={<Rules />} />
+        </Route>
 
         <Route path='libraries' element={<LibraryContent />}>
           <Route path='files' element={<LionFiles />} />
