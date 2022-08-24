@@ -51,6 +51,8 @@ function LionMailer() {
             />
           </div>
 
+          <hr />
+
           <div className="mb-3">
             <h4 className="pb-2">USAGE</h4>
 

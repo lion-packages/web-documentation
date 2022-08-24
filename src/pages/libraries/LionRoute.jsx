@@ -62,6 +62,8 @@ function LionRoute() {
             />
           </div>
 
+          <hr />
+
           <div className="mb-3">
             <h4 className="pb-2">HTACCESS</h4>
 
@@ -88,6 +90,8 @@ function LionRoute() {
               }
             />
           </div>
+
+          <hr />
 
           <div className="mb-3">
             <h4 className="pb-2">USAGE</h4>
@@ -158,16 +162,14 @@ function LionRoute() {
             />
           </div>
 
+          <hr />
+
           <div className="mb-4">
             <h4 className="pb-2">DEFINITION OF ROUTE TYPES</h4>
 
             <CodeBlock
               language="php"
               content={
-                "<?php\n\n" +
-                'require_once("vendor/autoload.php");\n\n' +
-                "use LionRoute\\Route;\n\n" +
-                "Route::init();\n" +
                 "Route::get($route, $handler);\n" +
                 "Route::post($route, $handler);\n" +
                 "Route::put($route, $handler);\n" +
@@ -193,6 +195,8 @@ function LionRoute() {
               </a>
             </p>
           </div>
+
+          <hr />
 
           <div className="mb-4">
             <h4 className="pb-2">REGEX SHORTCUTS</h4>
@@ -231,7 +235,7 @@ function LionRoute() {
                 "use App\\Http\\Controllers\\Home\\Example;\n\n" +
                 "Route::get('example-url', function() {\n" +
                 "\t$get = new Example();\n" +
-                "\t$get->getMethod();\n" +
+                "\treturn $get->getMethod();\n" +
                 "});"
               }
             />
@@ -259,7 +263,7 @@ function LionRoute() {
                 "use App\\Http\\Controllers\\Home\\Example;\n\n" +
                 "Route::post('example-url', function() {\n" +
                 "\t$post = new Example();\n" +
-                "\t$post->postMethod();\n" +
+                "\treturn $post->postMethod();\n" +
                 "});"
               }
             />
@@ -287,7 +291,7 @@ function LionRoute() {
                 "use App\\Http\\Controllers\\Home\\Example;\n\n" +
                 "Route::put('example-url', function() {\n" +
                 "\t$put = new Example();\n" +
-                "\t$put->putMethod();\n" +
+                "\treturn $put->putMethod();\n" +
                 "});"
               }
             />
@@ -315,7 +319,7 @@ function LionRoute() {
                 "use App\\Http\\Controllers\\Home\\Example;\n\n" +
                 "Route::delete('example-url', function() {\n" +
                 "\t$delete = new Example();\n" +
-                "\t$delete->deleteMethod();\n" +
+                "\treturn $delete->deleteMethod();\n" +
                 "});"
               }
             />
@@ -343,7 +347,7 @@ function LionRoute() {
                 "use App\\Http\\Controllers\\Home\\Example;\n\n" +
                 "Route::any('example-url', function() {\n" +
                 "\t$any = new Example();\n" +
-                "\t$any->anyMethod();\n" +
+                "\treturn $any->anyMethod();\n" +
                 "});"
               }
             />
@@ -388,7 +392,8 @@ function LionRoute() {
                 "\tAuth::class => [\n" +
                 "\t\t['name' => 'auth', 'method' => 'auth'],\n" +
                 "\t\t['name' => 'no-auth', 'method' => 'noAuth']\n" +
-                "\t]\n]);"
+                "\t]\n]);\n\n" +
+                "Route::dispatch();"
               }
             />
 
@@ -452,7 +457,7 @@ function LionRoute() {
                 "\tRoute::post('login', [Example::class, 'postMethod']);\n" +
                 "});\n\n" +
                 "// or\n\n" +
-                "Route::post('login', fn() => ['status' => 'success', 'message' => 'Hello world'], ['no-auth']);\n" +
+                "Route::post('login', fn() => ['status' => 'success', 'message' => 'Hello world'], ['no-auth']);\n\n" +
                 "// or\n\n" +
                 "Route::post('login', [Example::class, 'postMethod'], ['no-auth']);"
               }

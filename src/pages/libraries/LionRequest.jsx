@@ -238,7 +238,8 @@ function LionRequest() {
               content={
                 "<?php\n\n" +
                 "require_once('vendor/autoload.php');\n\n" +
-                "use LionRequest\\Response;\n\n" +
+                "use LionRequest\\Response;\n" +
+                "use LionRequest\\Json;\n\n" +
                 "Response::finish(Json::encode(['name' => 'Sleon']));\n"
               }
             />

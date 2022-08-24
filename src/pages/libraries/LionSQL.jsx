@@ -1,6 +1,7 @@
 import { useState } from "react";
 import CodeBlock from "../components/CodeBlock";
 import ListTabs from "../components/ListTabs";
+import Badge from "react-bootstrap/Badge";
 
 function LionSQL() {
     const [items, setItems] = useState([{

@@ -40,6 +40,8 @@ function LionCommand() {
             />
           </div>
 
+          <hr />
+
           <div className="mb-3">
             <h4 className="pb-2">USAGE</h4>
 
@@ -88,6 +90,8 @@ function LionCommand() {
               }
             />
           </div>
+
+          <hr />
 
           <div className="mb-3">
             <h4 className="pb-2">OPTIONAL</h4>
