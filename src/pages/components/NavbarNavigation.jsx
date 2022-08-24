@@ -61,7 +61,7 @@ function NavbarNavigation() {
                   </Nav.Link>
                 </LinkContainer>
               ) : (
-                <NavDropdown key={index} title={link.display_name} menuVariant="dark">
+                <NavDropdown key={index} title={link.display_name} menuVariant="dark" align={'end'}>
                   {link.childs.map((child, indexChild) => (
                     <LinkContainer to={child.url} key={indexChild}>
                       <NavDropdown.Item>
