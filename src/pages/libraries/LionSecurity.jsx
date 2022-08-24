@@ -377,7 +377,7 @@ function LionSecurity() {
                 "<?php\n\n" +
                 "use LionSecurityJWT;\n\n" +
                 "$data = ['idUsers' => 1, 'idRoles' => 3];\n" +
-                "$jwtEnc = JWT::encode($data, 180000);\n" +
+                "$jwtEnc = JWT::encode($data, 300);\n" +
                 "var_dump($jwtEnc);"
               }
             />
