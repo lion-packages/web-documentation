@@ -10,7 +10,7 @@ function Headers() {
         <h4 className="pb-2">Add headers</h4>
 
         <p>
-          Headers must be added in an array from{" "}
+        Headers should be added per function in {" "}
           <Badge bg="secondary">routes/header.php</Badge>.
         </p>
 

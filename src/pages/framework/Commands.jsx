@@ -61,7 +61,7 @@ function Commands() {
         <CodeBlock language={"powershell"} content={"php lion route:list"} />
 
         <Alert variant={"warning"}>
-          Note: The routes are loaded with the server route SERVER_URL set in{" "}
+          Note: The routes are loaded with the server route <Badge bg="warning">SERVER_URL</Badge> set in{" "}
           <Badge bg="warning">.env</Badge>, modify this route to avoid errors in
           the execution of the process, in the file{" "}
           <Badge bg="warning">public/index.php</Badge> there is a public route

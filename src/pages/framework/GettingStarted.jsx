@@ -51,7 +51,7 @@ function GettingStarted() {
 
         <CodeBlock
           language={'powershell'}
-          content={'php lion serve --port=8001'}
+          content={'php lion serve --port 8001'}
         />
       </div>
     </>
