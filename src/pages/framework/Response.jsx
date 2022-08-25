@@ -32,23 +32,20 @@ function Response() {
 
         <CodeBlock
           language={"php"}
-          content={
-            "<?php\n\n" +
-            "return response->success('message...');"
-          }
+          content={"<?php\n\n" + "return response->success('message...');"}
         />
 
         <p>output</p>
 
         <CodeBlock
-            language={'json'}
-            content={
-                '{\n' +
-                '\t"status": "success",\n' +
-                '\t"message": "message...",\n' +
-                '\t"data": []\n' +
-                '}'
-            }
+          language={"json"}
+          content={
+            "{\n" +
+            '\t"status": "success",\n' +
+            '\t"message": "message...",\n' +
+            '\t"data": []\n' +
+            "}"
+          }
         />
 
         <p>equivalent to</p>
@@ -69,23 +66,20 @@ function Response() {
 
         <CodeBlock
           language={"php"}
-          content={
-            "<?php\n\n" +
-            "return response->error('message...');"
-          }
+          content={"<?php\n\n" + "return response->error('message...');"}
         />
 
         <p>output</p>
 
         <CodeBlock
-            language={'json'}
-            content={
-                '{\n' +
-                '\t"status": "error",\n' +
-                '\t"message": "message...",\n' +
-                '\t"data": []\n' +
-                '}'
-            }
+          language={"json"}
+          content={
+            "{\n" +
+            '\t"status": "error",\n' +
+            '\t"message": "message...",\n' +
+            '\t"data": []\n' +
+            "}"
+          }
         />
 
         <p>equivalent to</p>
@@ -115,14 +109,14 @@ function Response() {
         <p>output</p>
 
         <CodeBlock
-            language={'json'}
-            content={
-                '{\n' +
-                '\t"status": "my_custom_response",\n' +
-                '\t"message": "message...",\n' +
-                '\t"data": []\n' +
-                '}'
-            }
+          language={"json"}
+          content={
+            "{\n" +
+            '\t"status": "my_custom_response",\n' +
+            '\t"message": "message...",\n' +
+            '\t"data": []\n' +
+            "}"
+          }
         />
 
         <p>equivalent to</p>

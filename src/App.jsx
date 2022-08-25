@@ -17,7 +17,6 @@ import Commands from './pages/framework/Commands';
 import Headers from './pages/framework/Headers';
 import Request from './pages/framework/Request';
 import Response from './pages/framework/Response';
-import Security from './pages/framework/Security';
 import Carbon from './pages/framework/Carbon';
 import FrameworkRoutes from './pages/framework/Routes';
 import Controllers from './pages/framework/Controllers';
@@ -40,7 +39,6 @@ function App() {
           <Route path='headers' element={<Headers />} />
           <Route path='request' element={<Request />} />
           <Route path='response' element={<Response />} />
-          <Route path='security' element={<Security />} />
           <Route path='carbon' element={<Carbon/>} />
           <Route path='routes' element={<FrameworkRoutes />} />
           <Route path='controllers' element={<Controllers />} />

@@ -17,7 +17,6 @@ function NavbarNavigation() {
         { display_name: 'Headers', url: '/framework/headers' },
         { display_name: 'Request', url: '/framework/request' },
         { display_name: 'Response', url: '/framework/response' },
-        { display_name: 'Security', url: '/framework/security' },
         { display_name: 'Carbon', url: '/framework/carbon' },
         { display_name: 'Routes', url: '/framework/routes' },
         { display_name: 'Controllers', url: '/framework/controllers' },

@@ -18,7 +18,7 @@ function Request() {
         </p>
 
         <CodeBlock
-          langueage={'php'}
+          langueage={"php"}
           content={
             "<?php\n\n" +
             "define('request', LionRequest\\Request::getInstance()->capture()); // (object)"
@@ -32,7 +32,7 @@ function Request() {
         <h5>Example</h5>
 
         <CodeBlock
-          langueage={'php'}
+          langueage={"php"}
           content={
             "<?php\n\n" +
             "echo(\n" +
@@ -44,7 +44,7 @@ function Request() {
         <p>equivalent to</p>
 
         <CodeBlock
-          langueage={'php'}
+          langueage={"php"}
           content={
             "<?php\n\n" +
             "echo(\n" +
