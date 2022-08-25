@@ -59,7 +59,10 @@ function Controllers() {
             "\tpublic function index() {\n" +
             "\t\treturn response->success('welcome to index');\n" +
             "\t}\n\n" +
-            "}"
+            "}\n\n" +
+            "// routes/web.php\n\n" +
+            "use App\\Http\\Controllers\\HomeController;\n\n" +
+            "Route::get('/', [HomeController::class, 'index']);"
           }
         />
       </div>
