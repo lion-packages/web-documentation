@@ -88,7 +88,7 @@ function Middleware() {
         <p>
           To import middleware to the routes we must first import the namespace
           of the middleware and inside this add an array to create custom
-          middleware.
+          middleware. <Badge bg={"secondary"}>routes/middleware.php</Badge>.
         </p>
 
         <CodeBlock
@@ -110,6 +110,10 @@ function Middleware() {
 
       <div className="mb-3">
         <h4>Use Middleware</h4>
+
+        <p>
+          <Badge bg={"secondary"}>routes/web.php</Badge>
+        </p>
 
         <CodeBlock
           language={"php"}
