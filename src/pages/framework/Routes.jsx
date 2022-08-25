@@ -25,7 +25,7 @@ function Routes() {
             "Route::get('/', [HomeController::class, 'index']);\n\n" +
             "// or\n\n" +
             "Route::get('/', function() {\n" +
-            "\t(new HomeController())->index();\n" +
+            "\treturn (new HomeController())->index();\n" +
             "});"
           }
         />
