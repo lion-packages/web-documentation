@@ -41,8 +41,8 @@ function Commands() {
         <CodeBlock
           language={"powershell"}
           content={
-            "php lion serve --port=8001\n" +
-            'php lion key:rsa --path="storage/other-secret-key/"\n'
+            "php lion serve --port 8001\n" +
+            'php lion key:rsa --path "storage/other-secret-key/"\n'
           }
         />
       </div>
