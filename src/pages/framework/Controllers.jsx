@@ -37,6 +37,32 @@ function Controllers() {
           }
         />
       </div>
+
+      <hr />
+
+      <div className="mb-3">
+        <h4>Example #2</h4>
+
+        <CodeBlock
+          language={'powershell'}
+          content={'php lion new:controller HomeController'}
+        />
+
+        <CodeBlock
+          langueage={"php"}
+          content={
+            "<?php\n\n" +
+            "namespace App\\Http\\Controllers;\n\n" +
+            "class HomeController {\n\n" +
+            "\tpublic function __contruct() {\n\n" +
+            "\t}\n\n" +
+            "\tpublic function index() {\n" +
+            "\t\treturn response->success('welcome to index');\n" +
+            "\t}\n\n" +
+            "}"
+          }
+        />
+      </div>
     </>
   );
 }
