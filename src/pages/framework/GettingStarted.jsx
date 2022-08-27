@@ -9,7 +9,7 @@ function GettingStarted() {
         <p>
           Lion-Framework can also serve as an API backend for a JavaScript
           single page application or a mobile application. For example, you can
-          use Lion-Framework as an API backend for your Vite.js app or Kotlin
+          use Lion-Framework as an API backend for your ReactJS app or Kotlin
           app.
         </p>
 
