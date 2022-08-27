@@ -77,8 +77,7 @@ function DashboardContent() {
               <div className="mb-3">
                 <h4>
                   <i className="bi bi-code me-2"></i>
-                  {repository.name}
-                  <i className="bi bi-code-slash ms-2"></i>
+                  {repository.name + " / " + repository.type}
                 </h4>
               </div>
 
