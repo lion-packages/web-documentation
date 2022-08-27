@@ -12,7 +12,7 @@ function ListTabs(props) {
             {props.items.map((item, index) => (
               <Nav variant="pills" className="flex-column" key={index}>
                 <Nav.Item>
-                  <Nav.Link eventKey={item.event}  className="text-white">{item.name}</Nav.Link>
+                  <Nav.Link eventKey={item.event} className="text-white">{item.name}</Nav.Link>
                 </Nav.Item>
               </Nav>
             ))}

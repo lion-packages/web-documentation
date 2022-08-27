@@ -473,8 +473,8 @@ function LionSQL() {
                 "<?php\n\n" +
                 "use LionSQL\\Drivers\\MySQLDriver as Builder;\n\n" +
                 "$list = Builder::select(Builder::FETCH, 'table', null, '*', [\n" +
-                "\tBuilder::where('id', '=' /* '>', '<', '<>' */),\n" +
-                "\tBuilder::or('date', '=' /* '>', '<', '<>' */)\n" +
+                "\tBuilder::where('id', '='), // '>', '<', '<>'\n" +
+                "\tBuilder::or('date', '=') // '>', '<', '<>'\n" +
                 "]);\n\n" +
                 "var_dump($list);"
               }
@@ -497,8 +497,8 @@ function LionSQL() {
                 "<?php\n\n" +
                 "use LionSQL\\Drivers\\MySQLDriver as Builder;\n\n" +
                 "$list = Builder::select(Builder::FETCH, 'table', 'alias', '*', [\n" +
-                "\tBuilder::where('alias.id', '=' /* '>', '<', '<>' */),\n" +
-                "\tBuilder::or('alias.date', '=' /* '>', '<', '<>' */)\n" +
+                "\tBuilder::where('alias.id', '='), // '>', '<', '<>'\n" +
+                "\tBuilder::or('alias.date', '=') // '>', '<', '<>'\n" +
                 "]);\n\n" +
                 "var_dump($list);"
               }
