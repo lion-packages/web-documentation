@@ -63,6 +63,21 @@ function DashboardContent() {
   return (
     <Container className="my-5">
       <Row>
+        <Col xs={12} className="text-white">
+          <div className="mb-4">
+            <h2>Composer</h2>
+
+            <p>
+              <a href="https://getcomposer.org/" target={"_blank"}>
+                Composer
+              </a>{" "}
+              must be previously installed to execute commands
+            </p>
+          </div>
+
+          <hr />
+        </Col>
+
         {repositories.map((repository, index) => (
           <Col
             xs={12}
