@@ -1,9 +1,6 @@
-import { useState } from "react";
 import { Button, Col, Container, Row } from "react-bootstrap";
-import { Link } from "react-router-dom";
 import { FaReact, FaVuejs, FaCubes } from "react-icons/fa";
 import { DiPhp } from "react-icons/di";
-import { MdSecurity } from "react-icons/md";
 import { LinkContainer } from "react-router-bootstrap";
 import { FiArrowRight } from "react-icons/fi";
 

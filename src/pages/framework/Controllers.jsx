@@ -1,7 +1,8 @@
-import { Link } from "react-router-dom";
 import CodeBlock from "../components/CodeBlock";
 import Badge from "react-bootstrap/Badge";
-import Alert from "react-bootstrap/Alert";
+import { LinkContainer } from "react-router-bootstrap";
+import Button from "react-bootstrap/Button";
+import { FiArrowLeft, FiArrowRight } from "react-icons/fi";
 
 function Controllers() {
   return (
@@ -13,7 +14,7 @@ function Controllers() {
           You can create controllers from the command line{" "}
           <Badge bg={"secondary"}>
             php lion new:controller controller_name
-          </Badge>.
+          </Badge>
         </p>
       </div>
 
@@ -66,6 +67,18 @@ function Controllers() {
           }
         />
       </div>
+
+      <LinkContainer to="/framework/routes">
+        <Button variant="light" className="mb-5">
+          <FiArrowLeft /> Previous
+        </Button>
+      </LinkContainer>
+
+      <LinkContainer to="/framework/middleware">
+        <Button variant="light" className="float-end mb-5">
+          Next <FiArrowRight />
+        </Button>
+      </LinkContainer>
     </>
   );
 }

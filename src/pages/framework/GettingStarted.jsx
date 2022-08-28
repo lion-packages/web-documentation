@@ -1,3 +1,6 @@
+import { Button } from "react-bootstrap";
+import { FiArrowRight } from "react-icons/fi";
+import { LinkContainer } from "react-router-bootstrap";
 import CodeBlock from "../components/CodeBlock";
 
 function GettingStarted() {
@@ -26,8 +29,8 @@ function GettingStarted() {
         <h4 className="pb-2">INSTALL</h4>
 
         <CodeBlock
-          language={'powershell'}
-          content={'composer create-project lion-framework/lion-framework'}
+          language={"powershell"}
+          content={"composer create-project lion-framework/lion-framework"}
         />
       </div>
 
@@ -36,24 +39,23 @@ function GettingStarted() {
       <div className="mb-3">
         <h4 className="pb-2">USAGE</h4>
 
-        <p>
-          Start by running the server, by default it runs on port 8000.
-        </p>
+        <p>Start by running the server, by default it runs on port 8000.</p>
+
+        <CodeBlock language={"powershell"} content={"php lion serve"} />
+
+        <p>use another port.</p>
 
         <CodeBlock
-          language={'powershell'}
-          content={'php lion serve'}
-        />
-
-        <p>
-          use another port.
-        </p>
-
-        <CodeBlock
-          language={'powershell'}
-          content={'php lion serve --port 8001'}
+          language={"powershell"}
+          content={"php lion serve --port 8001"}
         />
       </div>
+
+      <LinkContainer to="/framework/commands">
+        <Button variant="light" className="float-end mb-5">
+          Next <FiArrowRight />
+        </Button>
+      </LinkContainer>
     </>
   );
 }

@@ -3,6 +3,9 @@ import CodeBlock from "../components/CodeBlock";
 import Badge from "react-bootstrap/Badge";
 import Alert from "react-bootstrap/Alert";
 import ListCommands from "../components/ListCommands";
+import { LinkContainer } from "react-router-bootstrap";
+import { Button } from "react-bootstrap";
+import { FiArrowLeft, FiArrowRight } from "react-icons/fi";
 
 function Commands() {
   return (
@@ -63,7 +66,7 @@ function Commands() {
 
         <p>
           The commands must be added in an array from{" "}
-          <Badge bg="secondary">routes/console.php</Badge>.
+          <Badge bg="secondary">routes/console.php</Badge>
         </p>
 
         <CodeBlock
@@ -77,6 +80,18 @@ function Commands() {
           }
         />
       </div>
+
+      <LinkContainer to="/framework/getting-started">
+        <Button variant="light" className="mb-5">
+          <FiArrowLeft /> Previous
+        </Button>
+      </LinkContainer>
+
+      <LinkContainer to="/framework/headers">
+        <Button variant="light" className="float-end mb-5">
+          Next <FiArrowRight />
+        </Button>
+      </LinkContainer>
     </>
   );
 }

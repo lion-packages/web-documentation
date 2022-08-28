@@ -1,7 +1,9 @@
 import { Link } from "react-router-dom";
 import CodeBlock from "../components/CodeBlock";
 import Badge from "react-bootstrap/Badge";
-import Alert from "react-bootstrap/Alert";
+import { LinkContainer } from "react-router-bootstrap";
+import { FiArrowLeft, FiArrowRight } from "react-icons/fi";
+import Button from "react-bootstrap/Button";
 
 function Middleware() {
   return (
@@ -88,7 +90,7 @@ function Middleware() {
         <p>
           To import middleware to the routes we must first import the namespace
           of the middleware and inside this add an array to create custom
-          middleware. <Badge bg={"secondary"}>routes/middleware.php</Badge>.
+          middleware. <Badge bg={"secondary"}>routes/middleware.php</Badge>
         </p>
 
         <CodeBlock
@@ -129,6 +131,18 @@ function Middleware() {
           }
         />
       </div>
+
+      <LinkContainer to="/framework/controllers">
+        <Button variant="light" className="mb-5">
+          <FiArrowLeft /> Previous
+        </Button>
+      </LinkContainer>
+
+      <LinkContainer to="/framework/models">
+        <Button variant="light" className="float-end mb-5">
+          Next <FiArrowRight />
+        </Button>
+      </LinkContainer>
     </>
   );
 }

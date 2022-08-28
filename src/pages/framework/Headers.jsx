@@ -1,7 +1,8 @@
-import { Link } from "react-router-dom";
 import CodeBlock from "../components/CodeBlock";
 import Badge from "react-bootstrap/Badge";
-import Alert from "react-bootstrap/Alert";
+import { LinkContainer } from "react-router-bootstrap";
+import { Button } from "react-bootstrap";
+import { FiArrowLeft, FiArrowRight } from "react-icons/fi";
 
 function Headers() {
   return (
@@ -11,7 +12,7 @@ function Headers() {
 
         <p>
         Headers should be added per function in {" "}
-          <Badge bg="secondary">routes/header.php</Badge>.
+          <Badge bg="secondary">routes/header.php</Badge>
         </p>
 
         <CodeBlock
@@ -26,6 +27,18 @@ function Headers() {
           }
         />
       </div>
+
+      <LinkContainer to="/framework/commands">
+        <Button variant="light" className="mb-5">
+          <FiArrowLeft /> Previous
+        </Button>
+      </LinkContainer>
+
+      <LinkContainer to="/framework/request">
+        <Button variant="light" className="float-end mb-5">
+          Next <FiArrowRight />
+        </Button>
+      </LinkContainer>
     </>
   );
 }

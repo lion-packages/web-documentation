@@ -1,7 +1,8 @@
-import { Link } from "react-router-dom";
 import CodeBlock from "../components/CodeBlock";
 import Badge from "react-bootstrap/Badge";
-import Alert from "react-bootstrap/Alert";
+import Button from "react-bootstrap/Button";
+import { LinkContainer } from "react-router-bootstrap";
+import { FiArrowRight, FiArrowLeft } from "react-icons/fi";
 
 function Rules() {
   return (
@@ -13,7 +14,7 @@ function Rules() {
           You can create rules from command line php lion new:rule rule_name ,
           rule usage is based on rules provided by vlucas/valitron, you can set
           language response from environment variables with lang language
-          preference to <Badge bg={"secondary"}>.env</Badge>.
+          preference to <Badge bg={"secondary"}>.env</Badge>
         </p>
       </div>
 
@@ -61,7 +62,7 @@ function Rules() {
 
         <p>
           Add your rules to different routes in{" "}
-          <Badge bg={"secondary"}>routes/rules.php</Badge>.
+          <Badge bg={"secondary"}>routes/rules.php</Badge>
         </p>
 
         <CodeBlock
@@ -75,7 +76,30 @@ function Rules() {
             "];"
           }
         />
+
+        <p>You can reuse a rule in different routes.</p>
+
+        <CodeBlock
+          langueage={"php"}
+          content={
+            "<?php\n\n" +
+            "return [\n" +
+            "\t'/api/auth/signin' => [\n" +
+            "\t\tAppRulesEmailRule::class\n" +
+            "\t]\n" +
+            "\t'/api/create-users' => [\n" +
+            "\t\tAppRulesEmailRule::class\n" +
+            "\t]\n" +
+            "];"
+          }
+        />
       </div>
+
+      <LinkContainer to="/framework/models">
+        <Button variant="light" className="mb-5">
+          <FiArrowLeft /> Previous
+        </Button>
+      </LinkContainer>
     </>
   );
 }

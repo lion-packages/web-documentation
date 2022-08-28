@@ -1,7 +1,8 @@
-import { Link } from "react-router-dom";
 import CodeBlock from "../components/CodeBlock";
 import Badge from "react-bootstrap/Badge";
-import Alert from "react-bootstrap/Alert";
+import Button from "react-bootstrap/Button";
+import { LinkContainer } from "react-router-bootstrap";
+import { FiArrowLeft, FiArrowRight } from "react-icons/fi";
 
 function Models() {
   return (
@@ -13,7 +14,7 @@ function Models() {
           You can create models from the command line{" "}
           <Badge bg={"secondary"}>
             php lion new:model model_name
-          </Badge>.
+          </Badge>
         </p>
       </div>
 
@@ -38,6 +39,18 @@ function Models() {
           }
         />
       </div>
+
+      <LinkContainer to="/framework/middleware">
+        <Button variant="light" className="mb-5">
+          <FiArrowLeft /> Previous
+        </Button>
+      </LinkContainer>
+
+      <LinkContainer to="/framework/rules">
+        <Button variant="light" className="float-end mb-5">
+          Next <FiArrowRight />
+        </Button>
+      </LinkContainer>
     </>
   );
 }

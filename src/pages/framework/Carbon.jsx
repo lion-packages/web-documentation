@@ -1,7 +1,7 @@
-import { Link } from "react-router-dom";
 import CodeBlock from "../components/CodeBlock";
-import Badge from "react-bootstrap/Badge";
-import Alert from "react-bootstrap/Alert";
+import { LinkContainer } from "react-router-bootstrap";
+import { Button } from "react-bootstrap";
+import { FiArrowLeft, FiArrowRight } from "react-icons/fi";
 
 function Carbon() {
   return (
@@ -26,6 +26,18 @@ function Carbon() {
           }
         />
       </div>
+
+      <LinkContainer to="/framework/response">
+        <Button variant="light" className="mb-5">
+          <FiArrowLeft /> Previous
+        </Button>
+      </LinkContainer>
+
+      <LinkContainer to="/framework/routes">
+        <Button variant="light" className="float-end mb-5">
+          Next <FiArrowRight />
+        </Button>
+      </LinkContainer>
     </>
   );
 }
