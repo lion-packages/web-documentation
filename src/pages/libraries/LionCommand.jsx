@@ -1,5 +1,6 @@
 import { useState } from "react";
 import CodeBlock from "../components/CodeBlock";
+import ListCommands from "../components/ListCommands";
 import ListTabs from "../components/ListTabs";
 
 function LionCommand() {
@@ -39,32 +40,6 @@ function LionCommand() {
               content={"composer require lion-framework/lion-command"}
             />
           </div>
-
-          <hr />
-
-          <div className="mb-3">
-            <h4 className="pb-2">USAGE</h4>
-
-            <CodeBlock
-              language="php"
-              content={
-                "<?php\n" +
-                "//lion file\n\n" +
-                'require_once("vendor/autoload.php");\n\n' +
-                "LionCommand\\SystemCommand::init([\n" +
-                "\tLionCommand\\Command\\ControllerCommand::class,\n" +
-                "\tLionCommand\\Command\\ModelCommand::class,\n" +
-                "\tLionCommand\\Command\\MiddlewareCommand::class,\n" +
-                "\tLionCommand\\Command\\CommandsCommand::class,\n" +
-                "\tLionCommand\\Command\\CapsuleCommand::class,\n" +
-                "\tLionCommand\\Command\\TestCommand::class,\n" +
-                "\tLionCommand\\Command\\ServerCommand::class,\n" +
-                "\tLionCommand\\Command\\RunTestCommand::class,\n" +
-                "\tLionCommand\\Command\\RulesCommand::class\n" +
-                "]);"
-              }
-            />
-          </div>
         </>
       ),
     },
@@ -75,20 +50,7 @@ function LionCommand() {
           <div className="mb-3">
             <h4 className="pb-2">AVAILABLE COMMANDS</h4>
 
-            <CodeBlock
-              language="powershell"
-              content={
-                "php lion serve\n" +
-                "php lion new:controller name_controller\n" +
-                "php lion new:model name_model\n" +
-                "php lion new:middleware name_middleware\n" +
-                "php lion new:command name_command\n" +
-                "php lion new:capsule name_capsule\n" +
-                "php lion new:test name_test\n" +
-                "php lion test\n" +
-                "php lion new:rule name_rule\n"
-              }
-            />
+            <ListCommands />
           </div>
 
           <hr />
@@ -98,7 +60,7 @@ function LionCommand() {
 
             <CodeBlock
               language="powershell"
-              content={"php lion serve --port=4041"}
+              content={"php lion serve --port 4041"}
             />
 
             <p>
