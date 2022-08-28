@@ -64,8 +64,8 @@ function ListCommands() {
           </tr>
         </thead>
         <tbody>
-          {listCommands.map((command) => (
-            <tr>
+          {listCommands.map((command, index) => (
+            <tr key={index}>
               <td>{command.description}</td>
               <td>{command.command}</td>
             </tr>
