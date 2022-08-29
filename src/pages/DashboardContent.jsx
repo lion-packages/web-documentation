@@ -18,7 +18,7 @@ function DashboardContent() {
             md={8}
             lg={8}
             xl={8}
-            className="text-center mx-auto"
+            className="text-center mx-auto mb-3"
           >
             <Row>
               <h1 className="mt-5 mb-0 text-degradient">
@@ -32,7 +32,7 @@ function DashboardContent() {
                 single page application or a mobile application.
               </p>
 
-              <Col xs={8} className="mx-auto mb-5">
+              <Col xs={8} className="mx-auto mt-3 mb-5">
                 <LinkContainer to="/framework/getting-started">
                   <Button variant="light">
                     Getting started <FiArrowRight />
@@ -58,7 +58,7 @@ function DashboardContent() {
         <Row>
           <Col xs={12} sm={12} md={12} lg={12} xl={12}>
             <Row className="py-5 my-5">
-              <Col xs={12} sm={12} md={7} lg={7} xl={7}>
+              <Col xs={11} sm={12} md={10} lg={7} xl={7} className="mx-auto">
                 <h1 className="text-degradient text-center">Testing</h1>
 
                 <p className="text-secondary description mb-0">
@@ -68,21 +68,21 @@ function DashboardContent() {
                 </p>
               </Col>
 
-              <Col xs={12} sm={12} md={5} lg={5} xl={5} className="text-center">
+              <Col xs={12} sm={12} md={5} lg={5} xl={5} className="text-center d-none d-lg-block">
                 <RiTestTubeFill className="text-white" size={"10em"} />
               </Col>
             </Row>
           </Col>
 
           <Col xs={12} sm={12} md={12} lg={12} xl={12}>
-            <Row className="pb-5 mb-5">
+            <Row className="mb-5">
               <Col
                 xs={12}
                 sm={12}
                 md={5}
                 lg={5}
                 xl={5}
-                className="text-center text-white"
+                className="text-center text-white d-none d-lg-block"
               >
                 <div className="mb-0">
                   <DiPhp size={"8em"} />
@@ -94,7 +94,7 @@ function DashboardContent() {
                 </>
               </Col>
 
-              <Col xs={12} sm={12} md={7} lg={7} xl={7}>
+              <Col xs={11} sm={12} md={10} lg={7} xl={7} className="mx-auto">
                 <h1 className="text-degradient text-center">API</h1>
 
                 <p className="text-secondary description mb-0">
@@ -108,19 +108,19 @@ function DashboardContent() {
           </Col>
 
           <Col xs={12} sm={12} md={12} lg={12} xl={12}>
-            <Row className="pb-5">
+            <Row>
               <Col
                 xs={12}
                 sm={12}
                 md={7}
                 lg={7}
                 xl={7}
-                className="py-5 text-center"
+                className="text-center d-none d-lg-block pb-5 my-5"
               >
-                <img src={codeDashboard} className={"rounded img-fluid"} />
+                <img src={codeDashboard} className={"rounded img-fluid "} />
               </Col>
 
-              <Col xs={12} sm={12} md={5} lg={5} xl={5} className="my-3 p-5">
+              <Col xs={11} sm={12} md={10} lg={5} xl={5} className="my-3 mx-auto">
                 <h1 className="text-degradient text-center">Routes</h1>
 
                 <p className="text-secondary description">

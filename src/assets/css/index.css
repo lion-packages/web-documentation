@@ -1,4 +1,5 @@
-@import url('https://fonts.googleapis.com/css2?family=Ubuntu+Condensed&display=swap');
+/* @import url('https://fonts.googleapis.com/css2?family=Ubuntu+Condensed&display=swap'); */
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@800&display=swap');
 
 .bg-dark-blue {
     background-color: #2B2B2B;
@@ -9,7 +10,8 @@
 }
 
 .text-degradient {
-    font-family: 'Ubuntu Condensed', sans-serif;
+    /* font-family: 'Ubuntu Condensed', sans-serif; */
+    font-family: 'Montserrat', sans-serif;
     font-size: 76px;
     line-height: 1.25;
     font-weight: 900;
@@ -20,7 +22,8 @@
 }
 
 .description {
-    font-family: 'Ubuntu Condensed', sans-serif;
+    /* font-family: 'Ubuntu Condensed', sans-serif; */
+    font-family: 'Montserrat', sans-serif;
     line-height: 1.5;
     transition: color .5s;
     font-size: 22px;
