@@ -12,7 +12,7 @@
 .text-degradient {
     /* font-family: 'Ubuntu Condensed', sans-serif; */
     font-family: 'Montserrat', sans-serif;
-    font-size: 76px;
+    font-size: 70px;
     line-height: 1.25;
     font-weight: 900;
     letter-spacing: -1.5px;
@@ -46,7 +46,7 @@
 
 @media (max-width: 960px) {
     .text-degradient {
-        font-size: 64px;
+        font-size: 50px;
         letter-spacing: -.5px;
     }
 

@@ -15,7 +15,7 @@ function DashboardContent() {
           <Col
             xs={12}
             sm={12}
-            md={8}
+            md={10}
             lg={8}
             xl={8}
             className="text-center mx-auto mb-3"
