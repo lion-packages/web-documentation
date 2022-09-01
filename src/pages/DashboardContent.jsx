@@ -4,8 +4,8 @@ import { DiPhp } from "react-icons/di";
 import { LinkContainer } from "react-router-bootstrap";
 import { FiArrowRight } from "react-icons/fi";
 import { RiTestTubeFill } from "react-icons/ri";
-import codeDashboard from "../assets/img/code-dashboard.png";
-import CodeBlock from "./components/CodeBlock";
+// import codeDashboard from "../assets/img/code-dashboard.png";
+import codeDashboard from "../assets/img/Snap.png";
 
 function DashboardContent() {
   return (
@@ -117,7 +117,7 @@ function DashboardContent() {
                 xl={7}
                 className="text-center d-none d-lg-block pb-5 my-5"
               >
-                <img src={codeDashboard} className={"rounded img-fluid "} />
+                <img src={codeDashboard} className={"rounded img-fluid"} />
               </Col>
 
               <Col xs={11} sm={12} md={10} lg={5} xl={5} className="my-3 mx-auto">
