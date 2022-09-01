@@ -67,7 +67,14 @@ function DashboardContent() {
                 </p>
               </Col>
 
-              <Col xs={12} sm={12} md={5} lg={5} xl={5} className="text-center d-none d-lg-block">
+              <Col
+                xs={12}
+                sm={12}
+                md={5}
+                lg={5}
+                xl={5}
+                className="text-center d-none d-lg-block"
+              >
                 <RiTestTubeFill className="text-white" size={"10em"} />
               </Col>
             </Row>
@@ -109,6 +116,22 @@ function DashboardContent() {
           <Col xs={12} sm={12} md={12} lg={12} xl={12}>
             <Row>
               <Col
+                xs={11}
+                sm={12}
+                md={10}
+                lg={5}
+                xl={5}
+                className="my-3 mx-auto"
+              >
+                <h1 className="text-degradient text-center">Routes</h1>
+
+                <p className="text-secondary description">
+                  Create all the routes you want for your web app, call your API
+                  from ReactJS or VueJS.
+                </p>
+              </Col>
+
+              <Col
                 xs={12}
                 sm={12}
                 md={7}
@@ -117,15 +140,6 @@ function DashboardContent() {
                 className="text-center d-none d-lg-block pb-5 my-5"
               >
                 <img src={codeDashboard} className={"rounded img-fluid"} />
-              </Col>
-
-              <Col xs={11} sm={12} md={10} lg={5} xl={5} className="my-3 mx-auto">
-                <h1 className="text-degradient text-center">Routes</h1>
-
-                <p className="text-secondary description">
-                  Create all the routes you want for your web app, call your API
-                  from ReactJS or VueJS.
-                </p>
               </Col>
             </Row>
           </Col>
