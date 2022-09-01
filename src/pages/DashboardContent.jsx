@@ -4,8 +4,7 @@ import { DiPhp } from "react-icons/di";
 import { LinkContainer } from "react-router-bootstrap";
 import { FiArrowRight } from "react-icons/fi";
 import { RiTestTubeFill } from "react-icons/ri";
-// import codeDashboard from "../assets/img/code-dashboard.png";
-import codeDashboard from "../assets/img/Snap.png";
+import codeDashboard from "../assets/img/code-snap.png";
 
 function DashboardContent() {
   return (
