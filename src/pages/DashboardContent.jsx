@@ -198,7 +198,7 @@ function DashboardContent() {
           </Col>
 
           <Col xs={12} sm={12} md={7} lg={7} xl={7} className="mt-5">
-            <h5>Response JSON</h5>
+            <h5>JSON Response</h5>
 
             <CodeBlock
               language={"json"}
