@@ -215,7 +215,7 @@ function DashboardContent() {
             <h5>Javascript/ReactJS</h5>
 
             <CodeBlock
-              language={"php"}
+              language={"javascript"}
               content={
                 "// use with POSTMAN\n\n" +
                 "axios.post('https://lion-client-php.herokuapp.com/new-text', { text: text }).then(res => {\n" +
