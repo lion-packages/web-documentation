@@ -23,7 +23,6 @@ function DashboardContent() {
       .then((res) => {
         setResponse({ status: res.data.status, message: res.data.message });
         setTime(Math.abs(start - Date.now()));
-        console.log(typeof time)
       });
   };
 
