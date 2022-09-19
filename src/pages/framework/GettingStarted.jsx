@@ -26,6 +26,20 @@ function GettingStarted() {
       <hr />
 
       <div className="mb-3">
+        <h4 className="pb-2">REQUIREMENTS</h4>
+
+        <p>
+          To install <strong>Lion-Framework</strong> and libraries you must have{" "}
+          <a href="https://getcomposer.org" target={"_blank"}>
+            composer
+          </a>{" "}
+          installed.
+        </p>
+      </div>
+
+      <hr />
+
+      <div className="mb-3">
         <h4 className="pb-2">INSTALL</h4>
 
         <CodeBlock

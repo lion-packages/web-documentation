@@ -39,7 +39,7 @@ function Request() {
           content={
             "<?php\n\n" +
             "echo(\n" +
-            "\trequest->users_name . ' ' . request->users_last_name\n" +
+            "\trequest->users_name . ' ' . request->{'users_last-name'}\n" +
             ");"
           }
         />
@@ -51,7 +51,7 @@ function Request() {
           content={
             "<?php\n\n" +
             "echo(\n" +
-            `\t$_POST['users_name'] . ' ' . $_POST['users_last_name']\n` +
+            `\t$_POST['users_name'] . ' ' . $_POST['users_last-name']\n` +
             ");"
           }
         />

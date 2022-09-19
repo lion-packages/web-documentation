@@ -36,7 +36,7 @@ function Response() {
           content={"<?php\n\n" + "return response->success('message...');"}
         />
 
-        <p>output</p>
+        <p>json output</p>
 
         <CodeBlock
           language={"json"}
@@ -70,7 +70,7 @@ function Response() {
           content={"<?php\n\n" + "return response->error('message...');"}
         />
 
-        <p>output</p>
+        <p>json output</p>
 
         <CodeBlock
           language={"json"}
@@ -107,7 +107,7 @@ function Response() {
           }
         />
 
-        <p>output</p>
+        <p>json output</p>
 
         <CodeBlock
           language={"json"}

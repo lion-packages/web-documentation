@@ -71,7 +71,7 @@ function Rules() {
             "<?php\n\n" +
             "return [\n" +
             "\t'/api/auth/signin' => [\n" +
-            "\t\tAppRulesEmailRule::class\n" +
+            "\t\tApp\\Rules\\EmailRule::class\n" +
             "\t]\n" +
             "];"
           }
@@ -85,10 +85,10 @@ function Rules() {
             "<?php\n\n" +
             "return [\n" +
             "\t'/api/auth/signin' => [\n" +
-            "\t\tAppRulesEmailRule::class\n" +
+            "\t\tApp\\Rules\\EmailRule::class\n" +
             "\t]\n" +
             "\t'/api/create-users' => [\n" +
-            "\t\tAppRulesEmailRule::class\n" +
+            "\t\tApp\\Rules\\EmailRule::class\n" +
             "\t]\n" +
             "];"
           }
