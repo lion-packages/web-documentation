@@ -353,7 +353,7 @@ function LionSecurity() {
               language="php"
               content={
                 "<?php\n\n" +
-                "use LionSecurityJWT;\n\n" +
+                "use LionSecurity\\JWT;\n\n" +
                 "$data = ['idUsers' => 1, 'idRoles' => 3];\n" +
                 "$jwtEnc = JWT::encode($data);\n" +
                 "var_dump($jwtEnc);"
@@ -375,7 +375,7 @@ function LionSecurity() {
               language="php"
               content={
                 "<?php\n\n" +
-                "use LionSecurityJWT;\n\n" +
+                "use LionSecurity\\JWT;\n\n" +
                 "$data = ['idUsers' => 1, 'idRoles' => 3];\n" +
                 "$jwtEnc = JWT::encode($data, 300);\n" +
                 "var_dump($jwtEnc);"
@@ -394,7 +394,7 @@ function LionSecurity() {
               language="php"
               content={
                 "<?php\n\n" +
-                "use LionSecurityJWT;\n\n" +
+                "use LionSecurity\\JWT;\n\n" +
                 "$jwtDec = JWT::decode($jwtEnc);\n" +
                 "var_dump($jwtDec);"
               }
@@ -416,7 +416,7 @@ function LionSecurity() {
               language="php"
               content={
                 "<?php\n\n" +
-                "use LionSecurityJWT;\n\n" +
+                "use LionSecurity\\JWT;\n\n" +
                 "$jwtDec = JWT::decode(JWT::get());\n" +
                 "var_dump($jwtDec);"
               }

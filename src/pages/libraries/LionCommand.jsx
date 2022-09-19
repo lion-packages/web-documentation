@@ -40,6 +40,26 @@ function LionCommand() {
               content={"composer require lion-framework/lion-command"}
             />
           </div>
+
+          <hr />
+
+          <div className="mb-3">
+            <h4 className="pb-2">USAGE</h4>
+
+            <p>
+              The <strong>lion</strong> runfile must be created to initialize the list of commands.
+            </p>
+
+            <CodeBlock
+              language="php"
+              content={
+                "<?php\n\n" +
+                "LionCommand\\SystemCommand::init([\n" +
+                "\tLionCommand\\Command\\ControllerCommand::class, // example command\n" +
+                "]);"
+              }
+            />
+          </div>
         </>
       ),
     },

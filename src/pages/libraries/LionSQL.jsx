@@ -146,7 +146,6 @@ function LionSQL() {
                 "\t'host' => 'localhost',\n" +
                 "\t'port' => 3306,\n" +
                 "\t'db_name' => 'example',\n" +
-                "\t'charset' => 'utf8',\n" +
                 "\t'user' => 'root',\n" +
                 "\t'password' => ''\n" +
                 "]);"
@@ -162,11 +161,8 @@ function LionSQL() {
               language="php"
               content={
                 "[\n" +
-                "\tPDO::ATTR_EMULATE_PREPARES => false,\n" +
-                `\tPDO::MYSQL_ATTR_INIT_COMMAND => "SET NAMES 'utf8'",\n` +
                 "\tPDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION,\n" +
                 "\tPDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_OBJ,\n" +
-                "\tPDO::ATTR_TIMEOUT => 5\n" +
                 "]"
               }
             />
@@ -185,12 +181,10 @@ function LionSQL() {
                 "\t'host' => 'localhost',\n" +
                 "\t'port' => 3306,\n" +
                 "\t'db_name' => 'example',\n" +
-                "\t'charset' => 'utf8',\n" +
                 "\t'user' => 'root',\n" +
                 "\t'password' => ''\n" +
                 "\t'config' => [\n" +
                 "\t\tPDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_ASSOC,\n" +
-                "\t\tPDO::ATTR_TIMEOUT => 5\n" +
                 "\t]\n]);"
               }
             />

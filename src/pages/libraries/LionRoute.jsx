@@ -502,7 +502,7 @@ function LionRoute() {
             <h2 className="pb-2">REDIRECT</h2>
 
             <p>
-              the <Badge bg="secondary">redirect</Badge> function allows you to redirect to a
+              The <Badge bg="secondary">redirect</Badge> function allows you to redirect to a
               specific url.
             </p>
 
