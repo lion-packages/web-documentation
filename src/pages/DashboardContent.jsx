@@ -4,10 +4,12 @@ import { DiPhp } from "react-icons/di";
 import { LinkContainer } from "react-router-bootstrap";
 import { FiArrowRight } from "react-icons/fi";
 import { RiTestTubeFill } from "react-icons/ri";
+import { BsDownload } from "react-icons/bs";
 import codeDashboard from "../assets/img/code-snap.png";
 import CodeBlock from "./components/CodeBlock";
 import { useState } from "react";
 import axios from "axios";
+import { Link } from "react-router-dom";
 
 function DashboardContent() {
   const [response, setResponse] = useState({ status: "", message: "" });
@@ -24,6 +26,10 @@ function DashboardContent() {
         setResponse({ status: res.data.status, message: res.data.message });
         setTime(Math.abs(start - Date.now()));
       });
+  };
+
+  const handleFile = () => {
+    window.location.href = "http://127.0.0.1:5173/public/files/Lion-Client-win32-x64.rar";
   };
 
   return (
@@ -159,6 +165,33 @@ function DashboardContent() {
                 className="text-center d-none d-lg-block pb-5 my-5"
               >
                 <img src={codeDashboard} className={"rounded img-fluid"} />
+              </Col>
+            </Row>
+          </Col>
+        </Row>
+      </Container>
+
+      <hr className="text-white" />
+
+      <Container className="my-5">
+        <Row>
+          <Col
+            xs={12}
+            sm={12}
+            md={10}
+            lg={8}
+            xl={8}
+            className="text-center mx-auto mb-3"
+          >
+            <Row>
+              <h1 className="mt-5 mb-0 text-degradient">
+                Download desktop version
+              </h1>
+
+              <Col xs={8} className="mx-auto mt-3 mb-5">
+                 <Button variant="light" onClick={handleFile}>
+                  <BsDownload />
+                 </Button>
               </Col>
             </Row>
           </Col>
