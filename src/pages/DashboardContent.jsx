@@ -28,10 +28,6 @@ function DashboardContent() {
       });
   };
 
-  const handleFile = () => {
-    window.location.href = "http://127.0.0.1:5173/public/files/Lion-Client-win32-x64.rar";
-  };
-
   return (
     <>
       <Container className="my-5">
@@ -189,9 +185,13 @@ function DashboardContent() {
               </h1>
 
               <Col xs={8} className="mx-auto mt-3 mb-5">
-                 <Button variant="light" onClick={handleFile}>
+                <Button
+                  variant="light"
+                  href="https://1drv.ms/u/s!AstHz58BpA9Jb3RVv6MNrLbYL_U?e=3EcdMp"
+                  target="_blank"
+                >
                   <BsDownload />
-                 </Button>
+                </Button>
               </Col>
             </Row>
           </Col>
