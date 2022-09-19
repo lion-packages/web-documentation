@@ -2,6 +2,8 @@ import { useState } from "react";
 import CodeBlock from "../components/CodeBlock";
 import ListTabs from "../components/ListTabs";
 import Badge from "react-bootstrap/Badge";
+import { BsGithub } from "react-icons/bs";
+import { Button } from "react-bootstrap";
 
 function LionRequest() {
   const [items, setItems] = useState([
@@ -40,6 +42,17 @@ function LionRequest() {
       event: "getting-started",
       content: (
         <>
+          <Button
+            variant="dark"
+            href="https://github.com/Sleon4/Lion-Request"
+            target="_blank"
+          >
+            <BsGithub size={"2em"} className="me-2" />
+            Lion-Request
+          </Button>
+
+          <hr />
+
           <div className="mb-4">
             <h2 className="pb-2">Lion-Request</h2>
 

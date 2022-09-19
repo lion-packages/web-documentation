@@ -2,6 +2,8 @@ import { useState } from "react";
 import CodeBlock from "../components/CodeBlock";
 import ListCommands from "../components/ListCommands";
 import ListTabs from "../components/ListTabs";
+import { BsGithub } from "react-icons/bs";
+import { Button } from "react-bootstrap";
 
 function LionCommand() {
   const [items, setItems] = useState([
@@ -24,6 +26,17 @@ function LionCommand() {
       event: "getting-started",
       content: (
         <>
+          <Button
+            variant="dark"
+            href="https://github.com/Sleon4/Lion-Command"
+            target="_blank"
+          >
+            <BsGithub size={"2em"} className="me-2" />
+            Lion-Command
+          </Button>
+
+          <hr />
+
           <div className="mb-4">
             <h2 className="pb-2">Lion-Command</h2>
 
@@ -47,7 +60,8 @@ function LionCommand() {
             <h4 className="pb-2">USAGE</h4>
 
             <p>
-              The <strong>lion</strong> runfile must be created to initialize the list of commands.
+              The <strong>lion</strong> runfile must be created to initialize
+              the list of commands.
             </p>
 
             <CodeBlock
@@ -84,8 +98,12 @@ function LionCommand() {
             />
 
             <p>
-              To create custom commands the following must be executed, For more information on
-              creating custom commands read on <a href="https://github.com/symfony/console" target={"_blank"}>Symfony-Console</a>.
+              To create custom commands the following must be executed, For more
+              information on creating custom commands read on{" "}
+              <a href="https://github.com/symfony/console" target={"_blank"}>
+                Symfony-Console
+              </a>
+              .
             </p>
 
             <CodeBlock

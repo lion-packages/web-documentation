@@ -1,11 +1,19 @@
 import { Button } from "react-bootstrap";
 import { FiArrowRight } from "react-icons/fi";
+import { BsGithub } from "react-icons/bs";
 import { LinkContainer } from "react-router-bootstrap";
 import CodeBlock from "../components/CodeBlock";
 
 function GettingStarted() {
   return (
     <>
+      <Button variant="dark" href="https://github.com/Sleon4/Lion-Framework" target="_blank">
+        <BsGithub size={"2em"} className="me-2" />
+        Lion-Framework
+      </Button>
+
+      <hr />
+
       <div className="mb-4">
         <h1 className="pb-2">Lion-Framework</h1>
 

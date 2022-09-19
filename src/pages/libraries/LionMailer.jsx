@@ -1,6 +1,8 @@
 import { useState } from "react";
 import CodeBlock from "../components/CodeBlock";
 import ListTabs from "../components/ListTabs";
+import { BsGithub } from "react-icons/bs";
+import { Button } from "react-bootstrap";
 
 function LionMailer() {
   const [items, setItems] = useState([
@@ -27,6 +29,17 @@ function LionMailer() {
       event: "getting-started",
       content: (
         <>
+          <Button
+            variant="dark"
+            href="https://github.com/Sleon4/Lion-Mailer"
+            target="_blank"
+          >
+            <BsGithub size={"2em"} className="me-2" />
+            Lion-Mailer
+          </Button>
+
+          <hr />
+
           <div className="mb-4">
             <h2 className="pb-2">Lion-Mailer</h2>
 

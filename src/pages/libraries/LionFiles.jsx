@@ -2,6 +2,8 @@ import { useState } from "react";
 import CodeBlock from "../components/CodeBlock";
 import ListTabs from "../components/ListTabs";
 import Badge from "react-bootstrap/Badge";
+import { BsGithub } from "react-icons/bs";
+import { Button } from "react-bootstrap";
 
 function LionFiles() {
   const [items, setItems] = useState([
@@ -68,11 +70,23 @@ function LionFiles() {
       event: "getting-started",
       content: (
         <>
+          <Button
+            variant="dark"
+            href="https://github.com/Sleon4/Lion-Files"
+            target="_blank"
+          >
+            <BsGithub size={"2em"} className="me-2" />
+            Lion-Files
+          </Button>
+
+          <hr />
+
           <div className="mb-4">
             <h2 className="pb-2">Lion-Files</h2>
 
             <p>
-              Library created with the function of working internal system files.
+              Library created with the function of working internal system
+              files.
             </p>
           </div>
 
@@ -95,8 +109,8 @@ function LionFiles() {
             <h4 className="pb-2">GET EXTENSION</h4>
 
             <p>
-              The <Badge bg="secondary">getExtension</Badge> function is available to get the
-              extension of a specific file.
+              The <Badge bg="secondary">getExtension</Badge> function is
+              available to get the extension of a specific file.
             </p>
 
             <CodeBlock
@@ -120,8 +134,8 @@ function LionFiles() {
             <h4 className="pb-2">GET NAME</h4>
 
             <p>
-              The <Badge bg="secondary">getName</Badge> function is available to get the name
-              of a specific file.
+              The <Badge bg="secondary">getName</Badge> function is available to
+              get the name of a specific file.
             </p>
 
             <CodeBlock
@@ -145,8 +159,8 @@ function LionFiles() {
             <h4 className="pb-2">GET BASE NAME</h4>
 
             <p>
-              The <Badge bg="secondary">getBasename</Badge> function is available to get the
-              name and extension of a specific file.
+              The <Badge bg="secondary">getBasename</Badge> function is
+              available to get the name and extension of a specific file.
             </p>
 
             <CodeBlock
@@ -170,8 +184,8 @@ function LionFiles() {
             <h4 className="pb-2">FOLDER</h4>
 
             <p>
-              The <Badge bg="secondary">folder</Badge> function checks if the directory path
-              exists, if it doesn't, it creates the directory.
+              The <Badge bg="secondary">folder</Badge> function checks if the
+              directory path exists, if it doesn't, it creates the directory.
             </p>
 
             <CodeBlock
@@ -258,11 +272,12 @@ function LionFiles() {
             <h4 className="pb-2">RENAME</h4>
 
             <p>
-              upload files to a path
-              The <Badge bg="secondary">rename</Badge> function renames files with random
-              characters, it allows to add a callsign to each file when it is renamed, the
+              upload files to a path The <Badge bg="secondary">rename</Badge>{" "}
+              function renames files with random characters, it allows to add a
+              callsign to each file when it is renamed, the
               <Badge bg="secondary">rename</Badge> function uses
-              <Badge bg="secondary">md5(hash('sha256', uniqid()))</Badge> to randomly rename files.
+              <Badge bg="secondary">md5(hash('sha256', uniqid()))</Badge> to
+              randomly rename files.
             </p>
 
             <CodeBlock
@@ -270,15 +285,11 @@ function LionFiles() {
               content={
                 "<?php\n\n" +
                 "require_once('vendor/autoload.php');\n\n" +
-
                 "use LionFiles\\Manage;\n\n" +
-
                 "var_dump(\n" +
                 "\tManage::rename($_FILES['user_files']['name'])\n" +
                 '); // example output => string(40) "141539cf52f48ecdc5008a19d62ede3b.jpg\n\n' +
-
-                '// or \n\n' +
-
+                "// or \n\n" +
                 "var_dump(\n" +
                 "\tManage::rename($_FILES['user_files']['name'], 'IMG')\n" +
                 '); // example output => string(40) "IMG-141539cf52f48ecdc5008a19d62ede3b.jpg"\n\n'
@@ -296,8 +307,8 @@ function LionFiles() {
             <h4 className="pb-2">EXIST</h4>
 
             <p>
-              The <Badge bg="secondary">exist</Badge> function allows you to check if a folder or
-              file exists.
+              The <Badge bg="secondary">exist</Badge> function allows you to
+              check if a folder or file exists.
             </p>
 
             <CodeBlock
@@ -308,7 +319,7 @@ function LionFiles() {
                 "use LionFiles\\Manage;\n\n" +
                 "var_dump(\n" +
                 "\tManage::exist('path...')\n" +
-                ');'
+                ");"
               }
             />
           </div>
@@ -323,7 +334,8 @@ function LionFiles() {
             <h4 className="pb-2">REMOVE</h4>
 
             <p>
-              The <Badge bg="secondary">remove</Badge> function allows you to delete files.
+              The <Badge bg="secondary">remove</Badge> function allows you to
+              delete files.
             </p>
 
             <CodeBlock
@@ -334,7 +346,7 @@ function LionFiles() {
                 "use LionFiles\\Manage;\n\n" +
                 "var_dump(\n" +
                 "\tManage::remove('path...')\n" +
-                ');'
+                ");"
               }
             />
           </div>
@@ -349,8 +361,8 @@ function LionFiles() {
             <h4 className="pb-2">VIEW</h4>
 
             <p>
-              The <Badge bg="secondary">view</Badge> function gets a list of the files found
-              within a path.
+              The <Badge bg="secondary">view</Badge> function gets a list of the
+              files found within a path.
             </p>
 
             <CodeBlock
@@ -361,7 +373,7 @@ function LionFiles() {
                 "use LionFiles\\Manage;\n\n" +
                 "var_dump(\n" +
                 "\tManage::view('path...')\n" +
-                ');'
+                ");"
               }
             />
           </div>
@@ -376,8 +388,8 @@ function LionFiles() {
             <h4 className="pb-2">SIZE</h4>
 
             <p>
-              The <Badge bg="secondary">size</Badge> function checks if a file meets the required
-              size in KB.
+              The <Badge bg="secondary">size</Badge> function checks if a file
+              meets the required size in KB.
             </p>
 
             <CodeBlock
@@ -388,7 +400,7 @@ function LionFiles() {
                 "use LionFiles\\Manage;\n\n" +
                 "var_dump(\n" +
                 "\tManage::size('path...', 500)\n" +
-                ');'
+                ");"
               }
             />
           </div>
@@ -403,8 +415,8 @@ function LionFiles() {
             <h4 className="pb-2">IMAGE SIZE</h4>
 
             <p>
-              The <Badge bg="secondary">imageSize</Badge> function allows you to check if an image
-              meets the requested dimensions.
+              The <Badge bg="secondary">imageSize</Badge> function allows you to
+              check if an image meets the requested dimensions.
             </p>
 
             <CodeBlock
@@ -415,7 +427,7 @@ function LionFiles() {
                 "use LionFiles\\Manage;\n\n" +
                 "var_dump(\n" +
                 "\tManage::imageSize('folder', 'file', '1920x1080')\n" +
-                ');'
+                ");"
               }
             />
           </div>

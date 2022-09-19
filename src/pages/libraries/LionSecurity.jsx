@@ -4,6 +4,8 @@ import ListTabs from "../components/ListTabs";
 import Badge from "react-bootstrap/Badge";
 import Alert from "react-bootstrap/Alert";
 import { Link } from "react-router-dom";
+import { BsGithub } from "react-icons/bs";
+import { Button } from "react-bootstrap";
 
 function LionSecurity() {
   const [items, setItems] = useState([
@@ -38,6 +40,17 @@ function LionSecurity() {
       event: "getting-started",
       content: (
         <>
+          <Button
+            variant="dark"
+            href="https://github.com/Sleon4/Lion-Security"
+            target="_blank"
+          >
+            <BsGithub size={"2em"} className="me-2" />
+            Lion-Security
+          </Button>
+
+          <hr />
+
           <div className="mb-4">
             <h2 className="pb-2">Lion-Security</h2>
 
@@ -199,7 +212,8 @@ function LionSecurity() {
             <h4 className="pb-2">DECODE</h4>
 
             <p>
-              The created object must be sent to the decryption function to get the data.
+              The created object must be sent to the decryption function to get
+              the data.
             </p>
 
             <CodeBlock
@@ -539,7 +553,7 @@ function LionSecurity() {
               , The first parameter is an array with all the properties which we
               are going to verify if they meet the established requirements, The
               second parameter is an array the which contains all the rules
-              which specify all the parameters to check More information at{' '}
+              which specify all the parameters to check More information at{" "}
               <a
                 href="https://github.com/vlucas/valitron#built-in-validation-rules"
                 target={"_blank"}

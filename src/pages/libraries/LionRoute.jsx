@@ -2,6 +2,8 @@ import { useState } from "react";
 import CodeBlock from "../components/CodeBlock";
 import ListTabs from "../components/ListTabs";
 import Badge from "react-bootstrap/Badge";
+import { BsGithub } from "react-icons/bs";
+import { Button } from "react-bootstrap";
 
 function LionRoute() {
   const [items, setItems] = useState([
@@ -19,15 +21,15 @@ function LionRoute() {
     },
     {
       event: "middleware",
-      name: "Middleware"
+      name: "Middleware",
     },
     {
-      event: 'prefix-group',
-      name: 'Prefix Group'
+      event: "prefix-group",
+      name: "Prefix Group",
     },
     {
-      event: 'redirect',
-      name: 'Redirect'
+      event: "redirect",
+      name: "Redirect",
     },
     {
       event: "credits-license",
@@ -40,6 +42,17 @@ function LionRoute() {
       event: "getting-started",
       content: (
         <>
+          <Button
+            variant="dark"
+            href="https://github.com/Sleon4/Lion-Route"
+            target="_blank"
+          >
+            <BsGithub size={"2em"} className="me-2" />
+            Lion-Route
+          </Button>
+
+          <hr />
+
           <div className="mb-4">
             <h2 className="pb-2">Lion-Route</h2>
 
@@ -366,18 +379,22 @@ function LionRoute() {
       ),
     },
     {
-      event: 'middleware',
+      event: "middleware",
       content: (
         <>
           <div className="mb-4">
             <h2 className="pb-2">Middleware</h2>
 
             <p>
-              It is identical to filters, we change the name of filter to middleware.
-              <Badge bg="secondary">{"['name' => 'auth', 'method' => 'auth']"}</Badge> is the basic
-              syntax for adding middleware to our RouteCollector object. Each middleware must be
-              encapsulated in an array, where each middleware carries its information within
-              another array. The first parameter is the name of the middleware. The second
+              It is identical to filters, we change the name of filter to
+              middleware.
+              <Badge bg="secondary">
+                {"['name' => 'auth', 'method' => 'auth']"}
+              </Badge>{" "}
+              is the basic syntax for adding middleware to our RouteCollector
+              object. Each middleware must be encapsulated in an array, where
+              each middleware carries its information within another array. The
+              first parameter is the name of the middleware. The second
               parameter is the name of the function it belongs to.
             </p>
 
@@ -422,26 +439,31 @@ function LionRoute() {
             />
 
             <p>
-              When calling <Badge bg="secondary">Route::middleware()</Badge> keep in mind that
-              the first parameter is an array loaded with data.
+              When calling <Badge bg="secondary">Route::middleware()</Badge>{" "}
+              keep in mind that the first parameter is an array loaded with
+              data.
             </p>
 
             <p>
-              The first index is the middleware at position <Badge bg="secondary">before</Badge>.
+              The first index is the middleware at position{" "}
+              <Badge bg="secondary">before</Badge>.
             </p>
 
             <p>
-              The second index is optional and points to <Badge bg="secondary">after</Badge>.
+              The second index is optional and points to{" "}
+              <Badge bg="secondary">after</Badge>.
             </p>
 
             <p>
-              The third index is optional and indicates a <Badge bg="secondary">prefix</Badge> to
-              work the middleware in a more dynamic way.
+              The third index is optional and indicates a{" "}
+              <Badge bg="secondary">prefix</Badge> to work the middleware in a
+              more dynamic way.
             </p>
 
             <p>
-              Take into account that if more than 3 parameters are added, these are left
-              over and do not generate internal errors in their operation.
+              Take into account that if more than 3 parameters are added, these
+              are left over and do not generate internal errors in their
+              operation.
             </p>
 
             <CodeBlock
@@ -464,10 +486,10 @@ function LionRoute() {
             />
           </div>
         </>
-      )
+      ),
     },
     {
-      event: 'prefix-group',
+      event: "prefix-group",
       content: (
         <>
           <div className="mb-4">
@@ -492,18 +514,18 @@ function LionRoute() {
             />
           </div>
         </>
-      )
+      ),
     },
     {
-      event: 'redirect',
+      event: "redirect",
       content: (
         <>
           <div className="mb-4">
             <h2 className="pb-2">REDIRECT</h2>
 
             <p>
-              The <Badge bg="secondary">redirect</Badge> function allows you to redirect to a
-              specific url.
+              The <Badge bg="secondary">redirect</Badge> function allows you to
+              redirect to a specific url.
             </p>
 
             <CodeBlock
@@ -515,19 +537,16 @@ function LionRoute() {
             />
           </div>
         </>
-      )
+      ),
     },
     {
       event: "credits-license",
       content: (
         <>
-        <div className="mb-4">
+          <div className="mb-4">
             <h3 className="pb-2">CREDITS</h3>
             <p>
-              <a
-                href="https://github.com/mrjgreen/phroute"
-                target="_blank"
-              >
+              <a href="https://github.com/mrjgreen/phroute" target="_blank">
                 PHRoute
               </a>
             </p>
