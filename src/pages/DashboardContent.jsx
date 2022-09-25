@@ -52,12 +52,22 @@ function DashboardContent() {
                 single page application or a mobile application.
               </p>
 
-              <Col xs={8} className="mx-auto mt-3 mb-5">
-                <LinkContainer to="/framework/getting-started">
-                  <Button variant="light">
-                    Getting started <FiArrowRight />
+              <Col xs={6} sm={5} md={5} lg={4} xl={4} className="mx-auto mt-3 mb-5">
+                <div className="d-grid gap-2">
+                  <LinkContainer to="/framework/getting-started">
+                    <Button variant="light">
+                      Getting started <FiArrowRight />
+                    </Button>
+                  </LinkContainer>
+
+                  <Button
+                    variant="light"
+                    href="https://1drv.ms/u/s!AstHz58BpA9Jb3RVv6MNrLbYL_U?e=3EcdMp"
+                    target="_blank"
+                  >
+                    Desktop <BsDownload />
                   </Button>
-                </LinkContainer>
+                </div>
               </Col>
             </Row>
           </Col>
@@ -161,37 +171,6 @@ function DashboardContent() {
                 className="text-center d-none d-lg-block pb-5 my-5"
               >
                 <img src={codeDashboard} className={"rounded img-fluid"} />
-              </Col>
-            </Row>
-          </Col>
-        </Row>
-      </Container>
-
-      <hr className="text-white" />
-
-      <Container className="my-5">
-        <Row>
-          <Col
-            xs={12}
-            sm={12}
-            md={10}
-            lg={8}
-            xl={8}
-            className="text-center mx-auto mb-3"
-          >
-            <Row>
-              <h1 className="mt-5 mb-0 text-degradient">
-                Download desktop version
-              </h1>
-
-              <Col xs={8} className="mx-auto mt-3 mb-5">
-                <Button
-                  variant="light"
-                  href="https://1drv.ms/u/s!AstHz58BpA9Jb3RVv6MNrLbYL_U?e=3EcdMp"
-                  target="_blank"
-                >
-                  <BsDownload />
-                </Button>
               </Col>
             </Row>
           </Col>
