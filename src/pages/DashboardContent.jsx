@@ -65,7 +65,7 @@ function DashboardContent() {
                     href="https://1drv.ms/u/s!AstHz58BpA9Jb3RVv6MNrLbYL_U?e=3EcdMp"
                     target="_blank"
                   >
-                    Desktop <BsDownload />
+                    Desktop
                   </Button>
                 </div>
               </Col>
