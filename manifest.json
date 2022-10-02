@@ -3,7 +3,7 @@
   "short_name": "Lion-Client",
   "start_url": "https://lion-client.vercel.app/",
   "description": "A simple and easy way to use Lion-Framework",
-  "background_color": "#FFFFFF",
+  "background_color": "#2B2B2B",
   "theme_color": "#2B2B2B",
   "display": "standalone",
   "orientation": "any",
