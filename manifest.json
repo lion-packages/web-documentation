@@ -5,6 +5,8 @@
   "description": "A simple and easy way to use Lion-Framework",
   "background_color": "#FFFFFF",
   "theme_color": "#2B2B2B",
+  "display": "standalone",
+  "orientation": "any",
   "icons": [{
     "src": "./public/vite.svg",
     "sizes": "48x48",
