@@ -46,7 +46,7 @@ function Models() {
         </Button>
       </LinkContainer>
 
-      <LinkContainer to="/framework/rules">
+      <LinkContainer to="/framework/capsules">
         <Button variant="light" className="float-end mb-5">
           Next <FiArrowRight />
         </Button>

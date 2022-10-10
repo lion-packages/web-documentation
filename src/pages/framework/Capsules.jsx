@@ -94,7 +94,7 @@ function Capsules() {
         />
       </div>
 
-      <LinkContainer to="/framework/middleware">
+      <LinkContainer to="/framework/models">
         <Button variant="light" className="mb-5">
           <FiArrowLeft /> Previous
         </Button>

@@ -95,7 +95,7 @@ function Rules() {
         />
       </div>
 
-      <LinkContainer to="/framework/models">
+      <LinkContainer to="/framework/capsules">
         <Button variant="light" className="mb-5">
           <FiArrowLeft /> Previous
         </Button>
