@@ -96,6 +96,10 @@ function LionSQL() {
       name: "HAVING",
     },
     {
+      event: "show",
+      name: "SHOW",
+    },
+    {
       event: "credits-license",
       name: "Credits and license",
     },
@@ -1309,6 +1313,50 @@ function LionSQL() {
       ),
     },
     {
+      event: "show",
+      content: (
+        <>
+          <div className="mb-3">
+            <h4 className="pb-2">SHOW COLUMNS</h4>
+
+            <p>
+              The <Badge bg="secondary">showColumns</Badge> function generates a
+              list of the columns that a table has.
+            </p>
+
+            <CodeBlock
+              language="php"
+              content={
+                "<?php\n\n" +
+                "use LionSQL\\Drivers\\MySQLDriver as Builder;\n" +
+                "var_dump(Builder::showColumns('table_name'));"
+              }
+            />
+          </div>
+
+          <hr />
+
+          <div className="mb-3">
+            <h4 className="pb-2">SHOW TABLES</h4>
+
+            <p>
+              The <Badge bg="secondary">showTables</Badge> function generates a
+              list of the tables that the database owns.
+            </p>
+
+            <CodeBlock
+              language="php"
+              content={
+                "<?php\n\n" +
+                "use LionSQL\\Drivers\\MySQLDriver as Builder;\n" +
+                "var_dump(Builder::showTables('database_name'));"
+              }
+            />
+          </div>
+        </>
+      ),
+    },
+    {
       event: "credits-license",
       content: (
         <>
@@ -1327,7 +1375,8 @@ function LionSQL() {
     },
   ]);
 
-  return <ListTabs default="getting-started" items={items} panes={panes} />;
+  // getting-started
+  return <ListTabs default="show" items={items} panes={panes} />;
 }
 
 export default LionSQL;
