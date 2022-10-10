@@ -1376,7 +1376,7 @@ function LionSQL() {
   ]);
 
   // getting-started
-  return <ListTabs default="show" items={items} panes={panes} />;
+  return <ListTabs default="getting-started" items={items} panes={panes} />;
 }
 
 export default LionSQL;
