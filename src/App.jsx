@@ -24,6 +24,7 @@ import Middleware from "./pages/framework/Middleware";
 import Models from "./pages/framework/Models";
 import Rules from "./pages/framework/Rules";
 import DashboardContent from "./pages/DashboardContent";
+import Capsules from "./pages/framework/Capsules";
 
 function App() {
   return (
@@ -45,6 +46,7 @@ function App() {
             <Route path="controllers" element={<Controllers />} />
             <Route path="middleware" element={<Middleware />} />
             <Route path="models" element={<Models />} />
+            <Route path="capsules" element={<Capsules />} />
             <Route path="rules" element={<Rules />} />
           </Route>
 

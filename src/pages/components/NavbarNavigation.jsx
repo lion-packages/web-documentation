@@ -22,6 +22,7 @@ function NavbarNavigation() {
         { display_name: 'Controllers', url: '/framework/controllers' },
         { display_name: 'Middleware', url: '/framework/middleware' },
         { display_name: 'Models', url: '/framework/models' },
+        { display_name: 'Capsules', url: '/framework/capsules' },
         { display_name: 'Rules', url: '/framework/rules' },
       ],
     },
