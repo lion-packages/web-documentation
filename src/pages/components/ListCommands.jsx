@@ -52,6 +52,14 @@ function ListCommands() {
       description: "Command to create public and private keys with RSA",
       command: "php lion key:rsa",
     },
+    {
+      description: " Command required for the creation of new Capsules",
+      command: "php lion new:capsule"
+    },
+    {
+      description: "Command required for the creation of all new Capsules available from the database",
+      command: "php lion new:all-capsule"
+    }
   ]);
 
   return (
@@ -66,8 +74,8 @@ function ListCommands() {
         <tbody>
           {listCommands.map((command, index) => (
             <tr key={index}>
-              <td>{command.description}</td>
               <td>{command.command}</td>
+              <td>{command.description}</td>
             </tr>
           ))}
         </tbody>
