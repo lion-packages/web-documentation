@@ -27,10 +27,12 @@ function Commands() {
         <h4 className="pb-2">Optional Parameters</h4>
 
         <CodeBlock
-          language={"powershell"}
+          language={"php"}
           content={
             "php lion serve --port 8001\n" +
-            'php lion key:rsa --path "storage/other-secret-key/"\n'
+            'php lion key:rsa --path storage/other-secret-key/\n' +
+            "php lion database:capsule --path forder_path/\n" +
+            "php lion database:all-capsules --path forder_path/\n"
           }
         />
       </div>
@@ -73,9 +75,7 @@ function Commands() {
           language={"php"}
           content={
             "return [\n" +
-            "\tApp\\Console\\RSACommand::class,\n" +
-            "\tApp\\Console\\GenerateJWTCommand::class,\n" +
-            "\tApp\\Console\\RouteListCommand::class\n" +
+            "\tMyNamespace\\MyClass::class,\n" +
             "];"
           }
         />

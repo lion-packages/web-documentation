@@ -54,11 +54,11 @@ function ListCommands() {
     },
     {
       description: " Command required for the creation of new Capsules",
-      command: "php lion new:capsule"
+      command: "php lion database:capsule"
     },
     {
       description: "Command required for the creation of all new Capsules available from the database",
-      command: "php lion new:all-capsule"
+      command: "php lion database:all-capsules"
     }
   ]);
 
@@ -74,8 +74,8 @@ function ListCommands() {
         <tbody>
           {listCommands.map((command, index) => (
             <tr key={index}>
-              <td>{command.command}</td>
               <td>{command.description}</td>
+              <td>{command.command}</td>
             </tr>
           ))}
         </tbody>
