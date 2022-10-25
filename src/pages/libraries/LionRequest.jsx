@@ -242,8 +242,11 @@ function LionRequest() {
             <h4 className="pb-2">FINISH</h4>
 
             <p>
-              The finish function executes a die internally with its respective
-              response.
+              The finish function internally executes a{" "}
+              <Badge bg="secondary">die</Badge> with its respective response, it
+              converts the data sent with{" "}
+              <Badge bg="secondary">json_encode</Badge>{" "}
+              to json.
             </p>
 
             <CodeBlock
@@ -253,7 +256,7 @@ function LionRequest() {
                 "require_once('vendor/autoload.php');\n\n" +
                 "use LionRequest\\Response;\n" +
                 "use LionRequest\\Json;\n\n" +
-                "Response::finish(Json::encode(['name' => 'Sleon']));\n"
+                "Response::finish(['status' => 'success']);\n"
               }
             />
           </div>
