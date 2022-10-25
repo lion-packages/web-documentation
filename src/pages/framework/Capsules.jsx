@@ -25,12 +25,12 @@ function Capsules() {
 
         <CodeBlock
           language={"powershell"}
-          content={"php lion new:capsule table_name"}
+          content={"php lion database:capsule table_name"}
         />
 
         <Alert variant={"warning"}>
           Note: Capsule classes by default are stored in the{" "}
-          <Badge bg="warning">app/Class/</Badge> directory, you can change the
+          <Badge bg="warning">database/Class/</Badge> directory, you can change the
           path with the <Badge bg="warning">--path</Badge> option.
         </Alert>
 
@@ -39,11 +39,11 @@ function Capsules() {
           content={
             "<?php\n\n" +
             "namespace App\\Class;\r\n\n" +
-            "class TableName {\n\n" +
-            "\tpublic function __contruct(\n" +
-            "\t\tprivate ?int $id = null,\n" +
-            "\t\tprivate ?string $name = null\n" +
-            "\t) {}\n\n" +
+            "class TableName implements \JsonSerializable {\n\n" +
+            "\tprivate ?int $id = null;\n" +
+            "\tprivate ?string $name = null;\n\n" +
+            "\tpublic function __contruct() {}\n\n" +
+            "\tpublic function jsonSerialize(): mixed {\n\t\treturn get_object_vars($this);\n\t}\n\n" +
             "\tpublic function getId(): ?int {\n" +
             "\t\treturn $this->id;\n" +
             "\t}\n\n" +
@@ -70,14 +70,14 @@ function Capsules() {
 
         <CodeBlock
           language={"powershell"}
-          content={"php lion new:all-capsule database_name"}
+          content={"php lion database:all-capsules database_name"}
         />
 
         <Alert variant={"warning"}>
           Note: Capsule classes by default are stored in the{" "}
-          <Badge bg="warning">app/Class/</Badge> directory, you can change the
+          <Badge bg="warning">database/Class/</Badge> directory, you can change the
           path with the <Badge bg="warning">--path</Badge> option,{" "}
-          <Badge bg="warning">new:all-capsules</Badge> reads all the tables in
+          <Badge bg="warning">database:all-capsules</Badge> reads all the tables in
           the database, generating for each table its respective class along
           with its properties and functions.
         </Alert>
