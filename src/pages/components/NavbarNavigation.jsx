@@ -31,7 +31,7 @@ function NavbarNavigation() {
       type: "items",
       url: "#",
       childs: [
-        { display_name: "Command", url: "/libraries/command" },
+        // { display_name: "Command", url: "/libraries/command" },
         { display_name: "Files", url: "/libraries/files" },
         { display_name: "Mailer", url: "/libraries/mailer" },
         { display_name: "Request", url: "/libraries/request" },

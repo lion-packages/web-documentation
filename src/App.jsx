@@ -52,7 +52,7 @@ function App() {
 
           <Route path="libraries" element={<LibraryContent />}>
             <Route path="files" element={<LionFiles />} />
-            <Route path="command" element={<LionCommand />} />
+            {/* <Route path="command" element={<LionCommand />} /> */}
             <Route path="mailer" element={<LionMailer />} />
             <Route path="request" element={<LionRequest />} />
             <Route path="sql" element={<LionSQL />} />
