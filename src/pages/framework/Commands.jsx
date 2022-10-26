@@ -11,13 +11,6 @@ function Commands() {
   return (
     <>
       <div className="mb-3">
-        <h4 className="pb-2">Commands</h4>
-
-        <p>
-          More information about the use of internal commands{" "}
-          <Link to={"/libraries/command"}>Lion-Command</Link>
-        </p>
-
         <ListCommands />
       </div>
 
