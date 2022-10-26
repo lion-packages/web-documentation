@@ -3,6 +3,7 @@ import Badge from "react-bootstrap/Badge";
 import Button from "react-bootstrap/Button";
 import { LinkContainer } from "react-router-bootstrap";
 import { FiArrowRight, FiArrowLeft } from "react-icons/fi";
+import { Link } from "react-router-dom";
 
 function Rules() {
   return (
@@ -15,6 +16,10 @@ function Rules() {
           rule usage is based on rules provided by vlucas/valitron, you can set
           language response from environment variables with lang language
           preference to <Badge bg={"secondary"}>.env</Badge>
+        </p>
+
+        <p>
+          more information in <Link to={"/libraries/security"}>SECURITY</Link>.
         </p>
       </div>
 
@@ -31,23 +36,15 @@ function Rules() {
           content={
             "<?php\n\n" +
             "namespace App\\Rules;\n\n" +
-            "use LionSecurity\\SECURITY;\n" +
-            "use App\\Traits\\DisplayErrors;\n\n" +
+            "use App\\Traits\\Framework\\DisplayErrors;\n\n" +
             "class EmailRule {\n\n" +
             "\tuse DisplayErrors;\n\n" +
             "\tpublic function __contruct() {\n\n" +
             "\t}\n\n" +
             "\tpublic function passes(): EmailRule {\n" +
-            "\t\t$this->validation = SECURITY::validate(\n" +
-            "\t\t\t(array) request, [\n" +
-            "\t\t\t\t'required' => [\n" +
-            "\t\t\t\t\t['users_email']\n" +
-            "\t\t\t\t],\n" +
-            "\t\t\t\t'email' => [\n" +
-            "\t\t\t\t\t['users_email']\n" +
-            "\t\t\t\t]\n" +
-            "\t\t\t]\n" +
-            "\t\t)->data;\n\n" +
+            "\t\t$this->validateRules([\n" +
+            "\t\t\t'required' => [\n\t\t\t\t['users_email']\n\t\t\t]\n" +
+            "\t\t]);\n\n" +
             "\t\treturn $this;\n" +
             "\t}\n\n" +
             "}"
