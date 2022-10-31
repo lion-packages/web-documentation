@@ -65,12 +65,12 @@ function GettingStarted() {
 
         <CodeBlock language={"powershell"} content={"php lion serve"} />
 
-        <p>use another port.</p>
+        {/* <p>use another port.</p>
 
         <CodeBlock
           language={"powershell"}
           content={"php lion serve --port 8001"}
-        />
+        /> */}
       </div>
 
       <LinkContainer to="/framework/commands">
