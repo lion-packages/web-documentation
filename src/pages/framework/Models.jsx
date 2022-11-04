@@ -31,7 +31,7 @@ function Models() {
           content={
             "<?php\n\n" +
             "namespace App\\Http\\Models;\n\n" +
-            "use LionSql\\Drivers\\MySQLDriver as Builder;\n\n" +
+            "use LionSql\\Drivers\\MySQLDriver as DB;\n\n" +
             "class HomeModel {\n\n" +
             "\tpublic function __contruct() {\n\n" +
             "\t}\n\n" +

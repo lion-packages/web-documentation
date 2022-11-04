@@ -25,7 +25,7 @@ function Capsules() {
 
         <CodeBlock
           language={"powershell"}
-          content={"php lion database:capsule table_name"}
+          content={"php lion db:capsule table_name"}
         />
 
         <Alert variant={"warning"}>
@@ -70,14 +70,14 @@ function Capsules() {
 
         <CodeBlock
           language={"powershell"}
-          content={"php lion database:all-capsules database_name"}
+          content={"php lion db:all-capsules database_name"}
         />
 
         <Alert variant={"warning"}>
           Note: Capsule classes by default are stored in the{" "}
           <Badge bg="warning">database/Class/</Badge> directory, you can change the
           path with the <Badge bg="warning">--path</Badge> option,{" "}
-          <Badge bg="warning">database:all-capsules</Badge> reads all the tables in
+          <Badge bg="warning">db:all-capsules</Badge> reads all the tables in
           the database, generating for each table its respective class along
           with its properties and functions.
         </Alert>

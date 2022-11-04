@@ -24,8 +24,10 @@ function Commands() {
           content={
             "php lion serve --port 8001\n" +
             'php lion key:rsa --path storage/other-secret-key/\n' +
-            "php lion database:capsule --path forder_path/\n" +
-            "php lion database:all-capsules --path forder_path/\n"
+            "php lion db:capsule --path forder_path/\n" +
+            "php lion db:all-capsules --path forder_path/\n" +
+            "php lion db:seed name_seed --run true|false --iterate 1+\n" +
+            "php lion db:factory --path forder_path/\n"
           }
         />
       </div>

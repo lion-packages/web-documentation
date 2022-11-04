@@ -41,6 +41,10 @@ function ListCommands() {
       command: "php lion new:rule name_rule",
     },
     {
+      description: "Command required for trait creation",
+      command: "php lion new:trait name_trait",
+    },
+    {
       description: "Created command to generate JWT token",
       command: "php lion token:jwt",
     },
@@ -54,11 +58,19 @@ function ListCommands() {
     },
     {
       description: " Command required for the creation of new Capsules",
-      command: "php lion database:capsule"
+      command: "php lion db:capsule name_capsule"
     },
     {
       description: "Command required for the creation of all new Capsules available from the database",
-      command: "php lion database:all-capsules"
+      command: "php lion db:all-capsules"
+    },
+    {
+      description: "Command required for the creation of new factories",
+      command: "php lion db:factory name_factory"
+    },
+    {
+      description: "Command required for creating new seeds",
+      command: "php lion db:seed name_seed"
     }
   ]);
 
