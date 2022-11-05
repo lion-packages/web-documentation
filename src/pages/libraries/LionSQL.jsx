@@ -3,17 +3,22 @@ import CodeBlock from "../components/CodeBlock";
 import ListTabs from "../components/ListTabs";
 import Badge from "react-bootstrap/Badge";
 import { BsGithub } from "react-icons/bs";
-import { Button } from "react-bootstrap";
+import { Button, Table } from "react-bootstrap";
+import AccordionItems from "../components/AccordionItems";
 
 function LionSQL() {
   const [items, setItems] = useState([
     {
       event: "getting-started",
-      name: "Getting started",
+      name: "GETTING STARTED",
     },
     {
       event: "connection",
       name: "CONNECTION",
+    },
+    {
+      event: "operators",
+      name: "OPERATORS",
     },
     {
       event: "insert",
@@ -36,18 +41,6 @@ function LionSQL() {
       name: "OR",
     },
     {
-      event: "between",
-      name: "BETWEEN",
-    },
-    {
-      event: "like",
-      name: "LIKE",
-    },
-    {
-      event: "join",
-      name: "JOIN",
-    },
-    {
       event: "update",
       name: "UPDATE",
     },
@@ -60,48 +53,8 @@ function LionSQL() {
       name: "CALL",
     },
     {
-      event: "min",
-      name: "MIN",
-    },
-    {
-      event: "max",
-      name: "MAX",
-    },
-    {
-      event: "count",
-      name: "COUNT",
-    },
-    {
-      event: "avg",
-      name: "AVG",
-    },
-    {
-      event: "sum",
-      name: "SUM",
-    },
-    {
-      event: "order-by",
-      name: "ORDER BY",
-    },
-    {
-      event: "group-by",
-      name: "GROUP BY",
-    },
-    {
-      event: "limit",
-      name: "LIMIT",
-    },
-    {
-      event: "having",
-      name: "HAVING",
-    },
-    {
-      event: "show",
-      name: "SHOW",
-    },
-    {
       event: "credits-license",
-      name: "Credits and license",
+      name: "CREDITS AND LICENSE",
     },
   ]);
 
@@ -158,11 +111,11 @@ function LionSQL() {
               content={
                 "<?php\n\n" +
                 'require_once("vendor/autoload.php");\n\n' +
-                "use LionSQL\\Drivers\\MySQLDriver as Builder;\n\n" +
-                "Builder::init([\n" +
+                "use LionSQL\\Drivers\\MySQLDriver as DB;\n\n" +
+                "DB::init([\n" +
+                "\t'type' => 'mysql',\n" +
                 "\t'host' => 'localhost',\n" +
-                "\t'port' => 3306,\n" +
-                "\t'db_name' => 'example',\n" +
+                "\t'dbname' => 'example',\n" +
                 "\t'user' => 'root',\n" +
                 "\t'password' => ''\n" +
                 "]);"
@@ -193,11 +146,11 @@ function LionSQL() {
               content={
                 "<?php\n\n" +
                 'require_once("vendor/autoload.php");\n\n' +
-                "use LionSQL\\Drivers\\MySQLDriver as Builder;\n\n" +
-                "Builder::init([\n" +
+                "use LionSQL\\Drivers\\MySQLDriver as DB;\n\n" +
+                "DB::init([\n" +
+                "\t'type' => 'mysql',\n" +
                 "\t'host' => 'localhost',\n" +
-                "\t'port' => 3306,\n" +
-                "\t'db_name' => 'example',\n" +
+                "\t'dbname' => 'example',\n" +
                 "\t'user' => 'root',\n" +
                 "\t'password' => ''\n" +
                 "\t'config' => [\n" +
@@ -210,29 +163,87 @@ function LionSQL() {
       ),
     },
     {
+      event: "operators",
+      content: (
+        <>
+          <div className="mb-4">
+            <h4 className="pb-2">OPERATORS</h4>
+
+            <Table striped bordered hover variant="dark">
+              <thead>
+                <tr>
+                  <th>TYPE</th>
+                  <th>FUNCTION</th>
+                </tr>
+              </thead>
+              <tbody>
+                {[
+                  {
+                    type: "=",
+                    description:
+                      "If both the operands have equal value, the condition becomes true; if not then false.",
+                    function: "DB::equalTo('id')",
+                  },
+                  {
+                    type: ">",
+                    description:
+                      "If the value of left operand is greater than that of the value of the right operand, the condition becomes true; if not then false.",
+                    function: "DB::greaterThan('id');",
+                  },
+                  {
+                    type: "<",
+                    description:
+                      "If the value of left operand is less than that of a value of the right operand, the condition becomes true; if not then false.",
+                    function: "DB::lessThan('id');",
+                  },
+                  {
+                    type: ">=",
+                    description:
+                      "If the value of left operand is greater than or equal to the right operand, the condition becomes true; if not then false.",
+                    function: "DB::greaterThanOrEqualTo('id')",
+                  },
+                  {
+                    type: "<=",
+                    description:
+                      "If the value of left operand is less than or equal to the right operand, the condition becomes true; if not then false.",
+                    function: "DB::lessThanOrEqualTo('id')",
+                  },
+                  {
+                    type: "<>",
+                    description:
+                      "If the values of two operands are not equal, the condition becomes true; if not then false.",
+                    function: "DB::notEqualTo('id')",
+                  },
+                ].map((item, index) => {
+                  return (
+                    <tr key={index}>
+                      <td>{item.type}</td>
+                      <td>{item.function}</td>
+                    </tr>
+                  );
+                })}
+              </tbody>
+            </Table>
+          </div>
+        </>
+      ),
+    },
+    {
       event: "insert",
       content: (
         <>
           <div className="mb-4">
             <h4 className="pb-2">INSERT</h4>
 
-            <p>
-              The first parameter is defined by the name of the table to insert
-              data, The second parameter is set by the number of columns
-              separated by <Badge bg={"secondary"}>(,)</Badge> without spaces,
-              The third parameter is an array that contains the arrays of data
-              to insert.
-            </p>
-
             <CodeBlock
               language="php"
               content={
                 "<?php\n\n" +
-                "use LionSQL\\Drivers\\MySQLDriver as Builder;\n\n" +
-                "$list = Builder::insert('table', 'column,column,column', [\n" +
-                "\t1, 'example_name', '1999-09-30'\n" +
-                "]);\n\n" +
-                "var_dump($list);"
+                "use LionSQL\\Drivers\\MySQLDriver as DB;\n\n" +
+                "DB::table('my_table')->insert([\n" +
+                "\t'name' => 'Sergio',\n" +
+                "\t'lastname' => 'Leon'\n" +
+                "])->execute();"
               }
             />
           </div>
@@ -243,76 +254,356 @@ function LionSQL() {
       event: "select",
       content: (
         <>
-          <div className="mb-4">
-            <h4 className="pb-2">SELECT</h4>
+          <AccordionItems
+            items={[
+              {
+                header: "SELECT",
+                body: (
+                  <>
+                    <CodeBlock
+                      language="sql"
+                      content={"SELECT * FROM my_table"}
+                    />
 
-            <p>
-              The first parameter to define the type of method to use{" "}
-              <Badge bg={"secondary"}>(fetch, fetchAll)</Badge>, The second
-              parameter is defined for the name of the table, The third
-              parameter is defined by the alias{" "}
-              <Badge bg={"secondary"}>(AS)</Badge>, The fourth parameter is
-              defined by the <Badge bg={"secondary"}>columns</Badge> you want to
-              bring.
-            </p>
+                    <CodeBlock
+                      language="php"
+                      content={
+                        "<?php\n\n" +
+                        "use LionSQL\\Drivers\\MySQLDriver as DB;\n\n" +
+                        "DB::table('my_table')->select()->getAll();"
+                      }
+                    />
 
-            <h5>Example #1</h5>
+                    <hr className="text-white" />
 
-            <CodeBlock
-              language="sql"
-              content={
-                "SELECT alias.column, alias.column, alias.column, alias.column FROM table AS alias\n"
-              }
-            />
+                    <CodeBlock
+                      language="sql"
+                      content={
+                        "SELECT alias.column1, alias.column2, alias.column3, alias.column4 FROM table AS my_table\n"
+                      }
+                    />
 
-            <p>equivalent to</p>
+                    <CodeBlock
+                      language="php"
+                      content={
+                        "<?php\n\n" +
+                        "use LionSQL\\Drivers\\MySQLDriver as DB;\n\n" +
+                        "DB::table(DB::alias('table', 'my_table'))->select(\n" +
+                        "\tDB::alias('column1', 'my_table', true),\n" +
+                        "\tDB::alias('column2', 'my_table', true),\n" +
+                        "\tDB::alias('column3', 'my_table', true),\n" +
+                        "\tDB::alias('column4', 'my_table', true)\n" +
+                        ")->getAll();"
+                      }
+                    />
+                  </>
+                ),
+              },
+              {
+                header: "BETWEEN",
+                body: (
+                  <>
+                    <CodeBlock
+                      language="sql"
+                      content={
+                        "SELECT * FROM my_table WHERE date BETWEEN '2022-11-01' AND '2022-11-04'"
+                      }
+                    />
 
-            <CodeBlock
-              language="php"
-              content={
-                "<?php\n\n" +
-                "$list = Builder::select(Builder::FETCH_ALL, 'table', 'alias', 'alias.column,alias.column,alias.column,alias.column');\n" +
-                "var_dump($list);"
-              }
-            />
+                    <CodeBlock
+                      language="php"
+                      content={
+                        "<?php\n\n" +
+                        "use LionSQL\\Drivers\\MySQLDriver as DB;\n\n" +
+                        "DB::table('my_table')->select()->where('date')->between('2022-11-01', '2022-11-04')->getAll();"
+                      }
+                    />
+                  </>
+                ),
+              },
+              {
+                header: "LIKE",
+                body: (
+                  <>
+                    <CodeBlock
+                      language="sql"
+                      content={
+                        "SELECT * FROM my_table WHERE column1 LIKE '%my_text%'"
+                      }
+                    />
 
-            <hr />
+                    <CodeBlock
+                      language="php"
+                      content={
+                        "<?php\n\n" +
+                        "use LionSQL\\Drivers\\MySQLDriver as DB;\n\n" +
+                        "DB::table('my_table')->select()->where('column1')->like('%my_text%')->getAll();"
+                      }
+                    />
+                  </>
+                ),
+              },
+              {
+                header: "JOIN (INNER, LEFT AND RIGHT)",
+                body: (
+                  <>
+                    <CodeBlock
+                      language="sql"
+                      content={
+                        "SELECT my_table_1.id_a, my_table_2.name FROM table1 AS my_table_1 \n" +
+                        "\tINNER JOIN table2 AS my_table_2 ON my_table_1.id_a=my_table_2.id_a\n"
+                      }
+                    />
 
-            <h5>Example #2</h5>
+                    <CodeBlock
+                      language="php"
+                      content={
+                        "<?php\n\n" +
+                        "use LionSQL\\Drivers\\MySQLDriver as DB;\n\n" +
+                        "DB::table(DB::alias('table1', 'my_table_1'))->select(\n" +
+                        "\tDB::alias('table1', 'my_table_1', true)\n" +
+                        "\tDB::alias('table1', 'my_table_2', true)\n" +
+                        ")->innerJoin( //leftJoin(...) and rightJoin(...)\n" +
+                        "\tDB::alias('table12', 'my_table_2'), \n" +
+                        "\tDB::alias('id_a', 'my_table_1', true), \n" +
+                        "\tDB::alias('id_a', 'my_table_2', true), \n" +
+                        ")" +
+                        "->getAll();"
+                      }
+                    />
+                  </>
+                ),
+              },
+              {
+                header: "MIN",
+                body: (
+                  <>
+                    <CodeBlock
+                      language="sql"
+                      content={"SELECT MIN(id) FROM my_table"}
+                    />
 
-            <CodeBlock
-              language="sql"
-              content={"SELECT column1, column2, column3, column4 FROM table\n"}
-            />
+                    <CodeBlock
+                      language="php"
+                      content={
+                        "<?php\n\n" +
+                        "use LionSQL\\Drivers\\MySQLDriver as DB;\n\n" +
+                        "DB::table('my_table')->select(DB::min('id'))->get();"
+                      }
+                    />
+                  </>
+                ),
+              },
+              {
+                header: "MAX",
+                body: (
+                  <>
+                    <CodeBlock
+                      language="sql"
+                      content={"SELECT MAX(id) FROM my_table"}
+                    />
 
-            <p>equivalent to</p>
+                    <CodeBlock
+                      language="php"
+                      content={
+                        "<?php\n\n" +
+                        "use LionSQL\\Drivers\\MySQLDriver as DB;\n\n" +
+                        "DB::table('my_table')->select(DB::max('id'))->get();"
+                      }
+                    />
+                  </>
+                ),
+              },
+              {
+                header: "COUNT",
+                body: (
+                  <>
+                    <CodeBlock
+                      language="sql"
+                      content={"SELECT COUNT(*) FROM my_table"}
+                    />
 
-            <CodeBlock
-              language="php"
-              content={
-                "<?php\n\n" +
-                "$list = Builder::select(Builder::FETCH_ALL, 'table', null, 'table.column1,table.column2,column3,column4');\n" +
-                "var_dump($list);"
-              }
-            />
+                    <CodeBlock
+                      language="php"
+                      content={
+                        "<?php\n\n" +
+                        "use LionSQL\\Drivers\\MySQLDriver as DB;\n\n" +
+                        "DB::table('my_table')->select(DB::count('*'))->get();"
+                      }
+                    />
+                  </>
+                ),
+              },
+              {
+                header: "SUM",
+                body: (
+                  <>
+                    <CodeBlock
+                      language="sql"
+                      content={"SELECT SUM(price) FROM my_table"}
+                    />
 
-            <hr />
+                    <CodeBlock
+                      language="php"
+                      content={
+                        "<?php\n\n" +
+                        "use LionSQL\\Drivers\\MySQLDriver as DB;\n\n" +
+                        "DB::table('my_table')->select(DB::sum('price'))->get();"
+                      }
+                    />
+                  </>
+                ),
+              },
+              {
+                header: "AVG",
+                body: (
+                  <>
+                    <CodeBlock
+                      language="sql"
+                      content={"SELECT AVG(price) FROM my_table"}
+                    />
 
-            <h5>Example #3</h5>
+                    <CodeBlock
+                      language="php"
+                      content={
+                        "<?php\n\n" +
+                        "use LionSQL\\Drivers\\MySQLDriver as DB;\n\n" +
+                        "DB::table('my_table')->select(DB::avg('price'))->get();"
+                      }
+                    />
+                  </>
+                ),
+              },
+              {
+                header: "ORDER BY",
+                body: (
+                  <>
+                    <CodeBlock
+                      language={"sql"}
+                      content={"SELECT * FROM my_table ORDER BY id, name"}
+                    />
 
-            <CodeBlock language="sql" content={"SELECT * FROM table"} />
+                    <CodeBlock
+                      language="php"
+                      content={
+                        "<?php\n\n" +
+                        "use LionSQL\\Drivers\\MySQLDriver as DB;\n\n" +
+                        "DB::table('my_table')->select()->orderBy('id', 'name')->getAll();\n"
+                      }
+                    />
+                  </>
+                ),
+              },
+              {
+                header: "GROUP BY",
+                body: (
+                  <>
+                    <CodeBlock
+                      language={"sql"}
+                      content={
+                        "SELECT * FROM my_table GROUP BY date_start, name"
+                      }
+                    />
 
-            <p>equivalent to</p>
+                    <CodeBlock
+                      language="php"
+                      content={
+                        "<?php\n\n" +
+                        "use LionSQL\\Drivers\\MySQLDriver as DB;\n\n" +
+                        "DB::table('my_table')->select()->groupBy('date_start', 'name')->getAll();\n"
+                      }
+                    />
+                  </>
+                ),
+              },
+              {
+                header: "LIMIT",
+                body: (
+                  <>
+                    <CodeBlock
+                      language={"sql"}
+                      content={"SELECT * FROM my_table LIMIT 1"}
+                    />
 
-            <CodeBlock
-              language="php"
-              content={
-                "<?php\n\n" +
-                "list = Builder::select(Builder::FETCH_ALL, 'table');\n" +
-                "var_dump($list);"
-              }
-            />
-          </div>
+                    <CodeBlock
+                      language="php"
+                      content={
+                        "<?php\n\n" +
+                        "use LionSQL\\Drivers\\MySQLDriver as DB;\n\n" +
+                        "DB::table('my_table')->select()->limit(1)->get();"
+                      }
+                    />
+
+                    <hr className="text-white" />
+
+                    <CodeBlock
+                      language={"sql"}
+                      content={"SELECT * FROM my_table LIMIT 0, 10"}
+                    />
+
+                    <CodeBlock
+                      language="php"
+                      content={
+                        "<?php\n\n" +
+                        "use LionSQL\\Drivers\\MySQLDriver as DB;\n\n" +
+                        "DB::table('my_table')->select()->limit(0, 10)->getAll();"
+                      }
+                    />
+                  </>
+                ),
+              },
+              {
+                header: "HAVING",
+                body: (
+                  <>
+                    <CodeBlock
+                      language={"sql"}
+                      content={"SELECT * FROM my_table HAVING id > 10"}
+                    />
+
+                    <CodeBlock
+                      language="php"
+                      content={
+                        "<?php\n\n" +
+                        "use LionSQL\\Drivers\\MySQLDriver as DB;\n\n" +
+                        "DB::table('my_table')->select()->having(DB::greaterThan('id'), 10)->getAll();"
+                      }
+                    />
+                  </>
+                ),
+              },
+              {
+                header: "SHOW COLUMNS",
+                body: (
+                  <>
+                    <CodeBlock
+                      language="php"
+                      content={
+                        "<?php\n\n" +
+                        "use LionSQL\\Drivers\\MySQLDriver as DB;\n\n" +
+                        "DB::table('my_table')->showColumns()->getAll();"
+                      }
+                    />
+                  </>
+                ),
+              },
+              {
+                header: "SHOW TABLES",
+                body: (
+                  <>
+                    <CodeBlock
+                      language="php"
+                      content={
+                        "<?php\n\n" +
+                        "use LionSQL\\Drivers\\MySQLDriver as DB;\n\n" +
+                        "DB::showTables()->getAll();"
+                      }
+                    />
+                  </>
+                ),
+              },
+            ]}
+          />
         </>
       ),
     },
@@ -323,39 +614,30 @@ function LionSQL() {
           <div className="mb-4">
             <h4 className="pb-2">WHERE</h4>
 
-            <p>
-              The fifth parameter of <Badge bg={"secondary"}>SELECT</Badge> is
-              defined by an array containing the data to be prepared in the
-              query. The use of <Badge bg={"secondary"}>where</Badge> is valid
-              for the <Badge bg={"secondary"}>fetch</Badge> function.
-            </p>
-          </div>
+            <div className="mb-3">
+              <h5>Example #1</h5>
 
-          <hr />
+              <CodeBlock
+                language="sql"
+                content={
+                  "SELECT my_table.column1, my_table.column2 FROM table AS my_table WHERE my_table.column1=1"
+                }
+              />
 
-          <div className="mb-3">
-            <h5>Example #1</h5>
-
-            <CodeBlock
-              language="sql"
-              content={
-                "SELECT alias.column1, alias.column2 FROM table AS alias WHERE alias.id=1"
-              }
-            />
-
-            <p>equivalent to</p>
-
-            <CodeBlock
-              language="php"
-              content={
-                "<?php\n\n" +
-                "use LionSQL\\Drivers\\MySQLDriver as Builder;\n\n" +
-                "$list = Builder::select(Builder::FETCH, 'table', 'alias', 'alias.column1,alias.column2', [\n" +
-                "\tBuilder::where('alias.id', '=' /* '>', '<', '<>' */)\n" +
-                "], [$id]);\n\n" +
-                "var_dump($list);"
-              }
-            />
+              <CodeBlock
+                language="php"
+                content={
+                  "<?php\n\n" +
+                  "use LionSQL\\Drivers\\MySQLDriver as DB;\n\n" +
+                  "DB::table(DB::alias('table', 'my_table'))->select(\n" +
+                  "\tDB::alias('column1', 'my_table', true),\n" +
+                  "\tDB::alias('column2', 'my_table', true),\n" +
+                  ")->where(\n" +
+                  "\tDB::equalTo(DB::alias('column1', 'my_table', true)), 1\n" +
+                  ")->get();"
+                }
+              />
+            </div>
           </div>
 
           <hr />
@@ -365,20 +647,20 @@ function LionSQL() {
 
             <CodeBlock
               language="sql"
-              content={"SELECT column, column FROM table WHERE id=1"}
+              content={"SELECT column1, column2 FROM table WHERE column1=1"}
             />
-
-            <p>equivalent to</p>
 
             <CodeBlock
               language="php"
               content={
                 "<?php\n\n" +
-                "use LionSQL\\Drivers\\MySQLDriver as Builder;\n\n" +
-                "$list = Builder::select(Builder::FETCH, 'table', null, 'column1,column2', [\n" +
-                "\tBuilder::where('id', '=' /* '>', '<', '<>' */)\n" +
-                "], [$id]);\n\n" +
-                "var_dump($list);"
+                "use LionSQL\\Drivers\\MySQLDriver as DB;\n\n" +
+                "DB::table('table')->select(\n" +
+                "\t'column1',\n" +
+                "\t'column2'\n" +
+                ")->where(\n" +
+                "\tDB::equalTo('column1'), 1\n" +
+                ")->get();"
               }
             />
           </div>
@@ -390,20 +672,15 @@ function LionSQL() {
 
             <CodeBlock
               language="sql"
-              content={"SELECT * FROM table WHERE id=?"}
+              content={"SELECT * FROM my_table WHERE column1=?"}
             />
-
-            <p>equivalent to</p>
 
             <CodeBlock
               language="php"
               content={
                 "<?php\n\n" +
-                "use LionSQL\\Drivers\\MySQLDriver as Builder;\n\n" +
-                "$list = Builder::select(Builder::FETCH, 'table', null, null, [\n" +
-                "\tBuilder::where('id', '=' /* '>', '<', '<>' */)\n" +
-                "], [$id]);\n\n" +
-                "var_dump($list);"
+                "use LionSQL\\Drivers\\MySQLDriver as DB;\n\n" +
+                "DB::table('my_table')->select()->where(DB::equalTo('column1'), 1)->get();"
               }
             />
           </div>
@@ -421,30 +698,8 @@ function LionSQL() {
 
             <CodeBlock
               language="sql"
-              content={"SELECT * FROM table WHERE id=? AND date=?"}
-            />
-
-            <CodeBlock
-              language="php"
               content={
-                "<?php\n\n" +
-                "use LionSQL\\Drivers\\MySQLDriver as Builder;\n\n" +
-                "$list = Builder::select(Builder::FETCH, 'table', null, null, [\n" +
-                "\tBuilder::where('id', '=' /* '>', '<', '<>' */),\n" +
-                "\tBuilder::and('date', '=' /* '>', '<', '<>' */)\n" +
-                "]);\n\n" +
-                "var_dump($list);"
-              }
-            />
-          </div>
-
-          <div className="mb-3">
-            <h5>Example #2</h5>
-
-            <CodeBlock
-              language="sql"
-              content={
-                "SELECT * FROM table AS alias WHERE alias.id=? AND alias.date=?"
+                "SELECT * FROM my_table WHERE id=1 AND date='2022-11-04'"
               }
             />
 
@@ -452,12 +707,12 @@ function LionSQL() {
               language="php"
               content={
                 "<?php\n\n" +
-                "use LionSQL\\Drivers\\MySQLDriver as Builder;\n\n" +
-                "$list = Builder::select(Builder::FETCH, 'table', 'alias', null, [\n" +
-                "\tBuilder::where('alias.id', '='), // '>', '<', '<>'\n" +
-                "\tBuilder::and('alias.date', '=') // '>', '<', '<>'\n" +
-                "]);\n\n" +
-                "var_dump($list);"
+                "use LionSQL\\Drivers\\MySQLDriver as DB;\n\n" +
+                "DB::table('my_table')->select()->where(\n" +
+                "\tDB::equalTo('id'), 1\n" +
+                ")->and(\n" +
+                "\tDB::equalTo('date'), '2022-11-04'\n" +
+                ")->get();\n"
               }
             />
           </div>
@@ -475,204 +730,19 @@ function LionSQL() {
 
             <CodeBlock
               language="sql"
-              content={"SELECT * FROM table WHERE id=? OR date=?"}
+              content={"SELECT * FROM my_table WHERE id=1 OR id=2"}
             />
 
             <CodeBlock
               language="php"
               content={
                 "<?php\n\n" +
-                "use LionSQL\\Drivers\\MySQLDriver as Builder;\n\n" +
-                "$list = Builder::select(Builder::FETCH, 'table', null, '*', [\n" +
-                "\tBuilder::where('id', '='), // '>', '<', '<>'\n" +
-                "\tBuilder::or('date', '=') // '>', '<', '<>'\n" +
-                "]);\n\n" +
-                "var_dump($list);"
-              }
-            />
-          </div>
-
-          <div className="mb-3">
-            <h5>Example #2</h5>
-
-            <CodeBlock
-              language="sql"
-              content={
-                "SELECT * FROM table AS alias WHERE alias.id=? OR alias.date=?"
-              }
-            />
-
-            <CodeBlock
-              language="php"
-              content={
-                "<?php\n\n" +
-                "use LionSQL\\Drivers\\MySQLDriver as Builder;\n\n" +
-                "$list = Builder::select(Builder::FETCH, 'table', 'alias', '*', [\n" +
-                "\tBuilder::where('alias.id', '='), // '>', '<', '<>'\n" +
-                "\tBuilder::or('alias.date', '=') // '>', '<', '<>'\n" +
-                "]);\n\n" +
-                "var_dump($list);"
-              }
-            />
-          </div>
-        </>
-      ),
-    },
-    {
-      event: "between",
-      content: (
-        <>
-          <div className="mb-3">
-            <h4 className="pb-2">BETWEEN</h4>
-
-            <h5>Example #1</h5>
-
-            <CodeBlock
-              language="sql"
-              content={"SELECT * FROM table WHERE date BETWEEN ? AND ?"}
-            />
-
-            <CodeBlock
-              language="php"
-              content={
-                "<?php\n\n" +
-                "use LionSQL\\Drivers\\MySQLDriver as Builder;\n\n" +
-                "$list = Builder::select(Builder::FETCH, 'table', null, null, [\n" +
-                "\tBuilder::between('date')\n" +
-                "], [$date1, $date2]);\n\n" +
-                "var_dump($list);"
-              }
-            />
-          </div>
-
-          <div className="mb-3">
-            <h5>Example #2</h5>
-
-            <CodeBlock
-              language="sql"
-              content={
-                "SELECT * FROM table AS alias WHERE alias.date BETWEEN ? AND ?"
-              }
-            />
-
-            <CodeBlock
-              language="php"
-              content={
-                "<?php\n\n" +
-                "use LionSQL\\Drivers\\MySQLDriver as Builder;\n\n" +
-                "$list = Builder::select(Builder::FETCH, 'table', 'alias', null, [\n" +
-                "\tBuilder::between('alias.date')\n" +
-                "], [$date1, $date2]);\n\n" +
-                "var_dump($list);"
-              }
-            />
-          </div>
-        </>
-      ),
-    },
-    {
-      event: "like",
-      content: (
-        <>
-          <div className="mb-3">
-            <h4 className="pb-2">LIKE</h4>
-
-            <h5>Example #1</h5>
-
-            <CodeBlock
-              language="sql"
-              content={
-                "SELECT column1, column2 FROM table WHERE column1 LIKE '%like text...%'"
-              }
-            />
-
-            <CodeBlock
-              language="php"
-              content={
-                "<?php\n\n" +
-                "use LionSQL\\Drivers\\MySQLDriver as Builder;\n\n" +
-                "$list = Builder::select(Builder::FETCH_ALL, 'table', null, 'column1,column2', [\n" +
-                "\tBuilder::where('column1'),\n" +
-                "\tBuilder::like()\n" +
-                "], ['%example%']);\n\n" +
-                "var_dump($list);"
-              }
-            />
-          </div>
-        </>
-      ),
-    },
-    {
-      event: "join",
-      content: (
-        <>
-          <div className="mb-3">
-            <h4 className="pb-2">JOIN</h4>
-
-            <p>
-              Implementation of join{" "}
-              <Badge bg="secondary">INNER, LEFT AND RIGHT</Badge>.
-            </p>
-          </div>
-
-          <hr />
-
-          <div className="mb-3">
-            <h5>Example #1</h5>
-
-            <CodeBlock
-              language="sql"
-              content={
-                "SELECT alias.name, alias1.name, alias2.name, alias3.name FROM table1 AS alias\n" +
-                "\tINNER JOIN table2 AS alias1 ON alias.id_a=alias1.id_a\n" +
-                "\tLEFT JOIN table3 AS alias2 ON alias.id_b=alias2.id_b\n" +
-                "\tRIGHT JOIN table4 AS alias3 ON alias.id_c=alias3.id_c"
-              }
-            />
-
-            <CodeBlock
-              language="php"
-              content={
-                "<?php\n\n" +
-                "use LionSQL\\Drivers\\MySQLDriver as Builder;\n\n" +
-                "$list = Builder::select(Builder::FETCH_ALL, 'table1', 'alias', 'alias.name,alias1.name,alias2.name,alias3.name', [\n" +
-                "\tBuilder::innerJoin('table2', 'alias1', 'alias.id_a=alias1.id_a'),\n" +
-                "\tBuilder::leftJoin('table3', 'alias2', 'alias.id_b=alias2.id_b'),\n" +
-                "\tBuilder::rightJoin('table4', 'alias3', 'alias.id_c=alias3.id_c')\n" +
-                "]);\n\n" +
-                "var_dump($list);"
-              }
-            />
-          </div>
-
-          <hr />
-
-          <div className="mb-3">
-            <h5>Example #2</h5>
-
-            <CodeBlock
-              language="sql"
-              content={
-                "SELECT alias.name, alias1.name, alias2.name, alias3.name FROM table1 AS alias\n" +
-                "\tINNER JOIN table2 AS alias1 ON alias.id_a=alias1.id_a\n" +
-                "\tLEFT JOIN table3 AS alias2 ON alias.id_b=alias2.id_b\n" +
-                "\tRIGHT JOIN table4 AS alias3 ON alias.id_c=alias3.id_c\n" +
-                "WHERE alias.id=?"
-              }
-            />
-
-            <CodeBlock
-              language="php"
-              content={
-                "<?php\n\n" +
-                "use LionSQL\\Drivers\\MySQLDriver as Builder;\n\n" +
-                "$list = Builder::select(Builder::FETCH_ALL, 'table1', 'alias', 'alias.name,alias1.name,alias2.name,alias3.name', [\n" +
-                "\tBuilder::innerJoin('table2', 'alias1', 'alias.id_a=alias1.id_a'),\n" +
-                "\tBuilder::leftJoin('table3', 'alias2', 'alias.id_b=alias2.id_b'),\n" +
-                "\tBuilder::rightJoin('table4', 'alias3', 'alias.id_c=alias3.id_c')\n" +
-                "\tBuilder::where('alias.id', '=')\n" +
-                "], [$id]);\n\n" +
-                "var_dump($list);"
+                "use LionSQL\\Drivers\\MySQLDriver as DB;\n\n" +
+                "DB::table('my_table')->select()->where(\n" +
+                "\tDB::equalTo('id'), 1\n" +
+                ")->or(\n" +
+                "\tDB::equalTo('id'), 2\n" +
+                ")->get();\n"
               }
             />
           </div>
@@ -686,29 +756,21 @@ function LionSQL() {
           <div className="mb-4">
             <h4 className="pb-2">UPDATE</h4>
 
-            <p>
-              Update queries take the name of the table as their first
-              parameter. The second parameter carries the columns separated by{" "}
-              <Badge bg={"secondary"}>,</Badge>, the condition parameter is
-              separated by <Badge bg={"secondary"}>:</Badge> at the end of the
-              columns. The third parameter receives an array with the parameters
-              to update.
-            </p>
-
             <CodeBlock
               language={"sql"}
-              content={"UPDATE table SET name=?, date=?, phone=? WHERE id=?"}
+              content={"UPDATE table SET name=?, date=?, phone=? WHERE id=1"}
             />
 
             <CodeBlock
               language="php"
               content={
                 "<?php\n\n" +
-                "use LionSQL\\Drivers\\MySQLDriver as Builder;\n\n" +
-                "$list = Builder::update('table', 'name,date,phone:id', [\n" +
-                "\t$name, $date, $phone, $id\n" +
-                "]);\n\n" +
-                "var_dump($list);"
+                "use LionSQL\\Drivers\\MySQLDriver as DB;\n\n" +
+                "DB::table('my_table')->update([\n" +
+                "\t'name' => 'Sergio'\n" +
+                "\t'date' => '1999-09-30'\n" +
+                "\t'phone' => '3159999999'\n" +
+                "])->where(DB::equalTo('id'), 1)->execute();"
               }
             />
           </div>
@@ -722,25 +784,17 @@ function LionSQL() {
           <div className="mb-4">
             <h4 className="pb-2">DELETE</h4>
 
-            <p>
-              The first parameter receives the name of the table, The second
-              parameter receives the name of the column that is referenced, The
-              third parameter receives an array with the respective value to
-              eliminate.
-            </p>
-
             <CodeBlock
               language={"sql"}
-              content={"DELETE FROM table WHERE id=?"}
+              content={"DELETE FROM my_table WHERE id=1"}
             />
 
             <CodeBlock
               language="php"
               content={
                 "<?php\n\n" +
-                "use LionSQL\\Drivers\\MySQLDriver as Builder;\n\n" +
-                "$list = Builder::delete('table', 'id', $id);\n" +
-                "var_dump($list);"
+                "use LionSQL\\Drivers\\MySQLDriver as DB;\n\n" +
+                "DB::table('my_table')->delete()->where(DB::equalTo('id'), 1)->execute();\n"
               }
             />
           </div>
@@ -762,594 +816,17 @@ function LionSQL() {
 
             <CodeBlock
               language={"sql"}
-              content={"CALL name_procedure('name...', 'date...', 1)"}
+              content={"CALL name_procedure('name', 'date', 3159999999)"}
             />
 
             <CodeBlock
               language="php"
               content={
                 "<?php\n\n" +
-                "use LionSQL\\Drivers\\MySQLDriver as Builder;\n\n" +
-                "$list = Builder::call('name_procedure', [\n" +
-                "\t$name, $date, $id\n" +
-                "]);\n\n" +
-                "var_dump($list);"
-              }
-            />
-          </div>
-        </>
-      ),
-    },
-    {
-      event: "min",
-      content: (
-        <>
-          <div className="mb-3">
-            <h4 className="pb-2">MIN</h4>
-
-            <p>
-              The first parameter references the name of the column. The second
-              parameter is <Badge bg="secondary">optional</Badge> and is used to
-              give an alias.
-            </p>
-          </div>
-
-          <hr />
-
-          <div className="mb-3">
-            <h5 className="pb-2">Example #1</h5>
-
-            <CodeBlock language={"sql"} content={"SELECT MIN(id) FROM table"} />
-
-            <CodeBlock
-              language="php"
-              content={
-                "<?php\n\n" +
-                "use LionSQL\\Drivers\\MySQLDriver as Builder;\n\n" +
-                "$list = Builder::select(Builder::FETCH, 'table', null, Builder::min('id'));\n" +
-                "var_dump($list);"
-              }
-            />
-          </div>
-
-          <hr />
-
-          <div className="mb-3">
-            <h5 className="pb-2">Example #2</h5>
-
-            <CodeBlock
-              language={"sql"}
-              content={"SELECT MIN(id) AS alias FROM table"}
-            />
-
-            <CodeBlock
-              language="php"
-              content={
-                "<?php\n\n" +
-                "use LionSQL\\Drivers\\MySQLDriver as Builder;\n\n" +
-                "$list = Builder::select(Builder::FETCH, 'table', null, Builder::min('id', 'alias'));\n" +
-                "var_dump($list);"
-              }
-            />
-          </div>
-        </>
-      ),
-    },
-    {
-      event: "max",
-      content: (
-        <>
-          <div className="mb-3">
-            <h4 className="pb-2">MAX</h4>
-
-            <p>
-              The first parameter references the name of the column. The second
-              parameter is <Badge bg="secondary">optional</Badge> and is used to
-              give an alias.
-            </p>
-          </div>
-
-          <hr />
-
-          <div className="mb-3">
-            <h5 className="pb-2">Example #1</h5>
-
-            <CodeBlock language={"sql"} content={"SELECT MAX(id) FROM table"} />
-
-            <CodeBlock
-              language="php"
-              content={
-                "<?php\n\n" +
-                "use LionSQL\\Drivers\\MySQLDriver as Builder;\n\n" +
-                "$list = Builder::select(Builder::FETCH, 'table', null, Builder::max('id'));\n" +
-                "var_dump($list);"
-              }
-            />
-          </div>
-
-          <hr />
-
-          <div className="mb-3">
-            <h5 className="pb-2">Example #2</h5>
-
-            <CodeBlock
-              language={"sql"}
-              content={"SELECT MAX(id) AS alias FROM table"}
-            />
-
-            <CodeBlock
-              language="php"
-              content={
-                "<?php\n\n" +
-                "use LionSQL\\Drivers\\MySQLDriver as Builder;\n\n" +
-                "$list = Builder::select(Builder::FETCH, 'table', null, Builder::max('id', 'alias'));\n" +
-                "var_dump($list);"
-              }
-            />
-          </div>
-        </>
-      ),
-    },
-    {
-      event: "count",
-      content: (
-        <>
-          <div className="mb-3">
-            <h4 className="pb-2">COUNT</h4>
-
-            <p>
-              The first parameter references the name of the column. The second
-              parameter is <Badge bg="secondary">optional</Badge> and is used to
-              give an alias.
-            </p>
-          </div>
-
-          <hr />
-
-          <div className="mb-3">
-            <h5 className="pb-2">Example #1</h5>
-
-            <CodeBlock
-              language={"sql"}
-              content={"SELECT COUNT(*) FROM table"}
-            />
-
-            <CodeBlock
-              language="php"
-              content={
-                "<?php\n\n" +
-                "use LionSQL\\Drivers\\MySQLDriver as Builder;\n\n" +
-                "$list = Builder::select(Builder::FETCH, 'table', null, Builder::count());\n" +
-                "var_dump($list);"
-              }
-            />
-          </div>
-
-          <hr />
-
-          <div className="mb-3">
-            <h5 className="pb-2">Example #2</h5>
-
-            <CodeBlock
-              language={"sql"}
-              content={"SELECT COUNT(*) AS alias FROM table"}
-            />
-
-            <CodeBlock
-              language="php"
-              content={
-                "<?php\n\n" +
-                "use LionSQL\\Drivers\\MySQLDriver as Builder;\n\n" +
-                "$list = Builder::select(Builder::FETCH, 'table', null, Builder::count(null, 'alias'));\n" +
-                "var_dump($list);"
-              }
-            />
-          </div>
-        </>
-      ),
-    },
-    {
-      event: "avg",
-      content: (
-        <>
-          <div className="mb-3">
-            <h4 className="pb-2">AVG</h4>
-
-            <p>
-              The first parameter references the name of the column. The second
-              parameter is <Badge bg="secondary">optional</Badge> and is used to
-              give an alias.
-            </p>
-          </div>
-
-          <hr />
-
-          <div className="mb-3">
-            <h5 className="pb-2">Example #1</h5>
-
-            <CodeBlock
-              language={"sql"}
-              content={"SELECT AVG(column) FROM table"}
-            />
-
-            <CodeBlock
-              language="php"
-              content={
-                "<?php\n\n" +
-                "use LionSQL\\Drivers\\MySQLDriver as Builder;\n\n" +
-                "$list = Builder::select(Builder::FETCH, 'table', null, Builder::avg('column'));\n" +
-                "var_dump($list);"
-              }
-            />
-          </div>
-
-          <hr />
-
-          <div className="mb-3">
-            <h5 className="pb-2">Example #2</h5>
-
-            <CodeBlock
-              language={"sql"}
-              content={"SELECT AVG(column) AS alias FROM table"}
-            />
-
-            <CodeBlock
-              language="php"
-              content={
-                "<?php\n\n" +
-                "use LionSQL\\Drivers\\MySQLDriver as Builder;\n\n" +
-                "$list = Builder::select(Builder::FETCH, 'table', null, Builder::avg('column', 'alias'));\n" +
-                "var_dump($list);"
-              }
-            />
-          </div>
-        </>
-      ),
-    },
-    {
-      event: "sum",
-      content: (
-        <>
-          <div className="mb-3">
-            <h4 className="pb-2">SUM</h4>
-
-            <p>
-              The first parameter references the name of the column. The second
-              parameter is <Badge bg="secondary">optional</Badge> and is used to
-              give an alias.
-            </p>
-          </div>
-
-          <hr />
-
-          <div className="mb-3">
-            <h5 className="pb-2">Example #1</h5>
-
-            <CodeBlock
-              language={"sql"}
-              content={"SELECT SUM(column) FROM table"}
-            />
-
-            <CodeBlock
-              language="php"
-              content={
-                "<?php\n\n" +
-                "use LionSQL\\Drivers\\MySQLDriver as Builder;\n\n" +
-                "$list = Builder::select(Builder::FETCH, 'table', null, Builder::sum('column'));\n" +
-                "var_dump($list);"
-              }
-            />
-          </div>
-
-          <hr />
-
-          <div className="mb-3">
-            <h5 className="pb-2">Example #2</h5>
-
-            <CodeBlock
-              language={"sql"}
-              content={"SELECT SUM(column) AS alias FROM table"}
-            />
-
-            <CodeBlock
-              language="php"
-              content={
-                "<?php\n\n" +
-                "use LionSQL\\Drivers\\MySQLDriver as Builder;\n\n" +
-                "$list = Builder::select(Builder::FETCH, 'table', null, Builder::sum('column', 'alias'));\n" +
-                "var_dump($list);"
-              }
-            />
-          </div>
-        </>
-      ),
-    },
-    {
-      event: "order-by",
-      content: (
-        <>
-          <div className="mb-3">
-            <h4 className="pb-2">ORDER BY</h4>
-
-            <p>
-              The first parameter refers to the name of the column, The second
-              parameter is <Badge bg="secondary">optional</Badge> and is used to
-              give a type of order <Badge bg="secondary">ASC, DESC</Badge>.
-            </p>
-          </div>
-
-          <hr />
-
-          <div className="mb-3">
-            <h5 className="pb-2">Example #1</h5>
-
-            <CodeBlock
-              language={"sql"}
-              content={"SELECT * FROM table ORDER BY column"}
-            />
-
-            <CodeBlock
-              language="php"
-              content={
-                "<?php\n\n" +
-                "use LionSQL\\Drivers\\MySQLDriver as Builder;\n\n" +
-                "$list = Builder::select(Builder::FETCH_ALL, 'table', null, [\n" +
-                "\tBuilder::orderBy('column')\n" +
-                "]);\n\n" +
-                "var_dump($list);"
-              }
-            />
-          </div>
-
-          <hr />
-
-          <div className="mb-3">
-            <h5 className="pb-2">Example #2</h5>
-
-            <CodeBlock
-              language={"sql"}
-              content={"SELECT * FROM table ORDER BY column ASC, column DESC"}
-            />
-
-            <CodeBlock
-              language="php"
-              content={
-                "<?php\n\n" +
-                "use LionSQL\\Drivers\\MySQLDriver as Builder;\n\n" +
-                "$list = Builder::select(Builder::FETCH_ALL, 'table', null, [\n" +
-                "\tBuilder::orderBy('column ASC, column DESC')\n" +
-                "]);\n\n" +
-                "var_dump($list);"
-              }
-            />
-          </div>
-        </>
-      ),
-    },
-    {
-      event: "group-by",
-      content: (
-        <>
-          <div className="mb-3">
-            <h4 className="pb-2">GROUP BY</h4>
-
-            <p>
-              The first parameter refers to the name of the column, The second
-              parameter is <Badge bg="secondary">optional</Badge> and is used to
-              give a type of order <Badge bg="secondary">ASC, DESC</Badge>.
-            </p>
-          </div>
-
-          <hr />
-
-          <div className="mb-3">
-            <h5 className="pb-2">Example #1</h5>
-
-            <CodeBlock
-              language={"sql"}
-              content={"SELECT * FROM table GROUP BY column"}
-            />
-
-            <CodeBlock
-              language="php"
-              content={
-                "<?php\n\n" +
-                "use LionSQL\\Drivers\\MySQLDriver as Builder;\n\n" +
-                "$list = Builder::select(Builder::FETCH_ALL, 'table', null, [\n" +
-                "\tBuilder::groupBy('column')\n" +
-                "]);\n\n" +
-                "var_dump($list);"
-              }
-            />
-          </div>
-
-          <hr />
-
-          <div className="mb-3">
-            <h5 className="pb-2">Example #2</h5>
-
-            <CodeBlock
-              language={"sql"}
-              content={"SELECT * FROM table GROUP BY column DESC"}
-            />
-
-            <CodeBlock
-              language="php"
-              content={
-                "<?php\n\n" +
-                "use LionSQL\\Drivers\\MySQLDriver as Builder;\n\n" +
-                "$list = Builder::select(Builder::FETCH_ALL, 'table', null, [\n" +
-                "\tBuilder::groupBy('column', 'DESC')\n" +
-                "]);\n\n" +
-                "var_dump($list);"
-              }
-            />
-          </div>
-        </>
-      ),
-    },
-    {
-      event: "limit",
-      content: (
-        <>
-          <div className="mb-3">
-            <h4 className="pb-2">LIMIT</h4>
-
-            <p>
-              The first parameter is <Badge bg="secondary">boolean</Badge>, true
-              for 2 parameters and false for a single parameter in the query,
-              Note that the default parameter is initialized to true.
-            </p>
-          </div>
-
-          <hr />
-
-          <div className="mb-3">
-            <h5 className="pb-2">Example #1</h5>
-
-            <CodeBlock
-              language={"sql"}
-              content={"SELECT * FROM table LIMIT ?"}
-            />
-
-            <CodeBlock
-              language="php"
-              content={
-                "<?php\n\n" +
-                "use LionSQL\\Drivers\\MySQLDriver as Builder;\n\n" +
-                "$list = Builder::select(Builder::FETCH_ALL, 'table', null, null, [\n" +
-                "\tBuilder::limit(false)\n" +
-                "], [$id]);\n\n" +
-                "var_dump($list);"
-              }
-            />
-          </div>
-
-          <hr />
-
-          <div className="mb-3">
-            <h5 className="pb-2">Example #2</h5>
-
-            <CodeBlock
-              language={"sql"}
-              content={"SELECT * FROM table LIMIT ?, ?"}
-            />
-
-            <CodeBlock
-              language="php"
-              content={
-                "<?php\n\n" +
-                "use LionSQL\\Drivers\\MySQLDriver as Builder;\n\n" +
-                "$list = Builder::select(Builder::FETCH_ALL, 'table', null, null, [\n" +
-                "\tBuilder::limit()\n" +
-                "], [$first, $second]);\n\n" +
-                "var_dump($list);"
-              }
-            />
-          </div>
-        </>
-      ),
-    },
-    {
-      event: "having",
-      content: (
-        <>
-          <div className="mb-3">
-            <h4 className="pb-2">HAVING</h4>
-
-            <p>
-              The first parameter is the <Badge bg="secondary">column</Badge>{" "}
-              that is referenced, The second parameter is the operator with
-              which the condition is handled, this parameter is optional.
-            </p>
-          </div>
-
-          <hr />
-
-          <div className="mb-3">
-            <h5 className="pb-2">Example #1</h5>
-
-            <CodeBlock
-              language={"sql"}
-              content={"SELECT * FROM table HAVING column = ?"}
-            />
-
-            <CodeBlock
-              language="php"
-              content={
-                "<?php\n\n" +
-                "use LionSQL\\Drivers\\MySQLDriver as Builder;\n\n" +
-                "$list = Builder::select(Builder::FETCH, 'table', null, null, [\n" +
-                "\tBuilder::having('column', '=') // '>', '<', '<>'\n" +
-                "], [$value]);\n\n" +
-                "var_dump($list);"
-              }
-            />
-          </div>
-
-          <hr />
-
-          <div className="mb-3">
-            <h5 className="pb-2">Example #2</h5>
-
-            <CodeBlock
-              language={"sql"}
-              content={"SELECT * FROM table HAVING column"}
-            />
-
-            <CodeBlock
-              language="php"
-              content={
-                "<?php\n\n" +
-                "use LionSQL\\Drivers\\MySQLDriver as Builder;\n\n" +
-                "$list = Builder::select(Builder::FETCH_ALL, 'table', null, null, [\n" +
-                "\tBuilder::having('column')\n" +
-                "]);\n\n" +
-                "var_dump($list);"
-              }
-            />
-          </div>
-        </>
-      ),
-    },
-    {
-      event: "show",
-      content: (
-        <>
-          <div className="mb-3">
-            <h4 className="pb-2">SHOW COLUMNS</h4>
-
-            <p>
-              The <Badge bg="secondary">showColumns</Badge> function generates a
-              list of the columns that a table has.
-            </p>
-
-            <CodeBlock
-              language="php"
-              content={
-                "<?php\n\n" +
-                "use LionSQL\\Drivers\\MySQLDriver as Builder;\n" +
-                "var_dump(Builder::showColumns('table_name'));"
-              }
-            />
-          </div>
-
-          <hr />
-
-          <div className="mb-3">
-            <h4 className="pb-2">SHOW TABLES</h4>
-
-            <p>
-              The <Badge bg="secondary">showTables</Badge> function generates a
-              list of the tables that the database owns.
-            </p>
-
-            <CodeBlock
-              language="php"
-              content={
-                "<?php\n\n" +
-                "use LionSQL\\Drivers\\MySQLDriver as Builder;\n" +
-                "var_dump(Builder::showTables('database_name'));"
+                "use LionSQL\\Drivers\\MySQLDriver as DB;\n\n" +
+                "DB::call('name_procedure', [\n" +
+                "\t'Sergio', '1999-09-30', 1\n" +
+                "]);\n\n"
               }
             />
           </div>
