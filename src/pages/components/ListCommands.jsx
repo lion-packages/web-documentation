@@ -29,10 +29,6 @@ function ListCommands() {
       command: "php lion new:middleware name_middleware",
     },
     {
-      description: "Command required for the creation of new Middleware",
-      command: "php lion new:middleware name_middleware",
-    },
-    {
       description: "Command required for the creation of new Models",
       command: "php lion new:model name_model",
     },

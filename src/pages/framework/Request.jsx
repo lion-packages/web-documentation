@@ -17,7 +17,8 @@ function Request() {
           <Badge bg={"secondary"}>Request</Badge> class is used in order to
           obtain the data sent in an HTTP request, the system internally
           initializes a <Badge bg={"secondary"}>request</Badge> constant to
-          obtain the data.
+          obtain the data. more information in{" "}
+          <Link to={"/libraries/request"}>Lion-Request</Link>
         </p>
 
         <CodeBlock

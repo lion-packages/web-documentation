@@ -3,6 +3,7 @@ import Badge from "react-bootstrap/Badge";
 import { LinkContainer } from "react-router-bootstrap";
 import { Button } from "react-bootstrap";
 import { FiArrowLeft, FiArrowRight } from "react-icons/fi";
+import { Link } from "react-router-dom";
 
 function Headers() {
   return (
@@ -11,14 +12,15 @@ function Headers() {
         <h4 className="pb-2">Add headers</h4>
 
         <p>
-        Headers should be added per function in {" "}
-          <Badge bg="secondary">routes/header.php</Badge>
+          Headers should be added per function in{" "}
+          <Badge bg="secondary">routes/header.php</Badge> more information in{" "}
+          <Link to={"/libraries/request"}>Lion-Request</Link>
         </p>
 
         <CodeBlock
-          language={'php'}
+          language={"php"}
           content={
-            '<?php\n\n' +
+            "<?php\n\n" +
             "LionRequest\\Request::header('Content-Type', 'application/json; charset=UTF-8');\n" +
             "LionRequest\\Request::header('Access-Control-Allow-Origin', '*');\n" +
             "LionRequest\\Request::header('Access-Control-Max-Age', 3600);\n" +

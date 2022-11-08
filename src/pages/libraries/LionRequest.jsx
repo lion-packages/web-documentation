@@ -191,8 +191,7 @@ function LionRequest() {
                 "<?php\n\n" +
                 "require_once('vendor/autoload.php');\n\n" +
                 "use LionRequest\\Json;\n\n" +
-                "$data = ['name' => 'my name', 'last_name' => 'my last name'];\n" +
-                "$encode = Json::encode($data);\n" +
+                "$encode = Json::encode(['name' => 'my name', 'last_name' => 'my last name']);\n" +
                 "var_dump($encode);"
               }
             />
@@ -254,8 +253,7 @@ function LionRequest() {
               content={
                 "<?php\n\n" +
                 "require_once('vendor/autoload.php');\n\n" +
-                "use LionRequest\\Response;\n" +
-                "use LionRequest\\Json;\n\n" +
+                "use LionRequest\\Response;\n\n" +
                 "Response::finish(['status' => 'success']);\n"
               }
             />

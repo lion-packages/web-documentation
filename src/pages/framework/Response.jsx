@@ -3,6 +3,7 @@ import Badge from "react-bootstrap/Badge";
 import { LinkContainer } from "react-router-bootstrap";
 import { Button } from "react-bootstrap";
 import { FiArrowLeft, FiArrowRight } from "react-icons/fi";
+import { Link } from "react-router-dom";
 
 function Response() {
   return (
@@ -14,7 +15,8 @@ function Response() {
           The Response class implements different response functions on HTTP
           requests, the system internally initializes a{" "}
           <Badge bg={"secondary"}>response</Badge> constant to access the
-          functions.
+          functions. more information in{" "}
+          <Link to={"/libraries/request"}>Lion-Request</Link>
         </p>
 
         <CodeBlock
