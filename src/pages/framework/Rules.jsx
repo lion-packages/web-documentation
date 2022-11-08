@@ -9,7 +9,7 @@ function Rules() {
   return (
     <>
       <div className="mb-3">
-        <h4>Rules</h4>
+        <h4>RULES</h4>
 
         <p>
           You can create rules from command line php lion new:rule rule_name ,
@@ -24,7 +24,7 @@ function Rules() {
       </div>
 
       <div className="mb-3">
-        <h4>Example #1</h4>
+        <h5>EXAMPLE #1</h5>
 
         <CodeBlock
           language={"powershell"}
@@ -55,11 +55,11 @@ function Rules() {
       <hr />
 
       <div className="mb-3">
-        <h4>Use Rules</h4>
+        <h5>USE RULES</h5>
 
         <p>
           Add your rules to different routes in{" "}
-          <Badge bg={"secondary"}>routes/rules.php</Badge>
+          <Badge bg={"secondary"}>routes/rules.php</Badge>.
         </p>
 
         <CodeBlock

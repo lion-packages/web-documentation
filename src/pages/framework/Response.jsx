@@ -9,7 +9,7 @@ function Response() {
   return (
     <>
       <div className="mb-3">
-        <h4>Response</h4>
+        <h4>RESPONSE</h4>
 
         <p>
           The Response class implements different response functions on HTTP
@@ -31,14 +31,12 @@ function Response() {
       <hr />
 
       <div className="mb-3">
-        <h5>Example #1</h5>
+        <h5>EXAMPLE #1</h5>
 
         <CodeBlock
           language={"php"}
           content={"<?php\n\n" + "return response->success('message...');"}
         />
-
-        <p>json output</p>
 
         <CodeBlock
           language={"json"}
@@ -50,8 +48,6 @@ function Response() {
             "}"
           }
         />
-
-        <p>equivalent to</p>
 
         <CodeBlock
           langueage={"php"}
@@ -65,14 +61,12 @@ function Response() {
       <hr />
 
       <div className="mb-3">
-        <h5>Example #2</h5>
+        <h5>EXAMPLE #2</h5>
 
         <CodeBlock
           language={"php"}
           content={"<?php\n\n" + "return response->error('message...');"}
         />
-
-        <p>json output</p>
 
         <CodeBlock
           language={"json"}
@@ -84,8 +78,6 @@ function Response() {
             "}"
           }
         />
-
-        <p>equivalent to</p>
 
         <CodeBlock
           langueage={"php"}
@@ -99,7 +91,7 @@ function Response() {
       <hr />
 
       <div className="mb-3">
-        <h5>Example #3</h5>
+        <h5>EXAMPLE #3</h5>
 
         <CodeBlock
           language={"php"}
@@ -108,8 +100,6 @@ function Response() {
             "return response->response('my_custom_response', 'message...');"
           }
         />
-
-        <p>json output</p>
 
         <CodeBlock
           language={"json"}
@@ -121,8 +111,6 @@ function Response() {
             "}"
           }
         />
-
-        <p>equivalent to</p>
 
         <CodeBlock
           langueage={"php"}

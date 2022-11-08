@@ -9,15 +9,15 @@ function LionRequest() {
   const [items, setItems] = useState([
     {
       event: "getting-started",
-      name: "Getting started",
+      name: "GETTING STARTED",
     },
     {
       event: "request",
-      name: "Request",
+      name: "REQUEST",
     },
     {
       event: "response",
-      name: "Response",
+      name: "RESPONSE",
     },
     {
       event: "json",
@@ -25,15 +25,15 @@ function LionRequest() {
     },
     {
       event: "header",
-      name: "Header",
+      name: "HEADER",
     },
     {
       event: "finish",
-      name: "Finish",
+      name: "FINISH",
     },
     {
       event: "credits-license",
-      name: "Credits and license",
+      name: "CREDITS AND LICENSE",
     },
   ]);
 

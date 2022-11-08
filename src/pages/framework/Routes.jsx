@@ -9,7 +9,7 @@ function Routes() {
   return (
     <>
       <div className="mb-3">
-        <h4>Routes</h4>
+        <h4>ROUTES</h4>
 
         <p>
           <Link to={"/libraries/route"}>Lion-Route</Link> has been implemented

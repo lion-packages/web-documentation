@@ -9,7 +9,7 @@ function Middleware() {
   return (
     <>
       <div className="mb-3">
-        <h4>Middleware</h4>
+        <h4>MIDDLEWARE</h4>
 
         <p>
           You can create middleware from the command line{" "}
@@ -42,7 +42,7 @@ function Middleware() {
       <hr />
 
       <div className="mb-3">
-        <h4>Add Functions</h4>
+        <h4>ADD FUNCTIONS</h4>
 
         <p>We can add the necessary functions in each middleware.</p>
 
@@ -85,7 +85,7 @@ function Middleware() {
       <hr />
 
       <div className="mb-3">
-        <h4>Add Middleware</h4>
+        <h4>ADD MIDDLEWARE</h4>
 
         <p>
           To import middleware to the routes we must first import the namespace
@@ -111,7 +111,7 @@ function Middleware() {
       <hr />
 
       <div className="mb-3">
-        <h4>Use Middleware</h4>
+        <h4>USE MIDDLEWARE</h4>
 
         <p>
           <Badge bg={"secondary"}>routes/web.php</Badge>

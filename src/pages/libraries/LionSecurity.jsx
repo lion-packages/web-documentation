@@ -11,7 +11,7 @@ function LionSecurity() {
   const [items, setItems] = useState([
     {
       event: "getting-started",
-      name: "Getting started",
+      name: "GETTING STARTED",
     },
     {
       event: "rsa",
@@ -27,11 +27,11 @@ function LionSecurity() {
     },
     {
       event: "security",
-      name: "Security",
+      name: "SECURITY",
     },
     {
       event: "credits-license",
-      name: "Credits and license",
+      name: "CREDITS AND LICENSE",
     },
   ]);
 

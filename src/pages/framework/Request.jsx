@@ -10,7 +10,7 @@ function Request() {
   return (
     <>
       <div className="mb-3">
-        <h4>Request</h4>
+        <h4>REQUEST</h4>
 
         <p>
           The <Badge bg={"secondary"}>capture</Badge> function of the{" "}
@@ -33,7 +33,7 @@ function Request() {
       <hr />
 
       <div className="mb-3">
-        <h5>Example</h5>
+        <h5>EXAMPLE</h5>
 
         <CodeBlock
           langueage={"php"}
@@ -44,8 +44,6 @@ function Request() {
             ");"
           }
         />
-
-        <p>equivalent to</p>
 
         <CodeBlock
           langueage={"php"}

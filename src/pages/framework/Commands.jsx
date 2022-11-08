@@ -11,13 +11,14 @@ function Commands() {
   return (
     <>
       <div className="mb-3">
+        <h4 className="pb-2">AVAILABLE COMMANDS</h4>
         <ListCommands />
       </div>
 
       <hr />
 
       <div className="mb-3">
-        <h4 className="pb-2">Optional Parameters</h4>
+        <h4 className="pb-2">OPTIONAL PARAMETERS</h4>
 
         <CodeBlock
           language={"php"}
@@ -35,7 +36,7 @@ function Commands() {
       <hr />
 
       <div className="mb-3">
-        <h4 className="pb-2">Route list</h4>
+        <h4 className="pb-2">ROUTE LIST</h4>
 
         <p>
           To view the available routes, start the local server first, run the{" "}
@@ -59,7 +60,7 @@ function Commands() {
       <hr />
 
       <div className="mb-3">
-        <h4 className="pb-2">Add Commands</h4>
+        <h4 className="pb-2">ADD COMMANDS</h4>
 
         <p>
           The commands must be added in an array from{" "}

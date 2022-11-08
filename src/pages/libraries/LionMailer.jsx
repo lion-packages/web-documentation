@@ -8,19 +8,19 @@ function LionMailer() {
   const [items, setItems] = useState([
     {
       event: "getting-started",
-      name: "Getting started",
+      name: "GETTING STARTED",
     },
     {
       event: "instructions",
-      name: "Instructions",
+      name: "INSTRUCTIONS",
     },
     {
       event: "multiple-account",
-      name: "Send emails to multiple accounts",
+      name: "SEND EMAILS TO MULTIPLE ACCOUNTS",
     },
     {
       event: "credits-license",
-      name: "Credits and license",
+      name: "CREDITS AND LICENSE",
     },
   ]);
 

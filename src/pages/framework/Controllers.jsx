@@ -8,7 +8,7 @@ function Controllers() {
   return (
     <>
       <div className="mb-3">
-        <h4>Controllers</h4>
+        <h4>CONTROLLERS</h4>
 
         <p>
           You can create controllers from the command line{" "}
@@ -19,7 +19,7 @@ function Controllers() {
       </div>
 
       <div className="mb-3">
-        <h4>Example #1</h4>
+        <h5>EXAMPLE #1</h5>
 
         <CodeBlock
           language={'powershell'}
@@ -42,7 +42,7 @@ function Controllers() {
       <hr />
 
       <div className="mb-3">
-        <h4>Example #2</h4>
+        <h5>EXAMPLE #2</h5>
 
         <CodeBlock
           language={'powershell'}

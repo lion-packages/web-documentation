@@ -8,7 +8,7 @@ function Models() {
   return (
     <>
       <div className="mb-3">
-        <h4>Models</h4>
+        <h4>MODELS</h4>
 
         <p>
           You can create models from the command line{" "}
@@ -19,7 +19,7 @@ function Models() {
       </div>
 
       <div className="mb-3">
-        <h4>Example #1</h4>
+        <h5>Example #1</h5>
 
         <CodeBlock
           language={'powershell'}

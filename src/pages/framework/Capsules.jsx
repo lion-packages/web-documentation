@@ -9,7 +9,7 @@ function Capsules() {
   return (
     <>
       <div className="mb-3">
-        <h4>Capsules</h4>
+        <h4>CAPSULES</h4>
 
         <p>
           The capsules can be created in 2 ways, individually or in groups,
@@ -21,7 +21,7 @@ function Capsules() {
       </div>
 
       <div className="mb-3">
-        <h4>Example #1</h4>
+        <h5>EXAMPLE #1</h5>
 
         <CodeBlock
           language={"powershell"}
@@ -66,7 +66,7 @@ function Capsules() {
       <hr />
 
       <div className="mb-3">
-        <h4>Example #2</h4>
+        <h5>EXAMPLE #2</h5>
 
         <CodeBlock
           language={"powershell"}

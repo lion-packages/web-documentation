@@ -9,7 +9,7 @@ function Headers() {
   return (
     <>
       <div className="mb-3">
-        <h4 className="pb-2">Add headers</h4>
+        <h4 className="pb-2">ADD HEADERS</h4>
 
         <p>
           Headers should be added per function in{" "}

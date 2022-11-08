@@ -9,31 +9,31 @@ function LionRoute() {
   const [items, setItems] = useState([
     {
       event: "getting-started",
-      name: "Getting started",
+      name: "GETTING STARTED",
     },
     {
       event: "defining-routes",
-      name: "Defining Routes",
+      name: "DEFINING ROUTES",
     },
     {
       event: "example-methods",
-      name: "Example Methods",
+      name: "EXAMPLE METHODS",
     },
     {
       event: "middleware",
-      name: "Middleware",
+      name: "MIDDLEWARE",
     },
     {
       event: "prefix-group",
-      name: "Prefix Group",
+      name: "PREFIX GROUP",
     },
     {
       event: "redirect",
-      name: "Redirect",
+      name: "REDIRECT",
     },
     {
       event: "credits-license",
-      name: "Credits and license",
+      name: "CREDITS AND LICENSE",
     },
   ]);
 

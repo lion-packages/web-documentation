@@ -7,7 +7,7 @@ function Carbon() {
   return (
     <>
       <div className="mb-3">
-        <h4>Carbon</h4>
+        <h4>CARBON</h4>
 
         <p>
           A simple PHP API extension for DateTime,{" "}

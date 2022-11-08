@@ -9,59 +9,59 @@ function LionFiles() {
   const [items, setItems] = useState([
     {
       event: "getting-started",
-      name: "Getting started",
+      name: "GETTING STARTED",
     },
     {
       event: "get-extension",
-      name: "Get Extension",
+      name: "GET EXTENSION",
     },
     {
       event: "get-name",
-      name: "Get Name",
+      name: "GET NAME",
     },
     {
       event: "get-base-name",
-      name: "Get Base Name",
+      name: "GET BASE NAME",
     },
     {
       event: "folder",
-      name: "Folder",
+      name: "FOLDER",
     },
     {
       event: "validate",
-      name: "Validate",
+      name: "VALIDATE",
     },
     {
       event: "upload",
-      name: "Upload",
+      name: "UPLOAD",
     },
     {
       event: "rename",
-      name: "Rename",
+      name: "RENAME",
     },
     {
       event: "exist",
-      name: "Exist",
+      name: "EXIST",
     },
     {
       event: "remove",
-      name: "Remove",
+      name: "REMOVE",
     },
     {
       event: "view",
-      name: "View",
+      name: "VIEW",
     },
     {
       event: "size",
-      name: "Size",
+      name: "SIZE",
     },
     {
       event: "image-size",
-      name: "Image Size",
+      name: "IMAGE SIZE",
     },
     {
       event: "credits-license",
-      name: "Credits and license",
+      name: "CREDITS AND LICENSE",
     },
   ]);
 
