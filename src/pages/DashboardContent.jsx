@@ -177,7 +177,7 @@ function DashboardContent() {
         </Row>
       </Container>
 
-      <hr className="text-white" />
+      {/* <hr className="text-white" />
 
       <Container className="my-5">
         <h3 className="mt-5 mb-0 text-degradient text-center">SEND DATA</h3>
@@ -248,7 +248,7 @@ function DashboardContent() {
             />
           </Col>
         </Row>
-      </Container>
+      </Container> */}
     </>
   );
 }
