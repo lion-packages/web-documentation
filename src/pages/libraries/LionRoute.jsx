@@ -152,6 +152,15 @@ function LionRoute() {
               }
             />
           </div>
+
+          <div className="mb-3">
+            <h4 className="pb-2">Guzzle</h4>
+
+            <p>
+              The library has an integrated guzzle, this to make http requests
+              through routes.
+            </p>
+          </div>
         </>
       ),
     },
@@ -167,8 +176,10 @@ function LionRoute() {
               content={
                 "<?php\n\n" +
                 'require_once("vendor/autoload.php");\n\n' +
-                "use LionRoute\\Route;\n\n" +
+                "use LionRoute\\Route;\n" +
+                "use LionRoute\\Request;\n\n" +
                 "Route::init();\n" +
+                "Request::init(new GuzzleHttpClient());\n" +
                 "Route::any('/', fn() => ['status' => 'success', 'message' => 'Hello world']);\n" +
                 "Route::dispatch();"
               }
@@ -402,15 +413,11 @@ function LionRoute() {
               language="php"
               content={
                 "<?php\n\n" +
-                "use LionRoute\\Route;\n" +
-                "use App\\Http\\Middleware\\Auth;\n\n" +
-                "Route::init();\n\n" +
-                "Route::newMiddleware([\n" +
-                "\tAuth::class => [\n" +
+                "LionRoute\\Route::addMiddleware([\n" +
+                "\tApp\\Http\\Middleware\\Auth::class => [\n" +
                 "\t\t['name' => 'auth', 'method' => 'auth'],\n" +
                 "\t\t['name' => 'no-auth', 'method' => 'noAuth']\n" +
-                "\t]\n]);\n\n" +
-                "Route::dispatch();"
+                "\t]\n]);"
               }
             />
 
@@ -545,9 +552,16 @@ function LionRoute() {
         <>
           <div className="mb-4">
             <h3 className="pb-2">CREDITS</h3>
+
             <p>
               <a href="https://github.com/mrjgreen/phroute" target="_blank">
                 PHRoute
+              </a>
+            </p>
+
+            <p>
+              <a href="https://docs.guzzlephp.org/en/stable/" target={"_blank"}>
+                Guzzle
               </a>
             </p>
           </div>
