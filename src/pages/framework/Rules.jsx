@@ -12,10 +12,14 @@ function Rules() {
         <h4>RULES</h4>
 
         <p>
-          You can create rules from command line php lion new:rule rule_name ,
-          rule usage is based on rules provided by vlucas/valitron, you can set
-          language response from environment variables with lang language
-          preference to <Badge bg={"secondary"}>.env</Badge>
+          You can create rules from command line{" "}
+          <Badge bg={"secondary"}>php lion new:rule rule_name</Badge>, rule
+          usage is based on rules provided by{" "}
+          <a href="https://github.com/vlucas/valitron" target={"_blank"}>
+            vlucas/valitron
+          </a>
+          , you can set language response from environment variables with lang
+          language preference to <Badge bg={"secondary"}>.env</Badge>
         </p>
 
         <p>
@@ -36,16 +40,13 @@ function Rules() {
           content={
             "<?php\n\n" +
             "namespace App\\Rules;\n\n" +
-            "use App\\Traits\\Framework\\DisplayErrors;\n\n" +
+            "use App\\Traits\\Framework\\ShowErrors;\n\n" +
             "class EmailRule {\n\n" +
-            "\tuse DisplayErrors;\n\n" +
-            "\tpublic function __contruct() {\n\n" +
-            "\t}\n\n" +
-            "\tpublic function passes(): EmailRule {\n" +
-            "\t\t$this->validateRules([\n" +
-            "\t\t\t'required' => [\n\t\t\t\t['users_email']\n\t\t\t]\n" +
-            "\t\t]);\n\n" +
-            "\t\treturn $this;\n" +
+            "\tuse ShowErrors;\n\n" +
+            "\tpublic function passes(): void {\n" +
+            "\t\tself::validate(function(\Valitron\Validator $validator) {\n" +
+            "\t\t\t$validator->rule('required', 'users_email')->message('custom message...');\n" +
+            "\t\t});\n" +
             "\t}\n\n" +
             "}"
           }

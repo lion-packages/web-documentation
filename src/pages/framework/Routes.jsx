@@ -18,6 +18,10 @@ function Routes() {
           add all the necessary routes for the operation of your web application{" "}
           <Badge bg={"secondary"}>routes/web.php</Badge>
         </p>
+      </div>
+
+      <div className="mb-3">
+        <h4 className="pb-2">Example #1</h4>
 
         <CodeBlock
           langueage={"php"}
@@ -28,6 +32,20 @@ function Routes() {
             "// or\n\n" +
             "Route::get('/', function() {\n" +
             "\treturn (new HomeController())->index();\n" +
+            "});"
+          }
+        />
+      </div>
+
+      <div className="mb-3">
+        <h4 className="pb-2">Example #2</h4>
+
+        <CodeBlock
+          langueage={"php"}
+          content={
+            "<?php\n\n" +
+            "Route::get('/', function() {\n" +
+            "\treturn response->success('test');\n" +
             "});"
           }
         />

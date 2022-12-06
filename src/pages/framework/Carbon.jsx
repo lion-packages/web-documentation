@@ -16,6 +16,10 @@ function Carbon() {
           </a>{" "}
           is installed by default.
         </p>
+      </div>
+
+      <div className="mb-3">
+        <h4 className="pb-2">Example #1</h4>
 
         <CodeBlock
           langueage={"php"}
@@ -23,6 +27,19 @@ function Carbon() {
             "<?php\n\n" +
             "use Carbon\\Carbon;\n\n" +
             "return response->success('my time! ' . Carbon::now());"
+          }
+        />
+      </div>
+
+      <div className="mb-3">
+        <h4 className="pb-2">Example #2</h4>
+
+        <CodeBlock
+          langueage={"php"}
+          content={
+            "<?php\n\n" +
+            "use Carbon\\Carbon;\n\n" +
+            "return response->success('my time! ' . Carbon::now()->format('Y-m-d H:i:s'));"
           }
         />
       </div>
