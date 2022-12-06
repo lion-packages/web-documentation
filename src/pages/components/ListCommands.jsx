@@ -12,10 +12,10 @@ function ListCommands() {
       description: "Command to create run unit tests",
       command: "php lion new:test name_test",
     },
-    {
-      description: "Command required for the creation of new Capsules",
-      command: "php lion new:capsule name_capsule",
-    },
+    // {
+    //   description: "Command required for the creation of new Capsules",
+    //   command: "php lion new:capsule name_capsule",
+    // },
     {
       description: "Command required for the creation of new Commands",
       command: "php lion new:command name_command",
