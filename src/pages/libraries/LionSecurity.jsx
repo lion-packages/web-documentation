@@ -91,7 +91,7 @@ function LionSecurity() {
             <CodeBlock
               language="powershell"
               content={
-                'RSA_PATH="C:/xampp/php/extras/openssl/openssl.cnf"\n' +
+                'RSA_PATH="C:\\\\xampp\\\\php\\\\extras\\\\openssl\\\\openssl.cnf"\n' +
                 "RSA_PRIVATE_KEY_BITS=2048\n" +
                 'RSA_DEFAULT_MD="sha256"'
               }
@@ -344,8 +344,8 @@ function LionSecurity() {
             <CodeBlock
               language="powershell"
               content={
-                'SERVER_URL="http://localhost/Lion-Framework/Lion-Security/"\n' +
-                'SERVER_URL_AUD="http://localhost:3000/"\n' +
+                'SERVER_URL="http://127.0.0.1:8000"\n' +
+                'SERVER_URL_AUD="http://127.0.0.1:5173"\n' +
                 'JWT_DEFAULT_MD="RS256"\n' +
                 "JWT_EXP=86400\n"
               }
@@ -515,34 +515,6 @@ function LionSecurity() {
           <hr />
 
           <div className="mb-3">
-            <h4 className="pb-2">PASSWORD VERIFY</h4>
-
-            <p>
-              This function checks if the 2 passwords sent are the same{" "}
-              <a
-                href="https://www.php.net/manual/es/function.password-verify"
-                target={"_blank"}
-              >
-                php.net
-              </a>
-            </p>
-
-            <CodeBlock
-              language="php"
-              content={
-                "<?php\n\n" +
-                "use LionSecurity\\SECURITY;\n\n" +
-                "$password = '...';\n" +
-                "$passwordConfirm = '...';\n\n" +
-                "$request = SECURITY::passwordVerify($password, $passwordConfirm);\n" +
-                "var_dump($request);"
-              }
-            />
-          </div>
-
-          <hr />
-
-          <div className="mb-3">
             <h4 className="pb-2">VALIDATE</h4>
 
             <p>
@@ -567,8 +539,9 @@ function LionSecurity() {
               content={
                 "<?php\n\n" +
                 "use LionSecurity\\SECURITY;\n\n" +
-                "$request = SECURITY::validate($_POST, ['rulers...']);\n" +
-                "var_dump($request);"
+                "$response = SECURITY::validate($_POST, function(Valitron\\Validator $validator) {\n" +
+                "\t$validator->rule('required', 'users_email')->message('custom message...');\n" +
+                "});\n"
               }
             />
           </div>
