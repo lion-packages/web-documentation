@@ -87,7 +87,7 @@ function LionSQL() {
 
             <CodeBlock
               language="powershell"
-              content={"composer require lion-framework/lion-sql"}
+              content={"composer require lion/sql"}
             />
           </div>
         </>

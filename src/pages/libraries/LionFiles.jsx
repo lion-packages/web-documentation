@@ -95,7 +95,7 @@ function LionFiles() {
 
             <CodeBlock
               language="powershell"
-              content={"composer require lion-framework/lion-files"}
+              content={"composer require lion/files"}
             />
           </div>
         </>

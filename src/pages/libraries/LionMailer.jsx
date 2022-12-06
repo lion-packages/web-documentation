@@ -60,7 +60,7 @@ function LionMailer() {
 
             <CodeBlock
               language="powershell"
-              content={"composer require lion-framework/lion-mailer"}
+              content={"composer require lion/mailer"}
             />
           </div>
 

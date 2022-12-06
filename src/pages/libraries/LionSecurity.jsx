@@ -65,7 +65,7 @@ function LionSecurity() {
 
             <CodeBlock
               language="powershell"
-              content={"composer require lion-framework/lion-security"}
+              content={"composer require lion/security"}
             />
           </div>
         </>

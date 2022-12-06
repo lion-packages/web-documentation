@@ -52,7 +52,14 @@ function DashboardContent() {
                 single page application or a mobile application.
               </p>
 
-              <Col xs={6} sm={5} md={5} lg={4} xl={4} className="mx-auto mt-3 mb-5">
+              <Col
+                xs={6}
+                sm={5}
+                md={5}
+                lg={4}
+                xl={4}
+                className="mx-auto mt-3 mb-5"
+              >
                 <div className="d-grid gap-2">
                   <LinkContainer to="/framework/getting-started">
                     <Button variant="light">
@@ -69,6 +76,11 @@ function DashboardContent() {
                   </Button>
                 </div>
               </Col>
+
+              <CodeBlock
+                language={"powershell"}
+                content={"composer create-project lion/framework"}
+              />
             </Row>
           </Col>
         </Row>

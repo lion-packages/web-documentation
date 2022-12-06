@@ -52,7 +52,7 @@ function GettingStarted() {
 
         <CodeBlock
           language={"powershell"}
-          content={"composer create-project lion-framework/lion-framework"}
+          content={"composer create-project lion/framework"}
         />
       </div>
 

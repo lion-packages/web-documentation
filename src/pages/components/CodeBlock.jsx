@@ -1,12 +1,12 @@
 import SyntaxHighlighter from "react-syntax-highlighter";
 import { darcula } from "react-syntax-highlighter/dist/esm/styles/hljs";
 
-function CodeBlock(props) {
+function CodeBlock({ language, content }) {
   return <SyntaxHighlighter
-    language={props.language}
+    language={language}
     style={darcula}
     className="rounded p-3"
-    children={props.content}
+    children={content}
   />
 }
 

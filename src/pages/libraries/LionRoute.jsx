@@ -71,7 +71,7 @@ function LionRoute() {
 
             <CodeBlock
               language="powershell"
-              content={"composer require lion-framework/lion-route"}
+              content={"composer require lion/route"}
             />
           </div>
 

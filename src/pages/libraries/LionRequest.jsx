@@ -64,7 +64,7 @@ function LionRequest() {
 
             <CodeBlock
               language="powershell"
-              content={"composer require lion-framework/lion-request"}
+              content={"composer require lion/request"}
             />
           </div>
         </>
