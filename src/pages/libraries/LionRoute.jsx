@@ -624,7 +624,7 @@ function LionRoute() {
     },
   ]);
 
-  return <ListTabs default="request" items={items} panes={panes} />;
+  return <ListTabs default="getting-started" items={items} panes={panes} />;
 }
 
 export default LionRoute;
