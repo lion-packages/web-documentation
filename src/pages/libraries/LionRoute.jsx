@@ -32,6 +32,10 @@ function LionRoute() {
       name: "REDIRECT",
     },
     {
+      event: "request",
+      name: "REQUEST",
+    },
+    {
       event: "credits-license",
       name: "CREDITS AND LICENSE",
     },
@@ -547,11 +551,48 @@ function LionRoute() {
       ),
     },
     {
+      event: "request",
+      content: (
+        <>
+          <div className="mb-3">
+            <h4 className="pb-2">REQUEST HTTP</h4>
+
+            <p>
+              guzzle has been integrated to execute http requests through route,
+              you can make get and post requests with their respective options,
+              more information in{" "}
+              <a href="https://docs.guzzlephp.org/en/stable/" target={"_blank"}>
+                guzzle
+              </a>
+              .
+            </p>
+
+            <CodeBlock
+              language="php"
+              content={
+                "<?php\n\n" +
+                "Route::prefix('api', function() {\n" +
+                "\tRoute::get('users', 'https://jsonplaceholder.typicode.com/users');\n\n" +
+                "\tRoute::post('posts', 'https://jsonplaceholder.typicode.com/posts', [\n" +
+                "\t\t'json' => [\n" +
+                "\t\t\t'title' => 'foo'\n" +
+                "\t\t\t'body' => 'bar'\n" +
+                "\t\t\t'userId' => 1\n" +
+                "\t\t]\n" +
+                "\t]);\n" +
+                "});"
+              }
+            />
+          </div>
+        </>
+      ),
+    },
+    {
       event: "credits-license",
       content: (
         <>
           <div className="mb-4">
-            <h3 className="pb-2">CREDITS</h3>
+            <h4 className="pb-2">CREDITS</h4>
 
             <p>
               <a href="https://github.com/mrjgreen/phroute" target="_blank">
@@ -567,7 +608,7 @@ function LionRoute() {
           </div>
 
           <div className="mb-3">
-            <h3 className="pb-2">LICENSE</h3>
+            <h4 className="pb-2">LICENSE</h4>
             <p>
               Copyright © 2022{" "}
               <a
@@ -583,7 +624,7 @@ function LionRoute() {
     },
   ]);
 
-  return <ListTabs default="getting-started" items={items} panes={panes} />;
+  return <ListTabs default="request" items={items} panes={panes} />;
 }
 
 export default LionRoute;
