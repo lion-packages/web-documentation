@@ -476,11 +476,7 @@ function LionSecurity() {
               content={
                 "<?php\n\n" +
                 "use LionSecurity\\SECURITY;\n\n" +
-                "$password = (object) [\n" +
-                "\t'password' => 'root1234',\n" +
-                "\t'email' => 'example@example.com',\n];\n\n" +
-                "$password = SECURITY::sha256($password);\n" +
-                "var_dump($password);"
+                "$password = SECURITY::sha256('root1234');"
               }
             />
           </div>
@@ -506,8 +502,7 @@ function LionSecurity() {
               content={
                 "<?php\n\n" +
                 "use LionSecurity\\SECURITY;\n\n" +
-                "$password = SECURITY::passwordHash('root1234');\n" +
-                "var_dump($password);"
+                "$password = SECURITY::passwordHash('root1234');"
               }
             />
           </div>
@@ -539,8 +534,8 @@ function LionSecurity() {
               content={
                 "<?php\n\n" +
                 "use LionSecurity\\SECURITY;\n\n" +
-                "$response = SECURITY::validate($_POST, function(Valitron\\Validator $validator) {\n" +
-                "\t$validator->rule('required', 'users_email')->message('custom message...');\n" +
+                "$response = SECURITY::validate($_POST, function(\\Valitron\\Validator $validator) {\n" +
+                "\t$validator\n\t\t->rule('required', 'users_email')\n\t\t->message('custom message...');\n" +
                 "});\n"
               }
             />
