@@ -57,7 +57,7 @@ function Middleware() {
             "\tpublic function exist(): void {\n" +
             "\t\t$headers = apache_request_headers();\n\n" +
             "\t\tif (!isset($headers['Authorization'])) {\n" +
-            "\t\t\tresponse->finish(json->encode(response->error('The JWT does not exist')));\n" +
+            "\t\t\tfinish(response->error('The JWT does not exist'));\n" +
             "\t\t}\n" +
             "\t}\n\n" +
             "\tpublic function authorize(): void {\n" +
@@ -65,16 +65,16 @@ function Middleware() {
             "\t\tif (preg_match('/Bearers(S+)/', $headers['Authorization'], $matches)) {\n" +
             "\t\t\t$jwt = JWT::decode($matches[1]);\n\n" +
             "\t\t\tif ($jwt->status === 'error') {\n" +
-            "\t\t\t\tresponse->finish(json->encode(response->error($jwt->message)));\n" +
+            "\t\t\t\tfinish(response->error($jwt->message));\n" +
             "\t\t\t}\n" +
             "\t\t} else {\n" +
-            "\t\t\tresponse->finish(json->encode(response->error('Invalid JWT')));\n" +
+            "\t\t\tfinish(response->error('Invalid JWT'));\n" +
             "\t\t}\n" +
             "\t}\n\n" +
             "\tpublic function notAuthorize(): void {\n" +
             "\t\t$headers = apache_request_headers();\n\n" +
             "\t\tif (isset($headers['Authorization'])) {\n" +
-            "\t\t\tresponse->finish(json->encode(response->error('User in session, You must close the session')));\n" +
+            "\t\t\tfinish(response->error('User in session, You must close the session'));\n" +
             "\t\t}\n" +
             "\t}\n\n" +
             "}"
@@ -97,7 +97,7 @@ function Middleware() {
           language={"php"}
           content={
             "<?php\n\n" +
-            "LionRouteRoute::newMiddleware([\n" +
+            "LionRouteRoute::addMiddleware([\n" +
             "\tApp\\Http\\Middleware\\JWT\\AuthorizationMiddleware::class => [\n" +
             "\t\t['name' => 'jwt-exist', 'method' => 'exist']\n" +
             "\t\t['name' => 'jwt-authorize', 'method' => 'authorize']\n" +
