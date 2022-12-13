@@ -44,8 +44,8 @@ function Rules() {
             "class EmailRule {\n\n" +
             "\tuse ShowErrors;\n\n" +
             "\tpublic function passes(): void {\n" +
-            "\t\tself::validate(function(\Valitron\Validator $validator) {\n" +
-            "\t\t\t$validator->rule('required', 'users_email')->message('custom message...');\n" +
+            "\t\tself::validate(function(\\Valitron\\Validator $validator) {\n" +
+            "\t\t\t$validator\n\t\t\t\t->rule('required', 'users_email')\n\t\t\t\t->message('custom message...');\n" +
             "\t\t});\n" +
             "\t}\n\n" +
             "}"
