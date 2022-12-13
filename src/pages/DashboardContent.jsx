@@ -66,21 +66,8 @@ function DashboardContent() {
                       Getting started <FiArrowRight />
                     </Button>
                   </LinkContainer>
-
-                  <Button
-                    variant="light"
-                    href="https://1drv.ms/u/s!AstHz58BpA9Jb3RVv6MNrLbYL_U?e=3EcdMp"
-                    target="_blank"
-                  >
-                    Desktop
-                  </Button>
                 </div>
               </Col>
-
-              <CodeBlock
-                language={"powershell"}
-                content={"composer create-project lion/framework"}
-              />
             </Row>
           </Col>
         </Row>
