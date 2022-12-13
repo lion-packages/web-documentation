@@ -30,8 +30,8 @@ function Capsules() {
 
         <Alert variant={"warning"}>
           Note: Capsule classes by default are stored in the{" "}
-          <Badge bg="warning">database/Class/</Badge> directory, you can change the
-          path with the <Badge bg="warning">--path</Badge> option.
+          <Badge bg="warning">database/Class/</Badge> directory, you can change
+          the path with the <Badge bg="warning">--path</Badge> option.
         </Alert>
 
         <CodeBlock
@@ -39,7 +39,7 @@ function Capsules() {
           content={
             "<?php\n\n" +
             "namespace App\\Class;\r\n\n" +
-            "class TableName implements \JsonSerializable {\n\n" +
+            "class TableName implements JsonSerializable {\n\n" +
             "\tprivate ?int $id = null;\n" +
             "\tprivate ?string $name = null;\n\n" +
             "\tpublic function __contruct() {}\n\n" +
@@ -70,13 +70,13 @@ function Capsules() {
 
         <CodeBlock
           language={"powershell"}
-          content={"php lion db:all-capsules database_name"}
+          content={"php lion db:all-capsules"}
         />
 
         <Alert variant={"warning"}>
           Note: Capsule classes by default are stored in the{" "}
-          <Badge bg="warning">database/Class/</Badge> directory, you can change the
-          path with the <Badge bg="warning">--path</Badge> option,{" "}
+          <Badge bg="warning">database/Class/</Badge> directory, you can change
+          the path with the <Badge bg="warning">--path</Badge> option,{" "}
           <Badge bg="warning">db:all-capsules</Badge> reads all the tables in
           the database, generating for each table its respective class along
           with its properties and functions.
@@ -91,6 +91,19 @@ function Capsules() {
             "class TableName2 {/* ... */} \n\n" +
             "class TableName3 {/* ... */} \n\n"
           }
+        />
+      </div>
+
+      <hr />
+
+      <div className="mb-3">
+        <h5>CREATE CUSTOM CAPSULES</h5>
+
+        <p>create custom capsule classes</p>
+
+        <CodeBlock
+          language={"powershell"}
+          content={"php lion new:capsule ClassName"}
         />
       </div>
 
