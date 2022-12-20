@@ -183,7 +183,7 @@ function LionRoute() {
                 "use LionRoute\\Route;\n" +
                 "use LionRoute\\Request;\n\n" +
                 "Route::init();\n" +
-                "Request::init(new GuzzleHttpClient());\n" +
+                "Request::init(new GuzzleHttp\\Client());\n" +
                 "Route::any('/', fn() => ['status' => 'success', 'message' => 'Hello world']);\n" +
                 "Route::dispatch();"
               }

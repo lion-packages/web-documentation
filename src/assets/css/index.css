@@ -21,12 +21,31 @@
     -webkit-text-fill-color: transparent;
 }
 
+.title-degradient {
+    /* font-family: 'Ubuntu Condensed', sans-serif; */
+    font-family: 'Montserrat', sans-serif;
+    line-height: 1.25;
+    font-weight: 900;
+    letter-spacing: -1.5px;
+    background: -webkit-linear-gradient(left, #42d392 25%,#647eff);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
 .description {
     /* font-family: 'Ubuntu Condensed', sans-serif; */
     font-family: 'Montserrat', sans-serif;
     line-height: 1.5;
     transition: color .5s;
     font-size: 22px;
+    margin: 24px auto 40px;
+}
+
+.description-gradient {
+    /* font-family: 'Ubuntu Condensed', sans-serif; */
+    font-family: 'Montserrat', sans-serif;
+    line-height: 1.5;
+    transition: color .5s;
     margin: 24px auto 40px;
 }
 
