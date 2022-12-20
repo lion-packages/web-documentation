@@ -1,6 +1,10 @@
 import { Badge } from "react-bootstrap";
 import CodeBlock from "../../../../pages/components/CodeBlock";
 
+export function v1_4_0_CHANGELOG() {
+  return {};
+}
+
 export default function v1_4_0() {
   return {
     spreadsheet: {

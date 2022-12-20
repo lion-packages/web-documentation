@@ -25,6 +25,7 @@ import AddMethods from "./pages/AddMethods";
 import AddCode from "./pages/AddCode";
 import LionRoute from "./pages/libraries/Lion/LionRoute";
 import LionSpreadsheet from "./pages/libraries/Lion/LionSpreadsheet";
+import LionRequest from "./pages/libraries/Lion/LionRequest";
 
 function App() {
   return (
@@ -54,6 +55,13 @@ function App() {
           <Route path="content" element={<LibraryContent />} />
 
           <Route path="lion">
+            <Route path="request">
+              <Route path={"index"} element={<LionRequest />} />
+              <Route path=":version/:classname" element={<AddMethods />}>
+                <Route path=":functionname" element={<AddCode />} />
+              </Route>
+            </Route>
+
             <Route path="spreadsheet">
               <Route path={"index"} element={<LionSpreadsheet />} />
               <Route path=":version/:classname" element={<AddMethods />}>

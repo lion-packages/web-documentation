@@ -12,7 +12,7 @@ function LibraryContent() {
       <div className="my-4 text-white">
         <Row>
           <Col xs={12} sm={12} md={6}>
-            <h5 className="pb-2">LION LIBRARIES AVAILABLE</h5>
+            <h5 className="pb-2 text-warning">LION LIBRARIES AVAILABLE</h5>
 
             {Object.entries(lion).map(([key, library]) => (
               <div className="mb-3" key={key}>
@@ -21,8 +21,8 @@ function LibraryContent() {
                   description={library.description}
                   uri={library.url}
                   textColor={{
-                    title: "title-degradient",
-                    description: "description-gradient text-white",
+                    title: "text-warning",
+                    description: "text-white",
                   }}
                 />
               </div>
@@ -30,7 +30,7 @@ function LibraryContent() {
           </Col>
 
           <Col xs={12} sm={12} md={6}>
-            <h5 className="pb-2">CREDIT TO EXTERNAL LIBRARIES</h5>
+            <h5 className="pb-2 text-warning">CREDIT TO EXTERNAL LIBRARIES</h5>
 
             {Object.entries(external).map(([key, library]) => (
               <div className="mb-3" key={key}>
@@ -39,7 +39,7 @@ function LibraryContent() {
                   description={library.description}
                   uri={library.url}
                   textColor={{
-                    title: "title-degradient",
+                    title: "text-warning",
                     description: "text-white",
                   }}
                 />

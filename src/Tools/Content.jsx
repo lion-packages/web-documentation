@@ -1,14 +1,31 @@
 import v2_1_2, {
   v2_1_2_CHANGELOG,
 } from "./Versions/Libraries/LionHelpers/v2_1_2";
+import v5_3_0, {
+  v5_3_0_CHANGELOG,
+} from "./Versions/Libraries/LionRequest/v5_3_0";
 import v8_1_0, {
   v8_1_0_CHANGELOG,
 } from "./Versions/Libraries/LionRoute/v8_1_0";
-import v1_4_0 from "./Versions/Libraries/LionSpreadsheet/v1_4_0";
+import v1_4_0, {
+  v1_4_0_CHANGELOG,
+} from "./Versions/Libraries/LionSpreadsheet/v1_4_0";
 
 export default {
   libraries: {
     lion: {
+      request: {
+        title: "LION-REQUEST",
+        url: "/libraries/lion/request/index",
+        description:
+          "Library created to request input data and response requests.",
+        class: {
+          "v1.4.0": v5_3_0(),
+        },
+        changelod: {
+          "v1.4.0": v5_3_0_CHANGELOG(),
+        },
+      },
       spreadsheet: {
         title: "LION-SPREADSHEET",
         url: "/libraries/lion/spreadsheet/index",
@@ -17,7 +34,7 @@ export default {
           "v1.4.0": v1_4_0(),
         },
         changelod: {
-          "v1.4.0": {},
+          "v1.4.0": v1_4_0_CHANGELOG(),
         },
       },
       route: {
