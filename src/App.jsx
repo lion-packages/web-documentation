@@ -25,6 +25,8 @@ import AddMethods from "./pages/AddMethods";
 import AddCode from "./pages/AddCode";
 import LionRoute from "./pages/libraries/Lion/LionRoute";
 import LionSpreadsheet from "./pages/libraries/Lion/LionSpreadsheet";
+import LionMailer from "./pages/libraries/Lion/LionMailer";
+import LionSQL from "./pages/libraries/Lion/LionSQL";
 
 function App() {
   return (
@@ -56,6 +58,20 @@ function App() {
           <Route path="lion">
             <Route path="spreadsheet">
               <Route path={"index"} element={<LionSpreadsheet />} />
+              <Route path=":version/:classname" element={<AddMethods />}>
+                <Route path=":functionname" element={<AddCode />} />
+              </Route>
+            </Route>
+
+            <Route path="sql">
+              <Route path={"index"} element={<LionSQL/>} />
+              <Route path=":version/:classname" element={<AddMethods />}>
+                <Route path=":functionname" element={<AddCode />} />
+              </Route>
+            </Route>
+            
+            <Route path="mailer">
+              <Route path={"index"} element={<LionMailer />} />
               <Route path=":version/:classname" element={<AddMethods />}>
                 <Route path=":functionname" element={<AddCode />} />
               </Route>

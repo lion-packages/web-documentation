@@ -332,7 +332,9 @@ function LionSQL() {
                       }
                     />
 
-                    <CodeBlock
+                    <CodeBlockWHERE
+AND
+
                       language="php"
                       content={
                         "<?php\n\n" +
