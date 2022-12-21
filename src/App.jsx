@@ -28,6 +28,8 @@ import LionSpreadsheet from "./pages/libraries/Lion/LionSpreadsheet";
 import LionMailer from "./pages/libraries/Lion/LionMailer";
 import LionSQL from "./pages/libraries/Lion/LionSQL";
 import LionRequest from "./pages/libraries/Lion/LionRequest";
+import LionSecurity from "./pages/libraries/Lion/LionSecurity";
+import LionFiles from "./pages/libraries/Lion/LionFiles";
 
 function App() {
   return (
@@ -64,6 +66,20 @@ function App() {
               </Route>
             </Route>
 
+            <Route path="files">
+              <Route path={"index"} element={<LionFiles />} />
+              <Route path=":version/:classname" element={<AddMethods />}>
+                <Route path=":functionname" element={<AddCode />} />
+              </Route>
+            </Route>
+
+            <Route path="security">
+              <Route path={"index"} element={<LionSecurity />} />
+              <Route path=":version/:classname" element={<AddMethods />}>
+                <Route path=":functionname" element={<AddCode />} />
+              </Route>
+            </Route>
+
             <Route path="spreadsheet">
               <Route path={"index"} element={<LionSpreadsheet />} />
               <Route path=":version/:classname" element={<AddMethods />}>
@@ -72,7 +88,7 @@ function App() {
             </Route>
 
             <Route path="sql">
-              <Route path={"index"} element={<LionSQL/>} />
+              <Route path={"index"} element={<LionSQL />} />
               <Route path=":version/:classname" element={<AddMethods />}>
                 <Route path=":functionname" element={<AddCode />} />
               </Route>

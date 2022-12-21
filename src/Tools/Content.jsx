@@ -1,3 +1,6 @@
+import v4_7_0, {
+  v4_7_0_CHANGELOG,
+} from "./Versions/Libraries/LionFiles/v4_7_0";
 import v2_1_2, {
   v2_1_2_CHANGELOG,
 } from "./Versions/Libraries/LionHelpers/v2_1_2";
@@ -10,6 +13,9 @@ import v5_3_0, {
 import v8_1_0, {
   v8_1_0_CHANGELOG,
 } from "./Versions/Libraries/LionRoute/v8_1_0";
+import v6_9_0, {
+  v6_9_0_CHANGELOG,
+} from "./Versions/Libraries/LionSecurity/v6_9_0";
 import v1_4_0, {
   v1_4_0_CHANGELOG,
 } from "./Versions/Libraries/LionSpreadsheet/v1_4_0";
@@ -18,6 +24,30 @@ import v6_4_0, { v6_4_0_CHANGELOG } from "./Versions/Libraries/LionSQL/v6_4_0";
 export default {
   libraries: {
     lion: {
+      files: {
+        title: "LION-FILES",
+        url: "/libraries/lion/files/index",
+        description:
+          "Library created with the function of working internal system files.",
+        class: {
+          "v4.7.0": v4_7_0(),
+        },
+        changelod: {
+          "v4.7.0": v4_7_0_CHANGELOG(),
+        },
+      },
+      security: {
+        title: "LION-SECURITY",
+        url: "/libraries/lion/security/index",
+        description:
+          "Library created with the function of implementing AES, RSA and JWT Security functions for PHP.",
+        class: {
+          "v6.9.0": v6_9_0(),
+        },
+        changelod: {
+          "v6.9.0": v6_9_0_CHANGELOG(),
+        },
+      },
       request: {
         title: "LION-REQUEST",
         url: "/libraries/lion/request/index",
