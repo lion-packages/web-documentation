@@ -155,7 +155,7 @@ export default function v6_9_0() {
                 language="php"
                 content={
                   "<?php\n\n" +
-                  "$data = (object) [\n" +
+                  "$data = [\n" +
                   "\t'email' => 'myemail2022@example.com', \n" +
                   "\t'password' => 'mypass1234'\n];"
                 }
@@ -331,8 +331,8 @@ export default function v6_9_0() {
                 language="php"
                 content={
                   "<?php\n\n" +
-                  "use LionSecurity\\SECURITY;\n\n" +
-                  "$password = SECURITY::sha256('root1234');"
+                  "use LionSecurity\\Validation;\n\n" +
+                  "$password = Validation::sha256('root1234');"
                 }
               />
             </div>
@@ -362,8 +362,8 @@ export default function v6_9_0() {
                 language="php"
                 content={
                   "<?php\n\n" +
-                  "use LionSecurity\\SECURITY;\n\n" +
-                  "$password = SECURITY::passwordHash('root1234');"
+                  "use LionSecurity\\Validation;\n\n" +
+                  "$password = Validation::passwordHash('root1234');"
                 }
               />
             </div>
@@ -397,8 +397,8 @@ export default function v6_9_0() {
                 language="php"
                 content={
                   "<?php\n\n" +
-                  "use LionSecurity\\SECURITY;\n\n" +
-                  "$response = SECURITY::validate($_POST, function(\\Valitron\\Validator $validator) {\n" +
+                  "use LionSecurity\\Validation;\n\n" +
+                  "$response = Validation::validate($_POST, function(\\Valitron\\Validator $validator) {\n" +
                   "\t$validator\n\t\t->rule('required', 'users_email')\n\t\t->message('custom message...');\n" +
                   "});\n"
                 }

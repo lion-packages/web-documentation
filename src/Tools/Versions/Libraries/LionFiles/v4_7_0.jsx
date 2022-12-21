@@ -136,7 +136,7 @@ export default function v4_7_0() {
           title: "Manage::exist",
           description:
             "The exist function allows you to check if a folder or file exists.",
-          link: "rename",
+          link: "exist",
           code: (
             <div className="mb-3">
               <p>
