@@ -1,3 +1,4 @@
+
 import { useState } from "react";
 import { Col, Container, Form, InputGroup, Row } from "react-bootstrap";
 import Content from "../../../Tools/Content";
@@ -5,8 +6,8 @@ import CardLink from "../../components/CardLink";
 import CodeBlock from "../../components/CodeBlock";
 import GithubButton from "../../components/GithubButton";
 
-function LionMailer() {
-  const [info, setInfo] = useState(Content.libraries.lion.mailer.class);
+function LionSQL() {
+  const [info, setInfo] = useState(Content.libraries.lion.sql.class);
   const [versionList, setVersionList] = useState(Object.keys(info));
   const [versions, setVersions] = useState(versionList);
   const [option, setOption] = useState(versionList[0]);
@@ -29,7 +30,7 @@ function LionMailer() {
             <InputGroup className="mb-3">
               <GithubButton
                 variantButton={"outline-light"}
-                url={"https://github.com/Sleon4/Lion-Mailer"}
+                url={"https://github.com/Sleon4/Lion-SQL"}
               />
 
               <Form.Select onChange={handleChange}>
@@ -43,7 +44,7 @@ function LionMailer() {
 
         <CodeBlock
           language={"powershell"}
-          content={"composer require lion/mailer"}
+          content={"composer require lion/sql"}
         />
       </div>
 
@@ -68,4 +69,4 @@ function LionMailer() {
   );
 }
 
-export default LionMailer;
+export default LionSQL;

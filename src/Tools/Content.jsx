@@ -1,6 +1,9 @@
 import v2_1_2, {
   v2_1_2_CHANGELOG,
 } from "./Versions/Libraries/LionHelpers/v2_1_2";
+import v4_0_0, {
+  v4_0_0_CHANGELOG,
+} from "./Versions/Libraries/LionMailer/v4_0_0";
 import v5_3_0, {
   v5_3_0_CHANGELOG,
 } from "./Versions/Libraries/LionRequest/v5_3_0";
@@ -10,6 +13,7 @@ import v8_1_0, {
 import v1_4_0, {
   v1_4_0_CHANGELOG,
 } from "./Versions/Libraries/LionSpreadsheet/v1_4_0";
+import v6_4_0, { v6_4_0_CHANGELOG } from "./Versions/Libraries/LionSQL/v6_4_0";
 
 export default {
   libraries: {
@@ -24,6 +28,30 @@ export default {
         },
         changelod: {
           "v1.4.0": v5_3_0_CHANGELOG(),
+        },
+      },
+      sql: {
+        title: "LION-SQL",
+        url: "/libraries/lion/sql/index",
+        description:
+          "Package responsible for generating and executing MySQL processes.",
+        class: {
+          "v6.4.0": v6_4_0(),
+        },
+        changelod: {
+          "v6.4.0": v6_4_0_CHANGELOG(),
+        },
+      },
+      mailer: {
+        title: "LION-MAILER",
+        url: "/libraries/lion/mailer/index",
+        description:
+          "Library created for easy email sending based on PHPMailer.",
+        class: {
+          "v4.0.0": v4_0_0(),
+        },
+        changelod: {
+          "v4.0.0": v4_0_0_CHANGELOG(),
         },
       },
       spreadsheet: {
