@@ -9,7 +9,7 @@ export default function v4_7_0() {
   return {
     manage: {
       title: "LionFiles\\Manage",
-      description: "-----",
+      description: "The manage class allows you to manage files of any type",
       url: "/libraries/lion/files/item_version/manage/get-extension",
       methods: {
         "get-extension": {
