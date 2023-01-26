@@ -7,6 +7,9 @@ import v2_1_2, {
 import v4_0_0, {
   v4_0_0_CHANGELOG,
 } from "./Versions/Libraries/LionMailer/v4_0_0";
+import v4_2_0, {
+  v4_2_0_CHANGELOG,
+} from "./Versions/Libraries/LionMailer/v4_2_0";
 import v5_3_0, {
   v5_3_0_CHANGELOG,
 } from "./Versions/Libraries/LionRequest/v5_3_0";
@@ -81,9 +84,11 @@ export default {
         description:
           "Library created for easy email sending based on PHPMailer.",
         class: {
+          "v4.2.0": v4_2_0(),
           "v4.0.0": v4_0_0(),
         },
         changelod: {
+          "v4.2.0": v4_2_0_CHANGELOG(),
           "v4.0.0": v4_0_0_CHANGELOG(),
         },
       },
