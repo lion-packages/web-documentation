@@ -9,12 +9,13 @@ export default function v4_0_0() {
   return {
     mailer: {
       title: "LionMailer\\Mailer",
-      description: "-----",
+      description: "The `Mailer` class allows you to send emails",
       url: "/libraries/lion/mailer/item_version/mailer/init",
       methods: {
         init: {
           title: "Mailer::init",
-          description: "-----",
+          description:
+            "The `init` function initializes the authentication credentials",
           link: "init",
           code: (
             <>
@@ -46,7 +47,8 @@ export default function v4_0_0() {
         },
         from: {
           title: "Mailer::from",
-          description: "-----",
+          description:
+            "The `from` function selects where the email was sent from",
           link: "from",
           code: (
             <CodeBlock
@@ -61,7 +63,8 @@ export default function v4_0_0() {
         },
         address: {
           title: "Mailer::adrress",
-          description: "-----",
+          description:
+            "The `address` function selects where the email is sent to",
           link: "address",
           code: (
             <CodeBlock
@@ -77,7 +80,8 @@ export default function v4_0_0() {
         },
         "reply-to": {
           title: "Mailer::replyTo",
-          description: "-----",
+          description:
+            "The `replyTo` function selects where the email is sent to",
           link: "reply-to",
           code: (
             <CodeBlock
@@ -94,7 +98,8 @@ export default function v4_0_0() {
         },
         subject: {
           title: "Mailer::subject",
-          description: "-----",
+          description:
+            "The `subject` function describes the subject of the email",
           link: "subject",
           code: (
             <CodeBlock
@@ -112,7 +117,7 @@ export default function v4_0_0() {
         },
         body: {
           title: "Mailer::body",
-          description: "-----",
+          description: "The `body` function describes the body of the email",
           link: "body",
           code: (
             <CodeBlock
@@ -131,7 +136,8 @@ export default function v4_0_0() {
         },
         "alt-Body": {
           title: "Mailer::altBody",
-          description: "-----",
+          description:
+            "La funcion `altBody` describe el cuerpo del email sin formato para clientes de correo que no son HTML",
           link: "alt-Body",
           code: (
             <CodeBlock
@@ -151,7 +157,7 @@ export default function v4_0_0() {
         },
         send: {
           title: "Mailer::send",
-          description: "-----",
+          description: "The `send` function executes the sending of mails",
           link: "send",
           code: (
             <CodeBlock
