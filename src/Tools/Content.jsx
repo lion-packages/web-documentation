@@ -20,6 +20,7 @@ import v1_4_0, {
   v1_4_0_CHANGELOG,
 } from "./Versions/Libraries/LionSpreadsheet/v1_4_0";
 import v6_4_0, { v6_4_0_CHANGELOG } from "./Versions/Libraries/LionSQL/v6_4_0";
+import v6_5_1, { v6_5_1_CHANGELOG } from "./Versions/Libraries/LionSQL/v6_5_1";
 
 export default {
   libraries: {
@@ -66,9 +67,11 @@ export default {
         description:
           "Package responsible for generating and executing MySQL processes.",
         class: {
+          "v6.5.1": v6_5_1(),
           "v6.4.0": v6_4_0(),
         },
         changelod: {
+          "v6.5.1": v6_5_1_CHANGELOG(),
           "v6.4.0": v6_4_0_CHANGELOG(),
         },
       },
