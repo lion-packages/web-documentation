@@ -16,6 +16,9 @@ import v5_3_0, {
 import v8_1_0, {
   v8_1_0_CHANGELOG,
 } from "./Versions/Libraries/LionRoute/v8_1_0";
+import v6_10_0, {
+  v6_10_0_CHANGELOG,
+} from "./Versions/Libraries/LionSecurity/v6_10_0";
 import v6_9_0, {
   v6_9_0_CHANGELOG,
 } from "./Versions/Libraries/LionSecurity/v6_9_0";
@@ -46,9 +49,11 @@ export default {
         description:
           "Library created with the function of implementing AES, RSA and JWT Security functions for PHP.",
         class: {
+          "v6.10.0": v6_10_0(),
           "v6.9.0": v6_9_0(),
         },
         changelod: {
+          "v6.10.0": v6_10_0_CHANGELOG(),
           "v6.9.0": v6_9_0_CHANGELOG(),
         },
       },
