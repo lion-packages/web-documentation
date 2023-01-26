@@ -58,10 +58,10 @@ export default {
         description:
           "Library created to request input data and response requests.",
         class: {
-          "v1.4.0": v5_3_0(),
+          "v5.3.0": v5_3_0(),
         },
         changelod: {
-          "v1.4.0": v5_3_0_CHANGELOG(),
+          "v5.3.0": v5_3_0_CHANGELOG(),
         },
       },
       sql: {
