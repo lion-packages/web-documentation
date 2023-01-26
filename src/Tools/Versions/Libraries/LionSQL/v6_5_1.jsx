@@ -7,11 +7,11 @@ export function v6_5_1_CHANGELOG() {
 
 export default function v6_5_1() {
   return {
-    "mysql-driver": {
+    "mysql": {
       title: "LionSQL\\Drivers\\MySQL",
       description:
         "The `MySQL` class manages processes in the MySQL database",
-      url: "/libraries/lion/sql/item_version/mysql-driver/init",
+      url: "/libraries/lion/sql/item_version/mysql/init",
       methods: {
         init: {
           title: "MySQL::init",
