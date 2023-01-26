@@ -9,12 +9,14 @@ export default function v6_4_0() {
   return {
     "mysql-driver": {
       title: "LionSQL\\Drivers\\MySQLDriver",
-      description: "-----",
+      description:
+        "The `MySQLDriver` class manages processes in the MySQL database",
       url: "/libraries/lion/sql/item_version/mysql-driver/init",
       methods: {
         init: {
           title: "MySQLDriver::init",
-          description: "-----",
+          description:
+            "The `init` function allows you to establish a connection to databases",
           link: "init",
           code: (
             <>
@@ -149,7 +151,8 @@ export default function v6_4_0() {
         },
         insert: {
           title: "MySQLDriver::insert",
-          description: "-----",
+          description:
+            "The `insert` function executes an insert statement in the database to a given table",
           link: "insert",
           code: (
             <CodeBlock
@@ -167,7 +170,8 @@ export default function v6_4_0() {
         },
         select: {
           title: "MySQLDriver::select",
-          description: "-----",
+          description:
+            "The `between` function nests the `sql` statement in the current query",
           link: "select",
           code: (
             <>
@@ -213,7 +217,8 @@ export default function v6_4_0() {
         },
         between: {
           title: "MySQLDriver::between",
-          description: "-----",
+          description:
+            "The `between` function nests the `sql` statement in the current query",
           link: "between",
           code: (
             <div className="mb-3">
@@ -237,7 +242,8 @@ export default function v6_4_0() {
         },
         like: {
           title: "MySQLDriver::like",
-          description: "-----",
+          description:
+            "The `like` function nests the `sql` statement in the current query",
           link: "like",
           code: (
             <div className="mb-3">
@@ -261,7 +267,8 @@ export default function v6_4_0() {
         },
         join: {
           title: "MySQLDriver::inner/left/right",
-          description: "-----",
+          description:
+            "The function is nested to the `sql` statement in the current query",
           link: "join",
           code: (
             <div className="mb-3">
@@ -294,7 +301,8 @@ export default function v6_4_0() {
         },
         min: {
           title: "MySQLDriver::min",
-          description: "-----",
+          description:
+            "The `min` function is nested in the current `sql` statement",
           link: "min",
           code: (
             <div className="mb-3">
@@ -316,7 +324,8 @@ export default function v6_4_0() {
         },
         max: {
           title: "MySQLDriver::max",
-          description: "-----",
+          description:
+            "The `max` function is nested in the current `sql` statement",
           link: "max",
           code: (
             <div className="mb-3">
@@ -338,7 +347,7 @@ export default function v6_4_0() {
         },
         count: {
           title: "MySQLDriver::count",
-          description: "-----",
+          description: "The `count` function is added above the sql statement",
           link: "count",
           code: (
             <div className="mb-3">
@@ -360,7 +369,7 @@ export default function v6_4_0() {
         },
         sum: {
           title: "MySQLDriver::sum",
-          description: "-----",
+          description: "The `sum` function is added above the sql statement",
           link: "sum",
           code: (
             <div className="mb-3">
@@ -382,7 +391,7 @@ export default function v6_4_0() {
         },
         avg: {
           title: "MySQLDriver::avg",
-          description: "-----",
+          description: "The `avg` function is added above the sql statement",
           link: "avg",
           code: (
             <div className="mb-3">
@@ -404,7 +413,8 @@ export default function v6_4_0() {
         },
         "order-by": {
           title: "MySQLDriver::orderBy",
-          description: "-----",
+          description:
+            "The `orderBy` function is nested in the current `sql` statement",
           link: "order-by",
           code: (
             <div className="mb-3">
@@ -425,7 +435,8 @@ export default function v6_4_0() {
         },
         "group-by": {
           title: "MySQLDriver::groupBy",
-          description: "-----",
+          description:
+            "The `groupBy` function is nested in the current `sql` statement",
           link: "group-by",
           code: (
             <div className="mb-3">
@@ -447,7 +458,8 @@ export default function v6_4_0() {
         },
         limit: {
           title: "MySQLDriver::limit",
-          description: "-----",
+          description:
+            "The `limit` function is nested in the current `sql` statement",
           link: "limit",
           code: (
             <>
@@ -488,7 +500,8 @@ export default function v6_4_0() {
         },
         having: {
           title: "MySQLDriver::having",
-          description: "-----",
+          description:
+            "The `having` function is nested in the current `sql` statement",
           link: "having",
           code: (
             <div className="mb-3">
@@ -510,7 +523,8 @@ export default function v6_4_0() {
         },
         show: {
           title: "MySQLDriver::show",
-          description: "-----",
+          description:
+            "The `show` function is nested in the current `sql` statement",
           link: "show",
           code: (
             <>
@@ -542,7 +556,8 @@ export default function v6_4_0() {
         },
         where: {
           title: "MySQLDriver::where",
-          description: "-----",
+          description:
+            "The `where` function is nested in the current `sql` statement",
           link: "where",
           code: (
             <>
@@ -613,7 +628,8 @@ export default function v6_4_0() {
         },
         and: {
           title: "MySQLDriver::and",
-          description: "-----",
+          description:
+            "The `and` function is nested in the current `sql` statement",
           link: "and",
           code: (
             <div className="mb-3">
@@ -641,7 +657,8 @@ export default function v6_4_0() {
         },
         or: {
           title: "MySQLDriver::or",
-          description: "-----",
+          description:
+            "The `or` function is nested in the current `sql` statement",
           link: "or",
           code: (
             <div className="mb-3">
@@ -667,7 +684,8 @@ export default function v6_4_0() {
         },
         update: {
           title: "MySQLDriver::update",
-          description: "-----",
+          description:
+            "The `update` function is nested above the current `sql` statement",
           link: "update",
           code: (
             <div className="mb-3">
@@ -693,7 +711,8 @@ export default function v6_4_0() {
         },
         delete: {
           title: "MySQLDriver::delete",
-          description: "-----",
+          description:
+            "The `delete` function is nested above the current `sql` statement",
           link: "delete",
           code: (
             <div className="mb-3">
@@ -715,7 +734,8 @@ export default function v6_4_0() {
         },
         call: {
           title: "MySQLDriver::call",
-          description: "-----",
+          description:
+            "The `call` function executes a stored procedure in the database",
           link: "call",
           code: (
             <div className="mb-3">
