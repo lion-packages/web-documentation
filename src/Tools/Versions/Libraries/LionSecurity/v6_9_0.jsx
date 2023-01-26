@@ -9,12 +9,14 @@ export default function v6_9_0() {
   return {
     aes: {
       title: "LionSecurity\\AES",
-      description: "-----",
+      description:
+        "The AES class allows us to symmetrically encrypt and decrypt information using a block encryption scheme.",
       url: "/libraries/lion/security/item_version/aes/encode",
       methods: {
         encode: {
           title: "AES::encode",
-          description: "-----",
+          description:
+            "It allows you to encrypt the information using their respective keys",
           link: "encode",
           code: (
             <div className="mb-3">
@@ -57,7 +59,7 @@ export default function v6_9_0() {
         },
         decode: {
           title: "AES::decode",
-          description: "-----",
+          description: "Allows deciphering information using its keys",
           link: "decode",
           code: (
             <div className="mb-3">
@@ -88,12 +90,14 @@ export default function v6_9_0() {
     },
     rsa: {
       title: "LionSecurity\\RSA",
-      description: "-----",
+      description:
+        "The RSA class allows us to asymmetrically encrypt and decrypt information by generating public and private keys.",
       url: "/libraries/lion/security/item_version/rsa/create-keys",
       methods: {
         "create-keys": {
           title: "RSA::createKeys",
-          description: "-----",
+          description:
+            "The `createKeys` function allows you to generate public and private keys",
           link: "create-keys",
           code: (
             <>
@@ -145,7 +149,8 @@ export default function v6_9_0() {
         },
         encode: {
           title: "RSA::encode",
-          description: "-----",
+          description:
+            "The `encode` function allows you to encrypt the information using RSA encryption",
           link: "encode",
           code: (
             <div className="mb-3">
@@ -180,7 +185,8 @@ export default function v6_9_0() {
         },
         decode: {
           title: "RSA::decode",
-          description: "-----",
+          description:
+            "The `decode` function allows decrypting the information through RSA decryption",
           link: "decode",
           code: (
             <div className="mb-3">
@@ -205,12 +211,14 @@ export default function v6_9_0() {
     },
     jwt: {
       title: "LionSecurity\\JWT",
-      description: "-----",
+      description:
+        "The JWT class allows us to encrypt and decrypt information generating JWT",
       url: "/libraries/lion/security/item_version/jwt/encode",
       methods: {
         encode: {
           title: "JWT::encode",
-          description: "-----",
+          description:
+            "The `encode` function generates a JWT with the information obtained",
           link: "encode",
           code: (
             <div className="mb-3">
@@ -257,7 +265,8 @@ export default function v6_9_0() {
         },
         decode: {
           title: "JWT::decode",
-          description: "-----",
+          description:
+            "The `decode` function returns the token to its original fetched data state",
           link: "decode",
           code: (
             <div className="mb-3">
@@ -277,7 +286,8 @@ export default function v6_9_0() {
         },
         get: {
           title: "JWT::get",
-          description: "-----",
+          description:
+            "The `get` function gets the token obtained through an http request",
           link: "get",
           code: (
             <div className="mb-3">
@@ -303,7 +313,8 @@ export default function v6_9_0() {
     },
     validation: {
       title: "LionSecurity\\Validation",
-      description: "-----",
+      description:
+        "The Validation class allows us to validate system information",
       url: "/libraries/lion/security/item_version/validation/sha256",
       methods: {
         sha256: {
@@ -371,7 +382,8 @@ export default function v6_9_0() {
         },
         validate: {
           title: "Validation::validate",
-          description: "-----",
+          description:
+            "The `validate` function validates incoming data from an http request using vlucas/valitron functions",
           link: "validate",
           code: (
             <div className="mb-3">
