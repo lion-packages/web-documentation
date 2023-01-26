@@ -5,7 +5,7 @@ import CardLink from "../components/CardLink";
 
 function LibraryContent() {
   const [lion, setLion] = useState(Content.libraries.lion);
-  const [external, setExternal] = useState(Content.libraries.external.class);
+  const [external, setExternal] = useState(Content.libraries.external);
 
   return (
     <Container>
@@ -35,7 +35,8 @@ function LibraryContent() {
             {Object.entries(external).map(([key, library]) => (
               <div className="mb-3" key={key}>
                 <CardLink
-                  title={library.title}
+                  external={true}
+                  title={library.label}
                   description={library.description}
                   uri={library.url}
                   textColor={{

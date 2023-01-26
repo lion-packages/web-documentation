@@ -119,11 +119,40 @@ export default {
         },
       },
     },
-    external: {
-      title: "Libraries",
-      url: "/libraries/lion/helpers",
-      description: "Easy to use helpers for any type of use.",
-      class: {},
-    },
+    external: [
+      {
+        label: "firebase/php-jwt",
+        description: "PHP package for JWT",
+        url: "https://github.com/firebase/php-jwt",
+      },
+      {
+        label: "vlucas/valitron",
+        description:
+          "Valitron is a simple, elegant, stand-alone validation library with NO dependencies",
+        url: "https://github.com/vlucas/valitron",
+      },
+      {
+        label: "vlucas/phpdotenv",
+        description:
+          "Loads environment variables from `.env` to `getenv()`, `$_ENV` and `$_SERVER` automagically",
+        url: "https://github.com/vlucas/phpdotenv",
+      },
+      {
+        label: "mrjgreen/phroute",
+        description:
+          "A super fast PHP router, with route parameters, restful controllers, filters and reverse routing",
+        url: "https://github.com/mrjgreen/phroute",
+      },
+      {
+        label: "guzzle/guzzle",
+        description: "Guzzle, an extensible PHP HTTP client",
+        url: "https://github.com/guzzle/guzzle",
+      },
+      {
+        label: "PHPMailer/PHPMailer",
+        description: "The classic email sending library for PHP",
+        url: "https://github.com/PHPMailer/PHPMailer",
+      },
+    ],
   },
 };
