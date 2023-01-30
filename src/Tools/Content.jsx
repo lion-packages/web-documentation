@@ -25,6 +25,7 @@ import v6_9_0, {
 import v1_4_0, {
   v1_4_0_CHANGELOG,
 } from "./Versions/Libraries/LionSpreadsheet/v1_4_0";
+import v1_5_0, { v1_5_0_CHANGELOG } from "./Versions/Libraries/LionSpreadsheet/v1_5_0";
 import v6_4_0, { v6_4_0_CHANGELOG } from "./Versions/Libraries/LionSQL/v6_4_0";
 import v6_5_1, { v6_5_1_CHANGELOG } from "./Versions/Libraries/LionSQL/v6_5_1";
 
@@ -102,9 +103,11 @@ export default {
         url: "/libraries/lion/spreadsheet/index",
         description: "Library for easy spreadsheet use.",
         class: {
+          "v1.5.0": v1_5_0(),
           "v1.4.0": v1_4_0(),
         },
         changelod: {
+          "v1.5.0": v1_5_0_CHANGELOG(),
           "v1.4.0": v1_4_0_CHANGELOG(),
         },
       },
