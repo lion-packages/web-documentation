@@ -1,10 +1,6 @@
 import CodeBlock from "../../../../pages/components/CodeBlock";
 
-export function v2_1_2_CHANGELOG() {
-  return {};
-}
-
-export default function v2_1_2() {
+export default function v2_1_2_LH() {
   return {
     arr: {
       title: "LionHelpers\\Arr",

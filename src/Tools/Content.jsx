@@ -1,33 +1,16 @@
-import v4_7_0, {
-  v4_7_0_CHANGELOG,
-} from "./Versions/Libraries/LionFiles/v4_7_0";
-import v2_1_2, {
-  v2_1_2_CHANGELOG,
-} from "./Versions/Libraries/LionHelpers/v2_1_2";
-import v4_0_0, {
-  v4_0_0_CHANGELOG,
-} from "./Versions/Libraries/LionMailer/v4_0_0";
-import v4_2_0, {
-  v4_2_0_CHANGELOG,
-} from "./Versions/Libraries/LionMailer/v4_2_0";
-import v5_3_0, {
-  v5_3_0_CHANGELOG,
-} from "./Versions/Libraries/LionRequest/v5_3_0";
-import v8_1_0, {
-  v8_1_0_CHANGELOG,
-} from "./Versions/Libraries/LionRoute/v8_1_0";
-import v6_10_0, {
-  v6_10_0_CHANGELOG,
-} from "./Versions/Libraries/LionSecurity/v6_10_0";
-import v6_9_0, {
-  v6_9_0_CHANGELOG,
-} from "./Versions/Libraries/LionSecurity/v6_9_0";
-import v1_4_0, {
-  v1_4_0_CHANGELOG,
-} from "./Versions/Libraries/LionSpreadsheet/v1_4_0";
-import v1_5_0, { v1_5_0_CHANGELOG } from "./Versions/Libraries/LionSpreadsheet/v1_5_0";
-import v6_4_0, { v6_4_0_CHANGELOG } from "./Versions/Libraries/LionSQL/v6_4_0";
-import v6_5_1, { v6_5_1_CHANGELOG } from "./Versions/Libraries/LionSQL/v6_5_1";
+import v4_7_0_LF from "./Versions/Libraries/LionFiles/v4_7_0_LF";
+import v2_1_2_LH from "./Versions/Libraries/LionHelpers/v2_1_2_LH";
+import v4_0_0_LM from "./Versions/Libraries/LionMailer/v4_0_0_LM";
+import v4_2_0_LM from "./Versions/Libraries/LionMailer/v4_2_0_LM";
+import v5_3_0_LR from "./Versions/Libraries/LionRequest/v5_3_0_LR";
+import v8_1_0_LRT from "./Versions/Libraries/LionRoute/v8_1_0_LRT";
+import v6_10_0_LS from "./Versions/Libraries/LionSecurity/v6_10_0_LS";
+import v6_10_1_LS from "./Versions/Libraries/LionSecurity/v6_10_1_LS";
+import v6_9_0_LS from "./Versions/Libraries/LionSecurity/v6_9_0_LS";
+import v1_4_0_LSP from "./Versions/Libraries/LionSpreadsheet/v1_4_0_LSP";
+import v1_5_0_LSP from "./Versions/Libraries/LionSpreadsheet/v1_5_0_LSP";
+import v6_4_0_LSQ from "./Versions/Libraries/LionSQL/v6_4_0_LSQ";
+import v6_5_1_LSQ from "./Versions/Libraries/LionSQL/v6_5_1_LSQ";
 
 export default {
   libraries: {
@@ -38,10 +21,7 @@ export default {
         description:
           "Library created with the function of working internal system files.",
         class: {
-          "v4.7.0": v4_7_0(),
-        },
-        changelod: {
-          "v4.7.0": v4_7_0_CHANGELOG(),
+          "v4.7.0": v4_7_0_LF(),
         },
       },
       security: {
@@ -50,12 +30,9 @@ export default {
         description:
           "Library created with the function of implementing AES, RSA and JWT Security functions for PHP.",
         class: {
-          "v6.10.0": v6_10_0(),
-          "v6.9.0": v6_9_0(),
-        },
-        changelod: {
-          "v6.10.0": v6_10_0_CHANGELOG(),
-          "v6.9.0": v6_9_0_CHANGELOG(),
+          "v6.10.1": v6_10_1_LS(),
+          "v6.10.0": v6_10_0_LS(),
+          "v6.9.0": v6_9_0_LS(),
         },
       },
       request: {
@@ -64,10 +41,7 @@ export default {
         description:
           "Library created to request input data and response requests.",
         class: {
-          "v5.3.0": v5_3_0(),
-        },
-        changelod: {
-          "v5.3.0": v5_3_0_CHANGELOG(),
+          "v5.3.0": v5_3_0_LR(),
         },
       },
       sql: {
@@ -76,12 +50,8 @@ export default {
         description:
           "Package responsible for generating and executing MySQL processes.",
         class: {
-          "v6.5.1": v6_5_1(),
-          "v6.4.0": v6_4_0(),
-        },
-        changelod: {
-          "v6.5.1": v6_5_1_CHANGELOG(),
-          "v6.4.0": v6_4_0_CHANGELOG(),
+          "v6.5.1": v6_5_1_LSQ(),
+          "v6.4.0": v6_4_0_LSQ(),
         },
       },
       mailer: {
@@ -90,12 +60,8 @@ export default {
         description:
           "Library created for easy email sending based on PHPMailer.",
         class: {
-          "v4.2.0": v4_2_0(),
-          "v4.0.0": v4_0_0(),
-        },
-        changelod: {
-          "v4.2.0": v4_2_0_CHANGELOG(),
-          "v4.0.0": v4_0_0_CHANGELOG(),
+          "v4.2.0": v4_2_0_LM(),
+          "v4.0.0": v4_0_0_LM(),
         },
       },
       spreadsheet: {
@@ -103,12 +69,8 @@ export default {
         url: "/libraries/lion/spreadsheet/index",
         description: "Library for easy spreadsheet use.",
         class: {
-          "v1.5.0": v1_5_0(),
-          "v1.4.0": v1_4_0(),
-        },
-        changelod: {
-          "v1.5.0": v1_5_0_CHANGELOG(),
-          "v1.4.0": v1_4_0_CHANGELOG(),
+          "v1.5.0": v1_5_0_LSP(),
+          "v1.4.0": v1_4_0_LSP(),
         },
       },
       route: {
@@ -117,10 +79,7 @@ export default {
         description:
           "This library has a quick use of the router with regular expressions based on mrjgreen's phroute.",
         class: {
-          "v8.1.0": v8_1_0(),
-        },
-        changelod: {
-          "v8.1.0": v8_1_0_CHANGELOG(),
+          "v8.1.0": v8_1_0_LRT(),
         },
       },
       helpers: {
@@ -128,10 +87,7 @@ export default {
         url: "/libraries/lion/helpers/index",
         description: "Easy to use helpers for any type of use.",
         class: {
-          "v2.1.2": v2_1_2(),
-        },
-        changelod: {
-          "v2.1.2": v2_1_2_CHANGELOG(),
+          "v2.1.2": v2_1_2_LH(),
         },
       },
     },

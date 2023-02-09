@@ -1,11 +1,7 @@
 import { Alert, Badge } from "react-bootstrap";
 import CodeBlock from "../../../../pages/components/CodeBlock";
 
-export function v4_7_0_CHANGELOG() {
-  return {};
-}
-
-export default function v4_7_0() {
+export default function v4_7_0_LF() {
   return {
     manage: {
       title: "LionFiles\\Manage",

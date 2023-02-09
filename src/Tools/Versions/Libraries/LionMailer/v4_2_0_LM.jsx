@@ -1,11 +1,6 @@
-import { Badge, Col, Row } from "react-bootstrap";
 import CodeBlock from "../../../../pages/components/CodeBlock";
 
-export function v4_0_0_CHANGELOG() {
-  return {};
-}
-
-export default function v4_0_0() {
+export default function v4_2_0_LM() {
   return {
     mailer: {
       title: "LionMailer\\Mailer",
@@ -74,6 +69,23 @@ export default function v4_0_0() {
                 "use LionMailer\\Mailer;\n\n" +
                 "Mailer::from('emailfrom@root.com')\n" +
                 "\t->address('emailaddress@root.com');"
+              }
+            />
+          ),
+        },
+        multiple: {
+          title: "Mailer::multiple",
+          description:
+            "The `multiple` function selects multiple email accounts where the email is sent to",
+          link: "multiple",
+          code: (
+            <CodeBlock
+              language={"php"}
+              content={
+                "<?php\n\n" +
+                "use LionMailer\\Mailer;\n\n" +
+                "Mailer::from('emailfrom@root.com')\n" +
+                "\t->multiple(\n\t\t'email_one@root.com'\n\t\t'email_two@root.com'\n\t);"
               }
             />
           ),

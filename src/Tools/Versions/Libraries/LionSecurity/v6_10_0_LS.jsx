@@ -1,11 +1,7 @@
 import { Alert, Badge } from "react-bootstrap";
 import CodeBlock from "../../../../pages/components/CodeBlock";
 
-export function v6_10_0_CHANGELOG() {
-  return {};
-}
-
-export default function v6_10_0() {
+export default function v6_10_0_LS() {
   return {
     aes: {
       title: "LionSecurity\\AES",

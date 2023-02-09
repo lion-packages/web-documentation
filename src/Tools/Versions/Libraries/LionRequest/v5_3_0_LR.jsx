@@ -1,10 +1,6 @@
 import CodeBlock from "../../../../pages/components/CodeBlock";
 
-export function v5_3_0_CHANGELOG() {
-  return {};
-}
-
-export default function v5_3_0() {
+export default function v5_3_0_LR() {
   return {
     request: {
       title: "LionRequest\\Request",

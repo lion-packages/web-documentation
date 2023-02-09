@@ -1,11 +1,7 @@
 import { Badge, Col, Row } from "react-bootstrap";
 import CodeBlock from "../../../../pages/components/CodeBlock";
 
-export function v8_1_0_CHANGELOG() {
-  return {};
-}
-
-export default function v8_1_0() {
+export default function v8_1_0_LRT() {
   return {
     request: {
       title: "LionRoute\\Request",

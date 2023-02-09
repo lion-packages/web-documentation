@@ -1,11 +1,7 @@
-import { Badge, Col, Row, Table } from "react-bootstrap";
+import { Table } from "react-bootstrap";
 import CodeBlock from "../../../../pages/components/CodeBlock";
 
-export function v6_5_1_CHANGELOG() {
-  return {};
-}
-
-export default function v6_5_1() {
+export default function v6_5_1_LSQ() {
   return {
     "mysql": {
       title: "LionSQL\\Drivers\\MySQL",
