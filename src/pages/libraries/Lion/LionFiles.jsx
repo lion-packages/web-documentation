@@ -1,5 +1,7 @@
 import { useState } from "react";
-import { Col, Container, Form, InputGroup, Row } from "react-bootstrap";
+import { Button, Col, Container, Form, InputGroup, Row } from "react-bootstrap";
+import { FiArrowLeft } from "react-icons/fi";
+import { LinkContainer } from "react-router-bootstrap";
 import Content from "../../../Tools/Content";
 import CardLink from "../../components/CardLink";
 import CodeBlock from "../../components/CodeBlock";
@@ -23,6 +25,12 @@ function LionFiles() {
         <div className="mb-3">
           <div className="d-flex justify-content-between">
             <div className="p-2">
+              <LinkContainer to={"/libraries/content"}>
+                <Button variant="outline-light" className="rounded-pill mb-3">
+                  <FiArrowLeft size={22} />
+                </Button>
+              </LinkContainer>
+
               <h3>INSTALL</h3>
             </div>
 
