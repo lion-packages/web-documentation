@@ -1,4 +1,5 @@
 import v4_7_0_LF from "./Versions/Libraries/LionFiles/v4_7_0_LF";
+import v4_8_0_LF from "./Versions/Libraries/LionFiles/v4_8_0_LF";
 import v2_1_2_LH from "./Versions/Libraries/LionHelpers/v2_1_2_LH";
 import v4_0_0_LM from "./Versions/Libraries/LionMailer/v4_0_0_LM";
 import v4_2_0_LM from "./Versions/Libraries/LionMailer/v4_2_0_LM";
@@ -22,6 +23,7 @@ export default {
         description:
           "Library created with the function of working internal system files.",
         class: {
+          "v4.8.0": v4_8_0_LF(),
           "v4.7.0": v4_7_0_LF(),
         },
       },
