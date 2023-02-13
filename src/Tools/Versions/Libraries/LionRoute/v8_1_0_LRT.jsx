@@ -302,8 +302,8 @@ export default function v8_1_0_LRT() {
                     "use App\\Http\\Controllers\\UsersController;\n\n" +
                     "Route::init();\n\n" +
                     "// receive http delete request to route `users`\n" +
-                    "Route::delete('users', function() {\n" +
-                    "\treturn (new UsersController())->deleteUsers();\n" +
+                    "Route::delete('users/{idusers}', function($idusers) {\n" +
+                    "\treturn (new UsersController())->deleteUsers($idusers);\n" +
                     "});\n\n" +
                     "Route::dispatch();"
                   }
@@ -321,7 +321,7 @@ export default function v8_1_0_LRT() {
                     "use App\\Http\\Controllers\\UsersController;\n\n" +
                     "Route::init();\n\n" +
                     "// receive http delete request to route `users`\n" +
-                    "Route::delete('users', [UsersController::class, 'deleteUsers']);\n\n" +
+                    "Route::delete('users/{idusers}', [UsersController::class, 'deleteUsers']);\n\n" +
                     "Route::dispatch();"
                   }
                 />
