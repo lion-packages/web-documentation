@@ -5,8 +5,6 @@ import { LinkContainer } from "react-router-bootstrap";
 import { FiArrowRight } from "react-icons/fi";
 import { RiTestTubeFill } from "react-icons/ri";
 import codeDashboard from "../assets/img/code-snap.png";
-import { useState } from "react";
-import axios from "axios";
 
 function DashboardContent() {
   return (
