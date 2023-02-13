@@ -20,7 +20,7 @@ function FrameworkContent() {
         <div className="mb-3">
           <div className="d-flex justify-content-between">
             <div className="p-2">
-              <h3>INSTALL "Lion-Framework"</h3>
+              <h3>INSTALL</h3>
             </div>
 
             <div className="p-2">
