@@ -5,7 +5,7 @@ export default function v4_9_0_LF() {
   return {
     store: {
       title: "LionFiles\\Store",
-      description: "The manage class allows you to manage files of any type",
+      description: "The Store class allows you to manage files of any type",
       url: "/libraries/lion/files/item_version/store/get-extension",
       methods: {
         "get-extension": {
