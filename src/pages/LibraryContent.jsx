@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { Col, Container, Row } from "react-bootstrap";
-import Content from "../../Tools/Content";
-import CardLink from "../components/CardLink";
+import Content from "../Tools/Content";
+import CardLink from "./components/CardLink";
 
 function LibraryContent() {
   const [lion, setLion] = useState(Content.libraries.lion);

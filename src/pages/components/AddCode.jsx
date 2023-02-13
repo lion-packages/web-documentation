@@ -1,6 +1,5 @@
-import { useEffect } from "react";
 import { useLocation, useParams } from "react-router-dom";
-import Content from "../Tools/Content";
+import Content from "../../Tools/Content";
 
 function AddCode() {
   const location = useLocation();

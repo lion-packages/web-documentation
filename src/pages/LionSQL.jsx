@@ -2,13 +2,13 @@ import { useState } from "react";
 import { Button, Col, Container, Form, InputGroup, Row } from "react-bootstrap";
 import { FiArrowLeft } from "react-icons/fi";
 import { LinkContainer } from "react-router-bootstrap";
-import Content from "../../../Tools/Content";
-import CardLink from "../../components/CardLink";
-import CodeBlock from "../../components/CodeBlock";
-import GithubButton from "../../components/GithubButton";
+import CardLink from "./components/CardLink";
+import CodeBlock from "./components/CodeBlock";
+import GithubButton from "./components/GithubButton";
+import Content from "../Tools/Content";
 
-function LionSpreadsheet() {
-  const [info, setInfo] = useState(Content.libraries.lion.spreadsheet.class);
+function LionSQL() {
+  const [info, setInfo] = useState(Content.libraries.lion.sql.class);
   const [versionList, setVersionList] = useState(Object.keys(info));
   const [versions, setVersions] = useState(versionList);
   const [option, setOption] = useState(versionList[0]);
@@ -37,7 +37,7 @@ function LionSpreadsheet() {
             <InputGroup className="mb-3">
               <GithubButton
                 variantButton={"outline-light"}
-                url={"https://github.com/Sleon4/Lion-Spreadsheet"}
+                url={"https://github.com/Sleon4/Lion-SQL"}
               />
 
               <Form.Select onChange={handleChange}>
@@ -51,7 +51,7 @@ function LionSpreadsheet() {
 
         <CodeBlock
           language={"powershell"}
-          content={"composer require lion/spreadsheet"}
+          content={"composer require lion/sql"}
         />
       </div>
 
@@ -76,4 +76,4 @@ function LionSpreadsheet() {
   );
 }
 
-export default LionSpreadsheet;
+export default LionSQL;

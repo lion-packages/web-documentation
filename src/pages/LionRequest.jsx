@@ -2,10 +2,10 @@ import { useState } from "react";
 import { Button, Col, Container, Form, InputGroup, Row } from "react-bootstrap";
 import { FiArrowLeft } from "react-icons/fi";
 import { LinkContainer } from "react-router-bootstrap";
-import Content from "../../../Tools/Content";
-import CardLink from "../../components/CardLink";
-import CodeBlock from "../../components/CodeBlock";
-import GithubButton from "../../components/GithubButton";
+import CardLink from "./components/CardLink";
+import CodeBlock from "./components/CodeBlock";
+import GithubButton from "./components/GithubButton";
+import Content from "../Tools/Content";
 
 function LionRequest() {
   const [info, setInfo] = useState(Content.libraries.lion.request.class);

@@ -1,3 +1,17 @@
+// components
+import LionFiles from "../pages/LionFiles";
+import LionHelpers from "../pages/LionHelpers";
+import LionMailer from "../pages/LionMailer";
+import LionRequest from "../pages/LionRequest";
+import LionRoute from "../pages/LionRoute";
+import LionSecurity from "../pages/LionSecurity";
+import LionSpreadsheet from "../pages/LionSpreadsheet";
+import LionSQL from "../pages/LionSQL";
+
+// framework
+import v12_16_0_FRM from "./Versions/Framework/v12_16_0_FRM";
+
+// libraries
 import v4_7_0_LF from "./Versions/Libraries/LionFiles/v4_7_0_LF";
 import v4_8_0_LF from "./Versions/Libraries/LionFiles/v4_8_0_LF";
 import v4_9_0_LF from "./Versions/Libraries/LionFiles/v4_9_0_LF";
@@ -16,11 +30,15 @@ import v6_5_1_LSQ from "./Versions/Libraries/LionSQL/v6_5_1_LSQ";
 import v6_6_0_LSQ from "./Versions/Libraries/LionSQL/v6_6_0_LSQ";
 
 export default {
+  framework: {
+    "v12.16.0": v12_16_0_FRM()
+  },
   libraries: {
     lion: {
       files: {
         title: "LION-FILES",
         url: "/libraries/lion/files/index",
+        component: <LionFiles />,
         description:
           "Library created with the function of working internal system files.",
         class: {
@@ -32,6 +50,7 @@ export default {
       security: {
         title: "LION-SECURITY",
         url: "/libraries/lion/security/index",
+        component: <LionSecurity />,
         description:
           "Library created with the function of implementing AES, RSA and JWT Security functions for PHP.",
         class: {
@@ -43,6 +62,7 @@ export default {
       request: {
         title: "LION-REQUEST",
         url: "/libraries/lion/request/index",
+        component: <LionRequest />,
         description:
           "Library created to request input data and response requests.",
         class: {
@@ -52,6 +72,7 @@ export default {
       sql: {
         title: "LION-SQL",
         url: "/libraries/lion/sql/index",
+        component: <LionSQL />,
         description:
           "Package responsible for generating and executing MySQL processes.",
         class: {
@@ -63,6 +84,7 @@ export default {
       mailer: {
         title: "LION-MAILER",
         url: "/libraries/lion/mailer/index",
+        component: <LionMailer />,
         description:
           "Library created for easy email sending based on PHPMailer.",
         class: {
@@ -73,6 +95,7 @@ export default {
       spreadsheet: {
         title: "LION-SPREADSHEET",
         url: "/libraries/lion/spreadsheet/index",
+        component: <LionSpreadsheet />,
         description: "Library for easy spreadsheet use.",
         class: {
           "v1.5.0": v1_5_0_LSP(),
@@ -82,6 +105,7 @@ export default {
       route: {
         title: "LION-ROUTE",
         url: "/libraries/lion/route/index",
+        component: <LionRoute />,
         description:
           "This library has a quick use of the router with regular expressions based on mrjgreen's phroute.",
         class: {
@@ -91,6 +115,7 @@ export default {
       helpers: {
         title: "LION-HELPERS",
         url: "/libraries/lion/helpers/index",
+        component: <LionHelpers />,
         description: "Easy to use helpers for any type of use.",
         class: {
           "v2.1.2": v2_1_2_LH(),

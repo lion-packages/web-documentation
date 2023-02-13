@@ -1,88 +1,103 @@
 /* @import url('https://fonts.googleapis.com/css2?family=Ubuntu+Condensed&display=swap'); */
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@800&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@800&display=swap");
 
 .bg-dark-blue {
-    background-color: #2B2B2B;
+  background-color: #2b2b2b;
 }
 
 .bg-black-blue {
-    background-color: #111B21;
+  background-color: #111b21;
 }
 
 .text-degradient {
-    /* font-family: 'Ubuntu Condensed', sans-serif; */
-    font-family: 'Montserrat', sans-serif;
-    font-size: 70px;
-    line-height: 1.25;
-    font-weight: 900;
-    letter-spacing: -1.5px;
-    background: -webkit-linear-gradient(left, #42d392 25%,#647eff);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
+  /* font-family: 'Ubuntu Condensed', sans-serif; */
+  font-family: "Montserrat", sans-serif;
+  font-size: 70px;
+  line-height: 1.25;
+  font-weight: 900;
+  letter-spacing: -1.5px;
+  background: -webkit-linear-gradient(left, #42d392 25%, #647eff);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
 }
 
 .title-degradient {
-    /* font-family: 'Ubuntu Condensed', sans-serif; */
-    font-family: 'Montserrat', sans-serif;
-    line-height: 1.25;
-    font-weight: 900;
-    letter-spacing: -1.5px;
-    background: -webkit-linear-gradient(left, #42d392 25%,#647eff);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
+  /* font-family: 'Ubuntu Condensed', sans-serif; */
+  font-family: "Montserrat", sans-serif;
+  line-height: 1.25;
+  font-weight: 900;
+  letter-spacing: -1.5px;
+  background: -webkit-linear-gradient(left, #42d392 25%, #647eff);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
 }
 
 .description {
-    /* font-family: 'Ubuntu Condensed', sans-serif; */
-    font-family: 'Montserrat', sans-serif;
-    line-height: 1.5;
-    transition: color .5s;
-    font-size: 22px;
-    margin: 24px auto 40px;
+  /* font-family: 'Ubuntu Condensed', sans-serif; */
+  font-family: "Montserrat", sans-serif;
+  line-height: 1.5;
+  transition: color 0.5s;
+  font-size: 22px;
+  margin: 24px auto 40px;
 }
 
 .description-gradient {
-    /* font-family: 'Ubuntu Condensed', sans-serif; */
-    font-family: 'Montserrat', sans-serif;
-    line-height: 1.5;
-    transition: color .5s;
-    margin: 24px auto 40px;
+  /* font-family: 'Ubuntu Condensed', sans-serif; */
+  font-family: "Montserrat", sans-serif;
+  line-height: 1.5;
+  transition: color 0.5s;
+  margin: 24px auto 40px;
 }
 
 .img-dashboard {
-    transition: filter 2s;
-    filter: brightness(0.75) contrast(1) sepia(0.7) hue-rotate(-5deg) saturate(3.5);
+  transition: filter 2s;
+  filter: brightness(0.75) contrast(1) sepia(0.7) hue-rotate(-5deg)
+    saturate(3.5);
 }
 
 .img-dashboard:hover {
-    transition: filter 2s;
-    filter: none;
+  transition: filter 2s;
+  filter: none;
 }
 
 @media (max-width: 576px) {
-    .description {
-        font-size: 16px;
-        margin: 18px 0 30px;
-    }
+  .description {
+    font-size: 16px;
+    margin: 18px 0 30px;
+  }
 }
 
 @media (max-width: 768px) {
-    .text-degradient {
-        font-size: 48px;
-        letter-spacing: -.5px;
-    }
+  .text-degradient {
+    font-size: 48px;
+    letter-spacing: -0.5px;
+  }
 }
 
 @media (max-width: 960px) {
-    .text-degradient {
-        font-size: 50px;
-        letter-spacing: -.5px;
-    }
+  .text-degradient {
+    font-size: 50px;
+    letter-spacing: -0.5px;
+  }
 
-    .description {
-        font-size: 18px;
-        margin-bottom: 48px;
-    }
+  .description {
+    font-size: 18px;
+    margin-bottom: 48px;
+  }
 }
 
-/* ------------------------------- */
+.list-group-item-dark {
+  color: #ffffff !important;
+  background-color: #111b21 !important;
+}
+
+.list-group-item-dark:hover {
+  color: #ffffff !important;
+  background-color: #1F3846 !important;
+}
+
+.list-group-item-dark.list-group-item-action.active {
+  color: #ffffff !important;
+  background-color: #1F3846 !important;
+  border-color: #1F3846 !important;
+}
