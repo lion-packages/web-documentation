@@ -42,7 +42,7 @@ function DashboardContent() {
                 className="mx-auto mt-3 mb-5"
               >
                 <div className="d-grid gap-2">
-                  <LinkContainer to="/framework/getting-started">
+                  <LinkContainer to="/framework/content">
                     <Button variant="light">
                       Getting started <FiArrowRight />
                     </Button>
