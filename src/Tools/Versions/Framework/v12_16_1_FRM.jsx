@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import CodeBlock from "../../../pages/components/CodeBlock";
 import ListCommands from "../../../pages/components/ListCommands";
 
-export default function v12_16_0_FRM() {
+export default function v12_16_1_FRM() {
   return {
     commands: {
       name: "Commands",
@@ -698,11 +698,77 @@ export default function v12_16_0_FRM() {
     },
     factory: {
       name: "Factory",
-      code: null,
+      code: (
+        <>
+          <h2>FACTORY</h2>
+          <hr />
+
+          <CodeBlock
+            language={"powershell"}
+            content={"php lion db:factory UsersFactory"}
+          />
+
+          <CodeBlock
+            langueage={"php"}
+            content={
+              "<?php\n\n" +
+              "namespace Database\\Factories;\n\n" +
+              "use Faker\\Factory;\n\n" +
+              "class UsersFectory {\n\n" +
+              "\t/**\n" +
+              "\t * ------------------------------------------------------------------------------\n" +
+              "\t * Define the model's default state\n" +
+              "\t * ------------------------------------------------------------------------------\n" +
+              "\t **/\n" +
+              "\tpublic static function definition(): array {\n" +
+              "\t\t$faker = Factory::create();\n\n" +
+              "\t\treturn [\n\t\t\t$faker->name(),\n" +
+              "\t\t\t$faker->lastName()\n" +
+              "\t\t];\n" +
+              "\t}\n" +
+              "}"
+            }
+          />
+        </>
+      ),
     },
     seed: {
       name: "Seed",
-      code: null,
+      code: (
+        <>
+          <h2>SEED</h2>
+          <hr />
+
+          <div className="mb-3">
+            <h5 className="pb-2">CREATE SEED</h5>
+
+            <CodeBlock
+              language={"powershell"}
+              content={"php lion db:factory UsersFactory"}
+            />
+
+            <CodeBlock
+              langueage={"php"}
+              content={
+                "<?php\n\n" +
+                "namespace Database\\Seeders;\n\n" +
+                "use LionSQL\\Drivers\\MySQL as DB;\n" +
+                "use Database\\Factories\\UsersFectory;\n\n" +
+                "class UsersSeed {\n\n" +
+                "\t/**\n" +
+                "\t * ------------------------------------------------------------------------------\n" +
+                "\t * Seed the application's database\n" +
+                "\t * ------------------------------------------------------------------------------\n" +
+                "\t **/\n" +
+                "\tpublic static function run(): object {\n" +
+                "\t\treturn DB::call('stored_procedure_name', UsersFectory::definition());\n" +
+                "\t}\n" +
+                "}"
+              }
+            />
+          </div>
+        </>
+      ),
     },
   };
 }

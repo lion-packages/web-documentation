@@ -20,7 +20,7 @@ function FrameworkContent() {
         <div className="mb-3">
           <div className="d-flex justify-content-between">
             <div className="p-2">
-              <h3>INSTALL</h3>
+              <h3>INSTALL "Lion-Framework"</h3>
             </div>
 
             <div className="p-2">
@@ -38,7 +38,9 @@ function FrameworkContent() {
                   ))}
                 </Form.Select>
 
-                <LinkContainer to={`/framework/index/${selectedVersion}/commands`}>
+                <LinkContainer
+                  to={`/framework/index/${selectedVersion}/commands`}
+                >
                   <Button variant="outline-warning">
                     <FiArrowRight size={"1.4em"} />
                   </Button>
@@ -49,15 +51,13 @@ function FrameworkContent() {
 
           <CodeBlock
             language={"powershell"}
-            content={"composer require lion/files"}
+            content={"composer create-project lion/framework"}
           />
         </div>
 
         <hr />
 
-        <div className="mb-4">
-          <h1 className="pb-2">Lion-Framework</h1>
-
+        <div>
           <p>
             Lion-Framework can also serve as an API backend for a JavaScript
             single page application or a mobile application. For example, you
@@ -77,7 +77,8 @@ function FrameworkContent() {
             <a href="https://getcomposer.org" target={"_blank"}>
               composer
             </a>{" "}
-            installed.
+            installed, <strong>Lion-Framework</strong> integrates most of the
+            available <strong>Lion</strong> libraries.
           </p>
         </div>
       </>
