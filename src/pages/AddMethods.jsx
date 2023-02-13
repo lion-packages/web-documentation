@@ -3,8 +3,8 @@ import { FiArrowLeft } from "react-icons/fi";
 import { LinkContainer } from "react-router-bootstrap";
 import { useLocation, useParams } from "react-router-dom";
 import Content from "../Tools/Content";
+import Add from "./Add";
 import CardLink from "./components/CardLink";
-import Add from "./libraries/Add";
 
 function AddMethods() {
   let cont = 1;

@@ -18,7 +18,6 @@ import Rules from "./pages/framework/Rules";
 import DashboardContent from "./pages/DashboardContent";
 import Capsules from "./pages/framework/Capsules";
 
-import Add from "./pages/libraries/Add";
 import LibraryContent from "./pages/libraries/LibraryContent";
 import LionHelpers from "./pages/libraries/Lion/LionHelpers";
 import AddMethods from "./pages/AddMethods";
