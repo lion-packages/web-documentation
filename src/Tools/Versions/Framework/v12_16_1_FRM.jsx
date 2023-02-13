@@ -714,7 +714,7 @@ export default function v12_16_1_FRM() {
               "<?php\n\n" +
               "namespace Database\\Factories;\n\n" +
               "use Faker\\Factory;\n\n" +
-              "class UsersFectory {\n\n" +
+              "class UsersFactory {\n\n" +
               "\t/**\n" +
               "\t * ------------------------------------------------------------------------------\n" +
               "\t * Define the model's default state\n" +
@@ -725,7 +725,7 @@ export default function v12_16_1_FRM() {
               "\t\treturn [\n\t\t\t$faker->name(),\n" +
               "\t\t\t$faker->lastName()\n" +
               "\t\t];\n" +
-              "\t}\n" +
+              "\t}\n\n" +
               "}"
             }
           />
@@ -753,7 +753,7 @@ export default function v12_16_1_FRM() {
                 "<?php\n\n" +
                 "namespace Database\\Seeders;\n\n" +
                 "use LionSQL\\Drivers\\MySQL as DB;\n" +
-                "use Database\\Factories\\UsersFectory;\n\n" +
+                "use Database\\Factories\\UsersFactory;\n\n" +
                 "class UsersSeed {\n\n" +
                 "\t/**\n" +
                 "\t * ------------------------------------------------------------------------------\n" +
@@ -761,8 +761,8 @@ export default function v12_16_1_FRM() {
                 "\t * ------------------------------------------------------------------------------\n" +
                 "\t **/\n" +
                 "\tpublic static function run(): object {\n" +
-                "\t\treturn DB::call('stored_procedure_name', UsersFectory::definition());\n" +
-                "\t}\n" +
+                "\t\treturn DB::call('stored_procedure_name', UsersFactory::definition());\n" +
+                "\t}\n\n" +
                 "}"
               }
             />
