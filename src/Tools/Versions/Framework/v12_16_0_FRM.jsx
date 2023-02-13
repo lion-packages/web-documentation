@@ -696,5 +696,13 @@ export default function v12_16_0_FRM() {
         </>
       ),
     },
+    factory: {
+      name: "Factory",
+      code: null,
+    },
+    seed: {
+      name: "Seed",
+      code: null,
+    },
   };
 }

@@ -93,11 +93,11 @@
 
 .list-group-item-dark:hover {
   color: #ffffff !important;
-  background-color: #1F3846 !important;
+  background-color: #1A2932 !important;
 }
 
 .list-group-item-dark.list-group-item-action.active {
   color: #ffffff !important;
-  background-color: #1F3846 !important;
-  border-color: #1F3846 !important;
+  background-color: #1A2932 !important;
+  border-color: #1A2932 !important;
 }
