@@ -754,7 +754,7 @@ export default function v12_16_1_FRM() {
 
             <CodeBlock
               language={"powershell"}
-              content={"php lion db:factory UsersFactory"}
+              content={"php lion db:seed UsersSeed"}
             />
 
             <CodeBlock
