@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import CodeBlock from "../../../pages/components/CodeBlock";
 import ListCommands from "../../../pages/components/ListCommands";
 
-export default function v12_16_1_FRM() {
+export default function v12_17_0_FRM() {
   return {
     commands: {
       name: "Commands",
@@ -814,6 +814,25 @@ export default function v12_16_1_FRM() {
             <CodeBlock
               langueage={"php"}
               content={"<?php\n\n" + "finish(response->success('finished'));"}
+            />
+          </div>
+
+          <div className="mb-3">
+            <h5 className="pb-2 text-warning">logger</h5>
+
+            <p>
+              The logger helper generates a log file stored in{" "}
+              <strong>storage/logs/</strong> and implements Monolog internally.
+            </p>
+
+            <CodeBlock
+              langueage={"php"}
+              content={
+                "<?php\n\n" +
+                "logger('lorem ipsum dolor sit amet...'); // default info\n" +
+                "logger('lorem ipsum dolor sit amet...', 'error');\n" +
+                "logger('lorem ipsum dolor sit amet...', 'warning', ['name' => 'Sleon']);"
+              }
             />
           </div>
 

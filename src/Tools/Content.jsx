@@ -10,6 +10,7 @@ import LionSQL from "../pages/LionSQL";
 
 // framework
 import v12_16_1_FRM from "./Versions/Framework/v12_16_1_FRM";
+import v12_17_0_FRM from "./Versions/Framework/v12_17_0_FRM";
 
 // libraries
 import v4_7_0_LF from "./Versions/Libraries/LionFiles/v4_7_0_LF";
@@ -31,6 +32,7 @@ import v6_6_0_LSQ from "./Versions/Libraries/LionSQL/v6_6_0_LSQ";
 
 export default {
   framework: {
+    "v12.17.0": v12_17_0_FRM(),
     "v12.16.1": v12_16_1_FRM()
   },
   libraries: {
