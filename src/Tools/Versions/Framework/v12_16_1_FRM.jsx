@@ -67,13 +67,23 @@ export default function v12_16_1_FRM() {
             <h4 className="pb-2">ADD COMMANDS</h4>
 
             <p>
-              The commands must be added in an array from{" "}
-              <Badge bg="secondary">routes/console.php</Badge>
+              You need to add the commands in the{" "}
+              <Badge bg="secondary">app/Console/Kernel.php</Badge> array
             </p>
 
             <CodeBlock
               language={"php"}
-              content={"return [\n" + "\tMyNamespace\\MyClass::class,\n" + "];"}
+              content={
+                "<?php\n\n" +
+                "namespace App\\Console;\n\n" +
+                "use Symfony\\Component\\Console\\Application;\n\n" +
+                "class Kernel {\n\n" +
+                "\tprivate array $commands = [\n" +
+                "\t\tApp\\Console\\MyCustomCommand::class,\n" +
+                "\t\tApp\\Console\\Framework\\ServerCommand::class,\n" +
+                "\t\tApp\\Console\\Framework\\RunTestCommand::class,\n" +
+                "..."
+              }
             />
           </div>
         </>
