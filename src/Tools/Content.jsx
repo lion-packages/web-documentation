@@ -170,6 +170,44 @@ export default {
         description: "The classic email sending library for PHP",
         url: "https://github.com/PHPMailer/PHPMailer",
       },
+      {
+        label: "briannesbitt/Carbon",
+        description: "A simple PHP API extension for DateTime",
+        url: "https://github.com/briannesbitt/carbon",
+      },
+      {
+        label: "ratchetphp/Ratchet",
+        description: "Asynchronous WebSocket server",
+        url: "https://github.com/ratchetphp/Ratchet",
+      },
+      {
+        label: "symfony/console",
+        description:
+          "The Console component eases the creation of beautiful and testable command line interfaces",
+        url: "https://github.com/symfony/console",
+      },
+      {
+        label: "Seldaek/monolog",
+        description:
+          "Sends your logs to files, sockets, inboxes, databases and various web services",
+        url: "https://github.com/Seldaek/monolog",
+      },
+      {
+        label: "PHPOffice/PhpSpreadsheet",
+        description:
+          "A pure PHP library for reading and writing spreadsheet files",
+        url: "https://github.com/PHPOffice/PhpSpreadsheet",
+      },
+      {
+        label: "sebastianbergmann/phpunit",
+        description: "The PHP Unit Testing framework",
+        url: "https://github.com/sebastianbergmann/phpunit",
+      },
+      {
+        label: "FakerPHP/Faker",
+        description: "Faker is a PHP library that generates fake data for you",
+        url: "https://github.com/FakerPHP/Faker",
+      },
     ],
   },
 };
