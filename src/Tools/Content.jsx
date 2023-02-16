@@ -8,6 +8,11 @@ import LionSecurity from "../pages/LionSecurity";
 import LionSpreadsheet from "../pages/LionSpreadsheet";
 import LionSQL from "../pages/LionSQL";
 
+//commands
+import v12_16_1_CMMD from "./Versions/Commands/v12_16_1_CMMD";
+import v12_17_0_CMMD from "./Versions/Commands/v12_17_0_CMMD";
+import v13_0_0_CMMD from "./Versions/Commands/v13_0_0_CMMD";
+
 // framework
 import v12_16_1_FRM from "./Versions/Framework/v12_16_1_FRM";
 import v12_17_0_FRM from "./Versions/Framework/v12_17_0_FRM";
@@ -32,6 +37,11 @@ import v6_5_1_LSQ from "./Versions/Libraries/LionSQL/v6_5_1_LSQ";
 import v6_6_0_LSQ from "./Versions/Libraries/LionSQL/v6_6_0_LSQ";
 
 export default {
+  commands: {
+    "v13.0.0": v13_0_0_CMMD(),
+    "v12.17.0": v12_17_0_CMMD(),
+    "v12.16.1": v12_16_1_CMMD(),
+  },
   framework: {
     "v13.0.0": v13_0_0_FRM(),
     "v12.17.0": v12_17_0_FRM(),
