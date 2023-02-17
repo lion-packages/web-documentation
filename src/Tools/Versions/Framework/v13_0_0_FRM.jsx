@@ -6,7 +6,11 @@ import ListCommands from "../../../pages/components/ListCommands";
 export default function v13_0_0_FRM() {
   return {
     commands: {
-      name: "Commands",
+      name: (
+        <label>
+          Commands <Badge bg="success">New</Badge>
+        </label>
+      ),
       code: (
         <>
           <div className="mb-3">
