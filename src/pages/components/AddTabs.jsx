@@ -9,7 +9,7 @@ export default function AddTabs() {
   return (
     <Container className="my-4 text-white">
       <Row>
-        <Col xs={12} sm={12} md={3} lg={2} className={"mb-3"}>
+        <Col xs={12} sm={12} md={3} lg={4} xl={3} xxl={2} className={"mb-3"}>
           <ListGroup numbered>
             {Object.entries(Content.framework[item_version]).map(
               ([index, tab]) => (
@@ -26,7 +26,7 @@ export default function AddTabs() {
           </ListGroup>
         </Col>
 
-        <Col xs={12} sm={12} md={9} lg={10}>
+        <Col xs={12} sm={12} md={9} lg={8} xl={9} xxl={10}>
           {Content.framework[item_version][tab].code}
         </Col>
       </Row>
