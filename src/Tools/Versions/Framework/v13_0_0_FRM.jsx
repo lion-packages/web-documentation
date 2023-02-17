@@ -901,10 +901,10 @@ export default function v13_0_0_FRM() {
               <Badge bg="secondary">--port</Badge> option.
             </p>
 
-            <CodeBlock language={"php"} content={"php lion socket:serve"} />
+            <CodeBlock language={"php"} content={"php lion socket:serve SocketClass"} />
             <CodeBlock
               language={"php"}
-              content={"php lion socket:serve --port 8081"}
+              content={"php lion socket:serve SocketClass --port 8081"}
             />
           </div>
         </>
