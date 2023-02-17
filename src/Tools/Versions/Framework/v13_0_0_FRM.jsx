@@ -83,7 +83,8 @@ export default function v13_0_0_FRM() {
                 "php lion db:capsule --path forder_path/\n" +
                 "php lion db:all-capsules --path forder_path/\n" +
                 "php lion db:seed name_seed --run true|false --iterate 1+\n" +
-                "php lion db:factory --path forder_path/\n"
+                "php lion db:factory --path forder_path/\n" +
+                "php lion socket:serve SocketClass --port 8081"
               }
             />
           </div>
