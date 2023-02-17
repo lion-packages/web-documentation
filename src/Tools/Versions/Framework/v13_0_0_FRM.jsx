@@ -731,7 +731,11 @@ export default function v13_0_0_FRM() {
       ),
     },
     factory: {
-      name: "Factory",
+      name: (
+        <label>
+          Factory <Badge bg="success">New</Badge>
+        </label>
+      ),
       code: (
         <>
           <h2>FACTORY</h2>
@@ -767,7 +771,11 @@ export default function v13_0_0_FRM() {
       ),
     },
     seed: {
-      name: "Seed",
+      name: (
+        <label>
+          Seed <Badge bg="success">New</Badge>
+        </label>
+      ),
       code: (
         <>
           <h2>SEED</h2>
@@ -805,7 +813,11 @@ export default function v13_0_0_FRM() {
       ),
     },
     sockets: {
-      name: "WebSockets",
+      name: (
+        <label>
+          WebSockets <Badge bg="success">New</Badge>
+        </label>
+      ),
       code: (
         <>
           <h2>WEBSOCKETS</h2>
@@ -895,7 +907,11 @@ export default function v13_0_0_FRM() {
       ),
     },
     helpers: {
-      name: "Helpers",
+      name: (
+        <label>
+          Helpers <Badge bg="success">New</Badge>
+        </label>
+      ),
       code: (
         <>
           <h2>HELPERS</h2>
