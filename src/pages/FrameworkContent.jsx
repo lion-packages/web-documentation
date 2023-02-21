@@ -39,7 +39,7 @@ function FrameworkContent() {
                 </Form.Select>
 
                 <LinkContainer
-                  to={`/framework/index/${selectedVersion}/example`}
+                  to={`/framework/index/${selectedVersion}/commands`}
                 >
                   <Button variant="outline-warning">
                     <FiArrowRight size={"1.4em"} />

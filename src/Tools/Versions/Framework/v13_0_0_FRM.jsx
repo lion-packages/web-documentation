@@ -11,39 +11,6 @@ import { SiVite } from "react-icons/si";
 
 export default function v13_0_0_FRM() {
   return {
-    example: {
-      name: (
-        <label>
-          Example <Badge bg="success">New</Badge>
-        </label>
-      ),
-      code: (
-        <div>
-          <h5>Example</h5>
-
-          <p>
-            a practical example of the use of Lion-Framework and ReactJS has
-            been made to carry out a real-time chat.
-          </p>
-
-          <GithubButton
-            url={"https://github.com/Sleon4/chat-php"}
-            variantButton={"outline-light"}
-            className="me-4"
-          >
-            <DiPhp className="ms-2" size={"2em"} />
-          </GithubButton>
-
-          <GithubButton
-            url={"https://github.com/Sleon4/chat-react"}
-            variantButton={"outline-light"}
-          >
-            <FaReact className="ms-2" size={"2em"} />
-            <SiVite className="ms-2" size={"2em"} />
-          </GithubButton>
-        </div>
-      ),
-    },
     commands: {
       name: (
         <label>
@@ -1040,6 +1007,39 @@ export default function v13_0_0_FRM() {
             />
           </div>
         </>
+      ),
+    },
+    example: {
+      name: (
+        <label>
+          Example <Badge bg="success">New</Badge>
+        </label>
+      ),
+      code: (
+        <div>
+          <h5>Example</h5>
+
+          <p>
+            a practical example of the use of Lion-Framework and ReactJS has
+            been made to carry out a real-time chat.
+          </p>
+
+          <GithubButton
+            url={"https://github.com/Sleon4/chat-php"}
+            variantButton={"outline-light"}
+            className="me-4"
+          >
+            <DiPhp className="ms-2" size={"2em"} />
+          </GithubButton>
+
+          <GithubButton
+            url={"https://github.com/Sleon4/chat-react"}
+            variantButton={"outline-light"}
+          >
+            <FaReact className="ms-2" size={"2em"} />
+            <SiVite className="ms-2" size={"2em"} />
+          </GithubButton>
+        </div>
       ),
     },
   };
