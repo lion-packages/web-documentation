@@ -33,6 +33,10 @@ export default function v12_16_1_CMMD() {
       command: "php lion new:trait trait_name",
     },
     {
+      description: "Command required for creating new custom capsules",
+      command: "php lion new:capsule capsule_name",
+    },
+    {
       description: "Created command to generate JWT token",
       command: "php lion token:jwt",
     },

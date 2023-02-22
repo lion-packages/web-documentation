@@ -33,6 +33,10 @@ export default function v13_0_0_CMMD() {
       command: "php lion new:trait trait_name",
     },
     {
+      description: "Command required for creating new custom capsules",
+      command: "php lion new:capsule capsule_name",
+    },
+    {
       description: "Command required for creating new WebSockets",
       command: "php lion new:socket socket_name",
     },
