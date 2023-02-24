@@ -35,6 +35,7 @@ import v1_5_0_LSP from "./Versions/Libraries/LionSpreadsheet/v1_5_0_LSP";
 import v6_4_0_LSQ from "./Versions/Libraries/LionSQL/v6_4_0_LSQ";
 import v6_5_1_LSQ from "./Versions/Libraries/LionSQL/v6_5_1_LSQ";
 import v6_6_0_LSQ from "./Versions/Libraries/LionSQL/v6_6_0_LSQ";
+import v7_0_0_LSQ from "./Versions/Libraries/LionSQL/v7_0_0_LSQ";
 
 export default {
   commands: {
@@ -90,6 +91,7 @@ export default {
         description:
           "Package responsible for generating and executing MySQL processes.",
         class: {
+          "v7.0.0": v7_0_0_LSQ(),
           "v6.6.0": v6_6_0_LSQ(),
           "v6.5.1": v6_5_1_LSQ(),
           "v6.4.0": v6_4_0_LSQ(),
