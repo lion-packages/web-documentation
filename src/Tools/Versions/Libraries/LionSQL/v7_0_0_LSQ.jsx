@@ -4,7 +4,8 @@ export default function v7_0_0_LSQ() {
   return {
     driver: {
       title: "LionSQL\\Drivers\\Driver",
-      description: "The `MySQL` class manages processes in the MySQL database",
+      description:
+        "The `Driver` class allows establishing connections to databases`",
       url: "/libraries/lion/sql/item_version/driver/run",
       methods: {
         run: {
