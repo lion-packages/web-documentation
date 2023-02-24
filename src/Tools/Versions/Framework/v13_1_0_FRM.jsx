@@ -12,11 +12,7 @@ import { SiVite } from "react-icons/si";
 export default function v13_1_0_FRM() {
   return {
     commands: {
-      name: (
-        <label>
-          Commands <Badge bg="success">New</Badge>
-        </label>
-      ),
+      name: "Commands",
       code: (
         <>
           <div className="mb-3">
@@ -742,11 +738,7 @@ export default function v13_1_0_FRM() {
       ),
     },
     factory: {
-      name: (
-        <label>
-          Factory <Badge bg="success">New</Badge>
-        </label>
-      ),
+      name: "Factory",
       code: (
         <>
           <h2>FACTORY</h2>
@@ -782,11 +774,7 @@ export default function v13_1_0_FRM() {
       ),
     },
     seed: {
-      name: (
-        <label>
-          Seed <Badge bg="success">New</Badge>
-        </label>
-      ),
+      name: "Seed",
       code: (
         <>
           <h2>SEED</h2>
@@ -824,11 +812,7 @@ export default function v13_1_0_FRM() {
       ),
     },
     sockets: {
-      name: (
-        <label>
-          WebSockets <Badge bg="success">New</Badge>
-        </label>
-      ),
+      name: "WebSockets",
       code: (
         <>
           <h2>WEBSOCKETS</h2>
@@ -921,11 +905,7 @@ export default function v13_1_0_FRM() {
       ),
     },
     helpers: {
-      name: (
-        <label>
-          Helpers <Badge bg="success">New</Badge>
-        </label>
-      ),
+      name: "Helpers",
       code: (
         <>
           <h2>HELPERS</h2>
@@ -1010,11 +990,7 @@ export default function v13_1_0_FRM() {
       ),
     },
     example: {
-      name: (
-        <label>
-          Example <Badge bg="success">New</Badge>
-        </label>
-      ),
+      name: "Example",
       code: (
         <div>
           <h5>Example</h5>
