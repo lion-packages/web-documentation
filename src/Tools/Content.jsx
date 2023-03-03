@@ -214,6 +214,17 @@ export default {
         description: "Faker is a PHP library that generates fake data for you",
         url: "https://github.com/FakerPHP/Faker",
       },
+      {
+        label: "antonioribeiro/google2fa",
+        description:
+          "A One Time Password Authentication package, compatible with Google Authenticator",
+        url: "https://github.com/antonioribeiro/google2fa",
+      },
+      {
+        label: "Bacon/BaconQrCode",
+        description: "QR Code Generator for PHP",
+        url: "https://github.com/Bacon/BaconQrCode",
+      },
     ],
   },
 };
