@@ -48,73 +48,102 @@ export default function v8_1_0_LRT() {
           description:
             "The `init` function initializes the http routing service.",
           code: (
-            <div className="mb-3">
-              <h4 className="pb-2 text-warning">USAGE</h4>
+            <>
+              <div className="mb-3">
+                <h4 className="pb-2 text-warning">USAGE</h4>
 
-              <p>Start your development server.</p>
+                <p>Start your development server.</p>
 
-              <Row>
-                <Col xs={12} sm={12} md={12} lg={6}>
-                  <div className="mb-3">
-                    <h5 className="pb-2">Lion-Framework</h5>
-                    <CodeBlock
-                      language="powershell"
-                      content={"php lion serve"}
-                    />
-                  </div>
-                </Col>
+                <Row>
+                  <Col xs={12} sm={12} md={12} lg={6}>
+                    <div className="mb-3">
+                      <h5 className="pb-2">Lion-Framework</h5>
+                      <CodeBlock
+                        language="powershell"
+                        content={"php lion serve"}
+                      />
+                    </div>
+                  </Col>
 
-                <Col xs={12} sm={12} md={12} lg={6}>
-                  <div className="mb-3">
-                    <h5 className="pb-2">local machine</h5>
+                  <Col xs={12} sm={12} md={12} lg={6}>
+                    <div className="mb-3">
+                      <h5 className="pb-2">local machine</h5>
 
-                    <CodeBlock
-                      language="powershell"
-                      content={"php -S 127.0.0.1:8000"}
-                    />
-                  </div>
-                </Col>
-              </Row>
+                      <CodeBlock
+                        language="powershell"
+                        content={"php -S 127.0.0.1:8000"}
+                      />
+                    </div>
+                  </Col>
+                </Row>
 
-              <hr />
+                <hr />
 
-              <p>
-                It is recommended to start the development server yourself,
-                since software such as{" "}
-                <Badge bg="secondary">
-                  XAMPP, WampServer, BitNami WAMP Stack, Apache Lounge... etc
-                </Badge>
-                , provide directories in which to load your PHP projects, This
-                results in running on the browser routes as
-                <Badge bg="secondary">'localhost/MyProject/example'</Badge>.
-                This generates a conflict since the route obtained comes by
-                default as <Badge bg="secondary">'MyProject/example'</Badge>,
-                something completely wrong. You can solve it by indicating from
-                which parameter the URL can be obtained from the{" "}
-                <Badge bg="secondary">Route::init()</Badge> method.
-              </p>
+                <p>
+                  It is recommended to start the development server yourself,
+                  since software such as{" "}
+                  <Badge bg="secondary">
+                    XAMPP, WampServer, BitNami WAMP Stack, Apache Lounge... etc
+                  </Badge>
+                  , provide directories in which to load your PHP projects, This
+                  results in running on the browser routes as
+                  <Badge bg="secondary">'localhost/MyProject/example'</Badge>.
+                  This generates a conflict since the route obtained comes by
+                  default as <Badge bg="secondary">'MyProject/example'</Badge>,
+                  something completely wrong. You can solve it by indicating
+                  from which parameter the URL can be obtained from the{" "}
+                  <Badge bg="secondary">Route::init()</Badge> method.
+                </p>
 
-              <p>
-                Indicate with an integer from which position the URL will be
-                obtained, By default it is initialized to 1.
-              </p>
+                <p>
+                  Indicate with an integer from which position the URL will be
+                  obtained, By default it is initialized to 1.
+                </p>
 
-              <CodeBlock
-                language="php"
-                content={
-                  "<?php\n\n" +
-                  "/*\n" +
-                  "\tmyweb.com/auth/signin/example\n" +
-                  "\t1 -> auth/signin/example\n" +
-                  "\t2 -> signin/example\n" +
-                  "\t3 -> example\n" +
-                  "\t4+ ...\n" +
-                  "*/\n\n" +
-                  "Request::init(new GuzzleHttp\\Client());\n" +
-                  "Route::init(1);"
-                }
-              />
-            </div>
+                <CodeBlock
+                  language="php"
+                  content={
+                    "<?php\n\n" +
+                    "/*\n" +
+                    "\tmyweb.com/auth/signin/example\n" +
+                    "\t1 -> auth/signin/example\n" +
+                    "\t2 -> signin/example\n" +
+                    "\t3 -> example\n" +
+                    "\t4+ ...\n" +
+                    "*/\n\n" +
+                    "Request::init(new GuzzleHttp\\Client());\n" +
+                    "Route::init(1);"
+                  }
+                />
+              </div>
+
+              <div className="mb-3">
+                <h4 className="pb-2 text-warning">HTACCESS</h4>
+
+                <CodeBlock
+                  language="apache"
+                  content={
+                    "<IfModule mod_rewrite.c>\n" +
+                    "\t<IfModule mod_negotiation.c>\n" +
+                    "\t\tOptions -MultiViews -Indexes\n" +
+                    "\t</IfModule>\n\n" +
+                    "\tRewriteEngine On\n\n" +
+                    "\t# Handle Authorization Header\n" +
+                    "\tRewriteCond %{HTTP:Authorization} .\n" +
+                    "\tRewriteRule .* - [E=HTTP_AUTHORIZATION:%{HTTP:Authorization}]\n\n" +
+                    "\t# Redirect Trailing Slashes If Not A Folder...\n" +
+                    "\tRewriteCond %{REQUEST_FILENAME} !-d\n" +
+                    "\tRewriteCond %{REQUEST_URI} (.+)/$\n" +
+                    "\tRewriteRule ^ %1 [L,R=301]\n\n" +
+                    "\t# Send Requests To Front Controller...\n" +
+                    "\tRewriteCond %{REQUEST_FILENAME} !-d\n" +
+                    "\tRewriteCond %{REQUEST_FILENAME} !-f\n" +
+                    "\tRewriteRule ^ index.php [L]\n" +
+                    "</IfModule>"
+                  }
+                />
+              </div>
+            </>
           ),
         },
         redirect: {

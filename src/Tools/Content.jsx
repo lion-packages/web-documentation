@@ -1,13 +1,5 @@
-// components
+// pages
 import Library from "../pages/Library";
-import LionFiles from "../pages/LionFiles";
-import LionHelpers from "../pages/LionHelpers";
-import LionMailer from "../pages/LionMailer";
-import LionRequest from "../pages/LionRequest";
-import LionRoute from "../pages/LionRoute";
-import LionSecurity from "../pages/LionSecurity";
-import LionSpreadsheet from "../pages/LionSpreadsheet";
-import LionSQL from "../pages/LionSQL";
 
 //commands
 import v12_16_1_CMMD from "./Versions/Commands/v12_16_1_CMMD";
@@ -74,7 +66,13 @@ export default {
       files: {
         title: "LION-FILES",
         url: "/libraries/lion/files/index",
-        component: <LionFiles />,
+        component: (
+          <Library
+            library={"files"}
+            url_github={"https://github.com/Sleon4/Lion-Files"}
+            command={"composer require lion/files"}
+          />
+        ),
         description:
           "Library created with the function of working internal system files.",
         class: {
@@ -86,7 +84,13 @@ export default {
       security: {
         title: "LION-SECURITY",
         url: "/libraries/lion/security/index",
-        component: <LionSecurity />,
+        component: (
+          <Library
+            library={"security"}
+            url_github={"https://github.com/Sleon4/Lion-Security"}
+            command={"composer require lion/security"}
+          />
+        ),
         description:
           "Library created with the function of implementing AES, RSA and JWT Security functions for PHP.",
         class: {
@@ -98,7 +102,13 @@ export default {
       request: {
         title: "LION-REQUEST",
         url: "/libraries/lion/request/index",
-        component: <LionRequest />,
+        component: (
+          <Library
+            library={"request"}
+            url_github={"https://github.com/Sleon4/Lion-Request"}
+            command={"composer require lion/request"}
+          />
+        ),
         description:
           "Library created to request input data and response requests.",
         class: {
@@ -108,7 +118,13 @@ export default {
       sql: {
         title: "LION-SQL",
         url: "/libraries/lion/sql/index",
-        component: <LionSQL />,
+        component: (
+          <Library
+            library={"sql"}
+            url_github={"https://github.com/Sleon4/Lion-SQL"}
+            command={"composer require lion/sql"}
+          />
+        ),
         description:
           "Package responsible for generating and executing MySQL processes.",
         class: {
@@ -121,7 +137,13 @@ export default {
       mailer: {
         title: "LION-MAILER",
         url: "/libraries/lion/mailer/index",
-        component: <LionMailer />,
+        component: (
+          <Library
+            library={"mailer"}
+            url_github={"https://github.com/Sleon4/Lion-Mailer"}
+            command={"composer require lion/mailer"}
+          />
+        ),
         description:
           "Library created for easy email sending based on PHPMailer.",
         class: {
@@ -132,7 +154,13 @@ export default {
       spreadsheet: {
         title: "LION-SPREADSHEET",
         url: "/libraries/lion/spreadsheet/index",
-        component: <LionSpreadsheet />,
+        component: (
+          <Library
+            library={"spreadsheet"}
+            url_github={"https://github.com/Sleon4/Lion-Spreadsheet"}
+            command={"composer require lion/spreadsheet"}
+          />
+        ),
         description: "Library for easy spreadsheet use.",
         class: {
           "v1.5.0": v1_5_0_LSP(),
@@ -142,7 +170,13 @@ export default {
       route: {
         title: "LION-ROUTE",
         url: "/libraries/lion/route/index",
-        component: <LionRoute />,
+        component: (
+          <Library
+            library={"route"}
+            url_github={"https://github.com/Sleon4/Lion-Route"}
+            command={"composer require lion/route"}
+          />
+        ),
         description:
           "This library has a quick use of the router with regular expressions based on mrjgreen's phroute.",
         class: {
@@ -152,7 +186,13 @@ export default {
       helpers: {
         title: "LION-HELPERS",
         url: "/libraries/lion/helpers/index",
-        component: <LionHelpers />,
+        component: (
+          <Library
+            library={"helpers"}
+            url_github={"https://github.com/Sleon4/Lion-Helpers"}
+            command={"composer require lion/helpers"}
+          />
+        ),
         description: "Easy to use helpers for any type of use.",
         class: {
           "v2.1.2": v2_1_2_LH(),
