@@ -823,7 +823,7 @@ export default function v12_17_0_FRM() {
 
             <CodeBlock
               langueage={"php"}
-              content={"<?php\n\n" + "finish(response->success('finished'));"}
+              content={"<?php\n\n" + "vd(response->success('finished'));"}
             />
           </div>
 
