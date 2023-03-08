@@ -32,6 +32,7 @@ import v6_5_1_LSQ from "./Versions/Libraries/LionSQL/v6_5_1_LSQ";
 import v6_6_0_LSQ from "./Versions/Libraries/LionSQL/v6_6_0_LSQ";
 import v7_0_0_LSQ from "./Versions/Libraries/LionSQL/v7_0_0_LSQ";
 import v1_0_0_LA from "./Versions/Libraries/LionAuthentication/v1_0_0_LA";
+import v2_1_3_LH from "./Versions/Libraries/LionHelpers/v2_1_3_LH";
 
 export default {
   commands: {
@@ -195,6 +196,7 @@ export default {
         ),
         description: "Easy to use helpers for any type of use.",
         class: {
+          "v2.1.3": v2_1_3_LH(),
           "v2.1.2": v2_1_2_LH(),
         },
       },
