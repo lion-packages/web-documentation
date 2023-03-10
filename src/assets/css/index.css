@@ -1,5 +1,9 @@
 @import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@800&display=swap");
 
+* {
+  font-size: 17px;
+}
+
 .bg-dark-blue {
   background-color: #2b2b2b;
 }

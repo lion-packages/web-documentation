@@ -165,8 +165,8 @@ function DashboardContent() {
       <Container>
         <footer className="d-flex flex-wrap justify-content-between align-items-center pb-3">
           <div className="col-md-4 d-flex align-items-center">
-            {/* © */}
-            <span className="mb-3 mb-md-0 text-white">2023 LION</span>
+            {/* © 2023 */}
+            <span className="mb-3 mb-md-0 text-white">LION</span>
           </div>
 
           <ul className="nav col-md-4 justify-content-end list-unstyled d-flex">
