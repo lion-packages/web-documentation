@@ -9,8 +9,19 @@ import codeDashboard from "../assets/img/code-snap.png";
 function DashboardContent() {
   return (
     <>
-      <Container className="my-5">
+      <Container fluid className="my-5">
         <Row>
+          <Col
+            xs={12}
+            sm={12}
+            md={12}
+            lg={12}
+            xl={12}
+            className="text-center mx-auto"
+          >
+            <h1 className="mt-5 mb-0 text-degradient">LION-FRAMEWORK</h1>
+          </Col>
+
           <Col
             xs={12}
             sm={12}
@@ -20,12 +31,6 @@ function DashboardContent() {
             className="text-center mx-auto mb-3"
           >
             <Row>
-              <h1 className="mt-5 mb-0 text-degradient">
-                A simple and easy way to use
-              </h1>
-
-              <h1 className="text-degradient">Lion-Framework</h1>
-
               <p className="text-secondary description mb-4">
                 Lion-Framework can also serve as an API backend for a JavaScript
                 single page application or a mobile application.
@@ -37,15 +42,13 @@ function DashboardContent() {
                 md={5}
                 lg={4}
                 xl={4}
-                className="mx-auto mt-3 mb-5"
+                className="mx-auto mt-2 mb-5"
               >
-                <div className="d-grid gap-2">
-                  <LinkContainer to="/framework/content">
-                    <Button variant="light">
-                      Getting started <FiArrowRight />
-                    </Button>
-                  </LinkContainer>
-                </div>
+                <LinkContainer to="/framework/content">
+                  <Button variant="light" className="rounded-pill">
+                    <FiArrowRight size={'1.4em'} />
+                  </Button>
+                </LinkContainer>
               </Col>
             </Row>
           </Col>
