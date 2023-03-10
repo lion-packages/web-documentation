@@ -5,6 +5,8 @@ import { LinkContainer } from "react-router-bootstrap";
 import { FiArrowRight } from "react-icons/fi";
 import { RiTestTubeFill } from "react-icons/ri";
 import codeDashboard from "../assets/img/code-snap-2.png";
+import { AiFillGithub } from "react-icons/ai";
+import { RiMailSendFill } from "react-icons/ri";
 
 function DashboardContent() {
   return (
@@ -156,6 +158,39 @@ function DashboardContent() {
             </Row>
           </Col>
         </Row>
+      </Container>
+
+      <hr className="text-white" />
+
+      <Container>
+        <footer className="d-flex flex-wrap justify-content-between align-items-center pb-3">
+          <div className="col-md-4 d-flex align-items-center">
+            {/* © */}
+            <span className="mb-3 mb-md-0 text-white">2023 LION</span>
+          </div>
+
+          <ul className="nav col-md-4 justify-content-end list-unstyled d-flex">
+            <li className="ms-3">
+              <a
+                className="text-muted"
+                href="mailto:sergioleon4004@hotmail.com"
+                target={"_blank"}
+              >
+                <RiMailSendFill size={"1.8em"} color={"#FFFFFF"} />
+              </a>
+            </li>
+
+            <li className="ms-3">
+              <a
+                className="text-muted"
+                href="https://github.com/Sleon4"
+                target={"_blank"}
+              >
+                <AiFillGithub size={"1.8em"} color={"#FFFFFF"} />
+              </a>
+            </li>
+          </ul>
+        </footer>
       </Container>
     </>
   );
