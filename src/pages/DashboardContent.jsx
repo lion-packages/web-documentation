@@ -70,7 +70,7 @@ function DashboardContent() {
       <Container className="my-5">
         <Row>
           <Col xs={12} sm={12} md={12} lg={12} xl={12}>
-            <Row className="py-5 my-5">
+            <Row className="py-5">
               <Col
                 xs={12}
                 sm={12}
@@ -135,16 +135,6 @@ function DashboardContent() {
 
           <Col xs={12} sm={12} md={12} lg={12} xl={12}>
             <Row>
-              <Col xs={11} sm={12} md={10} lg={7} xl={7} className="mx-auto">
-                <h1 className="text-degradient text-center">Testing</h1>
-
-                <p className="text-secondary description mb-0">
-                  testing Lion-Framework integrates unit tests internally with
-                  PHPUnit, feel free to create the necessary tests to check the
-                  proper functioning of your web app.
-                </p>
-              </Col>
-
               <Col
                 xs={12}
                 sm={12}
@@ -154,6 +144,16 @@ function DashboardContent() {
                 className="text-center d-none d-lg-block"
               >
                 <RiTestTubeFill className="text-white" size={"10em"} />
+              </Col>
+
+              <Col xs={11} sm={12} md={10} lg={7} xl={7} className="mx-auto">
+                <h1 className="text-degradient text-center">Testing</h1>
+
+                <p className="text-secondary description mb-0">
+                  Testing Lion-Framework integrates unit tests internally with
+                  PHPUnit, feel free to create the necessary tests to check the
+                  proper functioning of your web app.
+                </p>
               </Col>
             </Row>
           </Col>
