@@ -46,7 +46,7 @@ function DashboardContent() {
               >
                 <LinkContainer to="/framework/content">
                   <Button variant="light" className="rounded-pill">
-                    <FiArrowRight size={'1.4em'} />
+                    <FiArrowRight size={"1.4em"} />
                   </Button>
                 </LinkContainer>
               </Col>
@@ -69,31 +69,6 @@ function DashboardContent() {
         <Row>
           <Col xs={12} sm={12} md={12} lg={12} xl={12}>
             <Row className="py-5 my-5">
-              <Col xs={11} sm={12} md={10} lg={7} xl={7} className="mx-auto">
-                <h1 className="text-degradient text-center">Testing</h1>
-
-                <p className="text-secondary description mb-0">
-                  testing Lion-Framework integrates unit tests internally with
-                  PHPUnit, feel free to create the necessary tests to check the
-                  proper functioning of your web app.
-                </p>
-              </Col>
-
-              <Col
-                xs={12}
-                sm={12}
-                md={5}
-                lg={5}
-                xl={5}
-                className="text-center d-none d-lg-block"
-              >
-                <RiTestTubeFill className="text-white" size={"10em"} />
-              </Col>
-            </Row>
-          </Col>
-
-          <Col xs={12} sm={12} md={12} lg={12} xl={12}>
-            <Row className="mb-5">
               <Col
                 xs={12}
                 sm={12}
@@ -152,6 +127,31 @@ function DashboardContent() {
                 className="text-center d-none d-lg-block pb-5 my-5"
               >
                 <img src={codeDashboard} className={"rounded img-fluid"} />
+              </Col>
+            </Row>
+          </Col>
+
+          <Col xs={12} sm={12} md={12} lg={12} xl={12}>
+            <Row>
+              <Col xs={11} sm={12} md={10} lg={7} xl={7} className="mx-auto">
+                <h1 className="text-degradient text-center">Testing</h1>
+
+                <p className="text-secondary description mb-0">
+                  testing Lion-Framework integrates unit tests internally with
+                  PHPUnit, feel free to create the necessary tests to check the
+                  proper functioning of your web app.
+                </p>
+              </Col>
+
+              <Col
+                xs={12}
+                sm={12}
+                md={5}
+                lg={5}
+                xl={5}
+                className="text-center d-none d-lg-block"
+              >
+                <RiTestTubeFill className="text-white" size={"10em"} />
               </Col>
             </Row>
           </Col>
