@@ -26,7 +26,7 @@ function AddMethods() {
         <hr />
 
         <Row>
-          <Col xs={12} sm={12} md={6} lg={6} xl={7}>
+          <Col xs={12} sm={12} md={6} lg={6} xl={6}>
             <Row>
               {Object.entries(
                 Content.libraries.lion[route[2]].class[version][classname]
@@ -63,7 +63,7 @@ function AddMethods() {
             </Row>
           </Col>
 
-          <Col xs={12} sm={12} md={6} lg={6} xl={5}>
+          <Col xs={12} sm={12} md={6} lg={6} xl={6}>
             <Add />
           </Col>
         </Row>
