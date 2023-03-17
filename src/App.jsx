@@ -29,11 +29,11 @@ function App() {
           <Route path="content" element={<LibraryContent />} />
 
           <Route path="lion">
-            {Object.keys(Content.libraries.lion).map((library, index) => (
+            {Object.keys(Content().libraries.lion).map((library, index) => (
               <Route path={library} key={index}>
                 <Route
                   path={"index"}
-                  element={Content.libraries.lion[library].component}
+                  element={Content().libraries.lion[library].component}
                 />
 
                 <Route path=":version/:classname" element={<AddMethods />}>

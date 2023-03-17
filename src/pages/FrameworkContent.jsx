@@ -7,7 +7,7 @@ import CodeBlock from "./components/CodeBlock";
 import GithubButton from "./components/GithubButton";
 
 function FrameworkContent() {
-  const [versions, setVersions] = useState(Object.keys(Content.framework));
+  const [versions, setVersions] = useState(Object.keys(Content().framework));
   const [selectedVersion, setSelectedVersion] = useState("");
 
   useEffect(() => {

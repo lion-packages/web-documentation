@@ -4,8 +4,8 @@ import Content from "../Tools/Content";
 import CardLink from "./components/CardLink";
 
 function LibraryContent() {
-  const [lion, setLion] = useState(Content.libraries.lion);
-  const [external, setExternal] = useState(Content.libraries.external);
+  const [lion, setLion] = useState(Content().libraries.lion);
+  const [external, setExternal] = useState(Content().libraries.external);
 
   return (
     <Container>

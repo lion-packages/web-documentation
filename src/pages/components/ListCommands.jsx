@@ -15,7 +15,7 @@ function ListCommands() {
           </tr>
         </thead>
         <tbody>
-          {Content.commands[item_version].map((command, index) => (
+          {Content().commands[item_version].map((command, index) => (
             <tr key={index}>
               <td>{command.description}</td>
               <td>{command.command}</td>

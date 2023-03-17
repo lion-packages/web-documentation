@@ -29,7 +29,7 @@ function AddMethods() {
           <Col xs={12} sm={12} md={6} lg={6} xl={6}>
             <Row>
               {Object.entries(
-                Content.libraries.lion[route[2]].class[version][classname]
+                Content().libraries.lion[route[2]].class[version][classname]
                   .methods
               ).map(([index, arrfunc]) => {
                 const title = `${cont} - ${arrfunc.title}`;

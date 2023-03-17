@@ -6,7 +6,7 @@ function AddCode() {
   const library = location.pathname.split("/").filter((route) => route != "");
   const { version, classname, functionname } = useParams();
 
-  return Content.libraries.lion[library[2]].class[version][classname].methods[functionname].code;
+  return Content().libraries.lion[library[2]].class[version][classname].methods[functionname].code;
 }
 
 export default AddCode;

@@ -8,7 +8,7 @@ import CardClass from "./components/CardClass";
 import SelectVersionWithGithub from "./components/SelectVersionWithGithub";
 
 function Library({ library, url_github, command }) {
-  const [info, setInfo] = useState(Content.libraries.lion[library].class);
+  const [info, setInfo] = useState(Content().libraries.lion[library].class);
   const [versionList, setVersionList] = useState(Object.keys(info));
   const [versions, setVersions] = useState(versionList);
   const [option, setOption] = useState(versionList[0]);
