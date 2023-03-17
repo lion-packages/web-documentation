@@ -657,7 +657,7 @@ export default function v8_2_0_LRT() {
                   "// or\n\n" +
                   "Route::post('login', [Example::class, 'postMethod'], ['no-auth']);\n\n" +
                   "// or\n\n" +
-                  "Route::get('posts', 'https://jsonplaceholder.typicode.com/posts', ['no-auth']);"
+                  "Route::get('posts', 'https://jsonplaceholder.typicode.com/posts', ['middleware' => ['no-auth']]);"
                 }
               />
             </div>
