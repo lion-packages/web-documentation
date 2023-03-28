@@ -9,6 +9,7 @@ import v13_1_0_CMMD from "./Versions/Commands/v13_1_0_CMMD";
 import v13_2_0_CMMD from "./Versions/Commands/v13_2_0_CMMD";
 import v13_3_0_CMMD from "./Versions/Commands/v13_3_0_CMMD";
 import v13_4_0_CMMD from "./Versions/Commands/v13_4_0_CMMD";
+import v13_5_0_CMMD from "./Versions/Commands/v13_5_0_CMMD";
 
 // framework
 import v12_16_1_FRM from "./Versions/Framework/v12_16_1_FRM";
@@ -18,6 +19,7 @@ import v13_1_0_FRM from "./Versions/Framework/v13_1_0_FRM";
 import v13_2_0_FRM from "./Versions/Framework/v13_2_0_FRM";
 import v13_3_0_FRM from "./Versions/Framework/v13_3_0_FRM";
 import v13_4_0_FRM from "./Versions/Framework/v13_4_0_FRM";
+import v13_5_0_FRM from "./Versions/Framework/v13_5_0_FRM";
 
 // libraries
 import v4_7_0_LF from "./Versions/Libraries/LionFiles/v4_7_0_LF";
@@ -46,6 +48,7 @@ import v1_0_0_LA from "./Versions/Libraries/LionAuthentication/v1_0_0_LA";
 export default function Content(mdText = "") {
   return {
     commands: {
+      "v13.5.0": v13_5_0_CMMD(),
       "v13.4.0": v13_4_0_CMMD(),
       "v13.3.0": v13_3_0_CMMD(),
       "v13.2.0": v13_2_0_CMMD(),
@@ -55,6 +58,7 @@ export default function Content(mdText = "") {
       "v12.16.1": v12_16_1_CMMD(),
     },
     framework: {
+      "v13.5.0": v13_5_0_FRM(mdText),
       "v13.4.0": v13_4_0_FRM(mdText),
       "v13.3.0": v13_3_0_FRM(mdText),
       "v13.2.0": v13_2_0_FRM(),
