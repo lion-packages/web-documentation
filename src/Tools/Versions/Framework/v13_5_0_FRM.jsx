@@ -243,7 +243,12 @@ export default function v13_5_0_FRM(mdText) {
 
             <CodeBlock
               language={"php"}
-              content={"<?php\n\n" + "return response->success('message...');"}
+              content={
+                "<?php\n\n" +
+                "return response->success('message...');\n" +
+                "// or \n" +
+                "return success('message...');"
+              }
             />
 
             <CodeBlock
@@ -265,7 +270,12 @@ export default function v13_5_0_FRM(mdText) {
 
             <CodeBlock
               language={"php"}
-              content={"<?php\n\n" + "return response->error('message...');"}
+              content={
+                "<?php\n\n" +
+                "return response->error('message...');\n" +
+                "// or \n" +
+                "return error('message...');"
+              }
             />
 
             <CodeBlock
@@ -927,10 +937,7 @@ export default function v13_5_0_FRM(mdText) {
 
             <CodeBlock
               langueage={"php"}
-              content={
-                "<?php\n\n" +
-                "fetch('GET', 'my-url.com');"
-              }
+              content={"<?php\n\n" + "fetch('GET', 'my-url.com');"}
             />
           </div>
 
@@ -944,10 +951,7 @@ export default function v13_5_0_FRM(mdText) {
 
             <CodeBlock
               langueage={"php"}
-              content={
-                "<?php\n\n" +
-                "fetchXML('GET', 'my-url.com');"
-              }
+              content={"<?php\n\n" + "fetchXML('GET', 'my-url.com');"}
             />
           </div>
 
