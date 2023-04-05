@@ -7,7 +7,14 @@ import NavigationLinks from "../../Tools/NavigationLinks";
 
 function NavbarNavigation() {
   return (
-    <Navbar bg="dark-blue" variant="dark" expand="lg" sticky="top">
+    <Navbar
+      bg="bg-black-blue"
+      variant="dark"
+      expand="lg"
+      // sticky="top"
+      className="border-bottom border-secondary"
+      style={{ "--bs-border-opacity": ".5" }}
+    >
       <Container>
         <LinkContainer to="/">
           <Navbar.Brand>LION</Navbar.Brand>

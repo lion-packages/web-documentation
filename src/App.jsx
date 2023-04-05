@@ -10,6 +10,7 @@ import NotFound from "./pages/NotFound";
 import FrameworkContent from "./pages/FrameworkContent";
 import DashboardContent from "./pages/DashboardContent";
 import LibraryContent from "./pages/LibraryContent";
+import FooterNavigation from "./pages/components/FooterNavigation";
 
 function App() {
   return (
@@ -44,6 +45,8 @@ function App() {
           </Route>
         </Route>
       </Routes>
+
+      <FooterNavigation />
     </>
   );
 }
