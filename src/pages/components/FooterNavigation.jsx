@@ -3,7 +3,7 @@ import { RiMailSendFill } from "react-icons/ri";
 
 function FooterNavigation() {
   return (
-    <footer className="pb-3">
+    <footer className="py-3">
       <ul
         className="nav justify-content-center border-bottom border-secondary pb-3 mb-3"
         style={{ "--bs-border-opacity": ".5" }}
