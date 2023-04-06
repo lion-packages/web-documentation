@@ -1,7 +1,13 @@
 import { Form, InputGroup } from "react-bootstrap";
 import GithubButton from "./GithubButton";
 
-function SelectVersionWithGithub({ url_github, setOption, setmethods, versions, info }) {
+function SelectVersionWithGithub({
+  url_github,
+  setOption,
+  setmethods,
+  versions,
+  info,
+}) {
   return (
     <div className="p-2">
       <InputGroup className="mb-3">

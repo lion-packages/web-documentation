@@ -10,7 +10,7 @@ export default function AddTabs() {
 
   useEffect(() => {
     fetch(
-      "https://raw.githubusercontent.com/Sleon4/Lion-Framework/new/CHANGELOG.md"
+      "https://raw.githubusercontent.com/Sleon4/Lion-Framework/main/CHANGELOG.md"
     )
       .then((content) => content.text())
       .then((md) => setMdText(md));
