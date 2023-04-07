@@ -1,10 +1,12 @@
 import { Button, Col, Container, Row } from "react-bootstrap";
-import { FaReact, FaVuejs, FaGithub } from "react-icons/fa";
-import { DiPhp } from "react-icons/di";
 import { LinkContainer } from "react-router-bootstrap";
+
+import { DiPhp } from "react-icons/di";
 import { FiArrowRight } from "react-icons/fi";
 import { RiTestTubeFill } from "react-icons/ri";
 import codeDashboard from "../assets/img/code-snap-3.png";
+import { FaReact, FaVuejs, FaGithub, FaYoutube } from "react-icons/fa";
+import { MdEmail } from "react-icons/md";
 
 function DashboardContent() {
   return (
@@ -60,8 +62,27 @@ function DashboardContent() {
         style={{ "--bs-border-opacity": ".5" }}
       >
         <Container className="text-center">
-          <a href="https://github.com/Sleon4" target={"_blank"}>
+          <a
+            href="mailto:sergioleon4004@hotmail.com"
+            target={"_blank"}
+            className="me-4"
+          >
+            <MdEmail className="text-warning" size={"3em"} />
+          </a>
+
+          <a
+            href="https://github.com/Sleon4"
+            target={"_blank"}
+            className="me-4"
+          >
             <FaGithub className="text-white" size={"3em"} />
+          </a>
+
+          <a
+            href="https://www.youtube.com/channel/UCJBOJVKok44BZt0kKlBeZyA"
+            target={"_blank"}
+          >
+            <FaYoutube className="text-danger" size={"3em"} />
           </a>
         </Container>
       </div>
