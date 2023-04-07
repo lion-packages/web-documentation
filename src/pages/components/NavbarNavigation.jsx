@@ -3,21 +3,24 @@ import Nav from "react-bootstrap/Nav";
 import Navbar from "react-bootstrap/Navbar";
 import NavDropdown from "react-bootstrap/NavDropdown";
 import { LinkContainer } from "react-router-bootstrap";
+
 import NavigationLinks from "../../Tools/NavigationLinks";
+
+import logo from "./../../assets/img/logo-web.png";
 
 function NavbarNavigation() {
   return (
     <Navbar
-      bg="bg-black-blue"
       variant="dark"
       expand="lg"
-      // sticky="top"
-      className="border-bottom border-secondary"
+      className="bg-dark-logo border-bottom border-secondary py-0"
       style={{ "--bs-border-opacity": ".5" }}
     >
       <Container>
         <LinkContainer to="/">
-          <Navbar.Brand>LION</Navbar.Brand>
+          <Navbar.Brand>
+            <img src={logo} width={220} height={65} />
+          </Navbar.Brand>
         </LinkContainer>
 
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
