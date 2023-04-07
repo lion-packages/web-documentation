@@ -7,7 +7,7 @@ function ListCommands() {
 
   return (
     <>
-      <Table striped size="sm" variant="dark" hover>
+      <Table striped size="sm" variant="dark" hover responsive>
         <thead>
           <tr>
             <th>Description</th>

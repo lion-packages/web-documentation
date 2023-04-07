@@ -54,12 +54,11 @@ export default function AddTabs() {
         <Col xs={12} sm={12} md={12} lg={12} xl={3} xxl={3}>
           <div className="d-xl-none">
             <Button
-              variant="warning"
-              className="border border-secondary rounded-pill mb-3"
+              variant="outline-warning"
+              className="rounded-pill mb-3"
               onClick={() => setShow(true)}
             >
               <i className="bi bi-list"></i>
-              {/* size={"1.2em"} */}
             </Button>
 
             <Offcanvas
