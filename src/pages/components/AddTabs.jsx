@@ -69,7 +69,7 @@ export default function AddTabs() {
               onHide={() => setShow(false)}
             >
               <Offcanvas.Header closeButton>
-                <Offcanvas.Title>Offcanvas</Offcanvas.Title>
+                <Offcanvas.Title>Available documents</Offcanvas.Title>
               </Offcanvas.Header>
 
               <Offcanvas.Body>
