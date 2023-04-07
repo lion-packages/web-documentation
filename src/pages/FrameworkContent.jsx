@@ -21,8 +21,6 @@ function FrameworkContent() {
           <div className="d-flex justify-content-between">
             <div className="p-2">
               <h3>INSTALL</h3>
-
-              <p>Lion-Framework supports PHP versions 8.1 onwards</p>
             </div>
 
             <div className="p-2">
@@ -50,6 +48,8 @@ function FrameworkContent() {
               </InputGroup>
             </div>
           </div>
+
+          <p>Lion-Framework supports PHP versions 8.1+</p>
 
           <CodeBlock
             language={"powershell"}

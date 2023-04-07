@@ -1,12 +1,44 @@
 import { useEffect, useState } from "react";
-import { Col, Container, ListGroup, Row } from "react-bootstrap";
+import {
+  Button,
+  Col,
+  Container,
+  ListGroup,
+  Offcanvas,
+  Row,
+} from "react-bootstrap";
 import { LinkContainer } from "react-router-bootstrap";
 import { useParams } from "react-router-dom";
+
 import Content from "../../Tools/Content";
 
 export default function AddTabs() {
   const { item_version, tab } = useParams();
   const [mdText, setMdText] = useState("");
+  const [show, setShow] = useState(false);
+
+  const ListItems = () => {
+    return (
+      <ListGroup numbered>
+        {Object.entries(Content(mdText).framework[item_version]).map(
+          ([index, tab]) => (
+            <LinkContainer
+              to={`/framework/index/${item_version}/${index}`}
+              key={index}
+            >
+              <ListGroup.Item
+                variant="dark"
+                action
+                onClick={() => setShow(false)}
+              >
+                {tab.name}
+              </ListGroup.Item>
+            </LinkContainer>
+          )
+        )}
+      </ListGroup>
+    );
+  };
 
   useEffect(() => {
     fetch(
@@ -19,24 +51,39 @@ export default function AddTabs() {
   return (
     <Container className="my-4 text-white">
       <Row>
-        <Col xs={12} sm={12} md={3} lg={4} xl={3} xxl={3} className={"mb-3"}>
-          <ListGroup numbered>
-            {Object.entries(Content(mdText).framework[item_version]).map(
-              ([index, tab]) => (
-                <LinkContainer
-                  to={`/framework/index/${item_version}/${index}`}
-                  key={index}
-                >
-                  <ListGroup.Item variant="dark" action>
-                    {tab.name}
-                  </ListGroup.Item>
-                </LinkContainer>
-              )
-            )}
-          </ListGroup>
+        <Col xs={12} sm={12} md={12} lg={12} xl={3} xxl={3}>
+          <div className="d-xl-none">
+            <Button
+              variant="warning"
+              className="border border-secondary rounded-pill mb-3"
+              onClick={() => setShow(true)}
+            >
+              <i className="bi bi-list"></i>
+              {/* size={"1.2em"} */}
+            </Button>
+
+            <Offcanvas
+              placement="start"
+              className="bg-dark-logo text-white"
+              show={show}
+              onHide={() => setShow(false)}
+            >
+              <Offcanvas.Header closeButton>
+                <Offcanvas.Title>Offcanvas</Offcanvas.Title>
+              </Offcanvas.Header>
+
+              <Offcanvas.Body>
+                <ListItems />
+              </Offcanvas.Body>
+            </Offcanvas>
+          </div>
+
+          <div className={"d-none d-xl-block mb-3"}>
+            <ListItems />
+          </div>
         </Col>
 
-        <Col xs={12} sm={12} md={9} lg={8} xl={9} xxl={9}>
+        <Col xs={12} sm={12} md={12} lg={12} xl={9} xxl={9}>
           {Content(mdText).framework[item_version][tab].code}
         </Col>
       </Row>

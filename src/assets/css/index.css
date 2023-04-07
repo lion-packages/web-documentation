@@ -89,6 +89,20 @@
   border-color: #232323 !important;
 }
 
+.table-dark {
+  --bs-table-color: #ffffff;
+  --bs-table-bg: #111111;
+  --bs-table-border-color: #232323;
+  --bs-table-striped-bg: #232323;
+  --bs-table-striped-color: #ffffff;
+  --bs-table-active-bg: #232323;
+  --bs-table-active-color: #ffffff;
+  --bs-table-hover-bg: #2D2D2D;
+  --bs-table-hover-color: #ffffff;
+  color: var(--bs-table-color);
+  border-color: var(--bs-table-border-color);
+}
+
 @keyframes move-bg {
   to {
     background-position: var(--bg-size) 0;
