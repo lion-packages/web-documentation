@@ -4,7 +4,7 @@ import { DiPhp } from "react-icons/di";
 import { LinkContainer } from "react-router-bootstrap";
 import { FiArrowRight } from "react-icons/fi";
 import { RiTestTubeFill } from "react-icons/ri";
-import codeDashboard from "../assets/img/code-snap-2.png";
+import codeDashboard from "../assets/img/code-snap-3.png";
 
 function DashboardContent() {
   return (
@@ -55,15 +55,16 @@ function DashboardContent() {
         </Row>
       </Container>
 
-      <hr className="text-white" />
-
-      <Container className="text-center">
-        <a href="https://github.com/Sleon4" target={"_blank"}>
-          <FaGithub className="text-white" size={"3em"} />
-        </a>
-      </Container>
-
-      <hr className="text-white" />
+      <div
+        className="bg-dark-logo py-3 border-top border-bottom border-secondary"
+        style={{ "--bs-border-opacity": ".5" }}
+      >
+        <Container className="text-center">
+          <a href="https://github.com/Sleon4" target={"_blank"}>
+            <FaGithub className="text-white" size={"3em"} />
+          </a>
+        </Container>
+      </div>
 
       <Container className="my-5">
         <Row>

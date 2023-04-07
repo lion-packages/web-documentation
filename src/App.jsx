@@ -17,34 +17,36 @@ function App() {
     <>
       <NavbarNavigation />
 
-      <Routes>
-        <Route path="*" element={<NotFound />} />
-        <Route path="/" element={<DashboardContent />} />
+      <main className="flex-shrink-0">
+        <Routes>
+          <Route path="*" element={<NotFound />} />
+          <Route path="/" element={<DashboardContent />} />
 
-        <Route path="framework">
-          <Route path="content" element={<FrameworkContent />} />
-          <Route path="index/:item_version/:tab" element={<AddTabs />} />
-        </Route>
-
-        <Route path="libraries">
-          <Route path="content" element={<LibraryContent />} />
-
-          <Route path="lion">
-            {Object.keys(Content().libraries.lion).map((library, index) => (
-              <Route path={library} key={index}>
-                <Route
-                  path={"index"}
-                  element={Content().libraries.lion[library].component}
-                />
-
-                <Route path=":version/:classname" element={<AddMethods />}>
-                  <Route path=":functionname" element={<AddCode />} />
-                </Route>
-              </Route>
-            ))}
+          <Route path="framework">
+            <Route path="content" element={<FrameworkContent />} />
+            <Route path="index/:item_version/:tab" element={<AddTabs />} />
           </Route>
-        </Route>
-      </Routes>
+
+          <Route path="libraries">
+            <Route path="content" element={<LibraryContent />} />
+
+            <Route path="lion">
+              {Object.keys(Content().libraries.lion).map((library, index) => (
+                <Route path={library} key={index}>
+                  <Route
+                    path={"index"}
+                    element={Content().libraries.lion[library].component}
+                  />
+
+                  <Route path=":version/:classname" element={<AddMethods />}>
+                    <Route path=":functionname" element={<AddCode />} />
+                  </Route>
+                </Route>
+              ))}
+            </Route>
+          </Route>
+        </Routes>
+      </main>
 
       <FooterNavigation />
     </>
