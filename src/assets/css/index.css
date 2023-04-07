@@ -75,18 +75,18 @@
 
 .list-group-item-dark {
   color: #ffffff !important;
-  background-color: #111b21 !important;
+  background-color: #111111 !important;
 }
 
 .list-group-item-dark:hover {
   color: #ffffff !important;
-  background-color: #1a2932 !important;
+  background-color: #232323 !important;
 }
 
 .list-group-item-dark.list-group-item-action.active {
   color: #ffffff !important;
-  background-color: #1a2932 !important;
-  border-color: #1a2932 !important;
+  background-color: #232323 !important;
+  border-color: #232323 !important;
 }
 
 @keyframes move-bg {
