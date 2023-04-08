@@ -18,7 +18,7 @@ function AddMethods() {
         <LinkContainer
           to={"/libraries/" + route[1] + "/" + route[2] + "/index"}
         >
-          <Button variant="outline-light" className="rounded-pill mb-3">
+          <Button variant="outline-warning" className="rounded-pill mb-3">
             <FiArrowLeft size={22} />
           </Button>
         </LinkContainer>

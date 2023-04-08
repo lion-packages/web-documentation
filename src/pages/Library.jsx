@@ -21,7 +21,7 @@ function Library({ library, url_github, command }) {
           <div className="d-flex justify-content-between">
             <div className="p-2">
               <LinkContainer to={"/libraries/content"}>
-                <Button variant="outline-light" className="rounded-pill mb-3">
+                <Button variant="outline-warning" className="rounded-pill mb-3">
                   <FiArrowLeft size={22} />
                 </Button>
               </LinkContainer>
