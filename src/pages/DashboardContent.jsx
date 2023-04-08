@@ -47,8 +47,14 @@ function DashboardContent() {
                 className="mx-auto mt-2 mb-5"
               >
                 <LinkContainer to="/framework/content">
-                  <Button variant="light" className="rounded-pill">
-                    <FiArrowRight size={"1.4em"} />
+                  <Button variant="dark-gradient" size="lg" className="fw-bold me-2">
+                    {"Install"}
+                  </Button>
+                </LinkContainer>
+
+                <LinkContainer to="/libraries/content">
+                  <Button variant="dark-gradient" size="lg" className="fw-bold">
+                    {"Packages"}
                   </Button>
                 </LinkContainer>
               </Col>
