@@ -92,7 +92,7 @@ export default function Content(mdText = "") {
     libraries: {
       lion: {
         authentication: {
-          title: "LION-AUTHENTICATION",
+          title: "Lion-Authentication",
           url: "/libraries/lion/authentication/index",
           component: (
             <Library
@@ -107,7 +107,7 @@ export default function Content(mdText = "") {
           },
         },
         files: {
-          title: "LION-FILES",
+          title: "Lion-Files",
           url: "/libraries/lion/files/index",
           component: (
             <Library
@@ -125,7 +125,7 @@ export default function Content(mdText = "") {
           },
         },
         security: {
-          title: "LION-SECURITY",
+          title: "Lion-Security",
           url: "/libraries/lion/security/index",
           component: (
             <Library
@@ -144,7 +144,7 @@ export default function Content(mdText = "") {
           },
         },
         request: {
-          title: "LION-REQUEST",
+          title: "Lion-Request",
           url: "/libraries/lion/request/index",
           component: (
             <Library
@@ -160,7 +160,7 @@ export default function Content(mdText = "") {
           },
         },
         sql: {
-          title: "LION-SQL",
+          title: "Lion-SQL",
           url: "/libraries/lion/sql/index",
           component: (
             <Library
@@ -183,7 +183,7 @@ export default function Content(mdText = "") {
           },
         },
         mailer: {
-          title: "LION-MAILER",
+          title: "Lion-Mailer",
           url: "/libraries/lion/mailer/index",
           component: (
             <Library
@@ -200,7 +200,7 @@ export default function Content(mdText = "") {
           },
         },
         spreadsheet: {
-          title: "LION-SPREADSHEET",
+          title: "Lion-Spreadsheet",
           url: "/libraries/lion/spreadsheet/index",
           component: (
             <Library
@@ -216,7 +216,7 @@ export default function Content(mdText = "") {
           },
         },
         route: {
-          title: "LION-ROUTE",
+          title: "Lion-Route",
           url: "/libraries/lion/route/index",
           component: (
             <Library
@@ -236,7 +236,7 @@ export default function Content(mdText = "") {
           },
         },
         helpers: {
-          title: "LION-HELPERS",
+          title: "Lion-Helpers",
           url: "/libraries/lion/helpers/index",
           component: (
             <Library
