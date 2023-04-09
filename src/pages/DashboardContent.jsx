@@ -39,7 +39,7 @@ function DashboardContent() {
               </p>
 
               <Col
-                xs={6}
+                xs={12}
                 sm={5}
                 md={5}
                 lg={4}
@@ -47,7 +47,7 @@ function DashboardContent() {
                 className="mx-auto mt-2 mb-5"
               >
                 <LinkContainer to="/framework/content">
-                  <Button variant="dark-gradient" size="lg" className="fw-bold me-2">
+                  <Button variant="dark-gradient" size="lg" className="fw-bold me-3">
                     {"Install"}
                   </Button>
                 </LinkContainer>
