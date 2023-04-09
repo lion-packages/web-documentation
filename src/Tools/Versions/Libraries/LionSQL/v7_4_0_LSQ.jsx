@@ -140,7 +140,7 @@ export default function v7_4_0_LSQ() {
         connection: {
           title: "MySQL::connection",
           description:
-            "The `insert` function executes an insert statement in the database to a given table",
+            "The `connection` function allows you to select one of the connections established in the driver to execute a process in the database",
           link: "connection",
           code: (
             <CodeBlock
