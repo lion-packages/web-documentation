@@ -174,17 +174,26 @@ export default function v7_5_0_LSQ() {
             "The `insert` function executes an insert statement in the database to a given table",
           link: "insert",
           code: (
-            <CodeBlock
-              language="php"
-              content={
-                "<?php\n\n" +
-                "use LionSQL\\Drivers\\MySQL as DB;\n\n" +
-                "DB::table('my_table')->insert([\n" +
-                "\t'name' => 'Sergio',\n" +
-                "\t'lastname' => 'Leon'\n" +
-                "])->execute();"
-              }
-            />
+            <>
+              <CodeBlock
+                language="sql"
+                content={
+                  "INSERT INTO my_table ('name', 'lastname') VALUES ('Sergio', 'Leon')"
+                }
+              />
+
+              <CodeBlock
+                language="php"
+                content={
+                  "<?php\n\n" +
+                  "use LionSQL\\Drivers\\MySQL as DB;\n\n" +
+                  "DB::table('my_table')->insert([\n" +
+                  "\t'name' => 'Sergio',\n" +
+                  "\t'lastname' => 'Leon'\n" +
+                  "])->execute();"
+                }
+              />
+            </>
           ),
         },
         select: {
