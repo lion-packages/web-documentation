@@ -97,7 +97,9 @@ export default function v13_8_0_FRM(mdText) {
               <Col xs={12} sm={12} md={6}>
                 <CodeBlock
                   language={"php"}
-                  content={"php lion db:capsule --path forder_path/"}
+                  content={
+                    "php lion db:capsule --path forder_path/ --connection first_connection"
+                  }
                 />
               </Col>
 
@@ -667,6 +669,7 @@ export default function v13_8_0_FRM(mdText) {
         <>
           <div className="mb-3">
             <h2>ADD FUNCTIONS</h2>
+            <hr />
 
             <p>We can add the necessary functions in each middleware.</p>
 
@@ -706,10 +709,9 @@ export default function v13_8_0_FRM(mdText) {
             />
           </div>
 
-          <hr />
-
           <div className="mb-3">
             <h2>ADD MIDDLEWARE</h2>
+            <hr />
 
             <p>
               To import middleware to the routes we must first import the
@@ -733,10 +735,9 @@ export default function v13_8_0_FRM(mdText) {
             />
           </div>
 
-          <hr />
-
           <div className="mb-3">
             <h2>USE MIDDLEWARE</h2>
+            <hr />
 
             <p>
               <Badge bg={"secondary"}>routes/web.php</Badge>
@@ -793,7 +794,6 @@ export default function v13_8_0_FRM(mdText) {
           <>
             <div className="mb-3">
               <h2>CAPSULES</h2>
-
               <hr />
 
               <p>
@@ -814,10 +814,16 @@ export default function v13_8_0_FRM(mdText) {
               />
 
               <Alert variant={"warning"}>
-                Note: Capsule classes by default are stored in the{" "}
-                <Badge bg="warning">database/Class/</Badge> directory, you can
-                change the path with the <Badge bg="warning">--path</Badge>{" "}
+                <strong>Note:</strong> Capsule classes by default are stored in
+                the <Badge bg="warning">database/Class/</Badge> directory, you
+                can change the path with the <Badge bg="warning">--path</Badge>{" "}
                 option.
+              </Alert>
+
+              <Alert variant={"warning"}>
+                <strong>Note:</strong> If you need to map entities from another
+                database, specify the connection through the{" "}
+                <Badge bg="warning">--connection</Badge> option.
               </Alert>
 
               <CodeBlock
@@ -879,12 +885,14 @@ export default function v13_8_0_FRM(mdText) {
             </div>
           </>
 
-          <hr />
-
           <div className="mb-3">
             <h2>CREATE CUSTOM CAPSULES</h2>
+            <hr />
 
-            <p>create custom capsule classes</p>
+            <p>
+              create custom capsule classes with unique properties for different
+              uses.
+            </p>
 
             <CodeBlock
               language={"powershell"}
@@ -936,6 +944,7 @@ export default function v13_8_0_FRM(mdText) {
         <>
           <div className="mb-3">
             <h2 className="pb-2">CREATE SEED</h2>
+            <hr />
 
             <CodeBlock
               language={"powershell"}
@@ -971,6 +980,7 @@ export default function v13_8_0_FRM(mdText) {
         <>
           <div className="mb-3">
             <h2 className="pb-2">CREATE SOCKET</h2>
+            <hr />
 
             <CodeBlock
               language={"powershell"}
@@ -1012,6 +1022,7 @@ export default function v13_8_0_FRM(mdText) {
 
           <div className="mb-3">
             <h2 className="pb-2">ADD SOCKETS</h2>
+            <hr />
 
             <p>
               to execute a sockets from the console, it must be added in the
@@ -1036,6 +1047,7 @@ export default function v13_8_0_FRM(mdText) {
 
           <div className="mb-3">
             <h2 className="pb-2">USE SOCKETS</h2>
+            <hr />
 
             <p>
               to execute a socket you must do it from the console, you can
@@ -1069,136 +1081,159 @@ export default function v13_8_0_FRM(mdText) {
           <h2>HELPERS</h2>
           <hr />
 
-          <div className="mb-3">
-            <h5 className="pb-2 text-warning">fetch</h5>
+          <Row>
+            <Col xs={12} sm={12} md={6}>
+              <div className="mb-3">
+                <h5 className="pb-2 text-warning">fetch</h5>
 
-            <p>
-              The fetch helper allows you to make http requests, internally with
-              guzzle http.
-            </p>
+                <p>
+                  The fetch helper allows you to make http requests, internally
+                  with guzzle http.
+                </p>
 
-            <CodeBlock
-              langueage={"php"}
-              content={"<?php\n\n" + "fetch('GET', 'my-url.com');"}
-            />
-          </div>
+                <CodeBlock
+                  langueage={"php"}
+                  content={"<?php\n\n" + "fetch('GET', 'my-url.com');"}
+                />
+              </div>
+            </Col>
 
-          <div className="mb-3">
-            <h5 className="pb-2 text-warning">fetchXML</h5>
+            <Col xs={12} sm={12} md={6}>
+              <div className="mb-3">
+                <h5 className="pb-2 text-warning">fetchXML</h5>
 
-            <p>
-              The get helper allows you to make http requests to get xml in
-              String format, internally with http guzzle.
-            </p>
+                <p>
+                  The get helper allows you to make http requests to get xml in
+                  String format, internally with http guzzle.
+                </p>
 
-            <CodeBlock
-              langueage={"php"}
-              content={"<?php\n\n" + "fetchXML('GET', 'my-url.com');"}
-            />
-          </div>
+                <CodeBlock
+                  langueage={"php"}
+                  content={"<?php\n\n" + "fetchXML('GET', 'my-url.com');"}
+                />
+              </div>
+            </Col>
 
-          <div className="mb-3">
-            <h5 className="pb-2 text-warning">storage_path</h5>
+            <Col xs={12} sm={12} md={6}>
+              <div className="mb-3">
+                <h5 className="pb-2 text-warning">storage_path</h5>
 
-            <p>
-              The storage_path helper allows access to directories and files in
-              the storage directory.
-            </p>
+                <p>
+                  The storage_path helper allows access to directories and files
+                  in the storage directory.
+                </p>
 
-            <CodeBlock
-              langueage={"php"}
-              content={
-                "<?php\n\n" +
-                "use LionFiles\\Store;\n\n" +
-                "Store::view(storage_path('files/'));"
-              }
-            />
-          </div>
+                <CodeBlock
+                  langueage={"php"}
+                  content={
+                    "<?php\n\n" +
+                    "use LionFiles\\Store;\n\n" +
+                    "Store::view(storage_path('files/'));"
+                  }
+                />
+              </div>
+            </Col>
 
-          <div className="mb-3">
-            <h5 className="pb-2 text-warning">finish</h5>
+            <Col xs={12} sm={12} md={6}>
+              <div className="mb-3">
+                <h5 className="pb-2 text-warning">finish</h5>
 
-            <p>The finish helper ends the execution of all processes.</p>
+                <p>The finish helper ends the execution of all processes.</p>
 
-            <CodeBlock
-              langueage={"php"}
-              content={"<?php\n\n" + "finish(success('my response'));"}
-            />
-          </div>
+                <CodeBlock
+                  langueage={"php"}
+                  content={"<?php\n\n" + "finish(success('my response'));"}
+                />
+              </div>
+            </Col>
 
-          <div className="mb-3">
-            <h5 className="pb-2 text-warning">success</h5>
+            <Col xs={12} sm={12} md={6}>
+              <div className="mb-3">
+                <h5 className="pb-2 text-warning">success</h5>
 
-            <p>Function to display a success response.</p>
+                <p>Function to display a success response.</p>
 
-            <CodeBlock
-              langueage={"php"}
-              content={"<?php\n\n" + "return success('message');"}
-            />
-          </div>
+                <CodeBlock
+                  langueage={"php"}
+                  content={"<?php\n\n" + "return success('message');"}
+                />
+              </div>
+            </Col>
 
-          <div className="mb-3">
-            <h5 className="pb-2 text-warning">error</h5>
+            <Col xs={12} sm={12} md={6}>
+              <div className="mb-3">
+                <h5 className="pb-2 text-warning">error</h5>
 
-            <p>Function to display a error response.</p>
+                <p>Function to display a error response.</p>
 
-            <CodeBlock
-              langueage={"php"}
-              content={"<?php\n\n" + "return error('message');"}
-            />
-          </div>
+                <CodeBlock
+                  langueage={"php"}
+                  content={"<?php\n\n" + "return error('message');"}
+                />
+              </div>
+            </Col>
 
-          <div className="mb-3">
-            <h5 className="pb-2 text-warning">warning</h5>
+            <Col xs={12} sm={12} md={6}>
+              <div className="mb-3">
+                <h5 className="pb-2 text-warning">warning</h5>
 
-            <p>Function to display a warning response.</p>
+                <p>Function to display a warning response.</p>
 
-            <CodeBlock
-              langueage={"php"}
-              content={"<?php\n\n" + "return warning('message');"}
-            />
-          </div>
+                <CodeBlock
+                  langueage={"php"}
+                  content={"<?php\n\n" + "return warning('message');"}
+                />
+              </div>
+            </Col>
 
-          <div className="mb-3">
-            <h5 className="pb-2 text-warning">info</h5>
+            <Col xs={12} sm={12} md={6}>
+              <div className="mb-3">
+                <h5 className="pb-2 text-warning">info</h5>
 
-            <p>Function to display a info response.</p>
+                <p>Function to display a info response.</p>
 
-            <CodeBlock
-              langueage={"php"}
-              content={"<?php\n\n" + "return info('message');"}
-            />
-          </div>
+                <CodeBlock
+                  langueage={"php"}
+                  content={"<?php\n\n" + "return info('message');"}
+                />
+              </div>
+            </Col>
 
-          <div className="mb-3">
-            <h5 className="pb-2 text-warning">vd</h5>
+            <Col xs={12} sm={12} md={6}>
+              <div className="mb-3">
+                <h5 className="pb-2 text-warning">vd</h5>
 
-            <p>The helper vd executes the function var_dump.</p>
+                <p>The helper vd executes the function var_dump.</p>
 
-            <CodeBlock
-              langueage={"php"}
-              content={"<?php\n\n" + "vd(success('finished'));"}
-            />
-          </div>
+                <CodeBlock
+                  langueage={"php"}
+                  content={"<?php\n\n" + "vd(success('finished'));"}
+                />
+              </div>
+            </Col>
 
-          <div className="mb-3">
-            <h5 className="pb-2 text-warning">logger</h5>
+            <Col xs={12} sm={12} md={6}>
+              <div className="mb-3">
+                <h5 className="pb-2 text-warning">logger</h5>
 
-            <p>
-              The logger helper generates a log file stored in{" "}
-              <strong>storage/logs/</strong> and implements Monolog internally.
-            </p>
+                <p>
+                  The logger helper generates a log file stored in{" "}
+                  <strong>storage/logs/</strong> and implements Monolog
+                  internally.
+                </p>
 
-            <CodeBlock
-              langueage={"php"}
-              content={
-                "<?php\n\n" +
-                "logger('lorem ipsum dolor sit amet...'); // default info\n" +
-                "logger('lorem ipsum dolor sit amet...', 'error');\n" +
-                "logger('lorem ipsum dolor sit amet...', 'warning', ['name' => 'Sleon']);"
-              }
-            />
-          </div>
+                <CodeBlock
+                  langueage={"php"}
+                  content={
+                    "<?php\n\n" +
+                    "logger('lorem ipsum dolor sit amet...'); // default info\n" +
+                    "logger('lorem ipsum dolor sit amet...', 'error');\n" +
+                    "logger('lorem ipsum dolor sit amet...', 'warning', ['name' => 'Sleon']);"
+                  }
+                />
+              </div>
+            </Col>
+          </Row>
         </>
       ),
     },
