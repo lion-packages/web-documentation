@@ -1,4 +1,4 @@
-import { Alert, Badge } from "react-bootstrap";
+import { Alert, Badge, Col, Row } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import ReactMarkdown from "react-markdown";
 import remarkGfm from "remark-gfm";
@@ -11,7 +11,7 @@ import { DiPhp } from "react-icons/di";
 import { FaReact } from "react-icons/fa";
 import { SiVite } from "react-icons/si";
 
-export default function v13_7_0_FRM(mdText) {
+export default function v13_8_0_FRM(mdText) {
   return {
     changelog: {
       name: "Changelog",
@@ -28,64 +28,8 @@ export default function v13_7_0_FRM(mdText) {
             <ListCommands />
           </div>
 
-          <hr />
-
           <div className="mb-3">
-            <h4 className="pb-2">ROUTE LIST</h4>
-
-            <p>
-              To view the available routes, start the local server first, run
-              the <Badge bg="secondary">php lion serve</Badge> command, and then
-              view the routes.
-            </p>
-
-            <CodeBlock
-              language={"powershell"}
-              content={"php lion route:list"}
-            />
-
-            <Alert variant={"warning"}>
-              Note: The routes are loaded with the server route{" "}
-              <Badge bg="warning">SERVER_URL</Badge> set in{" "}
-              <Badge bg="warning">.env</Badge>, modify this route to avoid
-              errors in the execution of the process, in the file{" "}
-              <Badge bg="warning">public/index.php</Badge> there is a public
-              route which allows get the available routes from the terminal,
-              comment this line once your web app is deployed.
-            </Alert>
-          </div>
-
-          <hr />
-
-          <div className="mb-3">
-            <h4 className="pb-2">ROUTE POSTMAN</h4>
-
-            <p>
-              To export the available paths, first start the local server, then
-              view the exported paths in{" "}
-              <Badge bg="warning">storage/postman/</Badge>
-            </p>
-
-            <CodeBlock
-              language={"powershell"}
-              content={"php lion route:list"}
-            />
-
-            <Alert variant={"warning"}>
-              Note: The routes are loaded with the server route{" "}
-              <Badge bg="warning">SERVER_URL</Badge> set in{" "}
-              <Badge bg="warning">.env</Badge>, modify this route to avoid
-              errors in the execution of the process, in the file{" "}
-              <Badge bg="warning">public/index.php</Badge> there is a public
-              route which allows get the available routes from the terminal,
-              comment this line once your web app is deployed.
-            </Alert>
-          </div>
-
-          <hr />
-
-          <div className="mb-3">
-            <h4 className="pb-2">ADD COMMANDS</h4>
+            <h2 className="pb-2">ADD COMMANDS</h2>
 
             <p>
               You need to add the commands in the{" "}
@@ -109,7 +53,7 @@ export default function v13_7_0_FRM(mdText) {
           </div>
 
           <div className="mb-3">
-            <h4 className="pb-2">ADD SOCKETS COMMANDS</h4>
+            <h2 className="pb-2">ADD SOCKETS COMMANDS</h2>
 
             <p>
               to execute a sockets from the console, it must be added in the
@@ -132,46 +76,105 @@ export default function v13_7_0_FRM(mdText) {
             />
           </div>
 
-          <hr />
-
           <div className="mb-3">
-            <h4 className="pb-2">OPTIONAL PARAMETERS</h4>
+            <h2 className="pb-2">OPTIONAL PARAMETERS</h2>
 
-            <CodeBlock
-              language={"php"}
-              content={"php lion serve --port 8001"}
-            />
+            <Row>
+              <Col xs={12} sm={12} md={6}>
+                <CodeBlock
+                  language={"php"}
+                  content={"php lion serve --port 8001"}
+                />
+              </Col>
 
-            <CodeBlock
-              language={"php"}
-              content={"php lion key:rsa --path storage/other-secret-key/"}
-            />
+              <Col xs={12} sm={12} md={6}>
+                <CodeBlock
+                  language={"php"}
+                  content={"php lion key:rsa --path storage/other-secret-key/"}
+                />
+              </Col>
 
-            <CodeBlock
-              language={"php"}
-              content={"php lion db:capsule --path forder_path/"}
-            />
+              <Col xs={12} sm={12} md={6}>
+                <CodeBlock
+                  language={"php"}
+                  content={"php lion db:capsule --path forder_path/"}
+                />
+              </Col>
 
-            <CodeBlock
-              language={"php"}
-              content={"php lion db:all-capsules --path forder_path/"}
-            />
+              <Col xs={12} sm={12} md={6}>
+                <CodeBlock
+                  language={"php"}
+                  content={"php lion db:all-capsules --path forder_path/"}
+                />
+              </Col>
+
+              <Col xs={12} sm={12} md={6}>
+                <CodeBlock
+                  language={"php"}
+                  content={
+                    "php lion db:seed name_seed --run false --iterate 10"
+                  }
+                />
+              </Col>
+
+              <Col xs={12} sm={12} md={6}>
+                <CodeBlock
+                  language={"php"}
+                  content={"php lion db:factory --path forder_path/"}
+                />
+              </Col>
+
+              <Col xs={12} sm={12} md={6}>
+                <CodeBlock
+                  language={"php"}
+                  content={"php lion socket:serve socket_name --port 8081"}
+                />
+              </Col>
+            </Row>
+          </div>
+        </>
+      ),
+    },
+    database: {
+      name: "Database",
+      code: (
+        <>
+          <div className="mb-3">
+            <h2 className="pb-2">DATABASE CONNECTION</h2>
+
+            <hr />
+
+            <p>
+              To make a direct connection to the database, go to{" "}
+              <Badge bg="secondary">config/database.php</Badge>, for more
+              information read{" "}
+              <Link
+                to={"/libraries/lion/sql/index"}
+                className="text-decoration-none"
+              >
+                Lion-SQL
+              </Link>
+              .
+            </p>
 
             <CodeBlock
               language={"php"}
               content={
-                "php lion db:seed name_seed --run true|false --iterate 10"
+                "<?php\n\n" +
+                "return [\n" +
+                "\t'default' => 'first_connection',\n" +
+                "\t'connections' => [\n" +
+                "\t\t'first_connection' => [\n" +
+                "\t\t\t'type' => 'mysql',\n" +
+                "\t\t\t'host' => '127.0.0.1',\n" +
+                "\t\t\t'port' => 3306,\n" +
+                "\t\t\t'dbname' => 'example_1',\n" +
+                "\t\t\t'user' => 'root',\n" +
+                "\t\t\t'password' => ''\n" +
+                "\t\t],\n" +
+                "\t]\n" +
+                "];"
               }
-            />
-
-            <CodeBlock
-              language={"php"}
-              content={"php lion db:factory --path forder_path/"}
-            />
-
-            <CodeBlock
-              language={"php"}
-              content={"php lion socket:serve socket_name --port 8081"}
             />
           </div>
         </>
@@ -188,18 +191,24 @@ export default function v13_7_0_FRM(mdText) {
             <p>
               Headers should be added per function in{" "}
               <Badge bg="secondary">routes/header.php</Badge> more information
-              in <Link to={"/libraries/request"}>Lion-Request</Link>
+              in{" "}
+              <Link
+                to={"/libraries/lion/request/index"}
+                className="text-decoration-none"
+              >
+                Lion-Request
+              </Link>
+              .
             </p>
 
             <CodeBlock
               language={"php"}
               content={
                 "<?php\n\n" +
-                "LionRequest\\Request::header('Content-Type', 'application/json; charset=UTF-8');\n" +
-                "LionRequest\\Request::header('Access-Control-Allow-Origin', '*');\n" +
-                "LionRequest\\Request::header('Access-Control-Max-Age', 3600);\n" +
-                "LionRequest\\Request::header('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE');\n" +
-                "LionRequest\\Request::header('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content-Type, Accept, Authorization');\n"
+                "LionRequest\\Request::header(\n" +
+                "\t'Content-Type',\n" +
+                "\t'application/json; charset=UTF-8'\n" +
+                ");"
               }
             />
           </div>
@@ -220,7 +229,13 @@ export default function v13_7_0_FRM(mdText) {
               obtain the data sent in an HTTP request, the system internally
               initializes a <Badge bg={"secondary"}>request</Badge> constant to
               obtain the data. more information in{" "}
-              <Link to={"/libraries/request"}>Lion-Request</Link>
+              <Link
+                to={"/libraries/lion/request/index"}
+                className="text-decoration-none"
+              >
+                Lion-Request
+              </Link>
+              .
             </p>
 
             <CodeBlock
@@ -275,7 +290,13 @@ export default function v13_7_0_FRM(mdText) {
               requests, the system internally initializes a{" "}
               <Badge bg={"secondary"}>response</Badge> constant to access the
               functions. more information in{" "}
-              <Link to={"/libraries/request"}>Lion-Request</Link>
+              <Link
+                to={"/libraries/lion/request/index"}
+                className="text-decoration-none"
+              >
+                Lion-Request
+              </Link>
+              .
             </p>
 
             <CodeBlock
@@ -372,61 +393,71 @@ export default function v13_7_0_FRM(mdText) {
       name: "Rules",
       code: (
         <>
+          <>
+            <div className="mb-3">
+              <h2>RULES</h2>
+
+              <hr />
+
+              <p>
+                You can create rules from command line{" "}
+                <Badge bg={"secondary"}>php lion new:rule rule_name</Badge>,
+                rule usage is based on rules provided by{" "}
+                <a
+                  href="https://github.com/vlucas/valitron"
+                  target={"_blank"}
+                  className="text-decoration-none"
+                >
+                  vlucas/valitron
+                </a>
+                , you can set language response from environment variables with
+                lang language preference to <Badge bg={"secondary"}>.env</Badge>{" "}
+                more information in{" "}
+                <Link
+                  to={"/libraries/lion/security/index"}
+                  className="text-decoration-none"
+                >
+                  Lion-Security
+                </Link>
+                .
+              </p>
+            </div>
+
+            <div className="mb-3">
+              <h5>EXAMPLE #1</h5>
+
+              <CodeBlock
+                language={"powershell"}
+                content={"php lion new:rule EmailRule"}
+              />
+
+              <CodeBlock
+                langueage={"php"}
+                content={
+                  "<?php\n\n" +
+                  "namespace App\\Rules;\n\n" +
+                  "use App\\Traits\\Framework\\ShowErrors;\n\n" +
+                  "class EmailRule {\n\n" +
+                  "\tuse ShowErrors;\n\n" +
+                  "\tpublic function passes(): void {\n" +
+                  "\t\tself::validate(function(\\Valitron\\Validator $validator) {\n" +
+                  "\t\t\t$validator\n\t\t\t\t->rule('required', 'users_email')\n\t\t\t\t->message('custom message...');\n" +
+                  "\t\t});\n" +
+                  "\t}\n\n" +
+                  "}"
+                }
+              />
+            </div>
+          </>
+
           <div className="mb-3">
-            <h2>RULES</h2>
+            <h2>USE RULES</h2>
+
             <hr />
 
             <p>
-              You can create rules from command line{" "}
-              <Badge bg={"secondary"}>php lion new:rule rule_name</Badge>, rule
-              usage is based on rules provided by{" "}
-              <a href="https://github.com/vlucas/valitron" target={"_blank"}>
-                vlucas/valitron
-              </a>
-              , you can set language response from environment variables with
-              lang language preference to <Badge bg={"secondary"}>.env</Badge>.
-            </p>
-
-            <p>
-              more information in{" "}
-              <Link to={"/libraries/security"}>SECURITY</Link>.
-            </p>
-          </div>
-
-          <div className="mb-3">
-            <h5>EXAMPLE #1</h5>
-
-            <CodeBlock
-              language={"powershell"}
-              content={"php lion new:rule EmailRule"}
-            />
-
-            <CodeBlock
-              langueage={"php"}
-              content={
-                "<?php\n\n" +
-                "namespace App\\Rules;\n\n" +
-                "use App\\Traits\\Framework\\ShowErrors;\n\n" +
-                "class EmailRule {\n\n" +
-                "\tuse ShowErrors;\n\n" +
-                "\tpublic function passes(): void {\n" +
-                "\t\tself::validate(function(\\Valitron\\Validator $validator) {\n" +
-                "\t\t\t$validator\n\t\t\t\t->rule('required', 'users_email')\n\t\t\t\t->message('custom message...');\n" +
-                "\t\t});\n" +
-                "\t}\n\n" +
-                "}"
-              }
-            />
-          </div>
-
-          <hr />
-
-          <div className="mb-3">
-            <h5>USE RULES</h5>
-
-            <p>
               Add your rules to different routes in{" "}
-              <Badge bg={"secondary"}>routes/rules.php</Badge>.
+              <Badge bg={"secondary"}>routes/rules.php</Badge>
             </p>
 
             <CodeBlock
@@ -467,6 +498,7 @@ export default function v13_7_0_FRM(mdText) {
         <>
           <div className="mb-3">
             <h2>CARBON</h2>
+
             <hr />
 
             <p>
@@ -486,7 +518,7 @@ export default function v13_7_0_FRM(mdText) {
               content={
                 "<?php\n\n" +
                 "use Carbon\\Carbon;\n\n" +
-                "return response->success('my time! ' . Carbon::now()->format('Y-m-d H:i:s'));"
+                "return success('my time! ' . Carbon::now()->format('Y-m-d H:i:s'));"
               }
             />
           </div>
@@ -497,48 +529,108 @@ export default function v13_7_0_FRM(mdText) {
       name: "Routes",
       code: (
         <>
-          <div className="mb-3">
-            <h2>ROUTES</h2>
+          <div>
+            <div className="mb-3">
+              <h2>ROUTES</h2>
+              <hr />
+
+              <p>
+                <Link
+                  to={"/libraries/lion/route/index"}
+                  className="text-decoration-none"
+                >
+                  Lion-Route
+                </Link>{" "}
+                has been implemented for route handling, from the web you can
+                add all the necessary routes for the operation of your web
+                application <Badge bg={"secondary"}>routes/web.php</Badge>
+              </p>
+            </div>
+
+            <div className="mb-3">
+              <h4 className="pb-2">Example #1</h4>
+
+              <CodeBlock
+                langueage={"php"}
+                content={
+                  "<?php\n\n" +
+                  "use App\\Http\\Controllers\\HomeController;\n\n" +
+                  "Route::get('/', [HomeController::class, 'index']);\n\n" +
+                  "// or\n\n" +
+                  "Route::get('/', function() {\n" +
+                  "\treturn (new HomeController())->index();\n" +
+                  "});"
+                }
+              />
+            </div>
+
+            <div className="mb-3">
+              <h4 className="pb-2">Example #2</h4>
+
+              <CodeBlock
+                langueage={"php"}
+                content={
+                  "<?php\n\n" +
+                  "Route::get('/', function() {\n" +
+                  "\treturn response->success('test');\n" +
+                  "});"
+                }
+              />
+            </div>
+          </div>
+
+          <hr />
+
+          <div>
+            <h2 className="pb-2">ROUTE POSTMAN</h2>
+
             <hr />
 
             <p>
-              <Link to={"/libraries/route"}>Lion-Route</Link> has been
-              implemented for route handling. More information at{" "}
-              <Link to={"/libraries/route"}>Lion-Route</Link>, from the web you
-              can add all the necessary routes for the operation of your web
-              application <Badge bg={"secondary"}>routes/web.php</Badge>.
+              To export the available paths, first start the local server, then
+              view the exported paths in{" "}
+              <Badge bg="warning">storage/postman/</Badge>
             </p>
+
+            <CodeBlock
+              language={"powershell"}
+              content={"php lion route:postman"}
+            />
+
+            <Alert variant={"warning"}>
+              Note: The routes are loaded with the server route{" "}
+              <Badge bg="warning">SERVER_URL</Badge> set in{" "}
+              <Badge bg="warning">.env</Badge>, modify this route to avoid
+              errors in the execution of the process, in the file{" "}
+              <Badge bg="warning">public/index.php</Badge> there is a public
+              route which allows get the available routes from the terminal,
+              comment this line once your web app is deployed.
+            </Alert>
           </div>
 
           <div className="mb-3">
-            <h4 className="pb-2">Example #1</h4>
+            <h2 className="pb-2">ROUTE LIST</h2>
+
+            <p>
+              To view the available routes, start the local server first, run
+              the <Badge bg="secondary">php lion serve</Badge> command, and then
+              view the routes.
+            </p>
 
             <CodeBlock
-              langueage={"php"}
-              content={
-                "<?php\n\n" +
-                "use App\\Http\\Controllers\\HomeController;\n\n" +
-                "Route::get('/', [HomeController::class, 'index']);\n\n" +
-                "// or\n\n" +
-                "Route::get('/', function() {\n" +
-                "\treturn (new HomeController())->index();\n" +
-                "});"
-              }
+              language={"powershell"}
+              content={"php lion route:list"}
             />
-          </div>
 
-          <div className="mb-3">
-            <h4 className="pb-2">Example #2</h4>
-
-            <CodeBlock
-              langueage={"php"}
-              content={
-                "<?php\n\n" +
-                "Route::get('/', function() {\n" +
-                "\treturn response->success('test');\n" +
-                "});"
-              }
-            />
+            <Alert variant={"warning"}>
+              Note: The routes are loaded with the server route{" "}
+              <Badge bg="warning">SERVER_URL</Badge> set in{" "}
+              <Badge bg="warning">.env</Badge>, modify this route to avoid
+              errors in the execution of the process, in the file{" "}
+              <Badge bg="warning">public/index.php</Badge> there is a public
+              route which allows get the available routes from the terminal,
+              comment this line once your web app is deployed.
+            </Alert>
           </div>
         </>
       ),
@@ -573,11 +665,8 @@ export default function v13_7_0_FRM(mdText) {
       name: "Middleware",
       code: (
         <>
-          <h2>MIDDLEWARE</h2>
-          <hr />
-
           <div className="mb-3">
-            <h4>ADD FUNCTIONS</h4>
+            <h2>ADD FUNCTIONS</h2>
 
             <p>We can add the necessary functions in each middleware.</p>
 
@@ -620,7 +709,7 @@ export default function v13_7_0_FRM(mdText) {
           <hr />
 
           <div className="mb-3">
-            <h4>ADD MIDDLEWARE</h4>
+            <h2>ADD MIDDLEWARE</h2>
 
             <p>
               To import middleware to the routes we must first import the
@@ -647,7 +736,7 @@ export default function v13_7_0_FRM(mdText) {
           <hr />
 
           <div className="mb-3">
-            <h4>USE MIDDLEWARE</h4>
+            <h2>USE MIDDLEWARE</h2>
 
             <p>
               <Badge bg={"secondary"}>routes/web.php</Badge>
@@ -701,98 +790,99 @@ export default function v13_7_0_FRM(mdText) {
       name: "Capsules",
       code: (
         <>
-          <div className="mb-3">
-            <h4>CAPSULES</h4>
-            <hr />
+          <>
+            <div className="mb-3">
+              <h2>CAPSULES</h2>
 
-            <p>
-              The capsules can be created in 2 ways, individually or in groups,
-              previously the database connection credentials must be written
-              from <Badge bg={"secondary"}>.env</Badge>, the capsules are mapped
-              from the tables obtained from the database, along with their
-              properties are written.
-            </p>
-          </div>
+              <hr />
 
-          <div className="mb-3">
-            <h5>EXAMPLE #1</h5>
+              <p>
+                The capsules can be created in 2 ways, individually or in
+                groups, previously the database connection credentials must be
+                written from <Badge bg={"secondary"}>.env</Badge>, the capsules
+                are mapped from the tables obtained from the database, along
+                with their properties are written.
+              </p>
+            </div>
 
-            <CodeBlock
-              language={"powershell"}
-              content={"php lion db:capsule table_name"}
-            />
+            <div className="mb-3">
+              <h5>EXAMPLE #1</h5>
 
-            <Alert variant={"warning"}>
-              Note: Capsule classes by default are stored in the{" "}
-              <Badge bg="warning">database/Class/</Badge> directory, you can
-              change the path with the <Badge bg="warning">--path</Badge>{" "}
-              option.
-            </Alert>
+              <CodeBlock
+                language={"powershell"}
+                content={"php lion db:capsule table_name"}
+              />
 
-            <CodeBlock
-              langueage={"php"}
-              content={
-                "<?php\n\n" +
-                "namespace App\\Class;\r\n\n" +
-                "class TableName implements \\JsonSerializable {\n\n" +
-                "\tprivate ?int $id = null;\n" +
-                "\tprivate ?string $name = null;\n\n" +
-                "\tpublic function __contruct() {}\n\n" +
-                "\tpublic function jsonSerialize(): mixed {\n\t\treturn get_object_vars($this);\n\t}\n\n" +
-                "\tpublic function getId(): ?int {\n" +
-                "\t\treturn $this->id;\n" +
-                "\t}\n\n" +
-                "\tpublic function setId(?int $id): TableName {\n" +
-                "\t\t$this->id = $id;\n" +
-                "\t\treturn $this;\n" +
-                "\t}\n\n" +
-                "\tpublic function getName(): ?string {\n" +
-                "\t\treturn $this->name;\n" +
-                "\t}\n\n" +
-                "\tpublic function setName(?string $name): TableName {\n" +
-                "\t\t$this->name = $name;\n" +
-                "\t\treturn $this;\n" +
-                "\t}\n\n" +
-                "}"
-              }
-            />
-          </div>
+              <Alert variant={"warning"}>
+                Note: Capsule classes by default are stored in the{" "}
+                <Badge bg="warning">database/Class/</Badge> directory, you can
+                change the path with the <Badge bg="warning">--path</Badge>{" "}
+                option.
+              </Alert>
+
+              <CodeBlock
+                langueage={"php"}
+                content={
+                  "<?php\n\n" +
+                  "namespace App\\Class;\r\n\n" +
+                  "class TableName implements \\JsonSerializable {\n\n" +
+                  "\tprivate ?int $id = null;\n" +
+                  "\tprivate ?string $name = null;\n\n" +
+                  "\tpublic function __contruct() {}\n\n" +
+                  "\tpublic function jsonSerialize(): mixed {\n\t\treturn get_object_vars($this);\n\t}\n\n" +
+                  "\tpublic function getId(): ?int {\n" +
+                  "\t\treturn $this->id;\n" +
+                  "\t}\n\n" +
+                  "\tpublic function setId(?int $id): TableName {\n" +
+                  "\t\t$this->id = $id;\n" +
+                  "\t\treturn $this;\n" +
+                  "\t}\n\n" +
+                  "\tpublic function getName(): ?string {\n" +
+                  "\t\treturn $this->name;\n" +
+                  "\t}\n\n" +
+                  "\tpublic function setName(?string $name): TableName {\n" +
+                  "\t\t$this->name = $name;\n" +
+                  "\t\treturn $this;\n" +
+                  "\t}\n\n" +
+                  "}"
+                }
+              />
+            </div>
+
+            <div className="mb-3">
+              <h5>EXAMPLE #2</h5>
+
+              <CodeBlock
+                language={"powershell"}
+                content={"php lion db:all-capsules"}
+              />
+
+              <Alert variant={"warning"}>
+                Note: Capsule classes by default are stored in the{" "}
+                <Badge bg="warning">database/Class/</Badge> directory, you can
+                change the path with the <Badge bg="warning">--path</Badge>{" "}
+                option, <Badge bg="warning">db:all-capsules</Badge> reads all
+                the tables in the database, generating for each table its
+                respective class along with its properties and functions.
+              </Alert>
+
+              <CodeBlock
+                langueage={"php"}
+                content={
+                  "<?php\n\n" +
+                  "namespace App\\Class;\r\n\n" +
+                  "class TableName {/* ... */} \n\n" +
+                  "class TableName2 {/* ... */} \n\n" +
+                  "class TableName3 {/* ... */} \n\n"
+                }
+              />
+            </div>
+          </>
 
           <hr />
 
           <div className="mb-3">
-            <h5>EXAMPLE #2</h5>
-
-            <CodeBlock
-              language={"powershell"}
-              content={"php lion db:all-capsules"}
-            />
-
-            <Alert variant={"warning"}>
-              Note: Capsule classes by default are stored in the{" "}
-              <Badge bg="warning">database/Class/</Badge> directory, you can
-              change the path with the <Badge bg="warning">--path</Badge>{" "}
-              option, <Badge bg="warning">db:all-capsules</Badge> reads all the
-              tables in the database, generating for each table its respective
-              class along with its properties and functions.
-            </Alert>
-
-            <CodeBlock
-              langueage={"php"}
-              content={
-                "<?php\n\n" +
-                "namespace App\\Class;\r\n\n" +
-                "class TableName {/* ... */} \n\n" +
-                "class TableName2 {/* ... */} \n\n" +
-                "class TableName3 {/* ... */} \n\n"
-              }
-            />
-          </div>
-
-          <hr />
-
-          <div className="mb-3">
-            <h5>CREATE CUSTOM CAPSULES</h5>
+            <h2>CREATE CUSTOM CAPSULES</h2>
 
             <p>create custom capsule classes</p>
 
@@ -844,11 +934,8 @@ export default function v13_7_0_FRM(mdText) {
       name: "Seed",
       code: (
         <>
-          <h2>SEED</h2>
-          <hr />
-
           <div className="mb-3">
-            <h5 className="pb-2">CREATE SEED</h5>
+            <h2 className="pb-2">CREATE SEED</h2>
 
             <CodeBlock
               language={"powershell"}
@@ -882,11 +969,8 @@ export default function v13_7_0_FRM(mdText) {
       name: "WebSockets",
       code: (
         <>
-          <h2>WEBSOCKETS</h2>
-          <hr />
-
           <div className="mb-3">
-            <h5 className="pb-2">CREATE SOCKET</h5>
+            <h2 className="pb-2">CREATE SOCKET</h2>
 
             <CodeBlock
               language={"powershell"}
@@ -927,7 +1011,7 @@ export default function v13_7_0_FRM(mdText) {
           </div>
 
           <div className="mb-3">
-            <h4 className="pb-2">ADD SOCKETS</h4>
+            <h2 className="pb-2">ADD SOCKETS</h2>
 
             <p>
               to execute a sockets from the console, it must be added in the
@@ -951,7 +1035,7 @@ export default function v13_7_0_FRM(mdText) {
           </div>
 
           <div className="mb-3">
-            <h4 className="pb-2">USE SOCKETS</h4>
+            <h2 className="pb-2">USE SOCKETS</h2>
 
             <p>
               to execute a socket you must do it from the console, you can
@@ -959,14 +1043,21 @@ export default function v13_7_0_FRM(mdText) {
               <Badge bg="secondary">--port</Badge> option.
             </p>
 
-            <CodeBlock
-              language={"php"}
-              content={"php lion socket:serve SocketClass"}
-            />
-            <CodeBlock
-              language={"php"}
-              content={"php lion socket:serve SocketClass --port 8081"}
-            />
+            <Row>
+              <Col xs={12} sm={12} md={6}>
+                <CodeBlock
+                  language={"php"}
+                  content={"php lion socket:serve SocketClass"}
+                />
+              </Col>
+
+              <Col xs={12} sm={12} md={6}>
+                <CodeBlock
+                  language={"php"}
+                  content={"php lion socket:serve SocketClass --port 8081"}
+                />
+              </Col>
+            </Row>
           </div>
         </>
       ),
@@ -1115,28 +1206,33 @@ export default function v13_7_0_FRM(mdText) {
       name: "Example",
       code: (
         <div>
-          <h5>Example</h5>
+          <h2>DEVELOPMENT EXAMPLES</h2>
+          <hr />
 
-          <p>
-            a practical example of the use of Lion-Framework and ReactJS has
-            been made to carry out a real-time chat.
-          </p>
+          <div className="mb-3">
+            <h5>#1 CHAT</h5>
 
-          <GithubButton
-            url={"https://github.com/Sleon4/chat-php"}
-            variantButton={"outline-light"}
-            className="me-4"
-          >
-            <DiPhp className="ms-2" size={"2em"} />
-          </GithubButton>
+            <p>
+              Development of a practical example of the use of Lion-Framework
+              and ReactJS to carry out a real-time chat.
+            </p>
 
-          <GithubButton
-            url={"https://github.com/Sleon4/chat-react"}
-            variantButton={"outline-light"}
-          >
-            <FaReact className="ms-2" size={"2em"} />
-            <SiVite className="ms-2" size={"2em"} />
-          </GithubButton>
+            <GithubButton
+              url={"https://github.com/Sleon4/chat-php"}
+              variantButton={"outline-light"}
+              className="me-4"
+            >
+              <DiPhp className="ms-2" size={"2em"} />
+            </GithubButton>
+
+            <GithubButton
+              url={"https://github.com/Sleon4/chat-react"}
+              variantButton={"outline-light"}
+            >
+              <FaReact className="ms-2" size={"2em"} />
+              <SiVite className="ms-2" size={"2em"} />
+            </GithubButton>
+          </div>
         </div>
       ),
     },

@@ -4,6 +4,7 @@ import { darcula } from "react-syntax-highlighter/dist/esm/styles/hljs";
 function CodeBlock({ language, content }) {
   return (
     <SyntaxHighlighter
+      customStyle={{ fontSize: 16.5 }}
       language={language}
       style={darcula}
       className="rounded p-3"
