@@ -1,6 +1,6 @@
 import CodeBlock from "../../../../pages/components/CodeBlock";
 
-export default function v7_4_0_LSQ() {
+export default function v7_5_0_LSQ() {
   return {
     driver: {
       title: "LionSQL\\Drivers\\Driver",
@@ -148,6 +148,22 @@ export default function v7_4_0_LSQ() {
                 "<?php\n\n" +
                 "use LionSQL\\Drivers\\MySQL as DB;\n\n" +
                 "DB::connection('second_connection')\n\t->table('my_table')\n\t->select()\n\t->getAll();"
+              }
+            />
+          ),
+        },
+        "get-connections": {
+          title: "MySQL::getConnections",
+          description:
+            "The `getConnections` function returns an array with the information of the executed drivers",
+          link: "get-connections",
+          code: (
+            <CodeBlock
+              language="php"
+              content={
+                "<?php\n\n" +
+                "use LionSQL\\Drivers\\MySQL as DB;\n\n" +
+                "DB::getConnections();"
               }
             />
           ),
