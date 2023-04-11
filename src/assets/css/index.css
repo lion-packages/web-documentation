@@ -17,13 +17,13 @@
 }
 
 .btn-dark-gradient {
-  --bs-btn-color: #647eff;
+  --bs-btn-color: #ff8463;
   --bs-btn-bg: #202020;
   --bs-btn-border-color: #202020;
-  --bs-btn-hover-color: #647eff;
+  --bs-btn-hover-color: #ff8463;
   --bs-btn-hover-bg: #191919;
   --bs-btn-hover-border-color: #292930;
-  --bs-btn-focus-shadow-rgb: 66,70,73;
+  --bs-btn-focus-shadow-rgb: 66, 70, 73;
   --bs-btn-active-color: #ffffff;
   --bs-btn-active-bg: #292930;
   --bs-btn-active-border-color: #292930;
@@ -38,8 +38,8 @@
   font-size: 68px;
 
   --bg-size: 400%;
-  --color-one: #42d392;
-  --color-two: #647eff;
+  --color-one: #ffce9d;
+  --color-two: #ff8463;
 
   background: linear-gradient(
       90deg,
@@ -59,7 +59,7 @@
   line-height: 1.25;
   font-weight: 900;
   letter-spacing: -1.5px;
-  background: -webkit-linear-gradient(left, #42d392 25%, #647eff);
+  background: -webkit-linear-gradient(left, #ffce9d 25%, #ff8463);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
