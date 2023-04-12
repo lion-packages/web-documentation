@@ -8,12 +8,20 @@ export default defineConfig({
     react(),
     VitePWA({
       manifest: {
+        name: "My Awesome App",
+        short_name: "MyApp",
+        description: "My Awesome App description",
+        theme_color: "#111111",
         icons: [
           {
-            src: "./src/assets/512.png",
+            src: "vite.svg",
+            sizes: "192x192",
+            type: "image/svg+xml",
+          },
+          {
+            src: "vite.svg",
             sizes: "512x512",
-            type: "image/png",
-            purpose: "any image",
+            type: "image/svg+xml",
           },
         ],
       },
