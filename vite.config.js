@@ -14,22 +14,22 @@ export default defineConfig({
         theme_color: "#111111",
         icons: [
           {
-            src: "vite.svg",
+            src: "/public/vite.svg",
             sizes: "144x144",
             type: "image/svg+xml",
-            purpose: "maskable any",
+            purpose: "any",
           },
           {
-            src: "vite.svg",
+            src: "/public/vite.svg",
             sizes: "192x192",
             type: "image/svg+xml",
-            purpose: "maskable any",
+            purpose: "any",
           },
           {
-            src: "vite.svg",
+            src: "/public/vite.svg",
             sizes: "512x512",
             type: "image/svg+xml",
-            purpose: "maskable any",
+            purpose: "any",
           },
         ],
       },
