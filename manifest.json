@@ -8,27 +8,27 @@
   "display": "standalone",
   "orientation": "any",
   "icons": [{
-    "src": "./src/assets/img/logo-web.png",
+    "src": "./public/vite.svg",
     "sizes": "48x48",
     "type": "image/svg"
   }, {
-    "src": "./src/assets/img/logo-web.png",
+    "src": "./public/vite.svg",
     "sizes": "72x72",
     "type": "image/svg"
   }, {
-    "src": "./src/assets/img/logo-web.png",
+    "src": "./public/vite.svg",
     "sizes": "96x96",
     "type": "image/svg"
   }, {
-    "src": "./src/assets/img/logo-web.png",
+    "src": "./public/vite.svg",
     "sizes": "144x144",
     "type": "image/svg"
   }, {
-    "src": "./src/assets/img/logo-web.png",
+    "src": "./public/vite.svg",
     "sizes": "168x168",
     "type": "image/svg"
   }, {
-    "src": "./src/assets/img/logo-web.png",
+    "src": "./public/vite.svg",
     "sizes": "192x192",
     "type": "image/svg"
   }]
