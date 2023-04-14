@@ -441,7 +441,9 @@ export default function v13_10_0_FRM(mdText) {
                   "use App\\Traits\\Framework\\ShowErrors;\n\n" +
                   "class EmailRule {\n\n" +
                   "\tuse ShowErrors;\n\n" +
-                  "\t" + 'public static string $field = "users_email";' + "\n\n" +
+                  "\t" +
+                  'public static string $field = "users_email";' +
+                  "\n\n" +
                   "\tpublic function passes(): void {\n" +
                   "\t\tself::validate(function(\\Valitron\\Validator $validator) {\n" +
                   "\t\t\t$validator\n\t\t\t\t->rule('required', self::$field)\n\t\t\t\t->message('custom message...');\n" +
@@ -606,7 +608,6 @@ export default function v13_10_0_FRM(mdText) {
 
           <div>
             <h2 className="pb-2">ROUTE POSTMAN</h2>
-
             <hr />
 
             <p>
