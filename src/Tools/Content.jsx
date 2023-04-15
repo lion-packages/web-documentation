@@ -109,6 +109,31 @@ export default function Content(mdText = "") {
     },
     libraries: {
       lion: {
+        sql: {
+          title: "Lion-SQL",
+          url: "/libraries/lion/sql/index",
+          component: (
+            <Library
+              library={"sql"}
+              url_github={"https://github.com/Sleon4/Lion-SQL"}
+              command={"composer require lion/sql"}
+            />
+          ),
+          description:
+            "Package responsible for generating and executing MySQL processes.",
+          class: {
+            "v7.5.0": v7_5_0_LSQ(),
+            "v7.4.0": v7_4_0_LSQ(),
+            "v7.3.0": v7_3_0_LSQ(),
+            "v7.2.1": v7_2_1_LSQ(),
+            "v7.2.0": v7_2_0_LSQ(),
+            "v7.1.0": v7_1_0_LSQ(),
+            "v7.0.0": v7_0_0_LSQ(),
+            "v6.6.0": v6_6_0_LSQ(),
+            "v6.5.1": v6_5_1_LSQ(),
+            "v6.4.0": v6_4_0_LSQ(),
+          },
+        },
         authentication: {
           title: "Lion-Authentication",
           url: "/libraries/lion/authentication/index",
@@ -142,23 +167,20 @@ export default function Content(mdText = "") {
             "v4.7.0": v4_7_0_LF(),
           },
         },
-        security: {
-          title: "Lion-Security",
-          url: "/libraries/lion/security/index",
+        helpers: {
+          title: "Lion-Helpers",
+          url: "/libraries/lion/helpers/index",
           component: (
             <Library
-              library={"security"}
-              url_github={"https://github.com/Sleon4/Lion-Security"}
-              command={"composer require lion/security"}
+              library={"helpers"}
+              url_github={"https://github.com/Sleon4/Lion-Helpers"}
+              command={"composer require lion/helpers"}
             />
           ),
-          description:
-            "Library created with the function of implementing AES, RSA and JWT Security functions for PHP.",
+          description: "Easy to use helpers for any type of use.",
           class: {
-            "v6.11.0": v6_11_0_LS(),
-            "v6.10.1": v6_10_1_LS(),
-            "v6.10.0": v6_10_0_LS(),
-            "v6.9.0": v6_9_0_LS(),
+            "v2.1.3": v2_1_3_LH(),
+            "v2.1.2": v2_1_2_LH(),
           },
         },
         request: {
@@ -177,31 +199,6 @@ export default function Content(mdText = "") {
             "v5.3.0": v5_3_0_LR(),
           },
         },
-        sql: {
-          title: "Lion-SQL",
-          url: "/libraries/lion/sql/index",
-          component: (
-            <Library
-              library={"sql"}
-              url_github={"https://github.com/Sleon4/Lion-SQL"}
-              command={"composer require lion/sql"}
-            />
-          ),
-          description:
-            "Package responsible for generating and executing MySQL processes.",
-          class: {
-            "v7.5.0": v7_5_0_LSQ(),
-            "v7.4.0": v7_4_0_LSQ(),
-            "v7.3.0": v7_3_0_LSQ(),
-            "v7.2.1": v7_2_1_LSQ(),
-            "v7.2.0": v7_2_0_LSQ(),
-            "v7.1.0": v7_1_0_LSQ(),
-            "v7.0.0": v7_0_0_LSQ(),
-            "v6.6.0": v6_6_0_LSQ(),
-            "v6.5.1": v6_5_1_LSQ(),
-            "v6.4.0": v6_4_0_LSQ(),
-          },
-        },
         mailer: {
           title: "Lion-Mailer",
           url: "/libraries/lion/mailer/index",
@@ -217,22 +214,6 @@ export default function Content(mdText = "") {
           class: {
             "v4.2.0": v4_2_0_LM(),
             "v4.0.0": v4_0_0_LM(),
-          },
-        },
-        spreadsheet: {
-          title: "Lion-Spreadsheet",
-          url: "/libraries/lion/spreadsheet/index",
-          component: (
-            <Library
-              library={"spreadsheet"}
-              url_github={"https://github.com/Sleon4/Lion-Spreadsheet"}
-              command={"composer require lion/spreadsheet"}
-            />
-          ),
-          description: "Library for easy spreadsheet use.",
-          class: {
-            "v1.5.0": v1_5_0_LSP(),
-            "v1.4.0": v1_4_0_LSP(),
           },
         },
         route: {
@@ -255,20 +236,39 @@ export default function Content(mdText = "") {
             "v8.1.0": v8_1_0_LRT(),
           },
         },
-        helpers: {
-          title: "Lion-Helpers",
-          url: "/libraries/lion/helpers/index",
+        security: {
+          title: "Lion-Security",
+          url: "/libraries/lion/security/index",
           component: (
             <Library
-              library={"helpers"}
-              url_github={"https://github.com/Sleon4/Lion-Helpers"}
-              command={"composer require lion/helpers"}
+              library={"security"}
+              url_github={"https://github.com/Sleon4/Lion-Security"}
+              command={"composer require lion/security"}
             />
           ),
-          description: "Easy to use helpers for any type of use.",
+          description:
+            "Library created with the function of implementing AES, RSA and JWT Security functions for PHP.",
           class: {
-            "v2.1.3": v2_1_3_LH(),
-            "v2.1.2": v2_1_2_LH(),
+            "v6.11.0": v6_11_0_LS(),
+            "v6.10.1": v6_10_1_LS(),
+            "v6.10.0": v6_10_0_LS(),
+            "v6.9.0": v6_9_0_LS(),
+          },
+        },
+        spreadsheet: {
+          title: "Lion-Spreadsheet",
+          url: "/libraries/lion/spreadsheet/index",
+          component: (
+            <Library
+              library={"spreadsheet"}
+              url_github={"https://github.com/Sleon4/Lion-Spreadsheet"}
+              command={"composer require lion/spreadsheet"}
+            />
+          ),
+          description: "Library for easy spreadsheet use.",
+          class: {
+            "v1.5.0": v1_5_0_LSP(),
+            "v1.4.0": v1_4_0_LSP(),
           },
         },
       },
