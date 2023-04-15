@@ -94,51 +94,47 @@ function AddMethods() {
         </div>
 
         <Row>
-          <Col
-            xs={12}
-            sm={12}
-            md={6}
-            lg={6}
-            xl={6}
-            className="d-none d-xl-block"
-          >
-            <Row>
-              {Object.entries(
-                Content().libraries.lion[route[2]].class[version][classname]
-                  .methods
-              ).map(([index, arrfunc]) => {
-                const title = `${cont} - ${arrfunc.title}`;
+          <Col xs={12} sm={12} md={12} lg={12} xl={6} xxl={6}>
+            <div className="d-none d-xl-block">
+              <Row>
+                {Object.entries(
+                  Content().libraries.lion[route[2]].class[version][classname]
+                    .methods
+                ).map(([index, arrfunc]) => {
+                  const title = `${cont} - ${arrfunc.title}`;
 
-                const elem = (
-                  <Col
-                    xs={12}
-                    sm={12}
-                    md={12}
-                    lg={12}
-                    xl={6}
-                    key={`${index}-${cont}`}
-                    className={"mb-3"}
-                  >
-                    <CardLink
-                      title={title}
-                      description={arrfunc.description}
-                      uri={arrfunc.link.replace(/item_version/gm, version)}
-                      textColor={{
-                        title: "text-warning",
-                        description: "text-white",
-                      }}
-                    />
-                  </Col>
-                );
+                  const elem = (
+                    <Col
+                      xs={12}
+                      sm={12}
+                      md={12}
+                      lg={12}
+                      xl={12}
+                      xxl={6}
+                      key={`${index}-${cont}`}
+                      className={"mb-3"}
+                    >
+                      <CardLink
+                        title={title}
+                        description={arrfunc.description}
+                        uri={arrfunc.link.replace(/item_version/gm, version)}
+                        textColor={{
+                          title: "text-warning",
+                          description: "text-white",
+                        }}
+                      />
+                    </Col>
+                  );
 
-                cont++;
+                  cont++;
 
-                return elem;
-              })}
-            </Row>
+                  return elem;
+                })}
+              </Row>
+            </div>
           </Col>
 
-          <Col xs={12} sm={12} md={6} lg={6} xl={6}>
+          <Col xs={12} sm={12} md={12} lg={12} xl={6} xxl={6}>
             <Add />
           </Col>
         </Row>
