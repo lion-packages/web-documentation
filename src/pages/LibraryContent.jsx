@@ -14,7 +14,15 @@ function LibraryContent() {
 
         <Row>
           {Object.entries(lion).map(([key, library]) => (
-            <Col xs={12} sm={12} md={6} className="mb-3" key={key}>
+            <Col
+              xs={12}
+              sm={12}
+              md={12}
+              lg={12}
+              xl={6}
+              className="mb-3"
+              key={key}
+            >
               <CardLink
                 title={library.title}
                 description={library.description}
@@ -34,7 +42,15 @@ function LibraryContent() {
 
         <Row>
           {Object.entries(external).map(([key, library]) => (
-            <Col xs={12} sm={12} md={6} className="mb-3" key={key}>
+            <Col
+              xs={12}
+              sm={12}
+              md={12}
+              lg={12}
+              xl={6}
+              className="mb-3"
+              key={key}
+            >
               <CardLink
                 external={true}
                 title={library.label}
