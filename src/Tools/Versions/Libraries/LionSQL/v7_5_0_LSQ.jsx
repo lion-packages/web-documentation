@@ -314,7 +314,7 @@ export default function v7_5_0_LSQ() {
                     "SELECT * FROM my_table\n\n" +
                     "<?php\n\n" +
                     "use LionSQL\\Drivers\\MySQL as DB;\n\n" +
-                    "DB::table('users')\n\t->select(DB::concat(DB::column('name'), ' ', DB::column('lastname')))\n\t->getAll();"
+                    `DB::table('users')\n\t->select(DB::concat(DB::column('name'), '" "', DB::column('lastname')))\n\t->getAll();`
                   }
                 />
               </div>
@@ -336,7 +336,9 @@ export default function v7_5_0_LSQ() {
                     "use LionSQL\\Drivers\\MySQL as DB;\n\n" +
                     "DB::table(DB::as('users', 'usr'))\n" +
                     "\t->select(\n" +
-                    "\t\tDB::concat(DB::column('name', 'usr'), ' ', DB::column('lastname', 'usr'))\n" +
+                    "\t\tDB::as(\n" +
+                    `\t\t\tDB::concat(DB::column('name', 'usr'), '" "', DB::column('lastname', 'usr')), \n\t\t\t"fullname"\n` +
+                    "\t\t)\n" +
                     "\t)\n" +
                     "\t->getAll();"
                   }
