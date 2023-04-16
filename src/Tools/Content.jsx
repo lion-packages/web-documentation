@@ -70,6 +70,7 @@ import v7_2_1_LSQ from "./Versions/Libraries/LionSQL/v7_2_1_LSQ";
 import v7_3_0_LSQ from "./Versions/Libraries/LionSQL/v7_3_0_LSQ";
 import v7_4_0_LSQ from "./Versions/Libraries/LionSQL/v7_4_0_LSQ";
 import v7_5_0_LSQ from "./Versions/Libraries/LionSQL/v7_5_0_LSQ";
+import v7_6_0_LSQ from "./Versions/Libraries/LionSQL/v7_6_0_LSQ";
 
 import v1_0_0_LA from "./Versions/Libraries/LionAuthentication/v1_0_0_LA";
 
@@ -122,6 +123,7 @@ export default function Content(mdText = "") {
           description:
             "Package responsible for generating and executing MySQL processes.",
           class: {
+            "v7.6.0": v7_6_0_LSQ(),
             "v7.5.0": v7_5_0_LSQ(),
             "v7.4.0": v7_4_0_LSQ(),
             "v7.3.0": v7_3_0_LSQ(),
