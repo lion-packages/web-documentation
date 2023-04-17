@@ -979,7 +979,7 @@ export default function v13_11_0_FRM(mdText) {
                 "\t * ------------------------------------------------------------------------------\n" +
                 "\t **/\n" +
                 "\tpublic static function run(): object {\n" +
-                "\t\treturn DB::call('stored_procedure_name', UsersFactory::definition());\n" +
+                "\t\treturn DB::call('stored_procedure_name', UsersFactory::definition())->execute();\n" +
                 "\t}\n\n" +
                 "}"
               }
