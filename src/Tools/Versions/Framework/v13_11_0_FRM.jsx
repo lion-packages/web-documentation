@@ -674,6 +674,16 @@ export default function v13_11_0_FRM(mdText) {
               "}"
             }
           />
+
+          <Alert variant={"warning"}>
+            Note:You can create the model class immediately with the{" "}
+            <Badge bg={"warning"}>--model</Badge> option.
+          </Alert>
+
+          <CodeBlock
+            language={"powershell"}
+            content={"php lion new:controller HomeController --model HomeModel"}
+          />
         </>
       ),
     },
@@ -992,7 +1002,9 @@ export default function v13_11_0_FRM(mdText) {
 
             <CodeBlock
               language={"powershell"}
-              content={"php lion db:seed Database\\Seeders\\UsersSeed --run true"}
+              content={
+                "php lion db:seed Database\\Seeders\\UsersSeed --run true"
+              }
             />
           </div>
         </>
