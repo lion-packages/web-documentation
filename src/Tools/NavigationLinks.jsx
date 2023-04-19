@@ -13,7 +13,7 @@ export default [
     url: "framework/content",
   },
   {
-    display_name: "Libraries",
+    display_name: "Packages",
     type: "link",
     url: "libraries/content",
   },
