@@ -655,35 +655,58 @@ export default function v13_12_0_FRM(mdText) {
       name: "Controllers",
       code: (
         <>
-          <h2>CONTROLLERS</h2>
+          <div className="mb-3">
+            <h2>CONTROLLERS</h2>
+            <hr />
+
+            <CodeBlock
+              language={"powershell"}
+              content={"php lion new:controller HomeController"}
+            />
+
+            <CodeBlock
+              langueage={"php"}
+              content={
+                "<?php\n\n" +
+                "namespace App\\Http\\Controllers;\n\n" +
+                "class HomeController {\n\n" +
+                "\tpublic function __contruct() {\n\n" +
+                "\t}\n\n" +
+                "}"
+              }
+            />
+          </div>
+
           <hr />
 
-          <CodeBlock
-            language={"powershell"}
-            content={"php lion new:controller HomeController"}
-          />
+          <div className="mb-3">
+            <Alert variant={"warning"}>
+              Note:You can create the model class immediately with the{" "}
+              <Badge bg={"warning"}>--model</Badge> option.
+            </Alert>
 
-          <CodeBlock
-            langueage={"php"}
-            content={
-              "<?php\n\n" +
-              "namespace App\\Http\\Controllers;\n\n" +
-              "class HomeController {\n\n" +
-              "\tpublic function __contruct() {\n\n" +
-              "\t}\n\n" +
-              "}"
-            }
-          />
+            <CodeBlock
+              language={"powershell"}
+              content={
+                "php lion new:controller HomeController --model HomeModel"
+              }
+            />
 
-          <Alert variant={"warning"}>
-            Note:You can create the model class immediately with the{" "}
-            <Badge bg={"warning"}>--model</Badge> option.
-          </Alert>
-
-          <CodeBlock
-            language={"powershell"}
-            content={"php lion new:controller HomeController --model HomeModel"}
-          />
+            <CodeBlock
+              langueage={"php"}
+              content={
+                "<?php\n\n" +
+                "namespace App\\Http\\Controllers;\n\n" +
+                "use App\\Models\\HomeModel;\n\n" +
+                "class HomeController {\n\n" +
+                "\tprivate HomeModel $homeModel;\n\n" +
+                "\tpublic function __contruct() {\n" +
+                "\t\t$this->homeModel = new HomeModel();\n" +
+                "\t}\n\n" +
+                "}"
+              }
+            />
+          </div>
         </>
       ),
     },
