@@ -29,6 +29,72 @@ export default function v13_13_0_FRM(mdText) {
           </div>
 
           <div className="mb-3">
+            <h2 className="pb-2">OPTIONAL PARAMETERS</h2>
+
+            <Row>
+              <Col xs={12} sm={12}>
+                <CodeBlock
+                  language={"powershell"}
+                  content={"php lion serve --port 8001"}
+                />
+              </Col>
+
+              <Col xs={12} sm={12}>
+                <CodeBlock
+                  language={"powershell"}
+                  content={"php lion socket:serve socket_name --port 8081"}
+                />
+              </Col>
+
+              <Col xs={12} sm={12}>
+                <CodeBlock
+                  language={"powershell"}
+                  content={"php lion key:rsa --path folder-secret-key/"}
+                />
+              </Col>
+
+              <Col xs={12} sm={12}>
+                <CodeBlock
+                  language={"powershell"}
+                  content={
+                    "php lion db:capsule --path forder_path/ --connection first_connection"
+                  }
+                />
+              </Col>
+
+              <Col xs={12} sm={12}>
+                <CodeBlock
+                  language={"powershell"}
+                  content={"php lion db:all-capsules"}
+                />
+              </Col>
+
+              <Col xs={12} sm={12}>
+                <CodeBlock
+                  language={"powershell"}
+                  content={"php lion db:seed name_seed seed_name"}
+                />
+              </Col>
+
+              <Col xs={12} sm={12}>
+                <CodeBlock
+                  language={"powershell"}
+                  content={
+                    "php lion db:seed name_seed seed\\namespace --run true"
+                  }
+                />
+              </Col>
+
+              <Col xs={12} sm={12}>
+                <CodeBlock
+                  language={"powershell"}
+                  content={"php lion db:factory --path forder_path/"}
+                />
+              </Col>
+            </Row>
+          </div>
+
+          <div className="mb-3">
             <h2 className="pb-2">ADD COMMANDS</h2>
 
             <p>
@@ -74,63 +140,6 @@ export default function v13_13_0_FRM(mdText) {
                 "..."
               }
             />
-          </div>
-
-          <div className="mb-3">
-            <h2 className="pb-2">OPTIONAL PARAMETERS</h2>
-
-            <Row>
-              <Col xs={12} sm={12} md={6}>
-                <CodeBlock
-                  language={"php"}
-                  content={"php lion serve --port 8001"}
-                />
-              </Col>
-
-              <Col xs={12} sm={12} md={6}>
-                <CodeBlock
-                  language={"php"}
-                  content={"php lion key:rsa --path storage/other-secret-key/"}
-                />
-              </Col>
-
-              <Col xs={12} sm={12} md={6}>
-                <CodeBlock
-                  language={"php"}
-                  content={
-                    "php lion db:capsule --path forder_path/ --connection first_connection"
-                  }
-                />
-              </Col>
-
-              <Col xs={12} sm={12} md={6}>
-                <CodeBlock
-                  language={"php"}
-                  content={"php lion db:all-capsules --path forder_path/"}
-                />
-              </Col>
-
-              <Col xs={12} sm={12} md={6}>
-                <CodeBlock
-                  language={"php"}
-                  content={"php lion db:seed name_seed --run true"}
-                />
-              </Col>
-
-              <Col xs={12} sm={12} md={6}>
-                <CodeBlock
-                  language={"php"}
-                  content={"php lion db:factory --path forder_path/"}
-                />
-              </Col>
-
-              <Col xs={12} sm={12} md={6}>
-                <CodeBlock
-                  language={"php"}
-                  content={"php lion socket:serve socket_name --port 8081"}
-                />
-              </Col>
-            </Row>
           </div>
         </>
       ),
