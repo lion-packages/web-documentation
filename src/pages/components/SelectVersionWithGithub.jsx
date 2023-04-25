@@ -20,7 +20,10 @@ function SelectVersionWithGithub({
           }}
         >
           {versions.map((version, index) => (
-            <option key={index}>{version}</option>
+            <option key={index} value={version}>
+              {version}
+              {index === 0 ? " latest" : ""}
+            </option>
           ))}
         </Form.Select>
       </InputGroup>

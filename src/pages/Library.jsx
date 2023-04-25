@@ -38,10 +38,7 @@ function Library({ library, url_github, command }) {
             />
           </div>
 
-          <CodeBlock
-            language={"powershell"}
-            content={command}
-          />
+          <CodeBlock language={"powershell"} content={command} />
         </div>
 
         <hr />
