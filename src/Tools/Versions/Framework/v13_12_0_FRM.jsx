@@ -715,6 +715,16 @@ export default function v13_12_0_FRM(mdText) {
       code: (
         <>
           <div className="mb-3">
+            <h2>CREATE MIDDLEWARE</h2>
+            <hr />
+
+            <CodeBlock
+              language={"powershell"}
+              content={"php lion new:middleware middleware_name"}
+            />
+          </div>
+
+          <div className="mb-3">
             <h2>ADD FUNCTIONS</h2>
             <hr />
 
