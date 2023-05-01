@@ -1,6 +1,6 @@
 import CodeBlock from "../../../../pages/components/CodeBlock";
 
-export default function v7_6_0_LSQ() {
+export default function v7_7_0_LSQ() {
   return {
     driver: {
       title: "LionSQL\\Drivers\\Driver",
@@ -1052,6 +1052,52 @@ export default function v7_6_0_LSQ() {
                   "\t'name' => 'Sergio'\n" +
                   "\t'last_name' => 'Leon'\n" +
                   "])->where('id')->in(1, 2, 3, 4)->execute();"
+                }
+              />
+            </>
+          ),
+        },
+        "is-null": {
+          title: "MySQL::isNull",
+          description:
+            "The `isNull` function nests the IS NULL function to the current statement",
+          link: "is-null",
+          code: (
+            <>
+              <CodeBlock
+                language={"sql"}
+                content={"SELECT * FROM users WHERE deleted_at IS NULL"}
+              />
+
+              <CodeBlock
+                language="php"
+                content={
+                  "<?php\n\n" +
+                  "use LionSQL\\Drivers\\MySQL as DB;\n\n" +
+                  "DB::table('users')->select()->where('deleted_at')->isNull()->getAll();"
+                }
+              />
+            </>
+          ),
+        },
+        "is-not-null": {
+          title: "MySQL::isNotNull",
+          description:
+            "The `isNotNull` function nests the IS NOT NULL function to the current statement",
+          link: "is-not-null",
+          code: (
+            <>
+              <CodeBlock
+                language={"sql"}
+                content={"SELECT * FROM users WHERE deleted_at IS NOT NULL"}
+              />
+
+              <CodeBlock
+                language="php"
+                content={
+                  "<?php\n\n" +
+                  "use LionSQL\\Drivers\\MySQL as DB;\n\n" +
+                  "DB::table('users')->select()->where('deleted_at')->isNotNull()->getAll();"
                 }
               />
             </>
