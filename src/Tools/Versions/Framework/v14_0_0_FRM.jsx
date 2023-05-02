@@ -236,6 +236,28 @@ export default function v14_0_0_FRM(mdText) {
               }
             />
 
+            <p>
+              The host of the connection to the databases must be established
+              with the value <strong>DB_HOST=db</strong>
+            </p>
+
+            <CodeBlock
+              language={"powershell"}
+              content={
+                "##################################################### \n" +
+                "### DATABASE CONNECTIONS ------------------------ ### \n" +
+                "##################################################### \n" +
+                'DB_TYPE="mysql" \n' +
+                "DB_HOST=db \n" +
+                "DB_PORT=3306 \n" +
+                'DB_NAME="lion_database" \n' +
+                'DB_USER="root" \n' +
+                'DB_PASSWORD="lion-framework"'
+              }
+            />
+
+            <p>run the container</p>
+
             <CodeBlock language={"powershell"} content={"docker-compose up"} />
           </div>
         </>
