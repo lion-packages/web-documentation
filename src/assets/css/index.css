@@ -1,7 +1,22 @@
 @import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@800&display=swap");
 
 * {
-  font-size: 15px;
+  font-size: 16px;
+}
+
+.parentDiv {
+  position: relative;
+}
+
+.parentDiv > .copyButton {
+  position: absolute;
+  z-index: 1;
+  right: 20px;
+  top: 20px;
+}
+
+.copyButton:hover {
+  border: #111111;
 }
 
 .bg-dark-logo {
