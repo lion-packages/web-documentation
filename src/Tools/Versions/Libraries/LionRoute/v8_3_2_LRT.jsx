@@ -213,7 +213,7 @@ export default function v8_3_2_LRT() {
                     "use App\\Http\\Controllers\\UsersController;\n\n" +
                     "Route::init();\n\n" +
                     "// receive http get request to route `users`\n" +
-                    "Route::get('users', [UsersController::class, 'readUsers']);\n\n" +
+                    "Route::get('users/{idusers}', [UsersController::class, 'readUsers']);\n\n" +
                     "Route::dispatch();"
                   }
                 />
@@ -221,6 +221,23 @@ export default function v8_3_2_LRT() {
 
               <div className="mb-3">
                 <h5 className="pb-2 text-warning">Example #3</h5>
+
+                <CodeBlock
+                  language="php"
+                  content={
+                    "<?php\n\n" +
+                    "use LionRoute\\Route;\n" +
+                    "use App\\Http\\Controllers\\UsersController;\n\n" +
+                    "Route::init();\n\n" +
+                    "// receive http get request to route `users`\n" +
+                    "Route::get('users', [UsersController::class, 'readUsers']);\n\n" +
+                    "Route::dispatch();"
+                  }
+                />
+              </div>
+
+              <div className="mb-3">
+                <h5 className="pb-2 text-warning">Example #4</h5>
 
                 <p>
                   Request implements GuzzleHttp, more information on{" "}
