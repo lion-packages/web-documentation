@@ -1294,7 +1294,7 @@ export default function v7_7_0_LSQ() {
             <>
               <CodeBlock
                 language={"sql"}
-                content={"SELECT * FROM users WHERE deleted_at IS NOT NULL"}
+                content={"SELECT * FROM users"}
               />
 
               <CodeBlock
@@ -1302,7 +1302,8 @@ export default function v7_7_0_LSQ() {
                 content={
                   "<?php\n\n" +
                   "use LionSQL\\Drivers\\MySQL as DB;\n\n" +
-                  "DB::table('users')->select()->where('deleted_at')->isNotNull()->getAll();"
+                  "DB::table('users')->select()->getQueryString();" +
+                  "// SELECT * FROM users"
                 }
               />
             </>
