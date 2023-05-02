@@ -136,6 +136,104 @@ export default function v7_7_0_LSQ() {
         "The `MySQL` class manages processes in the MySQL database, to connect to a database read the `Driver` class first",
       url: "/libraries/lion/sql/item_version/mysql/insert",
       methods: {
+        operators: {
+          title: "operators",
+          description: "Operator functions available in Lion-SQL",
+          link: "operators",
+          code: (
+            <>
+              <div className="mb-3">
+                <h2 className="pb-2">equalTo</h2>
+
+                <CodeBlock language="sql" content={"SELECT * FROM WHERE column = ?"} />
+
+                <CodeBlock
+                  language="php"
+                  content={
+                    "<?php\n\n" +
+                    "use LionSQL\\Drivers\\MySQL as DB;\n\n" +
+                    "DB::where(DB::equalTo('column'), 'Sleon');"
+                  }
+                />
+              </div>
+
+              <div className="mb-3">
+                <h2 className="pb-2">notEqualTo</h2>
+
+                <CodeBlock language="sql" content={"SELECT * FROM WHERE column <> ?"} />
+
+                <CodeBlock
+                  language="php"
+                  content={
+                    "<?php\n\n" +
+                    "use LionSQL\\Drivers\\MySQL as DB;\n\n" +
+                    "DB::where(DB::notEqualTo('column'), 'Sleon');"
+                  }
+                />
+              </div>
+
+              <div className="mb-3">
+                <h2 className="pb-2">greaterThan</h2>
+
+                <CodeBlock language="sql" content={"SELECT * FROM WHERE column > ?"} />
+
+                <CodeBlock
+                  language="php"
+                  content={
+                    "<?php\n\n" +
+                    "use LionSQL\\Drivers\\MySQL as DB;\n\n" +
+                    "DB::where(DB::greaterThan('column'), 'Sleon');"
+                  }
+                />
+              </div>
+
+              <div className="mb-3">
+                <h2 className="pb-2">lessThan</h2>
+
+                <CodeBlock language="sql" content={"SELECT * FROM WHERE column < ?"} />
+
+                <CodeBlock
+                  language="php"
+                  content={
+                    "<?php\n\n" +
+                    "use LionSQL\\Drivers\\MySQL as DB;\n\n" +
+                    "DB::where(DB::lessThan('column'), 'Sleon');"
+                  }
+                />
+              </div>
+
+              <div className="mb-3">
+                <h2 className="pb-2">greaterThanOrEqualTo</h2>
+
+                <CodeBlock language="sql" content={"SELECT * FROM WHERE column >= ?"} />
+
+                <CodeBlock
+                  language="php"
+                  content={
+                    "<?php\n\n" +
+                    "use LionSQL\\Drivers\\MySQL as DB;\n\n" +
+                    "DB::where(DB::greaterThanOrEqualTo('column'), 'Sleon');"
+                  }
+                />
+              </div>
+
+              <div className="mb-3">
+                <h2 className="pb-2">lessThanOrEqualTo</h2>
+
+                <CodeBlock language="sql" content={"SELECT * FROM WHERE column <= ?"} />
+
+                <CodeBlock
+                  language="php"
+                  content={
+                    "<?php\n\n" +
+                    "use LionSQL\\Drivers\\MySQL as DB;\n\n" +
+                    "DB::where(DB::lessThanOrEqualTo('column'), 'Sleon');"
+                  }
+                />
+              </div>
+            </>
+          ),
+        },
         insert: {
           title: "MySQL::insert",
           description:
