@@ -145,7 +145,10 @@ export default function v7_7_0_LSQ() {
               <div className="mb-3">
                 <h2 className="pb-2">equalTo</h2>
 
-                <CodeBlock language="sql" content={"SELECT * FROM WHERE column = ?"} />
+                <CodeBlock
+                  language="sql"
+                  content={"SELECT * FROM WHERE column = ?"}
+                />
 
                 <CodeBlock
                   language="php"
@@ -160,7 +163,10 @@ export default function v7_7_0_LSQ() {
               <div className="mb-3">
                 <h2 className="pb-2">notEqualTo</h2>
 
-                <CodeBlock language="sql" content={"SELECT * FROM WHERE column <> ?"} />
+                <CodeBlock
+                  language="sql"
+                  content={"SELECT * FROM WHERE column <> ?"}
+                />
 
                 <CodeBlock
                   language="php"
@@ -175,7 +181,10 @@ export default function v7_7_0_LSQ() {
               <div className="mb-3">
                 <h2 className="pb-2">greaterThan</h2>
 
-                <CodeBlock language="sql" content={"SELECT * FROM WHERE column > ?"} />
+                <CodeBlock
+                  language="sql"
+                  content={"SELECT * FROM WHERE column > ?"}
+                />
 
                 <CodeBlock
                   language="php"
@@ -190,7 +199,10 @@ export default function v7_7_0_LSQ() {
               <div className="mb-3">
                 <h2 className="pb-2">lessThan</h2>
 
-                <CodeBlock language="sql" content={"SELECT * FROM WHERE column < ?"} />
+                <CodeBlock
+                  language="sql"
+                  content={"SELECT * FROM WHERE column < ?"}
+                />
 
                 <CodeBlock
                   language="php"
@@ -205,7 +217,10 @@ export default function v7_7_0_LSQ() {
               <div className="mb-3">
                 <h2 className="pb-2">greaterThanOrEqualTo</h2>
 
-                <CodeBlock language="sql" content={"SELECT * FROM WHERE column >= ?"} />
+                <CodeBlock
+                  language="sql"
+                  content={"SELECT * FROM WHERE column >= ?"}
+                />
 
                 <CodeBlock
                   language="php"
@@ -220,7 +235,10 @@ export default function v7_7_0_LSQ() {
               <div className="mb-3">
                 <h2 className="pb-2">lessThanOrEqualTo</h2>
 
-                <CodeBlock language="sql" content={"SELECT * FROM WHERE column <= ?"} />
+                <CodeBlock
+                  language="sql"
+                  content={"SELECT * FROM WHERE column <= ?"}
+                />
 
                 <CodeBlock
                   language="php"
@@ -1196,6 +1214,72 @@ export default function v7_7_0_LSQ() {
                   "<?php\n\n" +
                   "use LionSQL\\Drivers\\MySQL as DB;\n\n" +
                   "DB::table('users')->select()->where('deleted_at')->isNotNull()->getAll();"
+                }
+              />
+            </>
+          ),
+        },
+        day: {
+          title: "MySQL::day",
+          description: "The `day` function returns the mysql day function",
+          link: "day",
+          code: (
+            <>
+              <CodeBlock
+                language={"sql"}
+                content={"SELECT * FROM users WHERE DAY(column_day)=?"}
+              />
+
+              <CodeBlock
+                language="php"
+                content={
+                  "<?php\n\n" +
+                  "use LionSQL\\Drivers\\MySQL as DB;\n\n" +
+                  "DB::table('users')\n\t->select()\n\t->where(DB::day('column_day'), '2023-05-02')\n\t->getAll();"
+                }
+              />
+            </>
+          ),
+        },
+        month: {
+          title: "MySQL::month",
+          description: "The `month` function returns the mysql month function",
+          link: "month",
+          code: (
+            <>
+              <CodeBlock
+                language={"sql"}
+                content={"SELECT * FROM users WHERE MONTH(column_month)=?"}
+              />
+
+              <CodeBlock
+                language="php"
+                content={
+                  "<?php\n\n" +
+                  "use LionSQL\\Drivers\\MySQL as DB;\n\n" +
+                  "DB::table('users')\n\t->select()\n\t->where(DB::month('column_month'), '2023-05-02')\n\t->getAll();"
+                }
+              />
+            </>
+          ),
+        },
+        year: {
+          title: "MySQL::year",
+          description: "The `year` function returns the mysql year function",
+          link: "year",
+          code: (
+            <>
+              <CodeBlock
+                language={"sql"}
+                content={"SELECT * FROM users WHERE YEAR(column_year)=?"}
+              />
+
+              <CodeBlock
+                language="php"
+                content={
+                  "<?php\n\n" +
+                  "use LionSQL\\Drivers\\MySQL as DB;\n\n" +
+                  "DB::table('users')\n\t->select()\n\t->where(DB::year('column_year'), '2023-05-02')\n\t->getAll();"
                 }
               />
             </>
