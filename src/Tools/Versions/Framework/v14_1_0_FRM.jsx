@@ -11,7 +11,7 @@ import { DiPhp } from "react-icons/di";
 import { FaReact } from "react-icons/fa";
 import { SiVite } from "react-icons/si";
 
-export default function v13_14_0_FRM(mdText) {
+export default function v14_1_0_FRM(mdText) {
   return {
     changelog: {
       name: "Changelog",
@@ -140,6 +140,126 @@ export default function v13_14_0_FRM(mdText) {
                 "..."
               }
             />
+          </div>
+        </>
+      ),
+    },
+    docker: {
+      name: "Docker",
+      code: (
+        <>
+          <div className="mb-3">
+            <h2>DOCKER</h2>
+
+            <p>
+              Add the <strong>Dockerfile</strong> and{" "}
+              <strong>docker-compose.yml</strong> to the root of the project, to
+              create the container you must execute the command{" "}
+              <strong>docker-compose up</strong>.
+            </p>
+
+            <CodeBlock
+              language={"dockerfile"}
+              content={
+                "# Dockerfile \n" +
+                "FROM php:8.2-apache \n" +
+                "ARG DEBIAN_FRONTEND=noninteractive \n\n" +
+                "RUN apt-get update  \n" +
+                "&& apt-get install -y sendmail libpng-dev  \n" +
+                "&& apt-get install -y libzip-dev  \n" +
+                "&& apt-get install -y zlib1g-dev  \n" +
+                "&& apt-get install -y libonig-dev  \n" +
+                "&& rm -rf /var/lib/apt/lists/*  \n" +
+                "&& docker-php-ext-install zip \n\n" +
+                "RUN docker-php-ext-install mbstring \n" +
+                "RUN docker-php-ext-install zip \n" +
+                "RUN docker-php-ext-install gd \n" +
+                "RUN docker-php-ext-install pdo_mysql \n" +
+                "RUN docker-php-ext-install mysqli \n\n" +
+                "COPY . . \n\n" +
+                "RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer \n" +
+                "RUN a2enmod rewrite \n\n" +
+                "CMD composer install \n" +
+                "CMD php lion serve --host 0.0.0.0 --port 8000 \n" +
+                "EXPOSE 8000 "
+              }
+            />
+
+            <CodeBlock
+              language={"yaml"}
+              content={
+                "# docker-compose.yml \n" +
+                'version: "3.8"\n' +
+                "services:\n" +
+                "\tapp:\n" +
+                "\t\tbuild:\n" +
+                "\t\t\tcontext: .\n" +
+                "\t\t\tdockerfile: Dockerfile\n" +
+                "\t\tenv_file:\n" +
+                "\t\t\t- .env\n" +
+                "\t\tports:\n" +
+                '\t\t\t- "8000:8000"\n' +
+                "\t\tvolumes:\n" +
+                "\t\t\t- ./:/var/www/html\n" +
+                "\t\tdepends_on:\n" +
+                "\t\t\t- db\n" +
+                "\t\tnetworks:\n" +
+                "\t\t\t- lion\n" +
+                "\tdb:\n" +
+                "\t\timage: mysql\n" +
+                "\t\tcommand: --default-authentication-plugin=mysql_native_password\n" +
+                "\t\tenvironment:\n" +
+                "\t\t\tMYSQL_DATABASE: ${DB_NAME}\n" +
+                "\t\t\tMYSQL_PASSWORD: ${DB_PASSWORD}\n" +
+                "\t\t\tMYSQL_ROOT_PASSWORD: ${DB_PASSWORD}\n" +
+                "\t\tports:\n" +
+                '\t\t\t- "3306:3306"\n' +
+                "\t\tvolumes:\n" +
+                "\t\t\t- db_data:/var/lib/mysql\n" +
+                "\t\tnetworks:\n" +
+                "\t\t\t- lion\n" +
+                "\tphpmyadmin:\n" +
+                "\t\timage: phpmyadmin/phpmyadmin\n" +
+                "\t\tlinks:\n" +
+                "\t\t\t- db:db\n" +
+                "\t\tports:\n" +
+                '\t\t\t- "8080:80"\n' +
+                "\t\tenvironment:\n" +
+                "\t\t\tMYSQL_USER: ${DB_USER}\n" +
+                "\t\t\tMYSQL_PASSWORD: ${DB_PASSWORD}\n" +
+                "\t\t\tMYSQL_ROOT_PASSWORD: ${DB_PASSWORD}\n" +
+                "\t\tnetworks:\n" +
+                "\t\t\t- lion\n" +
+                "volumes:\n" +
+                "\tdb_data:\n" +
+                "networks:\n" +
+                "\tlion:"
+              }
+            />
+
+            <p>
+              The host of the connection to the databases must be established
+              with the value <strong>DB_HOST=db</strong>
+            </p>
+
+            <CodeBlock
+              language={"powershell"}
+              content={
+                "##################################################### \n" +
+                "### DATABASE CONNECTIONS ------------------------ ### \n" +
+                "##################################################### \n" +
+                'DB_TYPE="mysql" \n' +
+                "DB_HOST=db \n" +
+                "DB_PORT=3306 \n" +
+                'DB_NAME="lion_database" \n' +
+                'DB_USER="root" \n' +
+                'DB_PASSWORD="lion-framework"'
+              }
+            />
+
+            <p>run the container</p>
+
+            <CodeBlock language={"powershell"} content={"docker-compose up"} />
           </div>
         </>
       ),
@@ -1286,6 +1406,19 @@ export default function v13_14_0_FRM(mdText) {
                 <CodeBlock
                   langueage={"php"}
                   content={"<?php\n\n" + "vd(success('finished'));"}
+                />
+              </div>
+            </Col>
+
+            <Col xs={12} sm={12}>
+              <div className="mb-3">
+                <h5 className="pb-2 text-warning">json</h5>
+
+                <p>The json helper converts any value to json.</p>
+
+                <CodeBlock
+                  langueage={"php"}
+                  content={"<?php\n\n" + "json(['name' => 'Sleon']);"}
                 />
               </div>
             </Col>

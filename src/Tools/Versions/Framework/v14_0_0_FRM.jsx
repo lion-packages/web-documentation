@@ -1279,7 +1279,7 @@ export default function v14_0_0_FRM(mdText) {
           <hr />
 
           <Row>
-            <Col xs={12} sm={12} md={6}>
+            <Col xs={12} sm={12}>
               <div className="mb-3">
                 <h5 className="pb-2 text-warning">fetch</h5>
 
@@ -1295,7 +1295,7 @@ export default function v14_0_0_FRM(mdText) {
               </div>
             </Col>
 
-            <Col xs={12} sm={12} md={6}>
+            <Col xs={12} sm={12}>
               <div className="mb-3">
                 <h5 className="pb-2 text-warning">fetchXML</h5>
 
@@ -1311,7 +1311,7 @@ export default function v14_0_0_FRM(mdText) {
               </div>
             </Col>
 
-            <Col xs={12} sm={12} md={6}>
+            <Col xs={12} sm={12}>
               <div className="mb-3">
                 <h5 className="pb-2 text-warning">storage_path</h5>
 
@@ -1331,7 +1331,7 @@ export default function v14_0_0_FRM(mdText) {
               </div>
             </Col>
 
-            <Col xs={12} sm={12} md={6}>
+            <Col xs={12} sm={12}>
               <div className="mb-3">
                 <h5 className="pb-2 text-warning">finish</h5>
 
@@ -1344,7 +1344,7 @@ export default function v14_0_0_FRM(mdText) {
               </div>
             </Col>
 
-            <Col xs={12} sm={12} md={6}>
+            <Col xs={12} sm={12}>
               <div className="mb-3">
                 <h5 className="pb-2 text-warning">success</h5>
 
@@ -1357,7 +1357,7 @@ export default function v14_0_0_FRM(mdText) {
               </div>
             </Col>
 
-            <Col xs={12} sm={12} md={6}>
+            <Col xs={12} sm={12}>
               <div className="mb-3">
                 <h5 className="pb-2 text-warning">error</h5>
 
@@ -1370,7 +1370,7 @@ export default function v14_0_0_FRM(mdText) {
               </div>
             </Col>
 
-            <Col xs={12} sm={12} md={6}>
+            <Col xs={12} sm={12}>
               <div className="mb-3">
                 <h5 className="pb-2 text-warning">warning</h5>
 
@@ -1383,7 +1383,7 @@ export default function v14_0_0_FRM(mdText) {
               </div>
             </Col>
 
-            <Col xs={12} sm={12} md={6}>
+            <Col xs={12} sm={12}>
               <div className="mb-3">
                 <h5 className="pb-2 text-warning">info</h5>
 
@@ -1396,7 +1396,7 @@ export default function v14_0_0_FRM(mdText) {
               </div>
             </Col>
 
-            <Col xs={12} sm={12} md={6}>
+            <Col xs={12} sm={12}>
               <div className="mb-3">
                 <h5 className="pb-2 text-warning">vd</h5>
 
@@ -1409,7 +1409,20 @@ export default function v14_0_0_FRM(mdText) {
               </div>
             </Col>
 
-            <Col xs={12} sm={12} md={6}>
+            <Col xs={12} sm={12}>
+              <div className="mb-3">
+                <h5 className="pb-2 text-warning">json</h5>
+
+                <p>The json helper converts any value to json.</p>
+
+                <CodeBlock
+                  langueage={"php"}
+                  content={"<?php\n\n" + "json(['name' => 'Sleon']);"}
+                />
+              </div>
+            </Col>
+
+            <Col xs={12} sm={12}>
               <div className="mb-3">
                 <h5 className="pb-2 text-warning">logger</h5>
 
