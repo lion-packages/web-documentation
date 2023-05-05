@@ -939,6 +939,30 @@ export default function v7_7_0_LSQ() {
                   }
                 />
               </div>
+
+              <div className="mb-3">
+                <h5 className="pb-2 text-warning">Example #3</h5>
+                <CodeBlock
+                  language="php"
+                  content={
+                    "<?php\n\n" +
+                    "use LionSQL\\Drivers\\MySQL as DB;\n\n" +
+                    "DB::table('users')->showCreateTable()->get();"
+                  }
+                />
+              </div>
+
+              <div className="mb-3">
+                <h5 className="pb-2 text-warning">Example #4</h5>
+                <CodeBlock
+                  language="php"
+                  content={
+                    "<?php\n\n" +
+                    "use LionSQL\\Drivers\\MySQL as DB;\n\n" +
+                    "DB::table('users')->show()->indexes()->getAll();"
+                  }
+                />
+              </div>
             </>
           ),
         },
@@ -1235,7 +1259,7 @@ export default function v7_7_0_LSQ() {
                 content={
                   "<?php\n\n" +
                   "use LionSQL\\Drivers\\MySQL as DB;\n\n" +
-                  "DB::table('users')\n\t->select()\n\t->where(DB::day('column_day'), '2023-05-02')\n\t->getAll();"
+                  "DB::table('users')\n\t->select()\n\t->where(DB::equalTo(DB::day('column_day')), '2023-05-02')\n\t->getAll();"
                 }
               />
             </>
@@ -1257,7 +1281,7 @@ export default function v7_7_0_LSQ() {
                 content={
                   "<?php\n\n" +
                   "use LionSQL\\Drivers\\MySQL as DB;\n\n" +
-                  "DB::table('users')\n\t->select()\n\t->where(DB::month('column_month'), '2023-05-02')\n\t->getAll();"
+                  "DB::table('users')\n\t->select()\n\t->where(DB::equalTo(DB::month('column_month')), '2023-05-02')\n\t->getAll();"
                 }
               />
             </>
@@ -1279,7 +1303,7 @@ export default function v7_7_0_LSQ() {
                 content={
                   "<?php\n\n" +
                   "use LionSQL\\Drivers\\MySQL as DB;\n\n" +
-                  "DB::table('users')\n\t->select()\n\t->where(DB::year('column_year'), '2023-05-02')\n\t->getAll();"
+                  "DB::table('users')\n\t->select()\n\t->where(DB::equalTo(DB::year('column_year')), '2023-05-02')\n\t->getAll();"
                 }
               />
             </>
@@ -1292,10 +1316,7 @@ export default function v7_7_0_LSQ() {
           link: "get-query-string",
           code: (
             <>
-              <CodeBlock
-                language={"sql"}
-                content={"SELECT * FROM users"}
-              />
+              <CodeBlock language={"sql"} content={"SELECT * FROM users"} />
 
               <CodeBlock
                 language="php"
