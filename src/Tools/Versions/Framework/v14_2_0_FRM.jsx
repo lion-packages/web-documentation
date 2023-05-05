@@ -952,24 +952,49 @@ export default function v14_2_0_FRM(mdText) {
           <h2>MODELS</h2>
           <hr />
 
-          <CodeBlock
-            language={"powershell"}
-            content={"php lion new:model HomeModel"}
-          />
+          <div className="mb-3">
+            <CodeBlock
+              language={"powershell"}
+              content={"php lion new:model HomeModel"}
+            />
 
-          <CodeBlock
-            langueage={"php"}
-            content={
-              "<?php\n\n" +
-              "namespace App\\Http\\Models;\n\n" +
-              "use LionSql\\Drivers\\MySQL\\MySQL as DB;\n" +
-              "use LionSql\\Drivers\\MySQL\\Schema;\n\n" +
-              "class HomeModel {\n\n" +
-              "\tpublic function __contruct() {\n\n" +
-              "\t}\n\n" +
-              "}"
-            }
-          />
+            <CodeBlock
+              langueage={"php"}
+              content={
+                "<?php\n\n" +
+                "namespace App\\Http\\Models;\n\n" +
+                "use LionSql\\Drivers\\MySQL\\MySQL as DB;\n" +
+                "use LionSql\\Drivers\\MySQL\\Schema;\n\n" +
+                "class HomeModel {\n\n" +
+                "\tpublic function __contruct() {\n\n\t}\n\n" +
+                "}"
+              }
+            />
+          </div>
+
+          <div className="mb-3">
+            <h5 className="pb-2 text-warning">SoftDeletes</h5>
+
+            <p>
+              to include the softdelete function you must include the
+              SoftDeletes trait
+            </p>
+
+            <CodeBlock
+              langueage={"php"}
+              content={
+                "<?php\n\n" +
+                "namespace App\\Http\\Models;\n\n" +
+                "use LionSql\\Drivers\\MySQL\\MySQL as DB;\n" +
+                "use LionSql\\Drivers\\MySQL\\Schema;\n" +
+                "use App\\Traits\\Framework\\Database\\SoftDeletes;\n\n" +
+                "class HomeModel {\n\n" +
+                "\tuse SoftDeletes;\n\n" +
+                "\tpublic function __contruct() {\n\n\t}\n\n" +
+                "}"
+              }
+            />
+          </div>
         </>
       ),
     },
