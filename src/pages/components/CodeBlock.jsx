@@ -1,6 +1,9 @@
 import CopyToClipboard from "react-copy-to-clipboard";
 import SyntaxHighlighter from "react-syntax-highlighter";
-import { darcula } from "react-syntax-highlighter/dist/esm/styles/hljs";
+import {
+  darcula,
+  androidstudio,
+} from "react-syntax-highlighter/dist/esm/styles/hljs";
 import { MdContentCopy, MdCheck } from "react-icons/md";
 import { useEffect, useState } from "react";
 
@@ -24,7 +27,7 @@ function CodeBlock({ language, content }) {
       <SyntaxHighlighter
         customStyle={{ fontSize: 14, position: "relative" }}
         language={language}
-        style={darcula}
+        style={androidstudio}
         className="rounded p-3"
         showLineNumbers
         wrapLines
