@@ -16,31 +16,40 @@ import { useState } from "react";
 
 function AddMethods() {
   let cont = 1;
+  const [filter_search, setFilter_search] = useState("");
   const { version, classname } = useParams();
   const location = useLocation();
   const route = location.pathname.split("/").filter((route) => route != "");
   const [show, setShow] = useState(false);
 
+  const filterItems = () => {
+    return Object.entries(
+      Content().libraries.lion[route[2]].class[version][classname].methods
+    ).filter(([index, item]) =>
+      item.title.toLowerCase().includes(filter_search.toLowerCase())
+    );
+  };
+
   const ListItems = () => {
     return (
-      <ListGroup numbered>
-        {Object.entries(
-          Content().libraries.lion[route[2]].class[version][classname].methods
-        ).map(([index, arrfunc]) => (
-          <LinkContainer
-            to={arrfunc.link.replace(/item_version/gm, version)}
-            key={index}
-          >
-            <ListGroup.Item
-              variant="dark"
-              action
-              onClick={() => setShow(false)}
+      <>
+        <ListGroup numbered>
+          {filterItems().map(([index, arrfunc]) => (
+            <LinkContainer
+              to={arrfunc.link.replace(/item_version/gm, version)}
+              key={index}
             >
-              {arrfunc.title}
-            </ListGroup.Item>
-          </LinkContainer>
-        ))}
-      </ListGroup>
+              <ListGroup.Item
+                variant="dark"
+                action
+                onClick={() => setShow(false)}
+              >
+                {arrfunc.title}
+              </ListGroup.Item>
+            </LinkContainer>
+          ))}
+        </ListGroup>
+      </>
     );
   };
 
@@ -67,6 +76,16 @@ function AddMethods() {
             </Offcanvas.Header>
 
             <Offcanvas.Body>
+              <div className="mb-3">
+                <input
+                  type="search"
+                  className="form-control-dark"
+                  placeholder="Search..."
+                  value={filter_search}
+                  onChange={(e) => setFilter_search(e.target.value)}
+                />
+              </div>
+
               <ListItems />
             </Offcanvas.Body>
           </Offcanvas>
@@ -94,13 +113,20 @@ function AddMethods() {
         </div>
 
         <Row>
-          <Col xs={12} sm={12} md={12} lg={12} xl={6} xxl={6}>
+          <Col xs={12} sm={12} md={12} lg={12} xl={4} xxl={3}>
             <div className="d-none d-xl-block">
+              <div className="mb-3">
+                <input
+                  type="search"
+                  className="form-control-dark"
+                  placeholder="Search..."
+                  value={filter_search}
+                  onChange={(e) => setFilter_search(e.target.value)}
+                />
+              </div>
+
               <Row>
-                {Object.entries(
-                  Content().libraries.lion[route[2]].class[version][classname]
-                    .methods
-                ).map(([index, arrfunc]) => {
+                {filterItems().map(([index, arrfunc]) => {
                   const title = `${cont} - ${arrfunc.title}`;
 
                   const elem = (
@@ -110,7 +136,7 @@ function AddMethods() {
                       md={12}
                       lg={12}
                       xl={12}
-                      xxl={6}
+                      xxl={12}
                       key={`${index}-${cont}`}
                       className={"mb-3"}
                     >
@@ -134,7 +160,7 @@ function AddMethods() {
             </div>
           </Col>
 
-          <Col xs={12} sm={12} md={12} lg={12} xl={6} xxl={6}>
+          <Col xs={12} sm={12} md={12} lg={12} xl={8} xxl={9}>
             <Add />
           </Col>
         </Row>

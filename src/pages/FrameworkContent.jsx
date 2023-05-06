@@ -55,7 +55,7 @@ function FrameworkContent() {
           <p>Lion-Framework supports PHP versions 8.1+</p>
 
           <CodeBlock
-            language={"powershell"}
+            language={"bash"}
             content={"composer create-project lion/framework"}
           />
         </div>

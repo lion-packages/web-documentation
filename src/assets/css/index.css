@@ -15,6 +15,32 @@
   top: 20px;
 }
 
+.form-control-dark {
+  display: block;
+  width: 100%;
+  padding: 0.375rem 0.75rem;
+  font-size: 1rem;
+  font-weight: 400;
+  line-height: 1.5;
+  color: #ffffff;
+  background-color: #272b2e;
+  background-clip: padding-box;
+  border: 1px solid #383d40;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  border-radius: 0.375rem;
+  transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+}
+
+.form-control-dark:focus {
+  color: #FFFFFF;
+  background-color: #272b2e;
+  border-color: #383d40;
+  outline: 0;
+  box-shadow: 0 0 0 0.25rem rgba(61, 67, 72, 0.25);
+}
+
 .copyButton:hover {
   border: #111111;
 }
