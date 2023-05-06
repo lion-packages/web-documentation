@@ -34,28 +34,28 @@ export default function v14_3_0_FRM(mdText) {
             <Row>
               <Col xs={12} sm={12}>
                 <CodeBlock
-                  language={"powershell"}
+                  language={"bash"}
                   content={"php lion serve --port 8001"}
                 />
               </Col>
 
               <Col xs={12} sm={12}>
                 <CodeBlock
-                  language={"powershell"}
+                  language={"bash"}
                   content={"php lion socket:serve socket_name --port 8081"}
                 />
               </Col>
 
               <Col xs={12} sm={12}>
                 <CodeBlock
-                  language={"powershell"}
+                  language={"bash"}
                   content={"php lion key:rsa --path folder-secret-key/"}
                 />
               </Col>
 
               <Col xs={12} sm={12}>
                 <CodeBlock
-                  language={"powershell"}
+                  language={"bash"}
                   content={
                     "php lion db:capsule --path forder_path/ --connection first_connection"
                   }
@@ -64,21 +64,21 @@ export default function v14_3_0_FRM(mdText) {
 
               <Col xs={12} sm={12}>
                 <CodeBlock
-                  language={"powershell"}
+                  language={"bash"}
                   content={"php lion db:all-capsules"}
                 />
               </Col>
 
               <Col xs={12} sm={12}>
                 <CodeBlock
-                  language={"powershell"}
+                  language={"bash"}
                   content={"php lion db:seed name_seed seed_name"}
                 />
               </Col>
 
               <Col xs={12} sm={12}>
                 <CodeBlock
-                  language={"powershell"}
+                  language={"bash"}
                   content={
                     "php lion db:seed name_seed seed\\namespace --run true"
                   }
@@ -87,7 +87,7 @@ export default function v14_3_0_FRM(mdText) {
 
               <Col xs={12} sm={12}>
                 <CodeBlock
-                  language={"powershell"}
+                  language={"bash"}
                   content={"php lion db:factory --path forder_path/"}
                 />
               </Col>
@@ -243,7 +243,7 @@ export default function v14_3_0_FRM(mdText) {
             </p>
 
             <CodeBlock
-              language={"powershell"}
+              language={"bash"}
               content={
                 "##################################################### \n" +
                 "### DATABASE CONNECTIONS ------------------------ ### \n" +
@@ -259,7 +259,7 @@ export default function v14_3_0_FRM(mdText) {
 
             <p>run the container</p>
 
-            <CodeBlock language={"powershell"} content={"docker-compose up"} />
+            <CodeBlock language={"bash"} content={"docker-compose up"} />
           </div>
         </>
       ),
@@ -556,7 +556,7 @@ export default function v14_3_0_FRM(mdText) {
               <h5>EXAMPLE #1</h5>
 
               <CodeBlock
-                language={"powershell"}
+                language={"bash"}
                 content={"php lion new:rule EmailRule"}
               />
 
@@ -620,6 +620,63 @@ export default function v14_3_0_FRM(mdText) {
               }
             />
           </div>
+        </>
+      ),
+    },
+    traits: {
+      name: "Traits",
+      code: (
+        <>
+          <h2>Traits</h2>
+
+          <hr />
+
+          <CodeBlock
+            language={"bash"}
+            content={"php lion new:trait trait_name"}
+          />
+
+          <CodeBlock
+            language={"php"}
+            content={
+              "<?php\n\n" +
+              "namespace App\\Traits;\n\n" +
+              "trait TraitName {\n\n" +
+              "}"
+            }
+          />
+        </>
+      ),
+    },
+    enums: {
+      name: "Enums",
+      code: (
+        <>
+          <h2>Enums</h2>
+
+          <hr />
+
+          <CodeBlock
+            language={"bash"}
+            content={"php lion new:enum enum_name"}
+          />
+
+          <CodeBlock
+            language={"php"}
+            content={
+              "<?php\n\n" +
+              "namespace App\\Enums;\n\n" +
+              "enum StatusEnum: string {\n\n" +
+              '\tcase SUCCESS = "success";\n' +
+              '\tcase ERROR = "error";\n' +
+              '\tcase WARNING = "warning";\n' +
+              '\tcase INFO = "info";\n' +
+              '\tcase DATABASE_ERROR = "database-error";\n' +
+              '\tcase SESSION_ERROR = "session-error";\n' +
+              '\tcase ROUTE_ERROR = "route-error";\n\n' +
+              "}"
+            }
+          />
         </>
       ),
     },
@@ -717,7 +774,7 @@ export default function v14_3_0_FRM(mdText) {
             </p>
 
             <CodeBlock
-              language={"powershell"}
+              language={"bash"}
               content={"php lion route:list"}
             />
 
@@ -743,7 +800,7 @@ export default function v14_3_0_FRM(mdText) {
             </p>
 
             <CodeBlock
-              language={"powershell"}
+              language={"bash"}
               content={"php lion route:postman"}
             />
 
@@ -788,7 +845,7 @@ export default function v14_3_0_FRM(mdText) {
             <hr />
 
             <CodeBlock
-              language={"powershell"}
+              language={"bash"}
               content={"php lion new:controller HomeController"}
             />
 
@@ -814,7 +871,7 @@ export default function v14_3_0_FRM(mdText) {
             </Alert>
 
             <CodeBlock
-              language={"powershell"}
+              language={"bash"}
               content={
                 "php lion new:controller HomeController --model HomeModel"
               }
@@ -847,7 +904,7 @@ export default function v14_3_0_FRM(mdText) {
             <hr />
 
             <CodeBlock
-              language={"powershell"}
+              language={"bash"}
               content={"php lion new:middleware middleware_name"}
             />
           </div>
@@ -954,7 +1011,7 @@ export default function v14_3_0_FRM(mdText) {
 
           <div className="mb-3">
             <CodeBlock
-              language={"powershell"}
+              language={"bash"}
               content={"php lion new:model HomeModel"}
             />
 
@@ -1020,7 +1077,7 @@ export default function v14_3_0_FRM(mdText) {
               <h5>EXAMPLE #1</h5>
 
               <CodeBlock
-                language={"powershell"}
+                language={"bash"}
                 content={"php lion db:capsule table_name"}
               />
 
@@ -1070,7 +1127,7 @@ export default function v14_3_0_FRM(mdText) {
               <h5>EXAMPLE #2</h5>
 
               <CodeBlock
-                language={"powershell"}
+                language={"bash"}
                 content={"php lion db:all-capsules"}
               />
 
@@ -1105,7 +1162,7 @@ export default function v14_3_0_FRM(mdText) {
             </p>
 
             <CodeBlock
-              language={"powershell"}
+              language={"bash"}
               content={"php lion new:capsule ClassName"}
             />
           </div>
@@ -1120,7 +1177,7 @@ export default function v14_3_0_FRM(mdText) {
           <hr />
 
           <CodeBlock
-            language={"powershell"}
+            language={"bash"}
             content={"php lion db:factory UsersFactory"}
           />
 
@@ -1155,7 +1212,7 @@ export default function v14_3_0_FRM(mdText) {
             <hr />
 
             <CodeBlock
-              language={"powershell"}
+              language={"bash"}
               content={"php lion db:seed UsersSeed"}
             />
 
@@ -1186,7 +1243,7 @@ export default function v14_3_0_FRM(mdText) {
             <hr />
 
             <CodeBlock
-              language={"powershell"}
+              language={"bash"}
               content={
                 "php lion db:seed Database\\Seeders\\UsersSeed --run true"
               }
@@ -1216,7 +1273,7 @@ export default function v14_3_0_FRM(mdText) {
             </p>
 
             <CodeBlock
-              language={"powershell"}
+              language={"bash"}
               content={"php lion new:socket NotificationsSocket"}
             />
 
