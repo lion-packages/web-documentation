@@ -43,7 +43,7 @@ const args = [
   },
 ];
 
-export default function v8_1_0_LSQ() {
+export default function v8_0_1_LSQ() {
   return {
     driver: {
       title: "LionSQL\\Driver",
