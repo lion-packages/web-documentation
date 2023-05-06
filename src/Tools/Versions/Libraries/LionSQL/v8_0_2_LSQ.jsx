@@ -534,7 +534,6 @@ export default function v8_0_2_LSQ() {
                 <CodeBlock
                   language="php"
                   content={
-                    "SELECT * FROM my_table\n\n" +
                     "<?php\n\n" +
                     "use LionSQL\\Drivers\\MySQL\\MySQL as DB;\n\n" +
                     `DB::table('users')\n\t->select(DB::concat(DB::column('name'), '" "', DB::column('lastname')))\n\t->getAll();`
@@ -554,7 +553,6 @@ export default function v8_0_2_LSQ() {
                 <CodeBlock
                   language="php"
                   content={
-                    "SELECT * FROM my_table\n\n" +
                     "<?php\n\n" +
                     "use LionSQL\\Drivers\\MySQL\\MySQL as DB;\n\n" +
                     "DB::table(DB::as('users', 'usr'))\n" +
