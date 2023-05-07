@@ -56,6 +56,7 @@ import v4_9_0_LF from "./Versions/Libraries/LionFiles/v4_9_0_LF";
 
 import v2_1_2_LH from "./Versions/Libraries/LionHelpers/v2_1_2_LH";
 import v2_1_3_LH from "./Versions/Libraries/LionHelpers/v2_1_3_LH";
+import v2_2_0_LH from "./Versions/Libraries/LionHelpers/v2_2_0_LH";
 
 import v4_0_0_LM from "./Versions/Libraries/LionMailer/v4_0_0_LM";
 import v4_2_0_LM from "./Versions/Libraries/LionMailer/v4_2_0_LM";
@@ -221,6 +222,7 @@ export default function Content(mdText = "") {
           ),
           description: "Easy to use helpers for any type of use.",
           class: {
+            "v2.2.0": v2_2_0_LH(),
             "v2.1.3": v2_1_3_LH(),
             "v2.1.2": v2_1_2_LH(),
           },
