@@ -16,7 +16,7 @@ export default function v8_3_2_LRT() {
             "The `init` function initializes the request service through a parameter.",
           code: (
             <div className="mb-3">
-              <h4 className="pb-2 text-warning">Guzzle</h4>
+              <h2 className="pb-2 text-warning">Guzzle</h2>
 
               <p>
                 The library has an integrated guzzle, this to make http requests
@@ -50,7 +50,7 @@ export default function v8_3_2_LRT() {
           code: (
             <>
               <div className="mb-3">
-                <h4 className="pb-2 text-warning">USAGE</h4>
+                <h2 className="pb-2 text-warning">USAGE</h2>
 
                 <p>Start your development server.</p>
 
@@ -118,7 +118,25 @@ export default function v8_3_2_LRT() {
               </div>
 
               <div className="mb-3">
-                <h4 className="pb-2 text-warning">HTACCESS</h4>
+                <h2 className="pb-2 text-warning">AVAILABLE METHODS</h2>
+
+                <CodeBlock
+                  language={"php"}
+                  content={
+                    "<?php\n\n" +
+                    "Route::get(...);\n" +
+                    "Route::post(...);\n" +
+                    "Route::put(...);\n" +
+                    "Route::delete(...);\n" +
+                    "Route::options(...);\n" +
+                    "Route::patch(...);\n" +
+                    "Route::any(...);"
+                  }
+                />
+              </div>
+
+              <div className="mb-3">
+                <h2 className="pb-2 text-warning">HTACCESS</h2>
 
                 <CodeBlock
                   language="apache"
