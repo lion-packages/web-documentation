@@ -35,7 +35,7 @@ export default function v14_3_1_FRM(mdText) {
               <Col xs={12} sm={12}>
                 <CodeBlock
                   language={"bash"}
-                  content={"php lion serve --port 8001"}
+                  content={"php lion serve --host localhost --port 8001"}
                 />
               </Col>
 
