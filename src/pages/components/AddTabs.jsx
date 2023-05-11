@@ -29,7 +29,13 @@ export default function AddTabs() {
               <ListGroup.Item
                 variant="dark"
                 action
-                onClick={() => setShow(false)}
+                onClick={() => {
+                  setShow(false);
+                  window.scrollTo({
+                    top: 0,
+                    behavior: "smooth",
+                  });
+                }}
               >
                 {tab.name}
               </ListGroup.Item>

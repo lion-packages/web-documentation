@@ -25,7 +25,7 @@ function CodeBlock({ language, content }) {
       </CopyToClipboard>
 
       <SyntaxHighlighter
-        customStyle={{ fontSize: 14, position: "relative" }}
+        customStyle={{ fontSize: 12, position: "relative" }}
         language={language}
         style={androidstudio}
         className="rounded p-3"
