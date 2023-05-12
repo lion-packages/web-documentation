@@ -857,6 +857,7 @@ export default function v14_3_2_FRM(mdText) {
               content={
                 "<?php\n\n" +
                 "namespace App\\Http\\Controllers;\n\n" +
+                "use App\\Enums\\Framework\\StatusEnum;\n\n" +
                 "class HomeController {\n\n" +
                 "\tpublic function __contruct() {\n\n" +
                 "\t}\n\n" +
@@ -885,6 +886,7 @@ export default function v14_3_2_FRM(mdText) {
               content={
                 "<?php\n\n" +
                 "namespace App\\Http\\Controllers;\n\n" +
+                "use App\\Enums\\Framework\\StatusEnum;\n" +
                 "use App\\Models\\HomeModel;\n\n" +
                 "class HomeController {\n\n" +
                 "\tprivate HomeModel $homeModel;\n\n" +
