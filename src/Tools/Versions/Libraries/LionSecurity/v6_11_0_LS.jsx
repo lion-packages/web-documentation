@@ -113,7 +113,7 @@ export default function v6_11_0_LS() {
                   language="php"
                   content={
                     "<?php\n\n" +
-                    "Manage::folder();\n" +
+                    "Store::folder();\n" +
                     "RSA::createKeys();\n\n" +
                     "return [\n\t'status' => 'success',\n\t'message' => 'Keys created successfully'\n];"
                   }
@@ -134,7 +134,7 @@ export default function v6_11_0_LS() {
                   content={
                     "<?php\n\n" +
                     "$path = 'resources/my_secret_folder/';\n" +
-                    "Manage::folder($path);\n" +
+                    "Store::folder($path);\n" +
                     "RSA::createKeys($path);\n\n" +
                     "return [\n\t'status' => 'success',\n\t'message' => 'Keys created successfully'\n];"
                   }
