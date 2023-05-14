@@ -482,6 +482,49 @@ export default function v8_3_2_LRT() {
             </>
           ),
         },
+        patch: {
+          title: "Route::patch",
+          link: "patch",
+          description:
+            "The `patch` function allows you to create an http route or make an http patch request.",
+          code: (
+            <>
+              <div className="mb-3">
+                <h5 className="pb-2 text-warning">Example #1</h5>
+
+                <CodeBlock
+                  language="php"
+                  content={
+                    "<?php\n\n" +
+                    "use LionRoute\\Route;\n" +
+                    "use App\\Http\\Controllers\\UsersController;\n\n" +
+                    "Route::init();\n\n" +
+                    "Route::patch('users', function() {\n" +
+                    "\treturn 'ok';\n" +
+                    "});\n\n" +
+                    "Route::dispatch();"
+                  }
+                />
+              </div>
+
+              <div className="mb-3">
+                <h5 className="pb-2 text-warning">Example #2</h5>
+
+                <CodeBlock
+                  language="php"
+                  content={
+                    "<?php\n\n" +
+                    "use LionRoute\\Route;\n" +
+                    "use App\\Http\\Controllers\\UsersController;\n\n" +
+                    "Route::init();\n" +
+                    "Route::patch('users/{idusers}', [UsersController::class, 'patchUsers']);\n" +
+                    "Route::dispatch();"
+                  }
+                />
+              </div>
+            </>
+          ),
+        },
         any: {
           title: "Route::any",
           link: "any",
