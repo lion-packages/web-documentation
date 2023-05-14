@@ -165,12 +165,15 @@ export default function v14_2_0_FRM(mdText) {
                 "FROM php:8.2-apache \n" +
                 "ARG DEBIAN_FRONTEND=noninteractive \n\n" +
                 "RUN apt-get update  \n" +
-                "&& apt-get install -y sendmail libpng-dev  \n" +
-                "&& apt-get install -y libzip-dev  \n" +
-                "&& apt-get install -y zlib1g-dev  \n" +
-                "&& apt-get install -y libonig-dev  \n" +
-                "&& rm -rf /var/lib/apt/lists/*  \n" +
-                "&& docker-php-ext-install zip \n\n" +
+                "\t&& apt-get install -y sudo \\ \n" +
+                "\t&& apt-get install -y nano \\ \n" +
+                "\t&& apt-get install -y cron \\ \n" +
+                "\t&& apt-get install -y sendmail libpng-dev \\ \n" +
+                "\t&& apt-get install -y libzip-dev \\ \n" +
+                "\t&& apt-get install -y zlib1g-dev \\ \n" +
+                "\t&& apt-get install -y libonig-dev \\ \n" +
+                "\t&& rm -rf /var/lib/apt/lists/*  \n" +
+                "\t&& docker-php-ext-install zip \n\n" +
                 "RUN docker-php-ext-install mbstring \n" +
                 "RUN docker-php-ext-install zip \n" +
                 "RUN docker-php-ext-install gd \n" +
@@ -181,7 +184,7 @@ export default function v14_2_0_FRM(mdText) {
                 "RUN a2enmod rewrite \n\n" +
                 "CMD composer install \n" +
                 "CMD php lion serve --host 0.0.0.0 --port 8000 \n" +
-                "EXPOSE 8000 "
+                "EXPOSE 8000"
               }
             />
 
@@ -192,6 +195,7 @@ export default function v14_2_0_FRM(mdText) {
                 'version: "3.8"\n' +
                 "services:\n" +
                 "\tapp:\n" +
+                "\t\tcontainer_name: lion-framework-app\n" +
                 "\t\tbuild:\n" +
                 "\t\t\tcontext: .\n" +
                 "\t\t\tdockerfile: Dockerfile\n" +
@@ -207,6 +211,7 @@ export default function v14_2_0_FRM(mdText) {
                 "\t\t\t- lion\n" +
                 "\tdb:\n" +
                 "\t\timage: mysql\n" +
+                "\t\tcontainer_name: lion-framework-mysql\n" +
                 "\t\tcommand: --default-authentication-plugin=mysql_native_password\n" +
                 "\t\tenvironment:\n" +
                 "\t\t\tMYSQL_DATABASE: ${DB_NAME}\n" +
@@ -220,6 +225,7 @@ export default function v14_2_0_FRM(mdText) {
                 "\t\t\t- lion\n" +
                 "\tphpmyadmin:\n" +
                 "\t\timage: phpmyadmin/phpmyadmin\n" +
+                "\t\tcontainer_name: lion-framework-phpmyadmin\n" +
                 "\t\tlinks:\n" +
                 "\t\t\t- db:db\n" +
                 "\t\tports:\n" +
@@ -243,7 +249,7 @@ export default function v14_2_0_FRM(mdText) {
             </p>
 
             <CodeBlock
-              language={"powershell"}
+              language={"bash"}
               content={
                 "##################################################### \n" +
                 "### DATABASE CONNECTIONS ------------------------ ### \n" +
@@ -259,7 +265,7 @@ export default function v14_2_0_FRM(mdText) {
 
             <p>run the container</p>
 
-            <CodeBlock language={"powershell"} content={"docker-compose up"} />
+            <CodeBlock language={"bash"} content={"docker-compose up"} />
           </div>
         </>
       ),

@@ -165,12 +165,12 @@ export default function v14_3_0_FRM(mdText) {
                 "FROM php:8.2-apache \n" +
                 "ARG DEBIAN_FRONTEND=noninteractive \n\n" +
                 "RUN apt-get update  \n" +
-                "&& apt-get install -y sendmail libpng-dev  \n" +
-                "&& apt-get install -y libzip-dev  \n" +
-                "&& apt-get install -y zlib1g-dev  \n" +
-                "&& apt-get install -y libonig-dev  \n" +
-                "&& rm -rf /var/lib/apt/lists/*  \n" +
-                "&& docker-php-ext-install zip \n\n" +
+                "\t&& apt-get install -y sendmail libpng-dev \\ \n" +
+                "\t&& apt-get install -y libzip-dev \\ \n" +
+                "\t&& apt-get install -y zlib1g-dev \\ \n" +
+                "\t&& apt-get install -y libonig-dev \\ \n" +
+                "\t&& rm -rf /var/lib/apt/lists/* \\ \n" +
+                "\t&& docker-php-ext-install zip \n\n" +
                 "RUN docker-php-ext-install mbstring \n" +
                 "RUN docker-php-ext-install zip \n" +
                 "RUN docker-php-ext-install gd \n" +

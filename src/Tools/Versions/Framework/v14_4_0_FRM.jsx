@@ -10,8 +10,14 @@ import ListCommands from "../../../pages/components/ListCommands";
 import { DiPhp } from "react-icons/di";
 import { FaReact } from "react-icons/fa";
 import { SiVite } from "react-icons/si";
+import docker_ps from "./../../../assets/img/docker/docker-ps.png";
+import docker_exec from "./../../../assets/img/docker/docker-exec.png";
+import script_sh from "./../../../assets/img/docker/script-sh.png";
+import permissions_sh from "./../../../assets/img/docker/permissions-sh.png";
+import etc_data from "./../../../assets/img/docker/etc-data.png";
+import crontab_edit from "./../../../assets/img/docker/crontab-edit.png";
 
-export default function v14_3_1_FRM(mdText) {
+export default function v14_4_0_FRM(mdText) {
   return {
     changelog: {
       name: "Changelog",
@@ -174,11 +180,14 @@ export default function v14_3_1_FRM(mdText) {
                 "FROM php:8.2-apache \n" +
                 "ARG DEBIAN_FRONTEND=noninteractive \n\n" +
                 "RUN apt-get update  \n" +
+                "\t&& apt-get install -y sudo \\ \n" +
+                "\t&& apt-get install -y nano \\ \n" +
+                "\t&& apt-get install -y cron \\ \n" +
                 "\t&& apt-get install -y sendmail libpng-dev \\ \n" +
                 "\t&& apt-get install -y libzip-dev \\ \n" +
                 "\t&& apt-get install -y zlib1g-dev \\ \n" +
                 "\t&& apt-get install -y libonig-dev \\ \n" +
-                "\t&& rm -rf /var/lib/apt/lists/* \\ \n" +
+                "\t&& rm -rf /var/lib/apt/lists/*  \n" +
                 "\t&& docker-php-ext-install zip \n\n" +
                 "RUN docker-php-ext-install mbstring \n" +
                 "RUN docker-php-ext-install zip \n" +
@@ -190,7 +199,7 @@ export default function v14_3_1_FRM(mdText) {
                 "RUN a2enmod rewrite \n\n" +
                 "CMD composer install \n" +
                 "CMD php lion serve --host 0.0.0.0 --port 8000 \n" +
-                "EXPOSE 8000 "
+                "EXPOSE 8000"
               }
             />
 
@@ -201,6 +210,7 @@ export default function v14_3_1_FRM(mdText) {
                 'version: "3.8"\n' +
                 "services:\n" +
                 "\tapp:\n" +
+                "\t\tcontainer_name: lion-framework-app\n" +
                 "\t\tbuild:\n" +
                 "\t\t\tcontext: .\n" +
                 "\t\t\tdockerfile: Dockerfile\n" +
@@ -216,6 +226,7 @@ export default function v14_3_1_FRM(mdText) {
                 "\t\t\t- lion\n" +
                 "\tdb:\n" +
                 "\t\timage: mysql\n" +
+                "\t\tcontainer_name: lion-framework-mysql\n" +
                 "\t\tcommand: --default-authentication-plugin=mysql_native_password\n" +
                 "\t\tenvironment:\n" +
                 "\t\t\tMYSQL_DATABASE: ${DB_NAME}\n" +
@@ -229,6 +240,7 @@ export default function v14_3_1_FRM(mdText) {
                 "\t\t\t- lion\n" +
                 "\tphpmyadmin:\n" +
                 "\t\timage: phpmyadmin/phpmyadmin\n" +
+                "\t\tcontainer_name: lion-framework-phpmyadmin\n" +
                 "\t\tlinks:\n" +
                 "\t\t\t- db:db\n" +
                 "\t\tports:\n" +
@@ -269,6 +281,215 @@ export default function v14_3_1_FRM(mdText) {
             <p>run the container</p>
 
             <CodeBlock language={"bash"} content={"docker-compose up"} />
+          </div>
+        </>
+      ),
+    },
+    cron: {
+      name: "Cron",
+      code: (
+        <>
+          <h2>CRON</h2>
+          <hr />
+
+          <p>
+            CRON tasks can be run in <strong>Docker</strong> containers,{" "}
+            <strong>Lion-Framework</strong> provides the necessary docker files
+            to create a container with their respective images, to start
+            creating CRON tasks generate the necessary commands to run them
+            through <strong>sh</strong> files, note that this is performed under
+            a <strong>Linux</strong> development environment with the{" "}
+            <strong>Debian</strong> distribution specified in the{" "}
+            <strong>Dockerfile</strong>.
+          </p>
+
+          <div className="mb-3">
+            <h5 className="text-warning">
+              1. Create the command for the CRON task
+            </h5>
+
+            <p>
+              With the generated command you can carry out the necessary
+              instructions for the execution of the CRON task.
+            </p>
+
+            <CodeBlock
+              language={"bash"}
+              content={"php lion new:command command_name"}
+            />
+          </div>
+
+          <div className="mb-3">
+            <h5 className="text-warning">2. Add the command to the kernel</h5>
+
+            <p>
+              The command must be added to the command list which is in the{" "}
+              <strong>Kernel</strong> class located in{" "}
+              <Badge bg="secondary">app/Console/Kernel.php</Badge>.
+            </p>
+
+            <CodeBlock
+              language={"php"}
+              content={
+                "<?php\n\n" +
+                "namespace App\\Console;\n\n" +
+                "use Symfony\\Component\\Console\\Application;\n\n" +
+                "class Kernel {\n\n" +
+                "\tprivate array $commands = [\n" +
+                "\t\tApp\\Console\\MyCustomCommand::class,\n" +
+                "\t\tApp\\Console\\Framework\\ServerCommand::class,\n" +
+                "\t\tApp\\Console\\Framework\\RunTestCommand::class,\n" +
+                "..."
+              }
+            />
+          </div>
+
+          <div className="mb-3">
+            <h5 className="text-warning">3. Create file to run</h5>
+
+            <p>
+              You must generate the sh file to run the CRON tasks with your
+              instructions, this file is stored in{" "}
+              <Badge bg="secondary">storage/cron/</Badge>.
+            </p>
+
+            <CodeBlock language={"bash"} content={"php lion sh:new sh_name"} />
+
+            <img
+              src={script_sh}
+              className="img-fluid"
+              role="button"
+              onClick={() => window.open(script_sh)}
+            />
+          </div>
+
+          <div className="mb-3">
+            <h5 className="text-warning">4. Build the Docker container</h5>
+
+            <p>
+              You must generate the Docker container to configure for the
+              execution of the CRON task.
+            </p>
+
+            <CodeBlock language={"bash"} content={"docker-compose up"} />
+          </div>
+
+          <div className="mb-3">
+            <h5 className="text-warning">5. Access the container bash.</h5>
+
+            <p>
+              Access lion-framework-app container (image) bash, you can get the
+              image id.
+            </p>
+
+            <CodeBlock language={"bash"} content={"docker ps"} />
+
+            <img
+              src={docker_ps}
+              className="img-fluid mb-3"
+              role="button"
+              onClick={() => window.open(docker_ps)}
+            />
+
+            <p>
+              After copying the id of the lion-framework-app image, bash should
+              be accessed.
+            </p>
+
+            <CodeBlock
+              language={"bash"}
+              content={"docker exec -it image_id bash"}
+            />
+
+            <img
+              src={docker_exec}
+              className="img-fluid"
+              role="button"
+              onClick={() => window.open(docker_exec)}
+            />
+          </div>
+
+          <div className="mb-3">
+            <h5 className="text-warning">6. Permissions for sh file</h5>
+
+            <p>
+              To give read and write permissions to a shell script file (file
+              with .sh extension), you can use the chmod command. For example,
+              to give read and write permissions to the script.sh file, you can
+              run the following command:
+            </p>
+
+            <CodeBlock language={"bash"} content={"chmod +rw script.sh"} />
+
+            <img
+              src={permissions_sh}
+              className="img-fluid"
+              role="button"
+              onClick={() => window.open(permissions_sh)}
+            />
+          </div>
+
+          <div className="mb-3">
+            <h5 className="text-warning">7. configure crontab</h5>
+
+            <p>
+              To configure the <strong>crontab</strong> file you must go to the{" "}
+              <strong>etc/</strong> path, where you can run the{" "}
+              <strong>ls</strong> command to display the{" "}
+              <strong>crontab</strong> file, to configure the{" "}
+              <strong>crontab</strong> run the following command:
+            </p>
+
+            <img
+              src={etc_data}
+              className="img-fluid mb-3"
+              role="button"
+              onClick={() => window.open(etc_data)}
+            />
+
+            <CodeBlock language={"bash"} content={"sudo crontab -e"} />
+
+            <p>
+              This opens the <strong>crontab</strong> file from the terminal or
+              the editor that you have configured, add the instruction in the
+              last line to perform the CRON task with its respective
+              configuration.
+            </p>
+
+            <img
+              src={crontab_edit}
+              className="img-fluid mb-3"
+              role="button"
+              onClick={() => window.open(crontab_edit)}
+            />
+
+            <p>
+              Save the changes with the command <strong>Ctrl + X</strong>, on
+              Linux and macOS, the Windows equivalent of{" "}
+              <strong>Ctrl + X</strong> is <strong>Command + X</strong> or{" "}
+              <strong>Ctrl + X</strong>.
+            </p>
+
+            <p>
+              Press <strong>Y</strong> to accept the changes and then press the
+              <strong>Intro</strong> key to exit.
+            </p>
+          </div>
+
+          <div className="mb-3">
+            <h5>8. restart the container</h5>
+
+            <p>
+              After configuring the CRON task, you must restart the container to
+              see the changes, otherwise the configured CRON tasks run, go back
+              to step #5 to access the container bash again, run the following
+              command:
+            </p>
+
+            <CodeBlock
+              language={"bash"}
+              content={"sudo service cron restart"}
+            />
           </div>
         </>
       ),
@@ -857,6 +1078,7 @@ export default function v14_3_1_FRM(mdText) {
               content={
                 "<?php\n\n" +
                 "namespace App\\Http\\Controllers;\n\n" +
+                "use App\\Enums\\Framework\\StatusEnum;\n\n" +
                 "class HomeController {\n\n" +
                 "\tpublic function __contruct() {\n\n" +
                 "\t}\n\n" +
@@ -885,6 +1107,7 @@ export default function v14_3_1_FRM(mdText) {
               content={
                 "<?php\n\n" +
                 "namespace App\\Http\\Controllers;\n\n" +
+                "use App\\Enums\\Framework\\StatusEnum;\n" +
                 "use App\\Models\\HomeModel;\n\n" +
                 "class HomeController {\n\n" +
                 "\tprivate HomeModel $homeModel;\n\n" +
