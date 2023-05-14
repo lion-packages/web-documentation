@@ -1569,37 +1569,37 @@ export default function v8_0_3_LSQ() {
                 content={
                   "<?php\n\n" +
                   "use LionSQL\\Drivers\\MySQL\\Schema;\n\n" +
-                  "Schema::connection('lion_database')->table('example_' . $_POST['date'])->create()\n" +
-                  "\t->column('id', [\n" +
-                  "\t\t'type' => 'int', 'primary-key' => true, 'lenght' => 11, 'null' => false, 'auto-increment' => true" +
-                  "\t])\n" +
-                  "\t->column('name', [\n" +
-                  "\t\t'type' => 'varchar', 'null' => true, 'default' => 'unnamed'\n" +
-                  "\t])\n" +
-                  "\t->column('code', [\n" +
-                  "\t\t'type' => 'varchar', 'lenght' => 64, 'null' => false, 'comment' => 'group records', 'unique' => true, 'default' => false\n" +
-                  "\t])\n" +
-                  "\t->column('description', [\n" +
-                  "\t\t'type' => 'text', 'null' => true\n" +
-                  "\t])\n" +
-                  "\t->column('options', [\n" +
-                  "\t\t'type' => 'enum', 'null' => false, 'options' => ['ONLINE', 'OFFLINE'], 'default' => 'ONLINE'\n" +
-                  "\t])\n" +
-                  "\t->column('date_birth', [\n" +
-                  "\t\t'type' => 'datetime', 'null' => false, 'default' => false \n" +
-                  "\t])\n" +
-                  "\t->column('idusers_key', [\n" +
-                  "\t\t'type' => 'int', 'lenght' => 11, 'null' => false, 'default' => false, 'foreign-key' => ['table' => 'users', 'column' => 'idusers']\n" +
-                  "\t])\n" +
-                  "\t->column('idusers_key_second', [\n" +
-                  "\t\t'type' => 'int', 'lenght' => 11, 'null' => false, 'default' => false, 'foreign-key' => ['table' => 'users', 'column' => 'idusers']\n" +
-                  "\t])\n" +
-                  "\t->column('idusers_tech', [\n" +
-                  "\t\t'type' => 'int', 'lenght' => 11, 'null' => false, 'default' => false, 'foreign-key' => ['table' => 'users', 'column' => 'idusers']\n" +
-                  "\t])\n" +
-                  "\t->column('idnew_table', [\n" +
-                  "\t\t'type' => 'int', 'lenght' => 11, 'null' => false, 'default' => false, 'foreign-key' => ['table' => 'new_table', 'column' => 'idnew_table']\n" +
-                  "\t])->execute()"
+                  "Schema::connection('lion_database')\n\t->table('example')\n\t->create()\n" +
+                  "\t->column('id', [" +
+                  "'type' => 'int', 'primary-key' => true, 'lenght' => 11, 'null' => false, 'auto-increment' => true" +
+                  "])\n" +
+                  "\t->column('name', [" +
+                  "'type' => 'varchar', 'null' => true, 'default' => 'unnamed'" +
+                  "])\n" +
+                  "\t->column('code', [" +
+                  "'type' => 'varchar', 'lenght' => 64, 'null' => false, 'comment' => 'group records', 'unique' => true, 'default' => false" +
+                  "])\n" +
+                  "\t->column('description', [" +
+                  "'type' => 'text', 'null' => true" +
+                  "])\n" +
+                  "\t->column('options', [" +
+                  "'type' => 'enum', 'null' => false, 'options' => ['ONLINE', 'OFFLINE'], 'default' => 'ONLINE'" +
+                  "])\n" +
+                  "\t->column('date_birth', [" +
+                  "'type' => 'datetime', 'null' => false, 'default' => false " +
+                  "])\n" +
+                  "\t->column('idusers_key', [" +
+                  "'type' => 'int', 'lenght' => 11, 'null' => false, 'default' => false, 'foreign-key' => ['table' => 'users', 'column' => 'idusers']" +
+                  "])\n" +
+                  "\t->column('idusers_key_second', [" +
+                  "'type' => 'int', 'lenght' => 11, 'null' => false, 'default' => false, 'foreign-key' => ['table' => 'users', 'column' => 'idusers']" +
+                  "])\n" +
+                  "\t->column('idusers_tech', [" +
+                  "'type' => 'int', 'lenght' => 11, 'null' => false, 'default' => false, 'foreign-key' => ['table' => 'users', 'column' => 'idusers']" +
+                  "])\n" +
+                  "\t->column('idnew_table', [" +
+                  "'type' => 'int', 'lenght' => 11, 'null' => false, 'default' => false, 'foreign-key' => ['table' => 'new_table', 'column' => 'idnew_table']" +
+                  "])\n\t->execute();"
                 }
               />
             </>
