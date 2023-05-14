@@ -355,12 +355,7 @@ export default function v14_4_0_FRM(mdText) {
 
             <CodeBlock language={"bash"} content={"php lion sh:new sh_name"} />
 
-            <img
-              src={script_sh}
-              className="img-fluid"
-              role="button"
-              onClick={() => window.open(script_sh)}
-            />
+            <img src={script_sh} className="img-fluid" />
           </div>
 
           <div className="mb-3">
@@ -384,12 +379,7 @@ export default function v14_4_0_FRM(mdText) {
 
             <CodeBlock language={"bash"} content={"docker ps"} />
 
-            <img
-              src={docker_ps}
-              className="img-fluid mb-3"
-              role="button"
-              onClick={() => window.open(docker_ps)}
-            />
+            <img src={docker_ps} className="img-fluid mb-3" />
 
             <p>
               After copying the id of the lion-framework-app image, bash should
@@ -401,12 +391,7 @@ export default function v14_4_0_FRM(mdText) {
               content={"docker exec -it image_id bash"}
             />
 
-            <img
-              src={docker_exec}
-              className="img-fluid"
-              role="button"
-              onClick={() => window.open(docker_exec)}
-            />
+            <img src={docker_exec} className="img-fluid" />
           </div>
 
           <div className="mb-3">
@@ -421,12 +406,7 @@ export default function v14_4_0_FRM(mdText) {
 
             <CodeBlock language={"bash"} content={"chmod +rw script.sh"} />
 
-            <img
-              src={permissions_sh}
-              className="img-fluid"
-              role="button"
-              onClick={() => window.open(permissions_sh)}
-            />
+            <img src={permissions_sh} className="img-fluid" />
           </div>
 
           <div className="mb-3">
@@ -440,12 +420,7 @@ export default function v14_4_0_FRM(mdText) {
               <strong>crontab</strong> run the following command:
             </p>
 
-            <img
-              src={etc_data}
-              className="img-fluid mb-3"
-              role="button"
-              onClick={() => window.open(etc_data)}
-            />
+            <img src={etc_data} className="img-fluid mb-3" />
 
             <CodeBlock language={"bash"} content={"sudo crontab -e"} />
 
@@ -456,12 +431,7 @@ export default function v14_4_0_FRM(mdText) {
               configuration.
             </p>
 
-            <img
-              src={crontab_edit}
-              className="img-fluid mb-3"
-              role="button"
-              onClick={() => window.open(crontab_edit)}
-            />
+            <img src={crontab_edit} className="img-fluid mb-3" />
 
             <p>
               Save the changes with the command <strong>Ctrl + X</strong>, on
