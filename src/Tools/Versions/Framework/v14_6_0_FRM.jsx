@@ -132,9 +132,9 @@ export default function v14_6_0_FRM(mdText) {
               content={
                 "<?php\n\n" +
                 "return [\n" +
-                "\t\tApp\\Console\\Commands\\MyCustomCommand::class,\n" +
-                "\t\tApp\\Console\\Framework\\ServerCommand::class,\n" +
-                "\t\tApp\\Console\\Framework\\RunTestCommand::class,\n" +
+                "\tApp\\Console\\Commands\\MyCustomCommand::class,\n" +
+                "\tApp\\Console\\Framework\\ServerCommand::class,\n" +
+                "\tApp\\Console\\Framework\\RunTestCommand::class,\n" +
                 "..."
               }
             />
