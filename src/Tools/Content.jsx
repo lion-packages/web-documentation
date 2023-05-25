@@ -70,8 +70,7 @@ import v2_2_0_LH from "./Versions/Libraries/LionHelpers/v2_2_0_LH";
 
 import v4_0_0_LM from "./Versions/Libraries/LionMailer/v4_0_0_LM";
 import v4_2_0_LM from "./Versions/Libraries/LionMailer/v4_2_0_LM";
-
-import v5_3_0_LR from "./Versions/Libraries/LionRequest/v5_3_0_LR";
+import v4_3_0_LM from "./Versions/Libraries/LionMailer/v4_3_0_LM";
 
 import v8_1_0_LRT from "./Versions/Libraries/LionRoute/v8_1_0_LRT";
 import v8_2_0_LRT from "./Versions/Libraries/LionRoute/v8_2_0_LRT";
@@ -103,6 +102,8 @@ import v8_0_0_LSQ from "./Versions/Libraries/LionSQL/v8_0_0_LSQ";
 import v8_0_1_LSQ from "./Versions/Libraries/LionSQL/v8_0_1_LSQ";
 import v8_0_2_LSQ from "./Versions/Libraries/LionSQL/v8_0_2_LSQ";
 import v8_0_3_LSQ from "./Versions/Libraries/LionSQL/v8_0_3_LSQ";
+
+import v5_3_0_LR from "./Versions/Libraries/LionRequest/v5_3_0_LR";
 
 import v1_0_0_LA from "./Versions/Libraries/LionAuthentication/v1_0_0_LA";
 
@@ -278,6 +279,7 @@ export default function Content(mdText = "") {
           description:
             "Library created for easy email sending based on PHPMailer.",
           class: {
+            "v4.3.0": v4_3_0_LM(),
             "v4.2.0": v4_2_0_LM(),
             "v4.0.0": v4_0_0_LM(),
           },
