@@ -2,7 +2,6 @@ import { Button, Col, Container, Row } from "react-bootstrap";
 import { LinkContainer } from "react-router-bootstrap";
 
 import { DiPhp } from "react-icons/di";
-import { FiArrowRight } from "react-icons/fi";
 import { RiTestTubeFill } from "react-icons/ri";
 import codeDashboard from "../assets/img/code-snap-3.png";
 import { FaReact, FaVuejs, FaGithub, FaYoutube } from "react-icons/fa";

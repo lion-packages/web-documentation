@@ -1704,8 +1704,8 @@ export default function v14_7_0_FRM(mdText) {
         </>
       ),
     },
-    example: {
-      name: "Example",
+    examples: {
+      name: "Examples",
       code: (
         <div>
           <h2>DEVELOPMENT EXAMPLES</h2>
