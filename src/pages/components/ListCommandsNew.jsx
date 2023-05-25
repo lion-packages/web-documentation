@@ -53,7 +53,7 @@ function ListCommandsNew() {
                     scroolPage();
                   }}
                 >
-                  <td style={{ width: "250px" }}>{child.name}</td>
+                  <td>{child.name}</td>
                   <td>{child.desc}</td>
                 </tr>
 
@@ -68,36 +68,29 @@ function ListCommandsNew() {
                       <tbody>
                         {child.args.map((arg, indexArgs) => (
                           <tr key={indexArgs}>
-                            <td className="ps-4" style={{ width: "125px" }}>
-                              <i
-                                className={
-                                  "bi bi-arrow-right-short me-2 " +
-                                  (!arg.arg ? "text-success" : "text-info")
-                                }
-                              ></i>
-
+                            <td className="ps-4">
                               <label
                                 className={
                                   !arg.arg ? "text-success" : "text-info"
                                 }
                               >
+                                <i
+                                  className={
+                                    "bi bi-arrow-right-short me-2 " +
+                                    (!arg.arg ? "text-success" : "text-info")
+                                  }
+                                ></i>
                                 {arg.name}
                               </label>
                             </td>
 
-                            <td
-                              style={{ width: "300px" }}
-                              className="text-center"
-                            >
-                              {arg.desc}
-                            </td>
+                            <td className="text-center">{arg.desc}</td>
 
                             <td
                               className={
                                 "text-center " +
                                 (!arg.arg ? "text-success" : "text-info")
                               }
-                              style={{ width: "80px" }}
                             >
                               {arg.optional === false ? "REQUIRED" : "OPTIONAL"}
                             </td>
