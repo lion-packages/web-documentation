@@ -68,7 +68,7 @@ function ListCommandsNew() {
                       <tbody>
                         {child.args.map((arg, indexArgs) => (
                           <tr key={indexArgs}>
-                            <td className="ps-4">
+                            <td className="ps-2">
                               <label
                                 className={
                                   !arg.arg ? "text-success" : "text-info"
