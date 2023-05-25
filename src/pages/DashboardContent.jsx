@@ -42,7 +42,7 @@ function DashboardContent() {
                 xs={12}
                 sm={5}
                 md={5}
-                lg={4}
+                lg={5}
                 xl={4}
                 className="mx-auto mt-2 mb-5"
               >

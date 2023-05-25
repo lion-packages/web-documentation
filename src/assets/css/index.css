@@ -34,7 +34,7 @@
 }
 
 .form-control-dark:focus {
-  color: #FFFFFF;
+  color: #ffffff;
   background-color: #272b2e;
   border-color: #383d40;
   outline: 0;
@@ -50,7 +50,7 @@
 }
 
 .bg-dark-blue {
-  background-color: #272B2E;
+  background-color: #272b2e;
 }
 
 .bg-black-blue {
@@ -76,7 +76,7 @@
 
 .text-degradient {
   font-family: "Montserrat", sans-serif;
-  font-size: 68px;
+  font-size: 45px;
 
   --bg-size: 400%;
   --color-one: #ffce9d;
@@ -184,11 +184,11 @@
 
 @media (min-width: 0px) and (max-width: 575px) {
   .text-degradient {
-    font-size: 35px;
+    font-size: 25px;
   }
 
   .description {
-    font-size: 17px;
+    font-size: 16px;
     margin: 18px 0 30px;
     line-height: 1.2;
     justify-content: center;
@@ -197,7 +197,7 @@
 
 @media (min-width: 576px) and (max-width: 767px) {
   .text-degradient {
-    font-size: 40px;
+    font-size: 30px;
   }
 
   .description {
@@ -210,7 +210,7 @@
 
 @media (min-width: 768px) and (max-width: 991px) {
   .text-degradient {
-    font-size: 45px;
+    font-size: 35px;
   }
 
   .description {
@@ -223,7 +223,7 @@
 
 @media (min-width: 992px) and (max-width: 1199px) {
   .text-degradient {
-    font-size: 50px;
+    font-size: 40px;
   }
 
   .description {
@@ -236,11 +236,24 @@
 
 @media (min-width: 1200px) and (max-width: 1399px) {
   .text-degradient {
-    font-size: 55px;
+    font-size: 45px;
   }
 
   .description {
     font-size: 29px;
+    margin: 18px 0 30px;
+    line-height: 1.5;
+    justify-content: center;
+  }
+}
+
+@media (min-width: 1400px) {
+  .text-degradient {
+    font-size: 46px;
+  }
+
+  .description {
+    font-size: 32px;
     margin: 18px 0 30px;
     line-height: 1.5;
     justify-content: center;
