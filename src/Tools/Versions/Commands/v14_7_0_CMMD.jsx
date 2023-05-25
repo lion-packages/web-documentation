@@ -4,12 +4,12 @@ export default function v14_7_0_CMMD() {
       group: "AVAILABLE COMMANDS",
       childs: [
         {
-          name: "info",
+          name: "php lion info",
           desc: "Command to display basic project information and libraries",
           args: [],
         },
         {
-          name: "serve",
+          name: "php lion serve",
           desc: "Created command to start server locally",
           args: [
             {
@@ -27,7 +27,7 @@ export default function v14_7_0_CMMD() {
           ],
         },
         {
-          name: "test",
+          name: "php lion test",
           desc: "Command to create run unit tests",
           args: [],
         },
@@ -37,12 +37,12 @@ export default function v14_7_0_CMMD() {
       group: "DB",
       childs: [
         {
-          name: "db:all-capsules",
+          name: "php lion db:all-capsules",
           desc: "Command required for the creation of all new Capsules available from the database",
           args: [],
         },
         {
-          name: "db:capsule",
+          name: "php lion db:capsule",
           desc: "Command required for the creation of new Capsules",
           args: [
             {
@@ -66,7 +66,7 @@ export default function v14_7_0_CMMD() {
           ],
         },
         {
-          name: "db:factory",
+          name: "php lion db:factory",
           desc: "Command required for the creation of new factories",
           args: [
             {
@@ -78,7 +78,7 @@ export default function v14_7_0_CMMD() {
           ],
         },
         {
-          name: "db:seed",
+          name: "php lion db:seed",
           desc: "Command required for creating new seeds",
           args: [
             {
@@ -96,7 +96,7 @@ export default function v14_7_0_CMMD() {
           ],
         },
         {
-          name: "db:show",
+          name: "php lion db:show",
           desc: "Command required to display available database connections",
           args: [],
         },
@@ -106,12 +106,12 @@ export default function v14_7_0_CMMD() {
       group: "KEY",
       childs: [
         {
-          name: "key:aes",
+          name: "php lion key:aes",
           desc: "Command to create KEY and IV keys for AES",
           args: [],
         },
         {
-          name: "key:rsa",
+          name: "php lion key:rsa",
           desc: "Command to create public and private keys with RSA",
           args: [
             {
@@ -128,7 +128,7 @@ export default function v14_7_0_CMMD() {
       group: "NEW",
       childs: [
         {
-          name: "new:capsule",
+          name: "php lion new:capsule",
           desc: "Command required for creating new custom capsules",
           args: [
             {
@@ -140,7 +140,7 @@ export default function v14_7_0_CMMD() {
           ],
         },
         {
-          name: "new:command",
+          name: "php lion new:command",
           desc: "Command required for the creation of new Commands",
           args: [
             {
@@ -152,7 +152,7 @@ export default function v14_7_0_CMMD() {
           ],
         },
         {
-          name: "new:controller",
+          name: "php lion new:controller",
           desc: "Command required for the creation of new Controllers",
           args: [
             {
@@ -170,7 +170,7 @@ export default function v14_7_0_CMMD() {
           ],
         },
         {
-          name: "new:enum",
+          name: "php lion new:enum",
           desc: "Command required for creating new enum",
           args: [
             {
@@ -182,7 +182,7 @@ export default function v14_7_0_CMMD() {
           ],
         },
         {
-          name: "new:middleware",
+          name: "php lion new:middleware",
           desc: "Command required for the creation of new Middleware",
           args: [
             {
@@ -194,7 +194,7 @@ export default function v14_7_0_CMMD() {
           ],
         },
         {
-          name: "new:model",
+          name: "php lion new:model",
           desc: "Command required for the creation of new Models",
           args: [
             {
@@ -206,7 +206,7 @@ export default function v14_7_0_CMMD() {
           ],
         },
         {
-          name: "new:rule",
+          name: "php lion new:rule",
           desc: "Command required for rule creation",
           args: [
             {
@@ -218,7 +218,7 @@ export default function v14_7_0_CMMD() {
           ],
         },
         {
-          name: "new:test",
+          name: "php lion new:test",
           desc: "Command to create run unit tests",
           args: [
             {
@@ -230,7 +230,7 @@ export default function v14_7_0_CMMD() {
           ],
         },
         {
-          name: "new:trait",
+          name: "php lion new:trait",
           desc: "Command required for trait creation",
           args: [
             {
@@ -247,12 +247,12 @@ export default function v14_7_0_CMMD() {
       group: "ROUTE",
       childs: [
         {
-          name: "route:list",
+          name: "php lion route:list",
           desc: "Command to view a list of available web routes",
           args: [],
         },
         {
-          name: "route:postman",
+          name: "php lion route:postman",
           desc: "Command to export a collection of requests to postman",
           args: [],
         },
@@ -262,7 +262,7 @@ export default function v14_7_0_CMMD() {
       group: "SH",
       childs: [
         {
-          name: "sh:new",
+          name: "php lion sh:new",
           desc: "Command to create files with extension sh",
           args: [
             {
@@ -279,7 +279,7 @@ export default function v14_7_0_CMMD() {
       group: "SOCKET",
       childs: [
         {
-          name: "socket:new",
+          name: "php lion socket:new",
           desc: "Command required for creating new WebSockets",
           args: [
             {
@@ -291,7 +291,7 @@ export default function v14_7_0_CMMD() {
           ],
         },
         {
-          name: "socket:serve",
+          name: "php lion socket:serve",
           desc: "Command required to run WebSockets",
           args: [
             {
@@ -314,7 +314,7 @@ export default function v14_7_0_CMMD() {
       group: "TOKEN",
       childs: [
         {
-          name: "token:jwt",
+          name: "php lion token:jwt",
           desc: "Created command to generate JWT token",
           args: [
             {
