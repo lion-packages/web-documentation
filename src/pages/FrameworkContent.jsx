@@ -44,7 +44,7 @@ function FrameworkContent() {
                 <LinkContainer
                   to={`/framework/index/${selectedVersion}/commands`}
                 >
-                  <Button variant="outline-warning">
+                  <Button variant="outline-light">
                     <FiArrowRight size={"1.4em"} />
                   </Button>
                 </LinkContainer>
