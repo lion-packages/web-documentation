@@ -237,25 +237,19 @@ export default function v14_7_0_FRM(mdText) {
           </div>
 
           <div className="mb-3">
-            <h5 className="text-warning">2. Add the command to the kernel</h5>
+            <h5 className="text-warning">2. Add the command</h5>
 
             <p>
-              The command must be added to the command list which is in the{" "}
-              <strong>Kernel</strong> class located in{" "}
-              <Badge bg="secondary">app/Console/Kernel.php</Badge>.
+              The command should be added to the command list found in
+              <Badge bg="secondary">{"config/commands.php"}</Badge>.
             </p>
 
             <CodeBlock
               language={"php"}
               content={
                 "<?php\n\n" +
-                "namespace App\\Console;\n\n" +
-                "use Symfony\\Component\\Console\\Application;\n\n" +
-                "class Kernel {\n\n" +
-                "\tprivate array $commands = [\n" +
-                "\t\tApp\\Console\\MyCustomCommand::class,\n" +
-                "\t\tApp\\Console\\Framework\\ServerCommand::class,\n" +
-                "\t\tApp\\Console\\Framework\\RunTestCommand::class,\n" +
+                "return [\n" +
+                "\t'app' => [\n\t\t// \\App\\Console\\Commands\\MyCommandCommand::class;\n\t];\n" +
                 "..."
               }
             />
@@ -691,7 +685,9 @@ export default function v14_7_0_FRM(mdText) {
                   "class EmailRule {\n\n" +
                   "\tuse ShowErrors;\n\n" +
                   '\tpublic static string $field = "users_email";\n' +
-                  '\tpublic static string $desc = "this field applies a property of type email";\n\n' +
+                  '\tpublic static string $desc = "this field applies a property of type email";\n' +
+                  '\tpublic static string $value = "";\n' +
+                  "\tpublic static string $disabled = false;\n\n" +
                   "\tpublic function passes(): void {\n" +
                   "\t\tself::validate(function(\\Valitron\\Validator $validator) {\n" +
                   "\t\t\t$validator\n\t\t\t\t->rule('required', self::$field)\n\t\t\t\t->message('custom message...');\n" +
@@ -1701,6 +1697,69 @@ export default function v14_7_0_FRM(mdText) {
               </div>
             </Col>
           </Row>
+        </>
+      ),
+    },
+    rsa: {
+      name: "RSA",
+      code: (
+        <>
+          <h2 className="pb-2">RSA</h2>
+          <hr />
+
+          <p>
+            Create public and private keys, perform encryption and decryption
+            with them{" "}
+            <Link
+              to={"/libraries/lion/security/index"}
+              className="text-decoration-none"
+            >
+              Lion-Security RSA lease
+            </Link>
+            , you can generate the keys from the terminal once the parameters
+            are set from the environment variables.
+          </p>
+
+          <Alert variant="warning">
+            <strong>Note: </strong> all generated keys are stored inside{" "}
+            <Badge bg="warning">{"storage/"}</Badge>.
+          </Alert>
+
+          <CodeBlock language={"bash"} content={"php lion key:rsa"} />
+
+          <p>
+            You can select a different folder than the selected one from the
+            environment variables with the{" "}
+            <Badge bg="secondary">{"--path"}</Badge> option.
+          </p>
+
+          <CodeBlock
+            language={"bash"}
+            content={"php lion key:rsa --path keys-user-1/"}
+          />
+        </>
+      ),
+    },
+    aes: {
+      name: "AES",
+      code: (
+        <>
+          <h2 className="pb-2">AES</h2>
+          <hr />
+
+          <p>
+            Generate (KEY - IV) to encrypt and decrypt with AES,{" "}
+            <Link
+              to={"/libraries/lion/security/index"}
+              className="text-decoration-none"
+            >
+              lease Lion-Security AES
+            </Link>
+            , you can generate the keys from the terminal once the parameters
+            are set from the environment variables.
+          </p>
+
+          <CodeBlock language={"bash"} content={"php lion key:aes"} />
         </>
       ),
     },
