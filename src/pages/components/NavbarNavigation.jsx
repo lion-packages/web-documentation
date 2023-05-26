@@ -7,6 +7,8 @@ import { LinkContainer } from "react-router-bootstrap";
 import NavigationLinks from "../../Tools/NavigationLinks";
 
 import logo from "./../../assets/img/logo-web.png";
+import { AiOutlineMail } from "react-icons/ai";
+import { FaGithub, FaYoutube } from "react-icons/fa";
 
 function NavbarNavigation() {
   return (
@@ -19,7 +21,7 @@ function NavbarNavigation() {
       <Container>
         <LinkContainer to="/">
           <Navbar.Brand>
-            <img src={logo} width={220} height={65} />
+            <img src={logo} width={180} height={50} />
           </Navbar.Brand>
         </LinkContainer>
 
@@ -30,7 +32,9 @@ function NavbarNavigation() {
             {NavigationLinks.map((link, index) =>
               link.type === "link" ? (
                 <LinkContainer to={link.url} key={index}>
-                  <Nav.Link>{link.display_name}</Nav.Link>
+                  <Nav.Link className="fw-bold d-flex align-items-center justify-content-center">
+                    {link.display_name}
+                  </Nav.Link>
                 </LinkContainer>
               ) : (
                 <NavDropdown
@@ -47,6 +51,34 @@ function NavbarNavigation() {
                 </NavDropdown>
               )
             )}
+
+            <Nav.Link href="#" className="d-none d-xl-block">
+              <div className="vr h-100"></div>
+            </Nav.Link>
+
+            {[
+              {
+                href: "https://www.youtube.com/channel/UCJBOJVKok44BZt0kKlBeZyA",
+                icon: <FaYoutube size={"1.5em"} />,
+              },
+              {
+                href: "https://github.com/Sleon4",
+                icon: <FaGithub size={"1.5em"} />,
+              },
+              {
+                href: "mailto:sergioleon4004@hotmail.com",
+                icon: <AiOutlineMail size={"1.5em"} />,
+              },
+            ].map((link, index) => (
+              <Nav.Link
+                key={index}
+                href={link.href}
+                target="_blank"
+                className="d-none d-xl-block"
+              >
+                {link.icon}
+              </Nav.Link>
+            ))}
           </Nav>
         </Navbar.Collapse>
       </Container>

@@ -4,15 +4,13 @@ import { LinkContainer } from "react-router-bootstrap";
 import { DiMysql } from "react-icons/di";
 import { RiTestTubeFill } from "react-icons/ri";
 import {
-  FaGithub,
-  FaYoutube,
   FaPhp,
   FaDocker,
   FaTasks,
   FaTerminal,
   FaLightbulb,
 } from "react-icons/fa";
-import { MdEmail, MdHttp } from "react-icons/md";
+import { MdHttp } from "react-icons/md";
 import { TbArrowsLeftRight } from "react-icons/tb";
 
 function DashboardContent() {
@@ -44,41 +42,18 @@ function DashboardContent() {
 
   return (
     <>
-      <Container fluid className="my-5">
+      <Container className="my-5">
         <Row>
-          <Col
-            xs={12}
-            sm={12}
-            md={12}
-            lg={12}
-            xl={12}
-            className="text-center mx-auto"
-          >
-            <h1 className="mt-5 mb-0 text-degradient">LION-FRAMEWORK</h1>
-          </Col>
+          <Col xs={12} sm={12} md={6}>
+            <div className="py-5 my-3">
+              <h1 className="text-degradient">LION-FRAMEWORK</h1>
 
-          <Col
-            xs={12}
-            sm={12}
-            md={10}
-            lg={8}
-            xl={8}
-            className="text-center mx-auto mb-3"
-          >
-            <Row>
               <p className="text-secondary description mb-4">
                 Lion-Framework can also serve as an API backend for a JavaScript
                 single page application or a mobile application.
               </p>
 
-              <Col
-                xs={12}
-                sm={5}
-                md={5}
-                lg={5}
-                xl={4}
-                className="mx-auto mt-2 mb-5"
-              >
+              <div className="mb-3">
                 <LinkContainer to="/framework/content">
                   <Button
                     variant="dark-gradient"
@@ -94,13 +69,13 @@ function DashboardContent() {
                     {"Packages"}
                   </Button>
                 </LinkContainer>
-              </Col>
-            </Row>
+              </div>
+            </div>
           </Col>
         </Row>
       </Container>
 
-      <div
+      {/* <div
         className="bg-dark-logo py-4 border-top border-bottom border-secondary"
         style={{ "--bs-border-opacity": ".5" }}
       >
@@ -128,7 +103,7 @@ function DashboardContent() {
             <FaYoutube className="text-danger" size={"3em"} />
           </a>
         </Container>
-      </div>
+      </div> */}
 
       <Container className="mt-5 mb-4 px-5 text-white">
         <Row>
