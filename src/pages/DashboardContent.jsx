@@ -130,8 +130,8 @@ function DashboardContent() {
         </Container>
       </div>
 
-      <Container className="my-5 px-5 text-white">
-        <Row className="equal-height-row">
+      <Container className="mt-5 mb-4 px-5 text-white">
+        <Row>
           {[
             {
               title: "Instant Server Start",
