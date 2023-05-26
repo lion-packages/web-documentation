@@ -17,8 +17,19 @@ export default function v6_11_0_LS() {
           code: (
             <div className="mb-3">
               <p>
-                To encrypt data with aes, an array must be specified, you must
-                send an array and parse it.
+                First create an <Badge bg="secondary">{".env"}</Badge> file in
+                the root of your project to create environment variables, the
+                functions of the AES class interact with 3 environment variables
+                which environment variable (AES_METHOD) is static and must be
+                declared before.
+              </p>
+
+              <CodeBlock language="bash" content={'AES_METHOD="aes-256-cbc"'} />
+
+              <p>
+                AES interacts with environment variable ($_ENV) to encrypt data
+                with AES, you must send an array and parse it, declare your
+                environment variables and send the names by parameters.
               </p>
 
               <CodeBlock
@@ -35,8 +46,10 @@ export default function v6_11_0_LS() {
                 encrypt the data; in addition, specify the .env properties that
                 the function will use for encryption.
               </p>
+
               <Alert variant={"warning"}>
-                Note: that the <Badge bg="warning">AES_KEY</Badge> and{" "}
+                <strong>Note:</strong> that the{" "}
+                <Badge bg="warning">AES_KEY</Badge> and{" "}
                 <Badge bg="warning">AES_IV</Badge> properties are extracted
                 directly from the <Badge bg="warning">.env</Badge> file.
               </Alert>
@@ -64,8 +77,10 @@ export default function v6_11_0_LS() {
                 decrypt the data; in addition, specify the .env properties that
                 the function will use for encryption.
               </p>
+
               <Alert variant={"warning"}>
-                Note: that the <Badge bg="warning">AES_KEY</Badge> and{" "}
+                <strong>Note:</strong> that the{" "}
+                <Badge bg="warning">AES_KEY</Badge> and{" "}
                 <Badge bg="warning">AES_IV</Badge> properties are extracted
                 directly from the <Badge bg="warning">.env</Badge> file.
               </Alert>
@@ -97,16 +112,32 @@ export default function v6_11_0_LS() {
           link: "create-keys",
           code: (
             <>
+              <p>
+                First create an <Badge bg="secondary">{".env"}</Badge> file in
+                the root of your project to create environment variables, the
+                RSA class functions interact with 4 environment variables.
+              </p>
+
+              <CodeBlock
+                language={"bash"}
+                content={
+                  'RSA_PATH="" # openssl.cnf file location\n' +
+                  'RSA_URL_PATH="" # Location of the folder where the keys should be generated\n' +
+                  'RSA_PRIVATE_KEY_BITS="" # Amount of BITS to generate the keys (2048)\n' +
+                  'RSA_DEFAULT_MD="" # Type of algorithm with which the keys must be generated (sha256)'
+                }
+              />
+
               <div className="mb-3">
                 <h5 className="pb-2 text-warning">Example #1.</h5>
 
                 <p>
                   In this first option we can create the keys automatically in
                   an internally established route{" "}
-                  <Badge bg={"secondary"}>'storage/secret-key/'</Badge>, which
+                  <Badge bg={"secondary"}>{"storage/secret-key/"}</Badge>, which
                   when looking at your directories will have new folders and
                   files in the respective{" "}
-                  <Badge bg={"secondary"}>'storage/secret-key/'</Badge> path.
+                  <Badge bg={"secondary"}>{"storage/secret-key/"}</Badge> path.
                 </p>
 
                 <CodeBlock
@@ -219,24 +250,33 @@ export default function v6_11_0_LS() {
           code: (
             <div className="mb-3">
               <p>
-                The function works with 2 parameters, The first parameter is an
+                First create an <Badge bg="secondary">{".env"}</Badge> file in
+                the root of your project to create environment variables, the
+                function works with 2 parameters, The first parameter is an
                 array with the data to be added to the JWT, The second parameter
                 is optional and it is the lifetime of the JWT.
               </p>
+
+              <CodeBlock
+                language={"bash"}
+                content={
+                  'JWT_DEFAULT_MD="" # Algorithm for encryption\n' +
+                  'JWT_EXP="" # Expiry time'
+                }
+              />
 
               <CodeBlock
                 language="php"
                 content={
                   "<?php\n\n" +
                   "use LionSecurity\\JWT;\n\n" +
-                  "$data = ['idUsers' => 1, 'idRoles' => 3];\n" +
-                  "$jwtEnc = JWT::encode($data);\n" +
+                  "$jwtEnc = JWT::encode(['idUsers' => 1, 'idRoles' => 3]);\n" +
                   "var_dump($jwtEnc);"
                 }
               />
 
               <Alert variant="warning">
-                Note: that the default time that the JWT has is{" "}
+                <strong>Note:</strong> that the default time that the JWT has is{" "}
                 <strong>24 hours</strong>.
               </Alert>
 
@@ -251,8 +291,7 @@ export default function v6_11_0_LS() {
                 content={
                   "<?php\n\n" +
                   "use LionSecurity\\JWT;\n\n" +
-                  "$data = ['idUsers' => 1, 'idRoles' => 3];\n" +
-                  "$jwtEnc = JWT::encode($data, 300);\n" +
+                  "$jwtEnc = JWT::encode(['idUsers' => 1, 'idRoles' => 3], 300);\n" +
                   "var_dump($jwtEnc);"
                 }
               />
