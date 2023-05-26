@@ -4,6 +4,20 @@
   font-size: 14px;
 }
 
+.equal-height-row {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.equal-height-row [class^="col-"] {
+  display: flex;
+  flex-direction: column;
+}
+
+.equal-height-row [class^="col-"] > .card {
+  flex-grow: 1;
+}
+
 .parentDiv {
   position: relative;
 }
@@ -76,7 +90,6 @@
 
 .text-degradient {
   font-family: "Montserrat", sans-serif;
-  font-size: 45px;
 
   --bg-size: 400%;
   --color-one: #ffce9d;
