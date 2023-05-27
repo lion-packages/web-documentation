@@ -30,7 +30,7 @@ function DashboardContent() {
 
   const AddColumns = ({ container }) => {
     return (
-      <Col xs={12} sm={12} md={6} lg={6} xl={4} className="mb-4">
+      <Col xs={12} sm={12} md={6} lg={6} xl={4} className="mx-auto mb-4">
         <div className="p-4 rounded-4 bg-dark h-100">
           <AddIcons icons={container.icons} />
           <h5>{container.title}</h5>
