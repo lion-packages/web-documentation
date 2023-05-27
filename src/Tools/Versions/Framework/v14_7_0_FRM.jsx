@@ -1,4 +1,4 @@
-import { Alert, Badge, Col, Row } from "react-bootstrap";
+import { Alert, Badge, Col, ListGroup, Row } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import ReactMarkdown from "react-markdown";
 import remarkGfm from "remark-gfm";
@@ -659,22 +659,38 @@ export default function v14_7_0_FRM(mdText) {
                 >
                   Lion-Security
                 </Link>
-                .
-              </p>
-
-              <p>
-                Models are stored in{" "}
+                , rules are stored in{" "}
                 <Badge bg="secondary">{"app/Rules/"}</Badge>.
               </p>
             </div>
 
             <div className="mb-3">
-              <h5>EXAMPLE #1</h5>
-
               <CodeBlock
                 language={"bash"}
                 content={"php lion new:rule EmailRule"}
               />
+
+              <ListGroup className="mb-3" numbered>
+                <ListGroup.Item variant="dark">
+                  <strong>field: </strong>property name, this property is
+                  displayed in exported postman collections.
+                </ListGroup.Item>
+
+                <ListGroup.Item variant="dark">
+                  <strong>desc: </strong> property description, this property is
+                  displayed in exported postman collections.
+                </ListGroup.Item>
+
+                <ListGroup.Item variant="dark">
+                  <strong>value: </strong> property value, this property is
+                  displayed in exported postman collections.
+                </ListGroup.Item>
+
+                <ListGroup.Item variant="dark">
+                  <strong>disabled: </strong> disable property, this property is
+                  displayed on exported postman collections.
+                </ListGroup.Item>
+              </ListGroup>
 
               <CodeBlock
                 langueage={"php"}
@@ -909,48 +925,52 @@ export default function v14_7_0_FRM(mdText) {
               comment this line once your web app is deployed.
             </Alert>
           </div>
+        </>
+      ),
+    },
+    postman: {
+      name: "Postman",
+      code: (
+        <>
+          <h2 className="pb-2">ROUTE POSTMAN</h2>
+          <hr />
 
-          <div>
-            <h2 className="pb-2">ROUTE POSTMAN</h2>
-            <hr />
+          <p>
+            To export the available paths, first start the local server, then
+            view the exported paths in{" "}
+            <Badge bg="warning">storage/postman/</Badge>
+          </p>
 
-            <p>
-              To export the available paths, first start the local server, then
-              view the exported paths in{" "}
-              <Badge bg="warning">storage/postman/</Badge>
-            </p>
+          <CodeBlock language={"bash"} content={"php lion route:postman"} />
 
-            <CodeBlock language={"bash"} content={"php lion route:postman"} />
+          <Alert variant={"warning"}>
+            <strong>Note:</strong> The routes are loaded with the server route{" "}
+            <Badge bg="warning">SERVER_URL</Badge> set in{" "}
+            <Badge bg="warning">.env</Badge>, modify this route to avoid errors
+            in the execution of the process, in the file{" "}
+            <Badge bg="warning">public/index.php</Badge> there is a public route
+            which allows get the available routes from the terminal, comment
+            this line once your web app is deployed.
+          </Alert>
 
-            <Alert variant={"warning"}>
-              <strong>Note:</strong> The routes are loaded with the server route{" "}
-              <Badge bg="warning">SERVER_URL</Badge> set in{" "}
-              <Badge bg="warning">.env</Badge>, modify this route to avoid
-              errors in the execution of the process, in the file{" "}
-              <Badge bg="warning">public/index.php</Badge> there is a public
-              route which allows get the available routes from the terminal,
-              comment this line once your web app is deployed.
-            </Alert>
+          <p>
+            If you want the POST, PUT and DELETE routes to be exported with
+            dynamically required parameters these must have been declared as
+            rules first, for each rule that is added it is recognized as a
+            required parameter to send through an http request and it is
+            exported in the postman collections.
+          </p>
 
-            <p>
-              If you want the POST, PUT and DELETE routes to be exported with
-              dynamically required parameters these must have been declared as
-              rules first, for each rule that is added it is recognized as a
-              required parameter to send through an http request and it is
-              exported in the postman collections.
-            </p>
-
-            <CodeBlock
-              language={"php"}
-              content={
-                "<?php\n\n" +
-                "// routes/rules.php\n\n" +
-                "return [\n" +
-                "\t\\App\\Rules\\MyRuleExample::class\n" +
-                "];"
-              }
-            />
-          </div>
+          <CodeBlock
+            language={"php"}
+            content={
+              "<?php\n\n" +
+              "// routes/rules.php\n\n" +
+              "return [\n" +
+              "\t\\App\\Rules\\MyRuleExample::class\n" +
+              "];"
+            }
+          />
         </>
       ),
     },
