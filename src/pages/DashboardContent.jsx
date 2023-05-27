@@ -42,10 +42,10 @@ function DashboardContent() {
 
   return (
     <>
-      <Container className="my-5">
+      <Container className="mt-5">
         <Row>
-          <Col xs={12} sm={12} md={6}>
-            <div className="py-5 my-3">
+          <Col xs={12} sm={12} md={8} lg={7} className="d-none d-xl-block">
+            <div className="pt-5">
               <h1 className="text-degradient">LION-FRAMEWORK</h1>
 
               <p className="text-secondary description mb-4">
@@ -53,59 +53,54 @@ function DashboardContent() {
                 single page application or a mobile application.
               </p>
 
-              <div className="mb-3">
-                <LinkContainer to="/framework/content">
-                  <Button
-                    variant="dark-gradient"
-                    size="lg"
-                    className="fw-bold me-3"
-                  >
-                    {"Install"}
-                  </Button>
-                </LinkContainer>
+              <LinkContainer to="/framework/content">
+                <Button
+                  variant="dark-gradient"
+                  size="lg"
+                  className="fw-bold me-3"
+                >
+                  {"Install"}
+                </Button>
+              </LinkContainer>
 
-                <LinkContainer to="/libraries/content">
-                  <Button variant="dark-gradient" size="lg" className="fw-bold">
-                    {"Packages"}
-                  </Button>
-                </LinkContainer>
-              </div>
+              <LinkContainer to="/libraries/content">
+                <Button variant="dark-gradient" size="lg" className="fw-bold">
+                  {"Packages"}
+                </Button>
+              </LinkContainer>
+            </div>
+          </Col>
+
+          <Col xs={12} sm={12} md={8} className="d-xl-none mx-md-auto">
+            <div className="pt-5 text-center">
+              <h1 className="text-degradient">LION-FRAMEWORK</h1>
+
+              <p className="text-secondary description mb-4">
+                Lion-Framework can also serve as an API backend for a JavaScript
+                single page application or a mobile application.
+              </p>
+
+              <LinkContainer to="/framework/content">
+                <Button
+                  variant="dark-gradient"
+                  size="lg"
+                  className="fw-bold me-3"
+                >
+                  {"Install"}
+                </Button>
+              </LinkContainer>
+
+              <LinkContainer to="/libraries/content">
+                <Button variant="dark-gradient" size="lg" className="fw-bold">
+                  {"Packages"}
+                </Button>
+              </LinkContainer>
             </div>
           </Col>
         </Row>
       </Container>
 
-      {/* <div
-        className="bg-dark-logo py-4 border-top border-bottom border-secondary"
-        style={{ "--bs-border-opacity": ".5" }}
-      >
-        <Container className="text-center">
-          <a
-            href="mailto:sergioleon4004@hotmail.com"
-            target={"_blank"}
-            className="me-4"
-          >
-            <MdEmail className="text-warning" size={"3em"} />
-          </a>
-
-          <a
-            href="https://github.com/Sleon4"
-            target={"_blank"}
-            className="me-4"
-          >
-            <FaGithub className="text-white" size={"3em"} />
-          </a>
-
-          <a
-            href="https://www.youtube.com/channel/UCJBOJVKok44BZt0kKlBeZyA"
-            target={"_blank"}
-          >
-            <FaYoutube className="text-danger" size={"3em"} />
-          </a>
-        </Container>
-      </div> */}
-
-      <Container className="mt-5 mb-4 px-5 text-white">
+      <Container className="mt-4 mb-4 px-5 text-white">
         <Row>
           {[
             {
