@@ -42,7 +42,7 @@ function DashboardContent() {
 
   return (
     <>
-      <Container className="mt-5">
+      <Container className="mt-3">
         <Row>
           <Col xs={12} sm={12} md={8} lg={7} className="d-none d-xl-block">
             <div className="pt-5">
