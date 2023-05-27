@@ -79,6 +79,7 @@ import v8_2_0_LRT from "./Versions/Libraries/LionRoute/v8_2_0_LRT";
 import v8_3_0_LRT from "./Versions/Libraries/LionRoute/v8_3_0_LRT";
 import v8_3_1_LRT from "./Versions/Libraries/LionRoute/v8_3_1_LRT";
 import v8_3_2_LRT from "./Versions/Libraries/LionRoute/v8_3_2_LRT";
+import v8_4_0_LRT from "./Versions/Libraries/LionRoute/v8_4_0_LRT";
 
 import v6_10_0_LS from "./Versions/Libraries/LionSecurity/v6_10_0_LS";
 import v6_10_1_LS from "./Versions/Libraries/LionSecurity/v6_10_1_LS";
@@ -301,6 +302,7 @@ export default function Content(mdText = "") {
           description:
             "This library has a quick use of the router with regular expressions based on mrjgreen's phroute.",
           class: {
+            "v8.4.0": v8_4_0_LRT(),
             "v8.3.2": v8_3_2_LRT(),
             "v8.3.1": v8_3_1_LRT(),
             "v8.3.0": v8_3_0_LRT(),
