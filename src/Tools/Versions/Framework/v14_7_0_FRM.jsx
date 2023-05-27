@@ -932,13 +932,13 @@ export default function v14_7_0_FRM(mdText) {
       name: "Postman",
       code: (
         <>
-          <h2 className="pb-2">ROUTE POSTMAN</h2>
+          <h2 className="pb-2">POSTMAN</h2>
           <hr />
 
           <p>
             To export the available paths, first start the local server, then
             view the exported paths in{" "}
-            <Badge bg="warning">storage/postman/</Badge>
+            <Badge bg="warning">storage/postman/</Badge>.
           </p>
 
           <CodeBlock language={"bash"} content={"php lion route:postman"} />
@@ -967,7 +967,7 @@ export default function v14_7_0_FRM(mdText) {
               "<?php\n\n" +
               "// routes/rules.php\n\n" +
               "return [\n" +
-              "\t\\App\\Rules\\MyRuleExample::class\n" +
+              "\t'/api/auth/login' => [\\App\\Rules\\MyRuleExample::class]\n" +
               "];"
             }
           />
