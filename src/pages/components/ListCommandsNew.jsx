@@ -76,7 +76,7 @@ function ListCommandsNew() {
                               >
                                 <i
                                   className={
-                                    "bi bi-arrow-right-short me-2 " +
+                                    "bi bi-arrow-right-short me-0 " +
                                     (!arg.arg ? "text-success" : "text-info")
                                   }
                                 ></i>
