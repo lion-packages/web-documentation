@@ -2,22 +2,6 @@
 import Library from "../pages/Library";
 
 //commands
-import v12_16_1_CMMD from "./Versions/Commands/v12_16_1_CMMD";
-import v12_17_0_CMMD from "./Versions/Commands/v12_17_0_CMMD";
-import v13_0_0_CMMD from "./Versions/Commands/v13_0_0_CMMD";
-import v13_1_0_CMMD from "./Versions/Commands/v13_1_0_CMMD";
-import v13_2_0_CMMD from "./Versions/Commands/v13_2_0_CMMD";
-import v13_3_0_CMMD from "./Versions/Commands/v13_3_0_CMMD";
-import v13_4_0_CMMD from "./Versions/Commands/v13_4_0_CMMD";
-import v13_5_0_CMMD from "./Versions/Commands/v13_5_0_CMMD";
-import v13_6_0_CMMD from "./Versions/Commands/v13_6_0_CMMD";
-import v13_7_0_CMMD from "./Versions/Commands/v13_7_0_CMMD";
-import v13_8_0_CMMD from "./Versions/Commands/v13_8_0_CMMD";
-import v13_8_1_CMMD from "./Versions/Commands/v13_8_1_CMMD";
-import v13_9_0_CMMD from "./Versions/Commands/v13_9_0_CMMD";
-import v13_10_0_CMMD from "./Versions/Commands/v13_10_0_CMMD";
-import v13_11_0_CMMD from "./Versions/Commands/v13_11_0_CMMD";
-import v13_12_0_CMMD from "./Versions/Commands/v13_12_0_CMMD";
 import v13_13_0_CMMD from "./Versions/Commands/v13_13_0_CMMD";
 import v13_14_0_CMMD from "./Versions/Commands/v13_14_0_CMMD";
 import v14_0_0_CMMD from "./Versions/Commands/v14_0_0_CMMD";
@@ -34,22 +18,6 @@ import v14_8_0_CMMD from "./Versions/Commands/v14_8_0_CMMD";
 import v14_9_0_CMMD from "./Versions/Commands/v14_9_0_CMMD";
 
 // framework
-import v12_16_1_FRM from "./Versions/Framework/v12_16_1_FRM";
-import v12_17_0_FRM from "./Versions/Framework/v12_17_0_FRM";
-import v13_0_0_FRM from "./Versions/Framework/v13_0_0_FRM";
-import v13_1_0_FRM from "./Versions/Framework/v13_1_0_FRM";
-import v13_2_0_FRM from "./Versions/Framework/v13_2_0_FRM";
-import v13_3_0_FRM from "./Versions/Framework/v13_3_0_FRM";
-import v13_4_0_FRM from "./Versions/Framework/v13_4_0_FRM";
-import v13_5_0_FRM from "./Versions/Framework/v13_5_0_FRM";
-import v13_6_0_FRM from "./Versions/Framework/v13_6_0_FRM";
-import v13_7_0_FRM from "./Versions/Framework/v13_7_0_FRM";
-import v13_8_0_FRM from "./Versions/Framework/v13_8_0_FRM";
-import v13_8_1_FRM from "./Versions/Framework/v13_8_1_FRM";
-import v13_9_0_FRM from "./Versions/Framework/v13_9_0_FRM";
-import v13_10_0_FRM from "./Versions/Framework/v13_10_0_FRM";
-import v13_11_0_FRM from "./Versions/Framework/v13_11_0_FRM";
-import v13_12_0_FRM from "./Versions/Framework/v13_12_0_FRM";
 import v13_13_0_FRM from "./Versions/Framework/v13_13_0_FRM";
 import v13_14_0_FRM from "./Versions/Framework/v13_14_0_FRM";
 import v14_0_0_FRM from "./Versions/Framework/v14_0_0_FRM";
@@ -132,22 +100,22 @@ export default function Content(mdText = "") {
       "v14.0.0": v14_0_0_CMMD(),
       "v13.14.0": v13_14_0_CMMD(),
       "v13.13.0": v13_13_0_CMMD(),
-      "v13.12.0": v13_12_0_CMMD(),
-      "v13.11.0": v13_11_0_CMMD(),
-      "v13.10.0": v13_10_0_CMMD(),
-      "v13.9.0": v13_9_0_CMMD(),
-      "v13.8.1": v13_8_1_CMMD(),
-      "v13.8.0": v13_8_0_CMMD(),
-      "v13.7.0": v13_7_0_CMMD(),
-      "v13.6.0": v13_6_0_CMMD(),
-      "v13.5.0": v13_5_0_CMMD(),
-      "v13.4.0": v13_4_0_CMMD(),
-      "v13.3.0": v13_3_0_CMMD(),
-      "v13.2.0": v13_2_0_CMMD(),
-      "v13.1.0": v13_1_0_CMMD(),
-      "v13.0.0": v13_0_0_CMMD(),
-      "v12.17.0": v12_17_0_CMMD(),
-      "v12.16.1": v12_16_1_CMMD(),
+      // "v13.12.0": v13_12_0_CMMD(),
+      // "v13.11.0": v13_11_0_CMMD(),
+      // "v13.10.0": v13_10_0_CMMD(),
+      // "v13.9.0": v13_9_0_CMMD(),
+      // "v13.8.1": v13_8_1_CMMD(),
+      // "v13.8.0": v13_8_0_CMMD(),
+      // "v13.7.0": v13_7_0_CMMD(),
+      // "v13.6.0": v13_6_0_CMMD(),
+      // "v13.5.0": v13_5_0_CMMD(),
+      // "v13.4.0": v13_4_0_CMMD(),
+      // "v13.3.0": v13_3_0_CMMD(),
+      // "v13.2.0": v13_2_0_CMMD(),
+      // "v13.1.0": v13_1_0_CMMD(),
+      // "v13.0.0": v13_0_0_CMMD(),
+      // "v12.17.0": v12_17_0_CMMD(),
+      // "v12.16.1": v12_16_1_CMMD(),
     },
     framework: {
       "v14.9.0": v14_9_0_FRM(mdText),
@@ -164,22 +132,22 @@ export default function Content(mdText = "") {
       "v14.0.0": v14_0_0_FRM(mdText),
       "v13.14.0": v13_14_0_FRM(mdText),
       "v13.13.0": v13_13_0_FRM(mdText),
-      "v13.12.0": v13_12_0_FRM(mdText),
-      "v13.11.0": v13_11_0_FRM(mdText),
-      "v13.10.0": v13_10_0_FRM(mdText),
-      "v13.9.0": v13_9_0_FRM(mdText),
-      "v13.8.1": v13_8_1_FRM(mdText),
-      "v13.8.0": v13_8_0_FRM(mdText),
-      "v13.7.0": v13_7_0_FRM(mdText),
-      "v13.6.0": v13_6_0_FRM(mdText),
-      "v13.5.0": v13_5_0_FRM(mdText),
-      "v13.4.0": v13_4_0_FRM(mdText),
-      "v13.3.0": v13_3_0_FRM(mdText),
-      "v13.2.0": v13_2_0_FRM(),
-      "v13.1.0": v13_1_0_FRM(),
-      "v13.0.0": v13_0_0_FRM(),
-      "v12.17.0": v12_17_0_FRM(),
-      "v12.16.1": v12_16_1_FRM(),
+      // "v13.12.0": v13_12_0_FRM(mdText),
+      // "v13.11.0": v13_11_0_FRM(mdText),
+      // "v13.10.0": v13_10_0_FRM(mdText),
+      // "v13.9.0": v13_9_0_FRM(mdText),
+      // "v13.8.1": v13_8_1_FRM(mdText),
+      // "v13.8.0": v13_8_0_FRM(mdText),
+      // "v13.7.0": v13_7_0_FRM(mdText),
+      // "v13.6.0": v13_6_0_FRM(mdText),
+      // "v13.5.0": v13_5_0_FRM(mdText),
+      // "v13.4.0": v13_4_0_FRM(mdText),
+      // "v13.3.0": v13_3_0_FRM(mdText),
+      // "v13.2.0": v13_2_0_FRM(),
+      // "v13.1.0": v13_1_0_FRM(),
+      // "v13.0.0": v13_0_0_FRM(),
+      // "v12.17.0": v12_17_0_FRM(),
+      // "v12.16.1": v12_16_1_FRM(),
     },
     libraries: {
       lion: {
