@@ -60,6 +60,7 @@ import v6_10_0_LS from "./Versions/Libraries/LionSecurity/v6_10_0_LS";
 import v6_10_1_LS from "./Versions/Libraries/LionSecurity/v6_10_1_LS";
 import v6_9_0_LS from "./Versions/Libraries/LionSecurity/v6_9_0_LS";
 import v6_11_0_LS from "./Versions/Libraries/LionSecurity/v6_11_0_LS";
+import v6_12_0_LS from "./Versions/Libraries/LionSecurity/v6_12_0_LS";
 
 import v1_4_0_LSP from "./Versions/Libraries/LionSpreadsheet/v1_4_0_LSP";
 import v1_5_0_LSP from "./Versions/Libraries/LionSpreadsheet/v1_5_0_LSP";
@@ -305,6 +306,7 @@ export default function Content(mdText = "") {
           description:
             "Library created with the function of implementing AES, RSA and JWT Security functions for PHP.",
           class: {
+            "v6.12.0": v6_12_0_LS(),
             "v6.11.0": v6_11_0_LS(),
             "v6.10.1": v6_10_1_LS(),
             "v6.10.0": v6_10_0_LS(),
