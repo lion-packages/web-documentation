@@ -261,7 +261,7 @@ export default function Content(mdText = "") {
             />
           ),
           description:
-            "Library created for easy email sending based on PHPMailer.",
+            "Library created to facilitate sending email based on different services",
           class: {
             "v5.0.0": v5_0_0_LM(),
             "v4.3.0": v4_3_0_LM(),
