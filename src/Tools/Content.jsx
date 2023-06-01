@@ -2,10 +2,6 @@
 import Library from "../pages/Library";
 
 //commands
-import v13_13_0_CMMD from "./Versions/Commands/v13_13_0_CMMD";
-import v13_14_0_CMMD from "./Versions/Commands/v13_14_0_CMMD";
-import v14_0_0_CMMD from "./Versions/Commands/v14_0_0_CMMD";
-import v14_1_0_CMMD from "./Versions/Commands/v14_1_0_CMMD";
 import v14_2_0_CMMD from "./Versions/Commands/v14_2_0_CMMD";
 import v14_3_0_CMMD from "./Versions/Commands/v14_3_0_CMMD";
 import v14_3_1_CMMD from "./Versions/Commands/v14_3_1_CMMD";
@@ -18,10 +14,6 @@ import v14_8_0_CMMD from "./Versions/Commands/v14_8_0_CMMD";
 import v14_9_0_CMMD from "./Versions/Commands/v14_9_0_CMMD";
 
 // framework
-import v13_13_0_FRM from "./Versions/Framework/v13_13_0_FRM";
-import v13_14_0_FRM from "./Versions/Framework/v13_14_0_FRM";
-import v14_0_0_FRM from "./Versions/Framework/v14_0_0_FRM";
-import v14_1_0_FRM from "./Versions/Framework/v14_1_0_FRM";
 import v14_2_0_FRM from "./Versions/Framework/v14_2_0_FRM";
 import v14_3_0_FRM from "./Versions/Framework/v14_3_0_FRM";
 import v14_3_1_FRM from "./Versions/Framework/v14_3_1_FRM";
@@ -66,13 +58,6 @@ import v1_4_0_LSP from "./Versions/Libraries/LionSpreadsheet/v1_4_0_LSP";
 import v1_5_0_LSP from "./Versions/Libraries/LionSpreadsheet/v1_5_0_LSP";
 import v1_6_0_LSP from "./Versions/Libraries/LionSpreadsheet/v1_6_0_LSP";
 
-import v6_4_0_LSQ from "./Versions/Libraries/LionSQL/v6_4_0_LSQ";
-import v6_5_1_LSQ from "./Versions/Libraries/LionSQL/v6_5_1_LSQ";
-import v6_6_0_LSQ from "./Versions/Libraries/LionSQL/v6_6_0_LSQ";
-import v7_0_0_LSQ from "./Versions/Libraries/LionSQL/v7_0_0_LSQ";
-import v7_1_0_LSQ from "./Versions/Libraries/LionSQL/v7_1_0_LSQ";
-import v7_2_0_LSQ from "./Versions/Libraries/LionSQL/v7_2_0_LSQ";
-import v7_2_1_LSQ from "./Versions/Libraries/LionSQL/v7_2_1_LSQ";
 import v7_3_0_LSQ from "./Versions/Libraries/LionSQL/v7_3_0_LSQ";
 import v7_4_0_LSQ from "./Versions/Libraries/LionSQL/v7_4_0_LSQ";
 import v7_5_0_LSQ from "./Versions/Libraries/LionSQL/v7_5_0_LSQ";
@@ -82,6 +67,7 @@ import v8_0_0_LSQ from "./Versions/Libraries/LionSQL/v8_0_0_LSQ";
 import v8_0_1_LSQ from "./Versions/Libraries/LionSQL/v8_0_1_LSQ";
 import v8_0_2_LSQ from "./Versions/Libraries/LionSQL/v8_0_2_LSQ";
 import v8_0_3_LSQ from "./Versions/Libraries/LionSQL/v8_0_3_LSQ";
+import v8_1_0_LSQ from "./Versions/Libraries/LionSQL/v8_1_0_LSQ";
 
 import v5_3_0_LR from "./Versions/Libraries/LionRequest/v5_3_0_LR";
 
@@ -100,10 +86,10 @@ export default function Content(mdText = "") {
       "v14.3.1": v14_3_1_CMMD(),
       "v14.3.0": v14_3_0_CMMD(),
       "v14.2.0": v14_2_0_CMMD(),
-      "v14.1.0": v14_1_0_CMMD(),
-      "v14.0.0": v14_0_0_CMMD(),
-      "v13.14.0": v13_14_0_CMMD(),
-      "v13.13.0": v13_13_0_CMMD(),
+      // "v14.1.0": v14_1_0_CMMD(),
+      // "v14.0.0": v14_0_0_CMMD(),
+      // "v13.14.0": v13_14_0_CMMD(),
+      // "v13.13.0": v13_13_0_CMMD(),
       // "v13.12.0": v13_12_0_CMMD(),
       // "v13.11.0": v13_11_0_CMMD(),
       // "v13.10.0": v13_10_0_CMMD(),
@@ -132,10 +118,10 @@ export default function Content(mdText = "") {
       "v14.3.1": v14_3_1_FRM(mdText),
       "v14.3.0": v14_3_0_FRM(mdText),
       "v14.2.0": v14_2_0_FRM(mdText),
-      "v14.1.0": v14_1_0_FRM(mdText),
-      "v14.0.0": v14_0_0_FRM(mdText),
-      "v13.14.0": v13_14_0_FRM(mdText),
-      "v13.13.0": v13_13_0_FRM(mdText),
+      // "v14.1.0": v14_1_0_FRM(mdText),
+      // "v14.0.0": v14_0_0_FRM(mdText),
+      // "v13.14.0": v13_14_0_FRM(mdText),
+      // "v13.13.0": v13_13_0_FRM(mdText),
       // "v13.12.0": v13_12_0_FRM(mdText),
       // "v13.11.0": v13_11_0_FRM(mdText),
       // "v13.10.0": v13_10_0_FRM(mdText),
@@ -168,6 +154,7 @@ export default function Content(mdText = "") {
           description:
             "Package responsible for generating and executing MySQL processes.",
           class: {
+            "v8.1.0": v8_1_0_LSQ(),
             "v8.0.3": v8_0_3_LSQ(),
             "v8.0.2": v8_0_2_LSQ(),
             "v8.0.1": v8_0_1_LSQ(),
@@ -177,13 +164,13 @@ export default function Content(mdText = "") {
             "v7.5.0": v7_5_0_LSQ(),
             "v7.4.0": v7_4_0_LSQ(),
             "v7.3.0": v7_3_0_LSQ(),
-            "v7.2.1": v7_2_1_LSQ(),
-            "v7.2.0": v7_2_0_LSQ(),
-            "v7.1.0": v7_1_0_LSQ(),
-            "v7.0.0": v7_0_0_LSQ(),
-            "v6.6.0": v6_6_0_LSQ(),
-            "v6.5.1": v6_5_1_LSQ(),
-            "v6.4.0": v6_4_0_LSQ(),
+            // "v7.2.1": v7_2_1_LSQ(),
+            // "v7.2.0": v7_2_0_LSQ(),
+            // "v7.1.0": v7_1_0_LSQ(),
+            // "v7.0.0": v7_0_0_LSQ(),
+            // "v6.6.0": v6_6_0_LSQ(),
+            // "v6.5.1": v6_5_1_LSQ(),
+            // "v6.4.0": v6_4_0_LSQ(),
           },
         },
         authentication: {
