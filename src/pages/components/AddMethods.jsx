@@ -59,7 +59,7 @@ function AddMethods() {
         <div className="d-xl-none">
           <Button
             variant="outline-warning"
-            className="rounded-pill mb-3"
+
             onClick={() => setShow(true)}
           >
             <i className="bi bi-list"></i>
@@ -95,7 +95,7 @@ function AddMethods() {
           >
             <Button
               variant="outline-warning"
-              className="rounded-pill mb-3 ms-3"
+              className="ms-3"
             >
               <FiArrowLeft size={18} />
             </Button>
@@ -106,11 +106,13 @@ function AddMethods() {
           <LinkContainer
             to={"/libraries/" + route[1] + "/" + route[2] + "/index"}
           >
-            <Button variant="outline-warning" className="rounded-pill mb-3">
+            <Button variant="outline-warning">
               <FiArrowLeft size={22} />
             </Button>
           </LinkContainer>
         </div>
+
+        <hr />
 
         <Row>
           <Col xs={12} sm={12} md={12} lg={12} xl={4} xxl={3}>
