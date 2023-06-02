@@ -45,7 +45,7 @@ function DashboardContent() {
       <Container className="mt-3">
         <Row>
           <Col xs={12} sm={12} md={8} lg={7} className="d-none d-xl-block">
-            <div className="pt-5">
+            <div className="pt-5 mb-3">
               <h1 className="text-degradient">LION-FRAMEWORK</h1>
 
               <p className="text-secondary description mb-4">
@@ -72,7 +72,7 @@ function DashboardContent() {
           </Col>
 
           <Col xs={12} sm={12} md={8} className="d-xl-none mx-md-auto">
-            <div className="pt-5 text-center">
+            <div className="pt-5 text-center mb-3">
               <h1 className="text-degradient">LION-FRAMEWORK</h1>
 
               <p className="text-secondary description mb-4">
