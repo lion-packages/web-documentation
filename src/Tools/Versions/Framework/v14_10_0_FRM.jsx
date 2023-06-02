@@ -1,4 +1,4 @@
-import { Alert, Badge, Col, ListGroup, Row } from "react-bootstrap";
+import { Alert, Badge, Col, ListGroup, Row, Table } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import ReactMarkdown from "react-markdown";
 import remarkGfm from "remark-gfm";
@@ -16,7 +16,7 @@ import permissions_sh from "./../../../assets/img/docker/permissions-sh.png";
 import etc_data from "./../../../assets/img/docker/etc-data.png";
 import crontab_edit from "./../../../assets/img/docker/crontab-edit.png";
 
-export default function v14_10_0_FRM(mdText) {
+export default function v14_10_1_FRM(mdText) {
   return {
     changelog: {
       name: "Changelog",
@@ -427,6 +427,89 @@ export default function v14_10_0_FRM(mdText) {
                 "\t\t\t'password' => ''\n" +
                 "\t\t],\n" +
                 "\t]\n" +
+                "];"
+              }
+            />
+          </div>
+        </>
+      ),
+    },
+    email: {
+      name: "Email",
+      code: (
+        <>
+          <div className="mb-3">
+            <h2 className="pb-2">MAIL ACCOUNTS</h2>
+
+            <hr />
+
+            <p>
+              To send mail with different accounts you need to add the accounts
+              and add the service, go to{" "}
+              <Badge bg="secondary">config/email.php</Badge>, for more
+              information, read{" "}
+              <Link
+                to={"/libraries/lion/mailer/index"}
+                className="text-decoration-none"
+              >
+                Lion-Mailer
+              </Link>
+              .
+            </p>
+
+            <CodeBlock
+              language={"php"}
+              content={
+                "<?php\n\n" +
+                "use LionMailer\\MailService;\n\n" +
+                "return [\n" +
+                "\t'default' => 'support',\n" +
+                "\t'accounts' => [\n" +
+                "\t\t'support' => [\n" +
+                "\t\t\t'services' => ['symfony', 'phpmailer'],\n" +
+                "\t\t\t'debug' => 0,\n" +
+                "\t\t\t'host' => 'smtp.office365.com',\n" +
+                "\t\t\t'encryption' => 'tls',\n" +
+                "\t\t\t'port' => 587,\n" +
+                "\t\t\t'name' => 'Sleon - Support',\n" +
+                "\t\t\t'account' => 'sleon-support@outlook.com',\n" +
+                "\t\t\t'password' => 'my_password'\n" +
+                "\t\t]\n" +
+                "\t],\n" +
+                "];"
+              }
+            />
+          </div>
+        </>
+      ),
+    },
+    cors: {
+      name: "CORS",
+      code: (
+        <>
+          <div className="mb-3">
+            <h2 className="pb-2">CORS</h2>
+
+            <hr />
+
+            <p>
+              Enable and add the necessary headers for your web application, go
+              to <Badge bg="secondary">config/cors.php</Badge> and set your
+              headers.
+            </p>
+
+            <CodeBlock
+              language={"php"}
+              content={
+                "<?php\n\n" +
+                "use LionMailer\\MailService;\n\n" +
+                "return [\n" +
+                "\t'Access-Control-Allow-Origin' => '*',\n" +
+                "\t'Content-Type' => 'application/json; charset=UTF-8',\n" +
+                "\t'Access-Control-Max-Age' => 0,\n" +
+                "\t'Allow' => 'GET, POST, PUT, DELETE, PATCH, OPTIONS',\n" +
+                "\t'Access-Control-Allow-Methods' => 'GET, POST, PUT, DELETE, PATCH, OPTIONS',\n" +
+                "\t'Access-Control-Allow-Headers' => 'Origin, X-Requested-With, Content-Type, Accept, Authorization'\n" +
                 "];"
               }
             />
@@ -1539,214 +1622,296 @@ export default function v14_10_0_FRM(mdText) {
           <h2>HELPERS</h2>
           <hr />
 
-          <Row>
-            <Col xs={12} sm={12}>
-              <div className="mb-3">
-                <h5 className="pb-2 text-warning">{"jwt"}</h5>
+          <div className="mb-3">
+            <h4 className="text-warning">CONSTANTS</h4>
 
-                <p>
-                  Function to check if a jwt is valid, returns an object
-                  (object) without the JWT exists and is valid
-                </p>
+            <Table size="sm" variant="dark" responsive hover>
+              <thead>
+                <tr>
+                  <th>NAME</th>
+                  <th>DESCRIPTION</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>client</td>
+                  <td>
+                    the client constant is an object of the GuzzleHttp\Client
+                    class, it allows you to make HTTP requests
+                  </td>
+                </tr>
 
-                <CodeBlock
-                  langueage={"php"}
-                  content={"<?php\n\n" + "$jwt = jwt();"}
-                />
-              </div>
-            </Col>
+                <tr>
+                  <td>request</td>
+                  <td>
+                    the request constant is an object of the Lion
+                    Request\Request class, it allows you to get the data
+                    captured through an HTTP request
+                  </td>
+                </tr>
 
-            <Col xs={12} sm={12}>
-              <div className="mb-3">
-                <h5 className="pb-2 text-warning">{"isError"}</h5>
+                <tr>
+                  <td>response</td>
+                  <td>
+                    the response constant is an object of the Lion
+                    Request\Response class, it allows you to generate responses
+                    of different types that the class provides
+                  </td>
+                </tr>
 
-                <p>Function to check if a response object comes with errors.</p>
+                <tr>
+                  <td>json</td>
+                  <td>
+                    the json constant is an object of the LionRequest\Json
+                    class, it allows you to encode and decode JSON data
+                  </td>
+                </tr>
 
-                <CodeBlock
-                  langueage={"php"}
-                  content={"<?php\n\n" + "isError(success())); // return false"}
-                />
-              </div>
-            </Col>
+                <tr>
+                  <td>env</td>
+                  <td>
+                    the env constant is an object that contains the properties
+                    of the environment variable file
+                  </td>
+                </tr>
 
-            <Col xs={12} sm={12}>
-              <div className="mb-3">
-                <h5 className="pb-2 text-warning">{"isSuccess"}</h5>
+                <tr>
+                  <td>str</td>
+                  <td>
+                    the constant str is an object of class LionHelpers\Str, it
+                    allows you to access this helper and transform strings
+                  </td>
+                </tr>
 
-                <p>Function to check if a response object is successful.</p>
+                <tr>
+                  <td>arr</td>
+                  <td>
+                    the constant arr is an object of class LionHelpers\Arr, it
+                    allows you to access this helper and transform arrays
+                  </td>
+                </tr>
+              </tbody>
+            </Table>
+          </div>
 
-                <CodeBlock
-                  langueage={"php"}
-                  content={"<?php\n\n" + "isSuccess(error())); // return false"}
-                />
-              </div>
-            </Col>
+          <div className="mb-3">
+            <h4 className="text-warning">FUNCTIONS</h4>
 
-            <Col xs={12} sm={12}>
-              <div className="mb-3">
-                <h5 className="pb-2 text-warning">fetch</h5>
+            <Row>
+              <Col xs={12} sm={12}>
+                <div className="mb-3">
+                  <h5 className="pb-2 text-warning">{"jwt"}</h5>
 
-                <p>
-                  The fetch helper allows you to make http requests, internally
-                  with guzzle http.
-                </p>
+                  <p>
+                    Function to check if a jwt is valid, returns an object
+                    (object) without the JWT exists and is valid
+                  </p>
 
-                <CodeBlock
-                  langueage={"php"}
-                  content={"<?php\n\n" + "fetch('GET', 'my-url.com');"}
-                />
-              </div>
-            </Col>
+                  <CodeBlock
+                    langueage={"php"}
+                    content={"<?php\n\n" + "$jwt = jwt();"}
+                  />
+                </div>
+              </Col>
 
-            <Col xs={12} sm={12}>
-              <div className="mb-3">
-                <h5 className="pb-2 text-warning">fetchXML</h5>
+              <Col xs={12} sm={12}>
+                <div className="mb-3">
+                  <h5 className="pb-2 text-warning">{"isError"}</h5>
 
-                <p>
-                  The get helper allows you to make http requests to get xml in
-                  String format, internally with http guzzle.
-                </p>
+                  <p>
+                    Function to check if a response object comes with errors.
+                  </p>
 
-                <CodeBlock
-                  langueage={"php"}
-                  content={"<?php\n\n" + "fetchXML('GET', 'my-url.com');"}
-                />
-              </div>
-            </Col>
+                  <CodeBlock
+                    langueage={"php"}
+                    content={
+                      "<?php\n\n" + "isError(success())); // return false"
+                    }
+                  />
+                </div>
+              </Col>
 
-            <Col xs={12} sm={12}>
-              <div className="mb-3">
-                <h5 className="pb-2 text-warning">storage_path</h5>
+              <Col xs={12} sm={12}>
+                <div className="mb-3">
+                  <h5 className="pb-2 text-warning">{"isSuccess"}</h5>
 
-                <p>
-                  The storage_path helper allows access to directories and files
-                  in the storage directory.
-                </p>
+                  <p>Function to check if a response object is successful.</p>
 
-                <CodeBlock
-                  langueage={"php"}
-                  content={
-                    "<?php\n\n" +
-                    "use LionFiles\\Store;\n\n" +
-                    "Store::view(storage_path('files/'));"
-                  }
-                />
-              </div>
-            </Col>
+                  <CodeBlock
+                    langueage={"php"}
+                    content={
+                      "<?php\n\n" + "isSuccess(error())); // return false"
+                    }
+                  />
+                </div>
+              </Col>
 
-            <Col xs={12} sm={12}>
-              <div className="mb-3">
-                <h5 className="pb-2 text-warning">finish</h5>
+              <Col xs={12} sm={12}>
+                <div className="mb-3">
+                  <h5 className="pb-2 text-warning">fetch</h5>
 
-                <p>The finish helper ends the execution of all processes.</p>
+                  <p>
+                    The fetch helper allows you to make http requests,
+                    internally with guzzle http.
+                  </p>
 
-                <CodeBlock
-                  langueage={"php"}
-                  content={"<?php\n\n" + "finish(success('my response'));"}
-                />
-              </div>
-            </Col>
+                  <CodeBlock
+                    langueage={"php"}
+                    content={"<?php\n\n" + "fetch('GET', 'my-url.com');"}
+                  />
+                </div>
+              </Col>
 
-            <Col xs={12} sm={12}>
-              <div className="mb-3">
-                <h5 className="pb-2 text-warning">success</h5>
+              <Col xs={12} sm={12}>
+                <div className="mb-3">
+                  <h5 className="pb-2 text-warning">fetchXML</h5>
 
-                <p>Function to display a success response.</p>
+                  <p>
+                    The get helper allows you to make http requests to get xml
+                    in String format, internally with http guzzle.
+                  </p>
 
-                <CodeBlock
-                  langueage={"php"}
-                  content={"<?php\n\n" + "return success('message');"}
-                />
-              </div>
-            </Col>
+                  <CodeBlock
+                    langueage={"php"}
+                    content={"<?php\n\n" + "fetchXML('GET', 'my-url.com');"}
+                  />
+                </div>
+              </Col>
 
-            <Col xs={12} sm={12}>
-              <div className="mb-3">
-                <h5 className="pb-2 text-warning">error</h5>
+              <Col xs={12} sm={12}>
+                <div className="mb-3">
+                  <h5 className="pb-2 text-warning">storage_path</h5>
 
-                <p>Function to display a error response.</p>
+                  <p>
+                    The storage_path helper allows access to directories and
+                    files in the storage directory.
+                  </p>
 
-                <CodeBlock
-                  langueage={"php"}
-                  content={"<?php\n\n" + "return error('message');"}
-                />
-              </div>
-            </Col>
+                  <CodeBlock
+                    langueage={"php"}
+                    content={
+                      "<?php\n\n" +
+                      "use LionFiles\\Store;\n\n" +
+                      "Store::view(storage_path('files/'));"
+                    }
+                  />
+                </div>
+              </Col>
 
-            <Col xs={12} sm={12}>
-              <div className="mb-3">
-                <h5 className="pb-2 text-warning">warning</h5>
+              <Col xs={12} sm={12}>
+                <div className="mb-3">
+                  <h5 className="pb-2 text-warning">finish</h5>
 
-                <p>Function to display a warning response.</p>
+                  <p>The finish helper ends the execution of all processes.</p>
 
-                <CodeBlock
-                  langueage={"php"}
-                  content={"<?php\n\n" + "return warning('message');"}
-                />
-              </div>
-            </Col>
+                  <CodeBlock
+                    langueage={"php"}
+                    content={"<?php\n\n" + "finish(success('my response'));"}
+                  />
+                </div>
+              </Col>
 
-            <Col xs={12} sm={12}>
-              <div className="mb-3">
-                <h5 className="pb-2 text-warning">info</h5>
+              <Col xs={12} sm={12}>
+                <div className="mb-3">
+                  <h5 className="pb-2 text-warning">success</h5>
 
-                <p>Function to display a info response.</p>
+                  <p>Function to display a success response.</p>
 
-                <CodeBlock
-                  langueage={"php"}
-                  content={"<?php\n\n" + "return info('message');"}
-                />
-              </div>
-            </Col>
+                  <CodeBlock
+                    langueage={"php"}
+                    content={"<?php\n\n" + "return success('message');"}
+                  />
+                </div>
+              </Col>
 
-            <Col xs={12} sm={12}>
-              <div className="mb-3">
-                <h5 className="pb-2 text-warning">vd</h5>
+              <Col xs={12} sm={12}>
+                <div className="mb-3">
+                  <h5 className="pb-2 text-warning">error</h5>
 
-                <p>The helper vd executes the function var_dump.</p>
+                  <p>Function to display a error response.</p>
 
-                <CodeBlock
-                  langueage={"php"}
-                  content={"<?php\n\n" + "vd(success('finished'));"}
-                />
-              </div>
-            </Col>
+                  <CodeBlock
+                    langueage={"php"}
+                    content={"<?php\n\n" + "return error('message');"}
+                  />
+                </div>
+              </Col>
 
-            <Col xs={12} sm={12}>
-              <div className="mb-3">
-                <h5 className="pb-2 text-warning">json</h5>
+              <Col xs={12} sm={12}>
+                <div className="mb-3">
+                  <h5 className="pb-2 text-warning">warning</h5>
 
-                <p>The json helper converts any value to json.</p>
+                  <p>Function to display a warning response.</p>
 
-                <CodeBlock
-                  langueage={"php"}
-                  content={"<?php\n\n" + "json(['name' => 'Sleon']);"}
-                />
-              </div>
-            </Col>
+                  <CodeBlock
+                    langueage={"php"}
+                    content={"<?php\n\n" + "return warning('message');"}
+                  />
+                </div>
+              </Col>
 
-            <Col xs={12} sm={12}>
-              <div className="mb-3">
-                <h5 className="pb-2 text-warning">logger</h5>
+              <Col xs={12} sm={12}>
+                <div className="mb-3">
+                  <h5 className="pb-2 text-warning">info</h5>
 
-                <p>
-                  The logger helper generates a log file stored in{" "}
-                  <strong>storage/logs/</strong> and implements Monolog
-                  internally.
-                </p>
+                  <p>Function to display a info response.</p>
 
-                <CodeBlock
-                  langueage={"php"}
-                  content={
-                    "<?php\n\n" +
-                    "logger('lorem ipsum dolor sit amet...'); // default info\n" +
-                    "logger('lorem ipsum dolor sit amet...', 'error');\n" +
-                    "logger('lorem ipsum dolor sit amet...', 'warning', ['name' => 'Sleon']);"
-                  }
-                />
-              </div>
-            </Col>
-          </Row>
+                  <CodeBlock
+                    langueage={"php"}
+                    content={"<?php\n\n" + "return info('message');"}
+                  />
+                </div>
+              </Col>
+
+              <Col xs={12} sm={12}>
+                <div className="mb-3">
+                  <h5 className="pb-2 text-warning">vd</h5>
+
+                  <p>The helper vd executes the function var_dump.</p>
+
+                  <CodeBlock
+                    langueage={"php"}
+                    content={"<?php\n\n" + "vd(success('finished'));"}
+                  />
+                </div>
+              </Col>
+
+              <Col xs={12} sm={12}>
+                <div className="mb-3">
+                  <h5 className="pb-2 text-warning">json</h5>
+
+                  <p>The json helper converts any value to json.</p>
+
+                  <CodeBlock
+                    langueage={"php"}
+                    content={"<?php\n\n" + "json(['name' => 'Sleon']);"}
+                  />
+                </div>
+              </Col>
+
+              <Col xs={12} sm={12}>
+                <div className="mb-3">
+                  <h5 className="pb-2 text-warning">logger</h5>
+
+                  <p>
+                    The logger helper generates a log file stored in{" "}
+                    <strong>storage/logs/</strong> and implements Monolog
+                    internally.
+                  </p>
+
+                  <CodeBlock
+                    langueage={"php"}
+                    content={
+                      "<?php\n\n" +
+                      "logger('lorem ipsum dolor sit amet...'); // default info\n" +
+                      "logger('lorem ipsum dolor sit amet...', 'error');\n" +
+                      "logger('lorem ipsum dolor sit amet...', 'warning', ['name' => 'Sleon']);"
+                    }
+                  />
+                </div>
+              </Col>
+            </Row>
+          </div>
         </>
       ),
     },
@@ -1810,6 +1975,31 @@ export default function v14_10_0_FRM(mdText) {
           </p>
 
           <CodeBlock language={"bash"} content={"php lion key:aes"} />
+        </>
+      ),
+    },
+    test: {
+      name: "Test",
+      code: (
+        <>
+          <h2 className="pb-2">TESTING</h2>
+          <hr />
+
+          <p>
+            Add to your web application with <strong>Lion-Framework</strong>{" "}
+            test to perform the necessary quality checks of your system, the
+            tests are implemented with the help of{" "}
+            <a
+              href="https://phpunit.de/"
+              target="_blank"
+              className="text-decoration-none"
+            >
+              PHPUnit
+            </a>
+            .
+          </p>
+
+          <CodeBlock language={"bash"} content={"php lion new:test TestName"} />
         </>
       ),
     },
