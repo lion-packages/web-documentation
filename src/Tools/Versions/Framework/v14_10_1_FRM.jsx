@@ -461,7 +461,6 @@ export default function v14_10_1_FRM(mdText) {
               language={"php"}
               content={
                 "<?php\n\n" +
-                "use LionMailer\\MailService;\n\n" +
                 "return [\n" +
                 "\t'default' => 'support',\n" +
                 "\t'accounts' => [\n" +
@@ -502,7 +501,6 @@ export default function v14_10_1_FRM(mdText) {
               language={"php"}
               content={
                 "<?php\n\n" +
-                "use LionMailer\\MailService;\n\n" +
                 "return [\n" +
                 "\t'Access-Control-Allow-Origin' => '*',\n" +
                 "\t'Content-Type' => 'application/json; charset=UTF-8',\n" +
@@ -511,41 +509,6 @@ export default function v14_10_1_FRM(mdText) {
                 "\t'Access-Control-Allow-Methods' => 'GET, POST, PUT, DELETE, PATCH, OPTIONS',\n" +
                 "\t'Access-Control-Allow-Headers' => 'Origin, X-Requested-With, Content-Type, Accept, Authorization'\n" +
                 "];"
-              }
-            />
-          </div>
-        </>
-      ),
-    },
-    headers: {
-      name: "Headers",
-      code: (
-        <>
-          <div className="mb-3">
-            <h2 className="pb-2">ADD HEADERS</h2>
-            <hr />
-
-            <p>
-              Headers should be added per function in{" "}
-              <Badge bg="secondary">routes/header.php</Badge> more information
-              in{" "}
-              <Link
-                to={"/libraries/lion/request/index"}
-                className="text-decoration-none"
-              >
-                Lion-Request
-              </Link>
-              .
-            </p>
-
-            <CodeBlock
-              language={"php"}
-              content={
-                "<?php\n\n" +
-                "LionRequest\\Request::header(\n" +
-                "\t'Content-Type',\n" +
-                "\t'application/json; charset=UTF-8'\n" +
-                ");"
               }
             />
           </div>
@@ -1094,7 +1057,6 @@ export default function v14_10_1_FRM(mdText) {
               content={
                 "<?php\n\n" +
                 "namespace App\\Http\\Controllers;\n\n" +
-                "use App\\Enums\\Framework\\StatusEnum;\n\n" +
                 "class HomeController {\n\n" +
                 "\tpublic function __contruct() {\n\n" +
                 "\t}\n\n" +
@@ -1124,7 +1086,6 @@ export default function v14_10_1_FRM(mdText) {
               content={
                 "<?php\n\n" +
                 "namespace App\\Http\\Controllers;\n\n" +
-                "use App\\Enums\\Framework\\StatusEnum;\n" +
                 "use App\\Models\\HomeModel;\n\n" +
                 "class HomeController {\n\n" +
                 "\tprivate HomeModel $homeModel;\n\n" +
