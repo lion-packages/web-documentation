@@ -1,4 +1,12 @@
-import { Alert, Badge, Col, ListGroup, Row, Table } from "react-bootstrap";
+import {
+  Alert,
+  Badge,
+  Card,
+  Col,
+  ListGroup,
+  Row,
+  Table,
+} from "react-bootstrap";
 import { Link } from "react-router-dom";
 import ReactMarkdown from "react-markdown";
 import remarkGfm from "remark-gfm";
@@ -2047,35 +2055,76 @@ export default function v14_11_0_FRM(mdText) {
     examples: {
       name: "Examples",
       code: (
-        <div>
-          <h2>DEVELOPMENT EXAMPLES</h2>
-          <hr />
+        <>
+          <div>
+            <h2>DEVELOPMENT EXAMPLES</h2>
+            <hr />
 
-          <div className="mb-3">
-            <h5>#1 CHAT</h5>
+            <Row>
+              {[
+                {
+                  title: "CHAT",
+                  desc: "Development of a practical example of the use of Lion-Framework and ReactJS to carry out a real-time chat.",
+                  buttons: (
+                    <>
+                      <GithubButton
+                        url={"https://github.com/Sleon4/chat-php"}
+                        variantButton={"outline-light"}
+                        className="me-4"
+                      >
+                        <DiPhp className="ms-2" size={"2em"} />
+                      </GithubButton>
 
-            <p>
-              Development of a practical example of the use of Lion-Framework
-              and ReactJS to carry out a real-time chat.
-            </p>
+                      <GithubButton
+                        url={"https://github.com/Sleon4/chat-react"}
+                        variantButton={"outline-light"}
+                      >
+                        <FaReact className="ms-2" size={"2em"} />
+                        <SiVite className="ms-2" size={"2em"} />
+                      </GithubButton>
+                    </>
+                  ),
+                },
+                {
+                  title: "BASIC-CRUD",
+                  desc: "Basic CRUD implemented with Lion-Framework (v14.11.0) ReactJS (VITE v4.3.9) and MySQL (v8.0).",
+                  buttons: (
+                    <>
+                      <GithubButton
+                        url={"https://github.com/Sleon4/basic-crud-php"}
+                        variantButton={"outline-light"}
+                        className="me-4"
+                      >
+                        <DiPhp className="ms-2" size={"2em"} />
+                      </GithubButton>
 
-            <GithubButton
-              url={"https://github.com/Sleon4/chat-php"}
-              variantButton={"outline-light"}
-              className="me-4"
-            >
-              <DiPhp className="ms-2" size={"2em"} />
-            </GithubButton>
+                      <GithubButton
+                        url={"https://github.com/Sleon4/basic-crud-reactjs"}
+                        variantButton={"outline-light"}
+                      >
+                        <FaReact className="ms-2" size={"2em"} />
+                        <SiVite className="ms-2" size={"2em"} />
+                      </GithubButton>
+                    </>
+                  ),
+                },
+              ].map((card, index) => (
+                <Col key={index} sm={12} md={6} lg={6} className="mx-auto mb-3">
+                  <Card bg="dark-logo" className="border border-secondary">
+                    <Card.Header className="border-bottom border-secondary">
+                      {card.title}
+                    </Card.Header>
 
-            <GithubButton
-              url={"https://github.com/Sleon4/chat-react"}
-              variantButton={"outline-light"}
-            >
-              <FaReact className="ms-2" size={"2em"} />
-              <SiVite className="ms-2" size={"2em"} />
-            </GithubButton>
+                    <Card.Body>
+                      <Card.Text>{card.desc}</Card.Text>
+                      {card.buttons}
+                    </Card.Body>
+                  </Card>
+                </Col>
+              ))}
+            </Row>
           </div>
-        </div>
+        </>
       ),
     },
   };
