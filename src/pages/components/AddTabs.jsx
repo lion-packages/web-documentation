@@ -89,16 +89,16 @@ export default function AddTabs() {
           <div className="d-xl-none">
             <div className="mb-3">
               <Button
-                variant="outline-warning"
-                className="rounded-pill me-3"
+                variant="dark-gradient"
+                className="me-3"
                 onClick={() => setShow(true)}
               >
                 <i className="bi bi-list"></i>
               </Button>
 
               <LinkContainer to={`/framework/content`}>
-                <Button variant="outline-warning" className="rounded-pill">
-                  <FiArrowLeft />
+                <Button variant="dark-gradient">
+                  <FiArrowLeft size={"1.3em"} />
                 </Button>
               </LinkContainer>
             </div>

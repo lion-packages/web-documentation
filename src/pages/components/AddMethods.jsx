@@ -57,11 +57,7 @@ function AddMethods() {
     <Container fluid>
       <div className="my-3 text-white">
         <div className="d-xl-none">
-          <Button
-            variant="outline-warning"
-
-            onClick={() => setShow(true)}
-          >
+          <Button variant="dark-gradient" onClick={() => setShow(true)}>
             <i className="bi bi-list"></i>
           </Button>
 
@@ -93,10 +89,7 @@ function AddMethods() {
           <LinkContainer
             to={"/libraries/" + route[1] + "/" + route[2] + "/index"}
           >
-            <Button
-              variant="outline-warning"
-              className="ms-3"
-            >
+            <Button variant="dark-gradient" className="ms-3">
               <FiArrowLeft size={18} />
             </Button>
           </LinkContainer>
@@ -106,7 +99,7 @@ function AddMethods() {
           <LinkContainer
             to={"/libraries/" + route[1] + "/" + route[2] + "/index"}
           >
-            <Button variant="outline-warning">
+            <Button variant="dark-gradient">
               <FiArrowLeft size={22} />
             </Button>
           </LinkContainer>
@@ -147,7 +140,7 @@ function AddMethods() {
                         description={arrfunc.description}
                         uri={arrfunc.link.replace(/item_version/gm, version)}
                         textColor={{
-                          title: "text-warning",
+                          title: "title-card-link-2",
                           description: "text-white",
                         }}
                       />

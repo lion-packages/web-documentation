@@ -12,7 +12,7 @@ function CardClass({ methods, option }) {
               title={classname.title}
               description={classname.description}
               textColor={{
-                title: "text-warning",
+                title: "title-card-link-2",
                 description: "text-white",
               }}
             />

@@ -87,6 +87,132 @@
   background-color: #111b21;
 }
 
+.title-card-link-1 {
+  font-family: "Montserrat", sans-serif;
+  font-size: 14px;
+
+  --bg-size: 400%;
+  --color-one: #ffce9d;
+  --color-two: #ff8463;
+
+  background: linear-gradient(
+      90deg,
+      var(--color-one),
+      var(--color-two),
+      var(--color-one)
+    )
+    0 0 / var(--bg-size) 100%;
+  color: transparent;
+  -webkit-background-clip: text;
+  background-clip: text;
+  animation: move-bg 5s infinite linear;
+}
+
+.title-card-link-2 {
+  font-family: "Montserrat", sans-serif;
+  font-size: 16px;
+
+  --bg-size: 400%;
+  --color-one: #ffce9d;
+  --color-two: #ff8463;
+
+  background: linear-gradient(
+      90deg,
+      var(--color-one),
+      var(--color-two),
+      var(--color-one)
+    )
+    0 0 / var(--bg-size) 100%;
+  color: transparent;
+  -webkit-background-clip: text;
+  background-clip: text;
+  animation: move-bg 5s infinite linear;
+}
+
+.title-card-link-3 {
+  font-family: "Montserrat", sans-serif;
+  font-size: 18px;
+
+  --bg-size: 400%;
+  --color-one: #ffce9d;
+  --color-two: #ff8463;
+
+  background: linear-gradient(
+      90deg,
+      var(--color-one),
+      var(--color-two),
+      var(--color-one)
+    )
+    0 0 / var(--bg-size) 100%;
+  color: transparent;
+  -webkit-background-clip: text;
+  background-clip: text;
+  animation: move-bg 5s infinite linear;
+}
+
+.title-card-link-4 {
+  font-family: "Montserrat", sans-serif;
+  font-size: 20px;
+
+  --bg-size: 400%;
+  --color-one: #ffce9d;
+  --color-two: #ff8463;
+
+  background: linear-gradient(
+      90deg,
+      var(--color-one),
+      var(--color-two),
+      var(--color-one)
+    )
+    0 0 / var(--bg-size) 100%;
+  color: transparent;
+  -webkit-background-clip: text;
+  background-clip: text;
+  animation: move-bg 5s infinite linear;
+}
+
+.title-card-link-5 {
+  font-family: "Montserrat", sans-serif;
+  font-size: 22px;
+
+  --bg-size: 400%;
+  --color-one: #ffce9d;
+  --color-two: #ff8463;
+
+  background: linear-gradient(
+      90deg,
+      var(--color-one),
+      var(--color-two),
+      var(--color-one)
+    )
+    0 0 / var(--bg-size) 100%;
+  color: transparent;
+  -webkit-background-clip: text;
+  background-clip: text;
+  animation: move-bg 5s infinite linear;
+}
+
+.title-card-link-6 {
+  font-family: "Montserrat", sans-serif;
+  font-size: 24px;
+
+  --bg-size: 400%;
+  --color-one: #ffce9d;
+  --color-two: #ff8463;
+
+  background: linear-gradient(
+      90deg,
+      var(--color-one),
+      var(--color-two),
+      var(--color-one)
+    )
+    0 0 / var(--bg-size) 100%;
+  color: transparent;
+  -webkit-background-clip: text;
+  background-clip: text;
+  animation: move-bg 5s infinite linear;
+}
+
 .btn-dark-gradient {
   --bs-btn-color: #ff8463;
   --bs-btn-bg: #202020;
