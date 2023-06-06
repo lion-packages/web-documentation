@@ -741,8 +741,13 @@ export default function v14_11_0_FRM(mdText) {
               </li>
 
               <li>
-                <strong>VIEWS</strong>: procedures: the respective basic
-                procedures of the entity are generated.
+                <strong>VIEWS</strong>: generates the basic views to read
+                entities.
+              </li>
+
+              <li>
+                <strong>PROCEDURES</strong>: the respective basic procedures of
+                the entity are generated.
               </li>
             </ul>
           </div>
