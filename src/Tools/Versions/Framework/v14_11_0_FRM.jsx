@@ -726,8 +726,8 @@ export default function v14_11_0_FRM(mdText) {
 
             <ul>
               <li>
-                <strong>CAPSULE</strong>: capsule class: generates the capsule
-                class of the entity.
+                <strong>CAPSULE CLASS</strong>: generates the capsule class of
+                the entity.
               </li>
 
               <li>
