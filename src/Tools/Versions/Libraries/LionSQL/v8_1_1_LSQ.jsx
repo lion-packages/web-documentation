@@ -71,19 +71,20 @@ export default function v8_1_1_LSQ() {
                 <p>
                   To establish the connection to the database, two priorities
                   are required:
-                  <ul>
-                    <li>
-                      <strong>default:</strong> is the property that defines the
-                      connection to the database by default.
-                    </li>
-
-                    <li>
-                      <strong>connections:</strong> is the property that stores
-                      the arrays with all the connections needed to connect to
-                      the databases.
-                    </li>
-                  </ul>
                 </p>
+
+                <ul>
+                  <li>
+                    <strong>default:</strong> is the property that defines the
+                    connection to the database by default.
+                  </li>
+
+                  <li>
+                    <strong>connections:</strong> is the property that stores
+                    the arrays with all the connections needed to connect to the
+                    databases.
+                  </li>
+                </ul>
 
                 <CodeBlock
                   language={"php"}
