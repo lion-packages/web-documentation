@@ -46,14 +46,19 @@ function ListCommandsNew() {
             {item.childs.map((child, childIndex) => (
               <Fragment key={childIndex}>
                 <tr
-                  role="button"
                   id={child.name.replace(/ /gm, "-")}
                   onClick={() => {
                     navigate(`#${child.name.replace(/ /gm, "-")}`);
                     scroolPage();
                   }}
                 >
-                  <td>{child.name}</td>
+                  <td
+                    role="button"
+                    onClick={() => navigator.clipboard.writeText(child.name)}
+                  >
+                    {child.name}
+                  </td>
+
                   <td>{child.desc}</td>
                 </tr>
 
