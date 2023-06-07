@@ -786,12 +786,11 @@ export default function v14_12_0_FRM(mdText) {
       name: "Rules",
       code: (
         <>
+          <h2>RULES</h2>
+          <hr />
+
           <>
             <div className="mb-3">
-              <h2>RULES</h2>
-
-              <hr />
-
               <p>
                 You can create rules from command line{" "}
                 <Badge bg={"secondary"}>php lion new:rule rule_name</Badge>,
@@ -845,6 +844,23 @@ export default function v14_12_0_FRM(mdText) {
                 </ListGroup.Item>
               </ListGroup>
 
+              <p>
+                You can generate all the database rules for each entity, for all
+                its properties.
+              </p>
+
+              <CodeBlock
+                language={"bash"}
+                content={"php lion db:rules my_table"}
+              />
+
+              <CodeBlock
+                language={"bash"}
+                content={
+                  "php lion db:rules my_table --connection second_connection"
+                }
+              />
+
               <CodeBlock
                 langueage={"php"}
                 content={
@@ -870,7 +886,6 @@ export default function v14_12_0_FRM(mdText) {
 
           <div className="mb-3">
             <h2>USE RULES</h2>
-
             <hr />
 
             <p>
