@@ -46,9 +46,11 @@ function ListCommandsNew() {
             {item.childs.map((child, childIndex) => (
               <Fragment key={childIndex}>
                 <tr
-                  id={child.name.replace(/ /gm, "-")}
+                  id={child.name.replace(/ /gm, "-").replace(/:/gm, "-")}
                   onClick={() => {
-                    navigate(`#${child.name.replace(/ /gm, "-")}`);
+                    navigate(
+                      `#${child.name.replace(/ /gm, "-").replace(/:/gm, "-")}`
+                    );
                     scroolPage();
                   }}
                 >
