@@ -135,6 +135,12 @@ export default function v14_12_0_CMMD() {
           desc: "Command required for the creation of new factories",
           args: [
             {
+              name: "entity",
+              arg: true,
+              optional: false,
+              desc: "Entity name",
+            },
+            {
               name: "--connection",
               arg: false,
               optional: true,
