@@ -497,7 +497,7 @@ export default function v14_12_0_FRM(mdText) {
       ),
     },
     cors: {
-      name: "CORS",
+      name: "Cors",
       code: (
         <>
           <div className="mb-3">
@@ -704,7 +704,7 @@ export default function v14_12_0_FRM(mdText) {
       ),
     },
     crud: {
-      name: "CRUD",
+      name: "Crud",
       code: (
         <>
           <h2>CRUD</h2>
