@@ -13,6 +13,7 @@ import { FaGithub, FaYoutube } from "react-icons/fa";
 function NavbarNavigation() {
   return (
     <Navbar
+      sticky="top"
       variant="dark"
       expand="lg"
       className="bg-dark-logo border-bottom border-secondary py-0"

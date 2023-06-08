@@ -101,6 +101,8 @@ export default function AddTabs() {
                   <FiArrowLeft size={"1.3em"} />
                 </Button>
               </LinkContainer>
+
+              <hr />
             </div>
 
             <Offcanvas
