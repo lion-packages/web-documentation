@@ -693,8 +693,8 @@ export default function v14_13_0_FRM(mdText) {
     migration: {
       name: "Migrations",
       code: (
-        <Tabs defaultActiveKey="new" id="tabs-migrations">
-          <Tab eventKey="new" title="NEW">
+        <Tabs defaultActiveKey="tabs-new-migrations" id="tabs-migrations">
+          <Tab eventKey="tabs-new-migrations" title="NEW">
             <div className="my-3">
               <h2>CREATE MIGRATION</h2>
               <hr />
@@ -730,7 +730,7 @@ export default function v14_13_0_FRM(mdText) {
             </div>
           </Tab>
 
-          <Tab eventKey="fresh" title="FRESH">
+          <Tab eventKey="tabs-fresh-migrations" title="FRESH">
             <div className="my-3">
               <h2>RUN MIGRATION</h2>
               <hr />
