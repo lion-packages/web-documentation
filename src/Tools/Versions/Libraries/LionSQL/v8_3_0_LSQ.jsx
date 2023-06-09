@@ -1930,7 +1930,7 @@ export default function v8_3_0_LSQ() {
                   content={
                     "<?php\n\n" +
                     "use LionSQL\\Drivers\\MySQL\\Schema;\n\n" +
-                    "Schema::schema('my_database')->create('UTF8', 'UTF8_SPANISH_CI', 'INNODB')->execute();" +
+                    "Schema::schema('my_database')->create('UTF8', 'UTF8_SPANISH_CI', 'INNODB')->execute();"
                   }
                 />
               </div>
