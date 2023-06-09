@@ -690,7 +690,7 @@ export default function v14_13_0_FRM(mdText) {
         </>
       ),
     },
-    migratios: {
+    migration: {
       name: "Migrations",
       code: (
         <Tabs defaultActiveKey="new" id="tabs-migrations">
@@ -742,7 +742,7 @@ export default function v14_13_0_FRM(mdText) {
 
               <CodeBlock
                 language={"bash"}
-                content={"php lion migratio:fresh"}
+                content={"php lion migrate:fresh"}
               />
             </div>
           </Tab>
