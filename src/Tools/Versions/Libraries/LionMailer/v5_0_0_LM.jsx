@@ -568,27 +568,6 @@ export default function v5_0_0_LM() {
             </>
           ),
         },
-        multiple: {
-          title: "Mail::multiple",
-          description:
-            "The `multiple` feature allows you to add multiple recipient accounts",
-          link: "multiple",
-          code: (
-            <>
-              <CodeBlock
-                language={"php"}
-                content={
-                  "<?php\n\n" +
-                  "use LionMailer\\Services\\Symfony\\Mail;\n\n" +
-                  "Mail::multiple(\n" +
-                  "\t'sleon@outlook.com',\n" +
-                  "\t['sleon-support@outlook.com', 'Sleon SUPP']\n" +
-                  ");"
-                }
-              />
-            </>
-          ),
-        },
         "highest-priority": {
           title: "Mail::highestPriority",
           description:
