@@ -3,9 +3,9 @@ import { Link } from "react-router-dom";
 import ReactMarkdown from "react-markdown";
 import remarkGfm from "remark-gfm";
 
-import CodeBlock from "../../../pages/components/CodeBlock";
-import GithubButton from "../../../pages/components/GithubButton";
-import ListCommands from "../../../pages/components/ListCommands";
+import CodeBlock from "../../../../../pages/components/CodeBlock";
+import GithubButton from "../../../../../pages/components/GithubButton";
+import ListCommands from "../../../../../pages/components/ListCommands";
 
 import { DiPhp } from "react-icons/di";
 import { FaReact } from "react-icons/fa";
