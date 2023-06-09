@@ -35,16 +35,20 @@ export default function v14_13_0_FRM(mdText) {
     commands: {
       name: "Commands",
       code: (
-        <Tabs defaultActiveKey="list-commands" id="tabs-commands">
+        <Tabs defaultActiveKey="list-commands" id="commands" fill>
           <Tab eventKey="list-commands" title="LIST">
             <div className="my-3">
+              <h2>LIST COMMANDS</h2>
+              <hr />
+
               <ListCommandsNew />
             </div>
           </Tab>
 
           <Tab eventKey="add-commands" title="ADD">
             <div className="my-3">
-              <h2 className="pb-2">ADD COMMANDS</h2>
+              <h2>ADD COMMANDS</h2>
+              <hr />
 
               <p>
                 You need to add the commands in the{" "}
@@ -67,7 +71,8 @@ export default function v14_13_0_FRM(mdText) {
 
           <Tab eventKey="execute-commands" title="EXECUTE">
             <div className="my-3">
-              <h2 className="pb-2">EXECUTE COMMANDS</h2>
+              <h2>EXECUTE COMMANDS</h2>
+              <hr />
 
               <p>Execute commands through the Kernel class.</p>
 
@@ -693,8 +698,8 @@ export default function v14_13_0_FRM(mdText) {
     migration: {
       name: "Migrations",
       code: (
-        <Tabs defaultActiveKey="tabs-new-migrations" id="tabs-migrations">
-          <Tab eventKey="tabs-new-migrations" title="NEW">
+        <Tabs defaultActiveKey="new-migrations" id="migrations" fill>
+          <Tab eventKey="new-migrations" title="NEW">
             <div className="my-3">
               <h2>CREATE MIGRATION</h2>
               <hr />
@@ -730,7 +735,7 @@ export default function v14_13_0_FRM(mdText) {
             </div>
           </Tab>
 
-          <Tab eventKey="tabs-fresh-migrations" title="FRESH">
+          <Tab eventKey="fresh-migrations" title="FRESH">
             <div className="my-3">
               <h2>RUN MIGRATION</h2>
               <hr />
@@ -1730,303 +1735,314 @@ export default function v14_13_0_FRM(mdText) {
     helpers: {
       name: "Helpers",
       code: (
-        <Tabs defaultActiveKey="tabs-constants-helpers" id="tabs-helpers">
-          <Tab eventKey="tabs-constants-helpers" title="CONSTANTS">
-            <h2>CONSTANTS</h2>
-            <hr />
+        <Tabs defaultActiveKey="constants-helpers" id="helpers" fill>
+          <Tab eventKey="constants-helpers" title="CONSTANTS">
+            <div className="my-3">
+              <h2>CONSTANTS</h2>
+              <hr />
 
-            <div className="mb-3">
-              <Table size="sm" variant="dark" responsive hover>
-                <thead>
-                  <tr>
-                    <th>NAME</th>
-                    <th>DESCRIPTION</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr>
-                    <td>client</td>
-                    <td>
-                      the client constant is an object of the GuzzleHttp\Client
-                      class, it allows you to make HTTP requests
-                    </td>
-                  </tr>
+              <div className="mb-3">
+                <Table size="sm" variant="dark" responsive hover>
+                  <thead>
+                    <tr>
+                      <th>NAME</th>
+                      <th>DESCRIPTION</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td>client</td>
+                      <td>
+                        the client constant is an object of the
+                        GuzzleHttp\Client class, it allows you to make HTTP
+                        requests
+                      </td>
+                    </tr>
 
-                  <tr>
-                    <td>request</td>
-                    <td>
-                      the request constant is an object of the Lion
-                      Request\Request class, it allows you to get the data
-                      captured through an HTTP request
-                    </td>
-                  </tr>
+                    <tr>
+                      <td>request</td>
+                      <td>
+                        the request constant is an object of the Lion
+                        Request\Request class, it allows you to get the data
+                        captured through an HTTP request
+                      </td>
+                    </tr>
 
-                  <tr>
-                    <td>response</td>
-                    <td>
-                      the response constant is an object of the Lion
-                      Request\Response class, it allows you to generate
-                      responses of different types that the class provides
-                    </td>
-                  </tr>
+                    <tr>
+                      <td>response</td>
+                      <td>
+                        the response constant is an object of the Lion
+                        Request\Response class, it allows you to generate
+                        responses of different types that the class provides
+                      </td>
+                    </tr>
 
-                  <tr>
-                    <td>json</td>
-                    <td>
-                      the json constant is an object of the LionRequest\Json
-                      class, it allows you to encode and decode JSON data
-                    </td>
-                  </tr>
+                    <tr>
+                      <td>json</td>
+                      <td>
+                        the json constant is an object of the LionRequest\Json
+                        class, it allows you to encode and decode JSON data
+                      </td>
+                    </tr>
 
-                  <tr>
-                    <td>env</td>
-                    <td>
-                      the env constant is an object that contains the properties
-                      of the environment variable file
-                    </td>
-                  </tr>
+                    <tr>
+                      <td>env</td>
+                      <td>
+                        the env constant is an object that contains the
+                        properties of the environment variable file
+                      </td>
+                    </tr>
 
-                  <tr>
-                    <td>str</td>
-                    <td>
-                      the constant str is an object of class LionHelpers\Str, it
-                      allows you to access this helper and transform strings
-                    </td>
-                  </tr>
+                    <tr>
+                      <td>str</td>
+                      <td>
+                        the constant str is an object of class LionHelpers\Str,
+                        it allows you to access this helper and transform
+                        strings
+                      </td>
+                    </tr>
 
-                  <tr>
-                    <td>arr</td>
-                    <td>
-                      the constant arr is an object of class LionHelpers\Arr, it
-                      allows you to access this helper and transform arrays
-                    </td>
-                  </tr>
-                </tbody>
-              </Table>
+                    <tr>
+                      <td>arr</td>
+                      <td>
+                        the constant arr is an object of class LionHelpers\Arr,
+                        it allows you to access this helper and transform arrays
+                      </td>
+                    </tr>
+                  </tbody>
+                </Table>
+              </div>
             </div>
           </Tab>
 
-          <Tab eventKey="tabs-functions-helpers" title="FUNCTIONS">
-            <h2>FUNCTIONS</h2>
-            <hr />
+          <Tab eventKey="functions-helpers" title="FUNCTIONS">
+            <div className="my-3">
+              <h2>FUNCTIONS</h2>
+              <hr />
 
-            <div className="mb-3">
-              <Row>
-                <Col xs={12} sm={12}>
-                  <div className="mb-3">
-                    <h5 className="pb-2 text-warning">{"jwt"}</h5>
+              <div className="mb-3">
+                <Row>
+                  <Col xs={12} sm={12}>
+                    <div className="mb-3">
+                      <h5 className="pb-2 text-warning">{"jwt"}</h5>
 
-                    <p>
-                      Function to check if a jwt is valid, returns an object
-                      (object) without the JWT exists and is valid
-                    </p>
+                      <p>
+                        Function to check if a jwt is valid, returns an object
+                        (object) without the JWT exists and is valid
+                      </p>
 
-                    <CodeBlock
-                      langueage={"php"}
-                      content={"<?php\n\n" + "$jwt = jwt();"}
-                    />
-                  </div>
-                </Col>
+                      <CodeBlock
+                        langueage={"php"}
+                        content={"<?php\n\n" + "$jwt = jwt();"}
+                      />
+                    </div>
+                  </Col>
 
-                <Col xs={12} sm={12}>
-                  <div className="mb-3">
-                    <h5 className="pb-2 text-warning">{"isError"}</h5>
+                  <Col xs={12} sm={12}>
+                    <div className="mb-3">
+                      <h5 className="pb-2 text-warning">{"isError"}</h5>
 
-                    <p>
-                      Function to check if a response object comes with errors.
-                    </p>
+                      <p>
+                        Function to check if a response object comes with
+                        errors.
+                      </p>
 
-                    <CodeBlock
-                      langueage={"php"}
-                      content={
-                        "<?php\n\n" + "isError(success())); // return false"
-                      }
-                    />
-                  </div>
-                </Col>
+                      <CodeBlock
+                        langueage={"php"}
+                        content={
+                          "<?php\n\n" + "isError(success())); // return false"
+                        }
+                      />
+                    </div>
+                  </Col>
 
-                <Col xs={12} sm={12}>
-                  <div className="mb-3">
-                    <h5 className="pb-2 text-warning">{"isSuccess"}</h5>
+                  <Col xs={12} sm={12}>
+                    <div className="mb-3">
+                      <h5 className="pb-2 text-warning">{"isSuccess"}</h5>
 
-                    <p>Function to check if a response object is successful.</p>
+                      <p>
+                        Function to check if a response object is successful.
+                      </p>
 
-                    <CodeBlock
-                      langueage={"php"}
-                      content={
-                        "<?php\n\n" + "isSuccess(error())); // return false"
-                      }
-                    />
-                  </div>
-                </Col>
+                      <CodeBlock
+                        langueage={"php"}
+                        content={
+                          "<?php\n\n" + "isSuccess(error())); // return false"
+                        }
+                      />
+                    </div>
+                  </Col>
 
-                <Col xs={12} sm={12}>
-                  <div className="mb-3">
-                    <h5 className="pb-2 text-warning">fetch</h5>
+                  <Col xs={12} sm={12}>
+                    <div className="mb-3">
+                      <h5 className="pb-2 text-warning">fetch</h5>
 
-                    <p>
-                      The fetch helper allows you to make http requests,
-                      internally with guzzle http.
-                    </p>
+                      <p>
+                        The fetch helper allows you to make http requests,
+                        internally with guzzle http.
+                      </p>
 
-                    <CodeBlock
-                      langueage={"php"}
-                      content={"<?php\n\n" + "fetch('GET', 'my-url.com');"}
-                    />
-                  </div>
-                </Col>
+                      <CodeBlock
+                        langueage={"php"}
+                        content={"<?php\n\n" + "fetch('GET', 'my-url.com');"}
+                      />
+                    </div>
+                  </Col>
 
-                <Col xs={12} sm={12}>
-                  <div className="mb-3">
-                    <h5 className="pb-2 text-warning">fetchXML</h5>
+                  <Col xs={12} sm={12}>
+                    <div className="mb-3">
+                      <h5 className="pb-2 text-warning">fetchXML</h5>
 
-                    <p>
-                      The get helper allows you to make http requests to get xml
-                      in String format, internally with http guzzle.
-                    </p>
+                      <p>
+                        The get helper allows you to make http requests to get
+                        xml in String format, internally with http guzzle.
+                      </p>
 
-                    <CodeBlock
-                      langueage={"php"}
-                      content={"<?php\n\n" + "fetchXML('GET', 'my-url.com');"}
-                    />
-                  </div>
-                </Col>
+                      <CodeBlock
+                        langueage={"php"}
+                        content={"<?php\n\n" + "fetchXML('GET', 'my-url.com');"}
+                      />
+                    </div>
+                  </Col>
 
-                <Col xs={12} sm={12}>
-                  <div className="mb-3">
-                    <h5 className="pb-2 text-warning">storage_path</h5>
+                  <Col xs={12} sm={12}>
+                    <div className="mb-3">
+                      <h5 className="pb-2 text-warning">storage_path</h5>
 
-                    <p>
-                      The storage_path helper allows access to directories and
-                      files in the storage directory.
-                    </p>
+                      <p>
+                        The storage_path helper allows access to directories and
+                        files in the storage directory.
+                      </p>
 
-                    <CodeBlock
-                      langueage={"php"}
-                      content={
-                        "<?php\n\n" +
-                        "use LionFiles\\Store;\n\n" +
-                        "Store::view(storage_path('files/'));"
-                      }
-                    />
-                  </div>
-                </Col>
+                      <CodeBlock
+                        langueage={"php"}
+                        content={
+                          "<?php\n\n" +
+                          "use LionFiles\\Store;\n\n" +
+                          "Store::view(storage_path('files/'));"
+                        }
+                      />
+                    </div>
+                  </Col>
 
-                <Col xs={12} sm={12}>
-                  <div className="mb-3">
-                    <h5 className="pb-2 text-warning">finish</h5>
+                  <Col xs={12} sm={12}>
+                    <div className="mb-3">
+                      <h5 className="pb-2 text-warning">finish</h5>
 
-                    <p>
-                      The finish helper ends the execution of all processes.
-                    </p>
+                      <p>
+                        The finish helper ends the execution of all processes.
+                      </p>
 
-                    <CodeBlock
-                      langueage={"php"}
-                      content={"<?php\n\n" + "finish(success('my response'));"}
-                    />
-                  </div>
-                </Col>
+                      <CodeBlock
+                        langueage={"php"}
+                        content={
+                          "<?php\n\n" + "finish(success('my response'));"
+                        }
+                      />
+                    </div>
+                  </Col>
 
-                <Col xs={12} sm={12}>
-                  <div className="mb-3">
-                    <h5 className="pb-2 text-warning">success</h5>
+                  <Col xs={12} sm={12}>
+                    <div className="mb-3">
+                      <h5 className="pb-2 text-warning">success</h5>
 
-                    <p>Function to display a success response.</p>
+                      <p>Function to display a success response.</p>
 
-                    <CodeBlock
-                      langueage={"php"}
-                      content={"<?php\n\n" + "return success('message');"}
-                    />
-                  </div>
-                </Col>
+                      <CodeBlock
+                        langueage={"php"}
+                        content={"<?php\n\n" + "return success('message');"}
+                      />
+                    </div>
+                  </Col>
 
-                <Col xs={12} sm={12}>
-                  <div className="mb-3">
-                    <h5 className="pb-2 text-warning">error</h5>
+                  <Col xs={12} sm={12}>
+                    <div className="mb-3">
+                      <h5 className="pb-2 text-warning">error</h5>
 
-                    <p>Function to display a error response.</p>
+                      <p>Function to display a error response.</p>
 
-                    <CodeBlock
-                      langueage={"php"}
-                      content={"<?php\n\n" + "return error('message');"}
-                    />
-                  </div>
-                </Col>
+                      <CodeBlock
+                        langueage={"php"}
+                        content={"<?php\n\n" + "return error('message');"}
+                      />
+                    </div>
+                  </Col>
 
-                <Col xs={12} sm={12}>
-                  <div className="mb-3">
-                    <h5 className="pb-2 text-warning">warning</h5>
+                  <Col xs={12} sm={12}>
+                    <div className="mb-3">
+                      <h5 className="pb-2 text-warning">warning</h5>
 
-                    <p>Function to display a warning response.</p>
+                      <p>Function to display a warning response.</p>
 
-                    <CodeBlock
-                      langueage={"php"}
-                      content={"<?php\n\n" + "return warning('message');"}
-                    />
-                  </div>
-                </Col>
+                      <CodeBlock
+                        langueage={"php"}
+                        content={"<?php\n\n" + "return warning('message');"}
+                      />
+                    </div>
+                  </Col>
 
-                <Col xs={12} sm={12}>
-                  <div className="mb-3">
-                    <h5 className="pb-2 text-warning">info</h5>
+                  <Col xs={12} sm={12}>
+                    <div className="mb-3">
+                      <h5 className="pb-2 text-warning">info</h5>
 
-                    <p>Function to display a info response.</p>
+                      <p>Function to display a info response.</p>
 
-                    <CodeBlock
-                      langueage={"php"}
-                      content={"<?php\n\n" + "return info('message');"}
-                    />
-                  </div>
-                </Col>
+                      <CodeBlock
+                        langueage={"php"}
+                        content={"<?php\n\n" + "return info('message');"}
+                      />
+                    </div>
+                  </Col>
 
-                <Col xs={12} sm={12}>
-                  <div className="mb-3">
-                    <h5 className="pb-2 text-warning">vd</h5>
+                  <Col xs={12} sm={12}>
+                    <div className="mb-3">
+                      <h5 className="pb-2 text-warning">vd</h5>
 
-                    <p>The helper vd executes the function var_dump.</p>
+                      <p>The helper vd executes the function var_dump.</p>
 
-                    <CodeBlock
-                      langueage={"php"}
-                      content={"<?php\n\n" + "vd(success('finished'));"}
-                    />
-                  </div>
-                </Col>
+                      <CodeBlock
+                        langueage={"php"}
+                        content={"<?php\n\n" + "vd(success('finished'));"}
+                      />
+                    </div>
+                  </Col>
 
-                <Col xs={12} sm={12}>
-                  <div className="mb-3">
-                    <h5 className="pb-2 text-warning">json</h5>
+                  <Col xs={12} sm={12}>
+                    <div className="mb-3">
+                      <h5 className="pb-2 text-warning">json</h5>
 
-                    <p>The json helper converts any value to json.</p>
+                      <p>The json helper converts any value to json.</p>
 
-                    <CodeBlock
-                      langueage={"php"}
-                      content={"<?php\n\n" + "json(['name' => 'Sleon']);"}
-                    />
-                  </div>
-                </Col>
+                      <CodeBlock
+                        langueage={"php"}
+                        content={"<?php\n\n" + "json(['name' => 'Sleon']);"}
+                      />
+                    </div>
+                  </Col>
 
-                <Col xs={12} sm={12}>
-                  <div className="mb-3">
-                    <h5 className="pb-2 text-warning">logger</h5>
+                  <Col xs={12} sm={12}>
+                    <div className="mb-3">
+                      <h5 className="pb-2 text-warning">logger</h5>
 
-                    <p>
-                      The logger helper generates a log file stored in{" "}
-                      <strong>storage/logs/</strong> and implements Monolog
-                      internally.
-                    </p>
+                      <p>
+                        The logger helper generates a log file stored in{" "}
+                        <strong>storage/logs/</strong> and implements Monolog
+                        internally.
+                      </p>
 
-                    <CodeBlock
-                      langueage={"php"}
-                      content={
-                        "<?php\n\n" +
-                        "logger('lorem ipsum dolor sit amet...'); // default info\n" +
-                        "logger('lorem ipsum dolor sit amet...', 'error');\n" +
-                        "logger('lorem ipsum dolor sit amet...', 'warning', ['name' => 'Sleon']);"
-                      }
-                    />
-                  </div>
-                </Col>
-              </Row>
+                      <CodeBlock
+                        langueage={"php"}
+                        content={
+                          "<?php\n\n" +
+                          "logger('lorem ipsum dolor sit amet...'); // default info\n" +
+                          "logger('lorem ipsum dolor sit amet...', 'error');\n" +
+                          "logger('lorem ipsum dolor sit amet...', 'warning', ['name' => 'Sleon']);"
+                        }
+                      />
+                    </div>
+                  </Col>
+                </Row>
+              </div>
             </div>
           </Tab>
         </Tabs>
