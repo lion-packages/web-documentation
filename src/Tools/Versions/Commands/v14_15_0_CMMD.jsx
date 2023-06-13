@@ -318,13 +318,23 @@ export default function v14_15_0_CMMD() {
               name: "--limit",
               arg: false,
               optional: true,
-              desc: "Do you want to set a query limit? [default: 1200]",
+              desc: (
+                <>
+                  Do you want to set a query limit?{" "}
+                  <label className="text-warning">{"[default: 1200]"}</label>
+                </>
+              ),
             },
             {
               name: "-l",
               arg: false,
               optional: true,
-              desc: "Do you want to set a query limit? [default: 1200]",
+              desc: (
+                <>
+                  Do you want to set a query limit?{" "}
+                  <label className="text-warning">{"[default: 1200]"}</label>
+                </>
+              ),
             },
           ],
         },
