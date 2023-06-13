@@ -62,7 +62,7 @@ export default function v14_15_0_FRM(mdText) {
                 content={
                   "<?php\n\n" +
                   "return [\n" +
-                  "\t'app' => [\n\t\t// \\App\\Console\\Commands\\MyCommandCommand::class;\n\t];\n" +
+                  "\t'app' => [\n\t\t// \\App\\Console\\Commands\\MyCommandCommand::class\n\t];\n" +
                   "..."
                 }
               />
@@ -74,14 +74,16 @@ export default function v14_15_0_FRM(mdText) {
               <h2>EXECUTE COMMANDS</h2>
               <hr />
 
-              <p>Execute commands through the Kernel class.</p>
+              <p>execute commands with the command and execute functions.</p>
 
               <CodeBlock
                 language={"php"}
-                content={
-                  "<?php\n\n" +
-                  "App\\Console\\Kernel::getInstance()->execute('php lion serve');"
-                }
+                content={"<?php\n\n" + "kernel->execute('php lion db:show');"}
+              />
+
+              <CodeBlock
+                language={"php"}
+                content={"<?php\n\n" + "kernel->command('db:show');"}
               />
             </div>
           </Tab>
@@ -444,10 +446,11 @@ export default function v14_15_0_FRM(mdText) {
       name: "Email",
       code: (
         <>
-          <div className="mb-3">
-            <h2 className="pb-2">MAIL ACCOUNTS</h2>
+          <h2 className="pb-2">EMAIL</h2>
+          <hr />
 
-            <hr />
+          <div className="mb-3">
+            <h5 className="text-warning">MAIL ACCOUNTS</h5>
 
             <p>
               To send mail with different accounts you need to add the accounts
@@ -484,6 +487,12 @@ export default function v14_15_0_FRM(mdText) {
                 "];"
               }
             />
+          </div>
+
+          <div className="mb-3">
+            <h5 className="text-warning">SHOW ACCOUNTS</h5>
+            <p>View the accounts available in the system.</p>
+            <CodeBlock language={"bash"} content={"php lion email:show"} />
           </div>
         </>
       ),
@@ -1807,6 +1816,14 @@ export default function v14_15_0_FRM(mdText) {
                       <td>
                         the constant arr is an object of class LionHelpers\Arr,
                         it allows you to access this helper and transform arrays
+                      </td>
+                    </tr>
+
+                    <tr>
+                      <td>kernel</td>
+                      <td>
+                        the kernel constant is an object of class
+                        App\Console\Kernel, it allows you to execute commands
                       </td>
                     </tr>
                   </tbody>

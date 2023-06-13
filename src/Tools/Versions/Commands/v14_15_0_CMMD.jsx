@@ -65,7 +65,12 @@ export default function v14_15_0_CMMD() {
         },
         {
           name: "php lion db:all-crud",
-          desc: "command to generate all the controllers and models of the entities with their respective CRUD functions",
+          desc: "Command to generate all the controllers and models of the entities with their respective CRUD functions",
+          args: [],
+        },
+        {
+          name: "php lion db:all-rules",
+          desc: "Command to generate all rules for all entities",
           args: [],
         },
         {
@@ -288,12 +293,40 @@ export default function v14_15_0_CMMD() {
       ],
     },
     {
+      group: "EMAIL",
+      childs: [
+        {
+          name: "php lion email:show",
+          desc: "Command required to display available email accounts",
+          args: [],
+        },
+      ],
+    },
+    {
       group: "MIGRATE",
       childs: [
         {
           name: "php lion migrate:fresh",
           desc: "Drop all tables and re-run all migrations",
           args: [],
+        },
+        {
+          name: "php lion migrate:generate",
+          desc: "Command required to generate migrations of an existing database",
+          args: [
+            {
+              name: "--limit",
+              arg: false,
+              optional: true,
+              desc: "Do you want to set a query limit?",
+            },
+            {
+              name: "-l",
+              arg: false,
+              optional: true,
+              desc: "Do you want to set a query limit?",
+            },
+          ],
         },
         {
           name: "php lion migrate:new",
