@@ -1,4 +1,14 @@
-import { Alert, Badge, Col, ListGroup, Row } from "react-bootstrap";
+import {
+  Alert,
+  Badge,
+  Card,
+  Col,
+  ListGroup,
+  Row,
+  Tab,
+  Table,
+  Tabs,
+} from "react-bootstrap";
 import { Link } from "react-router-dom";
 import ReactMarkdown from "react-markdown";
 import remarkGfm from "remark-gfm";
@@ -16,7 +26,7 @@ import permissions_sh from "./../../../assets/img/docker/permissions-sh.png";
 import etc_data from "./../../../assets/img/docker/etc-data.png";
 import crontab_edit from "./../../../assets/img/docker/crontab-edit.png";
 
-export default function v14_7_0_FRM(mdText) {
+export default function v14_16_0_FRM(mdText) {
   return {
     changelog: {
       name: "Changelog",
@@ -25,53 +35,59 @@ export default function v14_7_0_FRM(mdText) {
     commands: {
       name: "Commands",
       code: (
-        <>
-          <div className="mb-3">
-            <ListCommandsNew />
-          </div>
+        <Tabs defaultActiveKey="list-commands" id="commands" fill>
+          <Tab eventKey="list-commands" title="LIST">
+            <div className="my-3">
+              <h2>LIST COMMANDS</h2>
+              <hr />
 
-          <div className="mb-3">
-            <h2 className="pb-2">ADD COMMANDS</h2>
+              <ListCommandsNew />
+            </div>
+          </Tab>
 
-            <p>
-              You need to add the commands in the{" "}
-              <Badge bg="secondary">config/commands.php</Badge> array, Commands
-              are stored in{" "}
-              <Badge bg="secondary">{"app/Console/Commands/"}</Badge>.
-            </p>
+          <Tab eventKey="add-commands" title="ADD">
+            <div className="my-3">
+              <h2>ADD COMMANDS</h2>
+              <hr />
 
-            <CodeBlock
-              language={"php"}
-              content={
-                "<?php\n\n" +
-                "return [\n" +
-                "\t'app' => [\n\t\t// \\App\\Console\\Commands\\MyCommandCommand::class;\n\t];\n" +
-                "..."
-              }
-            />
-          </div>
+              <p>
+                You need to add the commands in the{" "}
+                <Badge bg="secondary">config/commands.php</Badge> array,
+                Commands are stored in{" "}
+                <Badge bg="secondary">{"app/Console/Commands/"}</Badge>.
+              </p>
 
-          <div className="mb-3">
-            <h2 className="pb-2">ADD SOCKETS COMMANDS</h2>
+              <CodeBlock
+                language={"php"}
+                content={
+                  "<?php\n\n" +
+                  "return [\n" +
+                  "\t'app' => [\n\t\t// \\App\\Console\\Commands\\MyCommandCommand::class\n\t];\n" +
+                  "..."
+                }
+              />
+            </div>
+          </Tab>
 
-            <p>
-              You need to add the commands in the{" "}
-              <Badge bg="secondary">config/socket-commands.php</Badge> array,
-              Sockets are stored in{" "}
-              <Badge bg="secondary">{"app/Http/Sockets/"}</Badge>.
-            </p>
+          <Tab eventKey="execute-commands" title="EXECUTE">
+            <div className="my-3">
+              <h2>EXECUTE COMMANDS</h2>
+              <hr />
 
-            <CodeBlock
-              language={"php"}
-              content={
-                "<?php\n\n" +
-                "return [\n" +
-                "\t'app' => [\n\t\t// 'ExampleSocket' => App\\Http\\Sockets\\ExampleSocket::class\n\t]\n" +
-                "];"
-              }
-            />
-          </div>
-        </>
+              <p>execute commands with the command and execute functions.</p>
+
+              <CodeBlock
+                language={"php"}
+                content={"<?php\n\n" + "kernel->execute('php lion db:show');"}
+              />
+
+              <CodeBlock
+                language={"php"}
+                content={"<?php\n\n" + "kernel->command('db:show');"}
+              />
+            </div>
+          </Tab>
+        </Tabs>
       ),
     },
     docker: {
@@ -417,26 +433,35 @@ export default function v14_7_0_FRM(mdText) {
               }
             />
           </div>
+
+          <div className="mb-3">
+            <h2 className="pb-2">SHOW DATABASE CONNECTIONS</h2>
+            <p>View all available database connections.</p>
+            <CodeBlock language={"bash"} content={"php lion db:show"} />
+          </div>
         </>
       ),
     },
-    headers: {
-      name: "Headers",
+    email: {
+      name: "Email",
       code: (
         <>
+          <h2 className="pb-2">EMAIL</h2>
+          <hr />
+
           <div className="mb-3">
-            <h2 className="pb-2">ADD HEADERS</h2>
-            <hr />
+            <h5 className="text-warning">MAIL ACCOUNTS</h5>
 
             <p>
-              Headers should be added per function in{" "}
-              <Badge bg="secondary">routes/header.php</Badge> more information
-              in{" "}
+              To send mail with different accounts you need to add the accounts
+              and add the service, go to{" "}
+              <Badge bg="secondary">config/email.php</Badge>, for more
+              information, read{" "}
               <Link
-                to={"/libraries/lion/request/index"}
+                to={"/libraries/lion/mailer/index"}
                 className="text-decoration-none"
               >
-                Lion-Request
+                Lion-Mailer
               </Link>
               .
             </p>
@@ -445,10 +470,60 @@ export default function v14_7_0_FRM(mdText) {
               language={"php"}
               content={
                 "<?php\n\n" +
-                "LionRequest\\Request::header(\n" +
-                "\t'Content-Type',\n" +
-                "\t'application/json; charset=UTF-8'\n" +
-                ");"
+                "return [\n" +
+                "\t'default' => 'support',\n" +
+                "\t'accounts' => [\n" +
+                "\t\t'support' => [\n" +
+                "\t\t\t'services' => ['symfony', 'phpmailer'],\n" +
+                "\t\t\t'debug' => 0,\n" +
+                "\t\t\t'host' => 'smtp.office365.com',\n" +
+                "\t\t\t'encryption' => 'tls',\n" +
+                "\t\t\t'port' => 587,\n" +
+                "\t\t\t'name' => 'Sleon - Support',\n" +
+                "\t\t\t'account' => 'sleon-support@outlook.com',\n" +
+                "\t\t\t'password' => 'my_password'\n" +
+                "\t\t]\n" +
+                "\t],\n" +
+                "];"
+              }
+            />
+          </div>
+
+          <div className="mb-3">
+            <h5 className="text-warning">SHOW ACCOUNTS</h5>
+            <p>View the accounts available in the system.</p>
+            <CodeBlock language={"bash"} content={"php lion email:show"} />
+          </div>
+        </>
+      ),
+    },
+    cors: {
+      name: "Cors",
+      code: (
+        <>
+          <div className="mb-3">
+            <h2 className="pb-2">CORS</h2>
+
+            <hr />
+
+            <p>
+              Enable and add the necessary headers for your web application, go
+              to <Badge bg="secondary">config/cors.php</Badge> and set your
+              headers.
+            </p>
+
+            <CodeBlock
+              language={"php"}
+              content={
+                "<?php\n\n" +
+                "return [\n" +
+                "\t'Access-Control-Allow-Origin' => '*',\n" +
+                "\t'Content-Type' => 'application/json; charset=UTF-8',\n" +
+                "\t'Access-Control-Max-Age' => 0,\n" +
+                "\t'Allow' => 'GET, POST, PUT, DELETE, PATCH, OPTIONS',\n" +
+                "\t'Access-Control-Allow-Methods' => 'GET, POST, PUT, DELETE, PATCH, OPTIONS',\n" +
+                "\t'Access-Control-Allow-Headers' => 'Origin, X-Requested-With, Content-Type, Accept, Authorization'\n" +
+                "];"
               }
             />
           </div>
@@ -629,16 +704,150 @@ export default function v14_7_0_FRM(mdText) {
         </>
       ),
     },
+    migration: {
+      name: "Migrations",
+      code: (
+        <Tabs defaultActiveKey="new-migrations" id="migrations" fill>
+          <Tab eventKey="new-migrations" title="NEW">
+            <div className="my-3">
+              <h2>CREATE MIGRATION</h2>
+              <hr />
+
+              <p>
+                Migrations are used to create the structure of your database,
+                you can define the tables with their properties, relate them,
+                read{" "}
+                <Link
+                  to={"/libraries/lion/sql/index"}
+                  className="text-decoration-none"
+                >
+                  Lion-SQL
+                </Link>
+                , You can select a migration type by running the command.
+              </p>
+
+              <ul className="mb-3" style={{ listStyle: "none" }}>
+                <li>
+                  <strong>[0]</strong> TABLE
+                </li>
+
+                <li>
+                  <strong>[1]</strong> VIEW
+                </li>
+
+                <li>
+                  <strong>[2]</strong> PROCEDURE
+                </li>
+              </ul>
+
+              <CodeBlock language={"bash"} content={"php lion migrate:new"} />
+            </div>
+          </Tab>
+
+          <Tab eventKey="fresh-migrations" title="FRESH">
+            <div className="my-3">
+              <h2>RUN MIGRATION</h2>
+              <hr />
+
+              <p>
+                Run all the migrations you have with a single command, these
+                processes are executed and added on the specified databases.
+              </p>
+
+              <CodeBlock language={"bash"} content={"php lion migrate:fresh"} />
+            </div>
+          </Tab>
+        </Tabs>
+      ),
+    },
+    crud: {
+      name: "Crud",
+      code: (
+        <>
+          <h2>CRUD</h2>
+          <hr />
+
+          <div className="mb-3">
+            <h5 className="text-warning">ALL-CRUD</h5>
+
+            <p>
+              Generate all the CRUDs of your entities with a single command, the
+              command checks the entire list of available connections, this maps
+              all the entities from each database, gets the properties of each
+              entity and generates a basic crud.
+            </p>
+
+            <CodeBlock language={"bash"} content={"php lion db:all-crud"} />
+
+            <p>characteristics:</p>
+
+            <ul>
+              <li>
+                <strong>CAPSULE CLASS</strong>: generates the capsule class of
+                the entity.
+              </li>
+
+              <li>
+                <strong>CONTROLLER CLASS</strong>: generates the controller
+                class of the entity.
+              </li>
+
+              <li>
+                <strong>MODEL CLASS</strong>: generates the model class of the
+                entity.
+              </li>
+
+              <li>
+                <strong>VIEWS</strong>: generates the basic views to read
+                entities.
+              </li>
+
+              <li>
+                <strong>PROCEDURES</strong>: the respective basic procedures of
+                the entity are generated.
+              </li>
+            </ul>
+          </div>
+
+          <div className="mb-3">
+            <h5 className="text-warning">CRUD</h5>
+            <p>You can generate the crud of a specific connection.</p>
+
+            <CodeBlock language={"bash"} content={"php lion db:crud users"} />
+
+            <CodeBlock
+              language={"bash"}
+              content={"php lion db:crud users --connection second_database"}
+            />
+
+            <CodeBlock
+              language={"bash"}
+              content={"php lion db:crud users -c second_database"}
+            />
+
+            <CodeBlock
+              language={"bash"}
+              content={
+                "php lion db:crud users --connection second_database --path MyFolder/"
+              }
+            />
+            <CodeBlock
+              language={"bash"}
+              content={"php lion db:crud users -c second_database -p MyFolder/"}
+            />
+          </div>
+        </>
+      ),
+    },
     rules: {
       name: "Rules",
       code: (
         <>
+          <h2>RULES</h2>
+          <hr />
+
           <>
             <div className="mb-3">
-              <h2>RULES</h2>
-
-              <hr />
-
               <p>
                 You can create rules from command line{" "}
                 <Badge bg={"secondary"}>php lion new:rule rule_name</Badge>,
@@ -692,6 +901,23 @@ export default function v14_7_0_FRM(mdText) {
                 </ListGroup.Item>
               </ListGroup>
 
+              <p>
+                You can generate all the database rules for each entity, for all
+                its properties.
+              </p>
+
+              <CodeBlock
+                language={"bash"}
+                content={"php lion db:rules my_table"}
+              />
+
+              <CodeBlock
+                language={"bash"}
+                content={
+                  "php lion db:rules my_table --connection second_connection"
+                }
+              />
+
               <CodeBlock
                 langueage={"php"}
                 content={
@@ -717,7 +943,6 @@ export default function v14_7_0_FRM(mdText) {
 
           <div className="mb-3">
             <h2>USE RULES</h2>
-
             <hr />
 
             <p>
@@ -997,7 +1222,6 @@ export default function v14_7_0_FRM(mdText) {
               content={
                 "<?php\n\n" +
                 "namespace App\\Http\\Controllers;\n\n" +
-                "use App\\Enums\\Framework\\StatusEnum;\n\n" +
                 "class HomeController {\n\n" +
                 "\tpublic function __contruct() {\n\n" +
                 "\t}\n\n" +
@@ -1027,7 +1251,6 @@ export default function v14_7_0_FRM(mdText) {
               content={
                 "<?php\n\n" +
                 "namespace App\\Http\\Controllers;\n\n" +
-                "use App\\Enums\\Framework\\StatusEnum;\n" +
                 "use App\\Models\\HomeModel;\n\n" +
                 "class HomeController {\n\n" +
                 "\tprivate HomeModel $homeModel;\n\n" +
@@ -1521,203 +1744,325 @@ export default function v14_7_0_FRM(mdText) {
     helpers: {
       name: "Helpers",
       code: (
-        <>
-          <h2>HELPERS</h2>
-          <hr />
+        <Tabs defaultActiveKey="constants-helpers" id="helpers" fill>
+          <Tab eventKey="constants-helpers" title="CONSTANTS">
+            <div className="my-3">
+              <h2>CONSTANTS</h2>
+              <hr />
 
-          <Row>
-            <Col xs={12} sm={12}>
               <div className="mb-3">
-                <h5 className="pb-2 text-warning">{"isError"}</h5>
+                <Table size="sm" variant="dark" responsive hover>
+                  <thead>
+                    <tr>
+                      <th>NAME</th>
+                      <th>DESCRIPTION</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td>client</td>
+                      <td>
+                        the client constant is an object of the
+                        GuzzleHttp\Client class, it allows you to make HTTP
+                        requests
+                      </td>
+                    </tr>
 
-                <p>Function to check if a response object comes with errors.</p>
+                    <tr>
+                      <td>request</td>
+                      <td>
+                        the request constant is an object of the Lion
+                        Request\Request class, it allows you to get the data
+                        captured through an HTTP request
+                      </td>
+                    </tr>
 
-                <CodeBlock
-                  langueage={"php"}
-                  content={"<?php\n\n" + "isError(success())); // return false"}
-                />
+                    <tr>
+                      <td>response</td>
+                      <td>
+                        the response constant is an object of the Lion
+                        Request\Response class, it allows you to generate
+                        responses of different types that the class provides
+                      </td>
+                    </tr>
+
+                    <tr>
+                      <td>json</td>
+                      <td>
+                        the json constant is an object of the LionRequest\Json
+                        class, it allows you to encode and decode JSON data
+                      </td>
+                    </tr>
+
+                    <tr>
+                      <td>env</td>
+                      <td>
+                        the env constant is an object that contains the
+                        properties of the environment variable file
+                      </td>
+                    </tr>
+
+                    <tr>
+                      <td>str</td>
+                      <td>
+                        the constant str is an object of class LionHelpers\Str,
+                        it allows you to access this helper and transform
+                        strings
+                      </td>
+                    </tr>
+
+                    <tr>
+                      <td>arr</td>
+                      <td>
+                        the constant arr is an object of class LionHelpers\Arr,
+                        it allows you to access this helper and transform arrays
+                      </td>
+                    </tr>
+
+                    <tr>
+                      <td>kernel</td>
+                      <td>
+                        the kernel constant is an object of class
+                        App\Console\Kernel, it allows you to execute commands
+                      </td>
+                    </tr>
+                  </tbody>
+                </Table>
               </div>
-            </Col>
+            </div>
+          </Tab>
 
-            <Col xs={12} sm={12}>
+          <Tab eventKey="functions-helpers" title="FUNCTIONS">
+            <div className="my-3">
+              <h2>FUNCTIONS</h2>
+              <hr />
+
               <div className="mb-3">
-                <h5 className="pb-2 text-warning">{"isSuccess"}</h5>
+                <Row>
+                  <Col xs={12} sm={12}>
+                    <div className="mb-3">
+                      <h5 className="pb-2 text-warning">{"jwt"}</h5>
 
-                <p>Function to check if a response object is successful.</p>
+                      <p>
+                        Function to check if a jwt is valid, returns an object
+                        (object) without the JWT exists and is valid
+                      </p>
 
-                <CodeBlock
-                  langueage={"php"}
-                  content={"<?php\n\n" + "isSuccess(error())); // return false"}
-                />
+                      <CodeBlock
+                        langueage={"php"}
+                        content={"<?php\n\n" + "$jwt = jwt();"}
+                      />
+                    </div>
+                  </Col>
+
+                  <Col xs={12} sm={12}>
+                    <div className="mb-3">
+                      <h5 className="pb-2 text-warning">{"isError"}</h5>
+
+                      <p>
+                        Function to check if a response object comes with
+                        errors.
+                      </p>
+
+                      <CodeBlock
+                        langueage={"php"}
+                        content={
+                          "<?php\n\n" + "isError(success())); // return false"
+                        }
+                      />
+                    </div>
+                  </Col>
+
+                  <Col xs={12} sm={12}>
+                    <div className="mb-3">
+                      <h5 className="pb-2 text-warning">{"isSuccess"}</h5>
+
+                      <p>
+                        Function to check if a response object is successful.
+                      </p>
+
+                      <CodeBlock
+                        langueage={"php"}
+                        content={
+                          "<?php\n\n" + "isSuccess(error())); // return false"
+                        }
+                      />
+                    </div>
+                  </Col>
+
+                  <Col xs={12} sm={12}>
+                    <div className="mb-3">
+                      <h5 className="pb-2 text-warning">fetch</h5>
+
+                      <p>
+                        The fetch helper allows you to make http requests,
+                        internally with guzzle http.
+                      </p>
+
+                      <CodeBlock
+                        langueage={"php"}
+                        content={"<?php\n\n" + "fetch('GET', 'my-url.com');"}
+                      />
+                    </div>
+                  </Col>
+
+                  <Col xs={12} sm={12}>
+                    <div className="mb-3">
+                      <h5 className="pb-2 text-warning">fetchXML</h5>
+
+                      <p>
+                        The get helper allows you to make http requests to get
+                        xml in String format, internally with http guzzle.
+                      </p>
+
+                      <CodeBlock
+                        langueage={"php"}
+                        content={"<?php\n\n" + "fetchXML('GET', 'my-url.com');"}
+                      />
+                    </div>
+                  </Col>
+
+                  <Col xs={12} sm={12}>
+                    <div className="mb-3">
+                      <h5 className="pb-2 text-warning">storage_path</h5>
+
+                      <p>
+                        The storage_path helper allows access to directories and
+                        files in the storage directory.
+                      </p>
+
+                      <CodeBlock
+                        langueage={"php"}
+                        content={
+                          "<?php\n\n" +
+                          "use LionFiles\\Store;\n\n" +
+                          "Store::view(storage_path('files/'));"
+                        }
+                      />
+                    </div>
+                  </Col>
+
+                  <Col xs={12} sm={12}>
+                    <div className="mb-3">
+                      <h5 className="pb-2 text-warning">finish</h5>
+
+                      <p>
+                        The finish helper ends the execution of all processes.
+                      </p>
+
+                      <CodeBlock
+                        langueage={"php"}
+                        content={
+                          "<?php\n\n" + "finish(success('my response'));"
+                        }
+                      />
+                    </div>
+                  </Col>
+
+                  <Col xs={12} sm={12}>
+                    <div className="mb-3">
+                      <h5 className="pb-2 text-warning">success</h5>
+
+                      <p>Function to display a success response.</p>
+
+                      <CodeBlock
+                        langueage={"php"}
+                        content={"<?php\n\n" + "return success('message');"}
+                      />
+                    </div>
+                  </Col>
+
+                  <Col xs={12} sm={12}>
+                    <div className="mb-3">
+                      <h5 className="pb-2 text-warning">error</h5>
+
+                      <p>Function to display a error response.</p>
+
+                      <CodeBlock
+                        langueage={"php"}
+                        content={"<?php\n\n" + "return error('message');"}
+                      />
+                    </div>
+                  </Col>
+
+                  <Col xs={12} sm={12}>
+                    <div className="mb-3">
+                      <h5 className="pb-2 text-warning">warning</h5>
+
+                      <p>Function to display a warning response.</p>
+
+                      <CodeBlock
+                        langueage={"php"}
+                        content={"<?php\n\n" + "return warning('message');"}
+                      />
+                    </div>
+                  </Col>
+
+                  <Col xs={12} sm={12}>
+                    <div className="mb-3">
+                      <h5 className="pb-2 text-warning">info</h5>
+
+                      <p>Function to display a info response.</p>
+
+                      <CodeBlock
+                        langueage={"php"}
+                        content={"<?php\n\n" + "return info('message');"}
+                      />
+                    </div>
+                  </Col>
+
+                  <Col xs={12} sm={12}>
+                    <div className="mb-3">
+                      <h5 className="pb-2 text-warning">vd</h5>
+
+                      <p>The helper vd executes the function var_dump.</p>
+
+                      <CodeBlock
+                        langueage={"php"}
+                        content={"<?php\n\n" + "vd(success('finished'));"}
+                      />
+                    </div>
+                  </Col>
+
+                  <Col xs={12} sm={12}>
+                    <div className="mb-3">
+                      <h5 className="pb-2 text-warning">json</h5>
+
+                      <p>The json helper converts any value to json.</p>
+
+                      <CodeBlock
+                        langueage={"php"}
+                        content={"<?php\n\n" + "json(['name' => 'Sleon']);"}
+                      />
+                    </div>
+                  </Col>
+
+                  <Col xs={12} sm={12}>
+                    <div className="mb-3">
+                      <h5 className="pb-2 text-warning">logger</h5>
+
+                      <p>
+                        The logger helper generates a log file stored in{" "}
+                        <strong>storage/logs/</strong> and implements Monolog
+                        internally.
+                      </p>
+
+                      <CodeBlock
+                        langueage={"php"}
+                        content={
+                          "<?php\n\n" +
+                          "logger('lorem ipsum dolor sit amet...'); // default info\n" +
+                          "logger('lorem ipsum dolor sit amet...', 'error');\n" +
+                          "logger('lorem ipsum dolor sit amet...', 'warning', ['name' => 'Sleon']);"
+                        }
+                      />
+                    </div>
+                  </Col>
+                </Row>
               </div>
-            </Col>
-
-            <Col xs={12} sm={12}>
-              <div className="mb-3">
-                <h5 className="pb-2 text-warning">fetch</h5>
-
-                <p>
-                  The fetch helper allows you to make http requests, internally
-                  with guzzle http.
-                </p>
-
-                <CodeBlock
-                  langueage={"php"}
-                  content={"<?php\n\n" + "fetch('GET', 'my-url.com');"}
-                />
-              </div>
-            </Col>
-
-            <Col xs={12} sm={12}>
-              <div className="mb-3">
-                <h5 className="pb-2 text-warning">fetchXML</h5>
-
-                <p>
-                  The get helper allows you to make http requests to get xml in
-                  String format, internally with http guzzle.
-                </p>
-
-                <CodeBlock
-                  langueage={"php"}
-                  content={"<?php\n\n" + "fetchXML('GET', 'my-url.com');"}
-                />
-              </div>
-            </Col>
-
-            <Col xs={12} sm={12}>
-              <div className="mb-3">
-                <h5 className="pb-2 text-warning">storage_path</h5>
-
-                <p>
-                  The storage_path helper allows access to directories and files
-                  in the storage directory.
-                </p>
-
-                <CodeBlock
-                  langueage={"php"}
-                  content={
-                    "<?php\n\n" +
-                    "use LionFiles\\Store;\n\n" +
-                    "Store::view(storage_path('files/'));"
-                  }
-                />
-              </div>
-            </Col>
-
-            <Col xs={12} sm={12}>
-              <div className="mb-3">
-                <h5 className="pb-2 text-warning">finish</h5>
-
-                <p>The finish helper ends the execution of all processes.</p>
-
-                <CodeBlock
-                  langueage={"php"}
-                  content={"<?php\n\n" + "finish(success('my response'));"}
-                />
-              </div>
-            </Col>
-
-            <Col xs={12} sm={12}>
-              <div className="mb-3">
-                <h5 className="pb-2 text-warning">success</h5>
-
-                <p>Function to display a success response.</p>
-
-                <CodeBlock
-                  langueage={"php"}
-                  content={"<?php\n\n" + "return success('message');"}
-                />
-              </div>
-            </Col>
-
-            <Col xs={12} sm={12}>
-              <div className="mb-3">
-                <h5 className="pb-2 text-warning">error</h5>
-
-                <p>Function to display a error response.</p>
-
-                <CodeBlock
-                  langueage={"php"}
-                  content={"<?php\n\n" + "return error('message');"}
-                />
-              </div>
-            </Col>
-
-            <Col xs={12} sm={12}>
-              <div className="mb-3">
-                <h5 className="pb-2 text-warning">warning</h5>
-
-                <p>Function to display a warning response.</p>
-
-                <CodeBlock
-                  langueage={"php"}
-                  content={"<?php\n\n" + "return warning('message');"}
-                />
-              </div>
-            </Col>
-
-            <Col xs={12} sm={12}>
-              <div className="mb-3">
-                <h5 className="pb-2 text-warning">info</h5>
-
-                <p>Function to display a info response.</p>
-
-                <CodeBlock
-                  langueage={"php"}
-                  content={"<?php\n\n" + "return info('message');"}
-                />
-              </div>
-            </Col>
-
-            <Col xs={12} sm={12}>
-              <div className="mb-3">
-                <h5 className="pb-2 text-warning">vd</h5>
-
-                <p>The helper vd executes the function var_dump.</p>
-
-                <CodeBlock
-                  langueage={"php"}
-                  content={"<?php\n\n" + "vd(success('finished'));"}
-                />
-              </div>
-            </Col>
-
-            <Col xs={12} sm={12}>
-              <div className="mb-3">
-                <h5 className="pb-2 text-warning">json</h5>
-
-                <p>The json helper converts any value to json.</p>
-
-                <CodeBlock
-                  langueage={"php"}
-                  content={"<?php\n\n" + "json(['name' => 'Sleon']);"}
-                />
-              </div>
-            </Col>
-
-            <Col xs={12} sm={12}>
-              <div className="mb-3">
-                <h5 className="pb-2 text-warning">logger</h5>
-
-                <p>
-                  The logger helper generates a log file stored in{" "}
-                  <strong>storage/logs/</strong> and implements Monolog
-                  internally.
-                </p>
-
-                <CodeBlock
-                  langueage={"php"}
-                  content={
-                    "<?php\n\n" +
-                    "logger('lorem ipsum dolor sit amet...'); // default info\n" +
-                    "logger('lorem ipsum dolor sit amet...', 'error');\n" +
-                    "logger('lorem ipsum dolor sit amet...', 'warning', ['name' => 'Sleon']);"
-                  }
-                />
-              </div>
-            </Col>
-          </Row>
-        </>
+            </div>
+          </Tab>
+        </Tabs>
       ),
     },
     rsa: {
@@ -1745,7 +2090,7 @@ export default function v14_7_0_FRM(mdText) {
             <Badge bg="warning">{"storage/"}</Badge>.
           </Alert>
 
-          <CodeBlock language={"bash"} content={"php lion key:rsa"} />
+          <CodeBlock language={"bash"} content={"php lion rsa:new"} />
 
           <p>
             You can select a different folder than the selected one from the
@@ -1755,7 +2100,7 @@ export default function v14_7_0_FRM(mdText) {
 
           <CodeBlock
             language={"bash"}
-            content={"php lion key:rsa --path keys-user-1/"}
+            content={"php lion rsa:new --path keys-user-1/"}
           />
         </>
       ),
@@ -1779,42 +2124,108 @@ export default function v14_7_0_FRM(mdText) {
             are set from the environment variables.
           </p>
 
-          <CodeBlock language={"bash"} content={"php lion key:aes"} />
+          <CodeBlock language={"bash"} content={"php lion aes:new"} />
+        </>
+      ),
+    },
+    test: {
+      name: "Test",
+      code: (
+        <>
+          <h2 className="pb-2">TESTING</h2>
+          <hr />
+
+          <p>
+            Add to your web application with <strong>Lion-Framework</strong>{" "}
+            test to perform the necessary quality checks of your system, the
+            tests are implemented with the help of{" "}
+            <a
+              href="https://phpunit.de/"
+              target="_blank"
+              className="text-decoration-none"
+            >
+              PHPUnit
+            </a>
+            .
+          </p>
+
+          <CodeBlock language={"bash"} content={"php lion new:test TestName"} />
         </>
       ),
     },
     examples: {
       name: "Examples",
       code: (
-        <div>
-          <h2>DEVELOPMENT EXAMPLES</h2>
-          <hr />
+        <>
+          <div>
+            <h2>DEVELOPMENT EXAMPLES</h2>
+            <hr />
 
-          <div className="mb-3">
-            <h5>#1 CHAT</h5>
+            <Row>
+              {[
+                {
+                  title: "CHAT",
+                  desc: "Development of a practical example of the use of Lion-Framework and ReactJS to carry out a real-time chat.",
+                  buttons: (
+                    <>
+                      <GithubButton
+                        url={"https://github.com/Sleon4/chat-php"}
+                        variantButton={"outline-light"}
+                        className="me-4"
+                      >
+                        <DiPhp className="ms-2" size={"2em"} />
+                      </GithubButton>
 
-            <p>
-              Development of a practical example of the use of Lion-Framework
-              and ReactJS to carry out a real-time chat.
-            </p>
+                      <GithubButton
+                        url={"https://github.com/Sleon4/chat-react"}
+                        variantButton={"outline-light"}
+                      >
+                        <FaReact className="ms-2" size={"2em"} />
+                        <SiVite className="ms-2" size={"2em"} />
+                      </GithubButton>
+                    </>
+                  ),
+                },
+                {
+                  title: "BASIC-CRUD",
+                  desc: "Basic CRUD implemented with Lion-Framework (v14.11.0) ReactJS (VITE v4.3.9) and MySQL (v8.0).",
+                  buttons: (
+                    <>
+                      <GithubButton
+                        url={"https://github.com/Sleon4/basic-crud-php"}
+                        variantButton={"outline-light"}
+                        className="me-4"
+                      >
+                        <DiPhp className="ms-2" size={"2em"} />
+                      </GithubButton>
 
-            <GithubButton
-              url={"https://github.com/Sleon4/chat-php"}
-              variantButton={"outline-light"}
-              className="me-4"
-            >
-              <DiPhp className="ms-2" size={"2em"} />
-            </GithubButton>
+                      <GithubButton
+                        url={"https://github.com/Sleon4/basic-crud-reactjs"}
+                        variantButton={"outline-light"}
+                      >
+                        <FaReact className="ms-2" size={"2em"} />
+                        <SiVite className="ms-2" size={"2em"} />
+                      </GithubButton>
+                    </>
+                  ),
+                },
+              ].map((card, index) => (
+                <Col key={index} sm={12} md={6} lg={6} className="mx-auto mb-3">
+                  <Card bg="dark-logo" className="border border-secondary">
+                    <Card.Header className="border-bottom border-secondary">
+                      {card.title}
+                    </Card.Header>
 
-            <GithubButton
-              url={"https://github.com/Sleon4/chat-react"}
-              variantButton={"outline-light"}
-            >
-              <FaReact className="ms-2" size={"2em"} />
-              <SiVite className="ms-2" size={"2em"} />
-            </GithubButton>
+                    <Card.Body>
+                      <Card.Text>{card.desc}</Card.Text>
+                      {card.buttons}
+                    </Card.Body>
+                  </Card>
+                </Col>
+              ))}
+            </Row>
           </div>
-        </div>
+        </>
       ),
     },
   };
