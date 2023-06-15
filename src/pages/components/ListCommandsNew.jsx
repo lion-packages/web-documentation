@@ -28,6 +28,24 @@ function ListCommandsNew() {
 
   return (
     <div className="mb-3">
+      <div className="mb-3">
+        <p>
+          <h6>{"argument"}</h6>
+          <i className={"bi bi-arrow-right-short me-0 text-info"}>{"arg"}</i>
+        </p>
+
+        <p>
+          <h6>{"options"}</h6>
+
+          <i className={"bi bi-arrow-right-short me-0 text-success"}>
+            {"--option"}
+          </i>
+          <i className={"bi bi-arrow-right-short me-0 text-success"}>{"-o"}</i>
+        </p>
+      </div>
+
+      <hr />
+
       {Content().commands[item_version].map((item, index) => (
         <Table size="sm" variant="dark" responsive key={index} hover>
           <thead>
