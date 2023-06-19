@@ -58,6 +58,11 @@ function FrameworkContent() {
             language={"bash"}
             content={"composer create-project lion/framework"}
           />
+
+          <CodeBlock
+            language={"bash"}
+            content={"git clone https://github.com/Sleon4/Lion-Framework.git"}
+          />
         </div>
 
         <hr />
