@@ -132,7 +132,9 @@ export default function v14_21_0_FRM(mdText) {
                   "\t&& docker-php-ext-install zip \\ \n" +
                   "\t&& docker-php-ext-install gd \\ \n" +
                   "\t&& docker-php-ext-install pdo_mysql \\ \n" +
-                  "\t&& docker-php-ext-install mysqli\n\n" +
+                  "\t&& docker-php-ext-install mysqli \\ \n" +
+                  "\t&& docker-php-ext-enable gd \\ \n" +
+                  "\t&& docker-php-ext-enable zip\n\n" +
                   "COPY . . \n" +
                   "COPY supervisord.conf /etc/supervisor/conf.d/supervisord.conf\n\n" +
                   "RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer \n" +
