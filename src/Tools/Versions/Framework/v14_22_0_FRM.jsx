@@ -26,7 +26,7 @@ import permissions_sh from "./../../../assets/img/docker/permissions-sh.png";
 import etc_data from "./../../../assets/img/docker/etc-data.png";
 import crontab_edit from "./../../../assets/img/docker/crontab-edit.png";
 
-export default function v14_14_0_FRM(mdText) {
+export default function v14_22_0_FRM(mdText) {
   return {
     changelog: {
       name: "Changelog",
@@ -62,7 +62,7 @@ export default function v14_14_0_FRM(mdText) {
                 content={
                   "<?php\n\n" +
                   "return [\n" +
-                  "\t'app' => [\n\t\t// \\App\\Console\\Commands\\MyCommandCommand::class;\n\t];\n" +
+                  "\t'app' => [\n\t\t// \\App\\Console\\Commands\\MyCommandCommand::class\n\t];\n" +
                   "..."
                 }
               />
@@ -74,14 +74,16 @@ export default function v14_14_0_FRM(mdText) {
               <h2>EXECUTE COMMANDS</h2>
               <hr />
 
-              <p>Execute commands through the Kernel class.</p>
+              <p>execute commands with the command and execute functions.</p>
 
               <CodeBlock
                 language={"php"}
-                content={
-                  "<?php\n\n" +
-                  "App\\Console\\Kernel::getInstance()->execute('php lion serve');"
-                }
+                content={"<?php\n\n" + "kernel->execute('php lion db:show');"}
+              />
+
+              <CodeBlock
+                language={"php"}
+                content={"<?php\n\n" + "kernel->command('db:show');"}
               />
             </div>
           </Tab>
@@ -91,129 +93,218 @@ export default function v14_14_0_FRM(mdText) {
     docker: {
       name: "Docker",
       code: (
-        <>
-          <div className="mb-3">
-            <h2>DOCKER</h2>
+        <Tabs defaultActiveKey="files" id="docker" fill>
+          <Tab eventKey="files" title="FILES">
+            <div className="my-3">
+              <h2>DOCKER FILES</h2>
+              <hr />
 
-            <p>
-              Add the <strong>Dockerfile</strong> and{" "}
-              <strong>docker-compose.yml</strong> to the root of the project, to
-              create the container you must execute the command{" "}
-              <strong>docker-compose up</strong>.
-            </p>
+              <p>
+                Add the <strong>Dockerfile</strong> and{" "}
+                <strong>docker-compose.yml</strong> to the root of the project,
+                to create the container you must execute the command{" "}
+                <strong>docker-compose up</strong>.
+              </p>
 
-            <CodeBlock
-              language={"dockerfile"}
-              content={
-                "# Dockerfile \n" +
-                "FROM php:8.2-apache \n" +
-                "ARG DEBIAN_FRONTEND=noninteractive \n\n" +
-                "RUN apt-get update  \n" +
-                "\t&& apt-get install -y sudo \\ \n" +
-                "\t&& apt-get install -y nano \\ \n" +
-                "\t&& apt-get install -y cron \\ \n" +
-                "\t&& apt-get install -y sendmail libpng-dev \\ \n" +
-                "\t&& apt-get install -y libzip-dev \\ \n" +
-                "\t&& apt-get install -y zlib1g-dev \\ \n" +
-                "\t&& apt-get install -y libonig-dev \\ \n" +
-                "\t&& apt-get install -y supervisor \\ \n" +
-                "\t&& apt-get install -y libevent-dev \\ \n" +
-                "\t&& rm -rf /var/lib/apt/lists/*  \n" +
-                "\t&& docker-php-ext-install zip \n\n" +
-                "RUN docker-php-ext-install mbstring \n" +
-                "RUN docker-php-ext-install zip \n" +
-                "RUN docker-php-ext-install gd \n" +
-                "RUN docker-php-ext-install pdo_mysql \n" +
-                "RUN docker-php-ext-install mysqli \n\n" +
-                "COPY . . \n\n" +
-                "RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer \n" +
-                "RUN a2enmod rewrite \n\n" +
-                "CMD composer install \n" +
-                "CMD php lion serve --host 0.0.0.0 --port 8000 \n" +
-                "EXPOSE 8000"
-              }
-            />
+              <CodeBlock
+                language={"dockerfile"}
+                content={
+                  "# Dockerfile \n" +
+                  "FROM php:8.2-apache \n" +
+                  "ARG DEBIAN_FRONTEND=noninteractive \n\n" +
+                  "RUN apt-get update \\ \n" +
+                  "\t&& apt-get install -y git \\ \n" +
+                  "\t&& apt-get install -y unzip \\ \n" +
+                  "\t&& apt-get install -y sudo \\ \n" +
+                  "\t&& apt-get install -y nano \\ \n" +
+                  "\t&& apt-get install -y cron \\ \n" +
+                  "\t&& apt-get install -y sendmail \\ \n" +
+                  "\t&& apt-get install -y libpng-dev \\ \n" +
+                  "\t&& apt-get install -y libzip-dev \\ \n" +
+                  "\t&& apt-get install -y zlib1g-dev \\ \n" +
+                  "\t&& apt-get install -y libonig-dev \\ \n" +
+                  "\t&& apt-get install -y supervisor \\ \n" +
+                  "\t&& apt-get install -y libevent-dev \\ \n" +
+                  "\t&& apt-get install -y curl \\ \n" +
+                  "\t&& apt-get install -y libssl-dev \\ \n" +
+                  "\t&& rm -rf /var/lib/apt/lists/*\n\n" +
+                  "RUN pecl install ev\n\n" +
+                  "RUN docker-php-ext-install mbstring \\ \n" +
+                  "\t&& docker-php-ext-install zip \\ \n" +
+                  "\t&& docker-php-ext-install gd \\ \n" +
+                  "\t&& docker-php-ext-install pdo_mysql \\ \n" +
+                  "\t&& docker-php-ext-install mysqli \\ \n" +
+                  "\t&& docker-php-ext-enable gd \\ \n" +
+                  "\t&& docker-php-ext-enable zip\n\n" +
+                  "COPY . . \n" +
+                  "COPY supervisord.conf /etc/supervisor/conf.d/supervisord.conf\n\n" +
+                  "RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer \n" +
+                  "RUN a2enmod rewrite \n\n" +
+                  "CMD composer install && /usr/bin/supervisord -c /etc/supervisor/conf.d/supervisord.conf \n\n" +
+                  "EXPOSE 8000"
+                }
+              />
 
-            <CodeBlock
-              language={"yaml"}
-              content={
-                "# docker-compose.yml \n" +
-                'version: "3.8"\n' +
-                "services:\n" +
-                "\tapp:\n" +
-                "\t\tcontainer_name: lion-framework-app\n" +
-                "\t\tbuild:\n" +
-                "\t\t\tcontext: .\n" +
-                "\t\t\tdockerfile: Dockerfile\n" +
-                "\t\tenv_file:\n" +
-                "\t\t\t- .env\n" +
-                "\t\tports:\n" +
-                '\t\t\t- "8000:8000"\n' +
-                "\t\tvolumes:\n" +
-                "\t\t\t- ./:/var/www/html\n" +
-                "\t\tdepends_on:\n" +
-                "\t\t\t- db\n" +
-                "\t\tnetworks:\n" +
-                "\t\t\t- lion\n" +
-                "\tdb:\n" +
-                "\t\timage: mysql\n" +
-                "\t\tcontainer_name: lion-framework-mysql\n" +
-                "\t\tcommand: --default-authentication-plugin=mysql_native_password\n" +
-                "\t\tenvironment:\n" +
-                "\t\t\tMYSQL_DATABASE: ${DB_NAME}\n" +
-                "\t\t\tMYSQL_PASSWORD: ${DB_PASSWORD}\n" +
-                "\t\t\tMYSQL_ROOT_PASSWORD: ${DB_PASSWORD}\n" +
-                "\t\tports:\n" +
-                '\t\t\t- "3306:3306"\n' +
-                "\t\tvolumes:\n" +
-                "\t\t\t- db_data:/var/lib/mysql\n" +
-                "\t\tnetworks:\n" +
-                "\t\t\t- lion\n" +
-                "\tphpmyadmin:\n" +
-                "\t\timage: phpmyadmin/phpmyadmin\n" +
-                "\t\tcontainer_name: lion-framework-phpmyadmin\n" +
-                "\t\tlinks:\n" +
-                "\t\t\t- db:db\n" +
-                "\t\tports:\n" +
-                '\t\t\t- "8080:80"\n' +
-                "\t\tenvironment:\n" +
-                "\t\t\tMYSQL_USER: ${DB_USER}\n" +
-                "\t\t\tMYSQL_PASSWORD: ${DB_PASSWORD}\n" +
-                "\t\t\tMYSQL_ROOT_PASSWORD: ${DB_PASSWORD}\n" +
-                "\t\tnetworks:\n" +
-                "\t\t\t- lion\n" +
-                "volumes:\n" +
-                "\tdb_data:\n" +
-                "networks:\n" +
-                "\tlion:"
-              }
-            />
+              <CodeBlock
+                language={"yaml"}
+                content={
+                  "# docker-compose.yml \n" +
+                  'version: "3.8"\n' +
+                  "services:\n" +
+                  "\tapp:\n" +
+                  "\t\tcontainer_name: lion-framework-app\n" +
+                  "\t\tbuild:\n" +
+                  "\t\t\tcontext: .\n" +
+                  "\t\t\tdockerfile: Dockerfile\n" +
+                  "\t\tenv_file:\n" +
+                  "\t\t\t- .env\n" +
+                  "\t\tports:\n" +
+                  '\t\t\t- "8000:8000"\n' +
+                  '\t\t\t- "5173:5173"\n' +
+                  "\t\tvolumes:\n" +
+                  "\t\t\t- ./:/var/www/html\n" +
+                  "\t\tdepends_on:\n" +
+                  "\t\t\t- db\n" +
+                  "\t\tnetworks:\n" +
+                  "\t\t\t- lion\n" +
+                  "\tdb:\n" +
+                  "\t\timage: mysql\n" +
+                  "\t\tcontainer_name: lion-framework-mysql\n" +
+                  "\t\tcommand: --default-authentication-plugin=mysql_native_password\n" +
+                  "\t\tenvironment:\n" +
+                  "\t\t\tMYSQL_DATABASE: ${DB_NAME}\n" +
+                  "\t\t\tMYSQL_PASSWORD: ${DB_PASSWORD}\n" +
+                  "\t\t\tMYSQL_ROOT_PASSWORD: ${DB_PASSWORD}\n" +
+                  "\t\tports:\n" +
+                  '\t\t\t- "3306:3306"\n' +
+                  "\t\tvolumes:\n" +
+                  "\t\t\t- db_data:/var/lib/mysql\n" +
+                  "\t\tnetworks:\n" +
+                  "\t\t\t- lion\n" +
+                  "\tphpmyadmin:\n" +
+                  "\t\timage: phpmyadmin/phpmyadmin\n" +
+                  "\t\tcontainer_name: lion-framework-phpmyadmin\n" +
+                  "\t\tlinks:\n" +
+                  "\t\t\t- db:db\n" +
+                  "\t\tports:\n" +
+                  '\t\t\t- "8080:80"\n' +
+                  "\t\tenvironment:\n" +
+                  "\t\t\tMYSQL_USER: ${DB_USER}\n" +
+                  "\t\t\tMYSQL_PASSWORD: ${DB_PASSWORD}\n" +
+                  "\t\t\tMYSQL_ROOT_PASSWORD: ${DB_PASSWORD}\n" +
+                  "\t\tnetworks:\n" +
+                  "\t\t\t- lion\n" +
+                  "volumes:\n" +
+                  "\tdb_data:\n" +
+                  "networks:\n" +
+                  "\tlion:"
+                }
+              />
 
-            <p>
-              The host of the connection to the databases must be established
-              with the value <strong>DB_HOST=db</strong>
-            </p>
+              <CodeBlock
+                language={"ini"}
+                content={
+                  "# supervisord.conf\n" +
+                  "[supervisord]\n" +
+                  "user=root\n" +
+                  "nodaemon=true\n" +
+                  "logfile=/var/www/html/storage/logs/supervisord/supervisord.log\n\n" +
+                  "[program:web-server]\n" +
+                  "command=php lion serve --host 0.0.0.0 --port 8000\n" +
+                  "directory=/var/www/html\n" +
+                  "autostart=true\n" +
+                  "autorestart=true\n" +
+                  "redirect_stderr=true\n" +
+                  "stdout_logfile=/var/www/html/storage/logs/server/web-server.log\n\n" +
+                  "; [program:socket-notifications]\n" +
+                  "; command=php lion socket:serve NotificationsSocket\n" +
+                  "; directory=/var/www/html\n" +
+                  "; autostart=true\n" +
+                  "; autorestart=true\n" +
+                  "; redirect_stderr=true\n" +
+                  "; stdout_logfile=/var/www/html/storage/logs/sockets/socket.log"
+                }
+              />
+            </div>
+          </Tab>
 
-            <CodeBlock
-              language={"bash"}
-              content={
-                "##################################################### \n" +
-                "### DATABASE CONNECTIONS ------------------------ ### \n" +
-                "##################################################### \n" +
-                'DB_TYPE="mysql" \n' +
-                "DB_HOST=db \n" +
-                "DB_PORT=3306 \n" +
-                'DB_NAME="lion_database" \n' +
-                'DB_USER="root" \n' +
-                'DB_PASSWORD="lion-framework"'
-              }
-            />
+          <Tab eventKey="config" title="CONFIG">
+            <div className="my-3">
+              <h2>DOCKER CONFIG</h2>
+              <hr />
 
-            <p>run the container</p>
+              <div className="mb-3">
+                <h5 className="text-warning">DOCKER-COMPOSE</h5>
 
-            <CodeBlock language={"bash"} content={"docker-compose up"} />
-          </div>
-        </>
+                <p>
+                  If sockets were configured to run with Docker, you must expose
+                  in the "services: app" the port of the sockets to be listened
+                  on.
+                </p>
+
+                <CodeBlock
+                  language={"yaml"}
+                  content={
+                    "# docker-compose.yml \n" +
+                    'version: "3.8"\n' +
+                    "services:\n" +
+                    "\tapp:\n" +
+                    "\t\tcontainer_name: lion-framework-app\n" +
+                    "\t\tbuild:\n" +
+                    "\t\t\tcontext: .\n" +
+                    "\t\t\tdockerfile: Dockerfile\n" +
+                    "\t\tenv_file:\n" +
+                    "\t\t\t- .env\n" +
+                    "\t\tports:\n" +
+                    '\t\t\t- "8000:8000"\n' +
+                    '\t\t\t- "8090:8090" # sockert port\n' +
+                    "\t\tvolumes:\n" +
+                    "\t\t\t- ./:/var/www/html\n" +
+                    "\t\tdepends_on:\n" +
+                    "\t\t\t- db\n" +
+                    "\t\tnetworks:\n" +
+                    "\t\t\t- lion"
+                  }
+                />
+              </div>
+
+              <div className="mb-3">
+                <h5 className="text-warning">ENV</h5>
+
+                <p>
+                  The host of the connection to the databases must be
+                  established with the value <strong>DB_HOST=db</strong>
+                </p>
+
+                <CodeBlock
+                  language={"bash"}
+                  content={
+                    "##################################################### \n" +
+                    "### DATABASE CONNECTIONS ------------------------ ### \n" +
+                    "##################################################### \n" +
+                    'DB_TYPE="mysql" \n' +
+                    "DB_HOST=db \n" +
+                    "DB_PORT=3306 \n" +
+                    'DB_NAME="lion_database" \n' +
+                    'DB_USER="root" \n' +
+                    'DB_PASSWORD="lion-framework"'
+                  }
+                />
+              </div>
+            </div>
+          </Tab>
+
+          <Tab eventKey="run" title="RUN">
+            <div className="my-3">
+              <h2>RUN DOCKER</h2>
+              <hr />
+
+              <p>run the container</p>
+
+              <CodeBlock language={"bash"} content={"docker-compose up"} />
+            </div>
+          </Tab>
+        </Tabs>
       ),
     },
     cron: {
@@ -392,100 +483,116 @@ export default function v14_14_0_FRM(mdText) {
     database: {
       name: "Database",
       code: (
-        <>
-          <div className="mb-3">
-            <h2 className="pb-2">DATABASE CONNECTION</h2>
+        <Tabs defaultActiveKey="config" id="database" fill>
+          <Tab eventKey="config" title="CONFIG">
+            <div className="my-3">
+              <h2 className="pb-2">DATABASE CONFIG</h2>
+              <hr />
 
-            <hr />
+              <p>
+                To make a direct connection to the database, go to{" "}
+                <Badge bg="secondary">config/database.php</Badge>, for more
+                information read{" "}
+                <Link
+                  to={"/libraries/lion/sql/index"}
+                  className="text-decoration-none"
+                >
+                  Lion-SQL
+                </Link>
+                .
+              </p>
 
-            <p>
-              To make a direct connection to the database, go to{" "}
-              <Badge bg="secondary">config/database.php</Badge>, for more
-              information read{" "}
-              <Link
-                to={"/libraries/lion/sql/index"}
-                className="text-decoration-none"
-              >
-                Lion-SQL
-              </Link>
-              .
-            </p>
+              <CodeBlock
+                language={"php"}
+                content={
+                  "<?php\n\n" +
+                  "return [\n" +
+                  "\t'default' => 'first_connection',\n" +
+                  "\t'connections' => [\n" +
+                  "\t\t'first_connection' => [\n" +
+                  "\t\t\t'type' => 'mysql',\n" +
+                  "\t\t\t'host' => '127.0.0.1',\n" +
+                  "\t\t\t'port' => 3306,\n" +
+                  "\t\t\t'dbname' => 'example_1',\n" +
+                  "\t\t\t'user' => 'root',\n" +
+                  "\t\t\t'password' => ''\n" +
+                  "\t\t],\n" +
+                  "\t]\n" +
+                  "];"
+                }
+              />
+            </div>
+          </Tab>
 
-            <CodeBlock
-              language={"php"}
-              content={
-                "<?php\n\n" +
-                "return [\n" +
-                "\t'default' => 'first_connection',\n" +
-                "\t'connections' => [\n" +
-                "\t\t'first_connection' => [\n" +
-                "\t\t\t'type' => 'mysql',\n" +
-                "\t\t\t'host' => '127.0.0.1',\n" +
-                "\t\t\t'port' => 3306,\n" +
-                "\t\t\t'dbname' => 'example_1',\n" +
-                "\t\t\t'user' => 'root',\n" +
-                "\t\t\t'password' => ''\n" +
-                "\t\t],\n" +
-                "\t]\n" +
-                "];"
-              }
-            />
-          </div>
+          <Tab eventKey="show" title="SHOW">
+            <div className="my-3">
+              <h2 className="pb-2">SHOW DATABASE CONNECTIONS</h2>
+              <hr />
 
-          <div className="mb-3">
-            <h2 className="pb-2">SHOW DATABASE CONNECTIONS</h2>
-            <p>View all available database connections.</p>
-            <CodeBlock language={"bash"} content={"php lion db:show"} />
-          </div>
-        </>
+              <p>View all available database connections.</p>
+              <CodeBlock language={"bash"} content={"php lion db:show"} />
+            </div>
+          </Tab>
+        </Tabs>
       ),
     },
     email: {
       name: "Email",
       code: (
-        <>
-          <div className="mb-3">
-            <h2 className="pb-2">MAIL ACCOUNTS</h2>
+        <Tabs defaultActiveKey="config" id="email" fill>
+          <Tab eventKey="config" title="CONFIG">
+            <div className="my-3">
+              <h2>MAIL CONFIG</h2>
+              <hr />
 
-            <hr />
+              <p>
+                To send mail with different accounts you need to add the
+                accounts and add the service, go to{" "}
+                <Badge bg="secondary">config/email.php</Badge>, for more
+                information, read{" "}
+                <Link
+                  to={"/libraries/lion/mailer/index"}
+                  className="text-decoration-none"
+                >
+                  Lion-Mailer
+                </Link>
+                .
+              </p>
 
-            <p>
-              To send mail with different accounts you need to add the accounts
-              and add the service, go to{" "}
-              <Badge bg="secondary">config/email.php</Badge>, for more
-              information, read{" "}
-              <Link
-                to={"/libraries/lion/mailer/index"}
-                className="text-decoration-none"
-              >
-                Lion-Mailer
-              </Link>
-              .
-            </p>
+              <CodeBlock
+                language={"php"}
+                content={
+                  "<?php\n\n" +
+                  "return [\n" +
+                  "\t'default' => 'support',\n" +
+                  "\t'accounts' => [\n" +
+                  "\t\t'support' => [\n" +
+                  "\t\t\t'services' => ['symfony', 'phpmailer'],\n" +
+                  "\t\t\t'debug' => 0,\n" +
+                  "\t\t\t'host' => 'smtp.office365.com',\n" +
+                  "\t\t\t'encryption' => 'tls',\n" +
+                  "\t\t\t'port' => 587,\n" +
+                  "\t\t\t'name' => 'Sleon - Support',\n" +
+                  "\t\t\t'account' => 'sleon-support@outlook.com',\n" +
+                  "\t\t\t'password' => 'my_password'\n" +
+                  "\t\t]\n" +
+                  "\t],\n" +
+                  "];"
+                }
+              />
+            </div>
+          </Tab>
 
-            <CodeBlock
-              language={"php"}
-              content={
-                "<?php\n\n" +
-                "return [\n" +
-                "\t'default' => 'support',\n" +
-                "\t'accounts' => [\n" +
-                "\t\t'support' => [\n" +
-                "\t\t\t'services' => ['symfony', 'phpmailer'],\n" +
-                "\t\t\t'debug' => 0,\n" +
-                "\t\t\t'host' => 'smtp.office365.com',\n" +
-                "\t\t\t'encryption' => 'tls',\n" +
-                "\t\t\t'port' => 587,\n" +
-                "\t\t\t'name' => 'Sleon - Support',\n" +
-                "\t\t\t'account' => 'sleon-support@outlook.com',\n" +
-                "\t\t\t'password' => 'my_password'\n" +
-                "\t\t]\n" +
-                "\t],\n" +
-                "];"
-              }
-            />
-          </div>
-        </>
+          <Tab eventKey="show" title="SHOW">
+            <div className="my-3">
+              <h2>SHOW ACCOUNTS</h2>
+              <hr />
+
+              <p>View the accounts available in the system.</p>
+              <CodeBlock language={"bash"} content={"php lion email:show"} />
+            </div>
+          </Tab>
+        </Tabs>
       ),
     },
     cors: {
@@ -519,6 +626,116 @@ export default function v14_14_0_FRM(mdText) {
             />
           </div>
         </>
+      ),
+    },
+    resource: {
+      name: "Resources",
+      code: (
+        <Tabs defaultActiveKey="new" id="resources" fill>
+          <Tab eventKey="new" title="NEW">
+            <div className="my-3">
+              <h2>CREATE RESOURCES</h2>
+              <hr />
+
+              <p>
+                Resources allow you to create simple web pages using the twig
+                templating engine (symfony), resources are created with a unique
+                folder name, when initialized it should call the resource name
+                assigned to the folder, resources are stored in{" "}
+                <Badge bg="secondary">{"resources/"}</Badge>.
+              </p>
+
+              <p>
+                By default a resource is already installed that allows you to
+                use basic functions of the integrated terminal from the web
+                (http:127.0.0.1:5173)
+              </p>
+
+              <CodeBlock
+                language={"bash"}
+                content={"php lion resource:new resource_name"}
+              />
+            </div>
+          </Tab>
+
+          <Tab eventKey="use" title="USE">
+            <div className="my-3">
+              <h2>USE RESOURCES</h2>
+              <hr />
+
+              <div className="mb-3">
+                <p>
+                  Add the resource to the supervisord to run with the container.
+                  If there is an error for not finding the log files, you can
+                  create them in the respective paths described in
+                  stdout_logfile
+                </p>
+
+                <p>
+                  By default a resource is already installed that allows you to
+                  use basic functions of the integrated terminal from the web
+                  (http:127.0.0.1:5173)
+                </p>
+
+                <CodeBlock
+                  language={"ini"}
+                  content={
+                    "# supervisord.conf\n" +
+                    "[supervisord]\n" +
+                    "user=root\n" +
+                    "nodaemon=true\n" +
+                    "logfile=/var/www/html/storage/logs/supervisord/supervisord.log\n\n" +
+                    "[program:web-server]\n" +
+                    "command=php lion serve --host 0.0.0.0 --port 8000\n" +
+                    "directory=/var/www/html\n" +
+                    "autostart=true\n" +
+                    "autorestart=true\n" +
+                    "redirect_stderr=true\n" +
+                    "stdout_logfile=/var/www/html/storage/logs/server/web-server.log\n\n" +
+                    "[program:resource-example]\n" +
+                    "command=php lion resource:serve resource_name --host 0.0.0.0 --port 5173\n" +
+                    "directory=/var/www/html\n" +
+                    "autostart=true\n" +
+                    "autorestart=true\n" +
+                    "redirect_stderr=true\n" +
+                    "stdout_logfile=/var/www/html/storage/logs/resources/resource-example.log"
+                  }
+                />
+              </div>
+
+              <div className="mb-3">
+                <p>
+                  Add the port in the docker-compose.yml file configuration.
+                </p>
+
+                <CodeBlock
+                  language={"yaml"}
+                  content={
+                    "# docker-compose.yml \n" +
+                    'version: "3.8"\n' +
+                    "services:\n" +
+                    "\tapp:\n" +
+                    "\t\tcontainer_name: lion-framework-app\n" +
+                    "\t\tbuild:\n" +
+                    "\t\t\tcontext: .\n" +
+                    "\t\t\tdockerfile: Dockerfile\n" +
+                    "\t\tenv_file:\n" +
+                    "\t\t\t- .env\n" +
+                    "\t\tports:\n" +
+                    '\t\t\t- "8000:8000"\n' +
+                    '\t\t\t- "5173:5173" # resource port\n' +
+                    "\t\tvolumes:\n" +
+                    "\t\t\t- ./:/var/www/html\n" +
+                    "\t\tdepends_on:\n" +
+                    "\t\t\t- db\n" +
+                    "\t\tnetworks:\n" +
+                    "\t\t\t- lion"
+                  }
+                />
+              </div>
+            </div>
+          </Tab>
+        </Tabs>
       ),
     },
     request: {
@@ -718,20 +935,40 @@ export default function v14_14_0_FRM(mdText) {
               </p>
 
               <ul className="mb-3" style={{ listStyle: "none" }}>
-                <li>
-                  <strong>[0]</strong> TABLE
-                </li>
-
-                <li>
-                  <strong>[1]</strong> VIEW
-                </li>
-
-                <li>
-                  <strong>[2]</strong> PROCEDURE
-                </li>
+                <li>TABLE</li>
+                <li>VIEW</li>
+                <li>PROCEDURE</li>
               </ul>
 
-              <CodeBlock language={"bash"} content={"php lion migrate:new"} />
+              <CodeBlock
+                language={"bash"}
+                content={"php lion migrate:new example_migrate my_connection"}
+              />
+
+              <CodeBlock
+                language={"bash"}
+                content={
+                  "php lion migrate:new example_migrate my_connection --type PROCEDURE"
+                }
+              />
+            </div>
+          </Tab>
+
+          <Tab eventKey="generate-migrations" title="GENERATE">
+            <div className="my-3">
+              <h2>GENERATE MIGRATION</h2>
+              <hr />
+
+              <p>
+                Generate all the migrations you have from an existing database
+                with one command, the generated migrations are unique to tables
+                that are in the database.
+              </p>
+
+              <CodeBlock
+                language={"bash"}
+                content={"php lion migrate:generate"}
+              />
             </div>
           </Tab>
 
@@ -899,6 +1136,11 @@ export default function v14_14_0_FRM(mdText) {
 
               <CodeBlock
                 language={"bash"}
+                content={"php lion db:all-rules my_table"}
+              />
+
+              <CodeBlock
+                language={"bash"}
                 content={"php lion db:rules my_table"}
               />
 
@@ -946,8 +1188,10 @@ export default function v14_14_0_FRM(mdText) {
               content={
                 "<?php\n\n" +
                 "return [\n" +
-                "\t'/api/auth/signin' => [\n" +
-                "\t\tApp\\Rules\\EmailRule::class\n" +
+                "\t'POST' => [\n" +
+                "\t\t'/api/auth/signin' => [\n" +
+                "\t\t\tApp\\Rules\\EmailRule::class\n" +
+                "\t\t]\n" +
                 "\t]\n" +
                 "];"
               }
@@ -960,11 +1204,13 @@ export default function v14_14_0_FRM(mdText) {
               content={
                 "<?php\n\n" +
                 "return [\n" +
-                "\t'/api/auth/signin' => [\n" +
-                "\t\tApp\\Rules\\EmailRule::class\n" +
-                "\t]\n" +
-                "\t'/api/create-users' => [\n" +
-                "\t\tApp\\Rules\\EmailRule::class\n" +
+                "\t'POST' => [\n" +
+                "\t\t'/api/auth/signin' => [\n" +
+                "\t\t\tApp\\Rules\\EmailRule::class\n" +
+                "\t\t],\n" +
+                "\t\t'/api/users/update/{idusers}' => [\n" +
+                "\t\t\tApp\\Rules\\EmailRule::class\n" +
+                "\t\t]\n" +
                 "\t]\n" +
                 "];"
               }
@@ -1178,12 +1424,18 @@ export default function v14_14_0_FRM(mdText) {
           </p>
 
           <CodeBlock
-            language={"php"}
+            langueage={"php"}
             content={
               "<?php\n\n" +
-              "// routes/rules.php\n\n" +
               "return [\n" +
-              "\t'/api/auth/login' => [\\App\\Rules\\MyRuleExample::class]\n" +
+              "\t'POST' => [\n" +
+              "\t\t'/api/auth/signin' => [\n" +
+              "\t\t\tApp\\Rules\\EmailRule::class\n" +
+              "\t\t],\n" +
+              "\t\t'/api/users/update/{idusers}' => [\n" +
+              "\t\t\tApp\\Rules\\EmailRule::class\n" +
+              "\t\t]\n" +
+              "\t]\n" +
               "];"
             }
           />
@@ -1258,113 +1510,121 @@ export default function v14_14_0_FRM(mdText) {
     middleware: {
       name: "Middleware",
       code: (
-        <>
-          <div className="mb-3">
-            <h2>CREATE MIDDLEWARE</h2>
-            <hr />
+        <Tabs defaultActiveKey="new" id="middleware" fill>
+          <Tab eventKey="new" title="NEW">
+            <div className="my-3">
+              <div className="mb-3">
+                <h2>CREATE MIDDLEWARE</h2>
+                <hr />
 
-            <p>
-              Middleware is stored in{" "}
-              <Badge bg="secondary">app/Http/Middleware</Badge>.
-            </p>
+                <p>
+                  Middleware is stored in{" "}
+                  <Badge bg="secondary">app/Http/Middleware</Badge>.
+                </p>
 
-            <CodeBlock
-              language={"bash"}
-              content={"php lion new:middleware middleware_name"}
-            />
-          </div>
+                <CodeBlock
+                  language={"bash"}
+                  content={"php lion new:middleware middleware_name"}
+                />
+              </div>
 
-          <div className="mb-3">
-            <h2>ADD FUNCTIONS</h2>
-            <hr />
+              <div className="mb-3">
+                <h2>ADD FUNCTIONS</h2>
+                <hr />
 
-            <p>We can add the necessary functions in each middleware.</p>
+                <p>We can add the necessary functions in each middleware.</p>
 
-            <CodeBlock
-              language={"php"}
-              content={
-                "<?php\n\n" +
-                "namespace App\\Http\\Middleware\\JWT;\n\n" +
-                "class AuthorizationMiddleware {\n\n" +
-                "\tpublic function __contruct() {\n\n" +
-                "\t}\n\n" +
-                "\tpublic function exist(): void {\n" +
-                "\t\t$headers = apache_request_headers();\n\n" +
-                "\t\tif (!isset($headers['Authorization'])) {\n" +
-                "\t\t\tfinish(response->error('The JWT does not exist'));\n" +
-                "\t\t}\n" +
-                "\t}\n\n" +
-                "\tpublic function authorize(): void {\n" +
-                "\t\t$headers = apache_request_headers();\n\n" +
-                "\t\tif (preg_match('/Bearers(S+)/', $headers['Authorization'], $matches)) {\n" +
-                "\t\t\t$jwt = JWT::decode($matches[1]);\n\n" +
-                "\t\t\tif ($jwt->status === 'error') {\n" +
-                "\t\t\t\tfinish(response->error($jwt->message));\n" +
-                "\t\t\t}\n" +
-                "\t\t} else {\n" +
-                "\t\t\tfinish(response->error('Invalid JWT'));\n" +
-                "\t\t}\n" +
-                "\t}\n\n" +
-                "\tpublic function notAuthorize(): void {\n" +
-                "\t\t$headers = apache_request_headers();\n\n" +
-                "\t\tif (isset($headers['Authorization'])) {\n" +
-                "\t\t\tfinish(response->error('User in session, You must close the session'));\n" +
-                "\t\t}\n" +
-                "\t}\n\n" +
-                "}"
-              }
-            />
-          </div>
+                <CodeBlock
+                  language={"php"}
+                  content={
+                    "<?php\n\n" +
+                    "namespace App\\Http\\Middleware\\JWT;\n\n" +
+                    "class AuthorizationMiddleware {\n\n" +
+                    "\tpublic function __contruct() {\n\n" +
+                    "\t}\n\n" +
+                    "\tpublic function exist(): void {\n" +
+                    "\t\t$headers = apache_request_headers();\n\n" +
+                    "\t\tif (!isset($headers['Authorization'])) {\n" +
+                    "\t\t\tfinish(response->error('The JWT does not exist'));\n" +
+                    "\t\t}\n" +
+                    "\t}\n\n" +
+                    "\tpublic function authorize(): void {\n" +
+                    "\t\t$headers = apache_request_headers();\n\n" +
+                    "\t\tif (preg_match('/Bearers(S+)/', $headers['Authorization'], $matches)) {\n" +
+                    "\t\t\t$jwt = JWT::decode($matches[1]);\n\n" +
+                    "\t\t\tif ($jwt->status === 'error') {\n" +
+                    "\t\t\t\tfinish(response->error($jwt->message));\n" +
+                    "\t\t\t}\n" +
+                    "\t\t} else {\n" +
+                    "\t\t\tfinish(response->error('Invalid JWT'));\n" +
+                    "\t\t}\n" +
+                    "\t}\n\n" +
+                    "\tpublic function notAuthorize(): void {\n" +
+                    "\t\t$headers = apache_request_headers();\n\n" +
+                    "\t\tif (isset($headers['Authorization'])) {\n" +
+                    "\t\t\tfinish(response->error('User in session, You must close the session'));\n" +
+                    "\t\t}\n" +
+                    "\t}\n\n" +
+                    "}"
+                  }
+                />
+              </div>
+            </div>
+          </Tab>
 
-          <div className="mb-3">
-            <h2>ADD MIDDLEWARE</h2>
-            <hr />
+          <Tab eventKey="add" title="ADD">
+            <div className="my-3">
+              <h2>ADD MIDDLEWARE</h2>
+              <hr />
 
-            <p>
-              To import middleware to the routes we must first import the
-              namespace of the middleware and inside this add an array to create
-              custom middleware.{" "}
-              <Badge bg={"secondary"}>routes/middleware.php</Badge>
-            </p>
+              <p>
+                To import middleware to the routes we must first import the
+                namespace of the middleware and inside this add an array to
+                create custom middleware.{" "}
+                <Badge bg={"secondary"}>routes/middleware.php</Badge>
+              </p>
 
-            <CodeBlock
-              language={"php"}
-              content={
-                "<?php\n\n" +
-                "LionRoute\\Route::addMiddleware([\n" +
-                "\tApp\\Http\\Middleware\\JWT\\AuthorizationMiddleware::class => [\n" +
-                "\t\t['name' => 'jwt-exist', 'method' => 'exist']\n" +
-                "\t\t['name' => 'jwt-authorize', 'method' => 'authorize']\n" +
-                "\t\t['name' => 'jwt-not-authorize', 'method' => 'notAuthorize']\n" +
-                "\t]\n" +
-                "]);"
-              }
-            />
-          </div>
+              <CodeBlock
+                language={"php"}
+                content={
+                  "<?php\n\n" +
+                  "LionRoute\\Route::addMiddleware([\n" +
+                  "\tApp\\Http\\Middleware\\JWT\\AuthorizationMiddleware::class => [\n" +
+                  "\t\t['name' => 'jwt-exist', 'method' => 'exist']\n" +
+                  "\t\t['name' => 'jwt-authorize', 'method' => 'authorize']\n" +
+                  "\t\t['name' => 'jwt-not-authorize', 'method' => 'notAuthorize']\n" +
+                  "\t]\n" +
+                  "]);"
+                }
+              />
+            </div>
+          </Tab>
 
-          <div className="mb-3">
-            <h2>USE MIDDLEWARE</h2>
-            <hr />
+          <Tab eventKey="use" title="USE">
+            <div className="my-3">
+              <h2>USE MIDDLEWARE</h2>
+              <hr />
 
-            <p>
-              <Badge bg={"secondary"}>routes/web.php</Badge>
-            </p>
+              <p>
+                <Badge bg={"secondary"}>routes/web.php</Badge>
+              </p>
 
-            <CodeBlock
-              language={"php"}
-              content={
-                "<?php\n\n" +
-                "Route::middleware(['jwt-exist', 'jwt-authorize'], function() {\n" +
-                "\tRoute::get('/', [HomeController::class, 'index']);\n\n" +
-                "\t// or\n\n" +
-                "\tRoute::get('/', function() {\n" +
-                "\t\treturn (new HomeController())->index();\n" +
-                "\t});\n" +
-                "});"
-              }
-            />
-          </div>
-        </>
+              <CodeBlock
+                language={"php"}
+                content={
+                  "<?php\n\n" +
+                  "Route::middleware(['jwt-exist', 'jwt-authorize'], function() {\n" +
+                  "\tRoute::get('/', [HomeController::class, 'index']);\n\n" +
+                  "\t// or\n\n" +
+                  "\tRoute::get('/', function() {\n" +
+                  "\t\treturn (new HomeController())->index();\n" +
+                  "\t});\n" +
+                  "});"
+                }
+              />
+            </div>
+          </Tab>
+        </Tabs>
       ),
     },
     models: {
@@ -1385,15 +1645,13 @@ export default function v14_14_0_FRM(mdText) {
             />
 
             <CodeBlock
-              langueage={"php"}
+              language={"php"}
               content={
                 "<?php\n\n" +
                 "namespace App\\Http\\Models;\n\n" +
                 "use LionSQL\\Drivers\\MySQL\\MySQL as DB;\n" +
                 "use LionSQL\\Drivers\\MySQL\\Schema;\n\n" +
-                "class HomeModel {\n\n" +
-                "\tpublic function __contruct() {\n\n\t}\n\n" +
-                "}"
+                "class HomeModel {\n\n}"
               }
             />
           </div>
@@ -1407,17 +1665,14 @@ export default function v14_14_0_FRM(mdText) {
             </p>
 
             <CodeBlock
-              langueage={"php"}
+              language={"php"}
               content={
                 "<?php\n\n" +
                 "namespace App\\Http\\Models;\n\n" +
-                "use LionSql\\Drivers\\MySQL\\MySQL as DB;\n" +
-                "use LionSql\\Drivers\\MySQL\\Schema;\n" +
-                "use App\\Traits\\Framework\\Database\\SoftDeletes;\n\n" +
-                "class HomeModel {\n\n" +
-                "\tuse SoftDeletes;\n\n" +
-                "\tpublic function __contruct() {\n\n\t}\n\n" +
-                "}"
+                "use App\\Traits\\Framework\\Database\\SoftDeletes;\n" +
+                "use LionSQL\\Drivers\\MySQL\\MySQL as DB;\n" +
+                "use LionSQL\\Drivers\\MySQL\\Schema;\n\n" +
+                "class HomeModel {\n\n\tuse SoftDeletes;\n\n}"
               }
             />
           </div>
@@ -1634,102 +1889,181 @@ export default function v14_14_0_FRM(mdText) {
     sockets: {
       name: "Sockets",
       code: (
-        <>
-          <div className="mb-3">
-            <h2 className="pb-2">CREATE SOCKET</h2>
-            <hr />
+        <Tabs defaultActiveKey="new" id="sockets" fill>
+          <Tab eventKey="new" title="NEW">
+            <div className="my-3">
+              <h2>CREATE SOCKET</h2>
+              <hr />
 
-            <p>
-              websockets interact with the{" "}
-              <a
-                href="http://socketo.me/docs/"
-                target="_blank"
-                className="text-decoration-none"
-              >
-                Ratchet
-              </a>{" "}
-              library, Sockets are stored in{" "}
-              <Badge bg="secondary">{"app/Http/Sockets/"}</Badge>.
-            </p>
+              <p>
+                websockets interact with the{" "}
+                <a
+                  href="http://socketo.me/docs/"
+                  target="_blank"
+                  className="text-decoration-none"
+                >
+                  Ratchet
+                </a>{" "}
+                library, Sockets are stored in{" "}
+                <Badge bg="secondary">{"app/Http/Sockets/"}</Badge>.
+              </p>
 
-            <CodeBlock
-              language={"bash"}
-              content={"php lion socket:new NotificationsSocket"}
-            />
+              <CodeBlock
+                language={"bash"}
+                content={"php lion socket:new NotificationsSocket"}
+              />
 
-            <CodeBlock
-              langueage={"php"}
-              content={
-                "<?php\n\n" +
-                "namespace App\\Http\\Sockets;\n\n" +
-                "use Ratchet\\ConnectionInterface;\n" +
-                "use Ratchet\\MessageComponentInterface;\n" +
-                "use \\SplObjectStorage;\n\n" +
-                "class NotificationsSocket implements MessageComponentInterface {\n\n" +
-                "\tprotected SplObjectStorage $clients;\n\n" +
-                "\tpublic function __construct() {\n" +
-                "\t\t$this->clients = new SplObjectStorage();\n" +
-                "\t}\n\n" +
-                "\tpublic function onOpen(ConnectionInterface $conn) {\n" +
-                "\t\t$this->clients->attach($conn);\n" +
-                "\t}\n\n" +
-                "\tpublic function onMessage(ConnectionInterface $from, $msg) {\n" +
-                "\t\tforeach ($this->clients as $client) {\n" +
-                "\t\t\tif ($from !== $client) {\n" +
-                "\t\t\t\t$client->send($msg);\n" +
-                "\t\t\t}\n\t\t}\n" +
-                "\t}\n\n" +
-                "\tpublic function onClose(ConnectionInterface $conn) {\n" +
-                "\t\t$this->clients->detach($conn);\n" +
-                "\t}\n\n" +
-                "\tpublic function onError(ConnectionInterface $conn, \\Exception $e) {\n" +
-                "\t\t$conn->close();\n" +
-                "\t}\n\n" +
-                "}"
-              }
-            />
-          </div>
+              <CodeBlock
+                langueage={"php"}
+                content={
+                  "<?php\n\n" +
+                  "namespace App\\Http\\Sockets;\n\n" +
+                  "use Ratchet\\ConnectionInterface;\n" +
+                  "use Ratchet\\MessageComponentInterface;\n" +
+                  "use \\SplObjectStorage;\n\n" +
+                  "class NotificationsSocket implements MessageComponentInterface {\n\n" +
+                  "\tprotected int $port = 8090;\n" +
+                  "\tprotected string $host = '0.0.0.0';\n" +
+                  "\tprotected SplObjectStorage $clients;\n\n" +
+                  "\tpublic function __construct() {\n" +
+                  "\t\t$this->clients = new SplObjectStorage();\n" +
+                  "\t}\n\n" +
+                  "\tpublic function getSocket() {\n" +
+                  "\t\treturn ['port' => $this->port, 'host' => $this->host];\n" +
+                  "\t}\n\n" +
+                  "\tpublic function onOpen(ConnectionInterface $conn) {\n" +
+                  "\t\t$this->clients->attach($conn);\n" +
+                  "\t}\n\n" +
+                  "\tpublic function onMessage(ConnectionInterface $from, $msg) {\n" +
+                  "\t\tforeach ($this->clients as $client) {\n" +
+                  "\t\t\tif ($from !== $client) {\n" +
+                  "\t\t\t\t$client->send($msg);\n" +
+                  "\t\t\t}\n\t\t}\n" +
+                  "\t}\n\n" +
+                  "\tpublic function onClose(ConnectionInterface $conn) {\n" +
+                  "\t\t$this->clients->detach($conn);\n" +
+                  "\t}\n\n" +
+                  "\tpublic function onError(ConnectionInterface $conn, \\Exception $e) {\n" +
+                  "\t\t$conn->close();\n" +
+                  "\t}\n\n" +
+                  "}"
+                }
+              />
+            </div>
+          </Tab>
 
-          <div className="mb-3">
-            <h2 className="pb-2">ADD SOCKETS COMMANDS</h2>
+          <Tab eventKey="add" title="ADD">
+            <div className="my-3">
+              <h2>ADD SOCKETS COMMANDS</h2>
+              <hr />
 
-            <p>
-              You need to add the commands in the{" "}
-              <Badge bg="secondary">config/socket-commands.php</Badge> array.
-            </p>
+              <div className="mb-3">
+                <p>
+                  You need to add the commands in the{" "}
+                  <Badge bg="secondary">config/socket-commands.php</Badge>{" "}
+                  array.
+                </p>
 
-            <CodeBlock
-              language={"php"}
-              content={
-                "<?php\n\n" +
-                "return [\n" +
-                "\t// 'ExampleSocket' => App\\Http\\Sockets\\ExampleSocket::class\n" +
-                "];"
-              }
-            />
-          </div>
+                <CodeBlock
+                  language={"php"}
+                  content={
+                    "<?php\n\n" +
+                    "return [\n" +
+                    "\t// 'ExampleSocket' => App\\Http\\Sockets\\ExampleSocket::class\n" +
+                    "];"
+                  }
+                />
+              </div>
 
-          <div className="mb-3">
-            <h2 className="pb-2">USE SOCKETS</h2>
-            <hr />
+              <div className="mb-3">
+                <p>
+                  Add the socket to the supervisord to run with the container.
+                </p>
 
-            <p>
-              to execute a socket you must do it from the console, you can
-              configure a different port with the{" "}
-              <Badge bg="secondary">--port</Badge> option.
-            </p>
+                <CodeBlock
+                  language={"ini"}
+                  content={
+                    "# supervisord.conf\n" +
+                    "[supervisord]\n" +
+                    "user=root\n" +
+                    "nodaemon=true\n" +
+                    "logfile=/var/www/html/storage/logs/supervisord/supervisord.log\n\n" +
+                    "[program:web-server]\n" +
+                    "command=php lion serve --host 0.0.0.0 --port 8000\n" +
+                    "directory=/var/www/html\n" +
+                    "autostart=true\n" +
+                    "autorestart=true\n" +
+                    "redirect_stderr=true\n" +
+                    "stdout_logfile=/var/www/html/storage/logs/server/web-server.log\n\n" +
+                    "[program:socket-example]\n" +
+                    "command=php lion socket:serve ExampleSocket\n" +
+                    "directory=/var/www/html\n" +
+                    "autostart=true\n" +
+                    "autorestart=true\n" +
+                    "redirect_stderr=true\n" +
+                    "stdout_logfile=/var/www/html/storage/logs/sockets/socket.log"
+                  }
+                />
+              </div>
 
-            <CodeBlock
-              language={"php"}
-              content={"php lion socket:serve SocketClass"}
-            />
+              <div className="mb-3">
+                <p>
+                  Add the port in the docker-compose.yml file configuration.
+                </p>
 
-            <CodeBlock
-              language={"php"}
-              content={"php lion socket:serve SocketClass --port 8081"}
-            />
-          </div>
-        </>
+                <CodeBlock
+                  language={"yaml"}
+                  content={
+                    "# docker-compose.yml \n" +
+                    'version: "3.8"\n' +
+                    "services:\n" +
+                    "\tapp:\n" +
+                    "\t\tcontainer_name: lion-framework-app\n" +
+                    "\t\tbuild:\n" +
+                    "\t\t\tcontext: .\n" +
+                    "\t\t\tdockerfile: Dockerfile\n" +
+                    "\t\tenv_file:\n" +
+                    "\t\t\t- .env\n" +
+                    "\t\tports:\n" +
+                    '\t\t\t- "8000:8000"\n' +
+                    '\t\t\t- "8090:8090" # sockert port\n' +
+                    "\t\tvolumes:\n" +
+                    "\t\t\t- ./:/var/www/html\n" +
+                    "\t\tdepends_on:\n" +
+                    "\t\t\t- db\n" +
+                    "\t\tnetworks:\n" +
+                    "\t\t\t- lion"
+                  }
+                />
+              </div>
+            </div>
+          </Tab>
+
+          <Tab eventKey="use" title="USE">
+            <div className="my-3">
+              <h2>USE SOCKETS</h2>
+              <hr />
+
+              <div className="mb-3">
+                <p>
+                  to execute a socket you must do it from the console, you can
+                  configure a different port with the{" "}
+                  <Badge bg="secondary">--port</Badge> option.
+                </p>
+
+                <CodeBlock
+                  language={"php"}
+                  content={"php lion socket:serve SocketClass"}
+                />
+
+                <CodeBlock
+                  language={"php"}
+                  content={"php lion socket:serve SocketClass --port 8081"}
+                />
+              </div>
+            </div>
+          </Tab>
+        </Tabs>
       ),
     },
     helpers: {
@@ -1809,6 +2143,14 @@ export default function v14_14_0_FRM(mdText) {
                         it allows you to access this helper and transform arrays
                       </td>
                     </tr>
+
+                    <tr>
+                      <td>kernel</td>
+                      <td>
+                        the kernel constant is an object of class
+                        App\Console\Kernel, it allows you to execute commands
+                      </td>
+                    </tr>
                   </tbody>
                 </Table>
               </div>
@@ -1822,6 +2164,45 @@ export default function v14_14_0_FRM(mdText) {
 
               <div className="mb-3">
                 <Row>
+                  <Col xs={12} sm={12}>
+                    <div className="mb-3">
+                      <h5 className="pb-2 text-warning">{"session"}</h5>
+
+                      <p>
+                        You can create sessions, read them and destroy them with
+                        the session helper.
+                      </p>
+
+                      <CodeBlock
+                        langueage={"php"}
+                        content={
+                          "<?php\n\n" +
+                          "session()->new('name', 'lion')->new('age', '23');"
+                        }
+                      />
+
+                      <CodeBlock
+                        langueage={"php"}
+                        content={
+                          "<?php\n\n" +
+                          "session()->get(); // get all sessions\n" +
+                          "// or\n" +
+                          "session()->get('name');"
+                        }
+                      />
+
+                      <CodeBlock
+                        langueage={"php"}
+                        content={
+                          "<?php\n\n" +
+                          "session()->destroy(); // destroy all sessions\n" +
+                          "// or\n" +
+                          "session()->destroy('name');"
+                        }
+                      />
+                    </div>
+                  </Col>
+
                   <Col xs={12} sm={12}>
                     <div className="mb-3">
                       <h5 className="pb-2 text-warning">{"jwt"}</h5>
@@ -2115,24 +2496,45 @@ export default function v14_14_0_FRM(mdText) {
       name: "Test",
       code: (
         <>
-          <h2 className="pb-2">TESTING</h2>
-          <hr />
+          <Tabs defaultActiveKey="new" id="test" fill>
+            <Tab eventKey="new" title="NEW">
+              <div className="my-3">
+                <h2>CREATE TEST</h2>
+                <hr />
 
-          <p>
-            Add to your web application with <strong>Lion-Framework</strong>{" "}
-            test to perform the necessary quality checks of your system, the
-            tests are implemented with the help of{" "}
-            <a
-              href="https://phpunit.de/"
-              target="_blank"
-              className="text-decoration-none"
-            >
-              PHPUnit
-            </a>
-            .
-          </p>
+                <p>
+                  Add to your web application with{" "}
+                  <strong>Lion-Framework</strong> test to perform the necessary
+                  quality checks of your system, the tests are implemented with
+                  the help of{" "}
+                  <a
+                    href="https://phpunit.de/"
+                    target="_blank"
+                    className="text-decoration-none"
+                  >
+                    PHPUnit
+                  </a>
+                  .
+                </p>
 
-          <CodeBlock language={"bash"} content={"php lion new:test TestName"} />
+                <CodeBlock
+                  language={"bash"}
+                  content={"php lion new:test TestName"}
+                />
+              </div>
+            </Tab>
+
+            <Tab eventKey="use" title="USE">
+              <div className="my-3">
+                <h2>RUN TEST</h2>
+                <hr />
+
+                <p>run all tests via command line.</p>
+
+                <CodeBlock language={"bash"} content={"php lion test"} />
+              </div>
+            </Tab>
+          </Tabs>
         </>
       ),
     },
