@@ -507,6 +507,13 @@ export default function v14_24_0_FRM(mdText) {
                 language={"php"}
                 content={
                   "<?php\n\n" +
+                  "/**\n" +
+                  "* ------------------------------------------------------------------------------\n" +
+                  "* Start database service\n" +
+                  "* ------------------------------------------------------------------------------\n" +
+                  "* describe connections to establish connecting to multiple databases\n" +
+                  "* ------------------------------------------------------------------------------\n" +
+                  "**/\n\n" +
                   "return [\n" +
                   "\t'default' => env->DB_NAME,\n" +
                   "\t'connections' => [\n" +
@@ -549,8 +556,8 @@ export default function v14_24_0_FRM(mdText) {
               <p>
                 To send mail with different accounts you need to add the
                 accounts and add the service, go to{" "}
-                <Badge bg="secondary">config/email.php</Badge>, for more
-                information, read{" "}
+                <Badge bg="secondary">config/email.php</Badge>, email accounts
+                must be added to the .env, for more information, read{" "}
                 <Link
                   to={"/libraries/lion/mailer/index"}
                   className="text-decoration-none"
@@ -564,18 +571,35 @@ export default function v14_24_0_FRM(mdText) {
                 language={"php"}
                 content={
                   "<?php\n\n" +
+                  "/**\n" +
+                  "* ------------------------------------------------------------------------------\n" +
+                  "* Start mail service\n" +
+                  "* ------------------------------------------------------------------------------\n" +
+                  "* describe connections to establish connecting to multiple databases\n" +
+                  "* ------------------------------------------------------------------------------\n" +
+                  "**/\n\n" +
                   "return [\n" +
-                  "\t'default' => 'support',\n" +
+                  "\t'default' => env->MAIL_NAME,\n" +
                   "\t'accounts' => [\n" +
-                  "\t\t'support' => [\n" +
-                  "\t\t\t'services' => ['symfony', 'phpmailer'],\n" +
-                  "\t\t\t'debug' => 0,\n" +
-                  "\t\t\t'host' => 'smtp.office365.com',\n" +
-                  "\t\t\t'encryption' => 'tls',\n" +
-                  "\t\t\t'port' => 587,\n" +
-                  "\t\t\t'name' => 'Sleon - Support',\n" +
-                  "\t\t\t'account' => 'sleon-support@outlook.com',\n" +
-                  "\t\t\t'password' => 'my_password'\n" +
+                  "\t\tenv->MAIL_NAME => [\n" +
+                  "\t\t\t'services' => explode('-', env->MAIL_SERVICES),\n" +
+                  "\t\t\t'debug' => (int) env->MAIL_DEBUG,\n" +
+                  "\t\t\t'host' => env->MAIL_HOST,\n" +
+                  "\t\t\t'encryption' => env->MAIL_ENCRYPTION,\n" +
+                  "\t\t\t'port' => (int) env->MAIL_PORT,\n" +
+                  "\t\t\t'name' => env->MAIL_NAME,\n" +
+                  "\t\t\t'account' => env->MAIL_ACCOUNT,\n" +
+                  "\t\t\t'password' => env->MAIL_PASSWORD\n" +
+                  "\t\t],\n" +
+                  "\t\tenv->MAIL_NAME_SUPP => [\n" +
+                  "\t\t\t'services' => explode('-', env->MAIL_SERVICES_SUPP),\n" +
+                  "\t\t\t'debug' => (int) env->MAIL_DEBUG_SUPP,\n" +
+                  "\t\t\t'host' => env->MAIL_HOST_SUPP,\n" +
+                  "\t\t\t'encryption' => env->MAIL_ENCRYPTION_SUPP,\n" +
+                  "\t\t\t'port' => (int) env->MAIL_PORT_SUPP,\n" +
+                  "\t\t\t'name' => env->MAIL_NAME_SUPP,\n" +
+                  "\t\t\t'account' => env->MAIL_ACCOUNT_SUPP,\n" +
+                  "\t\t\t'password' => env->MAIL_PASSWORD_SUPP\n" +
                   "\t\t]\n" +
                   "\t],\n" +
                   "];"
@@ -615,6 +639,15 @@ export default function v14_24_0_FRM(mdText) {
               language={"php"}
               content={
                 "<?php\n\n" +
+                "/**\n" +
+                "* ------------------------------------------------------------------------------\n" +
+                "* Cross-Origin Resource Sharing (CORS) Configuration\n" +
+                "* ------------------------------------------------------------------------------\n" +
+                "* Here you can configure your settings for cross-origin resource\n" +
+                "* sharing or 'CORS'. This determines which cross-origin operations\n" +
+                "* can be executed in web browsers.\n" +
+                "* ------------------------------------------------------------------------------\n" +
+                "**/\n\n" +
                 "return [\n" +
                 "\t'Access-Control-Allow-Origin' => '*',\n" +
                 "\t'Content-Type' => 'application/json; charset=UTF-8',\n" +
