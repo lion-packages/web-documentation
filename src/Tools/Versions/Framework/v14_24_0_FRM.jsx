@@ -513,7 +513,7 @@ export default function v14_24_0_FRM(mdText) {
                   "\t\tenv->DB_NAME => [\n" +
                   "\t\t\t'type' => env->DB_TYPE,\n" +
                   "\t\t\t'host' => env->DB_HOST,\n" +
-                  "\t\t\t'port' => env->DB_POST,\n" +
+                  "\t\t\t'port' => env->DB_PORT,\n" +
                   "\t\t\t'dbname' => env->DB_NAME,\n" +
                   "\t\t\t'user' => env->DB_USER,\n" +
                   "\t\t\t'password' => env->DB_PASSWORD\n" +
