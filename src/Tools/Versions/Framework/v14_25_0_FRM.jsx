@@ -2333,7 +2333,7 @@ export default function v14_25_0_FRM(mdText) {
                       <CodeBlock
                         langueage={"php"}
                         content={
-                          "<?php\n\n" + "isError(success())); // return false"
+                          "<?php\n\n" + "isError(success(200))); // return false"
                         }
                       />
                     </div>
@@ -2350,7 +2350,7 @@ export default function v14_25_0_FRM(mdText) {
                       <CodeBlock
                         langueage={"php"}
                         content={
-                          "<?php\n\n" + "isSuccess(error())); // return false"
+                          "<?php\n\n" + "isSuccess(error(500))); // return false"
                         }
                       />
                     </div>
@@ -2419,7 +2419,7 @@ export default function v14_25_0_FRM(mdText) {
                       <CodeBlock
                         langueage={"php"}
                         content={
-                          "<?php\n\n" + "finish(success('my response'));"
+                          "<?php\n\n" + "finish(success(200, 'my response'));"
                         }
                       />
                     </div>
@@ -2433,7 +2433,7 @@ export default function v14_25_0_FRM(mdText) {
 
                       <CodeBlock
                         langueage={"php"}
-                        content={"<?php\n\n" + "return success('message');"}
+                        content={"<?php\n\n" + "return success(200, 'message');"}
                       />
                     </div>
                   </Col>
@@ -2446,7 +2446,7 @@ export default function v14_25_0_FRM(mdText) {
 
                       <CodeBlock
                         langueage={"php"}
-                        content={"<?php\n\n" + "return error('message');"}
+                        content={"<?php\n\n" + "return error(500, 'message');"}
                       />
                     </div>
                   </Col>
@@ -2459,7 +2459,7 @@ export default function v14_25_0_FRM(mdText) {
 
                       <CodeBlock
                         langueage={"php"}
-                        content={"<?php\n\n" + "return warning('message');"}
+                        content={"<?php\n\n" + "return warning(500, 'message');"}
                       />
                     </div>
                   </Col>
@@ -2472,7 +2472,7 @@ export default function v14_25_0_FRM(mdText) {
 
                       <CodeBlock
                         langueage={"php"}
-                        content={"<?php\n\n" + "return info('message');"}
+                        content={"<?php\n\n" + "return info(200, 'message');"}
                       />
                     </div>
                   </Col>
@@ -2485,7 +2485,7 @@ export default function v14_25_0_FRM(mdText) {
 
                       <CodeBlock
                         langueage={"php"}
-                        content={"<?php\n\n" + "vd(success('finished'));"}
+                        content={"<?php\n\n" + "vd(success(200, 'finished'));"}
                       />
                     </div>
                   </Col>
