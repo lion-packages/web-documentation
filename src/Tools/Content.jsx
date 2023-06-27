@@ -40,6 +40,7 @@ import v4_0_0_LM from "./Versions/Libraries/LionMailer/v4_0_0_LM";
 import v4_2_0_LM from "./Versions/Libraries/LionMailer/v4_2_0_LM";
 import v4_3_0_LM from "./Versions/Libraries/LionMailer/v4_3_0_LM";
 import v5_0_0_LM from "./Versions/Libraries/LionMailer/v5_0_0_LM";
+import v5_1_0_LM from "./Versions/Libraries/LionMailer/v5_1_0_LM";
 
 import v8_1_0_LRT from "./Versions/Libraries/LionRoute/v8_1_0_LRT";
 import v8_2_0_LRT from "./Versions/Libraries/LionRoute/v8_2_0_LRT";
@@ -300,6 +301,7 @@ export default function Content(mdText = "") {
           description:
             "Library created to facilitate sending email based on different services",
           class: {
+            "v5.1.0": v5_1_0_LM(),
             "v5.0.0": v5_0_0_LM(),
             "v4.3.0": v4_3_0_LM(),
             "v4.2.0": v4_2_0_LM(),
