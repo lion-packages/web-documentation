@@ -759,6 +759,18 @@ export default function v14_25_0_CMMD() {
                 </>
               ),
             },
+            {
+              name: "--path",
+              arg: false,
+              optional: true,
+              desc: "Save to a specific path?",
+            },
+            {
+              name: "-p",
+              arg: false,
+              optional: true,
+              desc: "Save to a specific path?",
+            },
           ],
         },
       ],

@@ -915,9 +915,9 @@ export default function v14_25_0_FRM(mdText) {
               language={"php"}
               content={
                 "<?php\n\n" +
-                "return response->success('message...');\n" +
+                "return response->success(200, 'message...');\n" +
                 "// or \n" +
-                "return success('message...');"
+                "return success(200, 'message...');"
               }
             />
 
@@ -925,6 +925,7 @@ export default function v14_25_0_FRM(mdText) {
               language={"json"}
               content={
                 "{\n" +
+                '\t"code": 200,\n' +
                 '\t"status": "success",\n' +
                 '\t"message": "message...",\n' +
                 '\t"data": []\n' +
@@ -942,9 +943,9 @@ export default function v14_25_0_FRM(mdText) {
               language={"php"}
               content={
                 "<?php\n\n" +
-                "return response->error('message...');\n" +
+                "return response->error(200, 'message...');\n" +
                 "// or \n" +
-                "return error('message...');"
+                "return error(200, 'message...');"
               }
             />
 
@@ -952,6 +953,7 @@ export default function v14_25_0_FRM(mdText) {
               language={"json"}
               content={
                 "{\n" +
+                '\t"code": 200,\n' +
                 '\t"status": "error",\n' +
                 '\t"message": "message...",\n' +
                 '\t"data": []\n' +
@@ -969,7 +971,7 @@ export default function v14_25_0_FRM(mdText) {
               language={"php"}
               content={
                 "<?php\n\n" +
-                "return response->response('my_custom_response', 'message...');"
+                "return response->response(200, 'my_custom_response', 'message...');"
               }
             />
 
@@ -977,6 +979,7 @@ export default function v14_25_0_FRM(mdText) {
               language={"json"}
               content={
                 "{\n" +
+                '\t"code": 200,\n' +
                 '\t"status": "my_custom_response",\n' +
                 '\t"message": "message...",\n' +
                 '\t"data": []\n' +
@@ -1266,7 +1269,7 @@ export default function v14_25_0_FRM(mdText) {
                 "<?php\n\n" +
                 "return [\n" +
                 "\t'POST' => [\n" +
-                "\t\t'api/auth/signin' => [\n" +
+                "\t\t'/api/auth/signin' => [\n" +
                 "\t\t\tApp\\Rules\\EmailRule::class\n" +
                 "\t\t]\n" +
                 "\t]\n" +
@@ -1282,10 +1285,10 @@ export default function v14_25_0_FRM(mdText) {
                 "<?php\n\n" +
                 "return [\n" +
                 "\t'POST' => [\n" +
-                "\t\t'api/auth/signin' => [\n" +
+                "\t\t'/api/auth/signin' => [\n" +
                 "\t\t\tApp\\Rules\\EmailRule::class\n" +
                 "\t\t],\n" +
-                "\t\t'api/users/update/{idusers}' => [\n" +
+                "\t\t'/api/users/update/{idusers}' => [\n" +
                 "\t\t\tApp\\Rules\\EmailRule::class\n" +
                 "\t\t]\n" +
                 "\t]\n" +
@@ -1385,7 +1388,7 @@ export default function v14_25_0_FRM(mdText) {
               content={
                 "<?php\n\n" +
                 "use Carbon\\Carbon;\n\n" +
-                "return success('my time! ' . Carbon::now()->format('Y-m-d H:i:s'));"
+                "return success(200, 'my time! ' . Carbon::now()->format('Y-m-d H:i:s'));"
               }
             />
           </div>
@@ -1435,7 +1438,7 @@ export default function v14_25_0_FRM(mdText) {
               <CodeBlock
                 langueage={"php"}
                 content={
-                  "<?php\n\n" + "Route::get('/', fn() => success('test'));"
+                  "<?php\n\n" + "Route::get('/', fn() => success(200, 'test'));"
                 }
               />
             </div>
@@ -1506,10 +1509,10 @@ export default function v14_25_0_FRM(mdText) {
               "<?php\n\n" +
               "return [\n" +
               "\t'POST' => [\n" +
-              "\t\t'api/auth/signin' => [\n" +
+              "\t\t'/api/auth/signin' => [\n" +
               "\t\t\tApp\\Rules\\EmailRule::class\n" +
               "\t\t],\n" +
-              "\t\t'api/users/update/{idusers}' => [\n" +
+              "\t\t'/api/users/update/{idusers}' => [\n" +
               "\t\t\tApp\\Rules\\EmailRule::class\n" +
               "\t\t]\n" +
               "\t]\n" +
