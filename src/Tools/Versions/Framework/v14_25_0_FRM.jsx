@@ -812,6 +812,28 @@ export default function v14_25_0_FRM(mdText) {
                   }
                 />
               </div>
+
+              <div className="mb-3">
+                <p>
+                  Add the resource logo from the Dockerfile and then restart the
+                  container.
+                </p>
+
+                <CodeBlock
+                  language={"dockerfile"}
+                  content={
+                    "\t&& composer install \\ \n" +
+                    "\t&& touch storage/logs/resources/console-web.log \\ \n" +
+                    "\t&& touch storage/logs/resources/login.log \\ \n" +
+                    "\t&& touch storage/logs/resources/user-registration.log \\ \n" +
+                    "\t&& touch storage/logs/resources/example.log \\ # resource log \n" +
+                    "\t&& touch storage/logs/server/web-server.log \\ \n" +
+                    "\t&& touch storage/logs/sockets/socket.log \\ \n" +
+                    "\t&& touch storage/logs/supervisord/supervisord.log \\ \n" +
+                    "\t&& /usr/bin/supervisord -c /etc/supervisor/conf.d/supervisord.conf"
+                  }
+                />
+              </div>
             </div>
           </Tab>
         </Tabs>
