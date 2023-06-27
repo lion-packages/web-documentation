@@ -72,6 +72,7 @@ import v8_7_1_LSQ from "./Versions/Libraries/LionSQL/v8_7_1_LSQ";
 import v8_7_2_LSQ from "./Versions/Libraries/LionSQL/v8_7_2_LSQ";
 
 import v5_3_0_LR from "./Versions/Libraries/LionRequest/v5_3_0_LR";
+import v5_4_0_LR from "./Versions/Libraries/LionRequest/v5_4_0_LR";
 
 import v1_0_0_LA from "./Versions/Libraries/LionAuthentication/v1_0_0_LA";
 
@@ -287,6 +288,7 @@ export default function Content(mdText = "") {
           description:
             "Library created to request input data and response requests.",
           class: {
+            "v5.4.0": v5_4_0_LR(),
             "v5.3.0": v5_3_0_LR(),
           },
         },
