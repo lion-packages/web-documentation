@@ -30,6 +30,7 @@ import v4_7_0_LF from "./Versions/Libraries/LionFiles/v4_7_0_LF";
 import v4_8_0_LF from "./Versions/Libraries/LionFiles/v4_8_0_LF";
 import v4_9_0_LF from "./Versions/Libraries/LionFiles/v4_9_0_LF";
 import v4_10_0_LF from "./Versions/Libraries/LionFiles/v4_10_0_LF";
+import v4_11_0_LF from "./Versions/Libraries/LionFiles/v4_11_0_LF";
 
 import v2_1_2_LH from "./Versions/Libraries/LionHelpers/v2_1_2_LH";
 import v2_1_3_LH from "./Versions/Libraries/LionHelpers/v2_1_3_LH";
@@ -251,6 +252,7 @@ export default function Content(mdText = "") {
           description:
             "Library created with the function of working internal system files.",
           class: {
+            "v4.11.0": v4_11_0_LF(),
             "v4.10.0": v4_10_0_LF(),
             "v4.9.0": v4_9_0_LF(),
             "v4.8.0": v4_8_0_LF(),
