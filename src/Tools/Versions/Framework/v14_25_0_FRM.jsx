@@ -915,7 +915,7 @@ export default function v14_25_0_FRM(mdText) {
               language={"php"}
               content={
                 "<?php\n\n" +
-                "return response->success(200, 'message...');\n" +
+                "return response->code(200)->success('message...');\n" +
                 "// or \n" +
                 "return success(200, 'message...');"
               }
@@ -943,7 +943,7 @@ export default function v14_25_0_FRM(mdText) {
               language={"php"}
               content={
                 "<?php\n\n" +
-                "return response->error(200, 'message...');\n" +
+                "return response->code(200)->error('message...');\n" +
                 "// or \n" +
                 "return error(200, 'message...');"
               }
@@ -971,7 +971,7 @@ export default function v14_25_0_FRM(mdText) {
               language={"php"}
               content={
                 "<?php\n\n" +
-                "return response->response(200, 'my_custom_response', 'message...');"
+                "return response->code(200)->response('my_custom_response', 'message...');"
               }
             />
 
