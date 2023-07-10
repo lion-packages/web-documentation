@@ -2,7 +2,6 @@
 import Library from "../pages/Library";
 
 //commands
-import v14_18_0_CMMD from "./Versions/Commands/v14_18_0_CMMD";
 import v14_19_0_CMMD from "./Versions/Commands/v14_19_0_CMMD";
 import v14_20_0_CMMD from "./Versions/Commands/v14_20_0_CMMD";
 import v14_21_0_CMMD from "./Versions/Commands/v14_21_0_CMMD";
@@ -11,9 +10,10 @@ import v14_23_0_CMMD from "./Versions/Commands/v14_23_0_CMMD";
 import v14_24_0_CMMD from "./Versions/Commands/v14_24_0_CMMD";
 import v14_24_1_CMMD from "./Versions/Commands/v14_24_1_CMMD";
 import v14_25_0_CMMD from "./Versions/Commands/v14_25_0_CMMD";
+import v14_26_0_CMMD from "./Versions/Commands/v14_26_0_CMMD";
+import v14_27_0_CMMD from "./Versions/Commands/v14_27_0_CMMD";
 
 // framework
-import v14_18_0_FRM from "./Versions/Framework/v14_18_0_FRM";
 import v14_19_0_FRM from "./Versions/Framework/v14_19_0_FRM";
 import v14_20_0_FRM from "./Versions/Framework/v14_20_0_FRM";
 import v14_21_0_FRM from "./Versions/Framework/v14_21_0_FRM";
@@ -22,6 +22,8 @@ import v14_23_0_FRM from "./Versions/Framework/v14_23_0_FRM";
 import v14_24_0_FRM from "./Versions/Framework/v14_24_0_FRM";
 import v14_24_1_FRM from "./Versions/Framework/v14_24_1_FRM";
 import v14_25_0_FRM from "./Versions/Framework/v14_25_0_FRM";
+import v14_26_0_FRM from "./Versions/Framework/v14_26_0_FRM";
+import v14_27_0_FRM from "./Versions/Framework/v14_27_0_FRM";
 
 // libraries
 import v4_7_0_LF from "./Versions/Libraries/LionFiles/v4_7_0_LF";
@@ -74,12 +76,11 @@ import v5_3_0_LR from "./Versions/Libraries/LionRequest/v5_3_0_LR";
 import v5_4_0_LR from "./Versions/Libraries/LionRequest/v5_4_0_LR";
 
 import v1_0_0_LA from "./Versions/Libraries/LionAuthentication/v1_0_0_LA";
-import v14_26_0_CMMD from "./Versions/Commands/v14_26_0_CMMD";
-import v14_26_0_FRM from "./Versions/Framework/v14_26_0_FRM";
 
 export default function Content(mdText = "") {
   return {
     commands: {
+      "v14.27.0": v14_27_0_CMMD(),
       "v14.26.0": v14_26_0_CMMD(),
       "v14.25.0": v14_25_0_CMMD(),
       "v14.24.1": v14_24_1_CMMD(),
@@ -89,7 +90,7 @@ export default function Content(mdText = "") {
       "v14.21.0": v14_21_0_CMMD(),
       "v14.20.0": v14_20_0_CMMD(),
       "v14.19.0": v14_19_0_CMMD(),
-      "v14.18.0": v14_18_0_CMMD(),
+      // "v14.18.0": v14_18_0_CMMD(),
       // "v14.17.1": v14_17_1_CMMD(),
       // "v14.17.0": v14_17_0_CMMD(),
       // "v14.16.0": v14_16_0_CMMD(),
@@ -132,6 +133,7 @@ export default function Content(mdText = "") {
       // "v12.16.1": v12_16_1_CMMD(),
     },
     framework: {
+      "v14.27.0": v14_27_0_FRM(mdText),
       "v14.26.0": v14_26_0_FRM(mdText),
       "v14.25.0": v14_25_0_FRM(mdText),
       "v14.24.1": v14_24_1_FRM(mdText),
@@ -141,7 +143,7 @@ export default function Content(mdText = "") {
       "v14.21.0": v14_21_0_FRM(mdText),
       "v14.20.0": v14_20_0_FRM(mdText),
       "v14.19.0": v14_19_0_FRM(mdText),
-      "v14.18.0": v14_18_0_FRM(mdText),
+      // "v14.18.0": v14_18_0_FRM(mdText),
       // "v14.17.1": v14_17_1_FRM(mdText),
       // "v14.17.0": v14_17_0_FRM(mdText),
       // "v14.16.0": v14_16_0_FRM(mdText),
