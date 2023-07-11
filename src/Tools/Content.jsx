@@ -189,14 +189,14 @@ export default function Content(mdText = "") {
     },
     libraries: {
       lion: {
-        sql: {
-          title: "Lion-SQL",
-          url: "/libraries/lion/sql/index",
+        database: {
+          title: "lion-packages/database",
+          url: "/libraries/lion/database/index",
           component: (
             <Library
-              library={"sql"}
-              url_github={"https://github.com/Sleon4/Lion-SQL"}
-              command={"composer require lion/sql"}
+              library={"database"}
+              url_github={"https://github.com/lion-packages/database"}
+              command={"composer require lion/database"}
             />
           ),
           description:
@@ -231,12 +231,12 @@ export default function Content(mdText = "") {
           },
         },
         authentication: {
-          title: "Lion-Authentication",
+          title: "lion-packages/authentication",
           url: "/libraries/lion/authentication/index",
           component: (
             <Library
               library={"authentication"}
-              url_github={"https://github.com/Sleon4/Lion-Authentication"}
+              url_github={"https://github.com/lion-packages/authentication"}
               command={"composer require lion/authentication"}
             />
           ),
@@ -246,12 +246,12 @@ export default function Content(mdText = "") {
           },
         },
         files: {
-          title: "Lion-Files",
+          title: "lion-packages/files",
           url: "/libraries/lion/files/index",
           component: (
             <Library
               library={"files"}
-              url_github={"https://github.com/Sleon4/Lion-Files"}
+              url_github={"https://github.com/lion-packages/files"}
               command={"composer require lion/files"}
             />
           ),
@@ -266,12 +266,12 @@ export default function Content(mdText = "") {
           },
         },
         helpers: {
-          title: "Lion-Helpers",
+          title: "lion-packages/helpers",
           url: "/libraries/lion/helpers/index",
           component: (
             <Library
               library={"helpers"}
-              url_github={"https://github.com/Sleon4/Lion-Helpers"}
+              url_github={"https://github.com/lion-packages/helpers"}
               command={"composer require lion/helpers"}
             />
           ),
@@ -284,12 +284,12 @@ export default function Content(mdText = "") {
           },
         },
         request: {
-          title: "Lion-Request",
+          title: "lion-packages/request",
           url: "/libraries/lion/request/index",
           component: (
             <Library
               library={"request"}
-              url_github={"https://github.com/Sleon4/Lion-Request"}
+              url_github={"https://github.com/lion-packages/request"}
               command={"composer require lion/request"}
             />
           ),
@@ -301,12 +301,12 @@ export default function Content(mdText = "") {
           },
         },
         mailer: {
-          title: "Lion-Mailer",
+          title: "lion-packages/mailer",
           url: "/libraries/lion/mailer/index",
           component: (
             <Library
               library={"mailer"}
-              url_github={"https://github.com/Sleon4/Lion-Mailer"}
+              url_github={"https://github.com/lion-packages/mailer"}
               command={"composer require lion/mailer"}
             />
           ),
@@ -321,12 +321,12 @@ export default function Content(mdText = "") {
           },
         },
         route: {
-          title: "Lion-Route",
+          title: "lion-packages/route",
           url: "/libraries/lion/route/index",
           component: (
             <Library
               library={"route"}
-              url_github={"https://github.com/Sleon4/Lion-Route"}
+              url_github={"https://github.com/lion-packages/route"}
               command={"composer require lion/route"}
             />
           ),
@@ -343,12 +343,12 @@ export default function Content(mdText = "") {
           },
         },
         security: {
-          title: "Lion-Security",
+          title: "lion-packages/security",
           url: "/libraries/lion/security/index",
           component: (
             <Library
               library={"security"}
-              url_github={"https://github.com/Sleon4/Lion-Security"}
+              url_github={"https://github.com/lion-packages/security"}
               command={"composer require lion/security"}
             />
           ),
@@ -363,12 +363,12 @@ export default function Content(mdText = "") {
           },
         },
         spreadsheet: {
-          title: "Lion-Spreadsheet",
+          title: "lion-packages/spreadsheet",
           url: "/libraries/lion/spreadsheet/index",
           component: (
             <Library
               library={"spreadsheet"}
-              url_github={"https://github.com/Sleon4/Lion-Spreadsheet"}
+              url_github={"https://github.com/lion-packages/spreadsheet"}
               command={"composer require lion/spreadsheet"}
             />
           ),

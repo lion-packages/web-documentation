@@ -27,7 +27,7 @@ function FrameworkContent() {
               <InputGroup className="mb-3">
                 <GithubButton
                   variantButton={"outline-light"}
-                  url={"https://github.com/Sleon4/Lion-Framework"}
+                  url={"https://github.com/Lion-Packages/framework"}
                 />
 
                 <Form.Select
@@ -61,7 +61,7 @@ function FrameworkContent() {
 
           <CodeBlock
             language={"bash"}
-            content={"git clone https://github.com/Sleon4/Lion-Framework.git"}
+            content={"git clone https://github.com/Lion-Packages/framework.git"}
           />
         </div>
 
