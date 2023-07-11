@@ -60,6 +60,7 @@ import v6_12_0_LS from "./Versions/Libraries/LionSecurity/v6_12_0_LS";
 import v1_4_0_LSP from "./Versions/Libraries/LionSpreadsheet/v1_4_0_LSP";
 import v1_5_0_LSP from "./Versions/Libraries/LionSpreadsheet/v1_5_0_LSP";
 import v1_6_0_LSP from "./Versions/Libraries/LionSpreadsheet/v1_6_0_LSP";
+import v1_7_0_LSP from "./Versions/Libraries/LionSpreadsheet/v1_7_0_LSP";
 
 import v8_1_1_LSQ from "./Versions/Libraries/LionDatabase/v8_1_1_LSQ";
 import v8_2_0_LSQ from "./Versions/Libraries/LionDatabase/v8_2_0_LSQ";
@@ -375,6 +376,7 @@ export default function Content(mdText = "") {
           ),
           description: "Library for easy spreadsheet use.",
           class: {
+            "v1.7.0": v1_7_0_LSP(),
             "v1.6.0": v1_6_0_LSP(),
             "v1.5.0": v1_5_0_LSP(),
             "v1.4.0": v1_4_0_LSP(),
