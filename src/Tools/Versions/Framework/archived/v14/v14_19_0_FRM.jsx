@@ -12,9 +12,9 @@ import {
 import { Link } from "react-router-dom";
 import ReactMarkdown from "react-markdown";
 import remarkGfm from "remark-gfm";
-import ListCommandsNew from "../../../pages/components/ListCommandsNew";
-import CodeBlock from "../../../pages/components/CodeBlock";
-import GithubButton from "../../../pages/components/GithubButton";
+import ListCommandsNew from "../../../../../pages/components/ListCommandsNew";
+import CodeBlock from "../../../../../pages/components/CodeBlock";
+import GithubButton from "../../../../../pages/components/GithubButton";
 
 import { DiPhp } from "react-icons/di";
 import { FaReact } from "react-icons/fa";
