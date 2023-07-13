@@ -32,17 +32,20 @@ import v4_9_0_LF from "./Versions/Libraries/LionFiles/v4_9_0_LF";
 import v4_10_0_LF from "./Versions/Libraries/LionFiles/v4_10_0_LF";
 import v4_11_0_LF from "./Versions/Libraries/LionFiles/v4_11_0_LF";
 
+// lion_helpers
 import v2_1_2_LH from "./Versions/Libraries/LionHelpers/v2_1_2_LH";
 import v2_1_3_LH from "./Versions/Libraries/LionHelpers/v2_1_3_LH";
 import v2_2_0_LH from "./Versions/Libraries/LionHelpers/v2_2_0_LH";
 import v2_3_0_LH from "./Versions/Libraries/LionHelpers/v2_3_0_LH";
 
+// lion_mailer
 import v4_0_0_LM from "./Versions/Libraries/LionMailer/v4_0_0_LM";
 import v4_2_0_LM from "./Versions/Libraries/LionMailer/v4_2_0_LM";
 import v4_3_0_LM from "./Versions/Libraries/LionMailer/v4_3_0_LM";
 import v5_0_0_LM from "./Versions/Libraries/LionMailer/v5_0_0_LM";
 import v5_1_0_LM from "./Versions/Libraries/LionMailer/v5_1_0_LM";
 
+// lion_route
 import v8_1_0_LRT from "./Versions/Libraries/LionRoute/v8_1_0_LRT";
 import v8_2_0_LRT from "./Versions/Libraries/LionRoute/v8_2_0_LRT";
 import v8_3_0_LRT from "./Versions/Libraries/LionRoute/v8_3_0_LRT";
@@ -51,18 +54,20 @@ import v8_3_2_LRT from "./Versions/Libraries/LionRoute/v8_3_2_LRT";
 import v8_4_0_LRT from "./Versions/Libraries/LionRoute/v8_4_0_LRT";
 import v8_5_0_LRT from "./Versions/Libraries/LionRoute/v8_5_0_LRT";
 
+// lion_security
 import v6_10_0_LS from "./Versions/Libraries/LionSecurity/v6_10_0_LS";
 import v6_10_1_LS from "./Versions/Libraries/LionSecurity/v6_10_1_LS";
 import v6_9_0_LS from "./Versions/Libraries/LionSecurity/v6_9_0_LS";
 import v6_11_0_LS from "./Versions/Libraries/LionSecurity/v6_11_0_LS";
 import v6_12_0_LS from "./Versions/Libraries/LionSecurity/v6_12_0_LS";
 
+// lion_spreadsheet
 import v1_4_0_LSP from "./Versions/Libraries/LionSpreadsheet/v1_4_0_LSP";
 import v1_5_0_LSP from "./Versions/Libraries/LionSpreadsheet/v1_5_0_LSP";
 import v1_6_0_LSP from "./Versions/Libraries/LionSpreadsheet/v1_6_0_LSP";
 import v1_7_0_LSP from "./Versions/Libraries/LionSpreadsheet/v1_7_0_LSP";
 
-import v8_1_1_LSQ from "./Versions/Libraries/LionDatabase/v8_1_1_LSQ";
+// lion_database
 import v8_2_0_LSQ from "./Versions/Libraries/LionDatabase/v8_2_0_LSQ";
 import v8_3_0_LSQ from "./Versions/Libraries/LionDatabase/v8_3_0_LSQ";
 import v8_4_0_LSQ from "./Versions/Libraries/LionDatabase/v8_4_0_LSQ";
@@ -72,10 +77,13 @@ import v8_7_0_LSQ from "./Versions/Libraries/LionDatabase/v8_7_0_LSQ";
 import v8_7_1_LSQ from "./Versions/Libraries/LionDatabase/v8_7_1_LSQ";
 import v8_7_2_LSQ from "./Versions/Libraries/LionDatabase/v8_7_2_LSQ";
 import v8_8_0_LBD from "./Versions/Libraries/LionDatabase/v8_8_0_LDB";
+import v8_8_1_LBD from "./Versions/Libraries/LionDatabase/v8_8_1_LDB";
 
+// lion_request
 import v5_3_0_LR from "./Versions/Libraries/LionRequest/v5_3_0_LR";
 import v5_4_0_LR from "./Versions/Libraries/LionRequest/v5_4_0_LR";
 
+// lion_authentication
 import v1_0_0_LA from "./Versions/Libraries/LionAuthentication/v1_0_0_LA";
 
 export default function Content(mdText = "") {
@@ -203,6 +211,7 @@ export default function Content(mdText = "") {
           description:
             "Package responsible for generating and executing MySQL processes.",
           class: {
+            "v8.8.1": v8_8_1_LBD(),
             "v8.8.0": v8_8_0_LBD(),
             "v8.7.2": v8_7_2_LSQ(),
             "v8.7.1": v8_7_1_LSQ(),
@@ -212,7 +221,7 @@ export default function Content(mdText = "") {
             "v8.4.0": v8_4_0_LSQ(),
             "v8.3.0": v8_3_0_LSQ(),
             "v8.2.0": v8_2_0_LSQ(),
-            "v8.1.1": v8_1_1_LSQ(),
+            // "v8.1.1": v8_1_1_LSQ(),
             // "v8.1.0": v8_1_0_LSQ(),
             // "v8.0.3": v8_0_3_LSQ(),
             // "v8.0.2": v8_0_2_LSQ(),
