@@ -945,7 +945,7 @@ export default function v8_8_1_LBD() {
           ),
         },
         join: {
-          title: "MySQL::innerJoin/leftJoin/rightJoin",
+          title: "MySQL::join",
           description:
             "The function is nested to the `sql` statement in the current query",
           link: "join",
@@ -955,11 +955,13 @@ export default function v8_8_1_LBD() {
               <hr />
 
               <div className="mb-3">
+                <h5 className="text-warning">Example #1</h5>
+
                 <CodeBlock
                   language="sql"
                   content={
-                    "SELECT my_table_1.id_a, my_table_2.name FROM table1 AS my_table_1 \n" +
-                    "\tINNER JOIN table2 AS my_table_2 ON my_table_1.id_a=my_table_2.id_a"
+                    "SELECT my_table_1.id, my_table_2.name FROM table1 AS my_table_1 \n" +
+                    "\tJOIN table2 AS my_table_2 ON my_table_1.id=my_table_2.id"
                   }
                 />
 
@@ -969,12 +971,95 @@ export default function v8_8_1_LBD() {
                     "<?php\n\n" +
                     "use LionDatabase\\Drivers\\MySQL\\MySQL as DB;\n\n" +
                     "DB::table(DB::as('table1', 'my_table_1'))->select(\n" +
-                    "\tDB::column('table1', 'my_table_1')\n" +
-                    "\tDB::column('table1', 'my_table_2')\n" +
-                    ")->innerJoin( //leftJoin(...) and rightJoin(...)\n" +
+                    "\tDB::column('id', 'my_table_1')\n" +
+                    ")->join(\n" +
                     "\tDB::as('table12', 'my_table_2'), \n" +
-                    "\tDB::column('id_a', 'my_table_1'), \n" +
-                    "\tDB::column('id_a', 'my_table_2'), \n" +
+                    "\tDB::column('id', 'my_table_1'), \n" +
+                    "\tDB::column('id', 'my_table_2'), \n" +
+                    ")" +
+                    "->getAll();"
+                  }
+                />
+              </div>
+
+              <div className="mb-3">
+                <h5 className="text-warning">Example #2</h5>
+
+                <CodeBlock
+                  language="sql"
+                  content={
+                    "SELECT my_table_1.id, my_table_2.name FROM table1 AS my_table_1 \n" +
+                    "\tINNER JOIN table2 AS my_table_2 ON my_table_1.id=my_table_2.id"
+                  }
+                />
+
+                <CodeBlock
+                  language="php"
+                  content={
+                    "<?php\n\n" +
+                    "use LionDatabase\\Drivers\\MySQL\\MySQL as DB;\n\n" +
+                    "DB::table(DB::as('table1', 'my_table_1'))->select(\n" +
+                    "\tDB::column('id', 'my_table_1')\n" +
+                    ")->inner()->join(\n" +
+                    "\tDB::as('table12', 'my_table_2'), \n" +
+                    "\tDB::column('id', 'my_table_1'), \n" +
+                    "\tDB::column('id', 'my_table_2'), \n" +
+                    ")" +
+                    "->getAll();"
+                  }
+                />
+              </div>
+
+              <div className="mb-3">
+                <h5 className="text-warning">Example #3</h5>
+
+                <CodeBlock
+                  language="sql"
+                  content={
+                    "SELECT my_table_1.id, my_table_2.name FROM table1 AS my_table_1 \n" +
+                    "\tLEFT JOIN table2 AS my_table_2 ON my_table_1.id=my_table_2.id"
+                  }
+                />
+
+                <CodeBlock
+                  language="php"
+                  content={
+                    "<?php\n\n" +
+                    "use LionDatabase\\Drivers\\MySQL\\MySQL as DB;\n\n" +
+                    "DB::table(DB::as('table1', 'my_table_1'))->select(\n" +
+                    "\tDB::column('id', 'my_table_1')\n" +
+                    ")->left()->join(\n" +
+                    "\tDB::as('table12', 'my_table_2'), \n" +
+                    "\tDB::column('id', 'my_table_1'), \n" +
+                    "\tDB::column('id', 'my_table_2'), \n" +
+                    ")" +
+                    "->getAll();"
+                  }
+                />
+              </div>
+
+              <div className="mb-3">
+                <h5 className="text-warning">Example #4</h5>
+
+                <CodeBlock
+                  language="sql"
+                  content={
+                    "SELECT my_table_1.id, my_table_2.name FROM table1 AS my_table_1 \n" +
+                    "\tRIGHT JOIN table2 AS my_table_2 ON my_table_1.id=my_table_2.id"
+                  }
+                />
+
+                <CodeBlock
+                  language="php"
+                  content={
+                    "<?php\n\n" +
+                    "use LionDatabase\\Drivers\\MySQL\\MySQL as DB;\n\n" +
+                    "DB::table(DB::as('table1', 'my_table_1'))->select(\n" +
+                    "\tDB::column('id', 'my_table_1')\n" +
+                    ")->right()->join(\n" +
+                    "\tDB::as('table12', 'my_table_2'), \n" +
+                    "\tDB::column('id', 'my_table_1'), \n" +
+                    "\tDB::column('id', 'my_table_2'), \n" +
                     ")" +
                     "->getAll();"
                   }
