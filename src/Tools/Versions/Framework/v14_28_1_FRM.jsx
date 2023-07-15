@@ -26,7 +26,7 @@ import permissions_sh from "./../../../assets/img/docker/permissions-sh.png";
 import etc_data from "./../../../assets/img/docker/etc-data.png";
 import crontab_edit from "./../../../assets/img/docker/crontab-edit.png";
 
-export default function v14_20_0_FRM(mdText) {
+export default function v14_28_1_FRM(mdText) {
   return {
     changelog: {
       name: "Changelog",
@@ -113,6 +113,10 @@ export default function v14_20_0_FRM(mdText) {
                   "FROM php:8.2-apache \n" +
                   "ARG DEBIAN_FRONTEND=noninteractive \n\n" +
                   "RUN apt-get update \\ \n" +
+                  "\t&& apt-get install -y curl \\ \n" +
+                  "\t&& apt-get install -y zsh \\ \n" +
+                  "\t&& apt-get install -y wget \\ \n" +
+                  "\t&& apt-get install -y git \\ \n" +
                   "\t&& apt-get install -y unzip \\ \n" +
                   "\t&& apt-get install -y sudo \\ \n" +
                   "\t&& apt-get install -y nano \\ \n" +
@@ -124,21 +128,31 @@ export default function v14_20_0_FRM(mdText) {
                   "\t&& apt-get install -y libonig-dev \\ \n" +
                   "\t&& apt-get install -y supervisor \\ \n" +
                   "\t&& apt-get install -y libevent-dev \\ \n" +
-                  "\t&& apt-get install -y curl \\ \n" +
                   "\t&& apt-get install -y libssl-dev \\ \n" +
+                  "\t&& pecl install ev \\ \n" +
                   "\t&& rm -rf /var/lib/apt/lists/*\n\n" +
-                  "RUN pecl install ev\n\n" +
                   "RUN docker-php-ext-install mbstring \\ \n" +
                   "\t&& docker-php-ext-install zip \\ \n" +
                   "\t&& docker-php-ext-install gd \\ \n" +
                   "\t&& docker-php-ext-install pdo_mysql \\ \n" +
-                  "\t&& docker-php-ext-install mysqli\n\n" +
+                  "\t&& docker-php-ext-install mysqli \\ \n" +
+                  "\t&& docker-php-ext-enable gd \\ \n" +
+                  "\t&& docker-php-ext-enable zip\n\n" +
                   "COPY . . \n" +
                   "COPY supervisord.conf /etc/supervisor/conf.d/supervisord.conf\n\n" +
                   "RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer \n" +
+                  'RUN sh -c "$(wget -O- https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"\n' +
                   "RUN a2enmod rewrite \n\n" +
-                  "CMD composer install && /usr/bin/supervisord -c /etc/supervisor/conf.d/supervisord.conf \n\n" +
-                  "EXPOSE 8000"
+                  "CMD chsh -s $(which zsh) \\ \n" +
+                  "\t&& zsh \\ \n" +
+                  "\t&& composer install \\ \n" +
+                  "\t&& touch storage/logs/resources/console-web.log \\ \n" +
+                  "\t&& touch storage/logs/resources/login.log \\ \n" +
+                  "\t&& touch storage/logs/resources/user-registration.log \\ \n" +
+                  "\t&& touch storage/logs/server/web-server.log \\ \n" +
+                  "\t&& touch storage/logs/sockets/socket.log \\ \n" +
+                  "\t&& touch storage/logs/supervisord/supervisord.log \\ \n" +
+                  "\t&& /usr/bin/supervisord -c /etc/supervisor/conf.d/supervisord.conf"
                 }
               />
 
@@ -157,6 +171,9 @@ export default function v14_20_0_FRM(mdText) {
                   "\t\t\t- .env\n" +
                   "\t\tports:\n" +
                   '\t\t\t- "8000:8000"\n' +
+                  '\t\t\t- "5173:5173"\n' +
+                  '\t\t\t- "5174:5174"\n' +
+                  '\t\t\t- "5175:5175"\n' +
                   "\t\tvolumes:\n" +
                   "\t\t\t- ./:/var/www/html\n" +
                   "\t\tdepends_on:\n" +
@@ -167,6 +184,7 @@ export default function v14_20_0_FRM(mdText) {
                   "\t\timage: mysql\n" +
                   "\t\tcontainer_name: lion-framework-mysql\n" +
                   "\t\tcommand: --default-authentication-plugin=mysql_native_password\n" +
+                  "\t\trestart: unless-stopped\n" +
                   "\t\tenvironment:\n" +
                   "\t\t\tMYSQL_DATABASE: ${DB_NAME}\n" +
                   "\t\t\tMYSQL_PASSWORD: ${DB_PASSWORD}\n" +
@@ -180,6 +198,7 @@ export default function v14_20_0_FRM(mdText) {
                   "\tphpmyadmin:\n" +
                   "\t\timage: phpmyadmin/phpmyadmin\n" +
                   "\t\tcontainer_name: lion-framework-phpmyadmin\n" +
+                  "\t\trestart: unless-stopped\n" +
                   "\t\tlinks:\n" +
                   "\t\t\t- db:db\n" +
                   "\t\tports:\n" +
@@ -193,14 +212,15 @@ export default function v14_20_0_FRM(mdText) {
                   "volumes:\n" +
                   "\tdb_data:\n" +
                   "networks:\n" +
-                  "\tlion:"
+                  "\tlion:\n" +
+                  "\t\tdriver: bridge"
                 }
               />
 
               <CodeBlock
                 language={"ini"}
                 content={
-                  "# supervisord.conf\n" +
+                  "; server\n" +
                   "[supervisord]\n" +
                   "user=root\n" +
                   "nodaemon=true\n" +
@@ -212,6 +232,29 @@ export default function v14_20_0_FRM(mdText) {
                   "autorestart=true\n" +
                   "redirect_stderr=true\n" +
                   "stdout_logfile=/var/www/html/storage/logs/server/web-server.log\n\n" +
+                  "; resources\n" +
+                  "[program:resource-console-web]\n" +
+                  "command=php lion resource:serve console-web --host 0.0.0.0 --port 5173\n" +
+                  "directory=/var/www/html\n" +
+                  "autostart=true\n" +
+                  "autorestart=true\n" +
+                  "redirect_stderr=true\n" +
+                  "stdout_logfile=/var/www/html/storage/logs/resources/console-web.log \n\n" +
+                  "[program:resource-user-registration]\n" +
+                  "command=php lion resource:serve user-registration --host 0.0.0.0 --port 5174\n" +
+                  "directory=/var/www/html\n" +
+                  "autostart=true\n" +
+                  "autorestart=true\n" +
+                  "redirect_stderr=true\n" +
+                  "stdout_logfile=/var/www/html/storage/logs/resources/user-registration.log\n\n" +
+                  "[program:resource-login]\n" +
+                  "command=php lion resource:serve login --host 0.0.0.0 --port 5175\n" +
+                  "directory=/var/www/html\n" +
+                  "autostart=true\n" +
+                  "autorestart=true\n" +
+                  "redirect_stderr=true\n" +
+                  "stdout_logfile=/var/www/html/storage/logs/resources/login.log\n\n" +
+                  "; sockets\n" +
                   "; [program:socket-notifications]\n" +
                   "; command=php lion socket:serve NotificationsSocket\n" +
                   "; directory=/var/www/html\n" +
@@ -400,10 +443,16 @@ export default function v14_20_0_FRM(mdText) {
 
             <CodeBlock
               language={"bash"}
-              content={"docker exec -it image_id bash"}
+              content={"docker exec -it image_id zsh"}
             />
 
-            <img src={docker_exec} className="img-fluid" />
+            <img src={docker_exec} className="img-fluid mb-3" />
+
+            <Alert variant="warning">
+              <strong>Note: </strong> current docker config has{" "}
+              <strong>zsh</strong> configured, can be used instead of{" "}
+              <strong>bash</strong>
+            </Alert>
           </div>
 
           <div className="mb-3">
@@ -495,23 +544,32 @@ export default function v14_20_0_FRM(mdText) {
                 >
                   Lion-SQL
                 </Link>
-                .
+                . The connections established in the config must be added
+                directly in the .env, it is recommended to use the database name
+                as the key name for the configured array (L14).
               </p>
 
               <CodeBlock
                 language={"php"}
                 content={
                   "<?php\n\n" +
+                  "/**\n" +
+                  "* ------------------------------------------------------------------------------\n" +
+                  "* Start database service\n" +
+                  "* ------------------------------------------------------------------------------\n" +
+                  "* describe connections to establish connecting to multiple databases\n" +
+                  "* ------------------------------------------------------------------------------\n" +
+                  "**/\n\n" +
                   "return [\n" +
-                  "\t'default' => 'first_connection',\n" +
+                  "\t'default' => env->DB_NAME,\n" +
                   "\t'connections' => [\n" +
-                  "\t\t'first_connection' => [\n" +
-                  "\t\t\t'type' => 'mysql',\n" +
-                  "\t\t\t'host' => '127.0.0.1',\n" +
-                  "\t\t\t'port' => 3306,\n" +
-                  "\t\t\t'dbname' => 'example_1',\n" +
-                  "\t\t\t'user' => 'root',\n" +
-                  "\t\t\t'password' => ''\n" +
+                  "\t\tenv->DB_NAME => [\n" +
+                  "\t\t\t'type' => env->DB_TYPE,\n" +
+                  "\t\t\t'host' => env->DB_HOST,\n" +
+                  "\t\t\t'port' => env->DB_PORT,\n" +
+                  "\t\t\t'dbname' => env->DB_NAME,\n" +
+                  "\t\t\t'user' => env->DB_USER,\n" +
+                  "\t\t\t'password' => env->DB_PASSWORD\n" +
                   "\t\t],\n" +
                   "\t]\n" +
                   "];"
@@ -529,6 +587,19 @@ export default function v14_20_0_FRM(mdText) {
               <CodeBlock language={"bash"} content={"php lion db:show"} />
             </div>
           </Tab>
+
+          <Tab eventKey="export" title="EXPORT">
+            <div className="my-3">
+              <h2 className="pb-2">EXPORT DATABASE</h2>
+              <hr />
+
+              <p>Export your database using the terminal.</p>
+              <CodeBlock
+                language={"bash"}
+                content={"php lion db:export database_name"}
+              />
+            </div>
+          </Tab>
         </Tabs>
       ),
     },
@@ -544,8 +615,8 @@ export default function v14_20_0_FRM(mdText) {
               <p>
                 To send mail with different accounts you need to add the
                 accounts and add the service, go to{" "}
-                <Badge bg="secondary">config/email.php</Badge>, for more
-                information, read{" "}
+                <Badge bg="secondary">config/email.php</Badge>, email accounts
+                must be added to the .env, for more information, read{" "}
                 <Link
                   to={"/libraries/lion/mailer/index"}
                   className="text-decoration-none"
@@ -559,18 +630,35 @@ export default function v14_20_0_FRM(mdText) {
                 language={"php"}
                 content={
                   "<?php\n\n" +
+                  "/**\n" +
+                  "* ------------------------------------------------------------------------------\n" +
+                  "* Start mail service\n" +
+                  "* ------------------------------------------------------------------------------\n" +
+                  "* describe connections to establish connecting to multiple databases\n" +
+                  "* ------------------------------------------------------------------------------\n" +
+                  "**/\n\n" +
                   "return [\n" +
-                  "\t'default' => 'support',\n" +
+                  "\t'default' => env->MAIL_NAME,\n" +
                   "\t'accounts' => [\n" +
-                  "\t\t'support' => [\n" +
-                  "\t\t\t'services' => ['symfony', 'phpmailer'],\n" +
-                  "\t\t\t'debug' => 0,\n" +
-                  "\t\t\t'host' => 'smtp.office365.com',\n" +
-                  "\t\t\t'encryption' => 'tls',\n" +
-                  "\t\t\t'port' => 587,\n" +
-                  "\t\t\t'name' => 'Sleon - Support',\n" +
-                  "\t\t\t'account' => 'sleon-support@outlook.com',\n" +
-                  "\t\t\t'password' => 'my_password'\n" +
+                  "\t\tenv->MAIL_NAME => [\n" +
+                  "\t\t\t'services' => explode('-', env->MAIL_SERVICES),\n" +
+                  "\t\t\t'debug' => (int) env->MAIL_DEBUG,\n" +
+                  "\t\t\t'host' => env->MAIL_HOST,\n" +
+                  "\t\t\t'encryption' => env->MAIL_ENCRYPTION,\n" +
+                  "\t\t\t'port' => (int) env->MAIL_PORT,\n" +
+                  "\t\t\t'name' => env->MAIL_NAME,\n" +
+                  "\t\t\t'account' => env->MAIL_ACCOUNT,\n" +
+                  "\t\t\t'password' => env->MAIL_PASSWORD\n" +
+                  "\t\t],\n" +
+                  "\t\tenv->MAIL_NAME_SUPP => [\n" +
+                  "\t\t\t'services' => explode('-', env->MAIL_SERVICES_SUPP),\n" +
+                  "\t\t\t'debug' => (int) env->MAIL_DEBUG_SUPP,\n" +
+                  "\t\t\t'host' => env->MAIL_HOST_SUPP,\n" +
+                  "\t\t\t'encryption' => env->MAIL_ENCRYPTION_SUPP,\n" +
+                  "\t\t\t'port' => (int) env->MAIL_PORT_SUPP,\n" +
+                  "\t\t\t'name' => env->MAIL_NAME_SUPP,\n" +
+                  "\t\t\t'account' => env->MAIL_ACCOUNT_SUPP,\n" +
+                  "\t\t\t'password' => env->MAIL_PASSWORD_SUPP\n" +
                   "\t\t]\n" +
                   "\t],\n" +
                   "];"
@@ -610,6 +698,15 @@ export default function v14_20_0_FRM(mdText) {
               language={"php"}
               content={
                 "<?php\n\n" +
+                "/**\n" +
+                "* ------------------------------------------------------------------------------\n" +
+                "* Cross-Origin Resource Sharing (CORS) Configuration\n" +
+                "* ------------------------------------------------------------------------------\n" +
+                "* Here you can configure your settings for cross-origin resource\n" +
+                "* sharing or 'CORS'. This determines which cross-origin operations\n" +
+                "* can be executed in web browsers.\n" +
+                "* ------------------------------------------------------------------------------\n" +
+                "**/\n\n" +
                 "return [\n" +
                 "\t'Access-Control-Allow-Origin' => '*',\n" +
                 "\t'Content-Type' => 'application/json; charset=UTF-8',\n" +
@@ -622,6 +719,138 @@ export default function v14_20_0_FRM(mdText) {
             />
           </div>
         </>
+      ),
+    },
+    resource: {
+      name: "Resources",
+      code: (
+        <Tabs defaultActiveKey="new" id="resources" fill>
+          <Tab eventKey="new" title="NEW">
+            <div className="my-3">
+              <h2>CREATE RESOURCES</h2>
+              <hr />
+
+              <p>
+                Resources allow you to create simple web pages using the twig
+                templating engine (symfony), resources are created with a unique
+                folder name, when initialized it should call the resource name
+                assigned to the folder, resources are stored in{" "}
+                <Badge bg="secondary">{"resources/"}</Badge>.
+              </p>
+
+              <p>
+                By default a resource is already installed that allows you to
+                use basic functions of the integrated terminal from the web
+                (http:127.0.0.1:5173)
+              </p>
+
+              <CodeBlock
+                language={"bash"}
+                content={"php lion resource:new resource_name"}
+              />
+            </div>
+          </Tab>
+
+          <Tab eventKey="use" title="USE">
+            <div className="my-3">
+              <h2>USE RESOURCES</h2>
+              <hr />
+
+              <div className="mb-3">
+                <p>
+                  Add the resource to the supervisord to run with the container.
+                  If there is an error for not finding the log files, you can
+                  create them in the respective paths described in
+                  stdout_logfile
+                </p>
+
+                <p>
+                  By default a resource is already installed that allows you to
+                  use basic functions of the integrated terminal from the web
+                  (http:127.0.0.1:5173)
+                </p>
+
+                <CodeBlock
+                  language={"ini"}
+                  content={
+                    "# supervisord.conf\n" +
+                    "[supervisord]\n" +
+                    "user=root\n" +
+                    "nodaemon=true\n" +
+                    "logfile=/var/www/html/storage/logs/supervisord/supervisord.log\n\n" +
+                    "[program:web-server]\n" +
+                    "command=php lion serve --host 0.0.0.0 --port 8000\n" +
+                    "directory=/var/www/html\n" +
+                    "autostart=true\n" +
+                    "autorestart=true\n" +
+                    "redirect_stderr=true\n" +
+                    "stdout_logfile=/var/www/html/storage/logs/server/web-server.log\n\n" +
+                    "[program:resource-example]\n" +
+                    "command=php lion resource:serve resource_name --host 0.0.0.0 --port 5173\n" +
+                    "directory=/var/www/html\n" +
+                    "autostart=true\n" +
+                    "autorestart=true\n" +
+                    "redirect_stderr=true\n" +
+                    "stdout_logfile=/var/www/html/storage/logs/resources/resource-example.log"
+                  }
+                />
+              </div>
+
+              <div className="mb-3">
+                <p>
+                  Add the port in the docker-compose.yml file configuration.
+                </p>
+
+                <CodeBlock
+                  language={"yaml"}
+                  content={
+                    "# docker-compose.yml \n" +
+                    'version: "3.8"\n' +
+                    "services:\n" +
+                    "\tapp:\n" +
+                    "\t\tcontainer_name: lion-framework-app\n" +
+                    "\t\tbuild:\n" +
+                    "\t\t\tcontext: .\n" +
+                    "\t\t\tdockerfile: Dockerfile\n" +
+                    "\t\tenv_file:\n" +
+                    "\t\t\t- .env\n" +
+                    "\t\tports:\n" +
+                    '\t\t\t- "8000:8000"\n' +
+                    '\t\t\t- "5173:5173" # resource port\n' +
+                    "\t\tvolumes:\n" +
+                    "\t\t\t- ./:/var/www/html\n" +
+                    "\t\tdepends_on:\n" +
+                    "\t\t\t- db\n" +
+                    "\t\tnetworks:\n" +
+                    "\t\t\t- lion"
+                  }
+                />
+              </div>
+
+              <div className="mb-3">
+                <p>
+                  Add the resource logo from the Dockerfile and then restart the
+                  container.
+                </p>
+
+                <CodeBlock
+                  language={"dockerfile"}
+                  content={
+                    "\t&& composer install \\ \n" +
+                    "\t&& touch storage/logs/resources/console-web.log \\ \n" +
+                    "\t&& touch storage/logs/resources/login.log \\ \n" +
+                    "\t&& touch storage/logs/resources/user-registration.log \\ \n" +
+                    "\t&& touch storage/logs/resources/example.log \\ # resource log \n" +
+                    "\t&& touch storage/logs/server/web-server.log \\ \n" +
+                    "\t&& touch storage/logs/sockets/socket.log \\ \n" +
+                    "\t&& touch storage/logs/supervisord/supervisord.log \\ \n" +
+                    "\t&& /usr/bin/supervisord -c /etc/supervisor/conf.d/supervisord.conf"
+                  }
+                />
+              </div>
+            </div>
+          </Tab>
+        </Tabs>
       ),
     },
     request: {
@@ -665,9 +894,7 @@ export default function v14_20_0_FRM(mdText) {
               langueage={"php"}
               content={
                 "<?php\n\n" +
-                "echo(\n" +
-                "\trequest->users_name . ' ' . request->{'users_last-name'}\n" +
-                ");"
+                "echo(request->users_name . ' ' . request->{'users_last-name'});"
               }
             />
 
@@ -677,9 +904,7 @@ export default function v14_20_0_FRM(mdText) {
               langueage={"php"}
               content={
                 "<?php\n\n" +
-                "echo(\n" +
-                `\t$_POST['users_name'] . ' ' . $_POST['users_last-name']\n` +
-                ");"
+                "echo($_POST['users_name'] . ' ' . $_POST['users_last-name']);"
               }
             />
           </div>
@@ -726,9 +951,9 @@ export default function v14_20_0_FRM(mdText) {
               language={"php"}
               content={
                 "<?php\n\n" +
-                "return response->success('message...');\n" +
+                "return response->code(200)->success('message...');\n" +
                 "// or \n" +
-                "return success('message...');"
+                "return success(200, 'message...');"
               }
             />
 
@@ -736,6 +961,7 @@ export default function v14_20_0_FRM(mdText) {
               language={"json"}
               content={
                 "{\n" +
+                '\t"code": 200,\n' +
                 '\t"status": "success",\n' +
                 '\t"message": "message...",\n' +
                 '\t"data": []\n' +
@@ -753,9 +979,9 @@ export default function v14_20_0_FRM(mdText) {
               language={"php"}
               content={
                 "<?php\n\n" +
-                "return response->error('message...');\n" +
+                "return response->code(200)->error('message...');\n" +
                 "// or \n" +
-                "return error('message...');"
+                "return error(200, 'message...');"
               }
             />
 
@@ -763,6 +989,7 @@ export default function v14_20_0_FRM(mdText) {
               language={"json"}
               content={
                 "{\n" +
+                '\t"code": 200,\n' +
                 '\t"status": "error",\n' +
                 '\t"message": "message...",\n' +
                 '\t"data": []\n' +
@@ -780,7 +1007,7 @@ export default function v14_20_0_FRM(mdText) {
               language={"php"}
               content={
                 "<?php\n\n" +
-                "return response->response('my_custom_response', 'message...');"
+                "return response->code(200)->response('my_custom_response', 'message...');"
               }
             />
 
@@ -788,6 +1015,7 @@ export default function v14_20_0_FRM(mdText) {
               language={"json"}
               content={
                 "{\n" +
+                '\t"code": 200,\n' +
                 '\t"status": "my_custom_response",\n' +
                 '\t"message": "message...",\n' +
                 '\t"data": []\n' +
@@ -821,20 +1049,24 @@ export default function v14_20_0_FRM(mdText) {
               </p>
 
               <ul className="mb-3" style={{ listStyle: "none" }}>
-                <li>
-                  <strong>[0]</strong> TABLE
-                </li>
-
-                <li>
-                  <strong>[1]</strong> VIEW
-                </li>
-
-                <li>
-                  <strong>[2]</strong> PROCEDURE
-                </li>
+                <li>table</li>
+                <li>view</li>
+                <li>procedure</li>
               </ul>
 
-              <CodeBlock language={"bash"} content={"php lion migrate:new"} />
+              <p>the current configuration defaults to TABLET as migration.</p>
+
+              <CodeBlock
+                language={"bash"}
+                content={"php lion migrate:new example_migrate my_connection"}
+              />
+
+              <CodeBlock
+                language={"bash"}
+                content={
+                  "php lion migrate:new example_migrate my_connection --type procedure"
+                }
+              />
             </div>
           </Tab>
 
@@ -1072,8 +1304,10 @@ export default function v14_20_0_FRM(mdText) {
               content={
                 "<?php\n\n" +
                 "return [\n" +
-                "\t'/api/auth/signin' => [\n" +
-                "\t\tApp\\Rules\\EmailRule::class\n" +
+                "\t'POST' => [\n" +
+                "\t\t'/api/auth/signin' => [\n" +
+                "\t\t\tApp\\Rules\\EmailRule::class\n" +
+                "\t\t]\n" +
                 "\t]\n" +
                 "];"
               }
@@ -1086,11 +1320,13 @@ export default function v14_20_0_FRM(mdText) {
               content={
                 "<?php\n\n" +
                 "return [\n" +
-                "\t'/api/auth/signin' => [\n" +
-                "\t\tApp\\Rules\\EmailRule::class\n" +
-                "\t]\n" +
-                "\t'/api/create-users' => [\n" +
-                "\t\tApp\\Rules\\EmailRule::class\n" +
+                "\t'POST' => [\n" +
+                "\t\t'/api/auth/signin' => [\n" +
+                "\t\t\tApp\\Rules\\EmailRule::class\n" +
+                "\t\t],\n" +
+                "\t\t'/api/users/update/{idusers}' => [\n" +
+                "\t\t\tApp\\Rules\\EmailRule::class\n" +
+                "\t\t]\n" +
                 "\t]\n" +
                 "];"
               }
@@ -1188,7 +1424,7 @@ export default function v14_20_0_FRM(mdText) {
               content={
                 "<?php\n\n" +
                 "use Carbon\\Carbon;\n\n" +
-                "return success('my time! ' . Carbon::now()->format('Y-m-d H:i:s'));"
+                "return success(200, 'my time! ' . Carbon::now()->format('Y-m-d H:i:s'));"
               }
             />
           </div>
@@ -1238,7 +1474,7 @@ export default function v14_20_0_FRM(mdText) {
               <CodeBlock
                 langueage={"php"}
                 content={
-                  "<?php\n\n" + "Route::get('/', fn() => success('test'));"
+                  "<?php\n\n" + "Route::get('/', fn() => success(200, 'test'));"
                 }
               />
             </div>
@@ -1304,12 +1540,18 @@ export default function v14_20_0_FRM(mdText) {
           </p>
 
           <CodeBlock
-            language={"php"}
+            langueage={"php"}
             content={
               "<?php\n\n" +
-              "// routes/rules.php\n\n" +
               "return [\n" +
-              "\t'/api/auth/login' => [\\App\\Rules\\MyRuleExample::class]\n" +
+              "\t'POST' => [\n" +
+              "\t\t'/api/auth/signin' => [\n" +
+              "\t\t\tApp\\Rules\\EmailRule::class\n" +
+              "\t\t],\n" +
+              "\t\t'/api/users/update/{idusers}' => [\n" +
+              "\t\t\tApp\\Rules\\EmailRule::class\n" +
+              "\t\t]\n" +
+              "\t]\n" +
               "];"
             }
           />
@@ -1455,20 +1697,22 @@ export default function v14_20_0_FRM(mdText) {
                 To import middleware to the routes we must first import the
                 namespace of the middleware and inside this add an array to
                 create custom middleware.{" "}
-                <Badge bg={"secondary"}>routes/middleware.php</Badge>
+                <Badge bg={"secondary"}>config/middleware.php</Badge>
               </p>
 
               <CodeBlock
                 language={"php"}
                 content={
                   "<?php\n\n" +
-                  "LionRoute\\Route::addMiddleware([\n" +
-                  "\tApp\\Http\\Middleware\\JWT\\AuthorizationMiddleware::class => [\n" +
-                  "\t\t['name' => 'jwt-exist', 'method' => 'exist']\n" +
-                  "\t\t['name' => 'jwt-authorize', 'method' => 'authorize']\n" +
-                  "\t\t['name' => 'jwt-not-authorize', 'method' => 'notAuthorize']\n" +
+                  "return [\n" +
+                  "\t'app' => [\n" +
+                  "\t\tApp\\Http\\Middleware\\JWT\\AuthorizationMiddleware::class => [\n" +
+                  "\t\t\t['name' => 'jwt-exist', 'method' => 'exist']\n" +
+                  "\t\t\t['name' => 'jwt-authorize', 'method' => 'authorize']\n" +
+                  "\t\t\t['name' => 'jwt-not-authorize', 'method' => 'notAuthorize']\n" +
+                  "\t\t]\n" +
                   "\t]\n" +
-                  "]);"
+                  "];"
                 }
               />
             </div>
@@ -1519,15 +1763,13 @@ export default function v14_20_0_FRM(mdText) {
             />
 
             <CodeBlock
-              langueage={"php"}
+              language={"php"}
               content={
                 "<?php\n\n" +
                 "namespace App\\Http\\Models;\n\n" +
-                "use LionSQL\\Drivers\\MySQL\\MySQL as DB;\n" +
-                "use LionSQL\\Drivers\\MySQL\\Schema;\n\n" +
-                "class HomeModel {\n\n" +
-                "\tpublic function __contruct() {\n\n\t}\n\n" +
-                "}"
+                "use LionDatabase\\Drivers\\MySQL\\MySQL as DB;\n" +
+                "use LionDatabase\\Drivers\\MySQL\\Schema;\n\n" +
+                "class HomeModel {\n\n}"
               }
             />
           </div>
@@ -1541,17 +1783,14 @@ export default function v14_20_0_FRM(mdText) {
             </p>
 
             <CodeBlock
-              langueage={"php"}
+              language={"php"}
               content={
                 "<?php\n\n" +
                 "namespace App\\Http\\Models;\n\n" +
-                "use LionSql\\Drivers\\MySQL\\MySQL as DB;\n" +
-                "use LionSql\\Drivers\\MySQL\\Schema;\n" +
-                "use App\\Traits\\Framework\\Database\\SoftDeletes;\n\n" +
-                "class HomeModel {\n\n" +
-                "\tuse SoftDeletes;\n\n" +
-                "\tpublic function __contruct() {\n\n\t}\n\n" +
-                "}"
+                "use App\\Traits\\Framework\\Database\\SoftDeletes;\n" +
+                "use LionDatabase\\Drivers\\MySQL\\MySQL as DB;\n" +
+                "use LionDatabase\\Drivers\\MySQL\\Schema;\n\n" +
+                "class HomeModel {\n\n\tuse SoftDeletes;\n\n}"
               }
             />
           </div>
@@ -1734,8 +1973,8 @@ export default function v14_20_0_FRM(mdText) {
               content={
                 "<?php\n\n" +
                 "namespace Database\\Seeders;\n\n" +
-                "use LionSql\\Drivers\\MySQL\\MySQL as DB;\n" +
-                "use LionSql\\Drivers\\MySQL\\Schema;\n" +
+                "use LionDatabase\\Drivers\\MySQL\\MySQL as DB;\n" +
+                "use LionDatabase\\Drivers\\MySQL\\Schema;\n" +
                 "use Database\\Factories\\UsersFactory;\n\n" +
                 "class UsersSeed {\n\n" +
                 "\t/**\n" +
@@ -1924,10 +2163,6 @@ export default function v14_20_0_FRM(mdText) {
               <hr />
 
               <div className="mb-3">
-                <p></p>
-              </div>
-
-              <div className="mb-3">
                 <p>
                   to execute a socket you must do it from the console, you can
                   configure a different port with the{" "}
@@ -2114,7 +2349,8 @@ export default function v14_20_0_FRM(mdText) {
                       <CodeBlock
                         langueage={"php"}
                         content={
-                          "<?php\n\n" + "isError(success())); // return false"
+                          "<?php\n\n" +
+                          "isError(success(200))); // return false"
                         }
                       />
                     </div>
@@ -2131,7 +2367,8 @@ export default function v14_20_0_FRM(mdText) {
                       <CodeBlock
                         langueage={"php"}
                         content={
-                          "<?php\n\n" + "isSuccess(error())); // return false"
+                          "<?php\n\n" +
+                          "isSuccess(error(500))); // return false"
                         }
                       />
                     </div>
@@ -2200,7 +2437,7 @@ export default function v14_20_0_FRM(mdText) {
                       <CodeBlock
                         langueage={"php"}
                         content={
-                          "<?php\n\n" + "finish(success('my response'));"
+                          "<?php\n\n" + "finish(success(200, 'my response'));"
                         }
                       />
                     </div>
@@ -2214,7 +2451,9 @@ export default function v14_20_0_FRM(mdText) {
 
                       <CodeBlock
                         langueage={"php"}
-                        content={"<?php\n\n" + "return success('message');"}
+                        content={
+                          "<?php\n\n" + "return success(200, 'message');"
+                        }
                       />
                     </div>
                   </Col>
@@ -2227,7 +2466,7 @@ export default function v14_20_0_FRM(mdText) {
 
                       <CodeBlock
                         langueage={"php"}
-                        content={"<?php\n\n" + "return error('message');"}
+                        content={"<?php\n\n" + "return error(500, 'message');"}
                       />
                     </div>
                   </Col>
@@ -2240,7 +2479,9 @@ export default function v14_20_0_FRM(mdText) {
 
                       <CodeBlock
                         langueage={"php"}
-                        content={"<?php\n\n" + "return warning('message');"}
+                        content={
+                          "<?php\n\n" + "return warning(500, 'message');"
+                        }
                       />
                     </div>
                   </Col>
@@ -2253,7 +2494,7 @@ export default function v14_20_0_FRM(mdText) {
 
                       <CodeBlock
                         langueage={"php"}
-                        content={"<?php\n\n" + "return info('message');"}
+                        content={"<?php\n\n" + "return info(200, 'message');"}
                       />
                     </div>
                   </Col>
@@ -2266,7 +2507,7 @@ export default function v14_20_0_FRM(mdText) {
 
                       <CodeBlock
                         langueage={"php"}
-                        content={"<?php\n\n" + "vd(success('finished'));"}
+                        content={"<?php\n\n" + "vd(success(200, 'finished'));"}
                       />
                     </div>
                   </Col>
@@ -2477,8 +2718,37 @@ export default function v14_20_0_FRM(mdText) {
                     </>
                   ),
                 },
+                {
+                  title: "REPORTS (XLSX/PDF)",
+                  desc: "Table to generate reports with Lion-Framework (v14.28.0), ReactJS (VITE v4.4.3) and MySQL (v8.0).",
+                  alert: (
+                    <Alert variant={"warning"}>
+                      <strong>Note:</strong> create the database and run the
+                      migrations.
+                    </Alert>
+                  ),
+                  buttons: (
+                    <>
+                      <GithubButton
+                        url={"https://github.com/Sleon4/reports-php"}
+                        variantButton={"outline-light"}
+                        className="me-4"
+                      >
+                        <DiPhp className="ms-2" size={"2em"} />
+                      </GithubButton>
+
+                      <GithubButton
+                        url={"https://github.com/Sleon4/reports-reactjs"}
+                        variantButton={"outline-light"}
+                      >
+                        <FaReact className="ms-2" size={"2em"} />
+                        <SiVite className="ms-2" size={"2em"} />
+                      </GithubButton>
+                    </>
+                  ),
+                },
               ].map((card, index) => (
-                <Col key={index} sm={12} md={6} lg={6} className="mx-auto mb-3">
+                <Col key={index} sm={12} md={6} lg={6} className="mb-3">
                   <Card bg="dark-logo" className="border border-secondary">
                     <Card.Header className="border-bottom border-secondary">
                       {card.title}
@@ -2486,6 +2756,7 @@ export default function v14_20_0_FRM(mdText) {
 
                     <Card.Body>
                       <Card.Text>{card.desc}</Card.Text>
+                      {card.alert && card.alert}
                       {card.buttons}
                     </Card.Body>
                   </Card>
