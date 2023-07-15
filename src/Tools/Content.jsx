@@ -68,7 +68,6 @@ import v1_6_0_LSP from "./Versions/Libraries/LionSpreadsheet/v1_6_0_LSP";
 import v1_7_0_LSP from "./Versions/Libraries/LionSpreadsheet/v1_7_0_LSP";
 
 // lion_database
-import v8_2_0_LSQ from "./Versions/Libraries/LionDatabase/v8_2_0_LSQ";
 import v8_3_0_LSQ from "./Versions/Libraries/LionDatabase/v8_3_0_LSQ";
 import v8_4_0_LSQ from "./Versions/Libraries/LionDatabase/v8_4_0_LSQ";
 import v8_5_0_LSQ from "./Versions/Libraries/LionDatabase/v8_5_0_LSQ";
@@ -78,6 +77,7 @@ import v8_7_1_LSQ from "./Versions/Libraries/LionDatabase/v8_7_1_LSQ";
 import v8_7_2_LSQ from "./Versions/Libraries/LionDatabase/v8_7_2_LSQ";
 import v8_8_0_LBD from "./Versions/Libraries/LionDatabase/v8_8_0_LDB";
 import v8_8_1_LBD from "./Versions/Libraries/LionDatabase/v8_8_1_LDB";
+import v8_8_2_LBD from "./Versions/Libraries/LionDatabase/v8_8_2_LDB";
 
 // lion_request
 import v5_3_0_LR from "./Versions/Libraries/LionRequest/v5_3_0_LR";
@@ -211,6 +211,7 @@ export default function Content(mdText = "") {
           description:
             "Package responsible for generating and executing MySQL processes.",
           class: {
+            "v8.8.2": v8_8_2_LBD(),
             "v8.8.1": v8_8_1_LBD(),
             "v8.8.0": v8_8_0_LBD(),
             "v8.7.2": v8_7_2_LSQ(),
@@ -220,7 +221,7 @@ export default function Content(mdText = "") {
             "v8.5.0": v8_5_0_LSQ(),
             "v8.4.0": v8_4_0_LSQ(),
             "v8.3.0": v8_3_0_LSQ(),
-            "v8.2.0": v8_2_0_LSQ(),
+            // "v8.2.0": v8_2_0_LSQ(),
             // "v8.1.1": v8_1_1_LSQ(),
             // "v8.1.0": v8_1_0_LSQ(),
             // "v8.0.3": v8_0_3_LSQ(),
