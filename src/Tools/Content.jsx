@@ -205,13 +205,15 @@ export default function Content(mdText = "") {
           url: "/libraries/lion/database/index",
           component: (
             <Library
+              title={"lion-packages/database"}
               library={"database"}
               url_github={"https://github.com/lion-packages/database"}
               command={"composer require lion/database"}
+              changelog={true}
             />
           ),
           description:
-            "Package responsible for generating and executing MySQL processes.",
+            "Package responsible for generating and executing MySQL processes",
           class: {
             "v8.8.2": v8_8_2_LBD(),
             "v8.8.1": v8_8_1_LBD(),
@@ -249,12 +251,14 @@ export default function Content(mdText = "") {
           url: "/libraries/lion/authentication/index",
           component: (
             <Library
+              title={"lion-packages/authentication"}
               library={"authentication"}
               url_github={"https://github.com/lion-packages/authentication"}
               command={"composer require lion/authentication"}
+              changelog={false}
             />
           ),
-          description: "Library to authenticate users in 2 steps.",
+          description: "Library to authenticate users in 2 steps",
           class: {
             "v1.0.0": v1_0_0_LA(),
           },
@@ -262,15 +266,18 @@ export default function Content(mdText = "") {
         files: {
           title: "lion-packages/files",
           url: "/libraries/lion/files/index",
+          changelog: true,
           component: (
             <Library
+              title={"lion-packages/files"}
               library={"files"}
               url_github={"https://github.com/lion-packages/files"}
               command={"composer require lion/files"}
+              changelog={true}
             />
           ),
           description:
-            "Library created with the function of working internal system files.",
+            "Library created with the function of working internal system files",
           class: {
             "v4.11.0": v4_11_0_LF(),
             "v4.10.0": v4_10_0_LF(),
@@ -282,14 +289,17 @@ export default function Content(mdText = "") {
         helpers: {
           title: "lion-packages/helpers",
           url: "/libraries/lion/helpers/index",
+          changelog: true,
           component: (
             <Library
+              title={"lion-packages/helpers"}
               library={"helpers"}
               url_github={"https://github.com/lion-packages/helpers"}
               command={"composer require lion/helpers"}
+              changelog={true}
             />
           ),
-          description: "Easy to use helpers for any type of use.",
+          description: "Easy to use helpers for any type of use",
           class: {
             "v2.3.0": v2_3_0_LH(),
             "v2.2.0": v2_2_0_LH(),
@@ -300,15 +310,18 @@ export default function Content(mdText = "") {
         request: {
           title: "lion-packages/request",
           url: "/libraries/lion/request/index",
+          changelog: true,
           component: (
             <Library
+              title={"lion-packages/request"}
               library={"request"}
               url_github={"https://github.com/lion-packages/request"}
               command={"composer require lion/request"}
+              changelog={true}
             />
           ),
           description:
-            "Library created to request input data and response requests.",
+            "Library created to request input data and response requests",
           class: {
             "v5.4.0": v5_4_0_LR(),
             "v5.3.0": v5_3_0_LR(),
@@ -317,11 +330,14 @@ export default function Content(mdText = "") {
         mailer: {
           title: "lion-packages/mailer",
           url: "/libraries/lion/mailer/index",
+          changelog: true,
           component: (
             <Library
+              title={"lion-packages/mailer"}
               library={"mailer"}
               url_github={"https://github.com/lion-packages/mailer"}
               command={"composer require lion/mailer"}
+              changelog={true}
             />
           ),
           description:
@@ -337,15 +353,18 @@ export default function Content(mdText = "") {
         route: {
           title: "lion-packages/route",
           url: "/libraries/lion/route/index",
+          changelog: true,
           component: (
             <Library
+              title={"lion-packages/route"}
               library={"route"}
               url_github={"https://github.com/lion-packages/route"}
               command={"composer require lion/route"}
+              changelog={true}
             />
           ),
           description:
-            "This library has a quick use of the router with regular expressions based on mrjgreen's phroute.",
+            "This library has a quick use of the router with regular expressions based on mrjgreen's phroute",
           class: {
             "v8.5.0": v8_5_0_LRT(),
             "v8.4.0": v8_4_0_LRT(),
@@ -359,15 +378,18 @@ export default function Content(mdText = "") {
         security: {
           title: "lion-packages/security",
           url: "/libraries/lion/security/index",
+          changelog: true,
           component: (
             <Library
+              title={"lion-packages/security"}
               library={"security"}
               url_github={"https://github.com/lion-packages/security"}
               command={"composer require lion/security"}
+              changelog={true}
             />
           ),
           description:
-            "Library created with the function of implementing AES, RSA and JWT Security functions for PHP.",
+            "Library created with the function of implementing AES, RSA and JWT Security functions for PHP",
           class: {
             "v6.12.0": v6_12_0_LS(),
             "v6.11.0": v6_11_0_LS(),
@@ -379,11 +401,14 @@ export default function Content(mdText = "") {
         spreadsheet: {
           title: "lion-packages/spreadsheet",
           url: "/libraries/lion/spreadsheet/index",
+          changelog: true,
           component: (
             <Library
+              title={"lion-packages/spreadsheet"}
               library={"spreadsheet"}
               url_github={"https://github.com/lion-packages/spreadsheet"}
               command={"composer require lion/spreadsheet"}
+              changelog={true}
             />
           ),
           description: "Library for easy spreadsheet use.",

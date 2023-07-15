@@ -7,10 +7,12 @@ function SelectVersionWithGithub({
   setmethods,
   versions,
   info,
+  addButtons = null,
 }) {
   return (
     <div className="p-2">
       <InputGroup className="mb-3">
+        {addButtons != null && addButtons}
         <GithubButton variantButton={"outline-light"} url={url_github} />
 
         <Form.Select
