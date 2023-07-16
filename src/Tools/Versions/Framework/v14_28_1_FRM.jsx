@@ -113,6 +113,7 @@ export default function v14_28_1_FRM(mdText) {
                   "FROM php:8.2-apache \n" +
                   "ARG DEBIAN_FRONTEND=noninteractive \n\n" +
                   "RUN apt-get update \\ \n" +
+                  "\t&& apt-get install -y default-mysql-client \\ \n" +
                   "\t&& apt-get install -y curl \\ \n" +
                   "\t&& apt-get install -y zsh \\ \n" +
                   "\t&& apt-get install -y wget \\ \n" +
@@ -171,9 +172,10 @@ export default function v14_28_1_FRM(mdText) {
                   "\t\t\t- .env\n" +
                   "\t\tports:\n" +
                   '\t\t\t- "8000:8000"\n' +
-                  '\t\t\t- "5173:5173"\n' +
-                  '\t\t\t- "5174:5174"\n' +
-                  '\t\t\t- "5175:5175"\n' +
+                  '\t\t\t- "7000:7000"\n' +
+                  '\t\t\t- "7001:7001"\n' +
+                  '\t\t\t- "7002:7002"\n' +
+                  '\t\t\t- "7003:7003"\n' +
                   "\t\tvolumes:\n" +
                   "\t\t\t- ./:/var/www/html\n" +
                   "\t\tdepends_on:\n" +
@@ -234,21 +236,28 @@ export default function v14_28_1_FRM(mdText) {
                   "stdout_logfile=/var/www/html/storage/logs/server/web-server.log\n\n" +
                   "; resources\n" +
                   "[program:resource-console-web]\n" +
-                  "command=php lion resource:serve console-web --host 0.0.0.0 --port 5173\n" +
+                  "command=php lion resource:serve console-web --host 0.0.0.0 --port 7000\n" +
                   "directory=/var/www/html\n" +
                   "autostart=true\n" +
                   "autorestart=true\n" +
                   "redirect_stderr=true\n" +
                   "stdout_logfile=/var/www/html/storage/logs/resources/console-web.log \n\n" +
+                  "[program:resource-available-urls]\n" +
+                  "command=php lion resource:serve available-urls --host 0.0.0.0 --port 7001\n" +
+                  "directory=/var/www/html\n" +
+                  "autostart=true\n" +
+                  "autorestart=true\n" +
+                  "redirect_stderr=true\n" +
+                  "stdout_logfile=/var/www/html/storage/logs/resources/available-urls.log\n\n" +
                   "[program:resource-user-registration]\n" +
-                  "command=php lion resource:serve user-registration --host 0.0.0.0 --port 5174\n" +
+                  "command=php lion resource:serve user-registration --host 0.0.0.0 --port 7002\n" +
                   "directory=/var/www/html\n" +
                   "autostart=true\n" +
                   "autorestart=true\n" +
                   "redirect_stderr=true\n" +
                   "stdout_logfile=/var/www/html/storage/logs/resources/user-registration.log\n\n" +
                   "[program:resource-login]\n" +
-                  "command=php lion resource:serve login --host 0.0.0.0 --port 5175\n" +
+                  "command=php lion resource:serve login --host 0.0.0.0 --port 7003\n" +
                   "directory=/var/www/html\n" +
                   "autostart=true\n" +
                   "autorestart=true\n" +
