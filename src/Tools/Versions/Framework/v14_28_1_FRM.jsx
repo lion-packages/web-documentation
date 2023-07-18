@@ -45,6 +45,20 @@ export default function v14_28_1_FRM(mdText) {
             </div>
           </Tab>
 
+          <Tab eventKey={"create-commands"} title={"CREATE"}>
+            <div className="my-3">
+              <h2>CREATE COMMANDS</h2>
+              <hr />
+
+              <p>Create your commands from the terminal.</p>
+              <CodeBlock language={"bash"} content={"php lion new:command"} />
+              <CodeBlock
+                language={"bash"}
+                content={"php lion new:command command_name"}
+              />
+            </div>
+          </Tab>
+
           <Tab eventKey="add-commands" title="ADD">
             <div className="my-3">
               <h2>ADD COMMANDS</h2>
