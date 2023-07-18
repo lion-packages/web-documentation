@@ -1165,13 +1165,13 @@ export default function v14_28_1_FRM(mdText) {
               </li>
 
               <li>
-                <strong>VIEWS</strong>: generates the basic views to read
-                entities.
+                <strong>VIEWS</strong>: generates the views in the basic
+                database to read entities.
               </li>
 
               <li>
-                <strong>PROCEDURES</strong>: the respective basic procedures of
-                the entity are generated.
+                <strong>PROCEDURES</strong>: Generates the stored procedures in
+                the core database to read entities.
               </li>
             </ul>
           </div>
@@ -1191,17 +1191,6 @@ export default function v14_28_1_FRM(mdText) {
               language={"bash"}
               content={"php lion db:crud users -c second_database"}
             />
-
-            <CodeBlock
-              language={"bash"}
-              content={
-                "php lion db:crud users --connection second_database --path MyFolder/"
-              }
-            />
-            <CodeBlock
-              language={"bash"}
-              content={"php lion db:crud users -c second_database -p MyFolder/"}
-            />
           </div>
         </>
       ),
@@ -1210,151 +1199,153 @@ export default function v14_28_1_FRM(mdText) {
       name: "Rules",
       code: (
         <>
-          <h2>RULES</h2>
-          <hr />
+          <Tabs defaultActiveKey="new" id="rules" fill>
+            <Tab eventKey="new" title="NEW">
+              <div className="my-3">
+                <h2>RULES</h2>
+                <hr />
 
-          <>
-            <div className="mb-3">
-              <p>
-                You can create rules from command line{" "}
-                <Badge bg={"secondary"}>php lion new:rule rule_name</Badge>,
-                rule usage is based on rules provided by{" "}
-                <a
-                  href="https://github.com/vlucas/valitron"
-                  target={"_blank"}
-                  className="text-decoration-none"
-                >
-                  vlucas/valitron
-                </a>
-                , you can set language response from environment variables with
-                lang language preference to <Badge bg={"secondary"}>.env</Badge>{" "}
-                more information in{" "}
-                <Link
-                  to={"/libraries/lion/security/index"}
-                  className="text-decoration-none"
-                >
-                  Lion-Security
-                </Link>
-                , rules are stored in{" "}
-                <Badge bg="secondary">{"app/Rules/"}</Badge>.
-              </p>
-            </div>
+                <p>
+                  You can create rules from command line{" "}
+                  <Badge bg={"secondary"}>php lion new:rule rule_name</Badge>,
+                  rule usage is based on rules provided by{" "}
+                  <a
+                    href="https://github.com/vlucas/valitron"
+                    target={"_blank"}
+                    className="text-decoration-none"
+                  >
+                    vlucas/valitron
+                  </a>
+                  , you can set language response from environment variables
+                  with lang language preference to{" "}
+                  <Badge bg={"secondary"}>.env</Badge> more information in{" "}
+                  <Link
+                    to={"/libraries/lion/security/index"}
+                    className="text-decoration-none"
+                  >
+                    Lion-Security
+                  </Link>
+                  , rules are stored in{" "}
+                  <Badge bg="secondary">{"app/Rules/"}</Badge>.
+                </p>
 
-            <div className="mb-3">
-              <CodeBlock
-                language={"bash"}
-                content={"php lion new:rule EmailRule"}
-              />
+                <CodeBlock
+                  language={"bash"}
+                  content={"php lion new:rule EmailRule"}
+                />
 
-              <ListGroup className="mb-3" numbered>
-                <ListGroup.Item variant="dark">
-                  <strong>field: </strong>property name, this property is
-                  displayed in exported postman collections.
-                </ListGroup.Item>
+                <ListGroup className="mb-3" numbered>
+                  <ListGroup.Item variant="dark">
+                    <strong>field: </strong>property name, this property is
+                    displayed in exported postman collections.
+                  </ListGroup.Item>
 
-                <ListGroup.Item variant="dark">
-                  <strong>desc: </strong> property description, this property is
-                  displayed in exported postman collections.
-                </ListGroup.Item>
+                  <ListGroup.Item variant="dark">
+                    <strong>desc: </strong> property description, this property
+                    is displayed in exported postman collections.
+                  </ListGroup.Item>
 
-                <ListGroup.Item variant="dark">
-                  <strong>value: </strong> property value, this property is
-                  displayed in exported postman collections.
-                </ListGroup.Item>
+                  <ListGroup.Item variant="dark">
+                    <strong>value: </strong> property value, this property is
+                    displayed in exported postman collections.
+                  </ListGroup.Item>
 
-                <ListGroup.Item variant="dark">
-                  <strong>disabled: </strong> disable property, this property is
-                  displayed on exported postman collections.
-                </ListGroup.Item>
-              </ListGroup>
+                  <ListGroup.Item variant="dark">
+                    <strong>disabled: </strong> disable property, this property
+                    is displayed on exported postman collections.
+                  </ListGroup.Item>
+                </ListGroup>
 
-              <p>
-                You can generate all the database rules for each entity, for all
-                its properties.
-              </p>
+                <p>
+                  You can generate all the database rules for each entity, for
+                  all its properties.
+                </p>
 
-              <CodeBlock
-                language={"bash"}
-                content={"php lion db:all-rules my_table"}
-              />
+                <CodeBlock
+                  language={"bash"}
+                  content={"php lion db:all-rules my_table"}
+                />
 
-              <CodeBlock
-                language={"bash"}
-                content={"php lion db:rules my_table"}
-              />
+                <CodeBlock
+                  language={"bash"}
+                  content={"php lion db:rules my_table"}
+                />
 
-              <CodeBlock
-                language={"bash"}
-                content={
-                  "php lion db:rules my_table --connection second_connection"
-                }
-              />
+                <CodeBlock
+                  language={"bash"}
+                  content={
+                    "php lion db:rules my_table --connection second_connection"
+                  }
+                />
 
-              <CodeBlock
-                langueage={"php"}
-                content={
-                  "<?php\n\n" +
-                  "namespace App\\Rules;\n\n" +
-                  "use App\\Traits\\Framework\\ShowErrors;\n\n" +
-                  "class EmailRule {\n\n" +
-                  "\tuse ShowErrors;\n\n" +
-                  '\tpublic static string $field = "users_email";\n' +
-                  '\tpublic static string $desc = "this field applies a property of type email";\n' +
-                  '\tpublic static string $value = "";\n' +
-                  "\tpublic static string $disabled = false;\n\n" +
-                  "\tpublic function passes(): void {\n" +
-                  "\t\tself::validate(function(\\Valitron\\Validator $validator) {\n" +
-                  "\t\t\t$validator\n\t\t\t\t->rule('required', self::$field)\n\t\t\t\t->message('custom message...');\n" +
-                  "\t\t});\n" +
-                  "\t}\n\n" +
-                  "}"
-                }
-              />
-            </div>
-          </>
+                <CodeBlock
+                  langueage={"php"}
+                  content={
+                    "<?php\n\n" +
+                    "namespace App\\Rules;\n\n" +
+                    "use App\\Traits\\Framework\\ShowErrors;\n\n" +
+                    "class EmailRule {\n\n" +
+                    "\tuse ShowErrors;\n\n" +
+                    '\tpublic static string $field = "users_email";\n' +
+                    '\tpublic static string $desc = "this field applies a property of type email";\n' +
+                    '\tpublic static string $value = "";\n' +
+                    "\tpublic static string $disabled = false;\n\n" +
+                    "\tpublic function passes(): void {\n" +
+                    "\t\tself::validate(function(\\Valitron\\Validator $validator) {\n" +
+                    "\t\t\t$validator\n\t\t\t\t->rule('required', self::$field)\n\t\t\t\t->message('custom message...');\n" +
+                    "\t\t});\n" +
+                    "\t}\n\n" +
+                    "}"
+                  }
+                />
+              </div>
+            </Tab>
 
-          <div className="mb-3">
-            <h2>USE RULES</h2>
-            <hr />
+            <Tab eventKey="use" title="USE">
+              <div className="my-3">
+                <h2>USE RULES</h2>
+                <hr />
 
-            <p>
-              Add your rules to different routes in{" "}
-              <Badge bg={"secondary"}>routes/rules.php</Badge>
-            </p>
+                <p>
+                  Add your rules to different routes in{" "}
+                  <Badge bg={"secondary"}>routes/rules.php</Badge>
+                </p>
 
-            <CodeBlock
-              langueage={"php"}
-              content={
-                "<?php\n\n" +
-                "return [\n" +
-                "\t'POST' => [\n" +
-                "\t\t'/api/auth/signin' => [\n" +
-                "\t\t\tApp\\Rules\\EmailRule::class\n" +
-                "\t\t]\n" +
-                "\t]\n" +
-                "];"
-              }
-            />
+                <CodeBlock
+                  langueage={"php"}
+                  content={
+                    "<?php\n\n" +
+                    "return [\n" +
+                    "\t'POST' => [\n" +
+                    "\t\t'/api/auth/signin' => [\n" +
+                    "\t\t\tApp\\Rules\\EmailRule::class\n" +
+                    "\t\t]\n" +
+                    "\t]\n" +
+                    "];"
+                  }
+                />
 
-            <p>You can reuse a rule in different routes.</p>
+                <p>You can reuse a rule in different routes.</p>
 
-            <CodeBlock
-              langueage={"php"}
-              content={
-                "<?php\n\n" +
-                "return [\n" +
-                "\t'POST' => [\n" +
-                "\t\t'/api/auth/signin' => [\n" +
-                "\t\t\tApp\\Rules\\EmailRule::class\n" +
-                "\t\t],\n" +
-                "\t\t'/api/users/update/{idusers}' => [\n" +
-                "\t\t\tApp\\Rules\\EmailRule::class\n" +
-                "\t\t]\n" +
-                "\t]\n" +
-                "];"
-              }
-            />
-          </div>
+                <CodeBlock
+                  langueage={"php"}
+                  content={
+                    "<?php\n\n" +
+                    "return [\n" +
+                    "\t'POST' => [\n" +
+                    "\t\t'/api/auth/signin' => [\n" +
+                    "\t\t\tApp\\Rules\\EmailRule::class\n" +
+                    "\t\t],\n" +
+                    "\t\t'/api/users/update/{idusers}' => [\n" +
+                    "\t\t\tApp\\Rules\\EmailRule::class\n" +
+                    "\t\t]\n" +
+                    "\t]\n" +
+                    "];"
+                  }
+                />
+              </div>
+            </Tab>
+          </Tabs>
         </>
       ),
     },
@@ -2174,6 +2165,29 @@ export default function v14_28_1_FRM(mdText) {
                     "\t\t\t- db\n" +
                     "\t\tnetworks:\n" +
                     "\t\t\t- lion"
+                  }
+                />
+              </div>
+
+              <div className="mb-3">
+                <p>
+                  Add the log from the Dockerfile with <strong>touch</strong>.
+                </p>
+
+                <CodeBlock
+                  language={"dockerfile"}
+                  content={
+                    "# Dockerfile \n" +
+                    "CMD chsh -s $(which zsh) \\ \n" +
+                    "\t&& zsh \\ \n" +
+                    "\t&& composer install \\ \n" +
+                    "\t&& touch storage/logs/resources/console-web.log \\ \n" +
+                    "\t&& touch storage/logs/resources/login.log \\ \n" +
+                    "\t&& touch storage/logs/resources/user-registration.log \\ \n" +
+                    "\t&& touch storage/logs/server/web-server.log \\ \n" +
+                    "\t&& touch storage/logs/sockets/socket.log \\ \n" +
+                    "\t&& touch storage/logs/supervisord/supervisord.log \\ \n" +
+                    "\t&& /usr/bin/supervisord -c /etc/supervisor/conf.d/supervisord.conf"
                   }
                 />
               </div>
