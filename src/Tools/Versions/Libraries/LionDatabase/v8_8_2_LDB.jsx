@@ -529,7 +529,10 @@ export default function v8_8_2_LBD() {
                   content={
                     "<?php\n\n" +
                     "use LionDatabase\\Drivers\\MySQL\\MySQL as DB;\n\n" +
-                    "DB::fetchMode(PDO::FETCH_ASSOC);"
+                    "DB::table('users')\n" +
+                    "\t->select()\n" +
+                    "\t->fetchMode(PDO::FETCH_ASSOC)\n" +
+                    "\t->getAll();"
                   }
                 />
               </div>
@@ -541,8 +544,12 @@ export default function v8_8_2_LBD() {
                   language="php"
                   content={
                     "<?php\n\n" +
-                    "use LionDatabase\\Drivers\\MySQL\\MySQL as DB;\n\n" +
-                    "DB::fetchMode(PDO::FETCH_CLASS, \\Class\\MyClass::class);"
+                    "use LionDatabase\\Drivers\\MySQL\\MySQL as DB;\n" +
+                    "use Class\\MyClass;\n\n" +
+                    "DB::table('users')\n" +
+                    "\t->select()\n" +
+                    "\t->fetchMode(PDO::FETCH_CLASS, MyClass::class)\n" +
+                    "\t->getAll();"
                   }
                 />
               </div>
@@ -569,9 +576,7 @@ export default function v8_8_2_LBD() {
                   content={
                     "<?php\n\n" +
                     "use LionDatabase\\Drivers\\MySQL\\MySQL as DB;\n\n" +
-                    "DB::groupQuery(function(DB $query) {\n" +
-                    "\t$query->table('users')->select();\n" +
-                    "})->getAll();"
+                    "DB::groupQuery(fn(DB $db) => $db->table('users')->select())->getAll();"
                   }
                 />
               </div>
@@ -591,12 +596,10 @@ export default function v8_8_2_LBD() {
                   content={
                     "<?php\n\n" +
                     "use LionDatabase\\Drivers\\MySQL\\MySQL as DB;\n\n" +
-                    "DB::groupQuery(function(DB $query) {\n" +
-                    "\t$query->table('users')->select();\n" +
-                    "})\n->unionAll()\n" +
-                    "->groupQuery(function(DB $query) {\n" +
-                    "\t$query->table('users_second')->select();\n" +
-                    "})\n->getAll()"
+                    "DB::groupQuery(fn(DB $db) => $db->table('users')->select())\n" +
+                    "\t->unionAll()\n" +
+                    "\t->groupQuery(fn(DB $query) => $query->table('users_second')->select())\n" +
+                    "\t->getAll()"
                   }
                 />
               </div>
