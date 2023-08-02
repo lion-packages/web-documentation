@@ -724,12 +724,11 @@ export default function v15_0_0_FRM(mdText) {
 
               <p>
                 Resources allow you to create simple web pages using the{" "}
-                <strong>Twig</strong>{" "}
-                templating engine (Symfony) or creating javascript projects with{" "}
-                <strong>Vite.JS</strong>, resources are created with a unique
-                folder name, when initialized it should call the resource name
-                assigned to the folder , the resources are stored in{" "}
-                <Badge bg="secondary">{"resources/"}</Badge>.
+                <strong>Twig</strong> templating engine (Symfony) or creating
+                javascript projects with <strong>Vite.JS</strong>, resources are
+                created with a unique folder name, when initialized it should
+                call the resource name assigned to the folder , the resources
+                are stored in <Badge bg="secondary">{"resources/"}</Badge>.
               </p>
 
               <div className="mb-3">
@@ -831,17 +830,27 @@ export default function v15_0_0_FRM(mdText) {
               <div className="mb-3">
                 <h6 className="text-warning">VITE</h6>
 
+                <Alert variant="warning">
+                  <strong>Note: </strong>if you are using{" "}
+                  <strong>Docker</strong> add the dependency install (
+                  <strong>php lion npm:install resource_name</strong>) of the
+                  resource so that it is installed whenever the{" "}
+                  <strong>Docker</strong> container is built.
+                </Alert>
+
                 <CodeBlock
                   language={"bash"}
                   content={
-                    "# Windows \n" + "cd resources/resource_name/ ; npm run dev"
+                    "# Windows \n" +
+                    "cd resources/resource_name/ ; npm install ; npm run dev"
                   }
                 />
 
                 <CodeBlock
                   language={"bash"}
                   content={
-                    "# Linux \n" + "cd resources/resource_name/ && npm run dev"
+                    "# Linux \n" +
+                    "cd resources/resource_name/ && npm install && npm run dev"
                   }
                 />
               </div>
