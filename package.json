@@ -5,6 +5,7 @@
   "version": "6.3.0",
   "type": "module",
   "scripts": {
+    "co": "sui-mono commit",
     "dev": "vite",
     "build": "vite build",
     "preview": "vite preview"
@@ -24,6 +25,7 @@
     "remark-gfm": "^3.0.1"
   },
   "devDependencies": {
+    "@s-ui/mono": "^2.41.0",
     "@types/react": "^18.0.17",
     "@types/react-dom": "^18.0.6",
     "@vitejs/plugin-react": "^2.0.1",
