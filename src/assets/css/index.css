@@ -273,6 +273,23 @@
   --bs-btn-disabled-border-color: #202020;
 }
 
+.btn-dark-gradient-secondary {
+  --bs-btn-color: #ff8463;
+  --bs-btn-bg: #ffe4ce;
+  --bs-btn-border-color: #ffe4ce;
+  --bs-btn-hover-color: #ff8463;
+  --bs-btn-hover-bg: #f0cdb0;
+  --bs-btn-hover-border-color: #fcd8bb;
+  --bs-btn-focus-shadow-rgb: 66, 70, 73;
+  --bs-btn-active-color: #ffffff;
+  --bs-btn-active-bg: #fcd8bb;
+  --bs-btn-active-border-color: #fcd8bb;
+  --bs-btn-active-shadow: inset 0 3px 5px rgba(41, 41, 48, 0.125);
+  --bs-btn-disabled-color: #ffffff;
+  --bs-btn-disabled-bg: #ffe4ce;
+  --bs-btn-disabled-border-color: #ffe4ce;
+}
+
 .text-degradient {
   font-family: "Montserrat", sans-serif;
 
@@ -434,7 +451,7 @@
 
 @media (min-width: 1200px) and (max-width: 1399px) {
   .text-degradient {
-    font-size: 45px;
+    font-size: 56px;
   }
 
   .description {
