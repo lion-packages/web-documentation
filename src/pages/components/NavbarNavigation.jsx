@@ -9,6 +9,7 @@ import NavigationLinks from "../../Tools/NavigationLinks";
 import logo from "./../../assets/img/logo-web.png";
 import { AiOutlineMail } from "react-icons/ai";
 import { FaGithub, FaYoutube } from "react-icons/fa";
+import SelectVersionButton from "./SelectVersionButton";
 
 function NavbarNavigation() {
   return (
@@ -30,6 +31,9 @@ function NavbarNavigation() {
 
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="ms-auto">
+
+          <SelectVersionButton />
+          
             {NavigationLinks.map((link, index) =>
               link.type === "link" ? (
                 <LinkContainer to={link.url} key={index}>
