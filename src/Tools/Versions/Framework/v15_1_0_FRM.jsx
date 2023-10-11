@@ -8,6 +8,7 @@ import {
   Tab,
   Table,
   Tabs,
+  Container
 } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import ReactMarkdown from "react-markdown";
@@ -28,6 +29,59 @@ import crontab_edit from "./../../../assets/img/docker/crontab-edit.png";
 
 export default function v15_1_0_FRM(mdText) {
   return {
+    install: {
+      name: "Install",
+      code: (
+        <Container className="my-4 text-white">
+        <div className="mb-3">
+          <div className="d-flex justify-content-between">
+            <div className="p-2">
+              <h3>INSTALL</h3>
+            </div>
+          </div>
+
+          <p>Lion-Framework supports PHP versions 8.1+</p>
+
+          <CodeBlock
+            language={"bash"}
+            content={"composer create-project lion/framework"}
+          />
+
+          <CodeBlock
+            language={"bash"}
+            content={"git clone https://github.com/Lion-Packages/framework.git"}
+          />
+        </div>
+
+        <hr />
+
+        <div>
+          <p>
+            Lion-Framework can also serve as an API backend for a JavaScript
+            single page application or a mobile application. For example, you
+            can use Lion-Framework as an API backend for your ReactJS app or
+            Kotlin app.
+          </p>
+
+          <p>
+            You can use Lion-Framework to provide authentication and data
+            storage/retrieval for your application, while taking advantage of
+            Lion-Framework services such as emails, databases and more.
+          </p>
+
+          <p>
+            To install <strong>Lion-Framework</strong> and libraries you must
+            have{" "}
+            <a href="https://getcomposer.org" target={"_blank"}>
+              composer
+            </a>{" "}
+            installed, <strong>Lion-Framework</strong> integrates most of the
+            available <strong>Lion</strong> libraries.
+          </p>
+        </div>
+    </Container>
+      ),
+    },
     changelog: {
       name: "Changelog",
       code: <ReactMarkdown remarkPlugins={[remarkGfm]}>{mdText}</ReactMarkdown>,
