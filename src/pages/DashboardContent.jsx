@@ -53,7 +53,9 @@ function DashboardContent() {
                 single page application or a mobile application.
               </p>
 
-              <LinkContainer to="/framework/content">
+              <LinkContainer
+              to={`/framework/index/v15.1.0/install`}
+              >
                 <Button
                   variant="dark-gradient-secondary"
                   size="lg"

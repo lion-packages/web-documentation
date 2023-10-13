@@ -12,6 +12,10 @@ import v14_29_1_CMMD from "./Versions/Commands/v14_29_1_CMMD";
 import v15_0_0_CMMD from "./Versions/Commands/v15_0_0_CMMD";
 import v15_0_1_CMMD from "./Versions/Commands/v15_0_1_CMMD";
 import v15_1_0_CMMD from "./Versions/Commands/v15_1_0_CMMD";
+import v15_1_1_CMMD from "./Versions/Commands/v15_1_1_CMMD";
+import v15_2_0_CMMD from "./Versions/Commands/v15_2_0_CMMD";
+import v15_3_0_CMMD from "./Versions/Commands/v15_3_0_CMMD";
+import v15_4_0_CMMD from "./Versions/Commands/v15_4_0_CMMD";
 
 // framework
 import v14_25_0_FRM from "./Versions/Framework/v14_25_0_FRM";
@@ -24,6 +28,10 @@ import v14_29_1_FRM from "./Versions/Framework/v14_29_1_FRM";
 import v15_0_0_FRM from "./Versions/Framework/v15_0_0_FRM";
 import v15_0_1_FRM from "./Versions/Framework/v15_0_1_FRM";
 import v15_1_0_FRM from "./Versions/Framework/v15_1_0_FRM";
+import v15_1_1_FRM from "./Versions/Framework/v15_1_1_FRM";
+import v15_2_0_FRM from "./Versions/Framework/v15_2_0_FRM";
+import v15_3_0_FRM from "./Versions/Framework/v15_3_0_FRM";
+import v15_4_0_FRM from "./Versions/Framework/v15_4_0_FRM";
 
 // libraries
 import v4_7_0_LF from "./Versions/Libraries/LionFiles/v4_7_0_LF";
@@ -92,6 +100,10 @@ import v1_0_0_LA from "./Versions/Libraries/LionAuthentication/v1_0_0_LA";
 export default function Content(mdText = "") {
   return {
     commands: {
+      "v15.4.0": v15_4_0_CMMD(),
+      "v15.3.0": v15_3_0_CMMD(),
+      "v15.2.0": v15_2_0_CMMD(),
+      "v15.1.1": v15_1_1_CMMD(),
       "v15.1.0": v15_1_0_CMMD(),
       "v15.0.1": v15_0_1_CMMD(),
       "v15.0.0": v15_0_0_CMMD(),
@@ -152,6 +164,10 @@ export default function Content(mdText = "") {
       // "v12.16.1": v12_16_1_CMMD(),
     },
     framework: {
+      "v15.4.0": v15_4_0_FRM(mdText),
+      "v15.3.0": v15_3_0_FRM(mdText),
+      "v15.2.0": v15_2_0_FRM(mdText),
+      "v15.1.1": v15_1_1_FRM(mdText),
       "v15.1.0": v15_1_0_FRM(mdText),
       "v15.0.1": v15_0_1_FRM(mdText),
       "v15.0.0": v15_0_0_FRM(mdText),
