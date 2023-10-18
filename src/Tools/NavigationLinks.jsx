@@ -10,7 +10,7 @@ export default [
   {
     display_name: "Framework",
     type: "link",
-    url: "framework/content",
+    url: "framework/index/v15.4.0/install",
   },
   {
     display_name: "Packages",
