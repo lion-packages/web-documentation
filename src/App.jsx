@@ -7,7 +7,6 @@ import AddCode from "./pages/components/AddCode";
 import AddTabs from "./pages/components/AddTabs";
 
 import NotFound from "./pages/NotFound";
-import FrameworkContent from "./pages/FrameworkContent";
 import DashboardContent from "./pages/DashboardContent";
 import LibraryContent from "./pages/LibraryContent";
 import FooterNavigation from "./pages/components/FooterNavigation";
@@ -23,7 +22,6 @@ function App() {
           <Route path="/" element={<DashboardContent />} />
 
           <Route path="framework">
-            <Route path="content" element={<FrameworkContent />} />
             <Route path="index/:item_version/:tab" element={<AddTabs />} />
           </Route>
 
