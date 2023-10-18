@@ -30,7 +30,7 @@ import crontab_edit from "./../../../assets/img/docker/crontab-edit.png";
 export default function v15_0_1_FRM(mdText) {
   return {
     install: {
-      name: "Install",
+      name: "Getting Started",
       code: (
         <Container className="my-4 text-white">
         <div className="mb-3">
