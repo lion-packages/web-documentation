@@ -30,9 +30,9 @@ import crontab_edit from "./../../../assets/img/docker/crontab-edit.png";
 export default function v15_1_0_FRM(mdText) {
   return {
     install: {
-      name: "Install",
+      name: "Getting Started",
       code: (
-        <Container className="my-4 text-white">
+        <Container className="my-4 text-white ">
         <div className="mb-3">
           <div className="d-flex justify-content-between">
             <div className="p-2">
@@ -40,7 +40,7 @@ export default function v15_1_0_FRM(mdText) {
             </div>
           </div>
 
-          <p>Lion-Framework supports PHP versions 8.1+</p>
+          <p className="fs-4">Lion-Framework supports PHP versions 8.1+</p>
 
           <CodeBlock
             language={"bash"}
@@ -56,20 +56,20 @@ export default function v15_1_0_FRM(mdText) {
         <hr />
 
         <div>
-          <p>
+          <p className="fs-6">
             Lion-Framework can also serve as an API backend for a JavaScript
             single page application or a mobile application. For example, you
             can use Lion-Framework as an API backend for your ReactJS app or
             Kotlin app.
           </p>
 
-          <p>
+          <p className="fs-6">
             You can use Lion-Framework to provide authentication and data
             storage/retrieval for your application, while taking advantage of
             Lion-Framework services such as emails, databases and more.
           </p>
 
-          <p>
+          <p className="fs-6">
             To install <strong>Lion-Framework</strong> and libraries you must
             have{" "}
             <a href="https://getcomposer.org" target={"_blank"}>
@@ -104,7 +104,7 @@ export default function v15_1_0_FRM(mdText) {
               <h2>CREATE COMMANDS</h2>
               <hr />
 
-              <p>Create your commands from the terminal.</p>
+              <p className="fs-5">Create your commands from the terminal.</p>
               <CodeBlock language={"bash"} content={"php lion new:command"} />
               <CodeBlock
                 language={"bash"}
@@ -118,7 +118,7 @@ export default function v15_1_0_FRM(mdText) {
               <h2>ADD COMMANDS</h2>
               <hr />
 
-              <p>
+              <p className="fs-5">
                 You need to add the commands in the{" "}
                 <Badge bg="secondary">config/commands.php</Badge> array,
                 Commands are stored in{" "}
@@ -142,7 +142,7 @@ export default function v15_1_0_FRM(mdText) {
               <h2>EXECUTE COMMANDS</h2>
               <hr />
 
-              <p>execute commands with the command and execute functions.</p>
+              <p className="fs-5">execute commands with the command and execute functions.</p>
 
               <CodeBlock
                 language={"php"}
@@ -161,7 +161,7 @@ export default function v15_1_0_FRM(mdText) {
               <h2>HELPERS</h2>
               <hr />
 
-              <p>Use the available features to add color to your chains</p>
+              <p className="fs-5">Use the available features to add color to your chains</p>
 
               <CodeBlock
                 language={"php"}
@@ -175,7 +175,7 @@ export default function v15_1_0_FRM(mdText) {
                 }
               />
 
-              <p>
+              <p className="fs-5">
                 Use the echo function to display strings in the terminal and
                 storing it in the current log file.
               </p>
@@ -200,7 +200,7 @@ export default function v15_1_0_FRM(mdText) {
               <h2>DOCKER FILES</h2>
               <hr />
 
-              <p>
+              <p className="fs-5">
                 Add the <strong>Dockerfile</strong> and{" "}
                 <strong>docker-compose.yml</strong> to the root of the project,
                 to create the container you must execute the command{" "}
@@ -356,7 +356,7 @@ export default function v15_1_0_FRM(mdText) {
               <div className="mb-3">
                 <h5 className="text-warning">ENV</h5>
 
-                <p>
+                <p className="fs-5">
                   The host of the connection to the databases must be
                   established with the value <strong>DB_HOST=db</strong>
                 </p>
@@ -384,7 +384,7 @@ export default function v15_1_0_FRM(mdText) {
               <h2>RUN DOCKER</h2>
               <hr />
 
-              <p>run the container</p>
+              <p className="fs-5">run the container</p>
 
               <CodeBlock language={"bash"} content={"docker-compose up"} />
             </div>
@@ -399,7 +399,7 @@ export default function v15_1_0_FRM(mdText) {
           <h2>CRON</h2>
           <hr />
 
-          <p>
+          <p className="fs-5">
             CRON tasks can be run in <strong>Docker</strong> containers,{" "}
             <strong>Lion-Framework</strong> provides the necessary docker files
             to create a container with their respective images, to start
@@ -415,7 +415,7 @@ export default function v15_1_0_FRM(mdText) {
               1. Create the command for the CRON task
             </h5>
 
-            <p>
+            <p className="fs-5">
               With the generated command you can carry out the necessary
               instructions for the execution of the CRON task.
             </p>
@@ -429,7 +429,7 @@ export default function v15_1_0_FRM(mdText) {
           <div className="mb-3">
             <h5 className="text-warning">2. Add the command</h5>
 
-            <p>
+            <p className="fs-5">
               The command should be added to the command list found in
               <Badge bg="secondary">{"config/commands.php"}</Badge>.
             </p>
@@ -448,7 +448,7 @@ export default function v15_1_0_FRM(mdText) {
           <div className="mb-3">
             <h5 className="text-warning">3. Create file to run</h5>
 
-            <p>
+            <p className="fs-5">
               You must generate the sh file to run the CRON tasks with your
               instructions, this file is stored in{" "}
               <Badge bg="secondary">storage/cron/</Badge>.
@@ -462,7 +462,7 @@ export default function v15_1_0_FRM(mdText) {
           <div className="mb-3">
             <h5 className="text-warning">4. Build the Docker container</h5>
 
-            <p>
+            <p className="fs-5">
               You must generate the Docker container to configure for the
               execution of the CRON task.
             </p>
@@ -473,7 +473,7 @@ export default function v15_1_0_FRM(mdText) {
           <div className="mb-3">
             <h5 className="text-warning">5. Access the container bash.</h5>
 
-            <p>
+            <p className="fs-5">
               Access lion-framework-app container (image) bash, you can get the
               image id.
             </p>
@@ -482,7 +482,7 @@ export default function v15_1_0_FRM(mdText) {
 
             <img src={docker_ps} className="img-fluid mb-3" />
 
-            <p>
+            <p className="fs-5">
               After copying the id of the lion-framework-app image, bash should
               be accessed.
             </p>
@@ -504,7 +504,7 @@ export default function v15_1_0_FRM(mdText) {
           <div className="mb-3">
             <h5 className="text-warning">6. Permissions for sh file</h5>
 
-            <p>
+            <p className="fs-5">
               To give read and write permissions to a shell script file (file
               with .sh extension), you can use the chmod command. For example,
               to give read and write permissions to the script.sh file, you can
@@ -519,7 +519,7 @@ export default function v15_1_0_FRM(mdText) {
           <div className="mb-3">
             <h5 className="text-warning">7. configure crontab</h5>
 
-            <p>
+            <p className="fs-5">
               To configure the <strong>crontab</strong> file you must go to the{" "}
               <strong>etc/</strong> path, where you can run the{" "}
               <strong>ls</strong> command to display the{" "}
@@ -531,7 +531,7 @@ export default function v15_1_0_FRM(mdText) {
 
             <CodeBlock language={"bash"} content={"sudo crontab -e"} />
 
-            <p>
+            <p className="fs-5">
               This opens the <strong>crontab</strong> file from the terminal or
               the editor that you have configured, add the instruction in the
               last line to perform the CRON task with its respective
@@ -540,14 +540,14 @@ export default function v15_1_0_FRM(mdText) {
 
             <img src={crontab_edit} className="img-fluid mb-3" />
 
-            <p>
+            <p className="fs-5">
               Save the changes with the command <strong>Ctrl + X</strong>, on
               Linux and macOS, the Windows equivalent of{" "}
               <strong>Ctrl + X</strong> is <strong>Command + X</strong> or{" "}
               <strong>Ctrl + X</strong>.
             </p>
 
-            <p>
+            <p className="fs-5">
               Press <strong>Y</strong> to accept the changes and then press the
               <strong>Intro</strong> key to exit.
             </p>
@@ -556,7 +556,7 @@ export default function v15_1_0_FRM(mdText) {
           <div className="mb-3">
             <h5 className="text-warning">8. restart the container</h5>
 
-            <p>
+            <p className="fs-5">
               After configuring the CRON task, you must restart the container to
               see the changes, otherwise the configured CRON tasks run, go back
               to step #5 to access the container bash again, run the following
@@ -580,7 +580,7 @@ export default function v15_1_0_FRM(mdText) {
               <h2 className="pb-2">DATABASE CONFIG</h2>
               <hr />
 
-              <p>
+              <p className="fs-5">
                 To make a direct connection to the database, go to{" "}
                 <Badge bg="secondary">config/database.php</Badge>, for more
                 information read{" "}
@@ -629,7 +629,7 @@ export default function v15_1_0_FRM(mdText) {
               <h2 className="pb-2">SHOW DATABASE CONNECTIONS</h2>
               <hr />
 
-              <p>View all available database connections.</p>
+              <p className="fs-5">View all available database connections.</p>
               <CodeBlock language={"bash"} content={"php lion db:show"} />
             </div>
           </Tab>
@@ -639,7 +639,7 @@ export default function v15_1_0_FRM(mdText) {
               <h2 className="pb-2">EXPORT DATABASE</h2>
               <hr />
 
-              <p>Export your database using the terminal.</p>
+              <p className="fs-5">Export your database using the terminal.</p>
               <CodeBlock
                 language={"bash"}
                 content={"php lion db:export database_name"}
@@ -658,7 +658,7 @@ export default function v15_1_0_FRM(mdText) {
               <h2>MAIL CONFIG</h2>
               <hr />
 
-              <p>
+              <p className="fs-5">
                 To send mail with different accounts you need to add the
                 accounts and add the service, go to{" "}
                 <Badge bg="secondary">config/email.php</Badge>, email accounts
@@ -718,7 +718,7 @@ export default function v15_1_0_FRM(mdText) {
               <h2>SHOW ACCOUNTS</h2>
               <hr />
 
-              <p>View the accounts available in the system.</p>
+              <p className="fs-5">View the accounts available in the system.</p>
               <CodeBlock language={"bash"} content={"php lion email:show"} />
             </div>
           </Tab>
@@ -734,7 +734,7 @@ export default function v15_1_0_FRM(mdText) {
 
             <hr />
 
-            <p>
+            <p className="fs-5">
               Enable and add the necessary headers for your web application, go
               to <Badge bg="secondary">config/cors.php</Badge> and set your
               headers.
@@ -776,7 +776,7 @@ export default function v15_1_0_FRM(mdText) {
               <h2>CREATE PROJECTS WITH VITE</h2>
               <hr />
 
-              <p>
+              <p className="fs-5">
                 Projects with vite allow you to create simple web pages using
                 npm, when initialized it should call the project name assigned
                 to the folder, projects with vite are stored in{" "}
@@ -786,7 +786,7 @@ export default function v15_1_0_FRM(mdText) {
               {/* <div className="mb-3">
                 <h6 className="text-warning">TWIG</h6>
 
-                <p>To create a twig template resource run the command:</p>
+                <p className="fs-5">To create a twig template resource run the command:</p>
 
                 <CodeBlock
                   language={"bash"}
@@ -827,7 +827,7 @@ export default function v15_1_0_FRM(mdText) {
               <h2>USE</h2>
               <hr />
 
-              <p>
+              <p className="fs-5">
                 When generating a project with vite, a log is automatically
                 generated in storage/logs/vite/ this to see the output of the
                 local server, the configuration of the resource is added in
@@ -838,7 +838,7 @@ export default function v15_1_0_FRM(mdText) {
                 docker-compose the port of the resource is created.
               </p>
 
-              <p>
+              <p className="fs-5">
                 Run the initialization commands to run the local servers from
                 your projects; if you are running the project with Docker, you
                 can skip the initialization commands.
@@ -883,7 +883,7 @@ export default function v15_1_0_FRM(mdText) {
               <h2>VITE.JS</h2>
               <hr />
 
-              <p>
+              <p className="fs-5">
                 The use of <strong>NPM</strong> to create projects with{" "}
                 <strong>Vite.JS</strong> has been incorporated dynamically, you
                 can create any number of resources with <strong>Vite.JS</strong>{" "}
@@ -892,12 +892,12 @@ export default function v15_1_0_FRM(mdText) {
                 for your applications Web.
               </p>
 
-              <p></p>
+              <p className="fs-5"></p>
 
               <div className="mb-3">
                 <h6 className="text-warning">INSTALL DEPENDENCIES</h6>
 
-                <p>
+                <p className="fs-5">
                   Install the required dependencies for your frontend web
                   application with NPM by running the command:
                 </p>
@@ -918,7 +918,7 @@ export default function v15_1_0_FRM(mdText) {
               <div className="mb-3">
                 <h6 className="text-warning">UPDATE DEPENDENCIES</h6>
 
-                <p>
+                <p className="fs-5">
                   To update the installed dependencies you must run the command.
                 </p>
 
@@ -931,7 +931,7 @@ export default function v15_1_0_FRM(mdText) {
               <div className="mb-3">
                 <h6 className="text-warning">UNINSTALL DEPENDENCIES</h6>
 
-                <p>
+                <p className="fs-5">
                   To uninstall the installed dependencies you must run the
                   command.
                 </p>
@@ -952,7 +952,7 @@ export default function v15_1_0_FRM(mdText) {
               <div className="mb-3">
                 <h6 className="text-warning">GENERATE DIST</h6>
 
-                <p>
+                <p className="fs-5">
                   To generate the dist of the vite project you must execute the
                   command.
                 </p>
@@ -975,7 +975,7 @@ export default function v15_1_0_FRM(mdText) {
             <h2>REQUEST</h2>
             <hr />
 
-            <p>
+            <p className="fs-5">
               The <Badge bg={"secondary"}>capture</Badge> function of the{" "}
               <Badge bg={"secondary"}>Request</Badge> class is used in order to
               obtain the data sent in an HTTP request, the system internally
@@ -1012,7 +1012,7 @@ export default function v15_1_0_FRM(mdText) {
               }
             />
 
-            <p>equivalent to</p>
+            <p className="fs-5">equivalent to</p>
 
             <CodeBlock
               langueage={"php"}
@@ -1033,7 +1033,7 @@ export default function v15_1_0_FRM(mdText) {
             <h2>RESPONSE</h2>
             <hr />
 
-            <p>
+            <p className="fs-5">
               The Response class implements different response functions on HTTP
               requests, the system internally initializes a{" "}
               <Badge bg={"secondary"}>response</Badge> constant to access the
@@ -1149,7 +1149,7 @@ export default function v15_1_0_FRM(mdText) {
               <h2>CREATE MIGRATION</h2>
               <hr />
 
-              <p>
+              <p className="fs-5">
                 Migrations are used to create the structure of your database,
                 you can define the tables with their properties, relate them,
                 read{" "}
@@ -1168,7 +1168,7 @@ export default function v15_1_0_FRM(mdText) {
                 <li>procedure</li>
               </ul>
 
-              <p>
+              <p className="fs-5">
                 the current configuration defaults to <strong>table</strong> as
                 migration.
               </p>
@@ -1192,7 +1192,7 @@ export default function v15_1_0_FRM(mdText) {
               <h2>GENERATE MIGRATION</h2>
               <hr />
 
-              <p>
+              <p className="fs-5">
                 Generate all the migrations you have from an existing database
                 with one command, the generated migrations are unique to tables
                 that are in the database.
@@ -1210,7 +1210,7 @@ export default function v15_1_0_FRM(mdText) {
               <h2>RUN MIGRATION</h2>
               <hr />
 
-              <p>
+              <p className="fs-5">
                 Run all the migrations you have with a single command, these
                 processes are executed and added on the specified databases.
               </p>
@@ -1231,7 +1231,7 @@ export default function v15_1_0_FRM(mdText) {
           <div className="mb-3">
             <h5 className="text-warning">ALL-CRUD</h5>
 
-            <p>
+            <p className="fs-5">
               Generate all the CRUDs of your entities with a single command, the
               command checks the entire list of available connections, this maps
               all the entities from each database, gets the properties of each
@@ -1240,7 +1240,7 @@ export default function v15_1_0_FRM(mdText) {
 
             <CodeBlock language={"bash"} content={"php lion db:all-crud"} />
 
-            <p>characteristics:</p>
+            <p className="fs-5">characteristics:</p>
 
             <ul>
               <li>
@@ -1272,7 +1272,7 @@ export default function v15_1_0_FRM(mdText) {
 
           <div className="mb-3">
             <h5 className="text-warning">CRUD</h5>
-            <p>You can generate the crud of a specific connection.</p>
+            <p className="fs-5">You can generate the crud of a specific connection.</p>
 
             <CodeBlock language={"bash"} content={"php lion db:crud users"} />
 
@@ -1299,7 +1299,7 @@ export default function v15_1_0_FRM(mdText) {
                 <h2>RULES</h2>
                 <hr />
 
-                <p>
+                <p className="fs-5">
                   You can create rules from command line{" "}
                   <Badge bg={"secondary"}>php lion new:rule rule_name</Badge>,
                   rule usage is based on rules provided by{" "}
@@ -1350,7 +1350,7 @@ export default function v15_1_0_FRM(mdText) {
                   </ListGroup.Item>
                 </ListGroup>
 
-                <p>
+                <p className="fs-5">
                   You can generate all the database rules for each entity, for
                   all its properties.
                 </p>
@@ -1400,7 +1400,7 @@ export default function v15_1_0_FRM(mdText) {
                 <h2>USE RULES</h2>
                 <hr />
 
-                <p>
+                <p className="fs-5">
                   Add your rules to different routes in{" "}
                   <Badge bg={"secondary"}>routes/rules.php</Badge>
                 </p>
@@ -1419,7 +1419,7 @@ export default function v15_1_0_FRM(mdText) {
                   }
                 />
 
-                <p>You can reuse a rule in different routes.</p>
+                <p className="fs-5">You can reuse a rule in different routes.</p>
 
                 <CodeBlock
                   langueage={"php"}
@@ -1450,7 +1450,7 @@ export default function v15_1_0_FRM(mdText) {
           <h2>Traits</h2>
           <hr />
 
-          <p>
+          <p className="fs-5">
             Traits are stored in <Badge bg="secondary">{"app/Traits/"}</Badge>.
           </p>
 
@@ -1478,7 +1478,7 @@ export default function v15_1_0_FRM(mdText) {
           <h2>Enums</h2>
           <hr />
 
-          <p>
+          <p className="fs-5">
             Enums are stored in <Badge bg="secondary">{"app/Enums/"}</Badge>.
           </p>
 
@@ -1515,7 +1515,7 @@ export default function v15_1_0_FRM(mdText) {
 
             <hr />
 
-            <p>
+            <p className="fs-5">
               A simple PHP API extension for DateTime,{" "}
               <a href="https://carbon.nesbot.com/" target={"_blank"}>
                 Carbon
@@ -1548,7 +1548,7 @@ export default function v15_1_0_FRM(mdText) {
               <h2>ROUTES</h2>
               <hr />
 
-              <p>
+              <p className="fs-5">
                 <Link
                   to={"/libraries/lion/route/index"}
                   className="text-decoration-none"
@@ -1591,7 +1591,7 @@ export default function v15_1_0_FRM(mdText) {
           <div className="mb-3">
             <h2 className="pb-2">ROUTE LIST</h2>
 
-            <p>
+            <p className="fs-5">
               To view the available routes, start the local server first, run
               the <Badge bg="secondary">php lion serve</Badge> command, and then
               view the routes.
@@ -1619,7 +1619,7 @@ export default function v15_1_0_FRM(mdText) {
           <h2 className="pb-2">POSTMAN</h2>
           <hr />
 
-          <p>
+          <p className="fs-5">
             To export the available paths, first start the local server, then
             view the exported paths in{" "}
             <Badge bg="warning">storage/postman/</Badge>.
@@ -1652,7 +1652,7 @@ export default function v15_1_0_FRM(mdText) {
             .
           </Alert>
 
-          <p>
+          <p className="fs-5">
             If you want the POST, PUT and DELETE routes to be exported with
             dynamically required parameters these must have been declared as
             rules first, for each rule that is added it is recognized as a
@@ -1687,7 +1687,7 @@ export default function v15_1_0_FRM(mdText) {
             <h2>CONTROLLERS</h2>
             <hr />
 
-            <p>
+            <p className="fs-5">
               Models are stored in{" "}
               <Badge bg="secondary">{"app/http/Controllers/"}</Badge>.
             </p>
@@ -1754,7 +1754,7 @@ export default function v15_1_0_FRM(mdText) {
                 <h2>CREATE MIDDLEWARE</h2>
                 <hr />
 
-                <p>
+                <p className="fs-5">
                   Middleware is stored in{" "}
                   <Badge bg="secondary">app/Http/Middleware</Badge>.
                 </p>
@@ -1769,7 +1769,7 @@ export default function v15_1_0_FRM(mdText) {
                 <h2>ADD FUNCTIONS</h2>
                 <hr />
 
-                <p>We can add the necessary functions in each middleware.</p>
+                <p className="fs-5">We can add the necessary functions in each middleware.</p>
 
                 <CodeBlock
                   language={"php"}
@@ -1814,7 +1814,7 @@ export default function v15_1_0_FRM(mdText) {
               <h2>ADD MIDDLEWARE</h2>
               <hr />
 
-              <p>
+              <p className="fs-5">
                 To import middleware to the routes we must first import the
                 namespace of the middleware and inside this add an array to
                 create custom middleware.{" "}
@@ -1844,7 +1844,7 @@ export default function v15_1_0_FRM(mdText) {
               <h2>USE MIDDLEWARE</h2>
               <hr />
 
-              <p>
+              <p className="fs-5">
                 <Badge bg={"secondary"}>routes/web.php</Badge>
               </p>
 
@@ -1873,7 +1873,7 @@ export default function v15_1_0_FRM(mdText) {
           <h2>MODELS</h2>
           <hr />
 
-          <p>
+          <p className="fs-5">
             Models are stored in <Badge bg="secondary">{"app/Models"}</Badge>.
           </p>
 
@@ -1898,7 +1898,7 @@ export default function v15_1_0_FRM(mdText) {
           <div className="mb-3">
             <h5 className="pb-2 text-warning">SoftDeletes</h5>
 
-            <p>
+            <p className="fs-5">
               to include the softdelete function you must include the
               SoftDeletes trait
             </p>
@@ -1927,7 +1927,7 @@ export default function v15_1_0_FRM(mdText) {
               <h2>CAPSULES</h2>
               <hr />
 
-              <p>
+              <p className="fs-5">
                 The capsules can be created in 2 ways, individually or in
                 groups, previously the database connection credentials must be
                 written from <Badge bg={"secondary"}>.env</Badge>, the capsules
@@ -2019,7 +2019,7 @@ export default function v15_1_0_FRM(mdText) {
             <h2>CREATE CUSTOM CAPSULES</h2>
             <hr />
 
-            <p>
+            <p className="fs-5">
               create custom capsule classes with unique properties for different
               uses.
             </p>
@@ -2039,7 +2039,7 @@ export default function v15_1_0_FRM(mdText) {
           <h2>FACTORY</h2>
           <hr />
 
-          <p>
+          <p className="fs-5">
             Factories are stored in{" "}
             <Badge bg="secondary">{"database/Factories/"}</Badge>.
           </p>
@@ -2079,7 +2079,7 @@ export default function v15_1_0_FRM(mdText) {
             <h2 className="pb-2">CREATE SEED</h2>
             <hr />
 
-            <p>
+            <p className="fs-5">
               Factories are stored in{" "}
               <Badge bg="secondary">{"database/Seeders/"}</Badge>.
             </p>
@@ -2134,7 +2134,7 @@ export default function v15_1_0_FRM(mdText) {
               <h2>CREATE SOCKET</h2>
               <hr />
 
-              <p>
+              <p className="fs-5">
                 websockets interact with the{" "}
                 <a
                   href="http://socketo.me/docs/"
@@ -2197,7 +2197,7 @@ export default function v15_1_0_FRM(mdText) {
               <hr />
 
               <div className="mb-3">
-                <p>
+                <p className="fs-5">
                   You need to add the commands in the{" "}
                   <Badge bg="secondary">config/socket-commands.php</Badge>{" "}
                   array.
@@ -2215,7 +2215,7 @@ export default function v15_1_0_FRM(mdText) {
               </div>
 
               <div className="mb-3">
-                <p>
+                <p className="fs-5">
                   Add the socket to the supervisord to run with the container.
                 </p>
 
@@ -2246,7 +2246,7 @@ export default function v15_1_0_FRM(mdText) {
               </div>
 
               <div className="mb-3">
-                <p>
+                <p className="fs-5">
                   Add the port in the docker-compose.yml file configuration.
                 </p>
 
@@ -2277,7 +2277,7 @@ export default function v15_1_0_FRM(mdText) {
               </div>
 
               <div className="mb-3">
-                <p>
+                <p className="fs-5">
                   Add the log from the Dockerfile with <strong>touch</strong>.
                 </p>
 
@@ -2307,7 +2307,7 @@ export default function v15_1_0_FRM(mdText) {
               <hr />
 
               <div className="mb-3">
-                <p>
+                <p className="fs-5">
                   to execute a socket you must do it from the console, you can
                   configure a different port with the{" "}
                   <Badge bg="secondary">--port</Badge> option.
@@ -2430,7 +2430,7 @@ export default function v15_1_0_FRM(mdText) {
                     <div className="mb-3">
                       <h5 className="pb-2 text-warning">{"session"}</h5>
 
-                      <p>
+                      <p className="fs-5">
                         You can create sessions, read them and destroy them with
                         the session helper.
                       </p>
@@ -2469,7 +2469,7 @@ export default function v15_1_0_FRM(mdText) {
                     <div className="mb-3">
                       <h5 className="pb-2 text-warning">{"jwt"}</h5>
 
-                      <p>
+                      <p className="fs-5">
                         Function to check if a jwt is valid, returns an object
                         (object) without the JWT exists and is valid
                       </p>
@@ -2485,7 +2485,7 @@ export default function v15_1_0_FRM(mdText) {
                     <div className="mb-3">
                       <h5 className="pb-2 text-warning">{"isError"}</h5>
 
-                      <p>
+                      <p className="fs-5">
                         Function to check if a response object comes with
                         errors.
                       </p>
@@ -2504,7 +2504,7 @@ export default function v15_1_0_FRM(mdText) {
                     <div className="mb-3">
                       <h5 className="pb-2 text-warning">{"isSuccess"}</h5>
 
-                      <p>
+                      <p className="fs-5">
                         Function to check if a response object is successful.
                       </p>
 
@@ -2522,7 +2522,7 @@ export default function v15_1_0_FRM(mdText) {
                     <div className="mb-3">
                       <h5 className="pb-2 text-warning">fetch</h5>
 
-                      <p>
+                      <p className="fs-5">
                         The fetch helper allows you to make http requests,
                         internally with guzzle http.
                       </p>
@@ -2538,7 +2538,7 @@ export default function v15_1_0_FRM(mdText) {
                     <div className="mb-3">
                       <h5 className="pb-2 text-warning">fetchXML</h5>
 
-                      <p>
+                      <p className="fs-5">
                         The get helper allows you to make http requests to get
                         xml in String format, internally with http guzzle.
                       </p>
@@ -2554,7 +2554,7 @@ export default function v15_1_0_FRM(mdText) {
                     <div className="mb-3">
                       <h5 className="pb-2 text-warning">storage_path</h5>
 
-                      <p>
+                      <p className="fs-5">
                         The storage_path helper allows access to directories and
                         files in the storage directory.
                       </p>
@@ -2574,7 +2574,7 @@ export default function v15_1_0_FRM(mdText) {
                     <div className="mb-3">
                       <h5 className="pb-2 text-warning">finish</h5>
 
-                      <p>
+                      <p className="fs-5">
                         The finish helper ends the execution of all processes.
                       </p>
 
@@ -2591,7 +2591,7 @@ export default function v15_1_0_FRM(mdText) {
                     <div className="mb-3">
                       <h5 className="pb-2 text-warning">success</h5>
 
-                      <p>Function to display a success response.</p>
+                      <p className="fs-5">Function to display a success response.</p>
 
                       <CodeBlock
                         langueage={"php"}
@@ -2606,7 +2606,7 @@ export default function v15_1_0_FRM(mdText) {
                     <div className="mb-3">
                       <h5 className="pb-2 text-warning">error</h5>
 
-                      <p>Function to display a error response.</p>
+                      <p className="fs-5">Function to display a error response.</p>
 
                       <CodeBlock
                         langueage={"php"}
@@ -2619,7 +2619,7 @@ export default function v15_1_0_FRM(mdText) {
                     <div className="mb-3">
                       <h5 className="pb-2 text-warning">warning</h5>
 
-                      <p>Function to display a warning response.</p>
+                      <p className="fs-5">Function to display a warning response.</p>
 
                       <CodeBlock
                         langueage={"php"}
@@ -2634,7 +2634,7 @@ export default function v15_1_0_FRM(mdText) {
                     <div className="mb-3">
                       <h5 className="pb-2 text-warning">info</h5>
 
-                      <p>Function to display a info response.</p>
+                      <p className="fs-5">Function to display a info response.</p>
 
                       <CodeBlock
                         langueage={"php"}
@@ -2647,7 +2647,7 @@ export default function v15_1_0_FRM(mdText) {
                     <div className="mb-3">
                       <h5 className="pb-2 text-warning">vd</h5>
 
-                      <p>The helper vd executes the function var_dump.</p>
+                      <p className="fs-5">The helper vd executes the function var_dump.</p>
 
                       <CodeBlock
                         langueage={"php"}
@@ -2660,7 +2660,7 @@ export default function v15_1_0_FRM(mdText) {
                     <div className="mb-3">
                       <h5 className="pb-2 text-warning">json</h5>
 
-                      <p>The json helper converts any value to json.</p>
+                      <p className="fs-5">The json helper converts any value to json.</p>
 
                       <CodeBlock
                         langueage={"php"}
@@ -2673,7 +2673,7 @@ export default function v15_1_0_FRM(mdText) {
                     <div className="mb-3">
                       <h5 className="pb-2 text-warning">logger</h5>
 
-                      <p>
+                      <p className="fs-5">
                         The logger helper generates a log file stored in{" "}
                         <strong>storage/logs/</strong> and implements Monolog
                         internally.
@@ -2704,7 +2704,7 @@ export default function v15_1_0_FRM(mdText) {
           <h2 className="pb-2">RSA</h2>
           <hr />
 
-          <p>
+          <p className="fs-5">
             Create public and private keys, perform encryption and decryption
             with them{" "}
             <Link
@@ -2724,7 +2724,7 @@ export default function v15_1_0_FRM(mdText) {
 
           <CodeBlock language={"bash"} content={"php lion rsa:new"} />
 
-          <p>
+          <p className="fs-5">
             You can select a different folder than the selected one from the
             environment variables with the{" "}
             <Badge bg="secondary">{"--path"}</Badge> option.
@@ -2744,7 +2744,7 @@ export default function v15_1_0_FRM(mdText) {
           <h2 className="pb-2">AES</h2>
           <hr />
 
-          <p>
+          <p className="fs-5">
             Generate (KEY - IV) to encrypt and decrypt with AES,{" "}
             <Link
               to={"/libraries/lion/security/index"}
@@ -2770,7 +2770,7 @@ export default function v15_1_0_FRM(mdText) {
                 <h2>CREATE TEST</h2>
                 <hr />
 
-                <p>
+                <p className="fs-5">
                   Add to your web application with{" "}
                   <strong>Lion-Framework</strong> test to perform the necessary
                   quality checks of your system, the tests are implemented with
@@ -2797,7 +2797,7 @@ export default function v15_1_0_FRM(mdText) {
                 <h2>RUN TEST</h2>
                 <hr />
 
-                <p>run all tests via command line.</p>
+                <p className="fs-5">run all tests via command line.</p>
 
                 <CodeBlock language={"bash"} content={"php lion test"} />
               </div>
