@@ -54,7 +54,7 @@ function DashboardContent() {
               </p>
 
               <LinkContainer
-              to={`/framework/index/v15.4.0/install`}
+              to={`/framework/index/v15.4.1/install`}
               >
                 <Button
                   variant="dark-gradient-secondary"
