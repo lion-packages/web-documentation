@@ -23,7 +23,7 @@ function NavbarNavigation() {
       <Container>
         <LinkContainer to="/">
           <Navbar.Brand>
-            <img src={logo} width={180} height={58} />
+            <img src={logo} height={56} />
           </Navbar.Brand>
         </LinkContainer>
 
