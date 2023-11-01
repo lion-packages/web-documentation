@@ -7,8 +7,8 @@ import { LinkContainer } from "react-router-bootstrap";
 import NavigationLinks from "../../Tools/NavigationLinks";
 
 import logo from "./../../assets/img/Lion_black_icon_long.png";
-import { AiOutlineMail } from "react-icons/ai";
-import { FaGithub, FaYoutube } from "react-icons/fa";
+  import { AiOutlineMail } from "react-icons/ai";
+  import { FaGithub, FaYoutube } from "react-icons/fa";
 import SelectVersionButton from "./SelectVersionButton";
 
 function NavbarNavigation() {

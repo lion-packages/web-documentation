@@ -26,7 +26,7 @@ function FooterNavigation() {
         className="text-center text-body-secondary text-white"
         style={{ fontSize: 14.5 }}
       >
-        Copyright © 2022-2023 Sergio León
+        2022-2023 ⁕ Lion-Packages
       </p>
     </footer>
   );
