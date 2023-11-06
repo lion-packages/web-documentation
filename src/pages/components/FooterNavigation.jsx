@@ -1,33 +1,18 @@
-import { AiFillGithub } from "react-icons/ai";
-import { RiMailSendFill } from "react-icons/ri";
 
 function FooterNavigation() {
   return (
-    <footer
-      className="footer mt-auto py-3 bg-dark-logo border-top border-secondary"
-      style={{ "--bs-border-opacity": ".5" }}
-    >
-      <p
-        className="text-center text-body-secondary text-white"
-        style={{ fontSize: 13.5 }}
-      >
-        Released under the{" "}
-        <a
-          href="https://opensource.org/license/mit/"
-          className="text-secondary text-decoration-none"
-          target="_blank"
-        >
-          MIT License
-        </a>
-        .
-      </p>
-
-      <p
-        className="text-center text-body-secondary text-white"
-        style={{ fontSize: 14.5 }}
-      >
-        2022-2023 ⁕ Lion-Packages
-      </p>
+    <footer className="rounded-lg shadow bg-dark-100 m-4">
+      <hr className="my-6 sm:mx-auto border-gray-500 lg:my-8" />
+      <span className="block text-sm sm:text-center text-gray-400">
+        Released under the
+        <span className="text-accent-200"> MIT License.</span>
+      </span>
+      <span className="block text-sm sm:text-center text-gray-400">
+        present Sergio León & Lion-Packages Contributors.
+      </span>
+      <span className="block text-sm sm:text-center text-gray-400">
+        2023
+      </span>
     </footer>
   );
 }
