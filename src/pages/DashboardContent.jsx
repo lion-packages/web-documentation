@@ -42,10 +42,10 @@ function DashboardContent() {
 
   return (
     <>
-      <Container className="mt-3">
+      <Container className="mt-3 px-4">
         <Row>
           <Col xs={12} sm={12} md={8} lg={7} className="d-none d-xl-block">
-            <div className="pt-5 mb-3">
+            <div className="py-5">
               <h1 className="text-degradient">LION-FRAMEWORK</h1>
 
               <p className="text-secondary description mb-4">
@@ -53,18 +53,24 @@ function DashboardContent() {
                 single page application or a mobile application.
               </p>
 
-              <LinkContainer to="/framework/content">
+              <LinkContainer
+              to={`/framework/index/v15.4.1/install`}
+              >
                 <Button
-                  variant="dark-gradient"
+                  variant="dark-gradient-secondary"
                   size="lg"
                   className="fw-bold me-3"
                 >
-                  {"Install"}
+                  {"Get Started"}
                 </Button>
               </LinkContainer>
 
               <LinkContainer to="/libraries/content">
-                <Button variant="dark-gradient" size="lg" className="fw-bold">
+                <Button
+                  variant="dark-gradient"
+                  size="lg"
+                  className="fw-bold"
+                >
                   {"Packages"}
                 </Button>
               </LinkContainer>
@@ -82,11 +88,11 @@ function DashboardContent() {
 
               <LinkContainer to="/framework/content">
                 <Button
-                  variant="dark-gradient"
+                  variant="dark-gradient-secondary"
                   size="lg"
                   className="fw-bold me-3"
                 >
-                  {"Install"}
+                  {"Get Started"}
                 </Button>
               </LinkContainer>
 
@@ -100,7 +106,7 @@ function DashboardContent() {
         </Row>
       </Container>
 
-      <Container className="mt-4 mb-4 px-5 text-white">
+      <Container className="mt-4 mb-4 px-4 text-white">
         <Row>
           {[
             {

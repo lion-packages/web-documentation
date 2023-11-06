@@ -6,9 +6,10 @@ import { LinkContainer } from "react-router-bootstrap";
 
 import NavigationLinks from "../../Tools/NavigationLinks";
 
-import logo from "./../../assets/img/logo-web.png";
-import { AiOutlineMail } from "react-icons/ai";
-import { FaGithub, FaYoutube } from "react-icons/fa";
+import logo from "./../../assets/img/Lion_black_icon_long.png";
+  import { AiOutlineMail } from "react-icons/ai";
+  import { FaGithub, FaYoutube } from "react-icons/fa";
+import SelectVersionButton from "./SelectVersionButton";
 
 function NavbarNavigation() {
   return (
@@ -22,7 +23,7 @@ function NavbarNavigation() {
       <Container>
         <LinkContainer to="/">
           <Navbar.Brand>
-            <img src={logo} width={180} height={50} />
+            <img src={logo} height={56} />
           </Navbar.Brand>
         </LinkContainer>
 
@@ -30,6 +31,9 @@ function NavbarNavigation() {
 
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="ms-auto">
+
+          <SelectVersionButton />
+
             {NavigationLinks.map((link, index) =>
               link.type === "link" ? (
                 <LinkContainer to={link.url} key={index}>
