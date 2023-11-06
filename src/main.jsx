@@ -9,10 +9,15 @@ import {
 import App from './App'
 import Home from './pages/Home'
 import './assets/css/index.css'
+import NotFound from './pages/NotFound'
 
 const router = createBrowserRouter(
   createRoutesFromElements(
-    <Route path="/" element={<App />}>
+    <Route
+      errorElement={<NotFound />}
+      path="/"
+      element={<App />}
+    >
       <Route path="/" element={<Home />} />
     </Route>
   )
