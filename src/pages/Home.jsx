@@ -1,5 +1,6 @@
 import CardInfo from './components/CardInfo'
 import { infoDataCart } from '../infoData'
+import { Link } from 'react-router-dom'
 
 const Home = () => {
   return (
@@ -14,14 +15,14 @@ const Home = () => {
         </p>
 
         <div className='flex gap-2'>
-          <button type="button" className="text-white bg-primary-300 hover:bg-primary-100 focus:ring-4 focus:ring-primary-300 font-medium rounded-lg text-xs md:text-base px-5 py-2.5 mr-2 mb-2">Get Started</button>
+          <Link to={'guide'} className="text-white bg-primary-300 hover:bg-primary-100 focus:ring-4 focus:ring-primary-300 font-medium rounded-lg text-xs md:text-base px-5 py-2.5 mr-2 mb-2">Get Started</Link>
 
-          <button type="button" className="text-white bg-accent-200 hover:bg-accent-100 focus:ring-4 focus:ring-accent-200  font-medium rounded-lg text-xs md:text-base px-5 py-2.5 mr-2 mb-2 focus:outline-none ">Packges</button>
+          <Link to={'library'} className="text-white bg-accent-200 hover:bg-accent-100 focus:ring-4 focus:ring-accent-200  font-medium rounded-lg text-xs md:text-base px-5 py-2.5 mr-2 mb-2 focus:outline-none ">Packges</Link>
         </div>
       </section>
 
       <section className='w-full h-full bg-gradient-to-r from-dark-100 via-dark-300 to-dark-100'>
-        <article className='flex flex-col md:grid md:grid-cols-3 items-center m-16 p-8 gap-5'>
+        <article className='flex flex-col lg:grid lg:grid-cols-3 items-center m-16 p-8 gap-5'>
           {infoDataCart.map((data, index) => <CardInfo key={index} {...data} />)}
         </article>
       </section>
