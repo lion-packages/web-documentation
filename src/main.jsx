@@ -6,20 +6,28 @@ import {
   Route,
   RouterProvider,
 } from 'react-router-dom'
-import App from './App'
+import Layout from './containers/Layout'
 import Home from './pages/Home'
-import './assets/css/index.css'
+import LayoutSider from './containers/LayoutSider'
+import Dashboard from './pages/Dashboard'
 import NotFound from './pages/NotFound'
+import './assets/css/index.css'
+import Library from './pages/Library'
+
 
 const router = createBrowserRouter(
   createRoutesFromElements(
-    <Route
-      errorElement={<NotFound />}
-      path="/"
-      element={<App />}
-    >
-      <Route path="/" element={<Home />} />
-    </Route>
+    <>
+      <Route element={<Layout />} errorElement={<NotFound />}>
+        <Route path='/' element={<Home />} />
+      </Route>
+      <Route element={<LayoutSider />}>
+        <Route path='guide' element={<Dashboard />} />
+      </Route>
+      <Route element={<LayoutSider />}>
+        <Route path='library' element={<Library />} />
+      </Route>
+    </>
   )
 );
 
