@@ -1,8 +1,8 @@
-import { AiOutlineMail } from 'react-icons/ai';
-import { FaGithub, FaYoutube, FaBars } from 'react-icons/fa';
-import { useState } from 'react';
-import { Link } from 'react-router-dom';
-import logo from './../../assets/img/Lion_black_icon_long.png';
+import { AiOutlineMail } from 'react-icons/ai'
+import { FaGithub, FaYoutube, FaBars } from 'react-icons/fa'
+import { useState } from 'react'
+import { Link } from 'react-router-dom'
+import logo from './../../assets/img/icon_white_bg.png'
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -12,7 +12,7 @@ const Navbar = () => {
       <nav className="bg-dark-100 flex items-center justify-between px-4 py-2 lg:py-4 lg:px-20">
         <div className="px-2">
           <Link to='/' >
-            <img src={logo} width={148} height={56} />
+            <img src={logo} width={64} height={64} />
           </Link>
         </div>
         <div className="md:hidden">
