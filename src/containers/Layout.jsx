@@ -1,12 +1,13 @@
-import FooterNavigation from "../pages/components/FooterNavigation"
-import Navbar from "../pages/components/Navbar"
+import { Outlet as Page } from 'react-router-dom'
+import FooterNavigation from '../pages/components/FooterNavigation'
+import Navbar from '../pages/components/Navbar'
 
-const Layout = ({ children }) => {
+const Layout = () => {
   return (
     <div className=''>
       <Navbar />
-      {children}
-      <FooterNavigation />  
+        <Page />
+      <FooterNavigation />
     </div>
   )
 }
