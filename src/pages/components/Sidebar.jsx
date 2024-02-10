@@ -1,8 +1,14 @@
 import { Link } from 'react-router-dom'
 import logo from './../../assets/img/icon_white_bg.png'
-
+import { useContentLoader } from '../../hooks/useContentLoader'
 
 const Sidebar = () => {
+  const data = [
+    'manzana',
+    'pera',
+    'freza'
+  ]
+  const titlesArray = data.map(item => item)
   return (
     <aside className='fixed top-0 left-0 z-40 w-64 h-screen pt-5 transition-transform -translate-x-full border-r sm:translate-x-0 bg-dark-100 border-gray-700'
       aria-label='Sidebar'>
@@ -13,91 +19,16 @@ const Sidebar = () => {
         </Link>
       </div>
       <div className='h-full pt-2 px-3 pb-4 overflow-y-auto  bg-dark-100'>
-        <ul className='space-y-2 font-medium'>
-          <li>
-            <a href='/'
-              className='flex items-center p-2 rounded-lg text-white hover:bg-dark-300'>
-              <span className='ml-3'>Getting Started</span>
-            </a>
-          </li>
-          <li>
-            <a href='/'
-              className='flex items-center p-2 rounded-lg text-white hover:bg-dark-300'>
-
-              <span className='flex-1 ml-3 whitespace-nowrap'>Getting Started</span>
-            </a>
-          </li>
-          <li>
-            <a href='/'
-              className='flex items-center p-2 rounded-lg text-white hover:bg-dark-300'>
-
-              <span className='flex-1 ml-3 whitespace-nowrap'>Getting Started</span>
-            </a>
-          </li>
-          <li>
-            <a href='/'
-              className='flex items-center p-2 rounded-lg text-white hover:bg-dark-300'>
-
-              <span className='flex-1 ml-3 whitespace-nowrap'>Getting Started</span>
-            </a>
-          </li>
-          <li>
-            <a href='/'
-              className='flex items-center p-2 rounded-lg text-white hover:bg-dark-300'>
-
-              <span className='flex-1 ml-3 whitespace-nowrap'>Getting Started</span>
-            </a>
-          </li>
-          <li>
-            <a href='/'
-              className='flex items-center p-2 rounded-lg text-white hover:bg-dark-300'>
-
-              <span className='flex-1 ml-3 whitespace-nowrap'>Getting Started</span>
-            </a>
-          </li>
-          <li>
-            <a href='/'
-              className='flex items-center p-2 rounded-lg text-white hover:bg-dark-300'>
-              <span className='flex-1 ml-3 whitespace-nowrap'>Getting Started</span>
-            </a>
-          </li>
-          <li>
-            <a href='/'
-              className='flex items-center p-2 rounded-lg text-white hover:bg-dark-300'>
-              <span className='flex-1 ml-3 whitespace-nowrap'>Getting Started</span>
-            </a>
-          </li>
-          <li>
-            <a href='/'
-              className='flex items-center p-2 rounded-lg text-white hover:bg-dark-300'>
-              <span className='flex-1 ml-3 whitespace-nowrap'>Getting Started</span>
-            </a>
-          </li><li>
-            <a href='/'
-              className='flex items-center p-2 rounded-lg text-white hover:bg-dark-300'>
-              <span className='flex-1 ml-3 whitespace-nowrap'>Getting Started</span>
-            </a>
-          </li><li>
-            <a href='/'
-              className='flex items-center p-2 rounded-lg text-white hover:bg-dark-300'>
-              <span className='flex-1 ml-3 whitespace-nowrap'>Getting Started</span>
-            </a>
-          </li><li>
-            <a href='/'
-              className='flex items-center p-2 rounded-lg text-white hover:bg-dark-300'>
-              <span className='flex-1 ml-3 whitespace-nowrap'>Getting Started</span>
-            </a>
-          </li><li>
-            <a href='/'
-              className='flex items-center p-2 rounded-lg text-white hover:bg-dark-300'>
-              <span className='flex-1 ml-3 whitespace-nowrap'>Getting Started</span>
-            </a>
-          </li><li>
-            <a href='/'
-              className='flex items-center p-2 rounded-lg text-white hover:bg-dark-300'>
-              <span className='flex-1 ml-3 whitespace-nowrap'>Getting Started</span>
-            </a>
-          </li>
+        <ul className='space-y-2 text-sm'>
+          {
+            titlesArray.map((title, index) => (
+              <li key={index}>
+                <Link to={`/${title.toLowerCase()}`} className='flex items-center p-2 rounded-lg text-white hover:bg-dark-300'>
+                  <span className='ml-3'>{title}</span>
+                </Link>
+              </li>
+            ))
+          }
         </ul>
       </div>
     </aside>
