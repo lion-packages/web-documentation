@@ -1,0 +1,10 @@
+{
+  "framework": {
+    "url": "/libraries/lion/security/item_version/aes/index",
+    "desc": "none",
+    "docs": {
+      "v1": "./Tools/framework/framework-v1.json",
+      "v2": "./Tools/framework/framework-v2.json"
+    }
+  }
+}

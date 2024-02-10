@@ -1,0 +1,251 @@
+{
+  "version": "v1",
+  "namespace": "Lion",
+  "docs": [
+    {
+      "id": "Get Started",
+      "desc": "none",
+      "childs": [
+        {
+          "type": "text",
+          "subtitle": "Install",
+          "content": "Lion-Framework supports PHP versions +8.1"
+        },
+        {
+          "type": "CodeBlock",
+          "language": "bash",
+          "childs": [
+            "composer create-project lion/framework",
+            "git clone https://github.com/Lion-Packages/framework.git"
+          ]
+        },
+        {
+          "type": "paragraph",
+          "content": "Lion-Framework can also serve as an API backend for a JavaScript single page application or a mobile application. For example, you can use Lion-Framework as an API backend for your ReactJS app or Kotlin app."
+        },
+        {
+          "type": "paragraph",
+          "content": "You can use Lion-Framework to provide authentication and data storage/retrieval for your application, while taking advantage of Lion-Framework services such as emails, databases and more."
+        },
+        {
+          "type": "paragraph",
+          "content": "To install Lion-Framework and libraries you must have composer installed, Lion-Framework integrates most of the available Lion libraries."
+        }
+      ]
+    },
+    {
+      "id": "Commands",
+      "desc": "none",
+      "childs": []
+    },
+    {
+      "id": "Docker",
+      "desc": "none",
+      "childs": [
+        {
+          "Tab": {
+            "eventKey": "files",
+            "title": "Files",
+            "children": [
+              {
+                "subtitle": "Docker Files",
+                "content": "Add the Dockerfile and docker-compose.yml to the root of the project, to create the container you must execute the command docker-compose up."
+              },
+              {
+                "type": "CodeBlock",
+                "language": "dockerfile",
+                "childs": [
+                  "# Dockerfile \n FROM php:8.2-apache \nARG DEBIAN_FRONTEND=noninteractive \n\nRUN apt-get update \\ \n\t&& apt-get install -y nodejs \\ \n\t&& apt-get install -y npm \\ \n\t \n\t&& apt-get install -y default-mysql-client \\ \n\t \n\t&& apt-get install -y curl \\ \n\t \n\t&& apt-get install -y zsh \\ \n\t \n\t&& apt-get install -y wget \\ \n\t \n\t&& apt-get install -y git \\ \n\t "
+                ]
+              },
+              {
+                "type": "CodeBlock",
+                "language": "yaml",
+                "childs": [
+                  "# docker-compose.yml \nversion: \"3.8\"\nservices:\n\tapp:\n\t\tcontainer_name: lion-framework-app\n\t\tbuild:\n\t\t\tcontext: .\n\t\t\tdockerfile: Dockerfile\n\t\t... (rest of docker-compose.yml)"
+                ]
+              },
+              {
+                "type": "CodeBlock",
+                "language": "ini",
+                "childs": [
+                  "; config\n\n[supervisord]\nuser=root\nnodaemon=true\nlogfile=/var/www/html/storage/logs/supervisord/supervisord.log\n\n; server\n\n[program:web-server]\ncommand=php lion serve --host 0.0.0.0 --port 8000\n... (rest of supervisord.conf)"
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "Tab": {
+            "eventKey": "config",
+            "title": "Confing",
+            "children": [
+              {
+                "subtitle": "Docker Config",
+                "strongText": "ENV",
+                "content": "Add the Dockerfile and docker-compose.yml to the root of the project, to create the container you must execute the command docker-compose up."
+              },
+              {
+                "type": "CodeBlock",
+                "language": "bash",
+                "childs": [
+                  "##################################################### \n### DATABASE CONNECTIONS ------------------------ ### \n##################################################### \nDB_TYPE=\"mysql\" \nDB_HOST=db \nDB_PORT=3306 \nDB_NAME=\"lion_database\" \nDB_USER=\"root\" \nDB_PASSWORD=\"lion-framework\""
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "Tab": {
+            "eventKey": "run",
+            "title": "Run",
+            "children": [
+              {
+                "subtitle": "Run Docker",
+                "content": "run the container."
+              },
+              {
+                "type": "CodeBlock",
+                "language": "bash",
+                "childs": [
+                  "docker-compose up"
+                ]
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "Cron",
+      "desc": "none",
+      "childs": [
+        {
+          "descr": "CRON tasks can be run in Docker containers, Lion-Framework provides the necessary docker files to create a container with their respective images, to start creating CRON tasks generate the necessary commands to run them through sh files, note that this is performed under a Linux development environment with the Debian distribution specified in the Dockerfile.",
+          "steps": [
+            {
+              "stepNumber": 1,
+              "description": "Create the command for the CRON task",
+              "command": "php lion new:command command_name"
+            },
+            {
+              "stepNumber": 2,
+              "description": "Add the command",
+              "instructions": "The command should be added to the command list found in config/commands.php.",
+              "codeBlock": [
+                "\\App\\Console\\Commands\\MyCommandCommand::class;"
+              ]
+            },
+            {
+              "stepNumber": 3,
+              "description": "Create file to run",
+              "instructions": "Generate the sh file to run the CRON tasks with your instructions. This file is stored in storage/cron.",
+              "command": "php lion sh:new sh_name",
+              "img": "url/img/store/cron.png"
+            },
+            {
+              "stepNumber": 4,
+              "description": "Build the Docker container",
+              "instructions": "Generate the Docker container to configure for the execution of the CRON task.",
+              "command": "docker-compose up"
+            },
+            {
+              "stepNumber": 5,
+              "description": "Access the container bash",
+              "instructions": "Access lion-framework-app container (image) bash. Obtain the image id and run:",
+              "commands": [
+                "docker ps",
+                "docker exec -it image_id zsh"
+              ],
+              "note": "Current docker config has zsh configured, can be used instead of bash.",
+              "img": [
+                "url/img/store/cron.png",
+                "url/img/store/cron.png"
+              ]
+            },
+            {
+              "stepNumber": 6,
+              "description": "Permissions for sh file",
+              "instructions": "To give read and write permissions to a shell script file (file with .sh extension), use the chmod command. For example:",
+              "command": "chmod +rw script.sh"
+            },
+            {
+              "stepNumber": 7,
+              "description": "Configure crontab",
+              "instructions": "To configure the crontab file, go to the etc/ path. Run 'sudo crontab -e' and add the instruction in the last line to perform the CRON task with its respective configuration.",
+              "example": "sudo crontab -e"
+            },
+            {
+              "stepNumber": 8,
+              "description": "Restart the container",
+              "instructions": "After configuring the CRON task, restart the container to see the changes. Access the container bash again and run:",
+              "command": "docker exec -it image_id zsh"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "Database",
+      "dec": "none",
+      "childs": [
+        {
+          "Tab": {
+            "eventKey": "config",
+            "title": "Confing",
+            "children": [
+              {
+                "subtitle": "Database Config",
+                "content": "To make a direct connection to the database, go to config/database.php, for more information read Lion-SQL. The connections established in the config must be added directly in the .env, it is recommended to use the database name as the key name for the configured array (L14)."
+              },
+
+              {
+                "type": "dockerfile",
+                "language": "bash",
+                "childs": [
+                  "<?php\n\n/**\n* ------------------------------------------------------------------------------\n* Start database service\n* ------------------------------------------------------------------------------\n* describe connections to establish connecting to multiple databases\n* ------------------------------------------------------------------------------\n**/\n\nreturn [\n\t'default' => env->DB_NAME,\n\t'connections' => [\n\t\tenv->DB_NAME => [\n\t\t\t'type' => env->DB_TYPE,\n\t\t\t'host' => env->DB_HOST,\n\t\t\t'port' => env->DB_PORT,\n\t\t\t'dbname' => env->DB_NAME,\n\t\t\t'user' => env->DB_USER,\n\t\t\t'password' => env->DB_PASSWORD\n\t\t],\n\t]\n];"
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "Tab": {
+            "eventKey": "show",
+            "title": "Show",
+            "children": [
+              {
+                "subtile": "Show Database Connections",
+                "content": "View all available database connections."
+              },
+              {
+                "Codeblock": {
+                  "language": "bash",
+                  "content": "php lion db:show"
+                }
+              }
+            ]
+          }
+        },
+        {
+          "Tab": {
+            "eventKey": "export",
+            "title": "Export",
+            "children": [
+              {
+                "subtile": "Export Database",
+                "content": "Export your database using the terminal."
+              },
+              {
+                "Codeblock": {
+                  "language": "bash",
+                  "content": "php lion db:export database_name"
+                }
+              }
+            ]
+          }
+        }
+      ]
+    }
+  ]
+}
