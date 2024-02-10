@@ -13,6 +13,8 @@ import Dashboard from './pages/Dashboard'
 import NotFound from './pages/NotFound'
 import './assets/css/index.css'
 import Library from './pages/Library'
+import Docker from './pages/Docker'
+import Cron from './pages/Cron'
 
 
 const router = createBrowserRouter(
@@ -23,6 +25,8 @@ const router = createBrowserRouter(
       </Route>
       <Route element={<LayoutSider />}>
         <Route path='guide' element={<Dashboard />} />
+        <Route path='guide/docker' element={<Docker />} />
+        <Route path='guide/cron' element={<Cron />} />
       </Route>
       <Route element={<LayoutSider />}>
         <Route path='library' element={<Library />} />
