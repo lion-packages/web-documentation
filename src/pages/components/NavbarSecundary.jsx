@@ -42,14 +42,8 @@ const NavbarSecundary = () => {
           </div>
 
           <div className='flex gap-2 px-3 justify-center items-center'>
-            <a href='https://www.youtube.com/channel/UCJBOJVKok44BZt0kKlBeZyA' target='_blank' >
-              <FaYoutube size={'1.5em'} className='hover:text-primary-100' />
-            </a>
             <a href='https://github.com/Sleon4' target='_blank' >
               <FaGithub size={'1.5em'} className='hover:text-primary-100' />
-            </a>
-            <a href='mailto:sergioleon4004@hotmail.com' target='_blank'>
-              <AiOutlineMail size={'1.5em'} className='hover:text-primary-100' />
             </a>
           </div>
         </div>
