@@ -15,9 +15,9 @@ function CodeBlock({ language, content }) {
   }, [copy]);
 
   return (
-    <div className="parentDiv">
+    <div className="relative my-2 text-sm">
       <CopyToClipboard
-        className="copyButton"
+        className="absolute z-10 right-4 top-4 "
         text={content}
         onCopy={() => setCopy(true)}
       >
@@ -25,7 +25,7 @@ function CodeBlock({ language, content }) {
       </CopyToClipboard>
 
       <SyntaxHighlighter
-        customStyle={{ fontSize: 12, position: "relative" }}
+        customStyle={{padding: "12px",  position: "relative" }}
         language={language}
         style={androidstudio}
         className="rounded p-3"
