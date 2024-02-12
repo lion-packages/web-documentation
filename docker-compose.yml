@@ -1,0 +1,14 @@
+version: "3.4"
+services:
+  app:
+    image: node:alpine
+    container_name: web-documentation-app
+    entrypoint: /bin/sh
+    ports:
+      - 5173:5173
+    working_dir: /srv/app
+    volumes:
+      - type: bind
+        source: ./
+        target: /srv/app
+    tty: true
