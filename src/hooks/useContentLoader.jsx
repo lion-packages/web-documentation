@@ -1,10 +1,16 @@
-import { useEffect, useState, useContext } from 'react'
-import { DocumentContext } from '../App'
+import { useEffect, useState } from 'react'
 
-export const useContentLoader = (initialVersion = 'v1') => {
-  const { documents, getDocument } = useContext(DocumentContext)
-  console.log(documents)
+function useContentLoader(initialVersion = 'v1') {
   const [version, setVersion] = useState(initialVersion)
+
+  const getDocument = (url) => {
+    return import(url)
+      .then(res => {
+        console.log(res.default)
+        const dataDcos = res.default
+      })
+      .catch(err => console.log(err))
+  }
 
   const getDocuments = (list) => {
     list.forEach((url) => getDocument(url))
@@ -14,12 +20,8 @@ export const useContentLoader = (initialVersion = 'v1') => {
     import(`../content.json`)
       .then(res => {
         const libraryContent = res.default.framework
-
-        const descLibrarydec = libraryContent.desc
-        console.log(descLibrarydec)
+        console.log(libraryContent)
         const docsLibrary = libraryContent.docs[version]
-        const docsLibraryConte = libraryContent.docs
-        console.log(docsLibraryConte)
         console.log(docsLibrary)
 
         getDocuments(Object.values(libraryContent.docs))
@@ -34,6 +36,7 @@ export const useContentLoader = (initialVersion = 'v1') => {
   return {
     version,
     setVersion,
-    documents,
   }
 }
+
+export default useContentLoader
