@@ -3,7 +3,7 @@
   "namespace": "Lion",
   "docs": [
     {
-      "id": "Get Started",
+      "id": "Getting Started",
       "desc": "none",
       "childs": [
         {
@@ -198,7 +198,6 @@
                 "subtitle": "Database Config",
                 "content": "To make a direct connection to the database, go to config/database.php, for more information read Lion-SQL. The connections established in the config must be added directly in the .env, it is recommended to use the database name as the key name for the configured array (L14)."
               },
-
               {
                 "type": "dockerfile",
                 "language": "bash",
