@@ -1,15 +1,17 @@
-import { useEffect, useState } from 'react'
+import { useContext, useEffect, useState } from 'react'
+import { FilterVersionContext } from '../context/createObjectiveContext'
 
 function useContentLoader(initialVersion = 'v1') {
   const [version, setVersion] = useState(initialVersion)
+  // const {version, setVersion} = useContext(FilterVersionContext)
 
-  const getDocument = (url) => {
-    return import(url)
-      .then(res => {
-        console.log(res.default)
-        const dataDcos = res.default
-      })
-      .catch(err => console.log(err))
+  const getDocument = async (url) => {
+    try {
+      const res = await import(url)
+      console.log(res.default)
+    } catch (err) {
+      console.log(err)
+    }
   }
 
   const getDocuments = (list) => {
@@ -20,10 +22,8 @@ function useContentLoader(initialVersion = 'v1') {
     import(`../content.json`)
       .then(res => {
         const libraryContent = res.default.framework
-        console.log(libraryContent)
         const docsLibrary = libraryContent.docs[version]
-        console.log(docsLibrary)
-
+        // console.log(docsLibrary)
         getDocuments(Object.values(libraryContent.docs))
         getDocument(docsLibrary)
 
