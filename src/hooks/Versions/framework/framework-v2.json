@@ -1,0 +1,83 @@
+{
+  "version": "v2",
+  "namespace": "Lion",
+  "docs": [
+    {
+      "id": "Docker",
+      "uri": "framework/guide/docker",
+      "desc": "none",
+      "childs": [
+        {
+          "Tab": {
+            "eventKey": "files",
+            "title": "Files",
+            "children": [
+              {
+                "subtitle": "Docker Files",
+                "content": "Add the Dockerfile and docker-compose.yml to the root of the project, to create the container you must execute the command docker-compose up."
+              },
+              {
+                "type": "CodeBlock",
+                "language": "dockerfile",
+                "childs": [
+                  "# Dockerfile \n FROM php:8.2-apache \nARG DEBIAN_FRONTEND=noninteractive \n\nRUN apt-get update \\ \n\t&& apt-get install -y nodejs \\ \n\t&& apt-get install -y npm \\ \n\t \n\t&& apt-get install -y default-mysql-client \\ \n\t \n\t&& apt-get install -y curl \\ \n\t \n\t&& apt-get install -y zsh \\ \n\t \n\t&& apt-get install -y wget \\ \n\t \n\t&& apt-get install -y git \\ \n\t "
+                ]
+              },
+              {
+                "type": "CodeBlock",
+                "language": "yaml",
+                "childs": [
+                  "# docker-compose.yml \nversion: \"3.8\"\nservices:\n\tapp:\n\t\tcontainer_name: lion-framework-app\n\t\tbuild:\n\t\t\tcontext: .\n\t\t\tdockerfile: Dockerfile\n\t\t... (rest of docker-compose.yml)"
+                ]
+              },
+              {
+                "type": "CodeBlock",
+                "language": "ini",
+                "childs": [
+                  "; config\n\n[supervisord]\nuser=root\nnodaemon=true\nlogfile=/var/www/html/storage/logs/supervisord/supervisord.log\n\n; server\n\n[program:web-server]\ncommand=php lion serve --host 0.0.0.0 --port 8000\n... (rest of supervisord.conf)"
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "Tab": {
+            "eventKey": "config",
+            "title": "Confing",
+            "children": [
+              {
+                "subtitle": "Docker Config",
+                "strongText": "ENV",
+                "content": "Add the Dockerfile and docker-compose.yml to the root of the project, to create the container you must execute the command docker-compose up."
+              },
+              {
+                "type": "CodeBlock",
+                "language": "bash",
+                "childs": [
+                  "##################################################### \n### DATABASE CONNECTIONS ------------------------ ### \n##################################################### \nDB_TYPE=\"mysql\" \nDB_HOST=db \nDB_PORT=3306 \nDB_NAME=\"lion_database\" \nDB_USER=\"root\" \nDB_PASSWORD=\"lion-framework\""
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "Tab": {
+            "eventKey": "run",
+            "title": "Run",
+            "children": [
+              {
+                "subtitle": "Run Docker",
+                "content": "run the container."
+              },
+              {
+                "type": "CodeBlock",
+                "language": "bash",
+                "childs": ["docker-compose up"]
+              }
+            ]
+          }
+        }
+      ]
+    }
+  ]
+}

@@ -1,39 +1,37 @@
-import { useEffect, useState } from "react";
-import { FiArrowRight } from "react-icons/fi";
-import { Button, Form, InputGroup } from "react-bootstrap";
-import { LinkContainer } from "react-router-bootstrap";
-import Content from "../../Tools/Content";
+import { Form } from "react-bootstrap";
+import { useModules } from "../../hooks/Context/ModulesContext";
+import { useState } from "react";
 
 const SelectVersionButton = () => {
-  const [versions, setVersions] = useState(Object.keys(Content().framework));
-  const [selectedVersion, setSelectedVersion] = useState("");
-
-  useEffect(() => {
-    setSelectedVersion(versions[0]);
-  }, []);
+  const {
+    version,
+    type_version,
+    framework_versions,
+    setActualVersion,
+    setSelectVersion,
+  } = useModules();
+  const [listSelect, setListSelect] = useState(version);
 
   return (
-    <InputGroup className="">
-      <Form.Select
-        onChange={(e) => setSelectedVersion(e.target.value)}
-      >
-        {versions.map((version, index) => (
+    <Form.Select
+      value={listSelect}
+      onChange={(e) => {
+        setListSelect(e.target.value);
+
+        setSelectVersion(e.target.value);
+
+        setActualVersion(type_version);
+      }}
+    >
+      {("framework" === type_version ? framework_versions : []).map(
+        (version, index) => (
           <option key={index} value={version}>
             {version}
-            {index === 0 ? " latest" : ""}
           </option>
-        ))}
-      </Form.Select>
+        )
+      )}
+    </Form.Select>
+  );
+};
 
-      <LinkContainer
-        to={`/framework/index/${selectedVersion}/install`}
-      >
-        <Button variant="outline-light">
-          <FiArrowRight size={"1.4em"} />
-        </Button>
-      </LinkContainer>
-    </InputGroup>
-  )
-}
-
-export default SelectVersionButton
+export default SelectVersionButton;

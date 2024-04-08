@@ -4,6 +4,7 @@
   "docs": [
     {
       "id": "Getting Started",
+      "uri": "framework/guide",
       "desc": "none",
       "childs": [
         {
@@ -35,11 +36,13 @@
     },
     {
       "id": "Commands",
+      "uri": "framework/guide/commands",
       "desc": "none",
       "childs": []
     },
     {
       "id": "Docker",
+      "uri": "framework/guide/docker",
       "desc": "none",
       "childs": [
         {
@@ -107,9 +110,7 @@
               {
                 "type": "CodeBlock",
                 "language": "bash",
-                "childs": [
-                  "docker-compose up"
-                ]
+                "childs": ["docker-compose up"]
               }
             ]
           }
@@ -118,6 +119,7 @@
     },
     {
       "id": "Cron",
+      "uri": "framework/guide/cron",
       "desc": "none",
       "childs": [
         {
@@ -153,15 +155,9 @@
               "stepNumber": 5,
               "description": "Access the container bash",
               "instructions": "Access lion-framework-app container (image) bash. Obtain the image id and run:",
-              "commands": [
-                "docker ps",
-                "docker exec -it image_id zsh"
-              ],
+              "commands": ["docker ps", "docker exec -it image_id zsh"],
               "note": "Current docker config has zsh configured, can be used instead of bash.",
-              "img": [
-                "url/img/store/cron.png",
-                "url/img/store/cron.png"
-              ]
+              "img": ["url/img/store/cron.png", "url/img/store/cron.png"]
             },
             {
               "stepNumber": 6,
@@ -187,6 +183,7 @@
     },
     {
       "id": "Database",
+      "uri": "framework/guide/database",
       "dec": "none",
       "childs": [
         {
