@@ -1,39 +1,34 @@
-import { AiOutlineMail } from 'react-icons/ai'
-import { FaGithub, FaYoutube, FaBars } from 'react-icons/fa'
-import { useState } from 'react'
+import { FaGithub, FaBars } from 'react-icons/fa'
 import { Link } from 'react-router-dom'
 import logo from './../../assets/img/icon_white_bg.png'
 
 const Navbar = () => {
-  const [isOpen, setIsOpen] = useState(false);
-
   return (
     <>
-      <nav className="bg-dark-100 flex items-center justify-between px-4 py-2 lg:py-4 lg:px-20">
-        <div className="px-2">
-          <Link to='/' >
-            <img src={logo} width={64} height={64} />
+      <nav class="bg-dark-100 border-gray-200 px-4 py-2 lg:py-4 lg:px-20">
+        <div class="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
+          <Link to='/' class="flex items-center space-x-3 rtl:space-x-reverse" >
+            <img src={logo} width={64} height={64} alt="lion-logo" />
           </Link>
-        </div>
-        <div className="md:hidden">
-          <button onClick={() => setIsOpen(!isOpen)}>
+          <button data-collapse-toggle="navbar-default" type="button" class="inline-flex items-center p-2 w-10 h-10 justify-center text-sm text-gray-500 rounded-lg md:hidden focus:outline-none focus:ring-2 focus:ring-dark-300 " aria-controls="navbar-default" aria-expanded="false">
+            <span class="sr-only">Open main menu</span>
             <FaBars className="text-gray-400" />
           </button>
-        </div>
-        <div className={`md:flex gap-1 text-clr-secundary font-semibold ${isOpen ? 'flex-col' : 'hidden'} md:flex-row items-center`}>
-          <div className='flex gap-2 justify-center items-center'>
-            <button className='underline underline-offset-2 decoration-primary-100 hover:decoration-gray-100'>
-              Framework
-            </button>
-            <button className='underline underline-offset-2 decoration-primary-100 hover:decoration-gray-100'>
-              Packages
-            </button>
-          </div>
-
-          <div className='flex gap-2 px-3 justify-center items-center'>
-            <a href="https://github.com/Sleon4" target='_blank' >
-              <FaGithub size={"1.5em"} className='hover:text-primary-100' />
-            </a>
+          <div class="hidden w-full md:block md:w-auto" id="navbar-default">
+            <ul class="font-medium flex flex-col p-4 md:p-0 mt-4  rounded-lg bg-dark-200 md:flex-row md:space-x-8 rtl:space-x-reverse md:mt-0 md:border-0 ">
+              <li>
+                <a href="#" class="block py-2 px-3 text-white rounded hover:bg-dark-300 md:hover:bg-transparent md:border-0 md:p-0 ">Framework</a>
+              </li>
+              <li>
+                <a href="#" class="block py-2 px-3 text-white rounded hover:bg-dark-300 md:hover:bg-transparent md:border-0 md:p-0 ">Packages</a>
+              </li>
+              <li>
+                <a href="https://github.com/Sleon4" target='_blank'
+                  class="block py-2 px-3 text-gray-900 rounded hover:bg-dark-300 md:hover:bg-transparent md:border-0 md:p-0" >
+                  <FaGithub size={"1.5em"} className='hover:text-primary-100 text-white' />
+                </a>
+              </li>
+            </ul>
           </div>
         </div>
       </nav>
@@ -42,3 +37,6 @@ const Navbar = () => {
 }
 
 export default Navbar;
+
+
+
