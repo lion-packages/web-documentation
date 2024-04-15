@@ -15,12 +15,12 @@ const Navbar = () => {
             <FaBars className="text-gray-400" />
           </button>
           <div class="hidden w-full md:block md:w-auto" id="navbar-default">
-            <ul class="font-medium flex flex-col p-4 md:p-0 mt-4  rounded-lg bg-dark-200 md:flex-row md:space-x-8 rtl:space-x-reverse md:mt-0 md:border-0 ">
+            <ul class="font-medium flex flex-col p-4 md:p-0 mt-4  rounded-lg bg-dark-100 md:flex-row md:space-x-8 rtl:space-x-reverse md:mt-0 md:border-0 ">
               <li>
-                <a href="#" class="block py-2 px-3 text-white rounded hover:bg-dark-300 md:hover:bg-transparent md:border-0 md:p-0 ">Framework</a>
+                <a href="#" class="block py-2 px-3 text-white rounded hover:bg-dark-300 hover:text-primary-100 md:hover:bg-transparent md:border-0 md:p-0 ">Framework</a>
               </li>
               <li>
-                <a href="#" class="block py-2 px-3 text-white rounded hover:bg-dark-300 md:hover:bg-transparent md:border-0 md:p-0 ">Packages</a>
+                <a href="#" class="block py-2 px-3 text-white rounded hover:bg-dark-300 hover:text-primary-100  md:hover:bg-transparent md:border-0 md:p-0 ">Packages</a>
               </li>
               <li>
                 <a href="https://github.com/Sleon4" target='_blank'
