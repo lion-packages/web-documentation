@@ -5,7 +5,6 @@ function NotFound() {
   return (
     <>
       <Navbar />
-
       <section className="bg-dark-100">
         <div className="py-8 px-4 mx-auto max-w-screen-xl lg:py-4 lg:px-6">
           <div className="flex flex-col items-center  mx-auto max-w-screen-sm text-center">
@@ -29,7 +28,6 @@ function NotFound() {
             </p>
           </div>
         </div>
-        <FooterNavigation />
       </section>
     </>
   );
