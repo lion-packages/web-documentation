@@ -1,6 +1,5 @@
 import { Button, Col, Container, Row } from "react-bootstrap";
 import { LinkContainer } from "react-router-bootstrap";
-
 import { DiMysql } from "react-icons/di";
 import { RiTestTubeFill } from "react-icons/ri";
 import {
@@ -12,8 +11,13 @@ import {
 } from "react-icons/fa";
 import { MdHttp } from "react-icons/md";
 import { TbArrowsLeftRight } from "react-icons/tb";
+import Content from "../Tools/Content";
 
 function DashboardContent() {
+  const lastVersion = () => {
+    return Object.keys(Content().framework).shift();
+  };
+
   const AddIcons = ({ icons }) => {
     return (
       <Row>
@@ -44,7 +48,7 @@ function DashboardContent() {
     <>
       <Container className="mt-3 px-4">
         <Row>
-          <Col xs={12} sm={12} md={8} lg={7} className="d-none d-xl-block">
+          <Col xs={12} sm={12} md={8} lg={7}>
             <div className="py-5">
               <h1 className="text-degradient">LION-FRAMEWORK</h1>
 
@@ -53,7 +57,9 @@ function DashboardContent() {
                 single page application or a mobile application.
               </p>
 
-              <LinkContainer to={`/framework/index/v15.4.1/install`}>
+              <LinkContainer
+                to={"/framework/index/" + lastVersion() + "/install"}
+              >
                 <Button
                   variant="dark-gradient-secondary"
                   size="lg"
@@ -66,33 +72,6 @@ function DashboardContent() {
               <LinkContainer to="/libraries/content">
                 <Button variant="dark-gradient" size="lg" className="fw-bold">
                   {"Libraries"}
-                </Button>
-              </LinkContainer>
-            </div>
-          </Col>
-
-          <Col xs={12} sm={12} md={8} className="d-xl-none mx-md-auto">
-            <div className="pt-5 text-center mb-3">
-              <h1 className="text-degradient">LION-FRAMEWORK</h1>
-
-              <p className="text-secondary description mb-4">
-                Lion-Framework can also serve as an API backend for a JavaScript
-                single page application or a mobile application.
-              </p>
-
-              <LinkContainer to="/framework/content">
-                <Button
-                  variant="dark-gradient-secondary"
-                  size="lg"
-                  className="fw-bold me-3"
-                >
-                  {"Get Started"}
-                </Button>
-              </LinkContainer>
-
-              <LinkContainer to="/libraries/content">
-                <Button variant="dark-gradient" size="lg" className="fw-bold">
-                  {"Packages"}
                 </Button>
               </LinkContainer>
             </div>
