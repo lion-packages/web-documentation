@@ -13,7 +13,7 @@ export default [
     url: "framework/index/v15.4.0/install",
   },
   {
-    display_name: "Packages",
+    display_name: "Libraries",
     type: "link",
     url: "libraries/content",
   },

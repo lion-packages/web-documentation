@@ -60,9 +60,8 @@ function NavbarNavigation() {
               target="_blank"
               className="d-none d-xl-block"
             >
-              <FaGithub size={"2.5555555em"} />
+              <FaGithub size={"2.5em"} />
             </Nav.Link>
-            v
           </Nav>
         </Navbar.Collapse>
       </Container>

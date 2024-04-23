@@ -53,9 +53,7 @@ function DashboardContent() {
                 single page application or a mobile application.
               </p>
 
-              <LinkContainer
-              to={`/framework/index/v15.4.1/install`}
-              >
+              <LinkContainer to={`/framework/index/v15.4.1/install`}>
                 <Button
                   variant="dark-gradient-secondary"
                   size="lg"
@@ -66,12 +64,8 @@ function DashboardContent() {
               </LinkContainer>
 
               <LinkContainer to="/libraries/content">
-                <Button
-                  variant="dark-gradient"
-                  size="lg"
-                  className="fw-bold"
-                >
-                  {"Packages"}
+                <Button variant="dark-gradient" size="lg" className="fw-bold">
+                  {"Libraries"}
                 </Button>
               </LinkContainer>
             </div>
@@ -117,12 +111,7 @@ function DashboardContent() {
             {
               title: "API",
               desc: "Build complete and robust applications in PHP using Lion-Framework and ReactJS. Or, let Lion-Framework work as a robust back-end API for your ViteJS app, mobile app, or other interface.",
-              icons: [
-                <FaPhp size={"2em"} title="PHP" />,
-                // <FaReact size={"2em"} title="ReactJS" />,
-                // <FaVuejs size={"2em"} title="VueJS" />,
-                // <SiKotlin size={"1.4em"} title="Kotlin" />,
-              ],
+              icons: [<FaPhp size={"2em"} title="PHP" />],
             },
             {
               title: "Routes",
@@ -137,19 +126,13 @@ function DashboardContent() {
             {
               title: "Docker",
               desc: "Create docker containers using Lion-Framework, where you can work with apache and MySQL databases.",
-              icons: [
-                <FaDocker size={"2em"} title="Docker" />,
-                // <FaPhp size={"2em"} title="PHP" />,
-                // <DiMysql size={"2em"} title="MySQL" />,
-                // <SiApache size={"2em"} title="Apache" />,
-              ],
+              icons: [<FaDocker size={"2em"} title="Docker" />],
             },
             {
               title: "Cron",
               desc: "Run necessary commands via SH files to perform your tasks via Lion-Framework.",
               icons: [
                 <FaTasks size={"1.6em"} title="Tasks" className="my-1" />,
-                // <FaPhp size={"2em"} title="PHP" />,
               ],
             },
             {
