@@ -14,10 +14,6 @@ import { TbArrowsLeftRight } from "react-icons/tb";
 import Content from "../Tools/Content";
 
 function DashboardContent() {
-  const lastVersion = () => {
-    return Object.keys(Content().framework).shift();
-  };
-
   const AddIcons = ({ icons }) => {
     return (
       <Row>
@@ -58,7 +54,11 @@ function DashboardContent() {
               </p>
 
               <LinkContainer
-                to={"/framework/index/" + lastVersion() + "/install"}
+                to={
+                  "/framework/index/" +
+                  Object.keys(Content().framework).shift() +
+                  "/getting-started"
+                }
               >
                 <Button
                   variant="dark-gradient-secondary"

@@ -1,10 +1,10 @@
 import { useEffect, useState } from "react";
-import { FiArrowRight } from "react-icons/fi";
-import { Button, Form, InputGroup } from "react-bootstrap";
-import { LinkContainer } from "react-router-bootstrap";
+import { Form, InputGroup } from "react-bootstrap";
 import Content from "../../Tools/Content";
+import { useNavigate } from "react-router-dom";
 
 const SelectVersionButton = () => {
+  const navigate = useNavigate();
   const [versions, setVersions] = useState(Object.keys(Content().framework));
   const [selectedVersion, setSelectedVersion] = useState("");
 
@@ -13,27 +13,23 @@ const SelectVersionButton = () => {
   }, []);
 
   return (
-    <InputGroup className="">
+    <InputGroup className="mb-3">
       <Form.Select
-        onChange={(e) => setSelectedVersion(e.target.value)}
+        value={selectedVersion}
+        onChange={(e) => {
+          setSelectedVersion(e.target.value);
+
+          navigate(`/framework/index/${e.target.value}/install`);
+        }}
       >
         {versions.map((version, index) => (
           <option key={index} value={version}>
-            {version}
-            {index === 0 ? " latest" : ""}
+            {version + (index === 0 ? " lts" : "")}
           </option>
         ))}
       </Form.Select>
-
-      <LinkContainer
-        to={`/framework/index/${selectedVersion}/install`}
-      >
-        <Button variant="outline-light">
-          <FiArrowRight size={"1.4em"} />
-        </Button>
-      </LinkContainer>
     </InputGroup>
-  )
-}
+  );
+};
 
-export default SelectVersionButton
+export default SelectVersionButton;

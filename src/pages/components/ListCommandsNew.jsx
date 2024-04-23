@@ -46,7 +46,7 @@ function ListCommandsNew() {
 
       <hr />
 
-      {Content().commands[item_version].map((item, index) => (
+      {Content().framework[item_version].commands.map((item, index) => (
         <Table size="sm" variant="dark" responsive key={index} hover>
           <thead>
             <tr>

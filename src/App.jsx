@@ -9,6 +9,7 @@ import NotFound from "./pages/NotFound";
 import DashboardContent from "./pages/DashboardContent";
 import LibraryContent from "./pages/LibraryContent";
 import FooterNavigation from "./pages/components/FooterNavigation";
+import ContentView from "./pages/ContentView";
 
 function App() {
   return (
@@ -21,7 +22,9 @@ function App() {
           <Route path="/" element={<DashboardContent />} />
 
           <Route path="framework">
-            <Route path="index/:item_version/:tab" element={<AddTabs />} />
+            <Route path="index/:item_version/:tab" element={<AddTabs />}>
+              <Route path=":code" element={<ContentView />} />
+            </Route>
           </Route>
 
           <Route path="libraries">

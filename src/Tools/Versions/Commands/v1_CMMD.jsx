@@ -1,4 +1,4 @@
-export default function v14_23_0_CMMD() {
+export default function v1_CMMD() {
   return [
     {
       group: "AVAILABLE COMMANDS",
@@ -141,6 +141,18 @@ export default function v14_23_0_CMMD() {
               name: "-c",
               arg: false,
               optional: true,
+              desc: "Do you want to use a specific connection?",
+            },
+          ],
+        },
+        {
+          name: "php lion db:export",
+          desc: "Command to export copies of databases established in the config",
+          args: [
+            {
+              name: "connection",
+              arg: true,
+              optional: false,
               desc: "Do you want to use a specific connection?",
             },
           ],
@@ -357,7 +369,7 @@ export default function v14_23_0_CMMD() {
               desc: (
                 <>
                   Type of migration{" "}
-                  <label className="text-warning">{'[default: "TABLE"]'}</label>
+                  <label className="text-warning">{'[default: "table"]'}</label>
                 </>
               ),
             },
@@ -368,7 +380,7 @@ export default function v14_23_0_CMMD() {
               desc: (
                 <>
                   Type of migration{" "}
-                  <label className="text-warning">{'[default: "TABLE"]'}</label>
+                  <label className="text-warning">{'[default: "table"]'}</label>
                 </>
               ),
             },
@@ -584,19 +596,31 @@ export default function v14_23_0_CMMD() {
       ],
     },
     {
-      group: "RESOURCE",
+      group: "NPM",
       childs: [
         {
-          name: "php lion resource:new",
-          desc: "Command required to generate a resource",
+          name: "php lion npm:build",
+          desc: "Command to generate dist for a vite project",
           args: [
             {
-              name: "resource",
+              name: "project",
+              arg: true,
+              optional: false,
+              desc: "Project name",
+            },
+          ],
+        },
+        {
+          name: "php lion npm:init",
+          desc: "Command to create Javascript projects with Vite.JS (Vanilla/Vue/React/Preact/Lit/Svelte/Solid/Qwik)",
+          args: [
+            {
+              name: "project",
               arg: true,
               optional: true,
               desc: (
                 <>
-                  Resource name{" "}
+                  Project name{" "}
                   <label className="text-warning">
                     {'[default: "example"]'}
                   </label>
@@ -606,38 +630,60 @@ export default function v14_23_0_CMMD() {
           ],
         },
         {
-          name: "php lion resource:serve",
-          desc: "Command required to run resources",
+          name: "php lion npm:install",
+          desc: "Command to install dependencies with npm for a certain vite project",
           args: [
             {
-              name: "resource",
+              name: "project",
+              arg: true,
+              optional: false,
+              desc: "Project name",
+            },
+            {
+              name: "packages",
               arg: true,
               optional: true,
-              desc: "Resource name",
+              desc: (
+                <>
+                  Package name{" "}
+                  <label className="text-warning">{'[default: ""]'}</label>
+                </>
+              ),
+            },
+          ],
+        },
+        {
+          name: "php lion npm:logs",
+          desc: "Command to generate the logs of all vite projects",
+          args: [],
+        },
+        {
+          name: "php lion npm:uninstall",
+          desc: "Command to uninstall dependencies with npm from a vite project",
+          args: [
+            {
+              name: "project",
+              arg: true,
+              optional: false,
+              desc: "Project name",
             },
             {
-              name: "--port",
-              arg: false,
+              name: "packages",
+              arg: true,
               optional: true,
-              desc: "Do you want to set your own port?",
+              desc: "Package name",
             },
+          ],
+        },
+        {
+          name: "php lion npm:update",
+          desc: "Command to install dependencies with npm for a vite project",
+          args: [
             {
-              name: "-p",
-              arg: false,
-              optional: true,
-              desc: "Do you want to set your own port?",
-            },
-            {
-              name: "--host",
-              arg: false,
-              optional: true,
-              desc: "Do you want to set your own host?",
-            },
-            {
-              name: "-s",
-              arg: false,
-              optional: true,
-              desc: "Do you want to set your own host?",
+              name: "project",
+              arg: true,
+              optional: false,
+              desc: "Project name",
             },
           ],
         },
@@ -709,6 +755,11 @@ export default function v14_23_0_CMMD() {
       group: "SOCKET",
       childs: [
         {
+          name: "php lion socket:logs",
+          desc: "Command to generate the logs of all resources",
+          args: [],
+        },
+        {
           name: "php lion socket:new",
           desc: "Command required for creating new WebSockets",
           args: [
@@ -758,6 +809,18 @@ export default function v14_23_0_CMMD() {
                   <label className="text-warning">{'[default: "true"]'}</label>
                 </>
               ),
+            },
+            {
+              name: "--path",
+              arg: false,
+              optional: true,
+              desc: "Save to a specific path?",
+            },
+            {
+              name: "-p",
+              arg: false,
+              optional: true,
+              desc: "Save to a specific path?",
             },
           ],
         },

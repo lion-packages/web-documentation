@@ -3,12 +3,11 @@ import Nav from "react-bootstrap/Nav";
 import Navbar from "react-bootstrap/Navbar";
 import NavDropdown from "react-bootstrap/NavDropdown";
 import { LinkContainer } from "react-router-bootstrap";
-
 import NavigationLinks from "../../Tools/NavigationLinks";
-
 import logo from "./../../assets/img/lion-black-icon-long.png";
 import { FaGithub } from "react-icons/fa";
 import { Image } from "react-bootstrap";
+import Content from "../../Tools/Content";
 
 function NavbarNavigation() {
   return (
@@ -30,6 +29,18 @@ function NavbarNavigation() {
 
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="ms-auto">
+            <LinkContainer
+              to={
+                "/framework/index/" +
+                Object.keys(Content().framework).shift() +
+                "/getting-started"
+              }
+            >
+              <Nav.Link className="fw-bold d-flex align-items-center justify-content-center">
+                Framework
+              </Nav.Link>
+            </LinkContainer>
+
             {NavigationLinks.map((link, index) =>
               link.type === "link" ? (
                 <LinkContainer to={link.url} key={index}>
@@ -52,9 +63,11 @@ function NavbarNavigation() {
                 </NavDropdown>
               )
             )}
+
             <Nav.Link href="#" className="d-none d-xl-block">
               <div className="vr h-100"></div>
             </Nav.Link>
+
             <Nav.Link
               href={"https://github.com/lion-packages"}
               target="_blank"

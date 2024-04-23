@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import {
   Button,
   Col,
@@ -10,65 +10,101 @@ import {
   Row,
 } from "react-bootstrap";
 import { LinkContainer } from "react-router-bootstrap";
-import { useParams } from "react-router-dom";
-
+import { Outlet, useParams } from "react-router-dom";
 import Content from "../../Tools/Content";
 import { FiArrowLeft } from "react-icons/fi";
+import SelectVersionButton from "./SelectVersionButton";
 
 export default function AddTabs() {
-  const { item_version, tab } = useParams();
-  const [mdText, setMdText] = useState("");
+  const { item_version, code } = useParams();
   const [show, setShow] = useState(false);
   const [filter_search, setFilter_search] = useState("");
 
-  const filterItems = () => {
-    const items = Content(mdText).framework[item_version];
+  const scrollToTop = () => {
+    window.scrollTo({
+      top: 0,
+      behavior: "smooth",
+    });
+  };
 
-    return Object.entries(items).filter(([index, item]) =>
+  const filterItems = () => {
+    const content = Content().framework[item_version].docs;
+
+    return Object.entries(content).filter(([index, item]) =>
       item.name.toLowerCase().includes(filter_search.toLowerCase())
     );
   };
 
   const ListItems = () => {
+    let count = 0;
+
     return (
-      <ListGroup numbered>
-        {filterItems().map(([index, tab]) => (
-          <LinkContainer
-            to={`/framework/index/${item_version}/${index}`}
-            key={index}
-          >
+      <ListGroup>
+        {filterItems().map(([index, tab]) => {
+          count++;
+
+          if ("sub_modules" === tab.type) {
+            let subCount = 0;
+
+            return (
+              <div key={index}>
+                <ListGroup.Item variant="dark" className="border-0">
+                  {`${count} - ${tab.name}`}
+                </ListGroup.Item>
+
+                {Object.entries(tab.list).map(([indexItem, item]) => {
+                  subCount++;
+
+                  return (
+                    <LinkContainer
+                      to={`/framework/index/${item_version}/${index}/${indexItem}`}
+                      key={`${index}-${indexItem}`}
+                    >
+                      <ListGroup.Item
+                        variant="dark"
+                        action
+                        className="ms-2"
+                        onClick={() => {
+                          setShow(false);
+
+                          scrollToTop();
+                        }}
+                      >
+                        {`${count}.${subCount} - ${item.name}`}
+                      </ListGroup.Item>
+                    </LinkContainer>
+                  );
+                })}
+              </div>
+            );
+          }
+
+          return (
             <ListGroup.Item
+              key={index}
               variant="dark"
               action
               onClick={() => {
                 setShow(false);
-                window.scrollTo({
-                  top: 0,
-                  behavior: "smooth",
-                });
+
+                scrollToTop();
               }}
             >
-              {tab.name}
+              {`${count} - ${tab.name}`}
             </ListGroup.Item>
-          </LinkContainer>
-        ))}
+          );
+        })}
       </ListGroup>
     );
   };
-
-  useEffect(() => {
-    fetch(
-      "https://raw.githubusercontent.com/Sleon4/Lion-Framework/main/CHANGELOG.md"
-    )
-      .then((content) => content.text())
-      .then((md) => setMdText(md));
-  }, []);
 
   return (
     <Container className="my-4 text-white">
       <Row>
         <Col xs={12} sm={12} md={12} lg={12} xl={3} xxl={3}>
           <div className="d-none d-xl-block">
+            <SelectVersionButton />
+
             <InputGroup className="mb-3 mb-3">
               <LinkContainer to={`/`}>
                 <Button variant="dark">
@@ -116,6 +152,8 @@ export default function AddTabs() {
               </Offcanvas.Header>
 
               <Offcanvas.Body>
+                <SelectVersionButton />
+
                 <div className="mb-3">
                   <Form.Control
                     type="search"
@@ -137,7 +175,7 @@ export default function AddTabs() {
         </Col>
 
         <Col xs={12} sm={12} md={12} lg={12} xl={9} xxl={9}>
-          {Content(mdText).framework[item_version][tab].code}
+          <Outlet />
         </Col>
       </Row>
     </Container>
