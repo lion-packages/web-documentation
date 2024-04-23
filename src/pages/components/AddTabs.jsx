@@ -70,7 +70,9 @@ export default function AddTabs() {
                           scrollToTop();
                         }}
                       >
-                        {`${count}.${subCount} - ${item.name}`}
+                        <label className="text-warning">{`${count}.${subCount}`}</label>
+                        {" - "}
+                        {item.name}
                       </ListGroup.Item>
                     </LinkContainer>
                   );
@@ -80,16 +82,7 @@ export default function AddTabs() {
           }
 
           return (
-            <ListGroup.Item
-              key={index}
-              variant="dark"
-              action
-              onClick={() => {
-                setShow(false);
-
-                scrollToTop();
-              }}
-            >
+            <ListGroup.Item key={index} variant="dark">
               {`${count} - ${tab.name}`}
             </ListGroup.Item>
           );
