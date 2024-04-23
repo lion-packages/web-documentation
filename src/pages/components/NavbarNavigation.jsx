@@ -6,10 +6,9 @@ import { LinkContainer } from "react-router-bootstrap";
 
 import NavigationLinks from "../../Tools/NavigationLinks";
 
-import logo from "./../../assets/img/Lion_black_icon_long.png";
-import { AiOutlineMail } from "react-icons/ai";
-import { FaGithub, FaYoutube } from "react-icons/fa";
-import SelectVersionButton from "./SelectVersionButton";
+import logo from "./../../assets/img/lion-black-icon-long.png";
+import { FaGithub } from "react-icons/fa";
+import { Image } from "react-bootstrap";
 
 function NavbarNavigation() {
   return (
@@ -23,7 +22,7 @@ function NavbarNavigation() {
       <Container>
         <LinkContainer to="/">
           <Navbar.Brand>
-            <img src={logo} height={56} />
+            <Image src={logo} height={80} />
           </Navbar.Brand>
         </LinkContainer>
 
@@ -31,9 +30,6 @@ function NavbarNavigation() {
 
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="ms-auto">
-
-          <SelectVersionButton />
-
             {NavigationLinks.map((link, index) =>
               link.type === "link" ? (
                 <LinkContainer to={link.url} key={index}>
@@ -56,34 +52,17 @@ function NavbarNavigation() {
                 </NavDropdown>
               )
             )}
-
             <Nav.Link href="#" className="d-none d-xl-block">
               <div className="vr h-100"></div>
             </Nav.Link>
-
-            {[
-              {
-                href: "https://www.youtube.com/channel/UCJBOJVKok44BZt0kKlBeZyA",
-                icon: <FaYoutube size={"1.5em"} />,
-              },
-              {
-                href: "https://github.com/Sleon4",
-                icon: <FaGithub size={"1.5em"} />,
-              },
-              {
-                href: "mailto:sergioleon4004@hotmail.com",
-                icon: <AiOutlineMail size={"1.5em"} />,
-              },
-            ].map((link, index) => (
-              <Nav.Link
-                key={index}
-                href={link.href}
-                target="_blank"
-                className="d-none d-xl-block"
-              >
-                {link.icon}
-              </Nav.Link>
-            ))}
+            <Nav.Link
+              href={"https://github.com/lion-packages"}
+              target="_blank"
+              className="d-none d-xl-block"
+            >
+              <FaGithub size={"2.5555555em"} />
+            </Nav.Link>
+            v
           </Nav>
         </Navbar.Collapse>
       </Container>
