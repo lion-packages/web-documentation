@@ -1,0 +1,15 @@
+services:
+    app:
+        container_name: web-documentation-app
+        build:
+            context: .
+            dockerfile: Dockerfile
+        ports:
+            - "5173:5173"
+        volumes:
+            - ./:/var/www/html
+        networks:
+            - lion
+networks:
+    lion:
+        driver: bridge
