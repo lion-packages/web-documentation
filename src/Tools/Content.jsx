@@ -16,7 +16,6 @@ import v15_1_1_CMMD from "./Versions/Commands/v15_1_1_CMMD";
 import v15_2_0_CMMD from "./Versions/Commands/v15_2_0_CMMD";
 import v15_3_0_CMMD from "./Versions/Commands/v15_3_0_CMMD";
 import v15_4_0_CMMD from "./Versions/Commands/v15_4_0_CMMD";
-import v15_4_1_CMMD from "./Versions/Commands/v15_4_1_CMMD";
 
 // framework
 import v14_25_0_FRM from "./Versions/Framework/v14_25_0_FRM";
@@ -33,7 +32,6 @@ import v15_1_1_FRM from "./Versions/Framework/v15_1_1_FRM";
 import v15_2_0_FRM from "./Versions/Framework/v15_2_0_FRM";
 import v15_3_0_FRM from "./Versions/Framework/v15_3_0_FRM";
 import v15_4_0_FRM from "./Versions/Framework/v15_4_0_FRM";
-import v15_4_1_FRM from "./Versions/Framework/v15_4_1_FRM";
 
 // libraries
 import v4_7_0_LF from "./Versions/Libraries/LionFiles/v4_7_0_LF";
@@ -117,54 +115,6 @@ export default function Content(mdText = "") {
       "v14.27.0": v14_27_0_CMMD(),
       "v14.26.0": v14_26_0_CMMD(),
       "v14.25.0": v14_25_0_CMMD(),
-      // "v14.24.1": v14_24_1_CMMD(),
-      // "v14.24.0": v14_24_0_CMMD(),
-      // "v14.23.0": v14_23_0_CMMD(),
-      // "v14.22.0": v14_22_0_CMMD(),
-      // "v14.21.0": v14_21_0_CMMD(),
-      // "v14.20.0": v14_20_0_CMMD(),
-      // "v14.19.0": v14_19_0_CMMD(),
-      // "v14.18.0": v14_18_0_CMMD(),
-      // "v14.17.1": v14_17_1_CMMD(),
-      // "v14.17.0": v14_17_0_CMMD(),
-      // "v14.16.0": v14_16_0_CMMD(),
-      // "v14.15.0": v14_15_0_CMMD(),
-      // "v14.14.0": v14_14_0_CMMD(),
-      // "v14.13.0": v14_13_0_CMMD(),
-      // "v14.12.0": v14_12_0_CMMD(),
-      // "v14.11.0": v14_11_0_CMMD(),
-      // "v14.10.1": v14_10_1_CMMD(),
-      // "v14.10.0": v14_10_0_CMMD(),
-      // "v14.9.0": v14_9_0_CMMD(),
-      // "v14.8.0": v14_8_0_CMMD(),
-      // "v14.7.0": v14_7_0_CMMD(),
-      // "v14.6.0": v14_6_0_CMMD(),
-      // "v14.5.0": v14_5_0_CMMD(),
-      // "v14.4.0": v14_4_0_CMMD(),
-      // "v14.3.2": v14_3_2_CMMD(),
-      // "v14.3.1": v14_3_1_CMMD(),
-      // "v14.3.0": v14_3_0_CMMD(),
-      // "v14.2.0": v14_2_0_CMMD(),
-      // "v14.1.0": v14_1_0_CMMD(),
-      // "v14.0.0": v14_0_0_CMMD(),
-      // "v13.14.0": v13_14_0_CMMD(),
-      // "v13.13.0": v13_13_0_CMMD(),
-      // "v13.12.0": v13_12_0_CMMD(),
-      // "v13.11.0": v13_11_0_CMMD(),
-      // "v13.10.0": v13_10_0_CMMD(),
-      // "v13.9.0": v13_9_0_CMMD(),
-      // "v13.8.1": v13_8_1_CMMD(),
-      // "v13.8.0": v13_8_0_CMMD(),
-      // "v13.7.0": v13_7_0_CMMD(),
-      // "v13.6.0": v13_6_0_CMMD(),
-      // "v13.5.0": v13_5_0_CMMD(),
-      // "v13.4.0": v13_4_0_CMMD(),
-      // "v13.3.0": v13_3_0_CMMD(),
-      // "v13.2.0": v13_2_0_CMMD(),
-      // "v13.1.0": v13_1_0_CMMD(),
-      // "v13.0.0": v13_0_0_CMMD(),
-      // "v12.17.0": v12_17_0_CMMD(),
-      // "v12.16.1": v12_16_1_CMMD(),
     },
     framework: {
       "v15.4.1": v15_4_0_FRM(mdText),
@@ -182,54 +132,6 @@ export default function Content(mdText = "") {
       "v14.27.0": v14_27_0_FRM(mdText),
       "v14.26.0": v14_26_0_FRM(mdText),
       "v14.25.0": v14_25_0_FRM(mdText),
-      // "v14.24.1": v14_24_1_FRM(mdText),
-      // "v14.24.0": v14_24_0_FRM(mdText),
-      // "v14.23.0": v14_23_0_FRM(mdText),
-      // "v14.22.0": v14_22_0_FRM(mdText),
-      // "v14.21.0": v14_21_0_FRM(mdText),
-      // "v14.20.0": v14_20_0_FRM(mdText),
-      // "v14.19.0": v14_19_0_FRM(mdText),
-      // "v14.18.0": v14_18_0_FRM(mdText),
-      // "v14.17.1": v14_17_1_FRM(mdText),
-      // "v14.17.0": v14_17_0_FRM(mdText),
-      // "v14.16.0": v14_16_0_FRM(mdText),
-      // "v14.15.0": v14_15_0_FRM(mdText),
-      // "v14.14.0": v14_14_0_FRM(mdText),
-      // "v14.13.0": v14_13_0_FRM(mdText),
-      // "v14.12.0": v14_12_0_FRM(mdText),
-      // "v14.11.0": v14_11_0_FRM(mdText),
-      // "v14.10.1": v14_10_1_FRM(mdText),
-      // "v14.10.0": v14_10_0_FRM(mdText),
-      // "v14.9.0": v14_9_0_FRM(mdText),
-      // "v14.8.0": v14_8_0_FRM(mdText),
-      // "v14.7.0": v14_7_0_FRM(mdText),
-      // "v14.6.0": v14_6_0_FRM(mdText),
-      // "v14.5.0": v14_5_0_FRM(mdText),
-      // "v14.4.0": v14_4_0_FRM(mdText),
-      // "v14.3.2": v14_3_2_FRM(mdText),
-      // "v14.3.1": v14_3_1_FRM(mdText),
-      // "v14.3.0": v14_3_0_FRM(mdText),
-      // "v14.2.0": v14_2_0_FRM(mdText),
-      // "v14.1.0": v14_1_0_FRM(mdText),
-      // "v14.0.0": v14_0_0_FRM(mdText),
-      // "v13.14.0": v13_14_0_FRM(mdText),
-      // "v13.13.0": v13_13_0_FRM(mdText),
-      // "v13.12.0": v13_12_0_FRM(mdText),
-      // "v13.11.0": v13_11_0_FRM(mdText),
-      // "v13.10.0": v13_10_0_FRM(mdText),
-      // "v13.9.0": v13_9_0_FRM(mdText),
-      // "v13.8.1": v13_8_1_FRM(mdText),
-      // "v13.8.0": v13_8_0_FRM(mdText),
-      // "v13.7.0": v13_7_0_FRM(mdText),
-      // "v13.6.0": v13_6_0_FRM(mdText),
-      // "v13.5.0": v13_5_0_FRM(mdText),
-      // "v13.4.0": v13_4_0_FRM(mdText),
-      // "v13.3.0": v13_3_0_FRM(mdText),
-      // "v13.2.0": v13_2_0_FRM(),
-      // "v13.1.0": v13_1_0_FRM(),
-      // "v13.0.0": v13_0_0_FRM(),
-      // "v12.17.0": v12_17_0_FRM(),
-      // "v12.16.1": v12_16_1_FRM(),
     },
     libraries: {
       lion: {
@@ -258,25 +160,6 @@ export default function Content(mdText = "") {
             "v8.5.0": v8_5_0_LSQ(),
             "v8.4.0": v8_4_0_LSQ(),
             "v8.3.0": v8_3_0_LSQ(),
-            // "v8.2.0": v8_2_0_LSQ(),
-            // "v8.1.1": v8_1_1_LSQ(),
-            // "v8.1.0": v8_1_0_LSQ(),
-            // "v8.0.3": v8_0_3_LSQ(),
-            // "v8.0.2": v8_0_2_LSQ(),
-            // "v8.0.1": v8_0_1_LSQ(),
-            // "v8.0.0": v8_0_0_LSQ(),
-            // "v7.7.0": v7_7_0_LSQ(),
-            // "v7.6.0": v7_6_0_LSQ(),
-            // "v7.5.0": v7_5_0_LSQ(),
-            // "v7.4.0": v7_4_0_LSQ(),
-            // "v7.3.0": v7_3_0_LSQ(),
-            // "v7.2.1": v7_2_1_LSQ(),
-            // "v7.2.0": v7_2_0_LSQ(),
-            // "v7.1.0": v7_1_0_LSQ(),
-            // "v7.0.0": v7_0_0_LSQ(),
-            // "v6.6.0": v6_6_0_LSQ(),
-            // "v6.5.1": v6_5_1_LSQ(),
-            // "v6.4.0": v6_4_0_LSQ(),
           },
         },
         authentication: {
@@ -456,91 +339,6 @@ export default function Content(mdText = "") {
           },
         },
       },
-      external: [
-        {
-          label: "firebase/php-jwt",
-          description: "PHP package for JWT",
-          url: "https://github.com/firebase/php-jwt",
-        },
-        {
-          label: "vlucas/valitron",
-          description:
-            "Valitron is a simple, elegant, stand-alone validation library with NO dependencies",
-          url: "https://github.com/vlucas/valitron",
-        },
-        {
-          label: "vlucas/phpdotenv",
-          description:
-            "Loads environment variables from `.env` to `getenv()`, `$_ENV` and `$_SERVER` automagically",
-          url: "https://github.com/vlucas/phpdotenv",
-        },
-        {
-          label: "mrjgreen/phroute",
-          description:
-            "A super fast PHP router, with route parameters, restful controllers, filters and reverse routing",
-          url: "https://github.com/mrjgreen/phroute",
-        },
-        {
-          label: "guzzle/guzzle",
-          description: "Guzzle, an extensible PHP HTTP client",
-          url: "https://github.com/guzzle/guzzle",
-        },
-        {
-          label: "PHPMailer/PHPMailer",
-          description: "The classic email sending library for PHP",
-          url: "https://github.com/PHPMailer/PHPMailer",
-        },
-        {
-          label: "briannesbitt/Carbon",
-          description: "A simple PHP API extension for DateTime",
-          url: "https://github.com/briannesbitt/carbon",
-        },
-        {
-          label: "ratchetphp/Ratchet",
-          description: "Asynchronous WebSocket server",
-          url: "https://github.com/ratchetphp/Ratchet",
-        },
-        {
-          label: "symfony/console",
-          description:
-            "The Console component eases the creation of beautiful and testable command line interfaces",
-          url: "https://github.com/symfony/console",
-        },
-        {
-          label: "Seldaek/monolog",
-          description:
-            "Sends your logs to files, sockets, inboxes, databases and various web services",
-          url: "https://github.com/Seldaek/monolog",
-        },
-        {
-          label: "PHPOffice/PhpSpreadsheet",
-          description:
-            "A pure PHP library for reading and writing spreadsheet files",
-          url: "https://github.com/PHPOffice/PhpSpreadsheet",
-        },
-        {
-          label: "sebastianbergmann/phpunit",
-          description: "The PHP Unit Testing framework",
-          url: "https://github.com/sebastianbergmann/phpunit",
-        },
-        {
-          label: "FakerPHP/Faker",
-          description:
-            "Faker is a PHP library that generates fake data for you",
-          url: "https://github.com/FakerPHP/Faker",
-        },
-        {
-          label: "antonioribeiro/google2fa",
-          description:
-            "A One Time Password Authentication package, compatible with Google Authenticator",
-          url: "https://github.com/antonioribeiro/google2fa",
-        },
-        {
-          label: "Bacon/BaconQrCode",
-          description: "QR Code Generator for PHP",
-          url: "https://github.com/Bacon/BaconQrCode",
-        },
-      ],
     },
   };
 }
