@@ -1,8 +1,8 @@
 {
   "name": "web-documentation",
-  "description": "Official client for the PHP documentation of Lion-Framework and other packages",
+  "description": "Official client for the PHP documentation of Lion-Framework and other libraries",
   "private": true,
-  "version": "6.3.0",
+  "version": "7.0.0",
   "type": "module",
   "scripts": {
     "co": "sui-mono commit",
