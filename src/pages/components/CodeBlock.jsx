@@ -11,7 +11,7 @@ function CodeBlock({ language, content }) {
   const [copy, setCopy] = useState(false);
 
   useEffect(() => {
-    setTimeout(() => setCopy(false), 3500);
+    setTimeout(() => setCopy(false), 2000);
   }, [copy]);
 
   return (
@@ -29,7 +29,7 @@ function CodeBlock({ language, content }) {
         language={language}
         style={androidstudio}
         className="rounded p-3"
-        showLineNumbers
+        showLineNumbers={["bash"].includes(language) ? false : true}
         wrapLines
       >
         {content}

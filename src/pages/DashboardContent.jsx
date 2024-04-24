@@ -1,6 +1,5 @@
 import { Button, Col, Container, Row } from "react-bootstrap";
 import { LinkContainer } from "react-router-bootstrap";
-
 import { DiMysql } from "react-icons/di";
 import { RiTestTubeFill } from "react-icons/ri";
 import {
@@ -12,6 +11,7 @@ import {
 } from "react-icons/fa";
 import { MdHttp } from "react-icons/md";
 import { TbArrowsLeftRight } from "react-icons/tb";
+import Content from "../Tools/Content";
 
 function DashboardContent() {
   const AddIcons = ({ icons }) => {
@@ -44,7 +44,7 @@ function DashboardContent() {
     <>
       <Container className="mt-3 px-4">
         <Row>
-          <Col xs={12} sm={12} md={8} lg={7} className="d-none d-xl-block">
+          <Col xs={12} sm={12} md={8} lg={7}>
             <div className="py-5">
               <h1 className="text-degradient">LION-FRAMEWORK</h1>
 
@@ -54,7 +54,11 @@ function DashboardContent() {
               </p>
 
               <LinkContainer
-              to={`/framework/index/v15.4.1/install`}
+                to={
+                  "/framework/index/" +
+                  Object.keys(Content().framework).shift() +
+                  "/getting-started"
+                }
               >
                 <Button
                   variant="dark-gradient-secondary"
@@ -66,39 +70,8 @@ function DashboardContent() {
               </LinkContainer>
 
               <LinkContainer to="/libraries/content">
-                <Button
-                  variant="dark-gradient"
-                  size="lg"
-                  className="fw-bold"
-                >
-                  {"Packages"}
-                </Button>
-              </LinkContainer>
-            </div>
-          </Col>
-
-          <Col xs={12} sm={12} md={8} className="d-xl-none mx-md-auto">
-            <div className="pt-5 text-center mb-3">
-              <h1 className="text-degradient">LION-FRAMEWORK</h1>
-
-              <p className="text-secondary description mb-4">
-                Lion-Framework can also serve as an API backend for a JavaScript
-                single page application or a mobile application.
-              </p>
-
-              <LinkContainer to="/framework/content">
-                <Button
-                  variant="dark-gradient-secondary"
-                  size="lg"
-                  className="fw-bold me-3"
-                >
-                  {"Get Started"}
-                </Button>
-              </LinkContainer>
-
-              <LinkContainer to="/libraries/content">
                 <Button variant="dark-gradient" size="lg" className="fw-bold">
-                  {"Packages"}
+                  {"Libraries"}
                 </Button>
               </LinkContainer>
             </div>
@@ -117,12 +90,7 @@ function DashboardContent() {
             {
               title: "API",
               desc: "Build complete and robust applications in PHP using Lion-Framework and ReactJS. Or, let Lion-Framework work as a robust back-end API for your ViteJS app, mobile app, or other interface.",
-              icons: [
-                <FaPhp size={"2em"} title="PHP" />,
-                // <FaReact size={"2em"} title="ReactJS" />,
-                // <FaVuejs size={"2em"} title="VueJS" />,
-                // <SiKotlin size={"1.4em"} title="Kotlin" />,
-              ],
+              icons: [<FaPhp size={"2em"} title="PHP" />],
             },
             {
               title: "Routes",
@@ -137,19 +105,13 @@ function DashboardContent() {
             {
               title: "Docker",
               desc: "Create docker containers using Lion-Framework, where you can work with apache and MySQL databases.",
-              icons: [
-                <FaDocker size={"2em"} title="Docker" />,
-                // <FaPhp size={"2em"} title="PHP" />,
-                // <DiMysql size={"2em"} title="MySQL" />,
-                // <SiApache size={"2em"} title="Apache" />,
-              ],
+              icons: [<FaDocker size={"2em"} title="Docker" />],
             },
             {
               title: "Cron",
               desc: "Run necessary commands via SH files to perform your tasks via Lion-Framework.",
               icons: [
                 <FaTasks size={"1.6em"} title="Tasks" className="my-1" />,
-                // <FaPhp size={"2em"} title="PHP" />,
               ],
             },
             {
