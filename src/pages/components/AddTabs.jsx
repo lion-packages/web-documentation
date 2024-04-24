@@ -61,15 +61,16 @@ export default function AddTabs() {
                       key={`${index}-${indexItem}`}
                     >
                       <ListGroup.Item
+                        // className="border-0"
                         variant="dark"
                         action
-                        className="ms-2"
                         onClick={() => {
                           setShow(false);
 
                           scrollToTop();
                         }}
                       >
+                        <i className="bi bi-arrow-return-right me-2"></i>
                         <label className="text-warning">{`${count}.${subCount}`}</label>
                         {" - "}
                         {item.name}

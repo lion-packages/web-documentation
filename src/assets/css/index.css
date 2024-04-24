@@ -349,6 +349,7 @@
 .list-group-item-dark {
   color: #ffffff !important;
   background-color: #111111 !important;
+  border-color: #232323 !important;
 }
 
 .list-group-item-dark:hover {
