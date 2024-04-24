@@ -4,7 +4,7 @@ import Navbar from "react-bootstrap/Navbar";
 import NavDropdown from "react-bootstrap/NavDropdown";
 import { LinkContainer } from "react-router-bootstrap";
 import NavigationLinks from "../../Tools/NavigationLinks";
-import logo from "./../../assets/img/lion-black-icon-long.png";
+import logo from "./../../assets/img/icon-dark.png";
 import { FaGithub } from "react-icons/fa";
 import { Image } from "react-bootstrap";
 import Content from "../../Tools/Content";
@@ -19,13 +19,12 @@ function NavbarNavigation() {
       sticky="top"
       variant="dark"
       expand="lg"
-      className="bg-dark-logo border-bottom border-secondary py-0"
-      style={{ "--bs-border-opacity": ".5" }}
+      className="bg-dark-logo py-2"
     >
       <Container>
         <LinkContainer to="/">
           <Navbar.Brand onClick={() => setExpanded(false)}>
-            <Image src={logo} height={80} />
+            <Image src={logo} width={60} />
           </Navbar.Brand>
         </LinkContainer>
 
