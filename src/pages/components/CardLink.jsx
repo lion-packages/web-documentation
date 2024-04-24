@@ -8,15 +8,17 @@ function CardLink({
   textColor = { title: "text-white", description: "text-white" },
   external = false,
 }) {
-  const scrollTop = () => {
-    window.scrollTo({
-      top: 0,
-      behavior: "smooth",
-    });
-  };
-
   return (
-    <Card bg="dark-blue" onClick={scrollTop}>
+    <Card
+      bg="dark-blue"
+      className="h-100"
+      onClick={() => {
+        window.scrollTo({
+          top: 0,
+          behavior: "smooth",
+        });
+      }}
+    >
       {!external ? (
         <Card.Body>
           <LinkContainer to={uri}>
