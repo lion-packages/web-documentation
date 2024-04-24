@@ -70,7 +70,7 @@ export default function AddTabs() {
                           scrollToTop();
                         }}
                       >
-                        <i className="bi bi-arrow-return-right me-2"></i>
+                        <i className="bi bi-arrow-return-right text-warning me-2"></i>
                         <label className="text-warning">{`${count}.${subCount}`}</label>
                         {" - "}
                         {item.name}

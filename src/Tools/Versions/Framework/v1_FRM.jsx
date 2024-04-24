@@ -471,9 +471,9 @@ class HomeController {
               <div className="mb-3">
                 <Alert variant={"info"}>
                   <strong>Note:</strong> You can create the model class
-                  immediately with the <Badge bg={"warning"}>--model</Badge>{" "}
+                  immediately with the <Badge bg={"secondary"}>--model</Badge>{" "}
                   option, Models are stored in{" "}
-                  <Badge bg={"warning"}>app/Models</Badge>.
+                  <Badge bg={"secondary"}>app/Models</Badge>.
                 </Alert>
 
                 <CodeBlock
@@ -876,13 +876,13 @@ class TableName implements \\JsonSerializable {
               </p>
 
               <div className="mb-3">
-                <Alert variant="warning">
+                <Alert variant="info">
                   <strong>Note: </strong>the default project type is react , for
                   more information about the properties for generating projects
                   with vite select the Command section in the list.
                 </Alert>
 
-                <Alert variant="warning">
+                <Alert variant="info">
                   <strong>Note: </strong>each time a project is created with
                   vite, the base information for the vite configuration is
                   added, where a config object will be added to hold the changes
@@ -931,7 +931,7 @@ class TableName implements \\JsonSerializable {
               </p>
 
               <div className="mb-3">
-                <Alert variant="warning">
+                <Alert variant="info">
                   <strong>Note: </strong>If you are using Docker, add the
                   dependency install (php lion npm:install project) of the
                   project so that it is installed whenever the Docker container
@@ -1062,8 +1062,9 @@ class TableName implements \\JsonSerializable {
                 <hr />
 
                 <p className="fs-6">
-                  To send mail with different accounts you need to add the
-                  accounts and add the service, go to{" "}
+                  To send mail with different accounts it is necessary to add
+                  the accounts and add the service that these accounts use
+                  (SymfonyMailer/PHPMailer), go to{" "}
                   <Badge bg="secondary">config/email.php</Badge>, email accounts
                   must be added to the .env, for more information, read{" "}
                   <Link
