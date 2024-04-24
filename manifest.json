@@ -1,8 +1,8 @@
 {
-  "name": "Lion-Framework",
-  "short_name": "LF",
+  "name": "Lion-Packages",
+  "short_name": "LP",
   "start_url": "https://lion-client.vercel.app",
-  "description": "Lion-Framework is a simple and easy to use PHP framework",
+  "description": "Official client for the PHP documentation of Lion-Framework and other libraries",
   "background_color": "#111111",
   "theme_color": "#111111",
   "display": "standalone",
