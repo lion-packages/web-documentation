@@ -8,10 +8,14 @@ import logo from "./../../assets/img/lion-black-icon-long.png";
 import { FaGithub } from "react-icons/fa";
 import { Image } from "react-bootstrap";
 import Content from "../../Tools/Content";
+import { useState } from "react";
 
 function NavbarNavigation() {
+  const [expanded, setExpanded] = useState(false);
+
   return (
     <Navbar
+      expanded={expanded}
       sticky="top"
       variant="dark"
       expand="lg"
@@ -20,14 +24,17 @@ function NavbarNavigation() {
     >
       <Container>
         <LinkContainer to="/">
-          <Navbar.Brand>
+          <Navbar.Brand onClick={() => setExpanded(false)}>
             <Image src={logo} height={80} />
           </Navbar.Brand>
         </LinkContainer>
 
-        <Navbar.Toggle aria-controls="basic-navbar-nav" />
+        <Navbar.Toggle
+          aria-controls="basic-navbar-nav"
+          onClick={() => setExpanded(!expanded)}
+        />
 
-        <Navbar.Collapse id="basic-navbar-nav">
+        <Navbar.Collapse id="basic-navbar-nav" in={expanded}>
           <Nav className="ms-auto">
             <LinkContainer
               to={
@@ -36,7 +43,10 @@ function NavbarNavigation() {
                 "/getting-started/about-as"
               }
             >
-              <Nav.Link className="fw-bold d-flex align-items-center justify-content-center">
+              <Nav.Link
+                className="fw-bold d-flex align-items-center justify-content-center"
+                onClick={() => setExpanded(!expanded)}
+              >
                 Framework
               </Nav.Link>
             </LinkContainer>
@@ -44,7 +54,10 @@ function NavbarNavigation() {
             {NavigationLinks.map((link, index) =>
               link.type === "link" ? (
                 <LinkContainer to={link.url} key={index}>
-                  <Nav.Link className="fw-bold d-flex align-items-center justify-content-center">
+                  <Nav.Link
+                    className="fw-bold d-flex align-items-center justify-content-center"
+                    onClick={() => setExpanded(!expanded)}
+                  >
                     {link.display_name}
                   </Nav.Link>
                 </LinkContainer>
