@@ -57,7 +57,7 @@ function DashboardContent() {
                 to={
                   "/framework/index/" +
                   Object.keys(Content().framework).shift() +
-                  "/getting-started"
+                  "/getting-started/about-as"
                 }
               >
                 <Button

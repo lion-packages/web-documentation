@@ -33,7 +33,7 @@ function NavbarNavigation() {
               to={
                 "/framework/index/" +
                 Object.keys(Content().framework).shift() +
-                "/getting-started"
+                "/getting-started/about-as"
               }
             >
               <Nav.Link className="fw-bold d-flex align-items-center justify-content-center">
