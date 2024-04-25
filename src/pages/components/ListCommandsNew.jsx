@@ -29,19 +29,21 @@ function ListCommandsNew() {
   return (
     <div className="mb-3">
       <div className="mb-3">
-        <p>
+        <>
           <h6>{"argument"}</h6>
-          <i className={"bi bi-arrow-right-short me-0 text-info"}>{"arg"}</i>
-        </p>
 
-        <p>
+          <i className={"bi bi-arrow-right-short me-0 text-info"}>{"arg"}</i>
+        </>
+
+        <>
           <h6>{"options"}</h6>
 
           <i className={"bi bi-arrow-right-short me-0 text-success"}>
             {"--option"}
           </i>
+
           <i className={"bi bi-arrow-right-short me-0 text-success"}>{"-o"}</i>
-        </p>
+        </>
       </div>
 
       <hr />
