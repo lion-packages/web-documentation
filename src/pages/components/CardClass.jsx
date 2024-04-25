@@ -6,7 +6,7 @@ function CardClass({ methods, option }) {
     <Row>
       {![null, undefined].includes(methods) &&
         Object.entries(methods).map(([key, classname]) => (
-          <Col xs={12} sm={12} md={6} lg={4} xl={3} key={key} className="mb-3">
+          <Col xs={12} sm={12} md={6} lg={6} xl={4} key={key} className="mb-3">
             <CardLink
               uri={classname.url.replace(/item_version/gm, option)}
               title={classname.title}

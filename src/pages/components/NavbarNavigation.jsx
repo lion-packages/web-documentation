@@ -37,7 +37,7 @@ function NavbarNavigation() {
           <Nav className="ms-auto">
             <LinkContainer
               to={
-                "/framework/index/" +
+                "/docs/framework/" +
                 Object.keys(Content().framework).shift() +
                 "/getting-started/about-as"
               }
