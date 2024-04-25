@@ -10,6 +10,7 @@ function GithubButton({ url, variantButton, className = "", children }) {
       className={className}
     >
       <BsGithub size={"1.5em"} />
+
       {children}
     </Button>
   );

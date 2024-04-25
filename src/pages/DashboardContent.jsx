@@ -33,7 +33,9 @@ function DashboardContent() {
       <Col xs={12} sm={12} md={6} lg={6} xl={4} className="mx-auto mb-4">
         <div className="p-4 rounded-4 bg-dark h-100">
           <AddIcons icons={container.icons} />
+
           <h5>{container.title}</h5>
+
           <p className="text-secondary fs-6 fw-bold">{container.desc}</p>
         </div>
       </Col>
@@ -55,7 +57,7 @@ function DashboardContent() {
 
               <LinkContainer
                 to={
-                  "/framework/index/" +
+                  "/docs/framework/" +
                   Object.keys(Content().framework).shift() +
                   "/getting-started/about-as"
                 }
@@ -69,7 +71,7 @@ function DashboardContent() {
                 </Button>
               </LinkContainer>
 
-              <LinkContainer to="/libraries/content">
+              <LinkContainer to={"/docs/library/content"}>
                 <Button variant="dark-gradient" size="lg" className="fw-bold">
                   {"Libraries"}
                 </Button>

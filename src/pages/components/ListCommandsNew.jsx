@@ -29,36 +29,40 @@ function ListCommandsNew() {
   return (
     <div className="mb-3">
       <div className="mb-3">
-        <p>
+        <>
           <h6>{"argument"}</h6>
-          <i className={"bi bi-arrow-right-short me-0 text-info"}>{"arg"}</i>
-        </p>
 
-        <p>
+          <i className={"bi bi-arrow-right-short me-0 text-info"}>{"arg"}</i>
+        </>
+
+        <>
           <h6>{"options"}</h6>
 
           <i className={"bi bi-arrow-right-short me-0 text-success"}>
             {"--option"}
           </i>
+
           <i className={"bi bi-arrow-right-short me-0 text-success"}>{"-o"}</i>
-        </p>
+        </>
       </div>
 
       <hr />
 
       {Content().framework[item_version].commands.map((item, index) => (
-        <Table size="sm" variant="dark" responsive key={index} hover>
+        <Table
+          size="sm"
+          variant="dark"
+          responsive
+          hover
+          key={index}
+          className="align-middle"
+        >
           <thead>
             <tr>
               <th className="text-warning" colSpan={2}>
                 {item.group}
               </th>
             </tr>
-
-            {/* <tr>
-              <th>{"COMMAND"}</th>
-              <th>{"DESCRIPTION"}</th>
-            </tr> */}
           </thead>
           <tbody>
             {item.childs.map((child, childIndex) => (
@@ -84,12 +88,7 @@ function ListCommandsNew() {
 
                 <tr>
                   <td colSpan={2} className="p-0">
-                    <Table
-                      size="sm"
-                      variant="dark"
-                      responsive
-                      className="m-0 align-middle"
-                    >
+                    <Table size="sm" variant="dark" responsive className="m-0">
                       <tbody>
                         {child.args.map((arg, indexArgs) => (
                           <tr key={indexArgs}>

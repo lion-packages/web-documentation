@@ -16,7 +16,7 @@ import { FiArrowLeft } from "react-icons/fi";
 import SelectVersionButton from "./SelectVersionButton";
 
 export default function AddTabs() {
-  const { item_version, code } = useParams();
+  const { item_version, library = null } = useParams();
   const [show, setShow] = useState(false);
   const [filter_search, setFilter_search] = useState("");
 
@@ -28,7 +28,13 @@ export default function AddTabs() {
   };
 
   const filterItems = () => {
-    const content = Content().framework[item_version].docs;
+    let content = null;
+
+    if (null === library) {
+      content = Content().framework[item_version].docs;
+    } else {
+      content = Content().library[library][item_version];
+    }
 
     return Object.entries(content).filter(([index, item]) =>
       item.name.toLowerCase().includes(filter_search.toLowerCase())
@@ -57,19 +63,24 @@ export default function AddTabs() {
 
                   return (
                     <LinkContainer
-                      to={`/framework/index/${item_version}/${index}/${indexItem}`}
+                      to={
+                        library === null
+                          ? `/docs/framework/${item_version}/${index}/${indexItem}`
+                          : `/docs/library/${library}/${item_version}/${index}/${indexItem}`
+                      }
                       key={`${index}-${indexItem}`}
                     >
                       <ListGroup.Item
+                        // className="border-0"
                         variant="dark"
                         action
-                        className="ms-2"
                         onClick={() => {
                           setShow(false);
 
                           scrollToTop();
                         }}
                       >
+                        <i className="bi bi-arrow-return-right text-warning me-2"></i>
                         <label className="text-warning">{`${count}.${subCount}`}</label>
                         {" - "}
                         {item.name}
@@ -124,12 +135,6 @@ export default function AddTabs() {
               >
                 <i className="bi bi-list"></i>
               </Button>
-
-              <LinkContainer to={`/framework/content`}>
-                <Button variant="dark-gradient">
-                  <FiArrowLeft size={"1.3em"} />
-                </Button>
-              </LinkContainer>
 
               <hr />
             </div>
