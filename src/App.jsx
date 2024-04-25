@@ -13,28 +13,26 @@ function App() {
     <>
       <NavbarNavigation />
 
-      <main className="flex-shrink-0">
-        <Routes>
-          <Route path="*" element={<NotFound />} />
-          <Route path="/" element={<DashboardContent />} />
+      <Routes>
+        <Route path="*" element={<NotFound />} />
+        <Route path="/" element={<DashboardContent />} />
 
-          <Route path="docs/">
-            <Route path="framework">
-              <Route path=":item_version/:tab" element={<AddTabs />}>
-                <Route path=":code" element={<ContentView />} />
-              </Route>
-            </Route>
-
-            <Route path="library">
-              <Route path="content" element={<LibraryContent />} />
-
-              <Route path=":library/:item_version/:tab" element={<AddTabs />}>
-                <Route path=":code" element={<ContentView />} />
-              </Route>
+        <Route path="docs/">
+          <Route path="framework">
+            <Route path=":item_version/:tab" element={<AddTabs />}>
+              <Route path=":code" element={<ContentView />} />
             </Route>
           </Route>
-        </Routes>
-      </main>
+
+          <Route path="library">
+            <Route path="content" element={<LibraryContent />} />
+
+            <Route path=":library/:item_version/:tab" element={<AddTabs />}>
+              <Route path=":code" element={<ContentView />} />
+            </Route>
+          </Route>
+        </Route>
+      </Routes>
 
       <FooterNavigation />
     </>
