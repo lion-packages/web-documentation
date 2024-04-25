@@ -1,7 +1,7 @@
 import v1_FRM from "./Versions/Framework/v1_FRM";
-import v1_LA from "./Versions/Libraries/LionAuthentication/v1_LA";
+import v1_LA from "./Versions/libraries/authentication/v1_LA";
 import v1_CMMD from "./Versions/Commands/v1_CMMD";
-import v3_CMD from "./Versions/Libraries/command/v3_CMD";
+import v3_CMD from "./Versions/libraries/command/v3_CMD";
 
 export default function Content() {
   return {
