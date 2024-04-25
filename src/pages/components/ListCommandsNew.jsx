@@ -49,18 +49,20 @@ function ListCommandsNew() {
       <hr />
 
       {Content().framework[item_version].commands.map((item, index) => (
-        <Table size="sm" variant="dark" responsive key={index} hover>
+        <Table
+          size="sm"
+          variant="dark"
+          responsive
+          hover
+          key={index}
+          className="align-middle"
+        >
           <thead>
             <tr>
               <th className="text-warning" colSpan={2}>
                 {item.group}
               </th>
             </tr>
-
-            {/* <tr>
-              <th>{"COMMAND"}</th>
-              <th>{"DESCRIPTION"}</th>
-            </tr> */}
           </thead>
           <tbody>
             {item.childs.map((child, childIndex) => (
@@ -86,12 +88,7 @@ function ListCommandsNew() {
 
                 <tr>
                   <td colSpan={2} className="p-0">
-                    <Table
-                      size="sm"
-                      variant="dark"
-                      responsive
-                      className="m-0 align-middle"
-                    >
+                    <Table size="sm" variant="dark" responsive className="m-0">
                       <tbody>
                         {child.args.map((arg, indexArgs) => (
                           <tr key={indexArgs}>

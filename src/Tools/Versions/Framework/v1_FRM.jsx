@@ -207,10 +207,10 @@ return [
                 <Badge bg="secondary">config/database.php</Badge>, for more
                 information read{" "}
                 <Link
-                  to={"/libraries/lion/sql/index"}
+                  to={"/docs/library/content"}
                   className="text-decoration-none"
                 >
-                  Lion-SQL
+                  Lion-Database
                 </Link>
                 . The connections established in the config must be added
                 directly in the .env, it is recommended to use the database name
@@ -362,7 +362,7 @@ return [
         },
       },
     },
-    routes: {
+    routing: {
       name: "Routing",
       type: "sub_modules",
       list: {
@@ -378,7 +378,7 @@ return [
 
               <p className="fs-6">
                 <Link
-                  to={"/libraries/lion/route/index"}
+                  to={"/docs/library/content"}
                   className="text-decoration-none"
                 >
                   Lion-Route
@@ -585,7 +585,7 @@ class HomeModel {
               </div>
 
               <p className="fs-6">
-                Create the required models and run them on your controllers
+                Create the required models and run them on your controllers.
               </p>
 
               <CodeBlock
@@ -777,7 +777,7 @@ class TableName implements \\JsonSerializable {
                 you can define the tables with their properties, relate them,
                 read{" "}
                 <Link
-                  to={"/libraries/lion/database/index"}
+                  to={"/docs/library/content"}
                   className="text-decoration-none"
                 >
                   Lion-Database
@@ -1049,12 +1049,12 @@ class TableName implements \\JsonSerializable {
         },
       },
     },
-    email: {
-      name: "Mail",
+    mailer: {
+      name: "Mailer",
       type: "sub_modules",
       list: {
         config: {
-          name: "Mail Config",
+          name: "Mailer Config",
           code: (
             <>
               <div className="my-3">
@@ -1068,7 +1068,7 @@ class TableName implements \\JsonSerializable {
                   <Badge bg="secondary">config/email.php</Badge>, email accounts
                   must be added to the .env, for more information, read{" "}
                   <Link
-                    to={"/libraries/lion/mailer/index"}
+                    to={"/docs/library/content"}
                     className="text-decoration-none"
                   >
                     Lion-Mailer
@@ -1148,7 +1148,7 @@ return [
                 internally initializes a <Badge bg={"secondary"}>request</Badge>{" "}
                 constant to obtain the data. more information in{" "}
                 <Link
-                  to={"/libraries/lion/request/index"}
+                  to={"/docs/library/content"}
                   className="text-decoration-none"
                 >
                   Lion-Request
@@ -1189,7 +1189,7 @@ return [
           code: (
             <>
               <div className="mb-3">
-                <h3>RESPONSE</h3>
+                <h3>Response</h3>
 
                 <hr />
               </div>
@@ -1200,7 +1200,7 @@ return [
                 <Badge bg={"secondary"}>response</Badge> constant to access the
                 functions. more information in{" "}
                 <Link
-                  to={"/libraries/lion/request/index"}
+                  to={"/docs/library/content"}
                   className="text-decoration-none"
                 >
                   Lion-Request
@@ -1265,7 +1265,7 @@ return [
                 lang language preference to <Badge bg={"secondary"}>.env</Badge>{" "}
                 more information in{" "}
                 <Link
-                  to={"/libraries/lion/security/index"}
+                  to={"/docs/library/content"}
                   className="text-decoration-none"
                 >
                   Lion-Security
@@ -1954,7 +1954,7 @@ return [
                 Create public and private keys, perform encryption and
                 decryption with them{" "}
                 <Link
-                  to={"/libraries/lion/security/index"}
+                  to={"/docs/library/content"}
                   className="text-decoration-none"
                 >
                   Lion-Security RSA lease
@@ -2002,7 +2002,7 @@ return [
               <p className="fs-6">
                 Generate (KEY - IV) to encrypt and decrypt with AES,{" "}
                 <Link
-                  to={"/libraries/lion/security/index"}
+                  to={"/docs/library/content"}
                   className="text-decoration-none"
                 >
                   lease Lion-Security AES
@@ -2346,7 +2346,13 @@ return [
                 <hr />
               </div>
 
-              <Table size="sm" variant="dark" responsive hover>
+              <Table
+                size="sm"
+                variant="dark"
+                responsive
+                hover
+                className="align-middle"
+              >
                 <thead>
                   <tr>
                     <th>NAME</th>
@@ -2358,7 +2364,7 @@ return [
                     <td>client</td>
                     <td>
                       the client constant is an object of the GuzzleHttp\Client
-                      class, it allows you to make HTTP requests
+                      class, it allows you to make HTTP requests.
                     </td>
                   </tr>
 
@@ -2367,7 +2373,7 @@ return [
                     <td>
                       the request constant is an object of the Lion
                       Request\Request class, it allows you to get the data
-                      captured through an HTTP request
+                      captured through an HTTP request.
                     </td>
                   </tr>
 
@@ -2376,7 +2382,7 @@ return [
                     <td>
                       the response constant is an object of the Lion
                       Request\Response class, it allows you to generate
-                      responses of different types that the class provides
+                      responses of different types that the class provides.
                     </td>
                   </tr>
 
@@ -2384,7 +2390,7 @@ return [
                     <td>json</td>
                     <td>
                       the json constant is an object of the LionRequest\Json
-                      class, it allows you to encode and decode JSON data
+                      class, it allows you to encode and decode JSON data.
                     </td>
                   </tr>
 
@@ -2392,7 +2398,7 @@ return [
                     <td>env</td>
                     <td>
                       the env constant is an object that contains the properties
-                      of the environment variable file
+                      of the environment variable file.
                     </td>
                   </tr>
 
@@ -2400,7 +2406,7 @@ return [
                     <td>str</td>
                     <td>
                       the constant str is an object of class LionHelpers\Str, it
-                      allows you to access this helper and transform strings
+                      allows you to access this helper and transform strings.
                     </td>
                   </tr>
 
@@ -2408,7 +2414,7 @@ return [
                     <td>arr</td>
                     <td>
                       the constant arr is an object of class LionHelpers\Arr, it
-                      allows you to access this helper and transform arrays
+                      allows you to access this helper and transform arrays.
                     </td>
                   </tr>
 
@@ -2416,7 +2422,7 @@ return [
                     <td>kernel</td>
                     <td>
                       the kernel constant is an object of class
-                      App\Console\Kernel, it allows you to execute commands
+                      App\Console\Kernel, it allows you to execute commands.
                     </td>
                   </tr>
                 </tbody>

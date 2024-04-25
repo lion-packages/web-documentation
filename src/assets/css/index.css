@@ -12,6 +12,10 @@
 
 /* ---------------------------------------------------------------- */
 
+span.hljs-function.hljs-title {
+  color: #ffb64e !important;
+}
+
 span.hljs-doctag {
   color: #cb7832 !important;
 }
