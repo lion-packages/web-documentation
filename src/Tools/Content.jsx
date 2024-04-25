@@ -2,6 +2,7 @@ import v1_FRM from "./Versions/Framework/v1_FRM";
 import v1_LA from "./Versions/libraries/authentication/v1_LA";
 import v1_CMMD from "./Versions/Commands/v1_CMMD";
 import v3_CMD from "./Versions/libraries/command/v3_CMD";
+import v8_LBD from "./Versions/libraries/database/v8_LDB";
 
 export default function Content() {
   return {
@@ -18,21 +19,9 @@ export default function Content() {
       command: {
         v3: v3_CMD(),
       },
-      // database: {
-      //   title: "lion-packages/database",
-      //   url: "/libraries/lion/database/index",
-      //   component: {
-      //     title: "lion-packages/database",
-      //     library: "database",
-      //     url_github: "https://github.com/lion-packages/database",
-      //     command: "composer require lion/database",
-      //   },
-      //   description:
-      //     "Package responsible for generating and executing MySQL processes",
-      //   class: {
-      //     "v8.8.2": v8_8_2_LBD(),
-      //   },
-      // },
+      database: {
+        v8: v8_LBD(),
+      },
       // files: {
       //   title: "lion-packages/files",
       //   url: "/libraries/lion/files/index",
