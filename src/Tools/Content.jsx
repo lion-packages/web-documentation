@@ -4,6 +4,7 @@ import v1_CMMD from "./Versions/Commands/v1_CMMD";
 import v3_CMD from "./Versions/libraries/command/v3_CMD";
 import v8_LBD from "./Versions/libraries/database/v8_LDB";
 import v1_LDI from "./Versions/libraries/dependency-injection/v1_LDI";
+import v4_LF from "./Versions/libraries/files/v4_LF";
 
 export default function Content() {
   return {
@@ -26,22 +27,9 @@ export default function Content() {
       "dependency-injection": {
         v1: v1_LDI(),
       },
-      // files: {
-      //   title: "lion-packages/files",
-      //   url: "/libraries/lion/files/index",
-      //   changelog: true,
-      //   component: {
-      //     title: "lion-packages/files",
-      //     library: "files",
-      //     url_github: "https://github.com/lion-packages/files",
-      //     command: "composer require lion/files",
-      //   },
-      //   description:
-      //     "Library created with the function of working internal system files",
-      //   class: {
-      //     "v4.11.0": v4_11_0_LF(),
-      //   },
-      // },
+      files: {
+        v4: v4_LF(),
+      },
       // helpers: {
       //   title: "lion-packages/helpers",
       //   url: "/libraries/lion/helpers/index",
