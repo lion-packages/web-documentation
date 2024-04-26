@@ -3,6 +3,7 @@ import v1_LA from "./Versions/libraries/authentication/v1_LA";
 import v1_CMMD from "./Versions/Commands/v1_CMMD";
 import v3_CMD from "./Versions/libraries/command/v3_CMD";
 import v8_LBD from "./Versions/libraries/database/v8_LDB";
+import v1_LDI from "./Versions/libraries/dependency-injection/v1_LDI";
 
 export default function Content() {
   return {
@@ -21,6 +22,9 @@ export default function Content() {
       },
       database: {
         v8: v8_LBD(),
+      },
+      "dependency-injection": {
+        v1: v1_LDI(),
       },
       // files: {
       //   title: "lion-packages/files",
