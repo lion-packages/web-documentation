@@ -6,6 +6,8 @@ import v8_LBD from "./Versions/libraries/database/v8_LDB";
 import v1_LDI from "./Versions/libraries/dependency-injection/v1_LDI";
 import v4_LF from "./Versions/libraries/files/v4_LF";
 import v2_LH from "./Versions/libraries/helpers/v2_LH";
+import v5_LR from "./Versions/libraries/request/v5_LR";
+import v5_LM from "./Versions/libraries/mailer/v5_LM";
 
 export default function Content() {
   return {
@@ -34,38 +36,12 @@ export default function Content() {
       helpers: {
         v2: v2_LH(),
       },
-      // request: {
-      //   title: "lion-packages/request",
-      //   url: "/libraries/lion/request/index",
-      //   changelog: true,
-      //   component: {
-      //     title: "lion-packages/request",
-      //     library: "request",
-      //     url_github: "https://github.com/lion-packages/request",
-      //     command: "composer require lion/request",
-      //   },
-      //   description:
-      //     "Library created to request input data and response requests",
-      //   class: {
-      //     "v5.4.0": v5_4_0_LR(),
-      //   },
-      // },
-      // mailer: {
-      //   title: "lion-packages/mailer",
-      //   url: "/libraries/lion/mailer/index",
-      //   changelog: true,
-      //   component: {
-      //     title: "lion-packages/mailer",
-      //     library: "mailer",
-      //     url_github: "https://github.com/lion-packages/mailer",
-      //     command: "composer require lion/mailer",
-      //   },
-      //   description:
-      //     "Library created to facilitate sending email based on different services",
-      //   class: {
-      //     "v5.1.0": v5_1_0_LM(),
-      //   },
-      // },
+      mailer: {
+        v5: v5_LM(),
+      },
+      request: {
+        v5: v5_LR(),
+      },
       // route: {
       //   title: "lion-packages/route",
       //   url: "/libraries/lion/route/index",
