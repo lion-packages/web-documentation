@@ -5,6 +5,7 @@ import v3_CMD from "./Versions/libraries/command/v3_CMD";
 import v8_LBD from "./Versions/libraries/database/v8_LDB";
 import v1_LDI from "./Versions/libraries/dependency-injection/v1_LDI";
 import v4_LF from "./Versions/libraries/files/v4_LF";
+import v2_LH from "./Versions/libraries/helpers/v2_LH";
 
 export default function Content() {
   return {
@@ -30,21 +31,9 @@ export default function Content() {
       files: {
         v4: v4_LF(),
       },
-      // helpers: {
-      //   title: "lion-packages/helpers",
-      //   url: "/libraries/lion/helpers/index",
-      //   changelog: true,
-      //   component: {
-      //     title: "lion-packages/helpers",
-      //     library: "helpers",
-      //     url_github: "https://github.com/lion-packages/helpers",
-      //     command: "composer require lion/helpers",
-      //   },
-      //   description: "Easy to use helpers for any type of use",
-      //   class: {
-      //     "v2.3.0": v2_3_0_LH(),
-      //   },
-      // },
+      helpers: {
+        v2: v2_LH(),
+      },
       // request: {
       //   title: "lion-packages/request",
       //   url: "/libraries/lion/request/index",
