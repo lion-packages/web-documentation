@@ -240,7 +240,7 @@ return [
             'user' => env->DB_USER,
             'password' => env->DB_PASSWORD,
         ],
-      ],
+    ],
 ];
 `}
               />
