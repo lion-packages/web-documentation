@@ -446,7 +446,7 @@ class ExampleTest extends Test
 {
     public function testExample(): void
     {
-        $responseApi = "An error occurred while making the request: Client error: 'GET http://example.com' resulted in a '401 Unauthorized' response: { "message": "Unauthorized" }";
+        $responseApi = 'An error occurred while making the request: Client error: GET http://example.com resulted in a 401 Unauthorized response: { "message": "Unauthorized" }';
 
         $jsonResponse = $this->getResponse($responseApi, 'response:');
 

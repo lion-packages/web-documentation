@@ -103,14 +103,16 @@ export default function AddTabs() {
   };
 
   return (
-    <Container className="my-4 text-white">
+    <Container fluid className="my-4 text-white">
       <Row>
         <Col xs={12} sm={12} md={12} lg={12} xl={3} xxl={3}>
           <div className="d-none d-xl-block">
             <SelectVersionButton />
 
             <InputGroup className="mb-3 mb-3">
-              <LinkContainer to={`/`}>
+              <LinkContainer
+                to={library === null ? "/" : "/docs/library/content"}
+              >
                 <Button variant="dark">
                   <FiArrowLeft size={"1.4em"} />
                 </Button>
