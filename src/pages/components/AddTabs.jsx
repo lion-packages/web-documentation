@@ -13,7 +13,7 @@ import { LinkContainer } from "react-router-bootstrap";
 import { Outlet, useParams } from "react-router-dom";
 import Content from "../../Tools/Content";
 import { FiArrowLeft } from "react-icons/fi";
-import SelectVersionButton from "./SelectVersionButton";
+import SelectVersion from "./SelectVersion";
 
 export default function AddTabs() {
   const { item_version, library = null } = useParams();
@@ -107,7 +107,7 @@ export default function AddTabs() {
       <Row>
         <Col xs={12} sm={12} md={12} lg={12} xl={3} xxl={3}>
           <div className="d-none d-xl-block">
-            <SelectVersionButton />
+            <SelectVersion />
 
             <InputGroup className="mb-3 mb-3">
               <LinkContainer
@@ -152,7 +152,7 @@ export default function AddTabs() {
               </Offcanvas.Header>
 
               <Offcanvas.Body>
-                <SelectVersionButton />
+                <SelectVersion />
 
                 <div className="mb-3">
                   <Form.Control
