@@ -169,7 +169,7 @@ class Auth {
                   language="php"
                   content={`<?php
 
-use LionRoute\Route;
+use LionRoute\\Route;
 
 Route::addMiddleware([
     App\Http\Middleware\Auth::class => [
@@ -223,8 +223,8 @@ Route::addMiddleware([
                 language="php"
                 content={`<?php
 
-use LionRoute\Route;
-use App\Http\Controllers\UsersController;
+use LionRoute\\Route;
+use App\\Http\\Controllers\\UsersController;
 
 Route::init();
 
@@ -242,8 +242,8 @@ Route::dispatch();
                 language={"php"}
                 content={`<?php
 
-use LionRoute\Route;
-use App\Http\Controllers\UsersController;
+use LionRoute\\Route;
+use App\\Http\\Controllers\\UsersController;
 
 Route::init();
 
@@ -324,7 +324,7 @@ Route::dispatch();
                     "\t3 -> example\n" +
                     "\t4+ ...\n" +
                     "*/\n\n" +
-                    "use LionRouteRoute;\n\n" +
+                    "use LionRoute\\Route;\n\n" +
                     "Route::init(1);\n"
                   }
                 />
@@ -349,8 +349,8 @@ Route::dispatch();
                 language="php"
                 content={`<?php
 
-use LionRoute\Route;
-use App\Http\Controllers\UsersController;
+use LionRoute\\Route;
+use App\\Http\\Controllers\\UsersController;
 
 Route::init();
 
@@ -368,8 +368,8 @@ Route::dispatch();
                 language="php"
                 content={`<?php
 
-use LionRoute\Route;
-use App\Http\Controllers\UsersController;
+use LionRoute\\Route;
+use App\\Http\\Controllers\\UsersController;
 
 Route::init();
 
@@ -398,8 +398,8 @@ Route::dispatch();
                 language="php"
                 content={`<?php
 
-use LionRoute\Route;
-use App\Http\Controllers\UsersController;
+use LionRoute\\Route;
+use App\\Http\\Controllers\\UsersController;
 
 Route::init();
 
@@ -417,8 +417,8 @@ Route::dispatch();
                 language="php"
                 content={`<?php
 
-use LionRoute\Route;
-use App\Http\Controllers\UsersController;
+use LionRoute\\Route;
+use App\\Http\\Controllers\\UsersController;
 
 Route::init();
 
@@ -433,8 +433,8 @@ Route::dispatch();
                 language="php"
                 content={`<?php
 
-use LionRoute\Route;
-use App\Http\Controllers\UsersController;
+use LionRoute\\Route;
+use App\\Http\\Controllers\\UsersController;
 
 Route::init();
 
@@ -532,8 +532,8 @@ Route::dispatch();
                 language="php"
                 content={`<?php
 
-use LionRoute\Route;
-use App\Http\Controllers\UsersController;
+use LionRoute\\Route;
+use App\\Http\\Controllers\\UsersController;
 
 Route::init();
 
@@ -551,8 +551,8 @@ Route::dispatch();
                 language={"php"}
                 content={`<?php
 
-use LionRoute\Route;
-use App\Http\Controllers\UsersController;
+use LionRoute\\Route;
+use App\\Http\\Controllers\\UsersController;
 
 Route::init();
 
@@ -669,8 +669,8 @@ Route::post('login', [Example::class, 'postMethod'], ['no-auth']);
                 language="php"
                 content={`<?php
 
-use LionRoute\Route;
-use App\Http\Controllers\UsersController;
+use LionRoute\\Route;
+use App\\Http\\Controllers\\UsersController;
 
 Route::init();
 
@@ -687,8 +687,8 @@ Route::dispatch();
                 language={"php"}
                 content={`<?php
 
-use LionRoute\Route;
-use App\Http\Controllers\UsersController;
+use LionRoute\\Route;
+use App\\Http\\Controllers\\UsersController;
 
 Route::init();
 
@@ -717,8 +717,8 @@ Route::dispatch();
                 language="php"
                 content={`<?php
 
-use LionRoute\Route;
-use App\Http\Controllers\UsersController;
+use LionRoute\\Route;
+use App\\Http\\Controllers\\UsersController;
 
 Route::init();
 
@@ -736,8 +736,8 @@ Route::dispatch();
                 language="php"
                 content={`<?php
 
-use LionRoute\Route;
-use App\Http\Controllers\UsersController;
+use LionRoute\\Route;
+use App\\Http\\Controllers\\UsersController;
 
 Route::init();
 
@@ -752,8 +752,8 @@ Route::dispatch();
                 language="php"
                 content={`<?php
 
-use LionRoute\Route;
-use App\Http\Controllers\UsersController;
+use LionRoute\\Route;
+use App\\Http\\Controllers\\UsersController;
 
 Route::init();
 
@@ -782,8 +782,8 @@ Route::dispatch();
                 language="php"
                 content={`<?php
 
-use LionRoute\Route;
-use App\Http\Controllers\UsersController;
+use LionRoute\\Route;
+use App\\Http\\Controllers\\UsersController;
 
 Route::init();
 
@@ -801,8 +801,8 @@ Route::dispatch();
                 language="php"
                 content={`<?php
 
-use LionRoute\Route;
-use App\Http\Controllers\UsersController;
+use LionRoute\\Route;
+use App\\Http\\Controllers\\UsersController;
 
 Route::init();
 
@@ -817,8 +817,8 @@ Route::dispatch();
                 language="php"
                 content={`<?php
 
-use LionRoute\Route;
-use App\Http\Controllers\UsersController;
+use LionRoute\\Route;
+use App\\Http\\Controllers\\UsersController;
 
 Route::init();
 
@@ -845,8 +845,8 @@ Route::dispatch();
                 language="php"
                 content={`<?php
 
-use LionRoute\Route;
-use App\Http\Controllers\UsersController;
+use LionRoute\\Route;
+use App\\Http\\Controllers\\UsersController;
 
 Route::init();
 
@@ -863,8 +863,8 @@ Route::dispatch();
                 language="php"
                 content={`<?php
 
-use LionRoute\Route;
-use App\Http\Controllers\UsersController;
+use LionRoute\\Route;
+use App\\Http\\Controllers\\UsersController;
 
 Route::init();
 

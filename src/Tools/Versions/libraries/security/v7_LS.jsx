@@ -114,7 +114,7 @@ $data = [
                 language="php"
                 content={`<?php
 
-use LionSecurity\AES;
+use LionSecurity\\AES;
 
 $aesEnc = AES::encode($_ENV['AES_KEY'], $_ENV['AES_IV'], $data);
 
@@ -150,7 +150,7 @@ var_dump($aesEnc);
                 language="php"
                 content={`<?php
 
-use LionSecurity\AES;
+use LionSecurity\\AES;
 
 $aesDec = AES::decode($_ENV['AES_KEY'], $_ENV['AES_IV'], (array) $aesEnc);
 
@@ -198,7 +198,7 @@ var_dump($aesDec);
                 language="php"
                 content={`<?php
 
-use LionSecurity\JWT;
+use LionSecurity\\JWT;
 
 $jwtEnc = JWT::encode(['idUsers' => 1, 'idRoles' => 3]);
 
@@ -221,7 +221,7 @@ var_dump($jwtEnc);
                 language="php"
                 content={`<?php
 
-use LionSecurity\JWT;
+use LionSecurity\\JWT;
 
 $jwtEnc = JWT::encode(['idUsers' => 1, 'idRoles' => 3], 300);
 
@@ -253,7 +253,7 @@ var_dump($jwtEnc);
                 language="php"
                 content={`<?php
 
-use LionSecurity\JWT;
+use LionSecurity\\JWT;
 
 $jwtDec = JWT::decode($jwtEnc);
 
@@ -284,7 +284,7 @@ var_dump($jwtDec);
                 language="php"
                 content={`<?php
 
-use LionSecurity\JWT;
+use LionSecurity\\JWT;
 
 $jwtDec = JWT::decode(JWT::get());
 
@@ -341,7 +341,7 @@ RSA_DEFAULT_MD="" # Type of algorithm with which the keys must be generated (sha
                   language="php"
                   content={`<?php
 
-use LionSecurity\RSA;
+use LionSecurity\\RSA;
 
 RSA::createKeys();
 
@@ -366,7 +366,7 @@ return [
                   language="php"
                   content={`<?php
 
-use LionSecurity\RSA;
+use LionSecurity\\RSA;
 
 RSA::createKeys('resources/my_secret_folder/');
 
@@ -419,7 +419,7 @@ $data = [
                 language="php"
                 content={`<?php
 
-use LionSecurity\RSA;
+use LionSecurity\\RSA;
 
 $data = [
 	'email' => 'myemail2022@example.com', 
@@ -456,7 +456,7 @@ var_dump($rsaEnc);
                 language="php"
                 content={`<?php
 
-use LionSecurity\RSA;
+use LionSecurity\\RSA;
 
 $rsaDec = RSA::decode((array) $rsaEnc);
 
@@ -482,7 +482,7 @@ var_dump($rsaDec);
                 language="php"
                 content={`<?php
 
-use LionSecurity\RSA;
+use LionSecurity\\RSA;
 
 var_dump(RSA::getPath());
 `}
@@ -506,7 +506,7 @@ var_dump(RSA::getPath());
                 language="php"
                 content={`<?php
 
-use LionSecurity\RSA;
+use LionSecurity\\RSA;
 
 RSA::setPath('my_path');
 `}
@@ -554,7 +554,7 @@ RSA::setPath('my_path');
                 language="php"
                 content={`<?php
 
-use LionSecurity\Validation;
+use LionSecurity\\Validation;
 
 $password = Validation::sha256('root1234');
 
@@ -597,7 +597,7 @@ var_dump($password);
                 language="php"
                 content={`<?php
 
-use LionSecurity\Validation;
+use LionSecurity\\Validation;
 
 $password = Validation::passwordHash('root1234');
 

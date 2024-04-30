@@ -10,6 +10,7 @@ import v5_LR from "./Versions/libraries/request/v5_LR";
 import v5_LM from "./Versions/libraries/mailer/v5_LM";
 import v8_LRT from "./Versions/libraries/route/v8_LRT";
 import v7_LS from "./Versions/libraries/security/v7_LS";
+import v1_LSP from "./Versions/libraries/spreadsheet/v1_LSP";
 
 export default function Content() {
   return {
@@ -49,6 +50,9 @@ export default function Content() {
       },
       security: {
         v7: v7_LS(),
+      },
+      spreadsheet: {
+        v1: v1_LSP(),
       },
     },
   };
