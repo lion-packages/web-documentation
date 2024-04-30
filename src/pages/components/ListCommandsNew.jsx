@@ -2,7 +2,7 @@ import { Fragment, useEffect, useRef } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import { Table } from "react-bootstrap";
 
-import Content from "../../Tools/Content.1";
+import Content from "../../Tools/Content";
 
 function ListCommandsNew() {
   const navigate = useNavigate();

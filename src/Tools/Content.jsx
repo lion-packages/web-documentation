@@ -9,6 +9,7 @@ import v2_LH from "./Versions/libraries/helpers/v2_LH";
 import v5_LR from "./Versions/libraries/request/v5_LR";
 import v5_LM from "./Versions/libraries/mailer/v5_LM";
 import v8_LRT from "./Versions/libraries/route/v8_LRT";
+import v7_LS from "./Versions/libraries/security/v7_LS";
 
 export default function Content() {
   return {
@@ -46,37 +47,9 @@ export default function Content() {
       route: {
         v8: v8_LRT(),
       },
-      // security: {
-      //   title: "lion-packages/security",
-      //   url: "/libraries/lion/security/index",
-      //   changelog: true,
-      //   component: {
-      //     title: "lion-packages/security",
-      //     library: "security",
-      //     url_github: "https://github.com/lion-packages/security",
-      //     command: "composer require lion/security",
-      //   },
-      //   description:
-      //     "Library created with the function of implementing AES, RSA and JWT Security functions for PHP",
-      //   class: {
-      //     "v7.0.0": v7_0_0_LS(),
-      //   },
-      // },
-      // spreadsheet: {
-      //   title: "lion-packages/spreadsheet",
-      //   url: "/libraries/lion/spreadsheet/index",
-      //   changelog: true,
-      //   component: {
-      //     title: "lion-packages/spreadsheet",
-      //     library: "spreadsheet",
-      //     url_github: "https://github.com/lion-packages/spreadsheet",
-      //     command: "composer require lion/spreadsheet",
-      //   },
-      //   description: "Library for easy spreadsheet use.",
-      //   class: {
-      //     "v1.7.0": v1_7_0_LSP(),
-      //   },
-      // },
+      security: {
+        v7: v7_LS(),
+      },
     },
   };
 }
