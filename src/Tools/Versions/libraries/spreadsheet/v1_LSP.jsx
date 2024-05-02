@@ -454,7 +454,7 @@ Spreadsheet::setCell('A1', 'Sergio Leon');
                 language={"php"}
                 content={`<?php
 
-use LionSpreadsheet\Spreadsheet;
+use LionSpreadsheet\\Spreadsheet;
 
 Spreadsheet::setCell('A1', 'Sergio Leon');
 `}

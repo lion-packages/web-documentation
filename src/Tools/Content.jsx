@@ -12,10 +12,16 @@ import v8_LRT from "./Versions/libraries/route/v8_LRT";
 import v7_LS from "./Versions/libraries/security/v7_LS";
 import v1_LSP from "./Versions/libraries/spreadsheet/v1_LSP";
 import v1_LT from "./Versions/libraries/test/v1_LT";
+import v2_FRM from "./Versions/Framework/v2_FRM";
+import v2_CMMD from "./Versions/Commands/V2_CMMD";
 
 export default function Content() {
   return {
     framework: {
+      v2: {
+        docs: v2_FRM(),
+        commands: v2_CMMD(),
+      },
       v1: {
         docs: v1_FRM(),
         commands: v1_CMMD(),
