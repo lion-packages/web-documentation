@@ -6,6 +6,7 @@ import Example from "../../../../pages/components/Example";
 import { Fragment } from "react";
 import EquivalentTo from "../../../../pages/components/EquivalentTo";
 import ExampleTitle from "../../../../pages/components/ExampleTitle";
+import Title from "../../../../pages/components/Title";
 
 const args = [
   {
@@ -118,10 +119,11 @@ export default function v8_LBD() {
                 }
               />
 
-              <p>
-                To establish the connection to the database, two priorities are
-                required:
-              </p>
+              <Description
+                description={
+                  "To establish the connection to the database, two priorities are required:"
+                }
+              />
 
               <ListGroup className="mb-3">
                 <ListGroup.Item variant="dark">
@@ -149,17 +151,17 @@ export default function v8_LBD() {
 */
 
 return [
-'default' => env->DB_NAME,
-'connections' => [
-env->DB_NAME => [
-'type' => env->DB_TYPE,
-'host' => env->DB_HOST,
-'port' => env->DB_PORT,
-'dbname' => env->DB_NAME,
-'user' => env->DB_USER,
-'password' => env->DB_PASSWORD,
-],
-],
+    'default' => env->DB_NAME,
+    'connections' => [
+        env->DB_NAME => [
+            'type' => env->DB_TYPE,
+            'host' => env->DB_HOST,
+            'port' => env->DB_PORT,
+            'dbname' => env->DB_NAME,
+            'user' => env->DB_USER,
+            'password' => env->DB_PASSWORD,
+        ],
+    ],
 ];
 `}
               />
@@ -172,10 +174,9 @@ env->DB_NAME => [
               <CodeBlock
                 language="php"
                 content={`[
-PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION,
-PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_OBJ,
-]
-`}
+    PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION,
+    PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_OBJ,
+]`}
               />
 
               <p>
@@ -196,21 +197,21 @@ PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_OBJ,
 */
 
 return [
-'default' => env->DB_NAME,
-'connections' => [
-env->DB_NAME => [
-'type' => env->DB_TYPE,
-'host' => env->DB_HOST,
-'port' => env->DB_PORT,
-'dbname' => env->DB_NAME,
-'user' => env->DB_USER,
-'password' => env->DB_PASSWORD,
-'config' => [
-  PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION,
-  PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_OBJ,
-]
-],
-],
+    'default' => env->DB_NAME,
+    'connections' => [
+        env->DB_NAME => [
+            'type' => env->DB_TYPE,
+            'host' => env->DB_HOST,
+            'port' => env->DB_PORT,
+            'dbname' => env->DB_NAME,
+            'user' => env->DB_USER,
+            'password' => env->DB_PASSWORD,
+            'config' => [
+                PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION,
+                PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_OBJ,
+            ]
+        ],
+    ],
 ];
 `}
               />
@@ -308,9 +309,9 @@ DB::connection('second_connection')
 use LionDatabase\\Drivers\\MySQL\\MySQL as DB;
 
 $data = DB::table('users')
-->select()
-->fetchMode(PDO::FETCH_ASSOC)
-->getAll();
+    ->select()
+    ->fetchMode(PDO::FETCH_ASSOC)
+    ->getAll();
 
 var_dump($data);
 `}
@@ -448,11 +449,7 @@ var_dump($query);
           name: "operators",
           code: (
             <Fragment>
-              <div className="mb-3">
-                <h3>Operators</h3>
-
-                <hr />
-              </div>
+              <Title title={"Operators"} />
 
               <Description
                 description={"Operator functions available in Lion-Database."}
@@ -475,7 +472,7 @@ var_dump($query);
                   content={
                     "<?php\n\n" +
                     "use LionDatabase\\Drivers\\MySQL\\MySQL as DB;\n\n" +
-                    "DB::table('users)->select()->where(DB::equalTo('column'), 'Sleon');"
+                    "DB::table('users')->select()->where(DB::equalTo('column'), 'Sleon');"
                   }
                 />
               </Fragment>
@@ -658,10 +655,14 @@ SELECT * FROM my_table_second`}
             <Fragment>
               <LibraryTitle className="MySQL" methodName="insert" />
 
-              <p className="fs-6">
-                The <strong>insert</strong> function executes an insert
-                statement in the database to a given table.
-              </p>
+              <Description
+                description={
+                  <Fragment>
+                    The <strong>insert</strong> function executes an insert
+                    statement in the database to a given table.
+                  </Fragment>
+                }
+              />
 
               <CodeBlock
                 language="sql"
@@ -678,10 +679,12 @@ SELECT * FROM my_table_second`}
 
 use LionDatabase\\Drivers\\MySQL\\MySQL as DB;
 
-$response = DB::table('my_table')->insert([
-'name' => 'Sergio',
-'lastname' => 'Leon'
-])->execute();
+$response = DB::table('my_table')
+    ->insert([
+        'name' => 'Sergio',
+        'lastname' => 'Leon'
+    ])
+    ->execute();
 
 var_dump($response);
 `}
@@ -737,21 +740,19 @@ var_dump($response);
         select: {
           name: "select",
           code: (
-            <>
-              <div className="mb-3">
-                <h3>
-                  MySQL::<span className="text-warning h3">select()</span>
-                </h3>
+            <Fragment>
+              <LibraryTitle className="MySQL" methodName="select" />
 
-                <hr />
-              </div>
+              <Description
+                description={
+                  <Fragment>
+                    The <strong>between</strong> function nests the `sql`
+                    statement in the current query.
+                  </Fragment>
+                }
+              />
 
-              <p className="fs-6">
-                The <strong>between</strong> function nests the `sql` statement
-                in the current query.
-              </p>
-
-              <div className="mb-3">
+              <Fragment>
                 <ExampleTitle number={1} />
 
                 <CodeBlock language="sql" content={"SELECT * FROM my_table"} />
@@ -769,9 +770,9 @@ $data = DB::table('my_table')->select()->getAll();
 var_dump($data);
 `}
                 />
-              </div>
+              </Fragment>
 
-              <div className="mb-3">
+              <Fragment>
                 <ExampleTitle number={2} />
 
                 <CodeBlock
@@ -789,18 +790,20 @@ var_dump($data);
 
 use LionDatabase\\Drivers\\MySQL\\MySQL as DB;
 
-$data = DB::table(DB::as('my_table', 'alias'))->select(
-    DB::column('column1', 'alias'),
-    DB::column('column2'),
-    DB::column('column3'),
-    DB::column('column4', 'alias'),
-)->getAll();
+$data = DB::table(DB::as('my_table', 'alias'))
+    ->select(
+        DB::column('column1', 'alias'),
+        DB::column('column2'),
+        DB::column('column3'),
+        DB::column('column4', 'alias'),
+    )
+    ->getAll();
 
 var_dump($data);
 `}
                 />
-              </div>
-            </>
+              </Fragment>
+            </Fragment>
           ),
         },
         "group-query": {
@@ -854,9 +857,9 @@ var_dump($data);
 use LionDatabase\\Drivers\\MySQL\\MySQL as DB;
 
 $data = DB::groupQuery(fn(DB $db) => $db->table('users')->select())
-->unionAll()
-->groupQuery(fn(DB $query) => $query->table('users_second')->select())
-->getAll();
+    ->unionAll()
+    ->groupQuery(fn(DB $query) => $query->table('users_second')->select())
+    ->getAll();
 
 var_dump($data);
 `}

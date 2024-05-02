@@ -6,6 +6,9 @@ import script_sh from "./../../../assets/img/docker/script-sh.png";
 import permissions_sh from "./../../../assets/img/docker/permissions-sh.png";
 import etc_data from "./../../../assets/img/docker/etc-data.png";
 import crontab_edit from "./../../../assets/img/docker/crontab-edit.png";
+import { Fragment } from "react";
+import Title from "../../../pages/components/Title";
+import Description from "../../../pages/components/Description";
 
 export default function v1_FRM() {
   return {
@@ -16,14 +19,10 @@ export default function v1_FRM() {
         "about-as": {
           name: "About us",
           code: (
-            <>
-              <div className="mb-3">
-                <h3>About us</h3>
+            <Fragment>
+              <Title title={"About us"} />
 
-                <hr />
-              </div>
-
-              <>
+              <Fragment>
                 <Alert variant={"info"}>
                   <strong>Note: </strong>Currently the framework is supported
                   for development in Linux environments.
@@ -51,26 +50,24 @@ export default function v1_FRM() {
                   installed, <strong>Lion-Framework</strong> integrates most of
                   the available <strong>Lion</strong> libraries.
                 </p>
-              </>
-            </>
+              </Fragment>
+            </Fragment>
           ),
         },
         install: {
           name: "Install",
           code: (
-            <>
-              <div className="mb-3">
-                <h3>Install</h3>
-
-                <hr />
-              </div>
+            <Fragment>
+              <Title title={"Install"} />
 
               <Alert variant={"info"}>
                 <strong>Note: </strong>Currently the framework is supported for
                 development in Linux environments.
               </Alert>
 
-              <p className="fs-6">Lion-Framework supports PHP versions 8.1+</p>
+              <Description
+                description={"Lion-Framework supports PHP versions (8.1/8.2)"}
+              />
 
               <CodeBlock
                 language={"bash"}
@@ -83,7 +80,7 @@ export default function v1_FRM() {
                   "git clone https://github.com/lion-packages/framework.git"
                 }
               />
-            </>
+            </Fragment>
           ),
         },
         use: {
@@ -334,7 +331,7 @@ return [
             </>
           ),
         },
-        create: {
+        "create-crud": {
           name: "Create Crud",
           code: (
             <>
@@ -489,6 +486,8 @@ class HomeController {
 
 namespace App\\Http\\Controllers;
 
+use App\\Models\\HomeModel;
+
 class HomeController {
     private HomeModel $homeModel;
 
@@ -559,7 +558,7 @@ Route::get('home', [HomeController::class, 'method_name']);
                 language={"php"}
                 content={`<?php
 
-namespace App\\Http\\Models;
+namespace App\\Models;
 
 use LionDatabase\\Drivers\\MySQL\\MySQL as DB;
 use LionDatabase\\Drivers\\MySQL\\Schema;
@@ -684,7 +683,7 @@ class TableName implements \\JsonSerializable {
         "all-entity-capsules": {
           name: "All Entity Capsules",
           code: (
-            <>
+            <Fragment>
               <div className="mb-3">
                 <h3>All Capsules</h3>
 
@@ -716,44 +715,29 @@ class TableName implements \\JsonSerializable {
                   "namespace App\\Class;\r\n\n" +
                   "class TableName {/* ... */} \n\n" +
                   "class TableName2 {/* ... */} \n\n" +
-                  "class TableName3 {/* ... */} \n\n"
+                  "class TableName3 {/* ... */} \n"
                 }
               />
-            </>
+            </Fragment>
           ),
         },
         custom: {
           name: "Custom Capsules",
           code: (
-            <>
-              <div className="mb-3">
-                <h3>Custom Capsules</h3>
+            <Fragment>
+              <Title title={"Custom Capsules"} />
 
-                <hr />
-              </div>
-
-              <p className="fs-6">
-                Create custom capsule classes with unique properties for
-                different uses.
-              </p>
+              <Description
+                description={
+                  "Create custom capsule classes with unique properties for different uses."
+                }
+              />
 
               <CodeBlock
                 language={"bash"}
                 content={"php lion new:capsule ClassName"}
               />
-
-              <Alert variant="info">
-                <strong>Note: </strong>You can add --properties/-p option to add
-                the class properties.
-              </Alert>
-
-              <CodeBlock
-                language={"bash"}
-                content={
-                  "php lion new:capsule ClassName -p idusers:int -p users_name:string -p users_lastname"
-                }
-              />
-            </>
+            </Fragment>
           ),
         },
       },
@@ -2829,7 +2813,7 @@ return [
                   Run the Docker container in the background.
                 </p>
 
-                <CodeBlock language={"bash"} content={"docker-compose up"} />
+                <CodeBlock language={"bash"} content={"docker-compose up -d"} />
               </div>
 
               <div className="mb-3">
@@ -2839,7 +2823,7 @@ return [
 
                 <CodeBlock
                   language={"bash"}
-                  content={"docker-compose up --build"}
+                  content={"docker-compose up -d --build"}
                 />
               </div>
             </>

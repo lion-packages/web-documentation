@@ -50,7 +50,7 @@ function ListCommandsNew() {
 
       {Content().framework[item_version].commands.map((item, index) => (
         <Table
-          size="sm"
+          // size="sm"
           variant="dark"
           responsive
           hover
