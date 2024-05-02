@@ -7,12 +7,28 @@ export default function SelectVersion() {
   const { item_version, library = null, tab, code } = useParams();
   const navigate = useNavigate();
 
-  const [versions, setVersions] = useState(Object.keys(Content().framework));
+  const [versions, setVersions] = useState([]);
   const [selectedVersion, setSelectedVersion] = useState(item_version);
 
+  const getVersions = () => {
+    const content = Content();
+
+    if (null === library) {
+      return Object.keys(content.framework);
+    }
+
+    return Object.keys(content.library[library]);
+  };
+
   useEffect(() => {
+    setVersions(getVersions());
+
     setSelectedVersion(item_version);
-  }, [item_version]);
+  }, [item_version, library]);
+
+  useEffect(() => {
+    setVersions(getVersions());
+  }, []);
 
   return (
     <InputGroup className="mb-3">
