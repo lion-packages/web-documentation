@@ -1,12 +1,15 @@
-import { Fragment, useEffect, useRef } from "react";
-import { useNavigate, useParams } from "react-router-dom";
-import { Table } from "react-bootstrap";
-
+import { Fragment, useEffect } from "react";
+import { useParams } from "react-router-dom";
+import { Col, Row } from "react-bootstrap";
 import Content from "../../Tools/Content";
+import CodeBlock from "./CodeBlock";
 
 function ListCommandsNew() {
-  const navigate = useNavigate();
   const { item_version } = useParams();
+
+  const linkFormat = (uri) => {
+    return uri.trim().replace(/ /gm, "-").replace(/:/gm, "-").trim();
+  };
 
   const scroolPage = () => {
     const url = window.location.href;
@@ -26,111 +29,84 @@ function ListCommandsNew() {
     scroolPage();
   }, []);
 
-  return (
-    <div className="mb-3">
-      <div className="mb-3">
-        <>
-          <h6>{"argument"}</h6>
+  return Content().framework[item_version].commands.map((item, index) => (
+    <div className="mb-3" key={index}>
+      <h5 className="text-info">{item.group}</h5>
 
-          <i className={"bi bi-arrow-right-short me-0 text-info"}>{"arg"}</i>
-        </>
+      <hr className="border-info" />
 
-        <>
-          <h6>{"options"}</h6>
-
-          <i className={"bi bi-arrow-right-short me-0 text-success"}>
-            {"--option"}
-          </i>
-
-          <i className={"bi bi-arrow-right-short me-0 text-success"}>{"-o"}</i>
-        </>
-      </div>
-
-      <hr />
-
-      {Content().framework[item_version].commands.map((item, index) => (
-        <Table
-          // size="sm"
-          variant="dark"
-          responsive
-          hover
-          key={index}
-          className="align-middle"
-        >
-          <thead>
-            <tr>
-              <th className="text-warning" colSpan={2}>
-                {item.group}
-              </th>
-            </tr>
-          </thead>
-          <tbody>
-            {item.childs.map((child, childIndex) => (
-              <Fragment key={childIndex}>
-                <tr
-                  id={child.name.replace(/ /gm, "-").replace(/:/gm, "-")}
-                  onClick={() => {
-                    navigate(
-                      `#${child.name.replace(/ /gm, "-").replace(/:/gm, "-")}`
-                    );
-                    scroolPage();
-                  }}
+      <Row>
+        {item.childs.map((child, childIndex) => (
+          <Col
+            xs={12}
+            sm={11}
+            md={10}
+            lg={8}
+            xl={8}
+            xxl={9}
+            className="mb-3 mx-auto"
+            key={childIndex}
+          >
+            <div
+              className="p-3 rounded-2"
+              style={{ backgroundColor: "#232323" }}
+            >
+              <div>
+                <a
+                  href={"#" + linkFormat(child.name)}
+                  id={linkFormat(child.name)}
+                  className="text-warning text-decoration-none"
                 >
-                  <td
-                    role="button"
-                    onClick={() => navigator.clipboard.writeText(child.name)}
-                  >
-                    {child.name}
-                  </td>
+                  <i className="bi bi-terminal-fill me-3 h4"></i>
+                  <span className="h5">{child.name}</span>
+                </a>
 
-                  <td>{child.desc}</td>
-                </tr>
+                <hr className="border-secondary" />
+              </div>
 
-                <tr>
-                  <td colSpan={2} className="p-0">
-                    <Table size="sm" variant="dark" responsive className="m-0">
-                      <tbody>
-                        {child.args.map((arg, indexArgs) => (
-                          <tr key={indexArgs}>
-                            <td className="ps-2">
-                              <label
-                                className={
-                                  !arg.arg ? "text-success" : "text-info"
-                                }
-                              >
-                                <i
-                                  className={
-                                    "bi bi-arrow-right-short me-0 " +
-                                    (!arg.arg ? "text-success" : "text-info")
-                                  }
-                                ></i>
-                                {arg.name}
-                              </label>
-                            </td>
+              <p>{child.desc}</p>
 
-                            <td className="text-center">{arg.desc}</td>
+              <CodeBlock language={"bash"} content={"php lion " + child.name} />
 
-                            <td
-                              className={
-                                "text-center " +
-                                (!arg.arg ? "text-success" : "text-info")
-                              }
+              {child.args.length > 0 && (
+                <Fragment>
+                  <label className="mb-3">
+                    <label className="text-info">Arguments</label> /{" "}
+                    <label className="text-warning">Options</label>
+                  </label>
+
+                  {child.args.map((arg, argIndex) => (
+                    <Row key={argIndex}>
+                      <Col xs={12} sm={12} md={5} lg={4} className="mb-3">
+                        <div className="p-1 text-center">
+                          <label>
+                            <span
+                              className={arg.arg ? "text-info" : "text-warning"}
                             >
-                              {arg.optional === false ? "REQUIRED" : "OPTIONAL"}
-                            </td>
-                          </tr>
-                        ))}
-                      </tbody>
-                    </Table>
-                  </td>
-                </tr>
-              </Fragment>
-            ))}
-          </tbody>
-        </Table>
-      ))}
+                              {arg.name}
+                            </span>{" "}
+                            <span className={"text-danger"}>
+                              [{!arg.optional ? "REQUIRED" : "OPTIONAL"}]
+                            </span>
+                          </label>
+                        </div>
+                      </Col>
+
+                      <Col xs={12} sm={12} md={7} lg={8} className="mb-3">
+                        <div className="p-1 text-center">
+                          <label>{arg.desc}</label>
+                        </div>
+                      </Col>
+                    </Row>
+                  ))}
+                </Fragment>
+              )}
+            </div>
+          </Col>
+        ))}
+      </Row>
     </div>
-  );
+  ));
 }
 
 export default ListCommandsNew;

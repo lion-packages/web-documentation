@@ -6,17 +6,17 @@ export default function v2_CMMD() {
       group: "AVAILABLE COMMANDS",
       childs: [
         {
-          name: "php lion hash",
+          name: "hash",
           desc: "Generate a secure HASH for the server",
           args: [],
         },
         {
-          name: "php lion info",
+          name: "info",
           desc: "Command to display basic project information and libraries",
           args: [],
         },
         {
-          name: "php lion serve",
+          name: "serve",
           desc: "Created command to start server locally",
           args: [
             {
@@ -34,7 +34,7 @@ export default function v2_CMMD() {
           ],
         },
         {
-          name: "php lion test",
+          name: "test",
           desc: "Command to create run unit tests",
           args: [],
         },
@@ -44,12 +44,12 @@ export default function v2_CMMD() {
       group: "DB",
       childs: [
         {
-          name: "php lion db:crud",
+          name: "db:crud",
           desc: "Command to generate controller and model of an entity with their respective CRUD functions",
           args: [],
         },
         {
-          name: "php lion db:mysql:capsule",
+          name: "db:mysql:capsule",
           desc: "Command required for the creation of new Capsules",
           args: [
             {
@@ -61,7 +61,7 @@ export default function v2_CMMD() {
           ],
         },
         {
-          name: "php lion db:rules",
+          name: "db:rules",
           desc: "Command to generate the rules of an entity",
           args: [
             {
@@ -73,7 +73,7 @@ export default function v2_CMMD() {
           ],
         },
         {
-          name: "php lion db:seed",
+          name: "db:seed",
           desc: "Run the available seeds",
           args: [
             {
@@ -90,7 +90,7 @@ export default function v2_CMMD() {
           ],
         },
         {
-          name: "php lion db:show",
+          name: "db:show",
           desc: "Command required to display available database connections",
           args: [],
         },
@@ -100,12 +100,12 @@ export default function v2_CMMD() {
       group: "MIGRATE",
       childs: [
         {
-          name: "php lion migrate:empty",
+          name: "migrate:empty",
           desc: "Empties all tables built with the migrations",
           args: [],
         },
         {
-          name: "php lion migrate:fresh",
+          name: "migrate:fresh",
           desc: "Drop all tables and re-run all migrations",
           args: [
             {
@@ -127,12 +127,12 @@ export default function v2_CMMD() {
       group: "NEW",
       childs: [
         {
-          name: "php lion new:aes",
+          name: "new:aes",
           desc: "Command required to create 'KEY' and 'IV' keys for AES encryptions",
           args: [],
         },
         {
-          name: "php lion new:capsule",
+          name: "new:capsule",
           desc: "Command required for creating new custom capsules",
           args: [
             {
@@ -162,7 +162,7 @@ export default function v2_CMMD() {
           ],
         },
         {
-          name: "php lion new:class",
+          name: "new:class",
           desc: "Command needed to create classes",
           args: [
             {
@@ -174,7 +174,7 @@ export default function v2_CMMD() {
           ],
         },
         {
-          name: "php lion new:command",
+          name: "new:command",
           desc: "Command required for the creation of new Commands",
           args: [
             {
@@ -193,7 +193,7 @@ export default function v2_CMMD() {
           ],
         },
         {
-          name: "php lion new:controller",
+          name: "new:controller",
           desc: "Command required for the creation of new Controllers",
           args: [
             {
@@ -218,7 +218,7 @@ export default function v2_CMMD() {
           ],
         },
         {
-          name: "php lion new:cron",
+          name: "new:cron",
           desc: "Command required to create a new scheduled task",
           args: [
             {
@@ -237,7 +237,7 @@ export default function v2_CMMD() {
           ],
         },
         {
-          name: "php lion new:enum",
+          name: "new:enum",
           desc: "Command required for creating new Enums",
           args: [
             {
@@ -256,7 +256,7 @@ export default function v2_CMMD() {
           ],
         },
         {
-          name: "php lion new:exception",
+          name: "new:exception",
           desc: "Command required to create an exception",
           args: [
             {
@@ -275,7 +275,7 @@ export default function v2_CMMD() {
           ],
         },
         {
-          name: "php lion new:factory",
+          name: "new:factory",
           desc: "Command required for the creation of new factories",
           args: [
             {
@@ -294,7 +294,7 @@ export default function v2_CMMD() {
           ],
         },
         {
-          name: "php lion new:html",
+          name: "new:html",
           desc: "Command needed to create new HTML templates",
           args: [
             {
@@ -313,7 +313,7 @@ export default function v2_CMMD() {
           ],
         },
         {
-          name: "php lion new:interface",
+          name: "new:interface",
           desc: "Command required for interface creation",
           args: [
             {
@@ -332,7 +332,7 @@ export default function v2_CMMD() {
           ],
         },
         {
-          name: "php lion new:middleware",
+          name: "new:middleware",
           desc: "Command required for the creation of new Middleware",
           args: [
             {
@@ -351,7 +351,7 @@ export default function v2_CMMD() {
           ],
         },
         {
-          name: "php lion new:migration",
+          name: "new:migration",
           desc: "Command required to generate a new migration",
           args: [
             {
@@ -363,7 +363,7 @@ export default function v2_CMMD() {
           ],
         },
         {
-          name: "php lion new:model",
+          name: "new:model",
           desc: "Command required for the creation of new Models",
           args: [
             {
@@ -382,7 +382,7 @@ export default function v2_CMMD() {
           ],
         },
         {
-          name: "php lion new:rsa",
+          name: "new:rsa",
           desc: "Command required to create public and private keys for RSA encryptions",
           args: [
             {
@@ -394,7 +394,7 @@ export default function v2_CMMD() {
           ],
         },
         {
-          name: "php lion new:rule",
+          name: "new:rule",
           desc: "Command required for rule creation",
           args: [
             {
@@ -413,7 +413,7 @@ export default function v2_CMMD() {
           ],
         },
         {
-          name: "php lion new:seed",
+          name: "new:seed",
           desc: "Command required for creating new seeds",
           args: [
             {
@@ -432,7 +432,7 @@ export default function v2_CMMD() {
           ],
         },
         {
-          name: "php lion new:service",
+          name: "new:service",
           desc: "Command required for creating new Services",
           args: [
             {
@@ -451,7 +451,7 @@ export default function v2_CMMD() {
           ],
         },
         {
-          name: "php lion new:sh",
+          name: "new:sh",
           desc: "Command required to create files with sh extension",
           args: [
             {
@@ -468,7 +468,7 @@ export default function v2_CMMD() {
           ],
         },
         {
-          name: "php lion new:socket",
+          name: "new:socket",
           desc: "Command required for creating new WebSockets",
           args: [
             {
@@ -487,7 +487,7 @@ export default function v2_CMMD() {
           ],
         },
         {
-          name: "php lion new:test",
+          name: "new:test",
           desc: "Command to create run unit tests",
           args: [
             {
@@ -506,7 +506,7 @@ export default function v2_CMMD() {
           ],
         },
         {
-          name: "php lion new:trait",
+          name: "new:trait",
           desc: "Command required for trait creation",
           args: [
             {
@@ -530,12 +530,12 @@ export default function v2_CMMD() {
       group: "NPM",
       childs: [
         {
-          name: "php lion npm:build",
+          name: "npm:build",
           desc: "Command to generate dist for a vite project",
           args: [],
         },
         {
-          name: "php lion npm:init",
+          name: "npm:init",
           desc: "Command to create Javascript projects with Vite.JS",
           args: [
             {
@@ -554,7 +554,7 @@ export default function v2_CMMD() {
           ],
         },
         {
-          name: "php lion npm:install",
+          name: "npm:install",
           desc: "Command to install dependencies with npm for a certain vite project",
           args: [
             {
@@ -571,7 +571,7 @@ export default function v2_CMMD() {
           ],
         },
         {
-          name: "php lion npm:uninstall",
+          name: "npm:uninstall",
           desc: "Command to uninstall dependencies with npm from a vite project",
           args: [
             {
@@ -583,7 +583,7 @@ export default function v2_CMMD() {
           ],
         },
         {
-          name: "php lion npm:update",
+          name: "npm:update",
           desc: "Command to install dependencies with npm for a vite project",
           args: [],
         },
@@ -593,12 +593,12 @@ export default function v2_CMMD() {
       group: "ROUTE",
       childs: [
         {
-          name: "php lion route:list",
+          name: "route:list",
           desc: "Command to view a list of available web routes",
           args: [],
         },
         {
-          name: "php lion route:postman",
+          name: "route:postman",
           desc: "Command to export a collection of requests to postman",
           args: [],
         },
@@ -608,7 +608,7 @@ export default function v2_CMMD() {
       group: "SCHEDULE",
       childs: [
         {
-          name: "php lion schedule:list",
+          name: "schedule:list",
           desc: "Displays a list of available scheduled tasks",
           args: [],
         },
@@ -618,7 +618,7 @@ export default function v2_CMMD() {
           args: [],
         },
         {
-          name: "php lion schedule:schema",
+          name: "schedule:schema",
           desc: "Create the necessary tables in the database to process the queued tasks",
           args: [],
         },
@@ -633,7 +633,7 @@ export default function v2_CMMD() {
       group: "SOCKET",
       childs: [
         {
-          name: "php lion socket:serve",
+          name: "socket:serve",
           desc: "Command required to run WebSockets",
           args: [
             {
