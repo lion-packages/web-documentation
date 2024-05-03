@@ -14,6 +14,7 @@ import v1_LSP from "./Versions/libraries/spreadsheet/v1_LSP";
 import v1_LT from "./Versions/libraries/test/v1_LT";
 import v2_FRM from "./Versions/Framework/v2_FRM";
 import v2_CMMD from "./Versions/Commands/V2_CMMD";
+import v3_LH from "./Versions/libraries/helpers/v3_LH";
 
 export default function Content() {
   return {
@@ -44,6 +45,7 @@ export default function Content() {
         v4: v4_LF(),
       },
       helpers: {
+        v3: v3_LH(),
         v2: v2_LH(),
       },
       mailer: {
