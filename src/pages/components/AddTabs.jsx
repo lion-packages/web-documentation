@@ -4,7 +4,6 @@ import {
   Col,
   Container,
   Form,
-  InputGroup,
   ListGroup,
   Offcanvas,
   Row,
@@ -12,7 +11,6 @@ import {
 import { LinkContainer } from "react-router-bootstrap";
 import { Outlet, useParams } from "react-router-dom";
 import Content from "../../Tools/Content";
-import { FiArrowLeft } from "react-icons/fi";
 import SelectVersion from "./SelectVersion";
 
 export default function AddTabs() {
@@ -37,8 +35,23 @@ export default function AddTabs() {
     }
 
     return Object.entries(content).filter(([index, item]) =>
-      item.name.toLowerCase().includes(filter_search.toLowerCase())
+      filterObjectByName(item, filter_search.toLowerCase())
     );
+  };
+
+  const filterObjectByName = (obj, searchTerm) => {
+    if (obj.name.toLowerCase().includes(searchTerm)) {
+      return true;
+    }
+
+    if (obj.list) {
+      const filteredList = Object.values(obj.list).filter((subItem) =>
+        subItem.name.toLowerCase().includes(searchTerm)
+      );
+      return filteredList.length > 0;
+    }
+
+    return false;
   };
 
   const ListItems = () => {
@@ -71,7 +84,6 @@ export default function AddTabs() {
                       key={`${index}-${indexItem}`}
                     >
                       <ListGroup.Item
-                        // className="border-0"
                         variant="dark"
                         action
                         onClick={() => {
@@ -109,15 +121,7 @@ export default function AddTabs() {
           <div className="d-none d-xl-block">
             <SelectVersion />
 
-            <InputGroup className="mb-3 mb-3">
-              <LinkContainer
-                to={library === null ? "/" : "/docs/library/content"}
-              >
-                <Button variant="dark">
-                  <FiArrowLeft size={"1.4em"} />
-                </Button>
-              </LinkContainer>
-
+            <div className="mb-3">
               <Form.Control
                 type="search"
                 className="form-control-dark"
@@ -125,7 +129,7 @@ export default function AddTabs() {
                 value={filter_search}
                 onChange={(e) => setFilter_search(e.target.value)}
               />
-            </InputGroup>
+            </div>
           </div>
 
           <div className="d-xl-none">

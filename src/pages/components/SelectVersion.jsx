@@ -4,7 +4,7 @@ import Content from "../../Tools/Content";
 import { useNavigate, useParams } from "react-router-dom";
 
 export default function SelectVersion() {
-  const { item_version, library = null } = useParams();
+  const { item_version, library = null, tab, code } = useParams();
   const navigate = useNavigate();
 
   const [versions, setVersions] = useState([]);
@@ -38,12 +38,10 @@ export default function SelectVersion() {
           setSelectedVersion(e.target.value);
 
           if (null === library) {
-            navigate(
-              `/docs/framework/${e.target.value}/getting-started/about-as`
-            );
+            navigate(`/docs/framework/${e.target.value}/${tab}/${code}`);
           } else {
             navigate(
-              `/docs/library/${library}/${e.target.value}/getting-started/about-as`
+              `/docs/library/${library}/${e.target.value}/${tab}/${code}`
             );
           }
         }}

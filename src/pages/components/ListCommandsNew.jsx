@@ -1,11 +1,10 @@
 import { Fragment, useEffect } from "react";
-import { useNavigate, useParams } from "react-router-dom";
-import { Col, ListGroup, Row, Table } from "react-bootstrap";
+import { useParams } from "react-router-dom";
+import { Col, Row } from "react-bootstrap";
 import Content from "../../Tools/Content";
 import CodeBlock from "./CodeBlock";
 
 function ListCommandsNew() {
-  const navigate = useNavigate();
   const { item_version } = useParams();
 
   const linkFormat = (uri) => {
