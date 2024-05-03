@@ -13,18 +13,37 @@ import { useState } from "react";
 function NavbarNavigation() {
   const [expanded, setExpanded] = useState(false);
 
+  const FrameworkLink = () => {
+    return (
+      <LinkContainer
+        to={
+          "/docs/framework/" +
+          Object.keys(Content().framework).shift() +
+          "/getting-started/about-as"
+        }
+      >
+        <Nav.Link
+          className="fw-bold d-flex align-items-center justify-content-center"
+          onClick={() => setExpanded(!expanded)}
+        >
+          Framework
+        </Nav.Link>
+      </LinkContainer>
+    );
+  };
+
   return (
     <Navbar
       expanded={expanded}
       sticky="top"
       variant="dark"
       expand="lg"
-      className="bg-dark-logo py-2"
+      className="bg-dark-logo"
     >
       <Container>
         <LinkContainer to="/">
           <Navbar.Brand onClick={() => setExpanded(false)}>
-            <Image src={logo} width={60} />
+            <Image src={logo} width={50} />
           </Navbar.Brand>
         </LinkContainer>
 
@@ -35,20 +54,7 @@ function NavbarNavigation() {
 
         <Navbar.Collapse id="basic-navbar-nav" in={expanded}>
           <Nav className="ms-auto">
-            <LinkContainer
-              to={
-                "/docs/framework/" +
-                Object.keys(Content().framework).shift() +
-                "/getting-started/about-as"
-              }
-            >
-              <Nav.Link
-                className="fw-bold d-flex align-items-center justify-content-center"
-                onClick={() => setExpanded(!expanded)}
-              >
-                Framework
-              </Nav.Link>
-            </LinkContainer>
+            <FrameworkLink />
 
             {NavigationLinks.map((link, index) =>
               link.type === "link" ? (
