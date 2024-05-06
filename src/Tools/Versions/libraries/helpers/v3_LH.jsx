@@ -42,6 +42,15 @@ export default function v3_LH() {
                 development in Linux environments.
               </Alert>
 
+              <Description
+                description={
+                  <Fragment>
+                    Lion-Framework supports PHP versions{" "}
+                    <label className="text-warning">(8.2)</label>
+                  </Fragment>
+                }
+              />
+
               <CodeBlock
                 language={"bash"}
                 content={"composer require lion/helpers"}
@@ -69,11 +78,20 @@ export default function v3_LH() {
 
               <CodeBlock
                 language={"php"}
-                content={
-                  "<?php\n\n" +
-                  "use Lion\\Helpers\\Arr;\n\n" +
-                  "$arr = Arr::of([null, 23, 'Sergio'])->first();\n"
-                }
+                content={`<?php
+
+declare(strict_types=1);
+
+require_once('vendor/autoload.php');
+
+use Lion\\Helpers\\Arr;
+
+$arr = new Arr();
+
+$data = $arr->of([null, 23, 'Sergio'])->first()->get();
+
+var_dump($data);
+`}
               />
             </Fragment>
           ),
@@ -92,11 +110,20 @@ export default function v3_LH() {
 
               <CodeBlock
                 language={"php"}
-                content={
-                  "<?php\n\n" +
-                  "use Lion\\Helpers\\Arr;\n\n" +
-                  "$arr = Arr::of([1, 2, 3])->get();\n"
-                }
+                content={`<?php
+
+declare(strict_types=1);
+
+require_once('vendor/autoload.php');
+
+use Lion\\Helpers\\Arr;
+
+$arr = new Arr();
+
+$data = $arr->of([null, 23, 'Sergio'])->get();
+
+var_dump($data);
+`}
               />
             </Fragment>
           ),
@@ -116,21 +143,39 @@ export default function v3_LH() {
               <Example
                 number={1}
                 language={"php"}
-                content={
-                  "<?php\n\n" +
-                  "use Lion\\Helpers\\Arr;\n\n" +
-                  "$join = Arr::of(['Sergio', 'Santiago', 'David'])->join(', ');\n"
-                }
+                content={`<?php
+
+declare(strict_types=1);
+
+require_once('vendor/autoload.php');
+
+use Lion\\Helpers\\Arr;
+
+$arr = new Arr();
+
+$data = $arr->of(['Sergio', 'Santiago', 'David'])->join(', ');
+
+var_dump($data);
+`}
               />
 
               <Example
                 number={2}
                 language={"php"}
-                content={
-                  "<?php\n\n" +
-                  "use Lion\\Helpers\\Arr;\n\n" +
-                  "$join = Arr::of(['Sergio', 'Santiago', 'David'])->join(', ', ' and ');\n"
-                }
+                content={`<?php
+
+declare(strict_types=1);
+
+require_once('vendor/autoload.php');
+
+use Lion\\Helpers\\Arr;
+
+$arr = new Arr();
+
+$data = $arr->of(['Sergio', 'Santiago', 'David'])->join(', ', ' and ');
+
+var_dump($data);
+`}
               />
             </Fragment>
           ),
@@ -151,6 +196,10 @@ export default function v3_LH() {
                 language={"php"}
                 content={`<?php
 
+declare(strict_types=1);
+
+require_once('vendor/autoload.php');
+
 use Lion\\Helpers\\Arr;
 
 $data = [
@@ -172,7 +221,11 @@ $data = [
     ],
 ];
 
-$arr = $Arr::of($data)->keyBy('name');
+$arr = new Arr();
+
+$data = $arr->of($data)->keyBy('name')->get();
+
+var_dump($data);
 `}
               />
             </Fragment>
@@ -192,11 +245,20 @@ $arr = $Arr::of($data)->keyBy('name');
 
               <CodeBlock
                 language={"php"}
-                content={
-                  "<?php\n\n" +
-                  "use Lion\\Helpers\\Arr;\n\n" +
-                  "$arr = Arr::of(['name' => 'Sleon', 'age' => 23])->keys()->get();\n"
-                }
+                content={`<?php
+
+declare(strict_types=1);
+
+require_once('vendor/autoload.php');
+
+use Lion\\Helpers\\Arr;
+
+$arr = new Arr();
+
+$data = $data->of(['name' => 'Sleon', 'age' => 23])->keys()->get();
+
+var_dump($data);
+`}
               />
             </Fragment>
           ),
@@ -215,11 +277,20 @@ $arr = $Arr::of($data)->keyBy('name');
 
               <CodeBlock
                 language={"php"}
-                content={
-                  "<?php\n\n" +
-                  "use Lion\\Helpers\\Arr;\n\n" +
-                  "$arr = Arr::of([null, 23, 'Sergio'])->last();\n"
-                }
+                content={`<?php
+
+declare(strict_types=1);
+
+require_once('vendor/autoload.php');
+
+use Lion\\Helpers\\Arr;
+
+$arr = new Arr();
+
+$data = $arr->of([null, 23, 'Sergio'])->last()->get();
+
+var_dump($data);
+`}
               />
             </Fragment>
           ),
@@ -238,11 +309,20 @@ $arr = $Arr::of($data)->keyBy('name');
 
               <CodeBlock
                 language={"php"}
-                content={
-                  "<?php\n\n" +
-                  "use Lion\\Helpers\\Arr;\n\n" +
-                  "$arr = Arr::of([1, 3, 5, 7])->length();\n"
-                }
+                content={`<?php
+
+declare(strict_types=1);
+
+require_once('vendor/autoload.php');
+
+use Lion\\Helpers\\Arr;
+
+$arr = new Arr();
+
+$data = $arr->of([null, 23, 'Sergio'])->length();
+
+var_dump($data);
+`}
               />
             </Fragment>
           ),
@@ -261,11 +341,20 @@ $arr = $Arr::of($data)->keyBy('name');
 
               <CodeBlock
                 language={"php"}
-                content={
-                  "<?php\n\n" +
-                  "use Lion\\Helpers\\Arr;\n\n" +
-                  "$arr = Arr::of([1, 2, 3]);\n"
-                }
+                content={`<?php
+
+declare(strict_types=1);
+
+require_once('vendor/autoload.php');
+
+use Lion\\Helpers\\Arr;
+
+$arr = new Arr();
+
+$data = $arr->of([null, 23, 'Sergio'])->get();
+
+var_dump($data);
+`}
               />
             </Fragment>
           ),
@@ -285,52 +374,38 @@ $arr = $Arr::of($data)->keyBy('name');
               <Example
                 number={1}
                 language={"php"}
-                content={
-                  "<?php\n\n" +
-                  "use Lion\\Helpers\\Arr;\n\n" +
-                  "$data = [1, 2, 3];\n\n" +
-                  "$arr = Arr::of($data)->prepend(4);\n"
-                }
+                content={`<?php
+
+declare(strict_types=1);
+
+require_once('vendor/autoload.php');
+
+use Lion\\Helpers\\Arr;
+
+$arr = new Arr();
+
+$data = $arr->of([1, 2, 3])->prepend(4)->get();
+
+var_dump($data);
+`}
               />
 
               <Example
                 number={2}
                 language={"php"}
-                content={
-                  "<?php\n\n" +
-                  "use Lion\\Helpers\\Arr;\n\n" +
-                  "$data = [1, 2, 3];\n\n" +
-                  "$arr = Arr::of($data)->prepend(4, 'id');\n"
-                }
-              />
-
-              <Example
-                number={3}
-                language={"php"}
                 content={`<?php
+
+declare(strict_types=1);
+
+require_once('vendor/autoload.php');
 
 use Lion\\Helpers\\Arr;
 
-$data = [
-    [
-        'name' => 'Sergio Leon', 
-        'rol' => 'admin'
-    ],
-    [
-        'name' => 'Santiago Ospina', 
-        'rol' => 'admin'
-    ],
-    [
-        'name' => 'David Giraldo', 
-        'rol' => 'provider'
-    ],
-    [
-        'name' => 'Alex Rojas', 
-        'rol' => 'provider'
-    ],
-];
+$arr = new Arr();
 
-$arr = Arr::of($data)->prepend(['name' => 'Stiven', 'rol' => 'user']);
+$data = $arr->of([1, 2, 3])->prepend(4, 'id')->get();
+
+var_dump($data);
 `}
               />
             </Fragment>
@@ -353,9 +428,17 @@ $arr = Arr::of($data)->prepend(['name' => 'Stiven', 'rol' => 'user']);
                 language={"php"}
                 content={`<?php
 
+declare(strict_types=1);
+
+require_once('vendor/autoload.php');
+
 use Lion\\Helpers\\Arr;
 
-$arr = Arr::of([1, 2, 3])->push(4)->get();
+$arr = new Arr();
+
+$data = $arr->of([1, 2, 3])->push(4)->get();
+
+var_dump($data);
 `}
               />
 
@@ -364,9 +447,17 @@ $arr = Arr::of([1, 2, 3])->push(4)->get();
                 language={"php"}
                 content={`<?php
 
+declare(strict_types=1);
+
+require_once('vendor/autoload.php');
+
 use Lion\\Helpers\\Arr;
 
-$arr = Arr::of([1, 2, 3])->push(4, 'key-name')->get();
+$arr = new Arr();
+
+$data = $arr->of([1, 2, 3])->push(4, 'id')->get();
+
+var_dump($data);
 `}
               />
 
@@ -375,20 +466,17 @@ $arr = Arr::of([1, 2, 3])->push(4, 'key-name')->get();
                 language={"php"}
                 content={`<?php
 
-use Lion\\Helpers\\Arr;
+declare(strict_types=1);
 
-$arr = Arr::of([1, 2, 3])->push(4, 'key-name')->get();
-`}
-              />
-
-              <Example
-                number={4}
-                language={"php"}
-                content={`<?php
+require_once('vendor/autoload.php');
 
 use Lion\\Helpers\\Arr;
 
-$arr = Arr::of([1, 2, 3])->push([4], 'key-name')->get();
+$arr = new Arr();
+
+$data = $arr->of([1, 2, 3])->push([4], 'id')->get();
+
+var_dump($data);
 `}
               />
             </Fragment>
@@ -409,41 +497,39 @@ $arr = Arr::of([1, 2, 3])->push([4], 'key-name')->get();
               <Example
                 number={1}
                 language={"php"}
-                content={
-                  "<?php\n\n" +
-                  "use Lion\\Helpers\\Arr;\n\n" +
-                  "$arr = Arr::of(['Sergio', 'David', 'Santiago'])->random();\n"
-                }
+                content={`<?php
+
+declare(strict_types=1);
+
+require_once('vendor/autoload.php');
+
+use Lion\\Helpers\\Arr;
+
+$arr = new Arr();
+
+$data = $arr->of(['Sergio', 'David', 'Santiago'])->random()->get();
+
+var_dump($data);
+`}
               />
 
               <Example
                 number={2}
                 language={"php"}
-                content={
-                  "<?php\n\n" +
-                  "use Lion\\Helpers\\Arr;\n\n" +
-                  "$arr = Arr::of(['Sergio', 'David', 'Santiago'])->random(2);\n"
-                }
-              />
+                content={`<?php
 
-              <Example
-                number={3}
-                language={"php"}
-                content={
-                  "<?php\n\n" +
-                  "use Lion\\Helpers\\Arr;\n\n" +
-                  "$arr = Arr::of(['Sergio', 'David', 'Santiago'])->random(2);\n"
-                }
-              />
+declare(strict_types=1);
 
-              <Example
-                number={4}
-                language={"php"}
-                content={
-                  "<?php\n\n" +
-                  "use Lion\\Helpers\\Arr;\n\n" +
-                  "$arr = Arr::of(['Sergio', 'David', 'Santiago'])->random(5);\n"
-                }
+require_once('vendor/autoload.php');
+
+use Lion\\Helpers\\Arr;
+
+$arr = new Arr();
+
+$data = $arr->of(['Sergio', 'David', 'Santiago'])->random(2)->get();
+
+var_dump($data);
+`}
               />
             </Fragment>
           ),
@@ -463,6 +549,10 @@ $arr = Arr::of([1, 2, 3])->push([4], 'key-name')->get();
               <CodeBlock
                 language={"php"}
                 content={`<?php
+
+declare(strict_types=1);
+
+require_once('vendor/autoload.php');
 
 use Lion\\Helpers\\Arr;
 
@@ -485,31 +575,12 @@ $data = [
     ],
 ];
 
-$arr = Arr::of($data)->tree('rol');
+$arr = new Arr();
+
+$data = $arr->of($data)->tree('rol')->get();
+
+var_dump($data);
 `}
-              />
-            </Fragment>
-          ),
-        },
-        sort: {
-          name: "sort",
-          code: (
-            <Fragment>
-              <LibraryTitle className={"Arr"} methodName={"sort"} />
-
-              <Description
-                description={
-                  "The sort function sorts the elements in ascending order of the values (string and numeric) of an array."
-                }
-              />
-
-              <CodeBlock
-                language={"php"}
-                content={
-                  "<?php\n\n" +
-                  "use Lion\\Helpers\\Arr;\n\n" +
-                  "Arr::of(['Sergio', 'David', 'Santiago'])->sort();\n"
-                }
               />
             </Fragment>
           ),
@@ -528,11 +599,20 @@ $arr = Arr::of($data)->tree('rol');
 
               <CodeBlock
                 language={"php"}
-                content={
-                  "<?php\n\n" +
-                  "use Lion\\Helpers\\Arr;\n\n" +
-                  "$arr = Arr::of(['name' => 'Sleon', 'age' => 23])->values()->get();\n"
-                }
+                content={`<?php
+
+declare(strict_types=1);
+
+require_once('vendor/autoload.php');
+
+use Lion\\Helpers\\Arr;
+
+$arr = new Arr();
+
+$data = $arr->of(['id' => 1, 'name' => 'Sleon'])->values()->get();
+
+var_dump($data);
+                  `}
               />
             </Fragment>
           ),
@@ -551,34 +631,62 @@ $arr = Arr::of($data)->tree('rol');
 
               <CodeBlock
                 language={"php"}
-                content={
-                  "<?php\n\n" +
-                  "use Lion\\Helpers\\Arr;\n\n" +
-                  "$arr = Arr::of([5, 44, 22])->where(fn($value, $key) => $value > 20);\n"
-                }
+                content={`<?php
+
+declare(strict_types=1);
+
+require_once('vendor/autoload.php');
+
+use Lion\\Helpers\\Arr;
+
+$arr = new Arr();
+
+$data = $arr
+    ->of([5, 44, 22])
+    ->where(function (int $value, int $key): void {
+        if ($value > 20) {
+            return $value;
+        }
+    })
+    ->get();
+
+var_dump($data);
+`}
               />
             </Fragment>
           ),
         },
-        "where-not-null": {
-          name: "whereNotNull",
+        "where-not-empty": {
+          name: "whereNotEmpty",
           code: (
             <Fragment>
-              <LibraryTitle className={"Arr"} methodName={"whereNotNull"} />
+              <LibraryTitle className={"Arr"} methodName={"whereNotEmpty"} />
 
               <Description
                 description={
-                  "The whereNotNull function gets a new array of elements where the values are not null or empty."
+                  "Gets a new array of elements where the values are neither null nor empty."
                 }
               />
 
               <CodeBlock
                 language={"php"}
-                content={
-                  "<?php\n\n" +
-                  "use Lion\\Helpers\\Arr;\n\n" +
-                  "$arr = Arr::of(['', 23, 'Sergio', null, 'Santiago', 25])->whereNotNull();\n"
-                }
+                content={`<?php
+
+declare(strict_types=1);
+
+require_once('vendor/autoload.php');
+
+use Lion\\Helpers\\Arr;
+
+$arr = new Arr();
+
+$data = $arr
+    ->of(['', 23, 'Sergio', null, 'Santiago', 25])
+    ->whereNotEmpty()
+    ->get();
+
+var_dump($data);
+`}
               />
             </Fragment>
           ),
@@ -598,31 +706,39 @@ $arr = Arr::of($data)->tree('rol');
               <Example
                 number={1}
                 language={"php"}
-                content={
-                  "<?php\n\n" +
-                  "use Lion\\Helpers\\Arr;\n\n" +
-                  "$arr = Arr::wrap('Sergio');\n"
-                }
+                content={`<?php
+
+declare(strict_types=1);
+
+require_once('vendor/autoload.php');
+
+use Lion\\Helpers\\Arr;
+
+$arr = new Arr();
+
+$data = $arr->wrap('Sergio')->get();
+
+var_dump($data);
+`}
               />
 
               <Example
                 number={2}
                 language={"php"}
-                content={
-                  "<?php\n\n" +
-                  "use Lion\\Helpers\\Arr;\n\n" +
-                  "$arr = Arr::wrap();\n"
-                }
-              />
+                content={`<?php
 
-              <Example
-                number={3}
-                language={"php"}
-                content={
-                  "<?php\n\n" +
-                  "use Lion\\Helpers\\Arr;\n\n" +
-                  "$arr = Arr::wrap(null);\n"
-                }
+declare(strict_types=1);
+
+require_once('vendor/autoload.php');
+
+use Lion\\Helpers\\Arr;
+
+$arr = new Arr();
+
+$data = $arr->wrap()->get();
+
+var_dump($data);
+`}
               />
             </Fragment>
           ),
@@ -647,11 +763,20 @@ $arr = Arr::of($data)->tree('rol');
 
               <CodeBlock
                 language={"php"}
-                content={
-                  "<?php\n\n" +
-                  "use Lion\\Helpers\\Str;\n\n" +
-                  "$str = Str::of('Hello world')->after(' ');\n"
-                }
+                content={`<?php
+                  
+declare(strict_types=1);
+
+require_once('vendor/autoload.php');
+
+use Lion\\Helpers\\Str;
+
+$str = new Str();
+
+$data = $str->of('Hello world')->after(' ')->get();
+
+var_dump($data);
+`}
               />
             </Fragment>
           ),
