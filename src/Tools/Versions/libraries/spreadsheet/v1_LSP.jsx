@@ -449,14 +449,24 @@ Spreadsheet::setCell('A1', 'Sergio Leon');
                   "The save function generates a copy of the loaded file."
                 }
               />
-
-              <CodeBlock
+              <Example
+              number={1}
                 language={"php"}
                 content={`<?php
 
 use LionSpreadsheet\\Spreadsheet;
 
-Spreadsheet::setCell('A1', 'Sergio Leon');
+Spreadsheet::save();
+`}
+              />
+              <Example
+              number={2}
+                language={"php"}
+                content={`<?php
+
+use LionSpreadsheet\\Spreadsheet;
+
+Spreadsheet::save('/my_path');
 `}
               />
             </Fragment>

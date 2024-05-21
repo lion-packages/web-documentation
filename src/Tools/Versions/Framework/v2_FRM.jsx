@@ -89,24 +89,25 @@ export default function v2_FRM() {
         use: {
           name: "Use Framework",
           code: (
-            <>
-              <div className="mb-3">
-                <h3>Use Framework</h3>
-
-                <hr />
-              </div>
+            <Fragment>
+              <Title title={"Use Framework"} />
 
               <Alert variant={"info"}>
                 <strong>Note: </strong>Currently the framework is supported for
                 development in Linux environments.
               </Alert>
 
-              <p className="fs-6">
-                Start by starting your web application's local server.
-              </p>
+              <Description
+                description={
+                  <Fragment>
+                    Start by starting your web application's local server. Open
+                    your API URL at <strong>http://localhost:8000</strong>.
+                  </Fragment>
+                }
+              />
 
               <CodeBlock language={"bash"} content={"php lion serve"} />
-            </>
+            </Fragment>
           ),
         },
       },
@@ -348,32 +349,31 @@ Driver::run([
         routes: {
           name: "Routes",
           code: (
-            <>
-              <div className="mb-3">
-                <h3>Routes</h3>
+            <Fragment>
+              <Title title={"Routes"} />
 
-                <hr />
-              </div>
-
-              <p className="fs-6">
-                <Link
-                  to={"/docs/library/content"}
-                  className="text-decoration-none"
-                >
-                  Lion-Route
-                </Link>{" "}
-                has been implemented for route handling, from the web you can
-                add all the necessary routes for the operation of your web
-                application <Badge bg={"secondary"}>routes/web.php</Badge>.
-              </p>
+              <Description
+                description={
+                  <Fragment>
+                    <Link
+                      to={"/docs/library/content"}
+                      className="text-decoration-none"
+                    >
+                      Lion-Route
+                    </Link>{" "}
+                    has been implemented for route handling, from the web you
+                    can add all the necessary routes for the operation of your
+                    web application{" "}
+                    <Badge bg={"secondary"}>routes/web.php</Badge>.
+                  </Fragment>
+                }
+              />
 
               <CodeBlock
                 langueage={"php"}
-                content={
-                  "<?php\n\n" + "Route::get('/', fn() => success(200, 'test'));"
-                }
+                content={"<?php\n\n" + "Route::get('/', fn() => success());"}
               />
-            </>
+            </Fragment>
           ),
         },
         list: {
@@ -572,6 +572,50 @@ namespace App\\Http\\Services;
  */
 class ExampleService
 {
+}
+`}
+              />
+            </Fragment>
+          ),
+        },
+        use: {
+          name: "Use Services",
+          code: (
+            <Fragment>
+              <Title title={"Use Services"} />
+
+              <Description
+                description={"Inject your services for your processes."}
+              />
+
+              <CodeBlock
+                language={"php"}
+                content={`<?php
+
+declare(strict_types=1);
+
+namespace App\\Http\\Controllers;
+
+use App\\Http\\Services\\ExampleService;
+
+/**
+ * Description
+ *
+ * @package App\\Http\\Controllers
+ */
+class ExampleController
+{
+    /**
+     * Description
+     *
+     * @param ExampleService $exampleService [Service 'ExampleService']
+     *
+     * @return object
+     */
+    public function example(ExampleService $exampleService): object
+    {
+        return $exampleService->example();
+    }
 }
 `}
               />
@@ -793,7 +837,7 @@ class ExampleService implements ExampleInterface
 
               <CodeBlock
                 language={"bash"}
-                content={"php lion db:mysql:capsule entity_name"}
+                content={"php lion db:capsule entity_name"}
               />
 
               <CodeBlock
@@ -1090,9 +1134,31 @@ class ExampleException extends Exception implements JsonSerializable
                 language={"php"}
                 content={`<?php 
 
+declare(strict_types=1);
+
+namespace App\\Http\\Services;
+
 use App\\Exceptions\\ExampleException;
 
-throw new ExampleException('Something went wrong!');
+/**
+ * Service 'ExampleService'
+ *
+ * @package App\\Http\\Services
+ */
+class ExampleService
+{
+    /**
+     * Example method
+     *
+     * @return void
+     *
+     * @throws ExampleException [description]
+     */
+    public function example(): void
+    {
+        throw new ExampleException('Something went wrong!');
+    }
+}
 `}
               />
             </Fragment>
@@ -1101,14 +1167,14 @@ throw new ExampleException('Something went wrong!');
       },
     },
     "html-templates": {
-      name: "HTML Templates",
+      name: "HTML",
       type: "sub_modules",
       list: {
         create: {
-          name: "HTML Templates",
+          name: "Create HTML",
           code: (
             <Fragment>
-              <Title title="HTML Templates" />
+              <Title title="Create HTML" />
 
               <Description
                 description={"Create your own HTML templates to send emails."}
@@ -1154,6 +1220,46 @@ class ExampleHtml extends Html implements HtmlInterface
         );
 
         return $this;
+    }
+}
+`}
+              />
+            </Fragment>
+          ),
+        },
+        use: {
+          name: "Use HTML",
+          code: (
+            <Fragment>
+              <Title title="Use HTML" />
+
+              <CodeBlock
+                language={"php"}
+                content={`<?php 
+
+declare(strict_types=1);
+
+namespace App\\Http\\Services;
+
+use App\\Html\\ExampleHtml;
+
+/**
+ * Service 'ExampleService'
+ *
+ * @package App\\Http\\Services
+ */
+class ExampleService
+{
+    /**
+     * Example method
+     *
+     * @param ExampleHtml $exampleHtml [Define an HTML template]
+     *
+     * @return void
+     */
+    public function example(ExampleHtml $exampleHtml): void
+    {
+        vd($exampleHtml->template());
     }
 }
 `}
@@ -1902,8 +2008,43 @@ declare(strict_types=1);
 
 namespace App\\Traits;
 
+/**
+ * Trait ExampleTrait
+ *
+ * @package App\\Traits
+ */
 trait ExampleTrait
 {
+}
+`}
+              />
+            </Fragment>
+          ),
+        },
+        use: {
+          name: "Use Traits",
+          code: (
+            <Fragment>
+              <Title title={"Use Traits"} />
+
+              <CodeBlock
+                language={"php"}
+                content={`<?php
+
+declare(strict_types=1);
+
+namespace App\\Http\\Services;
+
+use App\\Traits\\ExampleTrait;
+
+/**
+ * Service 'ExampleService'
+ *
+ * @package App\\Http\\Services
+ */
+class ExampleService
+{
+    use ExampleTrait;
 }
 `}
               />
@@ -1944,6 +2085,11 @@ declare(strict_types=1);
 
 namespace App\\Enums;
 
+/**
+ * Enum StatusEnum
+ *
+ * @package App\\Enums
+ */
 enum StatusEnum: string
 {
     case SUCCESS = 'success';
@@ -1961,6 +2107,38 @@ enum StatusEnum: string
     case ROUTE_ERROR = 'route-error';
 }
 `}
+              />
+            </Fragment>
+          ),
+        },
+        use: {
+          name: "Use Enums",
+          code: (
+            <Fragment>
+              <Title title={"Use Enums"} />
+
+              <CodeBlock
+                language={"php"}
+                content={`<?php
+
+declare(strict_types=1);
+
+namespace App\\Http\\Services;
+
+use App\\Enums\\StatusEnum;
+
+/**
+ * Service 'ExampleService'
+ *
+ * @package App\\Http\\Services
+ */
+class ExampleService
+{
+    public function example(): void
+    {
+        vd(StatusEnum::SUCCESS->value);
+    }
+}`}
               />
             </Fragment>
           ),
@@ -2608,6 +2786,108 @@ class ExampleSocket implements MessageComponentInterface
       name: "Test",
       type: "sub_modules",
       list: {
+        config: {
+          name: "Config Test",
+          code: (
+            <Fragment>
+              <Title title={"Config Test"} />
+
+              <Description
+                description={
+                  <Fragment>
+                    You can configure your own testsuite in{" "}
+                    <a
+                      href="https://phpunit.de/documentation.html"
+                      target="_blank"
+                      className="text-decoration-none"
+                    >
+                      phpunit.xml
+                    </a>
+                    .
+                  </Fragment>
+                }
+              />
+
+              <CodeBlock
+                language={"xml"}
+                content={`<?xml version="1.0" encoding="UTF-8"?>
+<phpunit
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    defaultTestSuite="All-Test"
+    testdox="false"
+    cacheResult="true"
+    colors="true"
+    columns="80"
+    backupGlobals="false"
+    processIsolation="false"
+    stopOnDefect="true"
+    stopOnError="true"
+    stopOnFailure="true"
+    stopOnWarning="true"
+    bootstrap="tests/bootstrap.php"
+    xsi:noNamespaceSchemaLocation="https://schema.phpunit.de/10.3/phpunit.xsd"
+    backupStaticProperties="false"
+    displayDetailsOnIncompleteTests="true"
+    displayDetailsOnSkippedTests="true"
+    displayDetailsOnTestsThatTriggerDeprecations="true"
+    displayDetailsOnTestsThatTriggerErrors="true"
+    displayDetailsOnTestsThatTriggerNotices="true"
+    displayDetailsOnTestsThatTriggerWarnings="true"
+>
+    <php>
+        <env name="APP_ENV" value="testing" />
+        <ini name="date.timezone" value="America/Bogota" />
+        <ini name="intl.default_locale" value="C.UTF-8" />
+        <ini name="memory_limit" value="2048M" />
+    </php>
+
+    <testsuites>
+        <testsuite name="All-Test">
+            <directory>tests/</directory>
+        </testsuite>
+
+        <testsuite name="Enums">
+            <directory>tests/App/Enums/</directory>
+        </testsuite>
+
+        <testsuite name="Exceptions">
+            <directory>tests/App/Exceptions/</directory>
+        </testsuite>
+
+        <testsuite name="Controllers">
+            <directory>tests/App/Http/Controllers/</directory>
+        </testsuite>
+
+        <testsuite name="Services">
+            <directory>tests/App/Http/Services/</directory>
+        </testsuite>
+
+        <testsuite name="Middleware">
+            <directory>tests/App/Http/Middleware/</directory>
+        </testsuite>
+
+        <testsuite name="Interfaces">
+            <directory>tests/App/Interfaces/</directory>
+        </testsuite>
+
+        <testsuite name="Models">
+            <directory>tests/App/Models/</directory>
+        </testsuite>
+
+        <testsuite name="Traits">
+            <directory>tests/App/Traits/</directory>
+        </testsuite>
+
+        <testsuite name="Class">
+            <directory>tests/Database/Class/</directory>
+        </testsuite>
+    </testsuites>
+</phpunit>
+`}
+              />
+            </Fragment>
+          ),
+        },
         create: {
           name: "Create Test",
           code: (
@@ -2672,6 +2952,11 @@ class ExampleTest extends Test
               <Description description={"Run all tests via command line."} />
 
               <CodeBlock language={"bash"} content={"php lion test"} />
+
+              <CodeBlock
+                language={"bash"}
+                content={"php lion test --suite Controllers"}
+              />
             </Fragment>
           ),
         },
@@ -3654,11 +3939,11 @@ CMD touch storage/server.log storage/socket.log storage/supervisord.log storage/
             </Fragment>
           ),
         },
-        "docker-compose": {
-          name: "docker-compose.yml",
+        "docker compose": {
+          name: "docker compose.yml",
           code: (
             <Fragment>
-              <Title title={"docker-compose.yml"} />
+              <Title title={"docker compose.yml"} />
 
               <CodeBlock
                 language={"yaml"}
@@ -3764,7 +4049,7 @@ networks:
                   description={"Run the Docker container in the background."}
                 />
 
-                <CodeBlock language={"bash"} content={"docker-compose up -d"} />
+                <CodeBlock language={"bash"} content={"docker compose up -d"} />
               </Fragment>
 
               <Fragment>
@@ -3776,8 +4061,23 @@ networks:
 
                 <CodeBlock
                   language={"bash"}
-                  content={"docker-compose up -d --build"}
+                  content={"docker compose up -d --build"}
                 />
+              </Fragment>
+
+              <Fragment>
+                <Description description={"Restart Docker containers."} />
+
+                <CodeBlock
+                  language={"bash"}
+                  content={"docker compose restart"}
+                />
+              </Fragment>
+
+              <Fragment>
+                <Description description={"Unmount the Docker containers."} />
+
+                <CodeBlock language={"bash"} content={"docker compose down"} />
               </Fragment>
             </Fragment>
           ),
