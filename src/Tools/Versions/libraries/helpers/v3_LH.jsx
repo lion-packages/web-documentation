@@ -795,11 +795,20 @@ var_dump($data);
 
               <CodeBlock
                 language={"php"}
-                content={
-                  "<?php\n\n" +
-                  "use Lion\\Helpers\\Str;\n\n" +
-                  "$str = Str::of('Hello world')->before(' ');\n"
-                }
+                content={`<?php
+                  
+declare(strict_types=1);
+
+require_once('vendor/autoload.php');
+
+use Lion\\Helpers\\Str;
+
+$str = new Str();
+
+$data = $str->of('Hello world')->before(' ')->get();
+
+var_dump($data);
+`}
               />
             </Fragment>
           ),
@@ -818,11 +827,20 @@ var_dump($data);
 
               <CodeBlock
                 language={"php"}
-                content={
-                  "<?php\n\n" +
-                  "use Lion\\Helpers\\Str;\n\n" +
-                  "$str = Str::of('hello world, this is an example')->between('world', 'an');\n"
-                }
+                content={`<?php
+                  
+declare(strict_types=1);
+
+require_once('vendor/autoload.php');
+
+use Lion\\Helpers\\Str;
+
+$str = new Str();
+
+$data = $str->of('hello world, this is an example')->between('world', 'an')->get();
+
+var_dump($data);
+`}
               />
             </Fragment>
           ),
@@ -841,11 +859,20 @@ var_dump($data);
 
               <CodeBlock
                 language={"php"}
-                content={
-                  "<?php\n\n" +
-                  "use Lion\\Helpers\\Str;\n\n" +
-                  "$str = Str::of('hello world')->camel()->get();\n"
-                }
+                content={`<?php
+                  
+declare(strict_types=1);
+
+require_once('vendor/autoload.php');
+
+use Lion\\Helpers\\Str;
+
+$str = new Str();
+
+$data = $str->of('hello world, this is an example')->camel()->get();
+
+var_dump($data);
+`}
               />
             </Fragment>
           ),
@@ -862,34 +889,22 @@ var_dump($data);
                 }
               />
 
-              <Example
-                number={1}
+              <CodeBlock
                 language={"php"}
-                content={
-                  "<?php\n\n" +
-                  "use Lion\\Helpers\\Str;\n\n" +
-                  "$str = Str::of('hello')->concat(' world')->get();\n"
-                }
-              />
+                content={`<?php
+                  
+declare(strict_types=1);
 
-              <Example
-                number={2}
-                language={"php"}
-                content={
-                  "<?php\n\n" +
-                  "use Lion\\Helpers\\Str;\n\n" +
-                  "$str = Str::of('hello')\n\t->concat(' world')\n\t->concant(', this is an example')\n\t->get();\n"
-                }
-              />
+require_once('vendor/autoload.php');
 
-              <Example
-                number={3}
-                language={"php"}
-                content={
-                  "<?php\n\n" +
-                  "use Lion\\Helpers\\Str;\n\n" +
-                  "$str = Str::of('hello')\n\t->concat(' world')\n\t->concant(', this is an example')\n\t->ln()\n\t->get();\n"
-                }
+use Lion\\Helpers\\Str;
+
+$str = new Str();
+
+$data = $str->of('hello')->concat(' world')->concat(', this is an example')->get();
+
+var_dump($data);
+`}
               />
             </Fragment>
           ),
@@ -908,11 +923,20 @@ var_dump($data);
 
               <CodeBlock
                 language={"php"}
-                content={
-                  "<?php\n\n" +
-                  "use Lion\\Helpers\\Str;\n\n" +
-                  "$str = Str::of('hello world')->contains(['hello', 'world']);\n"
-                }
+                content={`<?php
+                  
+declare(strict_types=1);
+
+require_once('vendor/autoload.php');
+
+use Lion\\Helpers\\Str;
+
+$str = new Str();
+
+$data = $str->of('hello world, this is an example')->contains(['hello', 'world']);
+
+var_dump($data);
+`}
               />
             </Fragment>
           ),
@@ -929,11 +953,20 @@ var_dump($data);
 
               <CodeBlock
                 language={"php"}
-                content={
-                  "<?php\n\n" +
-                  "use Lion\\Helpers\\Str;\n\n" +
-                  "$str = Str::of('Sergio')->get();\n"
-                }
+                content={`<?php
+                  
+declare(strict_types=1);
+
+require_once('vendor/autoload.php');
+
+use Lion\\Helpers\\Str;
+
+$str = new Str();
+
+$data = $str->of('hello world, this is an example')->get();
+
+var_dump($data);
+`}
               />
             </Fragment>
           ),
@@ -952,11 +985,20 @@ var_dump($data);
 
               <CodeBlock
                 language={"php"}
-                content={
-                  "<?php\n\n" +
-                  "use Lion\\Helpers\\Str;\n\n" +
-                  "$str = Str::of('hello world')->headline()->get();\n"
-                }
+                content={`<?php
+                  
+declare(strict_types=1);
+
+require_once('vendor/autoload.php');
+
+use Lion\\Helpers\\Str;
+
+$str = new Str();
+
+$data = $str->of('hello world, this is an example')->headline()->get();
+
+var_dump($data);
+`}
               />
             </Fragment>
           ),
@@ -975,11 +1017,20 @@ var_dump($data);
 
               <CodeBlock
                 language={"php"}
-                content={
-                  "<?php\n\n" +
-                  "use Lion\\Helpers\\Str;\n\n" +
-                  "$str = Str::of('hello world')->kebab()->get();\n"
-                }
+                content={`<?php
+                  
+declare(strict_types=1);
+
+require_once('vendor/autoload.php');
+
+use Lion\\Helpers\\Str;
+
+$str = new Str();
+
+$data = $str->of('hello world, this is an example')->kebab()->get();
+
+var_dump($data);
+`}
               />
             </Fragment>
           ),
@@ -999,41 +1050,39 @@ var_dump($data);
               <Example
                 number={1}
                 language={"php"}
-                content={
-                  "<?php\n\n" +
-                  "use Lion\\Helpers\\Str;\n\n" +
-                  "$str = Str::of('hello worl')->limit()->get();\n"
-                }
+                content={`<?php
+                  
+declare(strict_types=1);
+
+require_once('vendor/autoload.php');
+
+use Lion\\Helpers\\Str;
+
+$str = new Str();
+
+$data = $str->of('hello world, this is an example')->limit()->get();
+
+var_dump($data);
+`}
               />
 
               <Example
                 number={2}
                 language={"php"}
-                content={
-                  "<?php\n\n" +
-                  "use Lion\\Helpers\\Str;\n\n" +
-                  "$str = Str::of('hello world')->limit(8)->get();\n"
-                }
-              />
+                content={`<?php
+                  
+declare(strict_types=1);
 
-              <Example
-                number={3}
-                language={"php"}
-                content={
-                  "<?php\n\n" +
-                  "use Lion\\Helpers\\Str;\n\n" +
-                  "$str = Str::of('hello world')->limit(5)->get();\n"
-                }
-              />
+require_once('vendor/autoload.php');
 
-              <Example
-                number={4}
-                language={"php"}
-                content={
-                  "<?php\n\n" +
-                  "use Lion\\Helpers\\Str;\n\n" +
-                  "$str = Str::of('hello world')->limit(20)->get();\n"
-                }
+use Lion\\Helpers\\Str;
+
+$str = new Str();
+
+$data = $str->of('hello world, this is an example')->limit(10)->get();
+
+var_dump($data);
+`}
               />
             </Fragment>
           ),
@@ -1048,11 +1097,20 @@ var_dump($data);
 
               <CodeBlock
                 language={"php"}
-                content={
-                  "<?php\n\n" +
-                  "use Lion\\Helpers\\Str;\n\n" +
-                  "$length = Str::of('hello world')->length();\n"
-                }
+                content={`<?php
+                  
+declare(strict_types=1);
+
+require_once('vendor/autoload.php');
+
+use Lion\\Helpers\\Str;
+
+$str = new Str();
+
+$data = $str->of('hello world, this is an example')->length();
+
+var_dump($data);
+`}
               />
             </Fragment>
           ),
@@ -1071,11 +1129,20 @@ var_dump($data);
 
               <CodeBlock
                 language={"php"}
-                content={
-                  "<?php\n\n" +
-                  "use Lion\\Helpers\\Str;\n\n" +
-                  "$str = Str::of('HELLO WORLD')->lower()->get();\n"
-                }
+                content={`<?php
+                  
+declare(strict_types=1);
+
+require_once('vendor/autoload.php');
+
+use Lion\\Helpers\\Str;
+
+$str = new Str();
+
+$data = $str->of('hello world, this is an example')->lower()->get();
+
+var_dump($data);
+`}
               />
             </Fragment>
           ),
@@ -1092,11 +1159,20 @@ var_dump($data);
 
               <CodeBlock
                 language={"php"}
-                content={
-                  "<?php\n\n" +
-                  "use Lion\\Helpers\\Str;\n\n" +
-                  "$str = Str::of('Hello world')->ln()->get();\n"
-                }
+                content={`<?php
+                  
+declare(strict_types=1);
+
+require_once('vendor/autoload.php');
+
+use Lion\\Helpers\\Str;
+
+$str = new Str();
+
+$data = $str->of('hello world, this is an example')->ln()->get();
+
+var_dump($data);
+`}
               />
             </Fragment>
           ),
@@ -1113,11 +1189,20 @@ var_dump($data);
 
               <CodeBlock
                 language={"php"}
-                content={
-                  "<?php\n\n" +
-                  "use Lion\\Helpers\\Str;\n\n" +
-                  "$str = Str::of('Hello world')->lt()->get();\n"
-                }
+                content={`<?php
+                  
+declare(strict_types=1);
+
+require_once('vendor/autoload.php');
+
+use Lion\\Helpers\\Str;
+
+$str = new Str();
+
+$data = $str->lt()->concat('Hello!')->get();
+
+var_dump($data);
+`}
               />
             </Fragment>
           ),
@@ -1137,21 +1222,39 @@ var_dump($data);
               <Example
                 number={1}
                 language={"php"}
-                content={
-                  "<?php\n\n" +
-                  "use Lion\\Helpers\\Str;\n\n" +
-                  "$str = Str::of('sleon@gmail.com')->mask('*', 7)->get();\n"
-                }
+                content={`<?php
+                  
+declare(strict_types=1);
+
+require_once('vendor/autoload.php');
+
+use Lion\\Helpers\\Str;
+
+$str = new Str();
+
+$data = $strof('root@gmail.com')->mask('*', 7)->get();
+
+var_dump($data);
+`}
               />
 
               <Example
                 number={2}
                 language={"php"}
-                content={
-                  "<?php\n\n" +
-                  "use Lion\\Helpers\\Str;\n\n" +
-                  "$str = Str::of('sleon@gmail.com')->mask('*', -7)->get();\n"
-                }
+                content={`<?php
+                  
+declare(strict_types=1);
+
+require_once('vendor/autoload.php');
+
+use Lion\\Helpers\\Str;
+
+$str = new Str();
+
+$data = $strof('root@gmail.com')->mask('*', -7)->get();
+
+var_dump($data);
+`}
               />
             </Fragment>
           ),
@@ -1170,11 +1273,18 @@ var_dump($data);
 
               <CodeBlock
                 language={"php"}
-                content={
-                  "<?php\n\n" +
-                  "use Lion\\Helpers\\Str;\n\n" +
-                  "$str = Str::of('Sergio');\n"
-                }
+                content={`<?php
+                  
+declare(strict_types=1);
+
+require_once('vendor/autoload.php');
+
+use Lion\\Helpers\\Str;
+
+$str = new Str();
+
+$data = $str->of();
+`}
               />
             </Fragment>
           ),
@@ -1193,11 +1303,20 @@ var_dump($data);
 
               <CodeBlock
                 language={"php"}
-                content={
-                  "<?php\n\n" +
-                  "use Lion\\Helpers\\Str;\n\n" +
-                  "$str = Str::of('hello world')->pascal()->get();\n"
-                }
+                content={`<?php
+                  
+declare(strict_types=1);
+
+require_once('vendor/autoload.php');
+
+use Lion\\Helpers\\Str;
+
+$str = new Str();
+
+$data = $str->of('hello world')->pascal()->get();
+
+var_dump($data);
+`}
               />
             </Fragment>
           ),
@@ -1216,11 +1335,20 @@ var_dump($data);
 
               <CodeBlock
                 language={"php"}
-                content={
-                  "<?php\n\n" +
-                  "use Lion\\Helpers\\Str;\n\n" +
-                  "$str = Str::of('world')->prepend('Hello ')->get();\n"
-                }
+                content={`<?php
+                  
+declare(strict_types=1);
+
+require_once('vendor/autoload.php');
+
+use Lion\\Helpers\\Str;
+
+$str = new Str();
+
+$data = $str->of('world')->prepend('Hello ')->get();
+
+var_dump($data);
+`}
               />
             </Fragment>
           ),
@@ -1239,11 +1367,20 @@ var_dump($data);
 
               <CodeBlock
                 language={"php"}
-                content={
-                  "<?php\n\n" +
-                  "use Lion\\Helpers\\Str;\n\n" +
-                  "$str = Str::of('Hello, world')->replace(',', '')->get();\n"
-                }
+                content={`<?php
+                  
+declare(strict_types=1);
+
+require_once('vendor/autoload.php');
+
+use Lion\\Helpers\\Str;
+
+$str = new Str();
+
+$data = $strof('Hello, world')->replace(',', '')->get();
+
+var_dump($data);
+`}
               />
             </Fragment>
           ),
@@ -1262,11 +1399,20 @@ var_dump($data);
 
               <CodeBlock
                 language={"php"}
-                content={
-                  "<?php\n\n" +
-                  "use Lion\\Helpers\\Str;\n\n" +
-                  "$str = Str::of('hello world')->snake()->get();\n"
-                }
+                content={`<?php
+                  
+declare(strict_types=1);
+
+require_once('vendor/autoload.php');
+
+use Lion\\Helpers\\Str;
+
+$str = new Str();
+
+$data = $str->of('hello world, this is an example')->snake()->get();
+
+var_dump($data);
+`}
               />
             </Fragment>
           ),
@@ -1282,13 +1428,29 @@ var_dump($data);
                   "The swap function modifies the string by the defined values."
                 }
               />
+
               <CodeBlock
                 language={"php"}
-                content={
-                  "<?php\n\n" +
-                  "use Lion\\Helpers\\Str;\n\n" +
-                  "$str = Str::of('hello world')->swap([\n\t'hello' => 'Sergio',\n\t'world' => 'Leon'\n])->get();\n"
-                }
+                content={`<?php
+                  
+declare(strict_types=1);
+
+require_once('vendor/autoload.php');
+
+use Lion\\Helpers\\Str;
+
+$str = new Str();
+
+$data = $str
+    ->of('hello world, this is an example')
+    ->swap([
+        'hello' => 'Sergio',
+        'world' => 'Leon',
+    ])
+    ->get();
+
+var_dump($data);
+`}
               />
             </Fragment>
           ),
@@ -1307,11 +1469,20 @@ var_dump($data);
 
               <CodeBlock
                 language={"php"}
-                content={
-                  "<?php\n\n" +
-                  "use Lion\\Helpers\\Str;\n\n" +
-                  "$str = Str::of('')->toNull();\n"
-                }
+                content={`<?php
+                  
+declare(strict_types=1);
+
+require_once('vendor/autoload.php');
+
+use Lion\\Helpers\\Str;
+
+$str = new Str();
+
+$data = $str->of('hello world, this is an example')->notNull()->get();
+
+var_dump($data);
+`}
               />
             </Fragment>
           ),
@@ -1330,11 +1501,20 @@ var_dump($data);
 
               <CodeBlock
                 language={"php"}
-                content={
-                  "<?php\n\n" +
-                  "use Lion\\Helpers\\Str;\n\n" +
-                  "$str = Str::of(null)->toString()->get();\n"
-                }
+                content={`<?php
+                  
+declare(strict_types=1);
+
+require_once('vendor/autoload.php');
+
+use Lion\\Helpers\\Str;
+
+$str = new Str();
+
+$data = $str->of(null)->toString()->get();
+
+var_dump($data);
+`}
               />
             </Fragment>
           ),
@@ -1353,11 +1533,20 @@ var_dump($data);
 
               <CodeBlock
                 language={"php"}
-                content={
-                  "<?php\n\n" +
-                  "use Lion\\Helpers\\Str;\n\n" +
-                  "$str = Str::of('hello world')->test('/hello/i');\n"
-                }
+                content={`<?php
+                  
+declare(strict_types=1);
+
+require_once('vendor/autoload.php');
+
+use Lion\\Helpers\\Str;
+
+$str = new Str();
+
+$data = $str->of('hello world, this is an example')->test('/hello/i');
+
+var_dump($data);
+`}
               />
             </Fragment>
           ),
@@ -1377,21 +1566,39 @@ var_dump($data);
               <Example
                 number={1}
                 language={"php"}
-                content={
-                  "<?php\n\n" +
-                  "use Lion\\Helpers\\Str;\n\n" +
-                  "$str = Str::of('   hello world   ')->trim()->get();\n"
-                }
+                content={`<?php
+                  
+declare(strict_types=1);
+
+require_once('vendor/autoload.php');
+
+use Lion\\Helpers\\Str;
+
+$str = new Str();
+
+$data = $str->of('hello world, this is an example')->trim()->get();
+
+var_dump($data);
+`}
               />
 
               <Example
                 number={2}
                 language={"php"}
-                content={
-                  "<?php\n\n" +
-                  "use Lion\\Helpers\\Str;\n\n" +
-                  "$str = Str::of('   hello world   ')->trim('world')->get();\n"
-                }
+                content={`<?php
+                  
+declare(strict_types=1);
+
+require_once('vendor/autoload.php');
+
+use Lion\\Helpers\\Str;
+
+$str = new Str();
+
+$data = $str->of('hello world, this is an example')->trim('world')->get();
+
+var_dump($data);
+`}
               />
             </Fragment>
           ),
@@ -1410,11 +1617,20 @@ var_dump($data);
 
               <CodeBlock
                 language={"php"}
-                content={
-                  "<?php\n\n" +
-                  "use Lion\\Helpers\\Str;\n\n" +
-                  "$str = Str::of('hello world')->upper()->get();\n"
-                }
+                content={`<?php
+                  
+declare(strict_types=1);
+
+require_once('vendor/autoload.php');
+
+use Lion\\Helpers\\Str;
+
+$str = new Str();
+
+$data = $str->of('hello world, this is an example')->upper()->get();
+
+var_dump($data);
+`}
               />
             </Fragment>
           ),
