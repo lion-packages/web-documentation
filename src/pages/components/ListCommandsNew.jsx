@@ -8,7 +8,13 @@ function ListCommandsNew() {
   const { item_version } = useParams();
 
   const linkFormat = (uri) => {
-    return uri.trim().replace(/ /gm, "-").replace(/:/gm, "-").trim();
+    if (typeof uri === "string") {
+      return uri.trim().replace(/ /gm, "-").replace(/:/gm, "-").trim();
+    }
+
+    const size = uri.length - 1;
+
+    return uri[size].trim().replace(/ /gm, "-").replace(/:/gm, "-").trim();
   };
 
   const scroolPage = () => {
@@ -25,6 +31,24 @@ function ListCommandsNew() {
     }
   };
 
+  const CommandTitle = ({ title }) => {
+    if (typeof title === "string") {
+      return <span className="h5">{title}</span>;
+    }
+
+    return <span className="h5">{title[0]}</span>;
+  };
+
+  const GetCommands = ({ commands }) => {
+    if (typeof commands === "string") {
+      return <CodeBlock language={"bash"} content={commands} />;
+    }
+
+    return commands.map((command, index) => (
+      <CodeBlock key={index} language={"bash"} content={command} />
+    ));
+  };
+
   useEffect(() => {
     scroolPage();
   }, []);
@@ -37,16 +61,7 @@ function ListCommandsNew() {
 
       <Row>
         {item.childs.map((child, childIndex) => (
-          <Col
-            xs={12}
-            sm={11}
-            md={10}
-            lg={8}
-            xl={8}
-            xxl={9}
-            className="mb-3 mx-auto"
-            key={childIndex}
-          >
+          <Col xs={12} sm={11} md={6} className="mb-3" key={childIndex}>
             <div
               className="p-3 rounded-2"
               style={{ backgroundColor: "#232323" }}
@@ -58,7 +73,8 @@ function ListCommandsNew() {
                   className="text-warning text-decoration-none"
                 >
                   <i className="bi bi-terminal-fill me-3 h4"></i>
-                  <span className="h5">{child.name}</span>
+
+                  <CommandTitle title={child.name} />
                 </a>
 
                 <hr className="border-secondary" />
@@ -66,7 +82,7 @@ function ListCommandsNew() {
 
               <p>{child.desc}</p>
 
-              <CodeBlock language={"bash"} content={"php lion " + child.name} />
+              <GetCommands commands={child.name} />
 
               {child.args.length > 0 && (
                 <Fragment>
