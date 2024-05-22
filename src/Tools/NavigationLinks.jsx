@@ -12,4 +12,9 @@ export default [
     type: "link",
     url: "/docs/library/content",
   },
+  {
+    display_name: "Linux configuration",
+    type: "link",
+    url: "/linux-configuration",
+  },
 ];
