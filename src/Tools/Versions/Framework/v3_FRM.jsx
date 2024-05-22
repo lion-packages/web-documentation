@@ -1,4 +1,12 @@
-import { Alert, Badge, ListGroup, Table } from "react-bootstrap";
+import {
+  Alert,
+  Badge,
+  Col,
+  ListGroup,
+  ListGroupItem,
+  Row,
+  Table,
+} from "react-bootstrap";
 import { Link } from "react-router-dom";
 import ListCommandsNew from "../../../pages/components/ListCommandsNew";
 import CodeBlock from "../../../pages/components/CodeBlock";
@@ -7,8 +15,10 @@ import { Fragment } from "react";
 import Description from "../../../pages/components/Description";
 import ExampleTitle from "../../../pages/components/ExampleTitle";
 import EquivalentTo from "../../../pages/components/EquivalentTo";
+import Notes from "../../../pages/components/Notes";
+import Example from "../../../pages/components/Example";
 
-export default function v2_FRM() {
+export default function v3_FRM() {
   return {
     "getting-started": {
       name: "Getting started",
@@ -20,12 +30,9 @@ export default function v2_FRM() {
             <Fragment>
               <Title title={"About us"} />
 
-              <Fragment>
-                <Alert variant={"info"}>
-                  <strong>Note: </strong>Currently the framework is supported
-                  for development in Linux environments.
-                </Alert>
+              <Notes />
 
+              <Fragment>
                 <p className="fs-6">
                   Lion-Framework can also serve as an API backend for a
                   JavaScript single page application or a mobile application.
@@ -58,16 +65,13 @@ export default function v2_FRM() {
             <Fragment>
               <Title title={"Install"} />
 
-              <Alert variant={"info"}>
-                <strong>Note: </strong>Currently the framework is supported for
-                development in Linux environments.
-              </Alert>
+              <Notes />
 
               <Description
                 description={
                   <Fragment>
                     Lion-Framework supports PHP versions{" "}
-                    <label className="text-warning">(8.2/8.3)</label>
+                    <label className="text-warning">(8.3)</label>
                   </Fragment>
                 }
               />
@@ -75,13 +79,6 @@ export default function v2_FRM() {
               <CodeBlock
                 language={"bash"}
                 content={"composer create-project lion/framework"}
-              />
-
-              <CodeBlock
-                language={"bash"}
-                content={
-                  "git clone https://github.com/lion-packages/framework.git"
-                }
               />
             </Fragment>
           ),
@@ -92,21 +89,91 @@ export default function v2_FRM() {
             <Fragment>
               <Title title={"Use Framework"} />
 
-              <Alert variant={"info"}>
-                <strong>Note: </strong>Currently the framework is supported for
-                development in Linux environments.
-              </Alert>
+              <Notes />
 
-              <Description
-                description={
+              <div className="mb-3">
+                <Description
+                  description={
+                    "The framework comes with an API already created by default, it contains a ReactJS project to operate the platform which contains:"
+                  }
+                />
+
+                <ListGroup numbered>
+                  <ListGroupItem variant="dark">
+                    User panel for administrator.
+                  </ListGroupItem>
+
+                  <ListGroupItem variant="dark">
+                    Authentication login for users.
+                  </ListGroupItem>
+
+                  <ListGroupItem variant="dark">
+                    Form to recover forgotten passwords.
+                  </ListGroupItem>
+
+                  <ListGroupItem variant="dark">
+                    User registration form.
+                  </ListGroupItem>
+
+                  <ListGroupItem variant="dark">Dashboard.</ListGroupItem>
+
+                  <ListGroupItem variant="dark">
+                    Account module to update the user profile.
+                  </ListGroupItem>
+                </ListGroup>
+              </div>
+
+              <Fragment>
+                <Title title={"First steps"} />
+              </Fragment>
+
+              <Row>
+                <Col xs={12} sm={12} md={6}>
+                  <Description
+                    description={
+                      <Fragment>
+                        1- Start by starting your web application's local
+                        server. Open your API URL at{" "}
+                        <a href="http://localhost:8000" target={"_blank"}>
+                          <strong>http://localhost:8000</strong>
+                        </a>
+                        .
+                      </Fragment>
+                    }
+                  />
+
+                  <CodeBlock language={"bash"} content={"php lion serve"} />
+                </Col>
+
+                <Col xs={12} sm={12} md={6}>
+                  <Description
+                    description={"2- Run the vite project by default."}
+                  />
+
+                  <CodeBlock language={"bash"} content={"php npm dev"} />
+                </Col>
+
+                <Col xs={12} sm={12} md={6}>
                   <Fragment>
-                    Start by starting your web application's local server. Open
-                    your API URL at <strong>http://localhost:8000</strong>.
-                  </Fragment>
-                }
-              />
+                    <Description
+                      description={"3- Create public and private keys."}
+                    />
 
-              <CodeBlock language={"bash"} content={"php lion serve"} />
+                    <CodeBlock language={"bash"} content={"php lion new:rsa"} />
+                  </Fragment>
+                </Col>
+
+                <Col xs={12} sm={12} md={6}>
+                  <Fragment>
+                    <Description description={"4- Run migrations and seeds."} />
+
+                    <CodeBlock
+                      language={"bash"}
+                      content={"php lion migrate:fresh --seed"}
+                    />
+                  </Fragment>
+                </Col>
+              </Row>
             </Fragment>
           ),
         },
@@ -120,7 +187,7 @@ export default function v2_FRM() {
           name: "Command List",
           code: (
             <Fragment>
-              <Title title={"Command List"} />
+              {/* <Title title={"Command List"} /> */}
 
               <ListCommandsNew />
             </Fragment>
@@ -214,12 +281,12 @@ class ExampleCommand extends Command
     }
 
     /**
-     * Executes the current command.
+     * Executes the current command
      *
      * This method is not abstract because you can use this class
      * as a concrete class. In this case, instead of defining the
      * execute() method, you set the code to execute by passing
-     * a Closure to the setCode() method.
+     * a Closure to the setCode() method
      *
      * @param InputInterface $input [InputInterface is the interface implemented
      * by all input classes]
@@ -880,7 +947,7 @@ class EntityName implements CapsuleInterface
     public function capsule(): EntityName
     {
         $this
-            ->setId(request->id ?? null);
+            ->setId(request('id'));
 
         return $this;
     }
@@ -1032,7 +1099,7 @@ class EntityName implements CapsuleInterface
     public function capsule(): EntityName
     {
         $this
-            ->setId(request->id ?? null);
+            ->setId(request('id'));
 
         return $this;
     }
@@ -1098,27 +1165,20 @@ declare(strict_types=1);
 
 namespace App\\Exceptions;
 
-use Exception;
-use JsonSerializable;
+use Lion\\Exceptions\\Exception;
+use Lion\\Exceptions\\Interfaces\\ExceptionInterface;
+use Lion\\Exceptions\\Traits\\ExceptionTrait;
 
 /**
  * Description of 'ExampleException'
  *
  * @package App\\Exceptions
  */
-class ExampleException extends Exception implements JsonSerializable
+class ExampleException extends Exception implements ExceptionInterface
 {
-    /**
-     * {@inheritdoc}
-     */
-    public function jsonSerialize(): mixed
-    {
-        return error($this->getMessage(), $this->getCode(), [
-            'file' => $this->getFile(),
-            'line' => $this->getLine(),
-        ]);
-    }
+    use ExceptionTrait;
 }
+
 `}
               />
             </Fragment>
@@ -1277,44 +1337,163 @@ class ExampleService
           name: "Create Migration",
           code: (
             <Fragment>
-              <Title title={"Create Migration"} />
+              <Fragment>
+                <Title title={"Create Migration"} />
 
-              <Description
-                description={
-                  <Fragment>
-                    Migrations are used to create the structure of your
-                    database, you can define the tables with their properties,
-                    relate them, read{" "}
-                    <Link
-                      to={"/docs/library/content"}
-                      className="text-decoration-none"
-                    >
-                      Lion-Database
-                    </Link>
-                    , You can select a migration type by running the command.
-                  </Fragment>
-                }
-              />
+                <Description
+                  description={
+                    <Fragment>
+                      Migrations are used to create the structure of your
+                      database, you can define the tables with their properties,
+                      relate them, read{" "}
+                      <Link
+                        to={"/docs/library/content"}
+                        className="text-decoration-none"
+                      >
+                        Lion-Database
+                      </Link>
+                      , You can select a migration type by running the command.
+                    </Fragment>
+                  }
+                />
 
-              <CodeBlock
-                language={"bash"}
-                content={"php lion new:migration example-migration"}
-              />
+                <CodeBlock
+                  language={"bash"}
+                  content={"php lion new:migration example-migration"}
+                />
 
-              <ul className="mb-3" style={{ listStyle: "none" }}>
-                <li>- Table</li>
-                <li>- View</li>
-                <li>- Store-Procedure</li>
-              </ul>
+                <ul className="mb-3" style={{ listStyle: "none" }}>
+                  <li>- Table</li>
+                  <li>- View</li>
+                  <li>- Store-Procedure</li>
+                </ul>
 
-              <Description
-                description={
-                  <Fragment>
-                    The current configuration defaults to <strong>Table</strong>{" "}
-                    as migration.
-                  </Fragment>
-                }
-              />
+                <Description
+                  description={
+                    <Fragment>
+                      The current configuration defaults to{" "}
+                      <strong>Table</strong> as migration.
+                    </Fragment>
+                  }
+                />
+              </Fragment>
+
+              <Fragment>
+                <Fragment>
+                  <Title title={"Migration Table"} />
+
+                  <CodeBlock
+                    language={"php"}
+                    content={`<?php
+
+declare(strict_types=1);
+
+use Lion\\Bundle\\Interface\\Migrations\\TableInterface;
+use Lion\\Database\\Drivers\\Schema\\MySQL as Schema;
+
+/**
+ * Description
+ */
+return new class implements TableInterface
+{
+    /**
+     * [Index number for seed execution priority]
+     *
+     * @const INDEX
+     */
+    const INDEX = null;
+
+    /**
+     * {@inheritdoc}
+     */
+    public function up(): object
+    {
+        return Schema::connection(env('DB_NAME', 'lion_database'))
+            ->createTable('example', function (): void {
+                Schema::int('id')->notNull()->autoIncrement()->primaryKey();
+            })
+            ->execute();
+    }
+};
+`}
+                  />
+                </Fragment>
+
+                <Fragment>
+                  <Title title={"Migration View"} />
+
+                  <CodeBlock
+                    language={"php"}
+                    content={`<?php
+
+declare(strict_types=1);
+
+use Lion\\Bundle\\Interface\\Migrations\\ViewInterface;
+use Lion\\Database\\Drivers\\MySQL;
+use Lion\\Database\\Drivers\\Schema\\MySQL as Schema;
+
+/**
+ * Description
+ */
+return new class implements ViewInterface
+{
+    /**
+     * {@inheritdoc}
+     * */
+    public function up(): object
+    {
+        return Schema::connection(env('DB_NAME', 'lion_database'))
+            ->createView('read_example', function (MySQL $db): void {
+                $db
+                    ->table('table')
+                    ->select();
+            })
+            ->execute();
+    }
+};
+
+`}
+                  />
+                </Fragment>
+
+                <Fragment>
+                  <Title title={"Migration Store-Procedure"} />
+
+                  <CodeBlock
+                    language={"php"}
+                    content={`<?php
+
+declare(strict_types=1);
+
+use Lion\\Bundle\\Interface\\Migrations\\StoreProcedureInterface;
+use Lion\\Database\\Drivers\\MySQL;
+use Lion\\Database\\Drivers\\Schema\\MySQL as Schema;
+
+/**
+ * Description
+ */
+return new class implements StoreProcedureInterface
+{
+    /**
+     * {@inheritdoc}
+     * */
+    public function up(): object
+    {
+        return Schema::connection(env('DB_NAME', 'lion_database'))
+            ->createStoreProcedure('example', function (): void {
+                Schema::in()->varchar('name', 25);
+            }, function (MySQL $db): void {
+                $db
+                    ->table('')
+                    ->insert(['name' => '']);
+            })
+            ->execute();
+    }
+};
+`}
+                  />
+                </Fragment>
+              </Fragment>
             </Fragment>
           ),
         },
@@ -1504,6 +1683,18 @@ class ExampleService
             </Fragment>
           ),
         },
+        run: {
+          name: "Run Project",
+          code: (
+            <Fragment>
+              <Title title={"Run Project"} />
+
+              <Description description={"Execute your vite projects."} />
+
+              <CodeBlock language={"bash"} content={"php npm dev"} />
+            </Fragment>
+          ),
+        },
       },
     },
     mailer: {
@@ -1577,38 +1768,39 @@ Mailer::initialize([
         use: {
           name: "Use Request",
           code: (
-            <>
-              <div className="mb-3">
-                <h3>Request</h3>
+            <Fragment>
+              <Title title="Use Request" />
 
-                <hr />
-              </div>
+              <Description
+                description={
+                  <Fragment>
+                    The <Badge bg={"secondary"}>capture</Badge> function of the{" "}
+                    <Badge bg={"secondary"}>Request</Badge> class is used in
+                    order to obtain the data sent in an HTTP request, the system
+                    internally initializes a{" "}
+                    <Badge bg={"secondary"}>request</Badge> constant to obtain
+                    the data. more information in{" "}
+                    <Link
+                      to={"/docs/library/content"}
+                      className="text-decoration-none"
+                    >
+                      Lion-Request
+                    </Link>
+                    .
+                  </Fragment>
+                }
+              />
 
-              <p className="fs-6">
-                The <Badge bg={"secondary"}>capture</Badge> function of the{" "}
-                <Badge bg={"secondary"}>Request</Badge> class is used in order
-                to obtain the data sent in an HTTP request, the system
-                internally initializes a <Badge bg={"secondary"}>request</Badge>{" "}
-                constant to obtain the data. more information in{" "}
-                <Link
-                  to={"/docs/library/content"}
-                  className="text-decoration-none"
-                >
-                  Lion-Request
-                </Link>
-                .
-              </p>
-
-              <div className="mb-3">
+              <Fragment>
                 <CodeBlock
                   langueage={"php"}
                   content={
                     "<?php\n\n" +
-                    "echo(request->users_name . ' ' . request->{'users_last-name'});"
+                    "echo(request('users_name') . ' ' . request('users_last-name'));"
                   }
                 />
 
-                <p className="fs-6">equivalent to</p>
+                <EquivalentTo />
 
                 <CodeBlock
                   langueage={"php"}
@@ -1617,8 +1809,8 @@ Mailer::initialize([
                     "echo($_POST['users_name'] . ' ' . $_POST['users_last-name']);"
                   }
                 />
-              </div>
-            </>
+              </Fragment>
+            </Fragment>
           ),
         },
       },
@@ -2191,9 +2383,10 @@ declare(strict_types=1);
 
 namespace App\\Http\\Middleware;
 
+use Lion\\Bundle\\Exceptions\\MiddlewareException;
 use Lion\\Files\\Store;
-use Lion\\Request\\Request;
-use Lion\\Request\\Response;
+use Lion\\Request\\Http;
+use Lion\\Request\\Status;
 use Lion\\Security\\JWT;
 use Lion\\Security\\RSA;
 
@@ -2231,7 +2424,7 @@ class JWTMiddleware
 
     /**
      * @required
-     * */
+     */
     public function setStore(Store $store): void
     {
         $this->store = $store;
@@ -2239,7 +2432,7 @@ class JWTMiddleware
 
     /**
      * @required
-     * */
+     */
     public function setRSA(RSA $rsa): void
     {
         $this->rsa = $rsa;
@@ -2247,7 +2440,7 @@ class JWTMiddleware
 
     /**
      * @required
-     * */
+     */
     public function setJWT(JWT $jwt): void
     {
         $this->jwt = $jwt;
@@ -2263,7 +2456,7 @@ class JWTMiddleware
     private function initRSA(string $path): void
     {
         $this->rsa
-            ->setUrlPath(storage_path($path))
+            ->setUrlPath($path)
             ->init();
     }
 
@@ -2273,15 +2466,17 @@ class JWTMiddleware
      * @param object $jwt [JWT object]
      *
      * @return void
+     *
+     * @throws MiddlewareException [The session with the JWT has failed]
      */
     private function validateSession(object $jwt): void
     {
         if (isError($jwt)) {
-            finish(response(Response::SESSION_ERROR, $jwt->message, Request::HTTP_UNAUTHORIZED));
+            throw new MiddlewareException($jwt->message, Status::SESSION_ERROR, Http::HTTP_UNAUTHORIZED);
         }
 
         if (!isset($jwt->data->session)) {
-            finish(response(Response::SESSION_ERROR, 'undefined session', Request::HTTP_FORBIDDEN));
+            throw new MiddlewareException('undefined session', Status::SESSION_ERROR, Http::HTTP_FORBIDDEN);
         }
     }
 
@@ -2289,11 +2484,13 @@ class JWTMiddleware
      * Validate if a JWT exists in the headers
      *
      * @return void
+     *
+     * @throws MiddlewareException [If authorization token does not exist]
      */
     public function existence(): void
     {
-        if (!isset($_SERVER['HTTP_AUTHORIZATION'])) {
-            finish(response(Response::SESSION_ERROR, 'the JWT does not exist', Request::HTTP_UNAUTHORIZED));
+        if (empty($_SERVER['HTTP_AUTHORIZATION'])) {
+            throw new MiddlewareException('the JWT does not exist', Status::SESSION_ERROR, Http::HTTP_UNAUTHORIZED);
         }
     }
 
@@ -2301,6 +2498,8 @@ class JWTMiddleware
      * Validate a JWT in headers even though the signature is not validated
      *
      * @return void
+     *
+     * @throws MiddlewareException [If the authorization token is not valid]
      */
     public function authorizeWithoutSignature(): void
     {
@@ -2309,33 +2508,37 @@ class JWTMiddleware
         $splitToken = explode('.', $this->jwt->getJWT());
 
         if (arr->of($splitToken)->length() != 3) {
-            finish(response(Response::SESSION_ERROR, 'invalid JWT [AWS-1]', Request::HTTP_UNAUTHORIZED));
+            throw new MiddlewareException('invalid JWT [AUTH-1]', Status::SESSION_ERROR, Http::HTTP_UNAUTHORIZED);
         }
 
-        $data = (object) ((object) json_decode(base64_decode($splitToken[1]), true))->data;
+        $data = (object) ((object) json_decode(base64_decode($splitToken[1]), true));
 
-        if (!isset($data->users_code)) {
-            finish(response(Response::SESSION_ERROR, 'invalid JWT [AWS-2]', Request::HTTP_FORBIDDEN));
+        if (empty($data->data['users_code'])) {
+            throw new MiddlewareException('invalid JWT [AUTH-2]', Status::SESSION_ERROR, Http::HTTP_FORBIDDEN);
         }
 
-        $path = env('RSA_URL_PATH') . "{$data->users_code}/";
+        $path = env('RSA_URL_PATH') . "{$data->data['users_code']}/";
 
-        if (isError($this->store->exist(storage_path($path)))) {
-            finish(response(Response::SESSION_ERROR, 'invalid JWT [AWS-3]', Request::HTTP_FORBIDDEN));
+        if (isError($this->store->exist($path))) {
+            throw new MiddlewareException('invalid JWT [AUTH-3]', Status::SESSION_ERROR, Http::HTTP_FORBIDDEN);
         }
 
         $this->initRSA($path);
 
         $token = $this->jwt
-            ->config(['publicKey' => $this->rsa->getPublicKey()])
+            ->config([
+                'publicKey' => $this->rsa->getPublicKey()
+            ])
             ->decode($this->jwt->getJWT())
             ->get();
 
         $this->validateSession($token);
 
-        if (!$token->data->session || !isset($token->data->session)) {
-            finish(
-                response(Response::SESSION_ERROR, 'user not logged in, you must log in', Request::HTTP_UNAUTHORIZED)
+        if (!$token->data->session || empty($token->data->session)) {
+            throw new MiddlewareException(
+                'user not logged in, you must log in',
+                Status::SESSION_ERROR,
+                Http::HTTP_UNAUTHORIZED
             );
         }
     }
@@ -2344,6 +2547,8 @@ class JWTMiddleware
      * Validate a JWT to check if it is still valid and the session is true
      *
      * @return void
+     *
+     * @throws MiddlewareException [If the user session is not authorized]
      */
     public function authorize(): void
     {
@@ -2352,15 +2557,19 @@ class JWTMiddleware
         $this->existence();
 
         $token = $this->jwt
-            ->config(['publicKey' => $this->rsa->getPublicKey()])
+            ->config([
+                'publicKey' => $this->rsa->getPublicKey()
+            ])
             ->decode($this->jwt->getJWT())
             ->get();
 
         $this->validateSession($token);
 
-        if (!$token->data->session || !isset($token->data->session)) {
-            finish(
-                response(Response::SESSION_ERROR, 'user not logged in, you must log in', Request::HTTP_UNAUTHORIZED)
+        if (!$token->data->session || empty($token->data->session)) {
+            throw new MiddlewareException(
+                'user not logged in, you must log in',
+                Status::SESSION_ERROR,
+                Http::HTTP_UNAUTHORIZED
             );
         }
     }
@@ -2369,6 +2578,8 @@ class JWTMiddleware
      * Validate a JWT to check if it is still valid and the session is false
      *
      * @return void
+     *
+     * @throws MiddlewareException [If the user session is authorized]
      */
     public function notAuthorize(): void
     {
@@ -2377,19 +2588,19 @@ class JWTMiddleware
         $this->existence();
 
         $token = $this->jwt
-            ->config(['publicKey' => $this->rsa->getPublicKey()])
+            ->config([
+                'publicKey' => $this->rsa->getPublicKey()
+            ])
             ->decode($this->jwt->getJWT())
             ->get();
 
         $this->validateSession($token);
 
         if ($token->data->session) {
-            finish(
-                response(
-                    Response::SESSION_ERROR,
-                    'user in session, you must close the session',
-                    Request::HTTP_UNAUTHORIZED
-                )
+            throw new MiddlewareException(
+                'user in session, you must close the session',
+                Status::SESSION_ERROR,
+                Http::HTTP_UNAUTHORIZED
             );
         }
     }
@@ -2825,7 +3036,7 @@ class ExampleSocket implements MessageComponentInterface
     stopOnFailure="true"
     stopOnWarning="true"
     bootstrap="tests/bootstrap.php"
-    xsi:noNamespaceSchemaLocation="https://schema.phpunit.de/10.3/phpunit.xsd"
+    xsi:noNamespaceSchemaLocation="https://schema.phpunit.de/11.1/phpunit.xsd"
     backupStaticProperties="false"
     displayDetailsOnIncompleteTests="true"
     displayDetailsOnSkippedTests="true"
@@ -2841,48 +3052,52 @@ class ExampleSocket implements MessageComponentInterface
         <ini name="memory_limit" value="2048M" />
     </php>
 
+    <extensions>
+        <bootstrap class="RobinIngelbrecht\PHPUnitPrettyPrint\PhpUnitExtension">
+            <parameter name="enableByDefault" value="true" />
+            <parameter name="displayProfiling" value="true" />
+            <parameter name="useCompactMode" value="true" />
+        </bootstrap>
+    </extensions>
+
+    <source>
+        <include>
+            <directory suffix=".php">app</directory>
+            <directory suffix=".php">database/Class</directory>
+        </include>
+
+        <exclude>
+            <directory suffix=".php">app/Html</directory>
+            <directory suffix=".php">app/Rules</directory>
+            <directory suffix=".php">app/Sockets</directory>
+        </exclude>
+    </source>
+
     <testsuites>
         <testsuite name="All-Test">
-            <directory>tests/</directory>
+            <directory suffix=".php">tests/Global</directory>
         </testsuite>
 
-        <testsuite name="Enums">
-            <directory>tests/App/Enums/</directory>
+        <testsuite name="Unit-Tests">
+            <directory>tests/Global/App/Enums</directory>
+            <directory>tests/Global/App/Exceptions</directory>
+            <directory>tests/Global/App/Interfaces</directory>
+            <directory>tests/Global/Database</directory>
         </testsuite>
 
-        <testsuite name="Exceptions">
-            <directory>tests/App/Exceptions/</directory>
+        <testsuite name="Integration-Tests">
+            <directory>tests/Global/App/Http/Controllers</directory>
+            <directory>tests/Global/App/Http/Middleware</directory>
+            <directory>tests/Global/App/Http/Services</directory>
+            <directory>tests/Global/App/Models</directory>
         </testsuite>
 
-        <testsuite name="Controllers">
-            <directory>tests/App/Http/Controllers/</directory>
-        </testsuite>
-
-        <testsuite name="Services">
-            <directory>tests/App/Http/Services/</directory>
-        </testsuite>
-
-        <testsuite name="Middleware">
-            <directory>tests/App/Http/Middleware/</directory>
-        </testsuite>
-
-        <testsuite name="Interfaces">
-            <directory>tests/App/Interfaces/</directory>
-        </testsuite>
-
-        <testsuite name="Models">
-            <directory>tests/App/Models/</directory>
-        </testsuite>
-
-        <testsuite name="Traits">
-            <directory>tests/App/Traits/</directory>
-        </testsuite>
-
-        <testsuite name="Class">
-            <directory>tests/Database/Class/</directory>
+        <testsuite name="Functional-Tests">
+            <directory>tests/Global/Api</directory>
         </testsuite>
     </testsuites>
 </phpunit>
+
 `}
               />
             </Fragment>
@@ -2943,20 +3158,211 @@ class ExampleTest extends Test
             </Fragment>
           ),
         },
+        use: {
+          name: "Use Test",
+          code: (
+            <Fragment>
+              <Title title={"Use Test"} />
+
+              <Description
+                description={"Generate a test and add your own assertions."}
+              />
+
+              <Fragment>
+                <ExampleTitle number={1} />
+
+                <Description
+                  description={
+                    "An example of testing a controller that has dependency injection."
+                  }
+                />
+
+                <CodeBlock
+                  language={"php"}
+                  content={`<?php
+
+declare(strict_types=1);
+
+namespace Tests\\Global\\App\\Http\\Controllers\\LionDatabase\\MySQL;
+
+use Lion\\Dependency\\Injection\\Container;
+use Lion\\Request\\Http;
+use Lion\\Request\\Status;
+use Lion\\Test\\Test;
+
+class ExampleControllerTest extends Test
+{
+    private ExampleController $exampleController;
+    private Container $container;
+
+    protected function setUp(): void
+    {
+        $this->exampleController = new ExampleController();
+
+        $this->container = new Container();
+    }
+
+    public function testExample(): void
+    {
+        $response = $this->container->injectDependenciesMethod($this->exampleController, 'example');
+
+        $this->assertIsObject($response);
+        $this->assertObjectHasProperty('code', $response);
+        $this->assertObjectHasProperty('status', $response);
+        $this->assertObjectHasProperty('message', $response);
+        $this->assertSame(Http::HTTP_OK, $response->code);
+        $this->assertSame(Status::SUCCESS, $response->code);
+        $this->assertSame('OK', $response->message);
+    }
+}
+`}
+                />
+              </Fragment>
+
+              <Fragment>
+                <ExampleTitle number={2} />
+
+                <Description
+                  description={"An example of testing a native exception."}
+                />
+
+                <CodeBlock
+                  language={"php"}
+                  content={`<?php
+
+declare(strict_types=1);
+
+namespace Tests\\Global\\App\\Http\\Controllers\\LionDatabase\\MySQL;
+
+use Exception;
+use App\\Exceptions\\ExampleException;
+use Lion\\Request\\Http;
+use Lion\\Test\\Test;
+
+class ExampleExceptionTest extends Test
+{
+    public function testExampleException(): void
+    {
+        $this->expectException(Exception::class);
+        $this->expectExceptionMessage('ERR');
+        $this->expectExceptionCode(Http::HTTP_INTERNAL_SERVER_ERROR);
+
+        throw new Exception('ERR', Http::HTTP_INTERNAL_SERVER_ERROR);
+    }
+}
+`}
+                />
+              </Fragment>
+
+              <Fragment>
+                <ExampleTitle number={3} />
+
+                <Description
+                  description={
+                    <Fragment>
+                      An example of testing a custom lion exception.{" "}
+                      <Link
+                        to="/docs/library/content"
+                        className="text-decoration-none"
+                      >
+                        Lion-Test
+                      </Link>{" "}
+                      makes use of{" "}
+                      <Link
+                        to="/docs/library/content"
+                        className="text-decoration-none"
+                      >
+                        Lion-Exceptions
+                      </Link>{" "}
+                      to handle exceptions.
+                    </Fragment>
+                  }
+                />
+
+                <CodeBlock
+                  language={"php"}
+                  content={`<?php
+
+declare(strict_types=1);
+
+namespace Tests\\Global\\App\\Exceptions;
+
+use App\\Exceptions\\ExampleException;
+use Lion\\Request\\Http;
+use Lion\\Request\\Status;
+use Lion\\Test\\Test;
+
+class ExampleExceptionTest extends Test
+{
+    public function testExampleException(): void
+    {
+        // Run the custom exception to add assertions.
+
+        $this
+            ->exception(ExampleException::class)
+            ->exceptionMessage('ERR')
+            ->exceptionStatus(Status::ERROR)
+            ->exceptionCode(Http::HTTP_INTERNAL_SERVER_ERROR)
+            ->expectLionException();
+    }
+
+    public function testExampleExceptionWithCustomProcess(): void
+    {
+        // Run a specific process where an exception is expected.
+
+        $this
+            ->exception(ExampleException::class)
+            ->exceptionMessage('ERR')
+            ->exceptionStatus(Status::ERROR)
+            ->exceptionCode(Http::HTTP_INTERNAL_SERVER_ERROR)
+            ->expectLionException(function (): void {
+                throw new ExampleException('ERR', Status::ERROR, Http::HTTP_INTERNAL_SERVER_ERROR);
+            });
+    }
+}
+
+`}
+                />
+              </Fragment>
+            </Fragment>
+          ),
+        },
         run: {
           name: "Run Test",
           code: (
             <Fragment>
               <Title title={"Run Test"} />
 
-              <Description description={"Run all tests via command line."} />
+              <Notes />
 
-              <CodeBlock language={"bash"} content={"php lion test"} />
+              <Fragment>
+                <Description description={"Run all tests via command line."} />
 
-              <CodeBlock
-                language={"bash"}
-                content={"php lion test --suite Controllers"}
-              />
+                <CodeBlock language={"bash"} content={"php lion test"} />
+
+                <CodeBlock
+                  language={"bash"}
+                  content={"php lion test --suite Unit-Tests"}
+                />
+              </Fragment>
+
+              <Fragment>
+                <Description
+                  description={
+                    "Run the reports to observe them from the coverage."
+                  }
+                />
+
+                <CodeBlock
+                  language={"bash"}
+                  content={"php lion test --report"}
+                />
+
+                <CodeBlock
+                  language={"bash"}
+                  content={"php lion test --suite Unit-Tests --report"}
+                />
+              </Fragment>
             </Fragment>
           ),
         },
@@ -3349,7 +3755,31 @@ CRONTAB_PROJECT_PATH="/var/www/html/" # the "/var/www/html/" value for docker`}
 
                 <CodeBlock
                   language={"bash"}
-                  content={"php lion schedule:schema"}
+                  content={"php lion migrate:fresh"}
+                />
+              </Fragment>
+
+              <Fragment>
+                <Title title={"Register tasks in queue"} />
+
+                <Description
+                  description={
+                    <Fragment>
+                      Register your tasks with the <strong>TaskQueue</strong>{" "}
+                      helper.
+                    </Fragment>
+                  }
+                />
+
+                <CodeBlock
+                  language={"php"}
+                  content={`<?php
+
+TaskQueue::push('send:email:account-verify', json([
+    'account' => fake()->email(),
+    'code' => fake()->numerify('######'),
+]));
+`}
                 />
               </Fragment>
 
@@ -3360,7 +3790,15 @@ CRONTAB_PROJECT_PATH="/var/www/html/" # the "/var/www/html/" value for docker`}
                   description={
                     <Fragment>
                       Add tasks based on your queued tasks in{" "}
-                      <Badge bg="secondary">config/queue.php</Badge>.
+                      <Badge bg="secondary">config/queue.php</Badge>. Processes
+                      for tasks have dependency injections, you can also inject
+                      the properties defined in the json. Read{" "}
+                      <Link
+                        to={"/docs/library/content"}
+                        className="text-decoration-none"
+                      >
+                        Lion-Dependency-Injection
+                      </Link>
                     </Fragment>
                   }
                 />
@@ -3386,6 +3824,10 @@ use Lion\\Mailer\\Priority;
  * -----------------------------------------------------------------------------
  **/
 
+TaskQueue::add('send:email:account-verify', [App\\Http\\Services\\CustomService::class, 'exampleMethod']);
+
+// or
+
 TaskQueue::add(
     'send:email:account-verify',
     (
@@ -3398,18 +3840,13 @@ TaskQueue::add(
          *
          * @throws Exception [Catch an exception if the process fails]
          */
-        function (object $queue): void {
-            $data = (object) json_decode($queue->task_queue_data, true);
-
+        function (VerifyAccountHtml $htmlTemplate, object $queue, string $account, string $code): void {
             try {
-                /** @var VerifyAccountHtml $htmlTemplate */
-                $htmlTemplate = new $data->template;
-
                 Mailer::account(env('MAIL_NAME'))
                     ->subject('Registration Confirmation - Please Verify Your Email')
                     ->from(env('MAIL_USER_NAME'), 'Lion-Packages')
-                    ->addAddress($data->account)
-                    ->body($htmlTemplate->template()->replace('{{CODE_REPLACE}}', $data->code)->get())
+                    ->addAddress($account)
+                    ->body($htmlTemplate->template()->replace('CODE_REPLACE', $code)->get())
                     ->priority(Priority::HIGH)
                     ->send();
             } catch (Exception $e) {
@@ -3424,31 +3861,6 @@ TaskQueue::add(
         }
     )
 );
-`}
-                />
-              </Fragment>
-
-              <Fragment>
-                <Title title={"Register tasks in queue"} />
-
-                <Description
-                  description={
-                    <Fragment>
-                      Register your tasks with the <strong>TaskQueue</strong>{" "}
-                      helper.
-                    </Fragment>
-                  }
-                />
-
-                <CodeBlock
-                  language={"php"}
-                  content={`<?php
-
-TaskQueue::push('send:email:account-verify', json([
-    'template' => VerifyAccountHtml::class,
-    'account' => fake()->email(),
-    'code' => '123456',
-]));
 `}
                 />
               </Fragment>
@@ -3549,6 +3961,30 @@ TaskQueue::push('send:email:account-verify', json([
               <Title title={"Functions"} />
 
               <Fragment>
+                <h5 className="text-warning">{"request"}</h5>
+
+                <Description
+                  description={
+                    "Object with properties captured in an HTTP request and you can add properties to the object."
+                  }
+                />
+
+                <CodeBlock
+                  language={"php"}
+                  content={`<?php
+
+$request = request();
+
+vd($request);
+
+$request = request('users_name');
+
+vd($request);
+`}
+                />
+              </Fragment>
+
+              <Fragment>
                 <h5 className="text-warning">{"now"}</h5>
 
                 <Description
@@ -3561,7 +3997,7 @@ TaskQueue::push('send:email:account-verify', json([
                   language={"php"}
                   content={`<?php
 
-$date = now()->format('Y-m-d H:i:s');
+$request = now()->format('Y-m-d H:i:s');
 
 vd($date);
 `}
@@ -3907,14 +4343,16 @@ vd($dbname);
                 language={"dockerfile"}
                 content={`FROM php:8.3-apache
 
+# Add User
 RUN useradd -m lion && echo 'lion:lion' | chpasswd && usermod -aG sudo lion && usermod -s /bin/bash lion
 
+# Dependencies
 RUN apt-get update -y \\
     && apt-get install -y sudo nano git npm default-mysql-client curl wget unzip cron sendmail libpng-dev libzip-dev \\
     && apt-get install -y zlib1g-dev libonig-dev supervisor libevent-dev libssl-dev \\
     && rm -rf /var/lib/apt/lists/*
 
-# Electron-Vite dependencies
+# Electron-Vite Dependencies
 RUN apt-get update -y \\
     && apt-get install -y libnss3 mesa-utils libgl1-mesa-glx mesa-utils-extra libx11-xcb1 libxcb-dri3-0 libxtst6 \\
     && apt-get install -y libasound2 libgtk-3-0 libcups2 libatk-bridge2.0 libatk1.0 libcanberra-gtk-module \\
@@ -3922,17 +4360,23 @@ RUN apt-get update -y \\
     && apt-get clean \\
     && rm -rf /var/lib/apt/lists/*
 
-RUN pecl install ev redis \\
+# Configure PHP-Extensions
+RUN pecl install ev redis xdebug \\
     && docker-php-ext-install mbstring gd pdo_mysql mysqli zip \\
-    && docker-php-ext-enable gd zip
+    && docker-php-ext-enable gd zip redis xdebug \\
+    && echo "xdebug.coverage_enable" >> /usr/local/etc/php/conf.d/docker-php-ext-xdebug.ini \\
+    && echo "xdebug.mode=coverage" >> /usr/local/etc/php/conf.d/docker-php-ext-xdebug.ini
 
+# Install Composer
 RUN a2enmod rewrite \\
     && curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer
 
+# Copy Data
 COPY . .
 COPY supervisord.conf /etc/supervisor/conf.d/supervisord.conf
 
-CMD touch storage/server.log storage/socket.log storage/supervisord.log storage/logs/vite/lion.log \\
+# Init Project
+CMD touch storage/logs/server.log storage/logs/socket.log storage/logs/supervisord.log storage/logs/test-coverage.log \\
     && /usr/bin/supervisord -c /etc/supervisor/conf.d/supervisord.conf
 `}
               />
@@ -3960,7 +4404,8 @@ CMD touch storage/server.log storage/socket.log storage/supervisord.log storage/
             - /dev/dri:/dev/dri
         ports:
             - "8000:8000"
-            - "9000:9000"
+            - "8001:8001"
+            - "8080:8080"
             - "5173:5173"
         volumes:
             - ./:/var/www/html
@@ -4001,7 +4446,6 @@ CMD touch storage/server.log storage/socket.log storage/supervisord.log storage/
     mysql:
         image: mysql
         container_name: framework-mysql
-        command: --default-authentication-plugin=mysql_native_password
         ports:
             - "3306:3306"
         environment:
@@ -4018,7 +4462,7 @@ CMD touch storage/server.log storage/socket.log storage/supervisord.log storage/
         links:
             - mysql:mysql
         ports:
-            - 8080:80
+            - 80:80
         environment:
             PMA_HOST: mysql
             MYSQL_USER: root

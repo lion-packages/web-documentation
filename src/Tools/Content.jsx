@@ -15,10 +15,16 @@ import v1_LT from "./Versions/libraries/test/v1_LT";
 import v2_FRM from "./Versions/Framework/v2_FRM";
 import v2_CMMD from "./Versions/Commands/V2_CMMD";
 import v3_LH from "./Versions/libraries/helpers/v3_LH";
+import v3_FRM from "./Versions/Framework/v3_FRM";
+import v3_CMMD from "./Versions/Commands/V3_CMMD";
 
 export default function Content() {
   return {
     framework: {
+      v3: {
+        docs: v3_FRM(),
+        commands: v3_CMMD(),
+      },
       v2: {
         docs: v2_FRM(),
         commands: v2_CMMD(),
