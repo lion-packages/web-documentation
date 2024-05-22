@@ -1319,7 +1319,7 @@ class ExampleService
      */
     public function example(ExampleHtml $exampleHtml): void
     {
-        vd($exampleHtml->template());
+        vd($exampleHtml->template()->get());
     }
 }
 `}

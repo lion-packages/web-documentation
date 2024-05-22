@@ -8,6 +8,7 @@ import LibraryContent from "./pages/LibraryContent";
 import FooterNavigation from "./pages/components/FooterNavigation";
 import ContentView from "./pages/ContentView";
 import LinuxConfiguration from "./pages/LinuxConfiguration";
+import Standars from "./pages/Standars";
 
 function App() {
   return (
@@ -17,6 +18,7 @@ function App() {
       <Routes>
         <Route path="*" element={<NotFound />} />
         <Route path="/" element={<DashboardContent />} />
+        <Route path="standards" element={<Standars />} />
         <Route path="linux-configuration" element={<LinuxConfiguration />} />
 
         <Route path="docs/">

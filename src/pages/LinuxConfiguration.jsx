@@ -9,7 +9,7 @@ export default function LinuxConfiguration() {
     <Fragment>
       <Container>
         <div className="text-light my-3">
-          <div className="mb-3">
+          <div className="mb-5">
             <Title title={"Linux Configuration"} />
 
             <Description
