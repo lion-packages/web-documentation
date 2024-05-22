@@ -131,6 +131,30 @@ sudo apt-get update`}
                     "sudo apt-get install docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin"
                   }
                 />
+
+                <hr />
+
+                <CodeBlock
+                  language={"bash"}
+                  content={"sudo usermod -aG docker my_user"}
+                />
+
+                <CodeBlock
+                  language={"bash"}
+                  content={"ls -l /var/run/docker.sock"}
+                />
+
+                <CodeBlock
+                  language={"log"}
+                  content={
+                    "srw-rw---- 1 root docker 0 Nov  8 10:00 /var/run/docker.sock"
+                  }
+                />
+
+                <CodeBlock
+                  language={"bash"}
+                  content={"sudo chmod 660 /var/run/docker.sock"}
+                />
               </Fragment>
 
               <Fragment>
