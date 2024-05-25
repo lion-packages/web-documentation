@@ -17,6 +17,7 @@ import v2_CMMD from "./Versions/Commands/V2_CMMD";
 import v3_LH from "./Versions/libraries/helpers/v3_LH";
 import v3_FRM from "./Versions/Framework/v3_FRM";
 import v3_CMMD from "./Versions/Commands/V3_CMMD";
+import v9_LRT from "./Versions/libraries/route/v9_LRT";
 
 export default function Content() {
   return {
@@ -61,6 +62,7 @@ export default function Content() {
         v5: v5_LR(),
       },
       route: {
+        v9: v9_LRT(),
         v8: v8_LRT(),
       },
       security: {
