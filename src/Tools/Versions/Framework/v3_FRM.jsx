@@ -16,7 +16,6 @@ import Description from "../../../pages/components/Description";
 import ExampleTitle from "../../../pages/components/ExampleTitle";
 import EquivalentTo from "../../../pages/components/EquivalentTo";
 import Notes from "../../../pages/components/Notes";
-import Example from "../../../pages/components/Example";
 
 export default function v3_FRM() {
   return {

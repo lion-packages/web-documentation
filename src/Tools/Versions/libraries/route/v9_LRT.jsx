@@ -6,7 +6,7 @@ import LibraryTitle from "../../../../pages/components/LibraryTitle";
 import Title from "../../../../pages/components/Title";
 import Example from "../../../../pages/components/Example";
 
-export default function v8_LRT() {
+export default function v9_LRT() {
   return {
     "getting-started": {
       name: "Getting started",
@@ -41,6 +41,15 @@ export default function v8_LRT() {
                 <strong>Note: </strong>Currently the library is compatible with
                 development in Linux environments.
               </Alert>
+
+              <Description
+                description={
+                  <Fragment>
+                    Lion-Framework supports PHP versions{" "}
+                    <label className="text-warning">(8.2)</label>
+                  </Fragment>
+                }
+              />
 
               <CodeBlock
                 language={"bash"}
@@ -78,41 +87,6 @@ export default function v8_LRT() {
     RewriteCond %{REQUEST_FILENAME} !-f
     RewriteRule ^ index.php [L]
 </IfModule>`}
-              />
-            </Fragment>
-          ),
-        },
-      },
-    },
-    request: {
-      name: "Request::class",
-      type: "sub_modules",
-      list: {
-        init: {
-          name: "init",
-          code: (
-            <Fragment>
-              <LibraryTitle className={"Request"} methodName={"init"} />
-
-              <Description
-                description={
-                  "The init function initializes the request service through a parameter."
-                }
-              />
-
-              <Description
-                description={
-                  "The library has an integrated guzzle, this to make http requests through routes."
-                }
-              />
-
-              <CodeBlock
-                language={"php"}
-                content={
-                  "<?php\n\n" +
-                  "use LionRoute\\Request;\n\n" +
-                  "Request::init(new GuzzleHttp\\Client());"
-                }
               />
             </Fragment>
           ),

@@ -1,4 +1,4 @@
-import { Alert, Badge, Col, Row } from "react-bootstrap";
+import { Alert, Col, Row } from "react-bootstrap";
 import CodeBlock from "../../../../pages/components/CodeBlock";
 import Description from "../../../../pages/components/Description";
 import { Fragment } from "react";
@@ -6,7 +6,7 @@ import LibraryTitle from "../../../../pages/components/LibraryTitle";
 import Title from "../../../../pages/components/Title";
 import Example from "../../../../pages/components/Example";
 
-export default function v8_LRT() {
+export default function v10_LRT() {
   return {
     "getting-started": {
       name: "Getting started",
@@ -41,6 +41,15 @@ export default function v8_LRT() {
                 <strong>Note: </strong>Currently the library is compatible with
                 development in Linux environments.
               </Alert>
+
+              <Description
+                description={
+                  <Fragment>
+                    Lion-Framework supports PHP versions{" "}
+                    <label className="text-warning">(8.2)</label>
+                  </Fragment>
+                }
+              />
 
               <CodeBlock
                 language={"bash"}
@@ -84,41 +93,6 @@ export default function v8_LRT() {
         },
       },
     },
-    request: {
-      name: "Request::class",
-      type: "sub_modules",
-      list: {
-        init: {
-          name: "init",
-          code: (
-            <Fragment>
-              <LibraryTitle className={"Request"} methodName={"init"} />
-
-              <Description
-                description={
-                  "The init function initializes the request service through a parameter."
-                }
-              />
-
-              <Description
-                description={
-                  "The library has an integrated guzzle, this to make http requests through routes."
-                }
-              />
-
-              <CodeBlock
-                language={"php"}
-                content={
-                  "<?php\n\n" +
-                  "use LionRoute\\Request;\n\n" +
-                  "Request::init(new GuzzleHttp\\Client());"
-                }
-              />
-            </Fragment>
-          ),
-        },
-      },
-    },
     route: {
       name: "Route::class",
       type: "sub_modules",
@@ -142,21 +116,26 @@ export default function v8_LRT() {
                   language="php"
                   content={`<?php
 
-namespace App\Http\Middleware;
+namespace App\\Http\\Middleware;
 
-class Auth {
-    public function auth(): void {
+use Exception;
+
+class Auth
+{
+    /**
+     * Handle an incoming request.
+     *
+     * @return void
+     *
+     * @throws Exception
+     */
+    public function auth(): void
+    {
         if (!isset($_SESSION['user_session'])) {
-            echo(json_encode([
-                'status' => 'error', 
-                'message' => 'user session does not exist'
-            ]));
-
-            exit();
+            throw new Exception('Unauthorized');
         }
     }
-}
-`}
+}`}
                 />
               </Fragment>
 
@@ -167,40 +146,15 @@ class Auth {
                   language="php"
                   content={`<?php
 
-use LionRoute\\Route;
+use Lion\\Bundle\\Middleware\\RouteMiddleware;
+use Lion\\Route\\Route;
 
 Route::addMiddleware([
-    App\Http\Middleware\Auth::class => [
-        ['name' => 'auth', 'method' => 'auth'],
-        ['name' => 'no-auth', 'method' => 'noAuth'],
-    ]
+    new Middleware('auth-filter', Auth::class, 'auth'),
 ]);
 `}
                 />
               </Fragment>
-            </Fragment>
-          ),
-        },
-        "add-log": {
-          name: "addLog",
-          code: (
-            <Fragment>
-              <LibraryTitle className={"Route"} methodName={"addLog"} />
-
-              <Description
-                description={
-                  "The addLog function allows you to check if the logger function initialized from the Lion-Framework exists."
-                }
-              />
-
-              <CodeBlock
-                language="php"
-                content={
-                  "<?php\n\n" +
-                  "use LionRoute\\Route;\n\n" +
-                  "Route::addLog();\n"
-                }
-              />
             </Fragment>
           ),
         },
@@ -221,7 +175,7 @@ Route::addMiddleware([
                 language="php"
                 content={`<?php
 
-use LionRoute\\Route;
+use Lion\\Route\\Route;
 use App\\Http\\Controllers\\UsersController;
 
 Route::init();
@@ -240,7 +194,7 @@ Route::dispatch();
                 language={"php"}
                 content={`<?php
 
-use LionRoute\\Route;
+use Lion\\Route\\Route;
 use App\\Http\\Controllers\\UsersController;
 
 Route::init();
@@ -322,7 +276,7 @@ Route::dispatch();
                     "\t3 -> example\n" +
                     "\t4+ ...\n" +
                     "*/\n\n" +
-                    "use LionRoute\\Route;\n\n" +
+                    "use Lion\\Route\\Route;\n\n" +
                     "Route::init(1);\n"
                   }
                 />
@@ -347,7 +301,7 @@ Route::dispatch();
                 language="php"
                 content={`<?php
 
-use LionRoute\\Route;
+use Lion\\Route\\Route;
 use App\\Http\\Controllers\\UsersController;
 
 Route::init();
@@ -366,7 +320,7 @@ Route::dispatch();
                 language="php"
                 content={`<?php
 
-use LionRoute\\Route;
+use Lion\\Route\\Route;
 use App\\Http\\Controllers\\UsersController;
 
 Route::init();
@@ -396,7 +350,7 @@ Route::dispatch();
                 language="php"
                 content={`<?php
 
-use LionRoute\\Route;
+use Lion\\Route\\Route;
 use App\\Http\\Controllers\\UsersController;
 
 Route::init();
@@ -415,7 +369,7 @@ Route::dispatch();
                 language="php"
                 content={`<?php
 
-use LionRoute\\Route;
+use Lion\\Route\\Route;
 use App\\Http\\Controllers\\UsersController;
 
 Route::init();
@@ -431,7 +385,7 @@ Route::dispatch();
                 language="php"
                 content={`<?php
 
-use LionRoute\\Route;
+use Lion\\Route\\Route;
 use App\\Http\\Controllers\\UsersController;
 
 Route::init();
@@ -460,7 +414,7 @@ Route::dispatch();
                 language="php"
                 content={
                   "<?php\n\n" +
-                  "use LionRoute\\Route;\n\n" +
+                  "use Lion\\Route\\Route;\n\n" +
                   "Route::get('routes-filters', fn() => Route::getFilters());\n"
                 }
               />
@@ -483,7 +437,7 @@ Route::dispatch();
                 language="php"
                 content={
                   "<?php\n\n" +
-                  "use LionRoute\\Route;\n\n" +
+                  "use Lion\\Route\\Route;\n\n" +
                   "Route::get('routes-list', fn() => Route::getFullRoutes());\n"
                 }
               />
@@ -506,7 +460,7 @@ Route::dispatch();
                 language="php"
                 content={
                   "<?php\n\n" +
-                  "use LionRoute\\Route;\n\n" +
+                  "use Lion\\Route\\Route;\n\n" +
                   "Route::get('routes-list', fn() => Route::getRoutes());\n"
                 }
               />
@@ -530,7 +484,7 @@ Route::dispatch();
                 language="php"
                 content={`<?php
 
-use LionRoute\\Route;
+use Lion\\Route\\Route;
 use App\\Http\\Controllers\\UsersController;
 
 Route::init();
@@ -549,7 +503,7 @@ Route::dispatch();
                 language={"php"}
                 content={`<?php
 
-use LionRoute\\Route;
+use Lion\\Route\\Route;
 use App\\Http\\Controllers\\UsersController;
 
 Route::init();
@@ -667,7 +621,7 @@ Route::post('login', [Example::class, 'postMethod'], ['no-auth']);
                 language="php"
                 content={`<?php
 
-use LionRoute\\Route;
+use Lion\\Route\\Route;
 use App\\Http\\Controllers\\UsersController;
 
 Route::init();
@@ -685,7 +639,7 @@ Route::dispatch();
                 language={"php"}
                 content={`<?php
 
-use LionRoute\\Route;
+use Lion\\Route\\Route;
 use App\\Http\\Controllers\\UsersController;
 
 Route::init();
@@ -715,7 +669,7 @@ Route::dispatch();
                 language="php"
                 content={`<?php
 
-use LionRoute\\Route;
+use Lion\\Route\\Route;
 use App\\Http\\Controllers\\UsersController;
 
 Route::init();
@@ -734,7 +688,7 @@ Route::dispatch();
                 language="php"
                 content={`<?php
 
-use LionRoute\\Route;
+use Lion\\Route\\Route;
 use App\\Http\\Controllers\\UsersController;
 
 Route::init();
@@ -750,7 +704,7 @@ Route::dispatch();
                 language="php"
                 content={`<?php
 
-use LionRoute\\Route;
+use Lion\\Route\\Route;
 use App\\Http\\Controllers\\UsersController;
 
 Route::init();
@@ -780,7 +734,7 @@ Route::dispatch();
                 language="php"
                 content={`<?php
 
-use LionRoute\\Route;
+use Lion\\Route\\Route;
 use App\\Http\\Controllers\\UsersController;
 
 Route::init();
@@ -799,7 +753,7 @@ Route::dispatch();
                 language="php"
                 content={`<?php
 
-use LionRoute\\Route;
+use Lion\\Route\\Route;
 use App\\Http\\Controllers\\UsersController;
 
 Route::init();
@@ -815,7 +769,7 @@ Route::dispatch();
                 language="php"
                 content={`<?php
 
-use LionRoute\\Route;
+use Lion\\Route\\Route;
 use App\\Http\\Controllers\\UsersController;
 
 Route::init();
@@ -843,7 +797,7 @@ Route::dispatch();
                 language="php"
                 content={`<?php
 
-use LionRoute\\Route;
+use Lion\\Route\\Route;
 use App\\Http\\Controllers\\UsersController;
 
 Route::init();
@@ -861,7 +815,7 @@ Route::dispatch();
                 language="php"
                 content={`<?php
 
-use LionRoute\\Route;
+use Lion\\Route\\Route;
 use App\\Http\\Controllers\\UsersController;
 
 Route::init();
