@@ -20,7 +20,7 @@ export default function Editors() {
 
         <div className="mb-4">
           <h5 className="text-warning">
-            JetBrains Mono. A typeface for developers
+            Font: JetBrains Mono. A typeface for developers
           </h5>
 
           <Description
@@ -50,7 +50,7 @@ export default function Editors() {
 
         <div className="mb-4">
           <h5 className="text-warning">
-            Great software starts on the command line
+            Warp: Great software starts on the command line
           </h5>
 
           <Description
@@ -91,59 +91,6 @@ export default function Editors() {
           />
 
           <Fragment>
-            <h6 className="text-info">Settings</h6>
-
-            <Fragment>
-              <label>Settings</label>
-
-              <CodeBlock
-                language="json"
-                content={`{
-    "ignored_packages": ["Vintage"],
-    "color_scheme": "Packages/Darkula Color Scheme/darkula.tmTheme",
-    "theme": "ayu-dark.sublime-theme",
-    "font_face": "Jetbrains Mono NL Regular",
-    "font_size": 14,
-    "rulers": [80, 120],
-    "ruler_width": 1.0,
-    "ruler_style": "solid", // dotted - stippled - solid
-    "index_files": true,
-    "highlight_line": true,
-    "line_padding_top": 1,
-    "line_padding_bottom": 1,
-    "bold_folder_labels": false,
-    "hardware_acceleration": "none", // none - opengl
-    "draw_minimap_border": true,
-}`}
-              />
-            </Fragment>
-
-            <Fragment>
-              <label>Key Bindings</label>
-
-              <CodeBlock
-                language="json"
-                content={`[
-    {
-        "keys": ["ctrl+]"],
-        "command": "toggle_comment",
-        "args": {
-            "block": false
-        }
-    },
-    {
-        "keys": ["ctrl+shift+]"],
-        "command": "toggle_comment",
-        "args": {
-            "block": true
-        }
-    },
-]`}
-              />
-            </Fragment>
-          </Fragment>
-
-          <Fragment>
             <h6 className="text-info">Plugins</h6>
 
             <ul>
@@ -157,6 +104,15 @@ export default function Editors() {
               <li>
                 <strong>PHPGrammar:</strong>{" "}
                 <Description description={"PHP macros for Sublime Text."} />
+              </li>
+
+              <li>
+                <strong>OverrideAudit:</strong>{" "}
+                <Description
+                  description={
+                    "OverrideAudit is the missing tool for working with and managing your package overrides in Sublime Text 3. From simply helping you remember what you've overridden to warning you of potential problems, OverrideAudit has you covered."
+                  }
+                />
               </li>
 
               <li>
@@ -199,6 +155,15 @@ export default function Editors() {
                 <Description
                   description={
                     "PHP support for Sublime's LSP plugin provided through intelephense."
+                  }
+                />
+              </li>
+
+              <li>
+                <strong>LSP-yaml:</strong>{" "}
+                <Description
+                  description={
+                    "YAML support for Sublime's LSP plugin using yaml-language-server."
                   }
                 />
               </li>
@@ -274,24 +239,44 @@ export default function Editors() {
     },
     "globals":
     {
+      "background": "#2b2b2b",
+      "guide": "#545454"
     },
-    "rules":
+    "rules": 
     [
         {
-            "scope": "entity.name.class",
-            "font_style": "italic"
+            "scope": "variable, punctuation.definition.variable",
+            "foreground": "#8d759e",
         },
         {
-            "scope": "entity.other.inherited-class",
-            "font_style": "italic"
+            "scope": "entity.name.function, meta.function-call.php",
+            "foreground": "#ffc66d",
+            // "font_style": "italic",
+        },
+        {
+            "scope": "meta.function-call.object.php, variable.function",
+            "foreground": "#ffc66d",
+            // "font_style": "italic",
         },
         {
             "scope": "support.type, support.class",
-            "font_style": "italic"
+            "font_style": "italic",
         },
         {
             "scope": "source.php entity.name.namespace.php",
-            "font_style": "italic"
+            "font_style": "italic",
+        },
+        {
+            "scope": "entity.name.class",
+            "font_style": "italic",
+        },
+        {
+            "scope": "source.php variable.namespace.php",
+            "foreground": "#A9B7C6",
+        },
+        {
+            "scope": "flow-statements",
+            "foreground": "#000000",
         }
     ]
 }`}
@@ -311,19 +296,140 @@ export default function Editors() {
     "rules":
     [
         {
-            "class": "sidebar_container",
-            "content_margin": [0, 0, 0, 0]
+            "class": "title_bar",
+            "bg": "#3c3f41",
         },
         {
-            "class": "sidebar_tree",
-            "indent_top_level": true,
-            "row_padding": [15, 5],
-            "indent": 10
+            "class": "puck_control",
+            "layer0.texture": "ayu/assets/scrollbar-vertical-wide.png",
+            "layer0.tint": "#707275",
+            "layer0.opacity": 0.6,
+            "layer0.inner_margin": [
+                0,
+                10
+            ],
+            "content_margin": [
+                6,
+                12
+            ]
         },
-        {
-            "class": "sidebar_label",
-            "font.size": 12.5,
-        },
+      {
+          "class": "tabset_control",
+          "mouse_wheel_switch": true,
+          "tab_min_width": 50,
+          "tab_overlap": 0,
+          "tab_height": 38,
+          "tab_width": 100,
+          "layer0.tint": "#3c3f41",
+          "layer0.opacity": 1,
+          "content_margin": [
+              10,
+              0
+          ]
+      },
+      {
+          "class": "panel_control",
+          "layer0.tint": "#3c3f41",
+          "layer0.opacity": 1,
+          "content_margin": [
+              0,
+              5
+          ]
+      },
+      {
+          "class": "sidebar_button_control",
+          "layer0.texture": "ayu/assets/sidebar.png",
+          "layer0.tint": "#BFB9B9",
+          "layer0.opacity": 1,
+          "content_margin": [
+              12,
+              12
+          ]
+      },
+      {
+          "class": "sidebar_button_control",
+          "attributes": [
+              "hover"
+          ],
+          "layer0.tint": "#e6b450"
+      },
+      {
+          "class": "label_control",
+          "parents": [
+              {
+                  "class": "button_control"
+              }
+          ],
+          "color": "#BFB9B9"
+      },
+      {
+          "class": "label_control",
+          "parents": [
+              {
+                  "class": "button_control",
+                  "attributes": [
+                      "hover"
+                  ]
+              }
+          ],
+          "color": "#565B66"
+      },
+      {
+          "class": "sidebar_container",
+          "content_margin": [10, 10, 10, 10],
+          "layer0.tint": "#3c3f41",
+      },
+      {
+          "class": "sidebar_tree",
+          "indent_top_level": true,
+          "row_padding": [20, 5],
+          "indent": 10
+      },
+      {
+          "class": "sidebar_label",
+          "fg": "#BFB9B9",
+          "font.size": 13,
+      },
+      {
+          "class": "sidebar_label",
+          "parents": [
+              {
+                  "class": "file_system_entry",
+                  "attributes": [
+                      "ignored"
+                  ]
+              }
+          ],
+          "fg": "#76787B"
+      },
+      {
+          "class": "status_bar",
+          "layer0.texture": "",
+          "layer0.tint": "#3c3f41",
+          "layer0.opacity": 1,
+          "layer1.texture": "ayu/assets/separator-top.png",
+          "layer1.tint": "#1b1f29",
+          "layer1.inner_margin": [
+              1,
+              2,
+              1,
+              0
+          ],
+          "content_margin": [
+              10,
+              2
+          ]
+      },
+      {
+          "class": "label_control",
+          "parents": [
+              {
+                  "class": "status_bar"
+              }
+          ],
+          "color": "#BFB9B9",
+          "font.bold": false
+      },
     ]
 }`}
                 />
@@ -357,140 +463,60 @@ export default function Editors() {
               </li>
             </ul>
           </Fragment>
-        </div>
-
-        <div className="mb-4">
-          <h5 className="text-warning">Visual Studio Code</h5>
-
-          <p>
-            Visual Studio Code (VS Code) is a lightweight yet powerful code
-            editor developed by Microsoft, designed for building and debugging
-            modern web and cloud applications. It is known for its speed,
-            flexibility, and extensive feature set, making it a favorite among
-            developers.
-          </p>
-
-          <p>Key features of Visual Studio Code include:</p>
-
-          <ul>
-            <li>
-              <strong>IntelliSense:</strong> Provides smart code completions
-              based on variable types, function definitions, and imported
-              modules.
-            </li>
-
-            <li>
-              <strong>Debugging:</strong> Built-in debugger helps you to inspect
-              variables, view call stacks, and execute commands in the console.
-            </li>
-
-            <li>
-              <strong>Extensions:</strong> A vast marketplace of extensions
-              allows customization and enhancement of functionality to suit
-              different programming languages and workflows.
-            </li>
-
-            <li>
-              <strong>Integrated Terminal:</strong> Access the terminal within
-              the editor to run command-line operations directly.
-            </li>
-
-            <li>
-              <strong>Version Control:</strong> Built-in Git support makes it
-              easy to manage source code versioning and collaboration.
-            </li>
-
-            <li>
-              <strong>Customizability:</strong> Personalize the editor with
-              themes, keyboard shortcuts, and settings tailored to your needs.
-            </li>
-
-            <li>
-              <strong>Cross-Platform:</strong> Available on Windows, macOS, and
-              Linux, ensuring a consistent development environment across
-              different operating systems.
-            </li>
-          </ul>
-
-          <p>
-            VS Code combines the simplicity of a code editor with powerful
-            developer tools, providing an efficient and versatile environment
-            for software development.
-          </p>
-        </div>
-
-        <Fragment>
-          <h6 className="text-info">Settings</h6>
 
           <Fragment>
-            <label>User Settings</label>
+            <h6 className="text-info">Settings</h6>
 
-            <CodeBlock
-              language="json"
-              content={`{
-  "workbench.colorTheme": "Darkula",
-  "window.zoomLevel": 1,
-  "explorer.confirmDelete": false,
-  "workbench.sideBar.location": "right",
-  "editor.defaultFormatter": "esbenp.prettier-vscode",
-  "editor.tabSize": 2,
-  "editor.rulers": [80, 120],
-  "explorer.compactFolders": false,
-  "[json]": {
-    "editor.defaultFormatter": "esbenp.prettier-vscode",
-    "editor.tabSize": 2,
-    "editor.formatOnSave": true
-  },
-  "[css]": {
-    "editor.defaultFormatter": "esbenp.prettier-vscode",
-    "editor.tabSize": 2,
-    "editor.formatOnSave": true
-  },
-  "[html]": {
-    "editor.defaultFormatter": "esbenp.prettier-vscode",
-    "editor.tabSize": 2,
-    "editor.formatOnSave": true
-  },
-  "[javascript]": {
-    "editor.defaultFormatter": "esbenp.prettier-vscode",
-    "editor.tabSize": 2,
-    "editor.formatOnSave": true
-  },
-  "[javascriptreact]": {
-    "editor.defaultFormatter": "esbenp.prettier-vscode",
-    "editor.tabSize": 2,
-    "editor.formatOnSave": true
-  },
-  "[jsx]": {
-    "editor.defaultFormatter": "esbenp.prettier-vscode",
-    "editor.tabSize": 2,
-    "editor.formatOnSave": true
-  },
-  "editor.fontFamily": "'JetBrains Mono NL', 'monospace', monospace, 'Droid Sans Fallback'",
-  "explorer.confirmDragAndDrop": false,
-  "workbench.iconTheme": "vscode-icons",
-  "redhat.telemetry.enabled": true,
-  "codeium.enableConfig": {
-    "*": true,
-    "properties": true
-  },
-  "javascript.updateImportsOnFileMove.enabled": "always",
-  "git.openRepositoryInParentFolders": "always",
-  "codeium.enableCodeLens": false,
-  "git.confirmSync": false,
-  "editor.minimap.renderCharacters": false,
-  "editor.fontSize": 16
+            <Fragment>
+              <label>Settings</label>
+
+              <CodeBlock
+                language="json"
+                content={`{
+    "ignored_packages": ["Vintage"],
+    "color_scheme": "Packages/Darkula Color Scheme/darkula.tmTheme",
+    "theme": "ayu-dark.sublime-theme",
+    "font_face": "Jetbrains Mono",
+    // "font_face": "Jetbrains Mono NL Medium",
+    "font_size": 13,
+    "rulers": [80, 120],
+    "ruler_width": 1.0,
+    "ruler_style": "solid", // dotted - stippled - solid
+    "index_files": true,
+    "highlight_line": true,
+    "line_padding_top": 2,
+    "line_padding_bottom": 2,
+    "bold_folder_labels": false,
+    "hardware_acceleration": "none", // none - opengl
 }`}
-            />
+              />
+            </Fragment>
+
+            <Fragment>
+              <label>Key Bindings</label>
+
+              <CodeBlock
+                language="json"
+                content={`[
+    {
+        "keys": ["ctrl+]"],
+        "command": "toggle_comment",
+        "args": {
+            "block": false
+        }
+    },
+    {
+        "keys": ["ctrl+shift+]"],
+        "command": "toggle_comment",
+        "args": {
+            "block": true
+        }
+    },
+]`}
+              />
+            </Fragment>
           </Fragment>
-        </Fragment>
-
-        <Fragment>
-          <h6 className="text-info">Extensions</h6>
-
-          <h5 className="text-warning">Soon...</h5>
-          {/* <CodeBlock language="json" content={``} /> */}
-        </Fragment>
+        </div>
       </div>
     </Container>
   );
