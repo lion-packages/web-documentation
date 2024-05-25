@@ -141,14 +141,11 @@ sudo apt-get update`}
 
                 <CodeBlock
                   language={"bash"}
-                  content={"ls -l /var/run/docker.sock"}
-                />
+                  content={`ls -l /var/run/docker.sock
 
-                <CodeBlock
-                  language={"log"}
-                  content={
-                    "srw-rw---- 1 root docker 0 Nov  8 10:00 /var/run/docker.sock"
-                  }
+# Output: 
+
+# srw-rw---- 1 root docker 0 Nov  8 10:00 /var/run/docker.sock`}
                 />
 
                 <CodeBlock
@@ -194,18 +191,6 @@ sudo apt-get update`}
                   language={"bash"}
                   content={"sudo apt-get install ./logo-ls_amd64.deb"}
                 />
-              </Fragment>
-
-              <Fragment>
-                <div className="mb-3">
-                  <a
-                    href="https://github.com/Yash-Handa/logo-ls/issues/49"
-                    className="text-decoration-none"
-                    target="_blank"
-                  >
-                    Broken Logo-ls solution
-                  </a>
-                </div>
 
                 <CodeBlock
                   language={"bash"}
