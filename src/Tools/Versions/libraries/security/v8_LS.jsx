@@ -4,9 +4,8 @@ import { Fragment } from "react";
 import LibraryTitle from "../../../../pages/components/LibraryTitle";
 import Description from "../../../../pages/components/Description";
 import Title from "../../../../pages/components/Title";
-import ExampleTitle from "../../../../pages/components/ExampleTitle";
 
-export default function v7_LS() {
+export default function v8_LS() {
   return {
     "getting-started": {
       name: "Getting started",
@@ -46,7 +45,7 @@ export default function v7_LS() {
                 description={
                   <Fragment>
                     Lion-Framework supports PHP versions{" "}
-                    <label className="text-warning">(8.1)</label>
+                    <label className="text-warning">(8.2)</label>
                   </Fragment>
                 }
               />
@@ -64,70 +63,32 @@ export default function v7_LS() {
       name: "AES::class",
       type: "sub_modules",
       list: {
-        encode: {
-          name: "encode",
+        config: {
+          name: "config",
           code: (
             <Fragment>
-              <LibraryTitle className="AES" methodName="encode" />
+              <LibraryTitle className="AES" methodName="config" />
 
               <Description
-                description={
-                  "It allows you to encrypt the information using their respective keys."
-                }
-              />
-
-              <Description
-                description={
-                  <Fragment>
-                    First create an <strong>".env"</strong> file in the root of
-                    your project to create environment variables, the functions
-                    of the AES class interact with 3 environment variables which
-                    environment variable (AES_METHOD) is static and must be
-                    declared before.
-                  </Fragment>
-                }
-              />
-
-              <CodeBlock language="bash" content={'AES_METHOD="aes-256-cbc"'} />
-
-              <Description
-                description={
-                  "AES interacts with environment variable ($_ENV) to encrypt data with AES, you must send an array and parse it, declare your environment variables and send the names by parameters."
-                }
+                description={"Define settings for AES encryption."}
               />
 
               <CodeBlock
                 language="php"
                 content={`<?php
 
-$data = [
-    "email" => "myemail2022@example.com"
-    "password" => "mypass1234"
-];
-`}
-              />
+declare(strict_types=1);
 
-              <Description
-                description={
-                  "The created array must be sent to the encryption function to encrypt the data; in addition, specify the .env properties that the function will use for encryption."
-                }
-              />
-
-              <Alert variant={"info"}>
-                <strong>Note:</strong> that the <strong>AES_KEY</strong> and{" "}
-                <strong>AES_IV</strong> properties are extracted directly from
-                the <strong>.env</strong> file.
-              </Alert>
-
-              <CodeBlock
-                language="php"
-                content={`<?php
+require_once('vendor/autoload.php');
 
 use LionSecurity\\AES;
 
-$aesEnc = AES::encode($_ENV['AES_KEY'], $_ENV['AES_IV'], $data);
-
-var_dump($aesEnc);
+(new AES())
+    ->config([
+        'key' => 'aes key...',
+        'iv' => 'aes iv...',
+        'aes_method' => 'aes-256-cbc',
+    ]);
 `}
               />
             </Fragment>
@@ -137,33 +98,105 @@ var_dump($aesEnc);
           name: "decode",
           code: (
             <Fragment>
-              <LibraryTitle className="AES" methodName="decode" />
+              <LibraryTitle className="AES" methodName="encode" />
 
               <Description
-                description={"Allows deciphering information using its keys."}
+                description={"Decodes the data with the defined settings."}
               />
-
-              <Description
-                description={
-                  "The created array must be sent to the decryption function to decrypt the data; in addition, specify the .env properties that the function will use for encryption."
-                }
-              />
-
-              <Alert variant={"info"}>
-                <strong>Note:</strong> that the <strong>AES_KEY</strong> and{" "}
-                <strong>AES_IV</strong> properties are extracted directly from
-                the <strong>.env</strong> file.
-              </Alert>
 
               <CodeBlock
                 language="php"
                 content={`<?php
 
+declare(strict_types=1);
+
+require_once('vendor/autoload.php');
+
 use LionSecurity\\AES;
 
-$aesDec = AES::decode($_ENV['AES_KEY'], $_ENV['AES_IV'], (array) $aesEnc);
+$aesDec = (new AES())
+    ->config([
+        'key' => 'aes key...',
+        'iv' => 'aes iv...',
+        'aes_method' => 'aes-256-cbc',
+    ])
+    ->decode($aesEnc)
+    ->get();
 
 var_dump($aesDec);
+`}
+              />
+            </Fragment>
+          ),
+        },
+        encode: {
+          name: "encode",
+          code: (
+            <Fragment>
+              <LibraryTitle className="AES" methodName="encode" />
+
+              <Description
+                description={"Encrypt data with defined settings."}
+              />
+
+              <CodeBlock
+                language="php"
+                content={`<?php
+
+declare(strict_types=1);
+
+require_once('vendor/autoload.php');
+
+use LionSecurity\\AES;
+
+$aesEnc = (new AES())
+    ->config([
+        'key' => 'aes key...',
+        'iv' => 'aes iv...',
+        'aes_method' => 'aes-256-cbc',
+    ])
+    ->encode('email', 'root@dev.com')
+    ->encode('password', 'mypass1234')
+    ->get();
+
+var_dump($aesEnc);
+`}
+              />
+            </Fragment>
+          ),
+        },
+        "to-object": {
+          name: "toObject",
+          code: (
+            <Fragment>
+              <LibraryTitle className="AES" methodName="toObject" />
+
+              <Description
+                description={"Converts the list with data to an object"}
+              />
+
+              <CodeBlock
+                language="php"
+                content={`<?php
+
+declare(strict_types=1);
+
+require_once('vendor/autoload.php');
+
+use LionSecurity\\AES;
+
+$aesEnc = (new AES())
+    ->config([
+        'key' => 'aes key...',
+        'iv' => 'aes iv...',
+        'aes_method' => 'aes-256-cbc',
+    ])
+    ->encode('email', 'root@dev.com')
+    ->encode('password', 'mypass1234')
+    ->toObject()
+    ->get();
+
+var_dump($aesEnc);
 `}
               />
             </Fragment>
@@ -175,66 +208,31 @@ var_dump($aesDec);
       name: "JWT::class",
       type: "sub_modules",
       list: {
-        encode: {
-          name: "encode",
+        config: {
+          name: "config",
           code: (
             <Fragment>
-              <LibraryTitle className="JWT" methodName="encode" />
+              <LibraryTitle className="JWT" methodName="config" />
 
-              <Description
-                description={
-                  "The encode function generates a JWT with the information obtained."
-                }
-              />
-
-              <p className="fs-6">
-                First create an <strong>.env</strong> file in the root of your
-                project to create environment variables, the function works with
-                2 parameters, The first parameter is an array with the data to
-                be added to the JWT, The second parameter is optional and it is
-                the lifetime of the JWT.
-              </p>
-
-              <CodeBlock
-                language={"bash"}
-                content={
-                  'JWT_DEFAULT_MD="" # Algorithm for encryption\n' +
-                  'JWT_EXP="" # Expiry time'
-                }
-              />
+              <Description description={"Settings to generate JWT token."} />
 
               <CodeBlock
                 language="php"
                 content={`<?php
 
-use LionSecurity\\JWT;
+declare(strict_types=1);
 
-$jwtEnc = JWT::encode(['idUsers' => 1, 'idRoles' => 3]);
-
-var_dump($jwtEnc);
-`}
-              />
-
-              <Alert variant="warning">
-                <strong>Note:</strong> that the default time that the JWT has is
-                24 hours.
-              </Alert>
-
-              <p className="fs-6">
-                You can change the time by sending an integer as the second
-                parameter With this, it is established that the JWT will have a
-                duration of 300 seconds, which is equivalent to 5 minutes.
-              </p>
-
-              <CodeBlock
-                language="php"
-                content={`<?php
+require_once('vendor/autoload.php');
 
 use LionSecurity\\JWT;
 
-$jwtEnc = JWT::encode(['idUsers' => 1, 'idRoles' => 3], 300);
-
-var_dump($jwtEnc);
+(new JWT())
+    ->config([
+        'jwtServerUrl' => 'http://localhost:8000',
+        'jwtServerUrlAud' => 'http://localhost:5173',
+        'jwtExp' => 3600,
+        'jwtDefaultMD' => 'RS256',
+    ]);
 `}
               />
             </Fragment>
@@ -247,26 +245,70 @@ var_dump($jwtEnc);
               <LibraryTitle className="JWT" methodName="decode" />
 
               <Description
-                description={
-                  "The decode function returns the token to its original fetched data state."
-                }
-              />
-
-              <Description
-                description={
-                  "To decrypt the JWT, the generated JWT string must be sent."
-                }
+                description={"Decodes the data with the defined settings."}
               />
 
               <CodeBlock
                 language="php"
                 content={`<?php
 
+declare(strict_types=1);
+
+require_once('vendor/autoload.php');
+
 use LionSecurity\\JWT;
 
-$jwtDec = JWT::decode($jwtEnc);
+$data = (new JWT())
+    ->config([
+        'jwtServerUrl' => 'http://localhost:8000',
+        'jwtServerUrlAud' => 'http://localhost:5173',
+        'jwtExp' => 3600,
+        'jwtDefaultMD' => 'RS256',
+        'publicKey' => '...'
+    ])
+    ->decode($token)
+    ->get();
 
-var_dump($jwtDec);
+var_dump($data);
+`}
+              />
+            </Fragment>
+          ),
+        },
+        encode: {
+          name: "encode",
+          code: (
+            <Fragment>
+              <LibraryTitle className="JWT" methodName="encode" />
+
+              <Description
+                description={"Encrypt data with defined settings."}
+              />
+
+              <CodeBlock
+                language="php"
+                content={`<?php
+
+declare(strict_types=1);
+
+require_once('vendor/autoload.php');
+
+use LionSecurity\\JWT;
+
+$token = (new JWT())
+    ->config([
+        'jwtServerUrl' => 'http://localhost:8000',
+        'jwtServerUrlAud' => 'http://localhost:5173',
+        'jwtExp' => 3600,
+        'jwtDefaultMD' => 'RS256',
+        'privateKey' => '...'
+    ])
+    ->encode([
+        'session' => true,
+    ])
+    ->get();
+
+var_dump($token);
 `}
               />
             </Fragment>
@@ -280,13 +322,45 @@ var_dump($jwtDec);
 
               <Description
                 description={
-                  "The get function gets the token obtained through an http request."
+                  "Returns the current array/object with the encrypted/decrypted data."
                 }
               />
+
+              <CodeBlock
+                language="php"
+                content={`<?php
+
+declare(strict_types=1);
+
+require_once('vendor/autoload.php');
+
+use LionSecurity\\JWT;
+
+$data = (new JWT())
+    ->config([
+        'jwtServerUrl' => 'http://localhost:8000',
+        'jwtServerUrlAud' => 'http://localhost:5173',
+        'jwtExp' => 3600,
+        'jwtDefaultMD' => 'RS256',
+        'privateKey' => // ...
+    ])
+    ->decode($token)
+    ->get();
+
+var_dump($data);
+`}
+              />
+            </Fragment>
+          ),
+        },
+        "get-jwt": {
+          name: "getJWT",
+          code: (
+            <Fragment>
+              <LibraryTitle className="JWT" methodName="getJWT" />
+
               <Description
-                description={
-                  "In order to retrieve the JWT, It must be sent through a header. When sending your HTTP request, Ihe JWT is not attached to the data, So we must obtain the JWT from the headers sent."
-                }
+                description={"Gets the Authorization header token."}
               />
 
               <CodeBlock
@@ -295,7 +369,18 @@ var_dump($jwtDec);
 
 use LionSecurity\\JWT;
 
-$jwtDec = JWT::decode(JWT::get());
+$jwt = new JWT();
+
+$jwtDec = $jwt
+    ->config([
+        'jwtServerUrl' => 'http://localhost:8000',
+        'jwtServerUrlAud' => 'http://localhost:5173',
+        'jwtExp' => 3600,
+        'jwtDefaultMD' => 'RS256',
+        'publicKey' => '...'
+    ])
+    ->decode($jwt->getJWT())
+    ->get();
 
 var_dump($jwtDec);
 `}
@@ -309,135 +394,67 @@ var_dump($jwtDec);
       name: "RSA::class",
       type: "sub_modules",
       list: {
-        "create-keys": {
-          name: "createKeys",
+        config: {
+          name: "config",
           code: (
             <Fragment>
-              <LibraryTitle className="RSA" methodName="createKeys" />
+              <LibraryTitle className="RSA" methodName="config" />
 
-              <Description
-                description={
-                  "The createKeys function allows you to generate public and private keys."
-                }
-              />
-
-              <Description
-                description={
-                  "First create an .env file in the root of your project to create environment variables, the RSA class functions interact with 4 environment variables."
-                }
-              />
+              <Description description={"Define settings for RSA encryption"} />
 
               <CodeBlock
-                language={"bash"}
-                content={`RSA_PATH="" # openssl.cnf file location
-RSA_URL_PATH="" # Location of the folder where the keys should be generated
-RSA_PRIVATE_KEY_BITS="" # Amount of BITS to generate the keys (2048)
-RSA_DEFAULT_MD="" # Type of algorithm with which the keys must be generated (sha256)`}
+                language="php"
+                content={`<?php
+
+declare(strict_types=1);
+
+require_once('vendor/autoload.php');
+
+use LionSecurity\\RSA;
+
+
+(new RSA())
+    ->config([
+        'rsaPath' => 'openssl.cnf',
+        'rsaUrlPath' => 'keys',
+        'rsaPrivateKeyBits' => 2048,
+        'rsaDefaultMD' => 'sha256',
+    ]);
+`}
               />
-
-              <Fragment>
-                <ExampleTitle number={1} />
-
-                <p className="fs-6">
-                  In this first option we can create the keys automatically in
-                  an internally established route{" "}
-                  <strong>storage/secret-key/</strong>, which when looking at
-                  your directories will have new folders and files in the
-                  respective <strong>storage/secret-key/</strong> path.
-                </p>
-
-                <CodeBlock
-                  language="php"
-                  content={`<?php
-
-use LionSecurity\\RSA;
-
-RSA::createKeys();
-
-return [
-	'status' => 'success',
-	'message' => 'Keys created successfully'
-];
-`}
-                />
-              </Fragment>
-
-              <Fragment>
-                <ExampleTitle number={2} />
-
-                <p className="fs-6">
-                  In this second option we can specify which folders we are
-                  going to create, which will be where the public and private
-                  keys will be stored.
-                </p>
-
-                <CodeBlock
-                  language="php"
-                  content={`<?php
-
-use LionSecurity\\RSA;
-
-RSA::createKeys('resources/my_secret_folder/');
-
-return [
-	'status' => 'success',
-	'message' => 'Keys created successfully'
-];
-`}
-                />
-              </Fragment>
             </Fragment>
           ),
         },
-        encode: {
-          name: "encode",
+        create: {
+          name: "create",
           code: (
             <Fragment>
-              <LibraryTitle className="RSA" methodName="encode" />
+              <LibraryTitle className="RSA" methodName="create" />
 
               <Description
-                description={
-                  "The encode function allows you to encrypt the information using RSA encryption."
-                }
-              />
-
-              <Description
-                description={
-                  "To encrypt data with rsa, you must specify an array."
-                }
+                description={"Create public and private key in a route."}
               />
 
               <CodeBlock
                 language="php"
                 content={`<?php
 
-$data = [
-	'email' => 'myemail2022@example.com', 
-	'password' => 'mypass1234',
-];
-`}
-              />
+declare(strict_types=1);
 
-              <Description
-                description={
-                  "The created array must be sent to the function to encrypt the data."
-                }
-              />
-
-              <CodeBlock
-                language="php"
-                content={`<?php
+require_once('vendor/autoload.php');
 
 use LionSecurity\\RSA;
 
-$data = [
-	'email' => 'myemail2022@example.com', 
-	'password' => 'mypass1234',
-];
 
-$rsaEnc = RSA::encode($data);
+(new RSA())
+    ->config([
+        'rsaPath' => 'openssl.cnf',
+        'rsaUrlPath' => 'keys',
+        'rsaPrivateKeyBits' => 2048,
+        'rsaDefaultMD' => 'sha256',
+    ])
+    ->create();
 
-var_dump($rsaEnc);
 `}
               />
             </Fragment>
@@ -450,24 +467,29 @@ var_dump($rsaEnc);
               <LibraryTitle className="RSA" methodName="decode" />
 
               <Description
-                description={
-                  "The decode function allows decrypting the information through RSA decryption."
-                }
-              />
-
-              <Description
-                description={
-                  "The created array must be sent to the decryption function to get the data."
-                }
+                description={"Decodes the data with the defined settings."}
               />
 
               <CodeBlock
                 language="php"
                 content={`<?php
 
+declare(strict_types=1);
+
+require_once('vendor/autoload.php');
+
 use LionSecurity\\RSA;
 
-$rsaDec = RSA::decode((array) $rsaEnc);
+$rsaDec = (new RSA())
+    ->config([
+        'rsaPath' => 'openssl.cnf',
+        'rsaUrlPath' => 'keys',
+        'rsaPrivateKeyBits' => 2048,
+        'rsaDefaultMD' => 'sha256',
+    ])
+    ->create()
+    ->decode($rsaEnc)
+    ->get();
 
 var_dump($rsaDec);
 `}
@@ -475,39 +497,52 @@ var_dump($rsaDec);
             </Fragment>
           ),
         },
-        "get-path": {
-          name: "getPath",
+        encode: {
+          name: "encode",
           code: (
             <Fragment>
-              <LibraryTitle className="RSA" methodName="getPath" />
+              <LibraryTitle className="RSA" methodName="encode" />
 
               <Description
-                description={
-                  "The getPath function allows you to get the current path of where the RSA keys are stored."
-                }
+                description={"Encrypt data with defined settings."}
               />
 
               <CodeBlock
                 language="php"
                 content={`<?php
 
+declare(strict_types=1);
+
+require_once('vendor/autoload.php');
+
 use LionSecurity\\RSA;
 
-var_dump(RSA::getPath());
+$rsaEnc = (new RSA())
+    ->config([
+        'rsaPath' => 'openssl.cnf',
+        'rsaUrlPath' => 'keys',
+        'rsaPrivateKeyBits' => 2048,
+        'rsaDefaultMD' => 'sha256',
+    ])
+    ->create()
+    ->encode('key', 'value')
+    ->get();
+
+var_dump($rsaEnc);
 `}
               />
             </Fragment>
           ),
         },
-        "set-path": {
-          name: "setPath",
+        get: {
+          name: "get",
           code: (
             <Fragment>
-              <LibraryTitle className="RSA" methodName="setPath" />
+              <LibraryTitle className="RSA" methodName="get" />
 
               <Description
                 description={
-                  "The setPath function allows to modify the current path of where the RSA keys are stored."
+                  "Returns the current array/object with the encrypted/decrypted data."
                 }
               />
 
@@ -515,9 +550,58 @@ var_dump(RSA::getPath());
                 language="php"
                 content={`<?php
 
+declare(strict_types=1);
+
+require_once('vendor/autoload.php');
+
 use LionSecurity\\RSA;
 
-RSA::setPath('my_path');
+$rsaEnc = (new RSA())
+    ->config([
+        'rsaPath' => 'openssl.cnf',
+        'rsaUrlPath' => 'keys',
+        'rsaPrivateKeyBits' => 2048,
+        'rsaDefaultMD' => 'sha256',
+    ])
+    ->create()
+    ->encode('key', 'value')
+    ->get();
+`}
+              />
+            </Fragment>
+          ),
+        },
+        "to-object": {
+          name: "toObject",
+          code: (
+            <Fragment>
+              <LibraryTitle className="RSA" methodName="toObject" />
+
+              <Description
+                description={"Converts the list with data to an object."}
+              />
+
+              <CodeBlock
+                language="php"
+                content={`<?php
+
+declare(strict_types=1);
+
+require_once('vendor/autoload.php');
+
+use LionSecurity\\RSA;
+
+$rsaEnc = (new RSA())
+    ->config([
+        'rsaPath' => 'openssl.cnf',
+        'rsaUrlPath' => 'keys',
+        'rsaPrivateKeyBits' => 2048,
+        'rsaDefaultMD' => 'sha256',
+    ])
+    ->create()
+    ->encode('key', 'value')
+    ->toObject()
+    ->get();
 `}
               />
             </Fragment>
@@ -563,9 +647,13 @@ RSA::setPath('my_path');
                 language="php"
                 content={`<?php
 
+declare(strict_types=1);
+
+require_once('vendor/autoload.php');
+
 use LionSecurity\\Validation;
 
-$password = Validation::sha256('root1234');
+$password = (new Validation())->sha256('root1234');
 
 var_dump($password);
 `}
@@ -606,9 +694,13 @@ var_dump($password);
                 language="php"
                 content={`<?php
 
+declare(strict_types=1);
+
+require_once('vendor/autoload.php');
+
 use LionSecurity\\Validation;
 
-$password = Validation::passwordHash('root1234');
+$password = (new Validation())->passwordHash('root1234');
 
 var_dump($password);
 `}
@@ -657,10 +749,14 @@ var_dump($password);
                 language="php"
                 content={`<?php
 
+declare(strict_types=1);
+
+require_once('vendor/autoload.php');
+
 use LionSecurity\\Validation;
 use Valitron\\Validator;
 
-$response = Validation::validate($_POST, function(Validator $validator) {
+$response = (new Validation())->validate($_POST, function(Validator $validator): void {
     $validator
         ->rule('required', 'users_email')
         ->message('custom message...');

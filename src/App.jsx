@@ -8,19 +8,20 @@ import LibraryContent from "./pages/LibraryContent";
 import FooterNavigation from "./pages/components/FooterNavigation";
 import ContentView from "./pages/ContentView";
 import LinuxConfiguration from "./pages/LinuxConfiguration";
-import Standars from "./pages/Standars";
+import Standards from "./pages/Standards";
 import Editors from "./pages/Editors";
+import { Fragment } from "react";
 
 function App() {
   return (
-    <>
+    <Fragment>
       <NavbarNavigation />
 
       <Routes>
         <Route path="*" element={<NotFound />} />
         <Route path="/" element={<DashboardContent />} />
         <Route path="editors" element={<Editors />} />
-        <Route path="standards" element={<Standars />} />
+        <Route path="standards" element={<Standards />} />
         <Route path="linux-configuration" element={<LinuxConfiguration />} />
 
         <Route path="docs/">
@@ -41,7 +42,7 @@ function App() {
       </Routes>
 
       <FooterNavigation />
-    </>
+    </Fragment>
   );
 }
 
