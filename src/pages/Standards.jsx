@@ -160,7 +160,7 @@ use Lion\\Request\\Http;
  */
 public function example(): object
 {
-    return response(Status::SUCCESS, 'OK', Http::HTTP_OK);
+    return response(Status::SUCCESS, 'OK', Http::OK);
 }
 `}
           />
@@ -178,7 +178,7 @@ use Lion\\Request\\Http;
  */
 public function example(): object
 {
-    return success('OK', Http::HTTP_OK);
+    return success('OK', Http::OK);
 }
 `}
           />
