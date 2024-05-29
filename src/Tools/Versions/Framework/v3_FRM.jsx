@@ -2471,11 +2471,11 @@ class JWTMiddleware
     private function validateSession(object $jwt): void
     {
         if (isError($jwt)) {
-            throw new MiddlewareException($jwt->message, Status::SESSION_ERROR, Http::HTTP_UNAUTHORIZED);
+            throw new MiddlewareException($jwt->message, Status::SESSION_ERROR, Http::UNAUTHORIZED);
         }
 
         if (!isset($jwt->data->session)) {
-            throw new MiddlewareException('undefined session', Status::SESSION_ERROR, Http::HTTP_FORBIDDEN);
+            throw new MiddlewareException('undefined session', Status::SESSION_ERROR, Http::FORBIDDEN);
         }
     }
 
@@ -2489,7 +2489,7 @@ class JWTMiddleware
     public function existence(): void
     {
         if (empty($_SERVER['HTTP_AUTHORIZATION'])) {
-            throw new MiddlewareException('the JWT does not exist', Status::SESSION_ERROR, Http::HTTP_UNAUTHORIZED);
+            throw new MiddlewareException('the JWT does not exist', Status::SESSION_ERROR, Http::UNAUTHORIZED);
         }
     }
 
@@ -2507,19 +2507,19 @@ class JWTMiddleware
         $splitToken = explode('.', $this->jwt->getJWT());
 
         if (arr->of($splitToken)->length() != 3) {
-            throw new MiddlewareException('invalid JWT [AUTH-1]', Status::SESSION_ERROR, Http::HTTP_UNAUTHORIZED);
+            throw new MiddlewareException('invalid JWT [AUTH-1]', Status::SESSION_ERROR, Http::UNAUTHORIZED);
         }
 
         $data = (object) ((object) json_decode(base64_decode($splitToken[1]), true));
 
         if (empty($data->data['users_code'])) {
-            throw new MiddlewareException('invalid JWT [AUTH-2]', Status::SESSION_ERROR, Http::HTTP_FORBIDDEN);
+            throw new MiddlewareException('invalid JWT [AUTH-2]', Status::SESSION_ERROR, Http::FORBIDDEN);
         }
 
         $path = env('RSA_URL_PATH') . "{$data->data['users_code']}/";
 
         if (isError($this->store->exist($path))) {
-            throw new MiddlewareException('invalid JWT [AUTH-3]', Status::SESSION_ERROR, Http::HTTP_FORBIDDEN);
+            throw new MiddlewareException('invalid JWT [AUTH-3]', Status::SESSION_ERROR, Http::FORBIDDEN);
         }
 
         $this->initRSA($path);
@@ -2537,7 +2537,7 @@ class JWTMiddleware
             throw new MiddlewareException(
                 'user not logged in, you must log in',
                 Status::SESSION_ERROR,
-                Http::HTTP_UNAUTHORIZED
+                Http::UNAUTHORIZED
             );
         }
     }
@@ -2568,7 +2568,7 @@ class JWTMiddleware
             throw new MiddlewareException(
                 'user not logged in, you must log in',
                 Status::SESSION_ERROR,
-                Http::HTTP_UNAUTHORIZED
+                Http::UNAUTHORIZED
             );
         }
     }
@@ -2599,7 +2599,7 @@ class JWTMiddleware
             throw new MiddlewareException(
                 'user in session, you must close the session',
                 Status::SESSION_ERROR,
-                Http::HTTP_UNAUTHORIZED
+                Http::UNAUTHORIZED
             );
         }
     }
@@ -3209,7 +3209,7 @@ class ExampleControllerTest extends Test
         $this->assertObjectHasProperty('code', $response);
         $this->assertObjectHasProperty('status', $response);
         $this->assertObjectHasProperty('message', $response);
-        $this->assertSame(Http::HTTP_OK, $response->code);
+        $this->assertSame(Http::OK, $response->code);
         $this->assertSame(Status::SUCCESS, $response->code);
         $this->assertSame('OK', $response->message);
     }
@@ -3244,9 +3244,9 @@ class ExampleExceptionTest extends Test
     {
         $this->expectException(Exception::class);
         $this->expectExceptionMessage('ERR');
-        $this->expectExceptionCode(Http::HTTP_INTERNAL_SERVER_ERROR);
+        $this->expectExceptionCode(Http::INTERNAL_SERVER_ERROR);
 
-        throw new Exception('ERR', Http::HTTP_INTERNAL_SERVER_ERROR);
+        throw new Exception('ERR', Http::INTERNAL_SERVER_ERROR);
     }
 }
 `}
@@ -3301,7 +3301,7 @@ class ExampleExceptionTest extends Test
             ->exception(ExampleException::class)
             ->exceptionMessage('ERR')
             ->exceptionStatus(Status::ERROR)
-            ->exceptionCode(Http::HTTP_INTERNAL_SERVER_ERROR)
+            ->exceptionCode(Http::INTERNAL_SERVER_ERROR)
             ->expectLionException();
     }
 
@@ -3313,9 +3313,9 @@ class ExampleExceptionTest extends Test
             ->exception(ExampleException::class)
             ->exceptionMessage('ERR')
             ->exceptionStatus(Status::ERROR)
-            ->exceptionCode(Http::HTTP_INTERNAL_SERVER_ERROR)
+            ->exceptionCode(Http::INTERNAL_SERVER_ERROR)
             ->expectLionException(function (): void {
-                throw new ExampleException('ERR', Status::ERROR, Http::HTTP_INTERNAL_SERVER_ERROR);
+                throw new ExampleException('ERR', Status::ERROR, Http::INTERNAL_SERVER_ERROR);
             });
     }
 }
