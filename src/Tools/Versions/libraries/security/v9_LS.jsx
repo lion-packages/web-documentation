@@ -5,7 +5,7 @@ import LibraryTitle from "../../../../pages/components/LibraryTitle";
 import Description from "../../../../pages/components/Description";
 import Title from "../../../../pages/components/Title";
 
-export default function v8_LS() {
+export default function v9_LS() {
   return {
     "getting-started": {
       name: "Getting started",
@@ -44,8 +44,8 @@ export default function v8_LS() {
               <Description
                 description={
                   <Fragment>
-                    Lion-Framework supports PHP versions{" "}
-                    <label className="text-warning">(8.2)</label>
+                    Lion-Security supports PHP versions{" "}
+                    <label className="text-warning">(8.3)</label>
                   </Fragment>
                 }
               />
@@ -63,6 +63,34 @@ export default function v8_LS() {
       name: "AES::class",
       type: "sub_modules",
       list: {
+        create: {
+          name: "create",
+          code: (
+            <Fragment>
+              <LibraryTitle className="AES" methodName="create" />
+
+              <Description
+                description={"Creates key and iv for aes encryption."}
+              />
+
+              <CodeBlock
+                language="php"
+                content={`<?php
+
+declare(strict_types=1);
+
+require_once('vendor/autoload.php');
+
+use Lion\\Security\\AES;
+
+$config = (new AES())->create();
+
+var_dump($config);
+`}
+              />
+            </Fragment>
+          ),
+        },
         config: {
           name: "config",
           code: (
@@ -81,7 +109,7 @@ declare(strict_types=1);
 
 require_once('vendor/autoload.php');
 
-use LionSecurity\\AES;
+use Lion\\Security\\AES;
 
 (new AES())
     ->config([
@@ -112,7 +140,7 @@ declare(strict_types=1);
 
 require_once('vendor/autoload.php');
 
-use LionSecurity\\AES;
+use Lion\\Security\\AES;
 
 $aesDec = (new AES())
     ->config([
@@ -147,7 +175,7 @@ declare(strict_types=1);
 
 require_once('vendor/autoload.php');
 
-use LionSecurity\\AES;
+use Lion\\Security\\AES;
 
 $aesEnc = (new AES())
     ->config([
@@ -183,7 +211,7 @@ declare(strict_types=1);
 
 require_once('vendor/autoload.php');
 
-use LionSecurity\\AES;
+use Lion\\Security\\AES;
 
 $aesEnc = (new AES())
     ->config([
@@ -224,7 +252,7 @@ declare(strict_types=1);
 
 require_once('vendor/autoload.php');
 
-use LionSecurity\\JWT;
+use Lion\\Security\\JWT;
 
 (new JWT())
     ->config([
@@ -256,7 +284,7 @@ declare(strict_types=1);
 
 require_once('vendor/autoload.php');
 
-use LionSecurity\\JWT;
+use Lion\\Security\\JWT;
 
 $data = (new JWT())
     ->config([
@@ -293,7 +321,7 @@ declare(strict_types=1);
 
 require_once('vendor/autoload.php');
 
-use LionSecurity\\JWT;
+use Lion\\Security\\JWT;
 
 $token = (new JWT())
     ->config([
@@ -334,7 +362,7 @@ declare(strict_types=1);
 
 require_once('vendor/autoload.php');
 
-use LionSecurity\\JWT;
+use Lion\\Security\\JWT;
 
 $data = (new JWT())
     ->config([
@@ -367,7 +395,7 @@ var_dump($data);
                 language="php"
                 content={`<?php
 
-use LionSecurity\\JWT;
+use Lion\\Security\\JWT;
 
 $jwt = new JWT();
 
@@ -410,7 +438,7 @@ declare(strict_types=1);
 
 require_once('vendor/autoload.php');
 
-use LionSecurity\\RSA;
+use Lion\\Security\\RSA;
 
 
 (new RSA())
@@ -443,7 +471,7 @@ declare(strict_types=1);
 
 require_once('vendor/autoload.php');
 
-use LionSecurity\\RSA;
+use Lion\\Security\\RSA;
 
 
 (new RSA())
@@ -478,7 +506,7 @@ declare(strict_types=1);
 
 require_once('vendor/autoload.php');
 
-use LionSecurity\\RSA;
+use Lion\\Security\\RSA;
 
 $rsaDec = (new RSA())
     ->config([
@@ -515,7 +543,7 @@ declare(strict_types=1);
 
 require_once('vendor/autoload.php');
 
-use LionSecurity\\RSA;
+use Lion\\Security\\RSA;
 
 $rsaEnc = (new RSA())
     ->config([
@@ -554,7 +582,7 @@ declare(strict_types=1);
 
 require_once('vendor/autoload.php');
 
-use LionSecurity\\RSA;
+use Lion\\Security\\RSA;
 
 $rsaEnc = (new RSA())
     ->config([
@@ -589,7 +617,7 @@ declare(strict_types=1);
 
 require_once('vendor/autoload.php');
 
-use LionSecurity\\RSA;
+use Lion\\Security\\RSA;
 
 $rsaEnc = (new RSA())
     ->config([
@@ -651,7 +679,7 @@ declare(strict_types=1);
 
 require_once('vendor/autoload.php');
 
-use LionSecurity\\Validation;
+use Lion\\Security\\Validation;
 
 $password = (new Validation())->sha256('root1234');
 
@@ -698,7 +726,7 @@ declare(strict_types=1);
 
 require_once('vendor/autoload.php');
 
-use LionSecurity\\Validation;
+use Lion\\Security\\Validation;
 
 $password = (new Validation())->passwordHash('root1234');
 
@@ -753,7 +781,7 @@ declare(strict_types=1);
 
 require_once('vendor/autoload.php');
 
-use LionSecurity\\Validation;
+use Lion\\Security\\Validation;
 use Valitron\\Validator;
 
 $response = (new Validation())->validate($_POST, function(Validator $validator): void {

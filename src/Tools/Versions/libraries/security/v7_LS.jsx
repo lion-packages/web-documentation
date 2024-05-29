@@ -42,6 +42,15 @@ export default function v7_LS() {
                 development in Linux environments.
               </Alert>
 
+              <Description
+                description={
+                  <Fragment>
+                    Lion-Framework supports PHP versions{" "}
+                    <label className="text-warning">(8.1)</label>
+                  </Fragment>
+                }
+              />
+
               <CodeBlock
                 language={"bash"}
                 content={"composer require lion/security"}

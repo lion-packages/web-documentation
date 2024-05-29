@@ -21,6 +21,7 @@ import v9_LRT from "./Versions/libraries/route/v9_LRT";
 import v10_LRT from "./Versions/libraries/route/v10_LRT";
 import v11_LRT from "./Versions/libraries/route/v11_LRT";
 import v8_LS from "./Versions/libraries/security/v8_LS";
+import v9_LS from "./Versions/libraries/security/v9_LS";
 
 export default function Content() {
   return {
@@ -71,6 +72,7 @@ export default function Content() {
         v8: v8_LRT(),
       },
       security: {
+        v9: v9_LS(),
         v8: v8_LS(),
         v7: v7_LS(),
       },
