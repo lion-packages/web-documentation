@@ -34,7 +34,7 @@ export default function v1_LDI() {
         install: {
           name: "Install",
           code: (
-            <>
+            <Fragment>
               <Title title={"Install"} />
 
               <Alert variant={"info"}>
@@ -46,7 +46,7 @@ export default function v1_LDI() {
                 language={"bash"}
                 content={"composer require lion/dependency-injection"}
               />
-            </>
+            </Fragment>
           ),
         },
       },
@@ -174,6 +174,69 @@ $response = (new Container())
         'createUsers', 
         ['idroles' => 1]
     );
+
+var_dump($response);
+              `}
+                />
+              </Fragment>
+            </Fragment>
+          ),
+        },
+        "inject-dependencies-callback": {
+          name: "injectDependenciesCallback",
+          code: (
+            <Fragment>
+              <LibraryTitle
+                className={"Container"}
+                methodName={"injectDependenciesCallback"}
+              />
+
+              <Description
+                description={"Inject dependencies into a method of a class."}
+              />
+
+              <Fragment>
+                <ExampleTitle number={1} />
+
+                <CodeBlock
+                  language={"php"}
+                  content={`<?php
+
+declare(strict_types=1);
+
+require_once('./vendor/autoload.php');
+
+use App\\Http\\Controllers\\UsersController;
+use Lion\\Dependency\\Injection\\Container;
+
+$response = (new Container())
+    ->injectDependenciesCallback(function(UsersController $usersController): object {
+        return $usersController->createUsers();
+    });
+
+var_dump($response);
+              `}
+                />
+              </Fragment>
+
+              <Fragment>
+                <ExampleTitle number={2} />
+
+                <CodeBlock
+                  language={"php"}
+                  content={`<?php
+
+declare(strict_types=1);
+
+require_once('./vendor/autoload.php');
+
+use App\\Http\\Controllers\\UsersController;
+use Lion\\Dependency\\Injection\\Container;
+
+$response = (new Container())
+    ->injectDependenciesCallback(function(UsersController $usersController, string $name): object {
+        return $usersController->createUsers($name);
+    }, ['name' => 'Sergio']);
 
 var_dump($response);
               `}
