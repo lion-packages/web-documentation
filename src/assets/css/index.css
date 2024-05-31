@@ -493,3 +493,314 @@ span.hljs-doctag {
     justify-content: center;
   }
 }
+
+.file-tree {
+  font-family: monospace;
+  white-space: pre;
+}
+
+.file-tree ul {
+  list-style: none;
+  padding-left: 20px;
+  text-indent: -20px;
+}
+
+.file-tree span.folder {
+  display: inline-block;
+  background-image: url("../img/IDE-icons/folder/folder_dark.svg");
+  width: 20px;
+  height: 20px;
+  background-size: cover;
+  margin-right: 5px;
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+.file-tree span.folder-structure {
+  display: inline-block;
+  background-image: url("../img/IDE-icons/projectStructure/projectStructure_dark.svg");
+  width: 20px;
+  height: 20px;
+  background-size: cover;
+  margin-right: 5px;
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+.file-tree span.folder-migrations {
+  display: inline-block;
+  background-image: url("../img/IDE-icons/migrationsFolder/migrationsFolder.svg");
+  width: 20px;
+  height: 20px;
+  background-size: cover;
+  margin-right: 5px;
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+.file-tree span.folder-config {
+  display: inline-block;
+  background-image: url("../img/IDE-icons/configFolder/configFolder.svg");
+  width: 20px;
+  height: 20px;
+  background-size: cover;
+  margin-right: 5px;
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+.file-tree span.folder-logs {
+  display: inline-block;
+  background-image: url("../img/IDE-icons/logFolder/logFolder_dark.svg");
+  width: 20px;
+  height: 20px;
+  background-size: cover;
+  margin-right: 5px;
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+.file-tree span.folder-tests {
+  display: inline-block;
+  background-image: url("../img/IDE-icons/testSourceFolder/testSourceFolder.svg");
+  width: 20px;
+  height: 20px;
+  background-size: cover;
+  margin-right: 5px;
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+.file-tree span.folder-tests-group {
+  display: inline-block;
+  background-image: url("../img/IDE-icons/testRoot/testRoot_dark.svg");
+  width: 20px;
+  height: 20px;
+  background-size: cover;
+  margin-right: 5px;
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+.file-tree span.file {
+  display: inline-block;
+  background-image: url("../img/IDE-icons/text/text_dark.svg");
+  width: 22px;
+  height: 22px;
+  background-size: cover;
+  margin-right: 5px;
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+.file-tree span.file-php {
+  display: inline-block;
+  background-image: url("../img/IDE-icons/php/php-logo.svg");
+  width: 22px;
+  height: 22px;
+  background-size: cover;
+  margin-right: 5px;
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+.file-tree span.file-php-class {
+  display: inline-block;
+  background-image: url("../img/IDE-icons/class/class_dark.svg");
+  width: 20px;
+  height: 20px;
+  background-size: cover;
+  margin-right: 5px;
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+.file-tree span.file-php-class-test {
+  display: inline-block;
+  background-image: url("../img/IDE-icons/test/test_dark.svg");
+  width: 20px;
+  height: 20px;
+  background-size: cover;
+  margin-right: 5px;
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+.file-tree span.file-php-class-anonymous {
+  display: inline-block;
+  background-image: url("../img/IDE-icons/anonymousClass/anonymousClass.svg");
+  width: 20px;
+  height: 20px;
+  background-size: cover;
+  margin-right: 5px;
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+.file-tree span.file-php-enum {
+  display: inline-block;
+  background-image: url("../img/IDE-icons/enum/enum_dark.svg");
+  width: 20px;
+  height: 20px;
+  background-size: cover;
+  margin-right: 5px;
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+.file-tree span.file-php-exception {
+  display: inline-block;
+  background-image: url("../img/IDE-icons/exception/exception_dark.svg");
+  width: 20px;
+  height: 20px;
+  background-size: cover;
+  margin-right: 5px;
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+.file-tree span.file-php-interface {
+  display: inline-block;
+  background-image: url("../img/IDE-icons/interface/interface.svg");
+  width: 20px;
+  height: 20px;
+  background-size: cover;
+  margin-right: 5px;
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+.file-tree span.file-htaccess {
+  display: inline-block;
+  background-image: url("../img/IDE-icons/htaccess/htaccess.svg");
+  width: 20px;
+  height: 20px;
+  background-size: cover;
+  margin-right: 5px;
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+.file-tree span.file-gitignore {
+  display: inline-block;
+  background-image: url("../img/IDE-icons/gitignore/gitignore.svg");
+  width: 20px;
+  height: 20px;
+  background-size: cover;
+  margin-right: 5px;
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+.file-tree span.file-editorconfig {
+  display: inline-block;
+  background-image: url("../img/IDE-icons/editorConfig/editorConfig_dark.svg");
+  width: 20px;
+  height: 20px;
+  background-size: cover;
+  margin-right: 5px;
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+.file-tree span.file-env {
+  display: inline-block;
+  background-image: url("../img/IDE-icons/shell/shell_dark.svg");
+  width: 20px;
+  height: 20px;
+  background-size: cover;
+  margin-right: 5px;
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+.file-tree span.file-markdown {
+  display: inline-block;
+  background-image: url("../img/IDE-icons/markdown/markdown_dark.svg");
+  width: 20px;
+  height: 20px;
+  background-size: cover;
+  margin-right: 5px;
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+.file-tree span.file-json {
+  display: inline-block;
+  background-image: url("../img/IDE-icons/json/json_dark.svg");
+  width: 20px;
+  height: 20px;
+  background-size: cover;
+  margin-right: 5px;
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+.file-tree span.file-docker {
+  display: inline-block;
+  background-image: url("../img/IDE-icons/docker/docker_dark.svg");
+  width: 20px;
+  height: 20px;
+  background-size: cover;
+  margin-right: 5px;
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+.file-tree span.file-docker-compose {
+  display: inline-block;
+  background-image: url("../img/IDE-icons/dockerCompose/dockerCompose_dark.svg");
+  width: 20px;
+  height: 20px;
+  background-size: cover;
+  margin-right: 5px;
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+.file-tree span.file-xml {
+  display: inline-block;
+  background-image: url("../img/IDE-icons/xml/xml_dark.svg");
+  width: 20px;
+  height: 20px;
+  background-size: cover;
+  margin-right: 5px;
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+.file-tree span.file-supervisord {
+  display: inline-block;
+  background-image: url("../img/IDE-icons/xml/xml_dark.svg");
+  width: 20px;
+  height: 20px;
+  background-size: cover;
+  margin-right: 5px;
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+}

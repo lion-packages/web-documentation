@@ -16,6 +16,7 @@ import Description from "../../../pages/components/Description";
 import ExampleTitle from "../../../pages/components/ExampleTitle";
 import EquivalentTo from "../../../pages/components/EquivalentTo";
 import Notes from "../../../pages/components/Notes";
+import MarginBottom2 from "../../../pages/components/MarginBottom2";
 
 export default function v3_FRM() {
   return {
@@ -128,28 +129,40 @@ export default function v3_FRM() {
 
               <Row>
                 <Col xs={12} sm={12} md={6}>
-                  <Description
-                    description={
-                      <Fragment>
-                        1- Start by starting your web application's local
-                        server. Open your API URL at{" "}
-                        <a href="http://localhost:8000" target={"_blank"}>
-                          <strong>http://localhost:8000</strong>
-                        </a>
-                        .
-                      </Fragment>
-                    }
-                  />
+                  <Fragment>
+                    <Description
+                      description={"1- Change the project security hash."}
+                    />
 
-                  <CodeBlock language={"bash"} content={"php lion serve"} />
+                    <CodeBlock language={"bash"} content={"php lion hash"} />
+
+                    <CodeBlock
+                      language={"bash"}
+                      content={`# Change environment variable value
+SERVER_HASH="..."
+`}
+                    />
+                  </Fragment>
                 </Col>
 
                 <Col xs={12} sm={12} md={6}>
-                  <Description
-                    description={"2- Run the vite project by default."}
-                  />
+                  <Fragment>
+                    <Description
+                      description={"2- Change AES security settings."}
+                    />
 
-                  <CodeBlock language={"bash"} content={"php npm dev"} />
+                    <CodeBlock language={"bash"} content={"php lion new:aes"} />
+
+                    <CodeBlock
+                      language={"bash"}
+                      content={`# Change environment variable value
+AES_METHOD="..."
+AES_PASSPHRASE="..."
+AES_KEY="..."
+AES_IV="..."
+`}
+                    />
+                  </Fragment>
                 </Col>
 
                 <Col xs={12} sm={12} md={6}>
@@ -172,7 +185,850 @@ export default function v3_FRM() {
                     />
                   </Fragment>
                 </Col>
+
+                <Col xs={12} sm={12} md={6}>
+                  <Description
+                    description={
+                      <Fragment>
+                        5- Start by starting your web application's local
+                        server. Open your API URL at{" "}
+                        <a href="http://localhost:8000" target={"_blank"}>
+                          <strong>http://localhost:8000</strong>
+                        </a>
+                        .
+                      </Fragment>
+                    }
+                  />
+
+                  <CodeBlock language={"bash"} content={"php lion serve"} />
+                </Col>
+
+                <Col xs={12} sm={12} md={6}>
+                  <Description
+                    description={
+                      <Fragment>
+                        6- Run the vite project by default, Open your website
+                        URL at{" "}
+                        <a href="http://localhost:5173" target={"_blank"}>
+                          <strong>http://localhost:5173</strong>
+                        </a>
+                        .
+                      </Fragment>
+                    }
+                  />
+
+                  <CodeBlock language={"bash"} content={"php npm dev"} />
+                </Col>
               </Row>
+            </Fragment>
+          ),
+        },
+        structure: {
+          name: "Directory Structure",
+          code: (
+            <Fragment>
+              {/* │ */}
+              {/* ├──{"    "}*/}
+              {/* └── */}
+
+              <div
+                className="file-tree p-3 rounded"
+                style={{ backgroundColor: "#2b2b2b" }}
+              >
+                <div className="mb-2">
+                  <span className="folder-structure"></span>
+
+                  <Fragment>
+                    <div className="mb-2">
+                      ├── <span className="folder"></span>
+                      <label>app/</label>
+                    </div>
+
+                    <Fragment>
+                      <Fragment>
+                        <div className="mb-2">
+                          │{"    "}├── <span className="folder"></span>
+                          <label>Console/</label>
+                        </div>
+
+                        <div className="mb-2">
+                          <Fragment>
+                            <div className="mb-2">
+                              │{"    "}│{"    "}├──{" "}
+                              <span className="folder"></span>
+                              <label>Commands/</label>
+                            </div>
+
+                            <Fragment>
+                              │{"    "}│{"    "}│{"    "}└──{" "}
+                              <label>
+                                <span className="file-php-class"></span>
+                                ExampleCommand.php
+                              </label>
+                            </Fragment>
+                          </Fragment>
+
+                          <MarginBottom2 />
+
+                          <Fragment>
+                            <div className="mb-2">
+                              │{"    "}│{"    "}├──{" "}
+                              <span className="folder"></span>
+                              <label>Cron/</label>
+                            </div>
+
+                            <Fragment>
+                              │{"    "}│{"    "}│{"    "}└──{" "}
+                              <label>
+                                <span className="file-php-class"></span>
+                                ExampleCron.php
+                              </label>
+                            </Fragment>
+                          </Fragment>
+                        </div>
+                      </Fragment>
+
+                      <Fragment>
+                        <div className="mb-2">
+                          │{"    "}├── <span className="folder"></span>
+                          <label>Enums/</label>
+                        </div>
+
+                        <Fragment>
+                          │{"    "}│{"    "}└──{" "}
+                          <label className="mb-2">
+                            <span className="file-php-enum"></span>
+                            ExampleEnum.php
+                          </label>
+                        </Fragment>
+                      </Fragment>
+
+                      <Fragment>
+                        <div className="mb-2">
+                          │{"    "}├── <span className="folder"></span>
+                          <label>Exceptions/</label>
+                        </div>
+
+                        <Fragment>
+                          │{"    "}│{"    "}└──{" "}
+                          <label className="mb-2">
+                            <span className="file-php-exception"></span>
+                            ExampleException.php
+                          </label>
+                        </Fragment>
+                      </Fragment>
+
+                      <Fragment>
+                        <div className="mb-2">
+                          │{"    "}├── <span className="folder"></span>
+                          <label>Html/</label>
+                        </div>
+
+                        <Fragment>
+                          │{"    "}│{"    "}└──{" "}
+                          <label className="mb-2">
+                            <span className="file-php-class"></span>
+                            ExampleHtml.php
+                          </label>
+                        </Fragment>
+                      </Fragment>
+
+                      <Fragment>
+                        <div className="mb-2">
+                          │{"    "}├── <span className="folder"></span>
+                          <label>Http/</label>
+                        </div>
+
+                        <Fragment>
+                          <Fragment>
+                            <div className="mb-2">
+                              │{"    "}│{"    "}├──{" "}
+                              <span className="folder"></span>
+                              <label>Controllers/</label>
+                            </div>
+
+                            <div>
+                              │{"    "}│{"    "}│{"    "}└──{" "}
+                              <label className="mb-2">
+                                <span className="file-php-class"></span>
+                                ExampleController.php
+                              </label>
+                            </div>
+                          </Fragment>
+
+                          <Fragment>
+                            <div className="mb-2">
+                              │{"    "}│{"    "}├──{" "}
+                              <span className="folder"></span>
+                              <label>Middleware/</label>
+                            </div>
+
+                            <div>
+                              │{"    "}│{"    "}│{"    "}└──{" "}
+                              <label className="mb-2">
+                                <span className="file-php-class"></span>
+                                ExampleMiddleware.php
+                              </label>
+                            </div>
+                          </Fragment>
+
+                          <Fragment>
+                            <div className="mb-2">
+                              │{"    "}│{"    "}├──{" "}
+                              <span className="folder"></span>
+                              <label>Services/</label>
+                            </div>
+
+                            <div>
+                              │{"    "}│{"    "}│{"    "}└──{" "}
+                              <label className="mb-2">
+                                <span className="file-php-class"></span>
+                                ExampleService.php
+                              </label>
+                            </div>
+                          </Fragment>
+                        </Fragment>
+                      </Fragment>
+
+                      <Fragment>
+                        <div className="mb-2">
+                          │{"    "}├── <span className="folder"></span>
+                          <label>Interfaces/</label>
+                        </div>
+
+                        <div>
+                          │{"    "}│{"    "}└──{" "}
+                          <label className="mb-2">
+                            <span className="file-php-interface"></span>
+                            ExampleInterface.php
+                          </label>
+                        </div>
+                      </Fragment>
+
+                      <Fragment>
+                        <div className="mb-2">
+                          │{"    "}├── <span className="folder"></span>
+                          <label>Models/</label>
+                        </div>
+
+                        <div>
+                          │{"    "}│{"    "}└──{" "}
+                          <label className="mb-2">
+                            <span className="file-php-class"></span>
+                            ExampleModel.php
+                          </label>
+                        </div>
+                      </Fragment>
+
+                      <Fragment>
+                        <div className="mb-2">
+                          │{"    "}├── <span className="folder"></span>
+                          <label>Rules/</label>
+                        </div>
+
+                        <div>
+                          │{"    "}│{"    "}└──{" "}
+                          <label className="mb-2">
+                            <span className="file-php-class"></span>
+                            ExampleRule.php
+                          </label>
+                        </div>
+                      </Fragment>
+
+                      <Fragment>
+                        <div className="mb-2">
+                          │{"    "}├── <span className="folder"></span>
+                          <label>Sockets/</label>
+                        </div>
+
+                        <div>
+                          │{"    "}│{"    "}└──{" "}
+                          <label className="mb-2">
+                            <span className="file-php-class"></span>
+                            ExampleSocket.php
+                          </label>
+                        </div>
+                      </Fragment>
+
+                      <Fragment>
+                        <div className="mb-2">
+                          │{"    "}├── <span className="folder"></span>
+                          <label>Traits/</label>
+                        </div>
+
+                        <div>
+                          │{"    "}│{"    "}└──{" "}
+                          <label className="mb-2">
+                            <span className="file-php-class"></span>
+                            ExampleTrait.php
+                          </label>
+                        </div>
+                      </Fragment>
+                    </Fragment>
+                  </Fragment>
+
+                  <Fragment>
+                    <div className="mb-2">
+                      ├── <span className="folder-config"></span>
+                      <label>config/</label>
+                    </div>
+
+                    <div>
+                      │{"    "}└──{" "}
+                      <label className="mb-2">
+                        <span className="file-php"></span>
+                        cors.php
+                      </label>
+                    </div>
+
+                    <div>
+                      │{"    "}└──{" "}
+                      <label className="mb-2">
+                        <span className="file-php"></span>
+                        database.php
+                      </label>
+                    </div>
+
+                    <div>
+                      │{"    "}└──{" "}
+                      <label className="mb-2">
+                        <span className="file-php"></span>
+                        email.php
+                      </label>
+                    </div>
+
+                    <div>
+                      │{"    "}└──{" "}
+                      <label className="mb-2">
+                        <span className="file-php"></span>
+                        queue.php
+                      </label>
+                    </div>
+                  </Fragment>
+
+                  <Fragment>
+                    <div className="mb-2">
+                      ├── <span className="folder"></span>
+                      <label>database/</label>
+                    </div>
+
+                    <Fragment>
+                      <div className="mb-2">
+                        │{"    "}├── <span className="folder"></span>
+                        <label>Class/</label>
+                      </div>
+
+                      <div>
+                        │{"    "}│{"    "}└──{" "}
+                        <label className="mb-2">
+                          <span className="file-php-class"></span>
+                          Example.php
+                        </label>
+                      </div>
+                    </Fragment>
+
+                    <Fragment>
+                      <div className="mb-2">
+                        │{"    "}├── <span className="folder"></span>
+                        <label>Factory/</label>
+                      </div>
+
+                      <div>
+                        │{"    "}│{"    "}└──{" "}
+                        <label className="mb-2">
+                          <span className="file-php-class"></span>
+                          ExampleFactory.php
+                        </label>
+                      </div>
+                    </Fragment>
+
+                    <Fragment>
+                      <div className="mb-2">
+                        │{"    "}├── <span className="folder-migrations"></span>
+                        <label>Migrations/</label>
+                      </div>
+
+                      <Fragment>
+                        <div className="mb-2">
+                          │{"    "}│{"    "}├── <span className="folder"></span>
+                          <label>LionDatabase/</label>
+                        </div>
+
+                        <Fragment>
+                          <div className="mb-2">
+                            │{"    "}│{"    "}│{"    "}├──{" "}
+                            <span className="folder"></span>
+                            <label>StoreProcedures/</label>
+                          </div>
+
+                          <div>
+                            │{"    "}│{"    "}│{"    "}│{"    "}└──{" "}
+                            <label className="mb-2">
+                              <span className="file-php-class-anonymous"></span>
+                              CreateExample.php
+                            </label>
+                          </div>
+
+                          <div>
+                            │{"    "}│{"    "}│{"    "}│{"    "}└──{" "}
+                            <label className="mb-2">
+                              <span className="file-php-class-anonymous"></span>
+                              DeleteExample.php
+                            </label>
+                          </div>
+
+                          <div>
+                            │{"    "}│{"    "}│{"    "}│{"    "}└──{" "}
+                            <label className="mb-2">
+                              <span className="file-php-class-anonymous"></span>
+                              UpdateExample.php
+                            </label>
+                          </div>
+                        </Fragment>
+
+                        <Fragment>
+                          <div className="mb-2">
+                            │{"    "}│{"    "}│{"    "}├──{" "}
+                            <span className="folder"></span>
+                            <label>Tables/</label>
+                          </div>
+
+                          <div>
+                            │{"    "}│{"    "}│{"    "}│{"    "}└──{" "}
+                            <label className="mb-2">
+                              <span className="file-php-class-anonymous"></span>
+                              Example.php
+                            </label>
+                          </div>
+                        </Fragment>
+
+                        <Fragment>
+                          <div className="mb-2">
+                            │{"    "}│{"    "}│{"    "}├──{" "}
+                            <span className="folder"></span>
+                            <label>Views/</label>
+                          </div>
+
+                          <div>
+                            │{"    "}│{"    "}│{"    "}│{"    "}└──{" "}
+                            <label className="mb-2">
+                              <span className="file-php-class-anonymous"></span>
+                              ReadExample.php
+                            </label>
+                          </div>
+                        </Fragment>
+                      </Fragment>
+                    </Fragment>
+
+                    <Fragment>
+                      <div className="mb-2">
+                        │{"    "}├── <span className="folder"></span>
+                        <label>Seed/</label>
+                      </div>
+
+                      <div>
+                        │{"    "}│{"    "}└──{" "}
+                        <label className="mb-2">
+                          <span className="file-php-class"></span>
+                          ExampleSeed.php
+                        </label>
+                      </div>
+                    </Fragment>
+                  </Fragment>
+
+                  <Fragment>
+                    <div className="mb-2">
+                      ├── <span className="folder"></span>
+                      <label>public/</label>
+                    </div>
+
+                    <div>
+                      │{"    "}└──{" "}
+                      <label className="mb-2">
+                        <span className="file-htaccess"></span>
+                        .htaccess
+                      </label>
+                    </div>
+
+                    <div>
+                      │{"    "}└──{" "}
+                      <label className="mb-2">
+                        <span className="file-php"></span>
+                        index.php
+                      </label>
+                    </div>
+                  </Fragment>
+
+                  <Fragment>
+                    <div className="mb-2">
+                      ├── <span className="folder"></span>
+                      <label>routes/</label>
+                    </div>
+
+                    <div>
+                      │{"    "}└──{" "}
+                      <label className="mb-2">
+                        <span className="file-php"></span>
+                        middleware.php
+                      </label>
+                    </div>
+
+                    <div>
+                      │{"    "}└──{" "}
+                      <label className="mb-2">
+                        <span className="file-php"></span>
+                        rules.php
+                      </label>
+                    </div>
+
+                    <div>
+                      │{"    "}└──{" "}
+                      <label className="mb-2">
+                        <span className="file-php"></span>
+                        web.php
+                      </label>
+                    </div>
+                  </Fragment>
+
+                  <Fragment>
+                    <div className="mb-2">
+                      ├── <span className="folder"></span>
+                      <label>storage/</label>
+                    </div>
+
+                    <Fragment>
+                      <div className="mb-2">
+                        │{"    "}├── <span className="folder"></span>
+                        <label>keys/</label>
+                      </div>
+
+                      <div className="mb-2">
+                        <Fragment>
+                          │{"    "}│{"    "}├──{" "}
+                          <span className="file-gitignore"></span>
+                          <label>.gitignore</label>
+                        </Fragment>
+                      </div>
+                    </Fragment>
+
+                    <Fragment>
+                      <div className="mb-2">
+                        │{"    "}├── <span className="folder-logs"></span>
+                        <label>logs/</label>
+                      </div>
+
+                      <Fragment>
+                        <Fragment>
+                          <div className="mb-2">
+                            │{"    "}│{"    "}├──{" "}
+                            <span className="folder"></span>
+                            <label>cron/</label>
+                          </div>
+
+                          <div className="mb-2">
+                            <Fragment>
+                              │{"    "}│{"    "}│{"    "}├──{" "}
+                              <span className="file-gitignore"></span>
+                              <label>.gitignore</label>
+                            </Fragment>
+                          </div>
+                        </Fragment>
+
+                        <Fragment>
+                          <div className="mb-2">
+                            │{"    "}│{"    "}├──{" "}
+                            <span className="folder"></span>
+                            <label>monolog/</label>
+                          </div>
+
+                          <div className="mb-2">
+                            <Fragment>
+                              │{"    "}│{"    "}│{"    "}├──{" "}
+                              <span className="file-gitignore"></span>
+                              <label>.gitignore</label>
+                            </Fragment>
+                          </div>
+                        </Fragment>
+
+                        <Fragment>
+                          <div className="mb-2">
+                            │{"    "}│{"    "}├──{" "}
+                            <span className="folder"></span>
+                            <label>vite/</label>
+                          </div>
+
+                          <div className="mb-2">
+                            <Fragment>
+                              │{"    "}│{"    "}│{"    "}├──{" "}
+                              <span className="file-gitignore"></span>
+                              <label>.gitignore</label>
+                            </Fragment>
+                          </div>
+                        </Fragment>
+                      </Fragment>
+                    </Fragment>
+
+                    <Fragment>
+                      <div className="mb-2">
+                        │{"    "}├── <span className="folder"></span>
+                        <label>postman/</label>
+                      </div>
+
+                      <div className="mb-2">
+                        <Fragment>
+                          │{"    "}│{"    "}├──{" "}
+                          <span className="file-gitignore"></span>
+                          <label>.gitignore</label>
+                        </Fragment>
+                      </div>
+                    </Fragment>
+
+                    <Fragment>
+                      <div className="mb-2">
+                        │{"    "}├── <span className="folder"></span>
+                        <label>sh/</label>
+                      </div>
+
+                      <div className="mb-2">
+                        <Fragment>
+                          │{"    "}│{"    "}├──{" "}
+                          <span className="file-gitignore"></span>
+                          <label>.gitignore</label>
+                        </Fragment>
+                      </div>
+                    </Fragment>
+                  </Fragment>
+
+                  <Fragment>
+                    <div className="mb-2">
+                      ├── <span className="folder-tests-group"></span>
+                      <label>tests/</label>
+                    </div>
+
+                    <Fragment>
+                      <Fragment>
+                        <div className="mb-2">
+                          │{"    "}├── <span className="folder-tests"></span>
+                          <label>App/</label>
+                        </div>
+
+                        <Fragment>
+                          <div className="mb-2">
+                            │{"    "}│{"    "}├──{" "}
+                            <span className="folder-tests"></span>
+                            <label>Http/</label>
+                          </div>
+
+                          <Fragment>
+                            <div className="mb-2">
+                              │{"    "}│{"    "}│{"    "}├──{" "}
+                              <span className="folder-tests"></span>
+                              <label>Controllers/</label>
+                            </div>
+
+                            <div>
+                              │{"    "}│{"    "}│{"    "}│{"    "}└──{" "}
+                              <label className="mb-2">
+                                <span className="file-php-class-test"></span>
+                                ExampleControllerTest.php
+                              </label>
+                            </div>
+                          </Fragment>
+                        </Fragment>
+                      </Fragment>
+
+                      <Fragment>
+                        <div className="mb-2">
+                          │{"    "}├── <span className="folder-tests"></span>
+                          <label>Database/</label>
+                        </div>
+
+                        <Fragment>
+                          <div className="mb-2">
+                            │{"    "}│{"    "}├──{" "}
+                            <span className="folder-tests"></span>
+                            <label>Class/</label>
+                          </div>
+
+                          <div>
+                            │{"    "}│{"    "}│{"    "}└──{" "}
+                            <label className="mb-2">
+                              <span className="file-php-class-test"></span>
+                              Example.php
+                            </label>
+                          </div>
+                        </Fragment>
+                      </Fragment>
+                    </Fragment>
+
+                    <div>
+                      │{"    "}└──{" "}
+                      <label className="mb-2">
+                        <span className="file-php-class"></span>
+                        bootstrap.php
+                      </label>
+                    </div>
+
+                    <div>
+                      │{"    "}└──{" "}
+                      <label className="mb-2">
+                        <span className="file-php-class"></span>
+                        Test.php
+                      </label>
+                    </div>
+                  </Fragment>
+
+                  <Fragment>
+                    <div className="mb-2">
+                      ├── <span className="folder"></span>
+                      <label>vendor/</label>
+                    </div>
+                  </Fragment>
+
+                  <Fragment>
+                    <div className="mb-2">
+                      ├── <span className="folder"></span>
+                      <label>vite/</label>
+                    </div>
+
+                    <div>
+                      │{"    "}└──{" "}
+                      <label className="mb-2">
+                        <span className="file-gitignore"></span>
+                        .gitignore
+                      </label>
+                    </div>
+                  </Fragment>
+
+                  <div>
+                    └──{" "}
+                    <label className="mb-2">
+                      <span className="file-editorconfig"></span>
+                      .editorconfig
+                    </label>
+                  </div>
+
+                  <div>
+                    └──{" "}
+                    <label className="mb-2">
+                      <span className="file-env"></span>
+                      .env.example
+                    </label>
+                  </div>
+
+                  <div>
+                    └──{" "}
+                    <label className="mb-2">
+                      <span className="file-gitignore"></span>
+                      .gitignore
+                    </label>
+                  </div>
+
+                  <div>
+                    └──{" "}
+                    <label className="mb-2">
+                      <span className="file-markdown"></span>
+                      CHANGELOG.md
+                    </label>
+                  </div>
+
+                  <div>
+                    └──{" "}
+                    <label className="mb-2">
+                      <span className="file-markdown"></span>
+                      CODE_OF_CONDUCT.md
+                    </label>
+                  </div>
+
+                  <div>
+                    └──{" "}
+                    <label className="mb-2">
+                      <span className="file-json"></span>
+                      composer.json
+                    </label>
+                  </div>
+
+                  <div>
+                    └──{" "}
+                    <label className="mb-2">
+                      <span className="file-json"></span>
+                      composer.lock
+                    </label>
+                  </div>
+
+                  <div>
+                    └──{" "}
+                    <label className="mb-2">
+                      <span className="file-markdown"></span>
+                      CONTRIBUTING.md
+                    </label>
+                  </div>
+
+                  <div>
+                    └──{" "}
+                    <label className="mb-2">
+                      <span className="file-docker-compose"></span>
+                      docker-compose.yml
+                    </label>
+                  </div>
+
+                  <div>
+                    └──{" "}
+                    <label className="mb-2">
+                      <span className="file-docker"></span>
+                      Dockerfile
+                    </label>
+                  </div>
+
+                  <div>
+                    └──{" "}
+                    <label className="mb-2">
+                      <span className="file"></span>
+                      LICENSE
+                    </label>
+                  </div>
+
+                  <div>
+                    └──{" "}
+                    <label className="mb-2">
+                      <span className="file-php"></span>
+                      lion
+                    </label>
+                  </div>
+
+                  <div>
+                    └──{" "}
+                    <label className="mb-2">
+                      <span className="file-php"></span>
+                      npm
+                    </label>
+                  </div>
+
+                  <div>
+                    └──{" "}
+                    <label className="mb-2">
+                      <span className="file-xml"></span>
+                      phpunit.xml
+                    </label>
+                  </div>
+
+                  <div>
+                    └──{" "}
+                    <label className="mb-2">
+                      <span className="file-markdown"></span>
+                      README.md
+                    </label>
+                  </div>
+
+                  <div>
+                    └──{" "}
+                    <label className="mb-2">
+                      <span className="file-editorconfig"></span>
+                      supervisord.conf
+                    </label>
+                  </div>
+                </div>
+              </div>
             </Fragment>
           ),
         },
@@ -1586,25 +2442,6 @@ return new class implements StoreProcedureInterface
             </Fragment>
           ),
         },
-        use: {
-          name: "Use Project",
-          code: (
-            <Fragment>
-              <Title title={"Use Project"} />
-
-              <Description
-                description={
-                  "Go to your project location to start the local server."
-                }
-              />
-
-              <CodeBlock
-                language={"bash"}
-                content={"cd vite/project-name/ && npm run dev"}
-              />
-            </Fragment>
-          ),
-        },
         install: {
           name: "Install Dependencies",
           code: (
@@ -1621,7 +2458,7 @@ return new class implements StoreProcedureInterface
 
               <CodeBlock
                 language={"bash"}
-                content={'php npm install "axios dayjs"'}
+                content={"php npm install axios dayjs"}
               />
             </Fragment>
           ),
@@ -1661,7 +2498,7 @@ return new class implements StoreProcedureInterface
 
               <CodeBlock
                 language={"bash"}
-                content={'php npm uninstall "axios crypto-js"'}
+                content={"php npm uninstall axios crypto-js"}
               />
             </Fragment>
           ),
@@ -4342,13 +5179,18 @@ vd($dbname);
                 language={"dockerfile"}
                 content={`FROM php:8.3-apache
 
+ARG DEBIAN_FRONTEND=noninteractive
+# ----------------------------------------------------------------------------------------------------------------------
+USER root
+
 # Add User
 RUN useradd -m lion && echo 'lion:lion' | chpasswd && usermod -aG sudo lion && usermod -s /bin/bash lion
 
 # Dependencies
 RUN apt-get update -y \\
-    && apt-get install -y sudo nano git npm default-mysql-client curl wget unzip cron sendmail libpng-dev libzip-dev \\
-    && apt-get install -y zlib1g-dev libonig-dev supervisor libevent-dev libssl-dev \\
+    && apt-get install -y sudo nano zsh git default-mysql-client curl wget unzip cron sendmail golang-go \\
+    && apt-get install -y libpng-dev libzip-dev zlib1g-dev libonig-dev supervisor libevent-dev libssl-dev \\
+    && apt-get clean \\
     && rm -rf /var/lib/apt/lists/*
 
 # Electron-Vite Dependencies
@@ -4363,17 +5205,57 @@ RUN apt-get update -y \\
 RUN pecl install ev redis xdebug \\
     && docker-php-ext-install mbstring gd pdo_mysql mysqli zip \\
     && docker-php-ext-enable gd zip redis xdebug \\
-    && echo "xdebug.coverage_enable" >> /usr/local/etc/php/conf.d/docker-php-ext-xdebug.ini \\
-    && echo "xdebug.mode=coverage" >> /usr/local/etc/php/conf.d/docker-php-ext-xdebug.ini
+    && a2enmod rewrite
+
+# Configure Xdebug
+RUN echo "xdebug.mode=develop,coverage,debug" >> /usr/local/etc/php/conf.d/docker-php-ext-xdebug.ini \\
+    && echo "xdebug.remote_autostart=off" >> /usr/local/etc/php/conf.d/docker-php-ext-xdebug.ini \\
+    && echo "xdebug.remote_connect_back=off" >> /usr/local/etc/php/conf.d/docker-php-ext-xdebug.ini \\
+    && echo "xdebug.start_with_request=yes" >> /usr/local/etc/php/conf.d/docker-php-ext-xdebug.ini \\
+    && echo "xdebug.idekey=docker" >> /usr/local/etc/php/conf.d/docker-php-ext-xdebug.ini \\
+    && echo "xdebug.log=/dev/stdout" >> /usr/local/etc/php/conf.d/docker-php-ext-xdebug.ini \\
+    && echo "xdebug.log_level=0" >> /usr/local/etc/php/conf.d/docker-php-ext-xdebug.ini \\
+    && echo "xdebug.client_host=host.docker.internal" >> /usr/local/etc/php/conf.d/docker-php-ext-xdebug.ini \\
+    && echo "xdebug.client_port=9000" >> /usr/local/etc/php/conf.d/docker-php-ext-xdebug.ini
 
 # Install Composer
-RUN a2enmod rewrite \\
-    && curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer
+RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer
+# ----------------------------------------------------------------------------------------------------------------------
+USER lion
 
+SHELL ["/bin/bash", "--login", "-i", "-c"]
+
+# Install nvm, Node.js and npm
+RUN curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.7/install.sh | bash \\
+    && source /home/lion/.bashrc \\
+    && nvm install 20 \\
+    && npm install -g npm
+
+# Install OhMyZsh
+RUN sh -c "$(wget https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh -O -)"
+# ----------------------------------------------------------------------------------------------------------------------
+USER root
+
+SHELL ["/bin/bash", "--login", "-c"]
+
+# Install logo-ls
+RUN wget https://github.com/Yash-Handa/logo-ls/releases/download/v1.3.7/logo-ls_amd64.deb \\
+    && dpkg -i logo-ls_amd64.deb \\
+    && rm logo-ls_amd64.deb \\
+    && curl https://raw.githubusercontent.com/UTFeight/logo-ls-modernized/master/INSTALL | bash
+
+# Add configuration in .zshrc
+RUN echo 'export NVM_DIR="$HOME/.nvm"' >> /home/lion/.zshrc \\
+    && echo '[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"' >> /home/lion/.zshrc \\
+    && echo '[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"' >> /home/lion/.zshrc \\
+    && echo 'alias ls="logo-ls"' >> /home/lion/.zshrc \\
+    && source /home/lion/.zshrc
+# ----------------------------------------------------------------------------------------------------------------------
 # Copy Data
 COPY . .
-COPY supervisord.conf /etc/supervisor/conf.d/supervisord.conf
 
+COPY supervisord.conf /etc/supervisor/conf.d/supervisord.conf
+# ----------------------------------------------------------------------------------------------------------------------
 # Init Project
 CMD touch storage/logs/server.log storage/logs/socket.log storage/logs/supervisord.log storage/logs/test-coverage.log \\
     && /usr/bin/supervisord -c /etc/supervisor/conf.d/supervisord.conf
@@ -4386,7 +5268,7 @@ CMD touch storage/logs/server.log storage/logs/socket.log storage/logs/superviso
           name: "docker compose.yml",
           code: (
             <Fragment>
-              <Title title={"docker compose.yml"} />
+              <Title title={"docker-compose.yml"} />
 
               <CodeBlock
                 language={"yaml"}
@@ -4396,6 +5278,8 @@ CMD touch storage/logs/server.log storage/logs/socket.log storage/logs/superviso
         build:
             context: .
             dockerfile: Dockerfile
+        extra_hosts:
+            - "host.docker.internal:host-gateway"
         environment:
             - DISPLAY=\${DISPLAY}
             - DBUS_SESSION_BUS_ADDRESS=unix:path=/var/run/dbus/system_bus_socket
@@ -4406,6 +5290,7 @@ CMD touch storage/logs/server.log storage/logs/socket.log storage/logs/superviso
             - "8001:8001"
             - "8080:8080"
             - "5173:5173"
+            - "4173:4173"
         volumes:
             - ./:/var/www/html
             - /var/run/dbus:/var/run/dbus
@@ -4419,6 +5304,7 @@ CMD touch storage/logs/server.log storage/logs/socket.log storage/logs/superviso
             - SYS_ADMIN
         networks:
             - lion
+
     redis:
         image: redis
         container_name: framework-redis
@@ -4433,6 +5319,7 @@ CMD touch storage/logs/server.log storage/logs/socket.log storage/logs/superviso
             REDIS_DATABASES: 1
         networks:
             - lion
+
     mailhog:
         image: mailhog/mailhog
         container_name: framework-mailhog
@@ -4455,6 +5342,7 @@ CMD touch storage/logs/server.log storage/logs/socket.log storage/logs/superviso
             - mysql_data:/var/lib/mysql
         networks:
             - lion
+
     phpmyadmin:
         image: phpmyadmin/phpmyadmin
         container_name: framework-phpmyadmin
@@ -4469,10 +5357,12 @@ CMD touch storage/logs/server.log storage/logs/socket.log storage/logs/superviso
             MYSQL_ROOT_PASSWORD: lion
         networks:
             - lion
+
 volumes:
     mysql_data:
     redis_data:
         driver: local
+
 networks:
     lion:
         driver: bridge
@@ -4521,6 +5411,15 @@ networks:
                 <Description description={"Unmount the Docker containers."} />
 
                 <CodeBlock language={"bash"} content={"docker compose down"} />
+              </Fragment>
+
+              <Fragment>
+                <Description description={"Enter the Docker container."} />
+
+                <CodeBlock
+                  language={"bash"}
+                  content={"docker exec -it -u lion framework-app zsh"}
+                />
               </Fragment>
             </Fragment>
           ),
