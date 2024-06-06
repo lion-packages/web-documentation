@@ -1,10 +1,11 @@
-import { Alert, Col, Row } from "react-bootstrap";
+import { Alert, Badge, Col, ListGroup, Row } from "react-bootstrap";
 import CodeBlock from "../../../../pages/components/CodeBlock";
 import Description from "../../../../pages/components/Description";
 import { Fragment } from "react";
 import LibraryTitle from "../../../../pages/components/LibraryTitle";
 import Title from "../../../../pages/components/Title";
 import Example from "../../../../pages/components/Example";
+import { Link } from "react-router-dom";
 
 export default function v11_LRT() {
   return {
@@ -54,6 +55,18 @@ export default function v11_LRT() {
               <CodeBlock
                 language={"bash"}
                 content={"composer require lion/route"}
+              />
+
+              <Alert variant="info">
+                <strong>Note: </strong>If you need to manipulate rules on your
+                controller methods, install the following dependencies.
+              </Alert>
+
+              <CodeBlock
+                language={"bash"}
+                content={
+                  "composer require lion/route lion/exceptions lion/request lion/security"
+                }
               />
             </Fragment>
           ),
@@ -817,6 +830,134 @@ Route::prefix('api', function() {
 Route::dispatch();
               `}
               />
+            </Fragment>
+          ),
+        },
+        rules: {
+          name: "rules",
+          code: (
+            <Fragment>
+              <Title title={"Rules"} />
+
+              <Description
+                description={
+                  <Fragment>
+                    The rules function allows you to add validation rules to
+                    your controllers, rule usage is based on rules provided by{" "}
+                    <a
+                      href="https://github.com/vlucas/valitron"
+                      target={"_blank"}
+                      className="text-decoration-none"
+                    >
+                      vlucas/valitron
+                    </a>
+                    , more information in{" "}
+                    <Link
+                      to={"/docs/library/content"}
+                      className="text-decoration-none"
+                    >
+                      Lion-Security
+                    </Link>
+                    .
+                  </Fragment>
+                }
+              />
+
+              <Fragment>
+                <Title title={"Create your own rules"} />
+
+                <CodeBlock
+                  langueage={"php"}
+                  content={`<?php
+  
+declare(strict_types=1);
+
+namespace App\\Rules;
+
+use Lion\\Route\\Helpers\\Rules;
+use Lion\\Route\\Interface\\RulesInterface;
+use Valitron\\Validator;
+
+/**
+ * Class ExampleRule
+ *
+ * @package App\\Rules
+ */
+class ExampleRule extends Rules implements RulesInterface
+{
+    /**
+     * {@inheritdoc}
+     */
+    public function passes(): void
+    {
+        $this->validate(function (Validator $validator): void {
+            $validator
+                ->rule('required', 'example')
+                ->message('the "example" property is required');
+        });
+    }
+}
+`}
+                />
+              </Fragment>
+
+              <Fragment>
+                <Title title={"Use your own rules"} />
+
+                <CodeBlock
+                  language={"php"}
+                  content={`<?php
+
+declare(strict_types=1);
+
+namespace App\\Http\\Controllers;
+
+use Lion\\Request\\Http;
+use Lion\\Request\\Status;
+use Lion\\Route\\Attributes\\Rules;
+use stdClass;
+
+/**
+ * Description
+ *
+ * @package App\\Http\\Controllers
+ */
+class ExampleController
+{
+    /**
+     * Description
+     *
+     * @return object
+     */
+    #[Rules(ExampleRule::class)]
+    public function example(): stdClass
+    {
+        return (object) [
+          'code' => Http::OK,
+          'status' => Status::SUCCESS,
+          'message' => '...',
+        ];
+    }
+}`}
+                />
+              </Fragment>
+
+              <Fragment>
+                <Title title={"Create your web route"} />
+
+                <CodeBlock
+                  language={"php"}
+                  content={`<?php
+
+declare(strict_types=1);
+
+use App\\Http\\Controllers\\ExampleController;
+use Lion\\Route\\Route;
+
+Route::post('example', [ExampleController::class, 'example']);
+`}
+                />
+              </Fragment>
             </Fragment>
           ),
         },
