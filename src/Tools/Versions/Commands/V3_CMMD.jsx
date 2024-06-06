@@ -71,6 +71,16 @@ export default function v3_CMMD() {
       ],
     },
     {
+      group: "AES",
+      childs: [
+        {
+          name: "php lion aes:encode",
+          desc: "Encrypt data with AES.",
+          args: [],
+        },
+      ],
+    },
+    {
       group: "DB",
       childs: [
         {

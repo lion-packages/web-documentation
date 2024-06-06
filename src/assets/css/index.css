@@ -20,6 +20,26 @@ span.hljs-doctag {
   color: #cb7832 !important;
 }
 
+/* Estilo para los elementos que tienen desplazamiento vertical */
+::-webkit-scrollbar {
+  width: 10px; /* Ancho de la barra de desplazamiento */
+}
+
+/* Estilo para el riel de la barra de desplazamiento */
+::-webkit-scrollbar-track {
+  background: #f1f1f1; /* Color del riel */
+}
+
+/* Estilo para el pulgar de la barra de desplazamiento */
+::-webkit-scrollbar-thumb {
+  background: #888; /* Color del pulgar */
+}
+
+/* Estilo para el pulgar de la barra de desplazamiento al estar sobre él */
+::-webkit-scrollbar-thumb:hover {
+  background: #555; /* Cambio de color al pasar el cursor sobre el pulgar */
+}
+
 .nav-tabs {
   --bs-nav-tabs-border-width: 1px;
   --bs-nav-tabs-border-color: #4d4d4c;

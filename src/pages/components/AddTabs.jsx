@@ -118,20 +118,6 @@ export default function AddTabs() {
     <Container fluid className="my-4 text-white">
       <Row>
         <Col xs={12} sm={12} md={12} lg={12} xl={3} xxl={3}>
-          <div className="d-none d-xl-block">
-            <SelectVersion />
-
-            <div className="mb-3">
-              <Form.Control
-                type="search"
-                className="form-control-dark"
-                placeholder="Search..."
-                value={filter_search}
-                onChange={(e) => setFilter_search(e.target.value)}
-              />
-            </div>
-          </div>
-
           <div className="d-xl-none">
             <div className="mb-3">
               <Button
@@ -173,8 +159,24 @@ export default function AddTabs() {
             </Offcanvas>
           </div>
 
-          <div className={"d-none d-xl-block mb-3"}>
-            <ListItems />
+          <div className={"sticky-top d-none d-xl-block"}>
+            <div className="sticky-top bg-dark-logo py-3">
+              <SelectVersion />
+
+              <div className="mb-3">
+                <Form.Control
+                  type="search"
+                  className="form-control-dark"
+                  placeholder="Search..."
+                  value={filter_search}
+                  onChange={(e) => setFilter_search(e.target.value)}
+                />
+              </div>
+            </div>
+
+            <div className="vh-100 overflow-y-scroll">
+              <ListItems />
+            </div>
           </div>
         </Col>
 
