@@ -232,7 +232,7 @@ AES_IV="..."
               {/* └── */}
 
               <div
-                className="file-tree p-3 rounded"
+                className="file-tree p-3 rounded overflow-x-scroll"
                 style={{ backgroundColor: "#2b2b2b" }}
               >
                 <div className="mb-2">
