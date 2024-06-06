@@ -749,22 +749,6 @@ AES_IV="..."
                             </Fragment>
                           </div>
                         </Fragment>
-
-                        <Fragment>
-                          <div className="mb-2">
-                            │{"    "}│{"    "}├──{" "}
-                            <span className="folder"></span>
-                            <label>vite/</label>
-                          </div>
-
-                          <div className="mb-2">
-                            <Fragment>
-                              │{"    "}│{"    "}│{"    "}├──{" "}
-                              <span className="file-gitignore"></span>
-                              <label>.gitignore</label>
-                            </Fragment>
-                          </div>
-                        </Fragment>
                       </Fragment>
                     </Fragment>
 
@@ -864,7 +848,7 @@ AES_IV="..."
                     <div>
                       │{"    "}└──{" "}
                       <label className="mb-2">
-                        <span className="file-php-class"></span>
+                        <span className="file-php"></span>
                         bootstrap.php
                       </label>
                     </div>
@@ -2802,14 +2786,12 @@ return response('session-error', 'message', Request::HTTP_UNAUTHORIZED);
                     >
                       vlucas/valitron
                     </a>
-                    , you can set language response from environment variables
-                    with lang language preference to{" "}
-                    <Badge bg={"secondary"}>.env</Badge> more information in{" "}
+                    , more information in{" "}
                     <Link
                       to={"/docs/library/content"}
                       className="text-decoration-none"
                     >
-                      Lion-Security
+                      Lion-Route
                     </Link>
                     , rules are stored in{" "}
                     <Badge bg="secondary">{"app/Rules/"}</Badge>.
@@ -2902,7 +2884,7 @@ class ExampleRule extends Rules implements RulesInterface
      */
     public function passes(): void
     {
-        $this->validate(function(Validator $validator) {
+        $this->validate(function (Validator $validator): void {
             $validator
                 ->rule('required', $this->field)
                 ->message('the "example" property is required');
@@ -2923,11 +2905,7 @@ class ExampleRule extends Rules implements RulesInterface
 
               <Description
                 description={
-                  <Fragment>
-                    {" "}
-                    Add your rules to different routes in{" "}
-                    <Badge bg={"secondary"}>routes/rules.php</Badge>.
-                  </Fragment>
+                  "Add your rules to different routes in controllers."
                 }
               />
 
@@ -2937,67 +2915,28 @@ class ExampleRule extends Rules implements RulesInterface
 
 declare(strict_types=1);
 
-use App\\Rules\\EmailRule;
+namespace App\\Http\\Controllers;
+
+use App\\Rules\\ExampleRule;
 
 /**
- * -----------------------------------------------------------------------------
- * Rules
- * -----------------------------------------------------------------------------
- * This is where you can register your rules for validating forms
- * -----------------------------------------------------------------------------
+ * Description
+ *
+ * @package App\\Http\\Controllers
  */
-
-return [
-
+class ExampleController
+{
     /**
-     * [Routes for the HTTP POST protocol]
+     * Description
+     *
+     * @return object
      */
-    
-    'POST' => [
-        '/api/auth/signin' => [
-            EmailRule::class
-        ],
-    ]
-
-];
-`}
-              />
-
-              <p className="fs-6">You can reuse a rule in different routes.</p>
-
-              <CodeBlock
-                langueage={"php"}
-                content={`<?php
-
-declare(strict_types=1);
-
-use App\\Rules\\EmailRule;
-
-/**
- * -----------------------------------------------------------------------------
- * Rules
- * -----------------------------------------------------------------------------
- * This is where you can register your rules for validating forms
- * -----------------------------------------------------------------------------
- */
-
-return [
-
-    /**
-     * [Routes for the HTTP POST protocol]
-     */
-    
-    'POST' => [
-        '/api/auth/signin' => [
-            EmailRule::class
-        ],
-        '/api/auth/register' => [
-            EmailRule::class
-        ],
-    ]
-    
-];
-`}
+    #[\\Lion\\Route\\Attributes\\Rules(ExampleRule::class)]
+    public function example(): object
+    {
+        return success();
+    }
+}`}
               />
             </Fragment>
           ),
@@ -4296,12 +4235,8 @@ class ExampleExceptionTest extends Test
         collections: {
           name: "Postman Collections",
           code: (
-            <>
-              <div className="mb-3">
-                <h3>Postman Collections</h3>
-
-                <hr />
-              </div>
+            <Fragment>
+              <Title title={"Postman Collections"} />
 
               <p className="fs-6">
                 To export the available routes you must run the local server and
@@ -4310,82 +4245,7 @@ class ExampleExceptionTest extends Test
               </p>
 
               <CodeBlock language={"bash"} content={"php lion route:postman"} />
-
-              <Alert variant={"info"}>
-                <strong>Note:</strong> The routes are loaded with the server
-                route <Badge bg="secondary">SERVER_URL</Badge> set in{" "}
-                <Badge bg="secondary">.env</Badge>, modify this route to avoid
-                errors in the execution of the process, in the file{" "}
-                <Badge bg="secondary">public/index.php</Badge> there is a public
-                route which allows get the available routes from the terminal,
-                comment this line once your web app is deployed.
-              </Alert>
-
-              <Alert variant={"info"}>
-                <p>
-                  <strong>Note:</strong> The routes generated in the collection
-                  interact with the rules established for each url, modify the
-                  properties of each rule. The defined properties modify and
-                  parameterize the exported requests, where:
-                </p>
-
-                <ul>
-                  <li>$field {"=>"} name of the field</li>
-
-                  <li>$desc {"=>"} description of the field</li>
-
-                  <li>$value {"=>"} default value of the field</li>
-
-                  <li>
-                    $disabled {"=>"} modifies whether the field is active or
-                    inactive in the collection
-                  </li>
-                </ul>
-              </Alert>
-
-              <p className="fs-6">
-                If you want the POST, PUT and DELETE routes to be exported with
-                dynamically required parameters these must have been declared as
-                rules first, for each rule that is added it is recognized as a
-                required parameter to send through an http request and it is
-                exported in the postman collections.
-              </p>
-
-              <CodeBlock
-                langueage={"php"}
-                content={`<?php
-
-declare(strict_types=1);
-
-use App\Rules\EmailRule;
-
-/**
- * -----------------------------------------------------------------------------
- * Rules
- * -----------------------------------------------------------------------------
- * This is where you can register your rules for validating forms
- * -----------------------------------------------------------------------------
- */
-
-return [
-
-    /**
-     * [Routes for the HTTP POST protocol]
-     */
-    
-    'POST' => [
-        '/api/auth/signin' => [
-            EmailRule::class
-        ],
-        '/api/auth/register' => [
-            EmailRule::class
-        ],
-    ]
-    
-];
-`}
-              />
-            </>
+            </Fragment>
           ),
         },
       },
