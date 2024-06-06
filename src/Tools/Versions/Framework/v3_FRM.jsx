@@ -3794,9 +3794,27 @@ class ExampleSocket implements MessageComponentInterface
                 }
               />
 
-              <CodeBlock
-                language={"xml"}
-                content={`<?xml version="1.0" encoding="UTF-8"?>
+              <Fragment>
+                <Alert variant="info">
+                  <strong>Note: </strong>Install the printer for a prettier
+                  output in the tests.{" "}
+                  <strong>(It is installed by default)</strong>
+                </Alert>
+
+                <CodeBlock
+                  language={"bash"}
+                  content={
+                    "composer require --dev robiningelbrecht/phpunit-pretty-print"
+                  }
+                />
+              </Fragment>
+
+              <Fragment>
+                <Title title={"phpunit.xml"} />
+
+                <CodeBlock
+                  language={"xml"}
+                  content={`<?xml version="1.0" encoding="UTF-8"?>
 <phpunit
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
     defaultTestSuite="All-Test"
@@ -3850,31 +3868,34 @@ class ExampleSocket implements MessageComponentInterface
 
     <testsuites>
         <testsuite name="All-Test">
-            <directory suffix=".php">tests/Global</directory>
+            <directory suffix=".php">tests/Api</directory>
+            <directory suffix=".php">tests/App</directory>
+            <directory suffix=".php">tests/Database</directory>
         </testsuite>
 
-        <testsuite name="Unit-Tests">
-            <directory>tests/Global/App/Enums</directory>
-            <directory>tests/Global/App/Exceptions</directory>
-            <directory>tests/Global/App/Interfaces</directory>
-            <directory>tests/Global/Database</directory>
+        <testsuite name="Unit">
+            <directory>tests/App/Enums</directory>
+            <directory>tests/App/Exceptions</directory>
+            <directory>tests/App/Interfaces</directory>
+            <directory>tests/Database</directory>
         </testsuite>
 
-        <testsuite name="Integration-Tests">
-            <directory>tests/Global/App/Http/Controllers</directory>
-            <directory>tests/Global/App/Http/Middleware</directory>
-            <directory>tests/Global/App/Http/Services</directory>
-            <directory>tests/Global/App/Models</directory>
+        <testsuite name="Integration">
+            <directory>tests/App/Console/Commands</directory>
+            <directory>tests/App/Http/Controllers</directory>
+            <directory>tests/App/Http/Middleware</directory>
+            <directory>tests/App/Http/Services</directory>
+            <directory>tests/App/Models</directory>
         </testsuite>
 
-        <testsuite name="Functional-Tests">
-            <directory>tests/Global/Api</directory>
+        <testsuite name="Functional">
+            <directory>tests/Api</directory>
         </testsuite>
     </testsuites>
 </phpunit>
-
 `}
-              />
+                />
+              </Fragment>
             </Fragment>
           ),
         },

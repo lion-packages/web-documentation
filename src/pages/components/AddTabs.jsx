@@ -159,17 +159,19 @@ export default function AddTabs() {
             </Offcanvas>
           </div>
 
-          <div className={"sticky-top d-none d-xl-block bg-dark-logo py-3"}>
-            <SelectVersion />
+          <div className={"sticky-top d-none d-xl-block"}>
+            <div className="sticky-top bg-dark-logo py-3">
+              <SelectVersion />
 
-            <div className="mb-3">
-              <Form.Control
-                type="search"
-                className="form-control-dark"
-                placeholder="Search..."
-                value={filter_search}
-                onChange={(e) => setFilter_search(e.target.value)}
-              />
+              <div className="mb-3">
+                <Form.Control
+                  type="search"
+                  className="form-control-dark"
+                  placeholder="Search..."
+                  value={filter_search}
+                  onChange={(e) => setFilter_search(e.target.value)}
+                />
+              </div>
             </div>
 
             <div className="vh-100 overflow-y-scroll">
