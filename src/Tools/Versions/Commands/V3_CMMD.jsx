@@ -62,7 +62,7 @@ export default function v3_CMMD() {
               desc: (
                 <Fragment>
                   The test suite with coverage report{" "}
-                  <label className="text-warning">default: "none"]</label>
+                  <label className="text-warning">[default: "none"]</label>
                 </Fragment>
               ),
             },

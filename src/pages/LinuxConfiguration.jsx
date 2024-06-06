@@ -241,9 +241,13 @@ function gclone {
 # Function into_docker
 # This function connects interactively to a specific Docker container using the 'lion' user.
 function into_docker {
-  # $1 represents the first argument passed to the function, used as the prefix of the container
-  docker exec -it -u lion $1-app bash
+  # $1 represents the first argument passed to the function
+  # If no argument is provided, default to bash, otherwise use zsh
+  local shell=\${2:-zsh}
+
+  docker exec -it -u lion $1-app $shell
 }
+
 
 # Function new_commit
 # This function creates a new Git commit with a specified type and message.
@@ -255,7 +259,6 @@ function new_commit {
   # Create a new Git commit with the specified type and message
   git commit -m "$type: $message"
 }
-
 `}
             />
           </div>

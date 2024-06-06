@@ -152,13 +152,14 @@ export default function Standars() {
 
 use Lion\\Request\\Status;
 use Lion\\Request\\Http;
+use stdClass;
 
 /**
  * This is an example of a response object.
  *
- * @return object
+ * @return stdClass
  */
-public function example(): object
+public function example(): stdClass
 {
     return response(Status::SUCCESS, 'OK', Http::OK);
 }
@@ -170,13 +171,14 @@ public function example(): object
             content={`<?php
 
 use Lion\\Request\\Http;
+use stdClass;
 
 /**
  * This is an example of a response object.
  *
- * @return object
+ * @return stdClass
  */
-public function example(): object
+public function example(): stdClass
 {
     return success('OK', Http::OK);
 }

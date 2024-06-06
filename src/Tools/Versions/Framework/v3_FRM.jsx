@@ -232,7 +232,7 @@ AES_IV="..."
               {/* └── */}
 
               <div
-                className="file-tree p-3 rounded"
+                className="file-tree p-3 rounded overflow-x-scroll"
                 style={{ backgroundColor: "#2b2b2b" }}
               >
                 <div className="mb-2">
@@ -670,14 +670,6 @@ AES_IV="..."
                       <label className="mb-2">
                         <span className="file-php"></span>
                         middleware.php
-                      </label>
-                    </div>
-
-                    <div>
-                      │{"    "}└──{" "}
-                      <label className="mb-2">
-                        <span className="file-php"></span>
-                        rules.php
                       </label>
                     </div>
 
@@ -1216,17 +1208,15 @@ Driver::run([
         show: {
           name: "Show Connections",
           code: (
-            <>
-              <div className="mb-3">
-                <h3>Show Database Connections</h3>
+            <Fragment>
+              <Title title={"Show Database Connections"} />
 
-                <hr />
-              </div>
-
-              <p className="fs-6">View all available database connections.</p>
+              <Description
+                description={"View all available database connections."}
+              />
 
               <CodeBlock language={"bash"} content={"php lion db:show"} />
-            </>
+            </Fragment>
           ),
         },
         "create-crud": {
@@ -1243,6 +1233,12 @@ Driver::run([
                 language={"bash"}
                 content={"php lion db:crud entity_name"}
               />
+
+              <Alert variant="info">
+                <strong>Note: </strong>This only generates the PHP code
+                necessary for your use, you must create your own migrations for
+                these database processes to work.
+              </Alert>
             </Fragment>
           ),
         },
@@ -1380,9 +1376,7 @@ class HomeController
 
                 <CodeBlock
                   language={"bash"}
-                  content={
-                    "php lion new:controller HomeController --model HomeModel"
-                  }
+                  content={"php lion new:controller HomeController --model"}
                 />
 
                 <CodeBlock
@@ -1563,6 +1557,7 @@ declare(strict_types=1);
 namespace App\\Models;
 
 use Lion\\Database\\Drivers\\MySQL as DB;
+use stdClass;
 
 /**
  * Description
@@ -1574,11 +1569,13 @@ class HomeModel
     /**
      * Description
      *
-     * @return array|object
+     * @return stdClass|array<stdClass|array<int|string, mixed>|DatabaseCapsuleInterface>
      */
-    public function exampleDB(): array|object
+    public function exampleDB(): stdClass|array
     {
-        return DB::table('table_name')->select()->getAll();
+        return DB::table('table_name')
+            ->select()
+            ->getAll();
     }
 }
 `}
@@ -1607,6 +1604,7 @@ declare(strict_types=1);
 namespace App\\Http\\Controllers;
 
 use App\\Models\\HomeModel;
+use stdClass;
 
 /**
  * Description
@@ -1620,9 +1618,9 @@ class HomeController
      *
      * @param HomeModel $model [Description]
      *
-     * @return array|object
+     * @return stdClass|array<stdClass|array<int|string, mixed>|DatabaseCapsuleInterface>
      */
-    public function example(HomeModel $model): array|object
+    public function example(HomeModel $model): stdClass|array
     {
         return $homeModel->exampleDB();
     }
@@ -1663,6 +1661,8 @@ declare(strict_types=1);
 
 namespace App\\Interfaces;
 
+use stdClass;
+
 /**
  * Description of the 'ExampleInterface' interface
  *
@@ -1673,9 +1673,9 @@ interface ExampleInterface
     /**
      * Description
      *
-     * @return object
+     * @return stdClass
      */
-    public function abstractMethod(): object
+    public function abstractMethod(): stdClass
 }
 `}
               />
@@ -1697,6 +1697,7 @@ declare(strict_types=1);
 namespace App\\Http\\Services;
 
 use App\\Interfaces\\ExampleInterface;
+use stdClass;
 
 /**
  * Description
@@ -1708,7 +1709,7 @@ class ExampleService implements ExampleInterface
     /**
      * {@inheritdoc}
      */
-    public function abstractMethod(): object
+    public function abstractMethod(): stdClass
     {
         return success();
     }
