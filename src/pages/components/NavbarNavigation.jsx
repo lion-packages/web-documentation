@@ -5,7 +5,7 @@ import NavDropdown from "react-bootstrap/NavDropdown";
 import { LinkContainer } from "react-router-bootstrap";
 import NavigationLinks from "../../Tools/NavigationLinks";
 import logo from "./../../assets/img/icon-dark.png";
-import { FaGithub, FaYoutube, FaLinkedin } from "react-icons/fa";
+import { FaGithub, FaYoutube, FaLinkedin, FaDiscord } from "react-icons/fa";
 import { Image } from "react-bootstrap";
 import Content from "../../Tools/Content";
 import { useState } from "react";
@@ -87,17 +87,9 @@ function NavbarNavigation() {
             </Nav.Link>
 
             <Nav.Link
-              href={"https://github.com/lion-packages"}
-              target="_blank"
-              className="d-none d-xl-block"
-            >
-              <FaGithub size={"2.5em"} />
-            </Nav.Link>
-
-            <Nav.Link
               href={"https://youtube.com/@lionpackages?si=sJ1s5wmIHpo-QTzq"}
+              className="text-center"
               target="_blank"
-              className="d-none d-xl-block"
             >
               <FaYoutube size={"2.5em"} className="text-danger" />
             </Nav.Link>
@@ -106,10 +98,26 @@ function NavbarNavigation() {
               href={
                 "https://www.linkedin.com/company/101856499/admin/feed/posts/"
               }
+              className="text-center"
               target="_blank"
-              className="d-none d-xl-block"
             >
               <FaLinkedin size={"2.5em"} className="text-primary" />
+            </Nav.Link>
+
+            <Nav.Link
+              href={"https://github.com/lion-packages"}
+              className="text-center"
+              target="_blank"
+            >
+              <FaGithub size={"2.5em"} />
+            </Nav.Link>
+
+            <Nav.Link
+              href={"https://discord.gg/7qzcCeG8"}
+              className="text-center"
+              target="_blank"
+            >
+              <FaDiscord size={"2.5em"} className="text-primary" />
             </Nav.Link>
           </Nav>
         </Navbar.Collapse>
