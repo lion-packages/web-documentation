@@ -156,6 +156,14 @@ span.hljs-doctag {
   border: #111111;
 }
 
+.text-ide {
+  color: #2b2b2b;
+}
+
+.bg-ide {
+  background-color: #2b2b2b;
+}
+
 .bg-dark-logo {
   background-color: #111111;
 }
