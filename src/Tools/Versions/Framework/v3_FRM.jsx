@@ -80,6 +80,17 @@ export default function v3_FRM() {
                 language={"bash"}
                 content={"composer create-project lion/framework"}
               />
+
+              <div className="ratio ratio-16x9">
+                <iframe
+                  src="https://www.youtube.com/embed/Vu7NJwwf_Ys?si=sgF5JxEvCWfZxWBB&amp;start=1"
+                  title="Lion-Packages: Framework"
+                  frameborder="0"
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                  referrerpolicy="strict-origin-when-cross-origin"
+                  allowfullscreen
+                />
+              </div>
             </Fragment>
           ),
         },
@@ -220,6 +231,17 @@ AES_IV="..."
                   <CodeBlock language={"bash"} content={"php npm dev"} />
                 </Col>
               </Row>
+
+              <div className="ratio ratio-16x9">
+                <iframe
+                  src="https://www.youtube.com/embed/Vu7NJwwf_Ys?si=sgF5JxEvCWfZxWBB&amp;start=1"
+                  title="Lion-Packages: Framework"
+                  frameborder="0"
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                  referrerpolicy="strict-origin-when-cross-origin"
+                  allowfullscreen
+                />
+              </div>
             </Fragment>
           ),
         },
@@ -830,7 +852,7 @@ AES_IV="..."
                             │{"    "}│{"    "}│{"    "}└──{" "}
                             <label className="mb-2">
                               <span className="file-php-class-test"></span>
-                              Example.php
+                              ExampleTest.php
                             </label>
                           </div>
                         </Fragment>
@@ -1273,8 +1295,63 @@ Driver::run([
 
               <CodeBlock
                 langueage={"php"}
-                content={"<?php\n\n" + "Route::get('/', fn() => success());"}
+                content={`<?php
+
+declare(strict_types=1);
+
+use Lion\\Route;
+
+/**
+ * -----------------------------------------------------------------------------
+ * Web Routes
+ * -----------------------------------------------------------------------------
+ * Here is where you can register web routes for your application
+ * -----------------------------------------------------------------------------
+ */
+
+Route::get('/', fn() => success());
+`}
               />
+
+              <p>You can add different routes to a controller.</p>
+
+              <CodeBlock
+                language={"php"}
+                content={`<?php
+
+declare(strict_types=1);
+
+use App\\Http\\Controllers\\UsersController;
+use Lion\\Route;
+
+/**
+ * -----------------------------------------------------------------------------
+ * Web Routes
+ * -----------------------------------------------------------------------------
+ * Here is where you can register web routes for your application
+ * -----------------------------------------------------------------------------
+ */
+
+Route::controller(UsersController::class, function (): void {
+    Route::post('users', 'create');
+    Route::get('users', 'read');
+    Route::get('users/{id}', 'readById');
+    Route::put('users/{id}', 'update');
+    Route::delete('users/{id}', 'delete');
+});
+`}
+              />
+
+              <div className="ratio ratio-16x9">
+                <iframe
+                  src="https://www.youtube.com/embed/9nCcWOHHtM0?si=cAmaxCGvjqtgH2we"
+                  title="Lion-Packages - Framework"
+                  frameborder="0"
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                  referrerpolicy="strict-origin-when-cross-origin"
+                  allowfullscreen
+                ></iframe>
+              </div>
             </Fragment>
           ),
         },
@@ -1343,6 +1420,8 @@ declare(strict_types=1);
 
 namespace App\\Http\\Controllers;
 
+use stdClass;
+
 /**
  * Description
  *
@@ -1353,9 +1432,9 @@ class HomeController
     /**
      * Description
      *
-     * @return object
+     * @return stdClass
      */
-    public function example(): object
+    public function example(): stdClass
     {
         return success();
     }
@@ -1388,6 +1467,8 @@ declare(strict_types=1);
 namespace App\\Http\\Controllers;
 
 use App\\Models\\HomeModel;
+use Lion\\Database\\Interface\\DatabaseCapsuleInterface;
+use stdClass;
 
 /**
  * Description
@@ -1401,9 +1482,9 @@ class HomeController
      *
      * @param HomeModel $model [Description]
      *
-     * @return array|object
+     * @return stdClass|array|DatabaseCapsuleInterface
      */
-    public function example(HomeModel $model): array|object
+    public function example(HomeModel $model): stdClass|array|DatabaseCapsuleInterface
     {
         return $homeModel->exampleDB();
     }
@@ -1411,6 +1492,17 @@ class HomeController
 `}
                 />
               </Fragment>
+
+              <div className="ratio ratio-16x9">
+                <iframe
+                  src="https://www.youtube.com/embed/A4TVz2P2DDM?si=nHGucf-XyagEicee&amp;start=1"
+                  title="Lion-Packages: Framework"
+                  frameborder="0"
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                  referrerpolicy="strict-origin-when-cross-origin"
+                  allowfullscreen
+                ></iframe>
+              </div>
             </Fragment>
           ),
         },
@@ -1430,11 +1522,33 @@ class HomeController
                 language={"php"}
                 content={`<?php
 
+declare(strict_types=1);
+
 use App\\Http\\Controllers\\HomeController;
+use Lion\\Route;
+
+/**
+ * -----------------------------------------------------------------------------
+ * Web Routes
+ * -----------------------------------------------------------------------------
+ * Here is where you can register web routes for your application
+ * -----------------------------------------------------------------------------
+ */
 
 Route::get('home', [HomeController::class, 'method_name']);
 `}
               />
+
+              <div className="ratio ratio-16x9">
+                <iframe
+                  src="https://www.youtube.com/embed/A4TVz2P2DDM?si=nHGucf-XyagEicee&amp;start=1"
+                  title="Lion-Packages: Framework"
+                  frameborder="0"
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                  referrerpolicy="strict-origin-when-cross-origin"
+                  allowfullscreen
+                ></iframe>
+              </div>
             </Fragment>
           ),
         },
@@ -1475,6 +1589,17 @@ class ExampleService
 }
 `}
               />
+
+              <div className="ratio ratio-16x9">
+                <iframe
+                  src="https://www.youtube.com/embed/QxqqX8Y8xnA?si=KY-34YEg8NCXNWBF&amp;start=1"
+                  title="Lion-Packages: Framework"
+                  frameborder="0"
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                  referrerpolicy="strict-origin-when-cross-origin"
+                  allowfullscreen
+                />
+              </div>
             </Fragment>
           ),
         },
@@ -1497,6 +1622,7 @@ declare(strict_types=1);
 namespace App\\Http\\Controllers;
 
 use App\\Http\\Services\\ExampleService;
+use stdClass;
 
 /**
  * Description
@@ -1510,15 +1636,26 @@ class ExampleController
      *
      * @param ExampleService $exampleService [Service 'ExampleService']
      *
-     * @return object
+     * @return stdClass
      */
-    public function example(ExampleService $exampleService): object
+    public function example(ExampleService $exampleService): stdClass
     {
         return $exampleService->example();
     }
 }
 `}
               />
+
+              <div className="ratio ratio-16x9">
+                <iframe
+                  src="https://www.youtube.com/embed/QxqqX8Y8xnA?si=KY-34YEg8NCXNWBF&amp;start=1"
+                  title="Lion-Packages: Framework"
+                  frameborder="0"
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                  referrerpolicy="strict-origin-when-cross-origin"
+                  allowfullscreen
+                />
+              </div>
             </Fragment>
           ),
         },
@@ -1557,6 +1694,7 @@ declare(strict_types=1);
 namespace App\\Models;
 
 use Lion\\Database\\Drivers\\MySQL as DB;
+use Lion\\Database\\Interface\\DatabaseCapsuleInterface;
 use stdClass;
 
 /**
@@ -1569,9 +1707,9 @@ class HomeModel
     /**
      * Description
      *
-     * @return stdClass|array<stdClass|array<int|string, mixed>|DatabaseCapsuleInterface>
+     * @return stdClass|array|DatabaseCapsuleInterface
      */
-    public function exampleDB(): stdClass|array
+    public function exampleDB(): stdClass|array|DatabaseCapsuleInterface
     {
         return DB::table('table_name')
             ->select()
@@ -1580,6 +1718,17 @@ class HomeModel
 }
 `}
               />
+
+              <div className="ratio ratio-16x9">
+                <iframe
+                  src="https://www.youtube.com/embed/q_5vgkzfGks?si=3V4F9lrJHmwSH2xb&amp;start=1"
+                  title="Lion-Packages: Framework"
+                  frameborder="0"
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                  referrerpolicy="strict-origin-when-cross-origin"
+                  allowfullscreen
+                />
+              </div>
             </Fragment>
           ),
         },
@@ -1604,6 +1753,7 @@ declare(strict_types=1);
 namespace App\\Http\\Controllers;
 
 use App\\Models\\HomeModel;
+use Lion\\Database\\Interface\\DatabaseCapsuleInterface;
 use stdClass;
 
 /**
@@ -1618,15 +1768,26 @@ class HomeController
      *
      * @param HomeModel $model [Description]
      *
-     * @return stdClass|array<stdClass|array<int|string, mixed>|DatabaseCapsuleInterface>
+     * @return stdClass|array|DatabaseCapsuleInterface
      */
-    public function example(HomeModel $model): stdClass|array
+    public function example(HomeModel $model): stdClass|array|DatabaseCapsuleInterface
     {
         return $homeModel->exampleDB();
     }
 }
 `}
               />
+
+              <div className="ratio ratio-16x9">
+                <iframe
+                  src="https://www.youtube.com/embed/q_5vgkzfGks?si=3V4F9lrJHmwSH2xb&amp;start=1"
+                  title="Lion-Packages: Framework"
+                  frameborder="0"
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                  referrerpolicy="strict-origin-when-cross-origin"
+                  allowfullscreen
+                />
+              </div>
             </Fragment>
           ),
         },
@@ -2021,6 +2182,17 @@ class ExampleException extends Exception implements ExceptionInterface
 
 `}
               />
+
+              <div className="ratio ratio-16x9">
+                <iframe
+                  src="https://www.youtube.com/embed/tz9DLrOD4kw?si=I9r2mpKvPYg3Y-6q"
+                  title="Lion-Packages: Framework"
+                  frameborder="0"
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                  referrerpolicy="strict-origin-when-cross-origin"
+                  allowfullscreen
+                ></iframe>
+              </div>
             </Fragment>
           ),
         },
@@ -2061,6 +2233,17 @@ class ExampleService
 }
 `}
               />
+
+              <div className="ratio ratio-16x9">
+                <iframe
+                  src="https://www.youtube.com/embed/tz9DLrOD4kw?si=I9r2mpKvPYg3Y-6q"
+                  title="Lion-Packages: Framework"
+                  frameborder="0"
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                  referrerpolicy="strict-origin-when-cross-origin"
+                  allowfullscreen
+                ></iframe>
+              </div>
             </Fragment>
           ),
         },
@@ -2218,6 +2401,17 @@ class ExampleService
                 />
               </Fragment>
 
+              <div className="ratio ratio-16x9">
+                <iframe
+                  src="https://www.youtube.com/embed/2hsp2zvEZnQ?si=W6ESUn1RqPUAirzG&amp;start=1"
+                  title="Lion-Packages: Framework"
+                  frameborder="0"
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                  referrerpolicy="strict-origin-when-cross-origin"
+                  allowfullscreen
+                />
+              </div>
+
               <Fragment>
                 <Fragment>
                   <Title title={"Migration Table"} />
@@ -2241,7 +2435,7 @@ return new class implements TableInterface
      *
      * @const INDEX
      */
-    const INDEX = null;
+    const ?int INDEX = null;
 
     /**
      * {@inheritdoc}
@@ -2380,6 +2574,17 @@ return new class implements StoreProcedureInterface
                   content={"php lion migrate:fresh --seed"}
                 />
               </Fragment>
+
+              <div className="ratio ratio-16x9">
+                <iframe
+                  src="https://www.youtube.com/embed/2hsp2zvEZnQ?si=W6ESUn1RqPUAirzG&amp;start=1"
+                  title="Lion-Packages: Framework"
+                  frameborder="0"
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                  referrerpolicy="strict-origin-when-cross-origin"
+                  allowfullscreen
+                />
+              </div>
             </Fragment>
           ),
         },
@@ -2478,7 +2683,7 @@ return new class implements StoreProcedureInterface
 
               <CodeBlock
                 language={"bash"}
-                content={"php lion npm:uninstall axios"}
+                content={"php npm uninstall axios"}
               />
 
               <CodeBlock
@@ -2574,7 +2779,6 @@ Mailer::initialize([
         'debug' => env('MAIL_DEBUG', false)
     ]
 ], env('MAIL_NAME', 'lion-app'));
-
 `}
               />
             </Fragment>
@@ -2846,8 +3050,8 @@ declare(strict_types=1);
 
 namespace App\\Rules;
 
-use Lion\\Bundle\\Helpers\\Rules;
-use Lion\\Bundle\\Interface\\RulesInterface;
+use Lion\\Route\\Helpers\\Rules;
+use Lion\\Route\\Interface\\RulesInterface;
 use Valitron\\Validator;
 
 class ExampleRule extends Rules implements RulesInterface
@@ -2895,6 +3099,17 @@ class ExampleRule extends Rules implements RulesInterface
 
 `}
               />
+
+              <div className="ratio ratio-16x9">
+                <iframe
+                  src="https://www.youtube.com/embed/zdT1tSu0T6M?si=GTKlprOZxBE9uQQF&amp;start=1"
+                  title="Lion-Packages: Framework"
+                  frameborder="0"
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                  referrerpolicy="strict-origin-when-cross-origin"
+                  allowfullscreen
+                />
+              </div>
             </Fragment>
           ),
         },
@@ -2930,15 +3145,26 @@ class ExampleController
     /**
      * Description
      *
-     * @return object
+     * @return stdClass
      */
     #[\\Lion\\Route\\Attributes\\Rules(ExampleRule::class)]
-    public function example(): object
+    public function example(): stdClass
     {
         return success();
     }
 }`}
               />
+
+              <div className="ratio ratio-16x9">
+                <iframe
+                  src="https://www.youtube.com/embed/zdT1tSu0T6M?si=GTKlprOZxBE9uQQF&amp;start=1"
+                  title="Lion-Packages: Framework"
+                  frameborder="0"
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                  referrerpolicy="strict-origin-when-cross-origin"
+                  allowfullscreen
+                />
+              </div>
             </Fragment>
           ),
         },
@@ -3173,7 +3399,7 @@ use Lion\\Security\\RSA;
  * @property RSA $rsa [RSA class object]
  * @property JWT $jwt [JWT class object]
  *
- * @package App\\Http\\Middleware
+ * @package App\Http\Middleware
  */
 class JWTMiddleware
 {
@@ -3201,25 +3427,31 @@ class JWTMiddleware
     /**
      * @required
      */
-    public function setStore(Store $store): void
+    public function setStore(Store $store): JWTMiddleware
     {
         $this->store = $store;
+
+        return $this;
     }
 
     /**
      * @required
      */
-    public function setRSA(RSA $rsa): void
+    public function setRSA(RSA $rsa): JWTMiddleware
     {
         $this->rsa = $rsa;
+
+        return $this;
     }
 
     /**
      * @required
      */
-    public function setJWT(JWT $jwt): void
+    public function setJWT(JWT $jwt): JWTMiddleware
     {
         $this->jwt = $jwt;
+
+        return $this;
     }
 
     /**
@@ -3232,7 +3464,7 @@ class JWTMiddleware
     private function initRSA(string $path): void
     {
         $this->rsa
-            ->setUrlPath($path)
+            ->setUrlPath(storage_path($path))
             ->init();
     }
 
@@ -3287,7 +3519,7 @@ class JWTMiddleware
             throw new MiddlewareException('invalid JWT [AUTH-1]', Status::SESSION_ERROR, Http::UNAUTHORIZED);
         }
 
-        $data = (object) ((object) json_decode(base64_decode($splitToken[1]), true));
+        $data = ((object) json_decode(base64_decode($splitToken[1]), true));
 
         if (empty($data->data['users_code'])) {
             throw new MiddlewareException('invalid JWT [AUTH-2]', Status::SESSION_ERROR, Http::FORBIDDEN);
@@ -3295,7 +3527,7 @@ class JWTMiddleware
 
         $path = env('RSA_URL_PATH') . "{$data->data['users_code']}/";
 
-        if (isError($this->store->exist($path))) {
+        if (isError($this->store->exist(storage_path($path)))) {
             throw new MiddlewareException('invalid JWT [AUTH-3]', Status::SESSION_ERROR, Http::FORBIDDEN);
         }
 
@@ -3493,6 +3725,17 @@ Route::middleware(['jwt-exist', 'jwt-authorize'], function() {
                 content={"php lion new:factory ExampleFactory"}
               />
 
+              <div className="ratio ratio-16x9">
+                <iframe
+                  src="https://www.youtube.com/embed/1pgBZ0jF0qg?si=K7N4Y0isVVdABIQ7&amp;start=1"
+                  title="Lion-Package: Framework"
+                  frameborder="0"
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                  referrerpolicy="strict-origin-when-cross-origin"
+                  allowfullscreen
+                />
+              </div>
+
               <CodeBlock
                 langueage={"php"}
                 content={`<?php
@@ -3516,7 +3759,7 @@ class ExampleFactory implements FactoryInterface
     public static function columns(): array
     {
         return [
-            'name'
+            'name',
         ];
     }
 
@@ -3527,11 +3770,11 @@ class ExampleFactory implements FactoryInterface
     {
         return [
             [
-                fake()->name()
+                fake()->name(),
             ],
             [
-                fake()->name()
-            ]
+                fake()->name(),
+            ],
         ];
     }
 }
@@ -3566,6 +3809,17 @@ class ExampleFactory implements FactoryInterface
                 content={"php lion new:seed ExampleSeed"}
               />
 
+              <div className="ratio ratio-16x9">
+                <iframe
+                  src="https://www.youtube.com/embed/1pgBZ0jF0qg?si=K7N4Y0isVVdABIQ7&amp;start=1"
+                  title="Lion-Package: Framework"
+                  frameborder="0"
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                  referrerpolicy="strict-origin-when-cross-origin"
+                  allowfullscreen
+                />
+              </div>
+
               <CodeBlock
                 langueage={"php"}
                 content={`<?php
@@ -3590,7 +3844,7 @@ class ExampleSeed implements SeedInterface
    *
    * @const INDEX
    */
-  const INDEX = null;
+  const ?int INDEX = null;
 
   /**
    * {@inheritdoc}
@@ -3620,6 +3874,17 @@ class ExampleSeed implements SeedInterface
               />
 
               <CodeBlock language={"bash"} content={"php lion db:seed"} />
+
+              <div className="ratio ratio-16x9">
+                <iframe
+                  src="https://www.youtube.com/embed/1pgBZ0jF0qg?si=K7N4Y0isVVdABIQ7&amp;start=1"
+                  title="Lion-Package: Framework"
+                  frameborder="0"
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                  referrerpolicy="strict-origin-when-cross-origin"
+                  allowfullscreen
+                />
+              </div>
             </Fragment>
           ),
         },
@@ -3679,20 +3944,6 @@ use SplObjectStorage;
  */
 class ExampleSocket implements MessageComponentInterface
 {
-    /**
-     * [Defines the Socket Port]
-     *
-     * @const PORT
-     */
-    const PORT = 9000;
-
-    /**
-     * [Defines the Socket Host]
-     *
-     * @const HOST
-     */
-    const HOST = '0.0.0.0';
-
     /**
      * [List of clients connected to the Socket]
      *
@@ -4299,8 +4550,8 @@ class ExampleExceptionTest extends Test
 
 declare(strict_types=1);
 
+use Lion\\Request\\Http;
 use Lion\\Request\\Request;
-use Lion\\Route\\Route;
 
 /**
  * -----------------------------------------------------------------------------
@@ -4310,7 +4561,7 @@ use Lion\\Route\\Route;
  * sharing or "CORS". This determines which cross-origin operations
  * can be executed in web browsers.
  * -----------------------------------------------------------------------------
- */
+ **/
 
 Request::header('Access-Control-Allow-Origin', '*');
 
@@ -4318,8 +4569,8 @@ Request::header('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE, PATCH, 
 
 Request::header('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content-Type, Accept, Authorization');
 
-if (Route::OPTIONS === $_SERVER['REQUEST_METHOD']) {
-    http_response_code(Request::HTTP_OK);
+if (Http::OPTIONS === $_SERVER['REQUEST_METHOD']) {
+    http_response_code(Http::OK);
 
     exit;
 }
@@ -4552,25 +4803,33 @@ TaskQueue::add(
         /**
          * Send emails for account validation
          *
+         * @param VerifyAccountHtml $verifyAccountHtml
          * @param object $queue [Queued task object]
+         * @param string $account [Mail account]
+         * @param string $code [Code]
          *
          * @return void
          *
          * @throws Exception [Catch an exception if the process fails]
          */
-        function (VerifyAccountHtml $htmlTemplate, object $queue, string $account, string $code): void {
+        function (VerifyAccountHtml $verifyAccountHtml, object $queue, string $account, string $code): void {
             try {
                 Mailer::account(env('MAIL_NAME'))
                     ->subject('Registration Confirmation - Please Verify Your Email')
                     ->from(env('MAIL_USER_NAME'), 'Lion-Packages')
                     ->addAddress($account)
-                    ->body($htmlTemplate->template()->replace('CODE_REPLACE', $code)->get())
+                    ->body(
+                        $verifyAccountHtml
+                            ->template()
+                            ->replace('CODE_REPLACE', $code)
+                            ->get()
+                    )
                     ->priority(Priority::HIGH)
                     ->send();
             } catch (Exception $e) {
                 TaskQueue::edit($queue, TaskStatusEnum::FAILED);
 
-                logger($e->getMessage(), LogTypeEnum::ERROR->value, [
+                logger($e->getMessage(), LogTypeEnum::ERROR, [
                     'idtask_queue' => $queue->idtask_queue,
                     'task_queue_type' => $queue->task_queue_type,
                     'task_queue_data' => $queue->task_queue_data

@@ -5,7 +5,7 @@ import NavDropdown from "react-bootstrap/NavDropdown";
 import { LinkContainer } from "react-router-bootstrap";
 import NavigationLinks from "../../Tools/NavigationLinks";
 import logo from "./../../assets/img/icon-dark.png";
-import { FaGithub } from "react-icons/fa";
+import { FaGithub, FaYoutube, FaLinkedin } from "react-icons/fa";
 import { Image } from "react-bootstrap";
 import Content from "../../Tools/Content";
 import { useState } from "react";
@@ -92,6 +92,24 @@ function NavbarNavigation() {
               className="d-none d-xl-block"
             >
               <FaGithub size={"2.5em"} />
+            </Nav.Link>
+
+            <Nav.Link
+              href={"https://youtube.com/@lionpackages?si=sJ1s5wmIHpo-QTzq"}
+              target="_blank"
+              className="d-none d-xl-block"
+            >
+              <FaYoutube size={"2.5em"} className="text-danger" />
+            </Nav.Link>
+
+            <Nav.Link
+              href={
+                "https://www.linkedin.com/company/101856499/admin/feed/posts/"
+              }
+              target="_blank"
+              className="d-none d-xl-block"
+            >
+              <FaLinkedin size={"2.5em"} className="text-primary" />
             </Nav.Link>
           </Nav>
         </Navbar.Collapse>

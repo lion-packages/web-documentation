@@ -616,6 +616,11 @@ export default function v3_CMMD() {
           ],
         },
         {
+          name: ["php npm test", "php lion npm:test"],
+          desc: "Run the tests configured in a vite project.",
+          args: [],
+        },
+        {
           name: ["php npm uninstall", "php lion npm:uninstall"],
           desc: "Command to uninstall dependencies with npm from a vite project.",
           args: [
