@@ -46,7 +46,7 @@ export default function v4_LF() {
                 description={
                   <Fragment>
                     Lion-Files supports PHP versions{" "}
-                    <label className="text-warning">(8.2)</label>
+                    <label className="text-warning">(8.1)</label>
                   </Fragment>
                 }
               />

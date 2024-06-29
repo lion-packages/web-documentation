@@ -26,6 +26,7 @@ import v6_LR from "./Versions/libraries/request/v6_LR";
 import v5_LF from "./Versions/libraries/files/v5_LF";
 import v6_LF from "./Versions/libraries/files/v6_LF";
 import v7_LF from "./Versions/libraries/files/v7_LF";
+import v4_LH from "./Versions/libraries/helpers/v4_LH";
 
 export default function Content() {
   return {
@@ -63,6 +64,7 @@ export default function Content() {
         v4: v4_LF(),
       },
       helpers: {
+        v4: v4_LH(),
         v3: v3_LH(),
         v2: v2_LH(),
       },
