@@ -22,6 +22,11 @@ import v10_LRT from "./Versions/libraries/route/v10_LRT";
 import v11_LRT from "./Versions/libraries/route/v11_LRT";
 import v8_LS from "./Versions/libraries/security/v8_LS";
 import v9_LS from "./Versions/libraries/security/v9_LS";
+import v6_LR from "./Versions/libraries/request/v6_LR";
+import v5_LF from "./Versions/libraries/files/v5_LF";
+import v6_LF from "./Versions/libraries/files/v6_LF";
+import v7_LF from "./Versions/libraries/files/v7_LF";
+import v4_LH from "./Versions/libraries/helpers/v4_LH";
 
 export default function Content() {
   return {
@@ -53,9 +58,13 @@ export default function Content() {
         v1: v1_LDI(),
       },
       files: {
+        v7: v7_LF(),
+        v6: v6_LF(),
+        v5: v5_LF(),
         v4: v4_LF(),
       },
       helpers: {
+        v4: v4_LH(),
         v3: v3_LH(),
         v2: v2_LH(),
       },
@@ -63,6 +72,7 @@ export default function Content() {
         v5: v5_LM(),
       },
       request: {
+        v6: v6_LR(),
         v5: v5_LR(),
       },
       route: {

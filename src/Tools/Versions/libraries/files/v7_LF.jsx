@@ -6,7 +6,7 @@ import Description from "../../../../pages/components/Description";
 import LibraryTitle from "../../../../pages/components/LibraryTitle";
 import ExampleTitle from "../../../../pages/components/ExampleTitle";
 
-export default function v4_LF() {
+export default function v7_LF() {
   return {
     "getting-started": {
       name: "Getting started",
@@ -46,7 +46,7 @@ export default function v4_LF() {
                 description={
                   <Fragment>
                     Lion-Files supports PHP versions{" "}
-                    <label className="text-warning">(8.1)</label>
+                    <label className="text-warning">(8.3)</label>
                   </Fragment>
                 }
               />
@@ -80,9 +80,12 @@ export default function v4_LF() {
                 language="php"
                 content={`<?php
 
-use LionFiles\\Store;
+declare(strict_types=1);
 
-$response = Store::exist('path/');
+use Lion\\Files\\Store;
+
+$response = (new Store())
+    ->exist('path/');
 
 var_dump($response);
                   `}
@@ -106,9 +109,12 @@ var_dump($response);
                 language="php"
                 content={`<?php
 
-use LionFiles\\Store;
+declare(strict_types=1);
 
-$response = Store::folder('path/');
+use Lion\\Files\\Store;
+
+$response = (new Store())
+    ->folder('path/');
 
 var_dump($response);
 `}
@@ -132,9 +138,12 @@ var_dump($response);
                 language="php"
                 content={`<?php
 
-use LionFiles\\Store;
+declare(strict_types=1);
 
-$file = Store::get('path/myfile.txt');
+use Lion\\Files\\Store;
+
+$file = (new Store())
+    ->get('path/myfile.txt');
 
 var_dump($file);
 `}
@@ -158,9 +167,12 @@ var_dump($file);
                 language="php"
                 content={`<?php
 
-use LionFiles\\Store;
+declare(strict_types=1);
 
-$file = Store::getBasename('path/myfile.txt');
+use Lion\\Files\\Store;
+
+$file = (new Store())
+    ->getBasename('path/myfile.txt');
 
 var_dump($file);
 `}
@@ -184,9 +196,12 @@ var_dump($file);
                 language="php"
                 content={`<?php
 
-use LionFiles\\Store;
+declare(strict_types=1);
 
-$ext = Store::getExtension('path/myfile.txt');
+use Lion\\Files\\Store;
+
+$ext = (new Store())
+    ->getExtension('path/myfile.txt');
 
 var_dump($ext);
 `}
@@ -210,9 +225,12 @@ var_dump($ext);
                 language="php"
                 content={`<?php
 
-use LionFiles\\Store;
+declare(strict_types=1);
 
-$name = Store::getName('path/myfile.txt');
+use Lion\\Files\\Store;
+
+$name = (new Store())
+    ->getName('path/myfile.txt');
 
 var_dump($name);
 `}
@@ -234,9 +252,12 @@ var_dump($name);
                 language="php"
                 content={`<?php
 
-use LionFiles\\Store;
+declare(strict_types=1);
 
-$response = Store::imageSize('folder', 'file', '1920x1080');
+use Lion\\Files\\Store;
+
+$response = (new Store())
+    ->imageSize('folder', 'file', '1920x1080');
 
 var_dump($response);
 `}
@@ -256,9 +277,12 @@ var_dump($response);
                 language="php"
                 content={`<?php
 
-use LionFiles\\Store;
+declare(strict_types=1);
 
-$response = Store::remove('path/myfile.txt');
+use Lion\\Files\\Store;
+
+$response = (new Store())
+    ->remove('path/myfile.txt');
 
 var_dump($response);
 `}
@@ -291,9 +315,12 @@ var_dump($response);
                   language="php"
                   content={`<?php
 
-use LionFiles\\Store;
+declare(strict_types=1);
 
-$rename = Store::rename($_FILES['user_files']['name']);
+use Lion\\Files\\Store;
+
+$rename = (new Store())
+    ->rename($_FILES['user_files']['name']);
 
 var_dump($rename);
 `}
@@ -307,9 +334,10 @@ var_dump($rename);
                   language="php"
                   content={`<?php
 
-use LionFiles\\Store;
+use Lion\\Files\\Store;
 
-$rename = Store::rename($_FILES['user_files']['name'], 'IMG');
+$rename = (new Store())
+    ->rename($_FILES['user_files']['name'], 'IMG');
 
 var_dump($rename);
 `}
@@ -334,9 +362,12 @@ var_dump($rename);
                 language="php"
                 content={`<?php
 
-use LionFiles\\Store;
+declare(strict_types=1);
 
-$response = Store::size('path...', 500);
+use Lion\\Files\\Store;
+
+$response = (new Store())
+    ->size('path...', 500);
 
 var_dump($response);
 `}
@@ -360,13 +391,16 @@ var_dump($response);
                 language="php"
                 content={`<?php
 
-use LionFiles\\Store;
+declare(strict_types=1);
 
-$response = Store::upload(
-    $_FILES['user_files']['tmp_name'], 
-    $_FILES['user_files']['name'], 
-    'storage/img/'
-);
+use Lion\\Files\\Store;
+
+$response = (new Store())
+    ->upload(
+        $_FILES['user_files']['tmp_name'], 
+        $_FILES['user_files']['name'], 
+        'storage/img/'
+    );
 
 var_dump($response);
 `}
@@ -390,14 +424,17 @@ var_dump($response);
                 language="php"
                 content={`<?php
 
-use LionFiles\\Store;
+declare(strict_types=1);
+
+use Lion\\Files\\Store;
 
 $files = [
     'storage/code_letters_screen_137590_3840x2400.jpg',
     'storage/code_programming_text_140050_3840x2400.jpg'
 ];
 
-$response = Store::validate($files, ['png', 'jpg']);
+$response = (new Store())
+    ->validate($files, ['png', 'jpg']);
 
 var_dump($response);
 `}
@@ -420,10 +457,13 @@ var_dump($response);
               <CodeBlock
                 language="php"
                 content={`<?php
-                
-use LionFiles\\Store;
 
-$files = Store::view('path/');
+declare(strict_types=1);
+
+use Lion\\Files\\Store;
+
+$files = (new Store())
+    ->view('path/');
 
 var_dump($files);
 `}
@@ -451,11 +491,19 @@ var_dump($files);
 
               <CodeBlock
                 language="php"
-                content={
-                  "<?php\n\n" +
-                  "use LionFiles\\Zip;\n\n" +
-                  "Zip::add([\n\t'path/file.png', \n\t'path2/file.png', \n\t'file.jpg'\n]);"
-                }
+                content={`<?php
+
+declare(strict_types=1);
+
+use Lion\\Files\\Zip;
+
+(new Zip())
+    ->add([
+        'path/file.png', 
+        'path2/file.png', 
+        'file.jpg'
+    ]);
+`}
               />
             </Fragment>
           ),
@@ -474,15 +522,18 @@ var_dump($files);
 
               <CodeBlock
                 language="php"
-                content={
-                  "<?php\n\n" +
-                  "use LionFiles\\Zip;\n\n" +
-                  "Zip::addUpload(" +
-                  "'storage/',\n" +
-                  "\t$_FILES['files']['tmp_name'],\n" +
-                  "\t$_FILES['files']['name']\n" +
-                  ");"
-                }
+                content={`<?php
+
+declare(strict_types=1);
+
+use Lion\\Files\\Zip;
+
+(new Zip())
+    ->addUpload('storage/',
+        $_FILES['files']['tmp_name'],
+        $_FILES['files']['name']
+    );
+`}
               />
             </Fragment>
           ),
@@ -499,11 +550,15 @@ var_dump($files);
 
               <CodeBlock
                 language="php"
-                content={
-                  "<?php\n\n" +
-                  "use LionFiles\\Zip;\n\n" +
-                  "Zip::create('storage/compress.zip');"
-                }
+                content={`<?php
+
+declare(strict_types=1);
+
+use Lion\\Files\\Zip;
+
+(new Zip())
+    ->create('storage/compress.zip');
+`}
               />
             </Fragment>
           ),
@@ -522,11 +577,15 @@ var_dump($files);
 
               <CodeBlock
                 language="php"
-                content={
-                  "<?php\n\n" +
-                  "use LionFiles\\Zip;\n\n" +
-                  'Zip::decompress("./example.zip", "./storage/");'
-                }
+                content={`<?php
+
+declare(strict_types=1);
+
+use Lion\\Files\\Zip;
+
+(new Zip())
+    ->decompress("./example.zip", "./storage/");
+`}
               />
             </Fragment>
           ),
@@ -545,9 +604,15 @@ var_dump($files);
 
               <CodeBlock
                 language="php"
-                content={
-                  "<?php\n\n" + "use LionFiles\\Zip;\n\n" + "Zip::save();"
-                }
+                content={`<?php
+
+declare(strict_types=1);
+
+use Lion\\Files\\Zip;
+
+(new Zip())
+    ->save();
+`}
               />
             </Fragment>
           ),
