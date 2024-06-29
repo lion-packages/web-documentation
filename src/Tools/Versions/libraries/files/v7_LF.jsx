@@ -6,7 +6,7 @@ import Description from "../../../../pages/components/Description";
 import LibraryTitle from "../../../../pages/components/LibraryTitle";
 import ExampleTitle from "../../../../pages/components/ExampleTitle";
 
-export default function v6_LF() {
+export default function v7_LF() {
   return {
     "getting-started": {
       name: "Getting started",
@@ -46,7 +46,7 @@ export default function v6_LF() {
                 description={
                   <Fragment>
                     Lion-Files supports PHP versions{" "}
-                    <label className="text-warning">(8.2)</label>
+                    <label className="text-warning">(8.3)</label>
                   </Fragment>
                 }
               />

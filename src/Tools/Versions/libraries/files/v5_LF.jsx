@@ -42,6 +42,15 @@ export default function v5_LF() {
                 development in Linux environments.
               </Alert>
 
+              <Description
+                description={
+                  <Fragment>
+                    Lion-Files supports PHP versions{" "}
+                    <label className="text-warning">(8.2)</label>
+                  </Fragment>
+                }
+              />
+
               <CodeBlock
                 language={"bash"}
                 content={"composer require lion/files"}
