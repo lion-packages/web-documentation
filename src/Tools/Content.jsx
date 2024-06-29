@@ -23,6 +23,7 @@ import v11_LRT from "./Versions/libraries/route/v11_LRT";
 import v8_LS from "./Versions/libraries/security/v8_LS";
 import v9_LS from "./Versions/libraries/security/v9_LS";
 import v6_LR from "./Versions/libraries/request/v6_LR";
+import v5_LF from "./Versions/libraries/files/v5_LF";
 
 export default function Content() {
   return {
@@ -54,6 +55,7 @@ export default function Content() {
         v1: v1_LDI(),
       },
       files: {
+        v5: v5_LF(),
         v4: v4_LF(),
       },
       helpers: {
