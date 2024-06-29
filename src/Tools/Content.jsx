@@ -24,6 +24,7 @@ import v8_LS from "./Versions/libraries/security/v8_LS";
 import v9_LS from "./Versions/libraries/security/v9_LS";
 import v6_LR from "./Versions/libraries/request/v6_LR";
 import v5_LF from "./Versions/libraries/files/v5_LF";
+import v6_LF from "./Versions/libraries/files/v6_LF";
 
 export default function Content() {
   return {
@@ -55,6 +56,7 @@ export default function Content() {
         v1: v1_LDI(),
       },
       files: {
+        v6: v6_LF(),
         v5: v5_LF(),
         v4: v4_LF(),
       },
