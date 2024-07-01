@@ -65,7 +65,7 @@ export default function v11_LRT() {
               <CodeBlock
                 language={"bash"}
                 content={
-                  "composer require lion/route lion/exceptions lion/request lion/security"
+                  "composer require lion/route lion/exceptions lion/request lion/security lion/dependency-injection"
                 }
               />
             </Fragment>
