@@ -1,5 +1,8 @@
 import { Alert } from "react-bootstrap";
 import CodeBlock from "../../../../pages/components/CodeBlock";
+import { Fragment } from "react";
+import Title from "../../../../pages/components/Title";
+import SupportVersion from "../../../../pages/components/SupportVersion";
 
 export default function v3_CMD() {
   return {
@@ -10,12 +13,8 @@ export default function v3_CMD() {
         "about-as": {
           name: "About us",
           code: (
-            <>
-              <div className="mb-3">
-                <h3>About us</h3>
-
-                <hr />
-              </div>
+            <Fragment>
+              <Title title={"About us"} />
 
               <Alert variant={"info"}>
                 <strong>Note: </strong>Currently the library is compatible with
@@ -26,29 +25,27 @@ export default function v3_CMD() {
                 library created with the function of executing commands from
                 PHP.
               </p>
-            </>
+            </Fragment>
           ),
         },
         install: {
           name: "Install",
           code: (
-            <>
-              <div className="mb-3">
-                <h3>Install</h3>
-
-                <hr />
-              </div>
+            <Fragment>
+              <Title title={"Install"} />
 
               <Alert variant={"info"}>
                 <strong>Note: </strong>Currently the library is compatible with
                 development in Linux environments.
               </Alert>
 
+              <SupportVersion title={"Lion-Command"} version={"8.2"} />
+
               <CodeBlock
                 language={"bash"}
                 content={"composer require symfony/console lion/command"}
               />
-            </>
+            </Fragment>
           ),
         },
       },

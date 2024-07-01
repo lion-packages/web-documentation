@@ -5,6 +5,7 @@ import LibraryTitle from "../../../../pages/components/LibraryTitle";
 import Description from "../../../../pages/components/Description";
 import Title from "../../../../pages/components/Title";
 import ExampleTitle from "../../../../pages/components/ExampleTitle";
+import SupportVersion from "../../../../pages/components/SupportVersion";
 
 export default function v7_LS() {
   return {
@@ -42,14 +43,7 @@ export default function v7_LS() {
                 development in Linux environments.
               </Alert>
 
-              <Description
-                description={
-                  <Fragment>
-                    Lion-Framework supports PHP versions{" "}
-                    <label className="text-warning">(8.1)</label>
-                  </Fragment>
-                }
-              />
+              <SupportVersion title={"Lion-Security"} version={"8.1"} />
 
               <CodeBlock
                 language={"bash"}

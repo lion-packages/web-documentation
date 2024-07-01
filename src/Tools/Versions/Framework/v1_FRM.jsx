@@ -9,6 +9,7 @@ import crontab_edit from "./../../../assets/img/docker/crontab-edit.png";
 import { Fragment } from "react";
 import Title from "../../../pages/components/Title";
 import Description from "../../../pages/components/Description";
+import SupportVersion from "../../../pages/components/SupportVersion";
 
 export default function v1_FRM() {
   return {
@@ -65,9 +66,7 @@ export default function v1_FRM() {
                 development in Linux environments.
               </Alert>
 
-              <Description
-                description={"Lion-Framework supports PHP versions (8.1/8.2)"}
-              />
+              <SupportVersion title={"Lion-Framework"} version={"8.1/8.2"} />
 
               <CodeBlock
                 language={"bash"}

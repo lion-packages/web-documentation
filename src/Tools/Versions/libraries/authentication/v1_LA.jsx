@@ -1,5 +1,8 @@
 import { Alert } from "react-bootstrap";
 import CodeBlock from "../../../../pages/components/CodeBlock";
+import SupportVersion from "../../../../pages/components/SupportVersion";
+import { Fragment } from "react";
+import Title from "../../../../pages/components/Title";
 
 export default function v1_LA() {
   return {
@@ -29,23 +32,21 @@ export default function v1_LA() {
         install: {
           name: "Install",
           code: (
-            <>
-              <div className="mb-3">
-                <h3>Install</h3>
-
-                <hr />
-              </div>
+            <Fragment>
+              <Title title={"Install"} />
 
               <Alert variant={"info"}>
                 <strong>Note: </strong>Currently the library is compatible with
                 development in Linux environments.
               </Alert>
 
+              <SupportVersion title="Lion-Authentication" version="8.2" />
+
               <CodeBlock
                 language={"bash"}
                 content={"composer require lion/authentication"}
               />
-            </>
+            </Fragment>
           ),
         },
       },

@@ -7,7 +7,7 @@ import LibraryTitle from "../../../../pages/components/LibraryTitle";
 import ExampleTitle from "../../../../pages/components/ExampleTitle";
 import SupportVersion from "../../../../pages/components/SupportVersion";
 
-export default function v1_LDI() {
+export default function v2_LDI() {
   return {
     "getting-started": {
       name: "Getting started",
@@ -45,7 +45,7 @@ export default function v1_LDI() {
 
               <SupportVersion
                 title={"Lion-Dependency-Injection"}
-                version={"8.2"}
+                version={"8.3"}
               />
 
               <CodeBlock

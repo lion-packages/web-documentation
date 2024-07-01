@@ -5,6 +5,7 @@ import Description from "../../../../pages/components/Description";
 import CodeBlock from "../../../../pages/components/CodeBlock";
 import LibraryTitle from "../../../../pages/components/LibraryTitle";
 import Example from "../../../../pages/components/Example";
+import SupportVersion from "../../../../pages/components/SupportVersion";
 
 export default function v1_LT() {
   return {
@@ -42,9 +43,11 @@ export default function v1_LT() {
                 development in Linux environments.
               </Alert>
 
+              <SupportVersion title={"Lion-Test"} version={"8.2"} />
+
               <CodeBlock
                 language={"bash"}
-                content={"composer require phpunit/phpunit lion/test"}
+                content={"composer require --dev phpunit/phpunit lion/test"}
               />
             </Fragment>
           ),

@@ -5,6 +5,7 @@ import { Fragment } from "react";
 import LibraryTitle from "../../../../pages/components/LibraryTitle";
 import Title from "../../../../pages/components/Title";
 import Example from "../../../../pages/components/Example";
+import SupportVersion from "../../../../pages/components/SupportVersion";
 
 export default function v8_LRT() {
   return {
@@ -41,6 +42,8 @@ export default function v8_LRT() {
                 <strong>Note: </strong>Currently the library is compatible with
                 development in Linux environments.
               </Alert>
+
+              <SupportVersion title={"Lion-Route"} version={"8.1"} />
 
               <CodeBlock
                 language={"bash"}

@@ -5,6 +5,7 @@ import { Alert } from "react-bootstrap";
 import Description from "../../../../pages/components/Description";
 import LibraryTitle from "../../../../pages/components/LibraryTitle";
 import Example from "../../../../pages/components/Example";
+import SupportVersion from "../../../../pages/components/SupportVersion";
 
 export default function v5_LR() {
   return {
@@ -41,6 +42,8 @@ export default function v5_LR() {
                 <strong>Note: </strong>Currently the library is compatible with
                 development in Linux environments.
               </Alert>
+
+              <SupportVersion title={"Lion-Request"} version={"8.2"} />
 
               <CodeBlock
                 language={"bash"}

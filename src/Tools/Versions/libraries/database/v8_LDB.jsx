@@ -7,6 +7,7 @@ import { Fragment } from "react";
 import EquivalentTo from "../../../../pages/components/EquivalentTo";
 import ExampleTitle from "../../../../pages/components/ExampleTitle";
 import Title from "../../../../pages/components/Title";
+import SupportVersion from "../../../../pages/components/SupportVersion";
 
 const args = [
   {
@@ -82,23 +83,21 @@ export default function v8_LBD() {
         install: {
           name: "Install",
           code: (
-            <>
-              <div className="mb-3">
-                <h3>Install</h3>
-
-                <hr />
-              </div>
+            <Fragment>
+              <Title title={"Install"} />
 
               <Alert variant={"info"}>
                 <strong>Note: </strong>Currently the library is compatible with
                 development in Linux environments.
               </Alert>
 
+              <SupportVersion title={"Lion-Database"} version={"8.2"} />
+
               <CodeBlock
                 language={"bash"}
                 content={"composer require lion/database"}
               />
-            </>
+            </Fragment>
           ),
         },
       },

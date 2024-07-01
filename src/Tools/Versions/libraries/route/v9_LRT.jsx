@@ -5,6 +5,7 @@ import { Fragment } from "react";
 import LibraryTitle from "../../../../pages/components/LibraryTitle";
 import Title from "../../../../pages/components/Title";
 import Example from "../../../../pages/components/Example";
+import SupportVersion from "../../../../pages/components/SupportVersion";
 
 export default function v9_LRT() {
   return {
@@ -42,14 +43,7 @@ export default function v9_LRT() {
                 development in Linux environments.
               </Alert>
 
-              <Description
-                description={
-                  <Fragment>
-                    Lion-Framework supports PHP versions{" "}
-                    <label className="text-warning">(8.2)</label>
-                  </Fragment>
-                }
-              />
+              <SupportVersion title={"Lion-Route"} version={"8.2"} />
 
               <CodeBlock
                 language={"bash"}

@@ -6,6 +6,7 @@ import LibraryTitle from "../../../../pages/components/LibraryTitle";
 import Title from "../../../../pages/components/Title";
 import Example from "../../../../pages/components/Example";
 import { Link } from "react-router-dom";
+import SupportVersion from "../../../../pages/components/SupportVersion";
 
 export default function v11_LRT() {
   return {
@@ -43,19 +44,14 @@ export default function v11_LRT() {
                 development in Linux environments.
               </Alert>
 
-              <Description
-                description={
-                  <Fragment>
-                    Lion-Framework supports PHP versions{" "}
-                    <label className="text-warning">(8.3)</label>
-                  </Fragment>
-                }
-              />
+              <SupportVersion title={"Lion-Route"} version={"8.3"} />
 
               <CodeBlock
                 language={"bash"}
                 content={"composer require lion/route"}
               />
+
+              <hr />
 
               <Alert variant="info">
                 <strong>Note: </strong>If you need to manipulate rules on your
@@ -65,7 +61,7 @@ export default function v11_LRT() {
               <CodeBlock
                 language={"bash"}
                 content={
-                  "composer require lion/route lion/exceptions lion/request lion/security"
+                  "composer require lion/route lion/exceptions lion/request lion/security lion/dependency-injection"
                 }
               />
             </Fragment>
