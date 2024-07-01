@@ -27,6 +27,7 @@ import v5_LF from "./Versions/libraries/files/v5_LF";
 import v6_LF from "./Versions/libraries/files/v6_LF";
 import v7_LF from "./Versions/libraries/files/v7_LF";
 import v4_LH from "./Versions/libraries/helpers/v4_LH";
+import v2_LDI from "./Versions/libraries/dependency-injection/v2_LDI";
 
 export default function Content() {
   return {
@@ -55,6 +56,7 @@ export default function Content() {
         v8: v8_LBD(),
       },
       "dependency-injection": {
+        v2: v2_LDI(),
         v1: v1_LDI(),
       },
       files: {
