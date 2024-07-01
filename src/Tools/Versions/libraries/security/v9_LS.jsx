@@ -4,6 +4,7 @@ import { Fragment } from "react";
 import LibraryTitle from "../../../../pages/components/LibraryTitle";
 import Description from "../../../../pages/components/Description";
 import Title from "../../../../pages/components/Title";
+import SupportVersion from "../../../../pages/components/SupportVersion";
 
 export default function v9_LS() {
   return {
@@ -41,14 +42,7 @@ export default function v9_LS() {
                 development in Linux environments.
               </Alert>
 
-              <Description
-                description={
-                  <Fragment>
-                    Lion-Security supports PHP versions{" "}
-                    <label className="text-warning">(8.3)</label>
-                  </Fragment>
-                }
-              />
+              <SupportVersion title={"Lion-Security"} version={"8.3"} />
 
               <CodeBlock
                 language={"bash"}

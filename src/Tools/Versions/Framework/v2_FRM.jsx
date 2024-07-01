@@ -7,6 +7,7 @@ import { Fragment } from "react";
 import Description from "../../../pages/components/Description";
 import ExampleTitle from "../../../pages/components/ExampleTitle";
 import EquivalentTo from "../../../pages/components/EquivalentTo";
+import SupportVersion from "../../../pages/components/SupportVersion";
 
 export default function v2_FRM() {
   return {
@@ -63,14 +64,7 @@ export default function v2_FRM() {
                 development in Linux environments.
               </Alert>
 
-              <Description
-                description={
-                  <Fragment>
-                    Lion-Framework supports PHP versions{" "}
-                    <label className="text-warning">(8.2/8.3)</label>
-                  </Fragment>
-                }
-              />
+              <SupportVersion title={"Lion-Framework"} version={"8.2/8.3"} />
 
               <CodeBlock
                 language={"bash"}

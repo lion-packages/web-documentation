@@ -5,6 +5,7 @@ import Description from "../../../../pages/components/Description";
 import { Fragment } from "react";
 import LibraryTitle from "../../../../pages/components/LibraryTitle";
 import ExampleTitle from "../../../../pages/components/ExampleTitle";
+import SupportVersion from "../../../../pages/components/SupportVersion";
 
 export default function v1_LDI() {
   return {
@@ -41,6 +42,11 @@ export default function v1_LDI() {
                 <strong>Note: </strong>Currently the library is compatible with
                 development in Linux environments.
               </Alert>
+
+              <SupportVersion
+                title={"Lion-Dependency-Injection"}
+                version={"8.2"}
+              />
 
               <CodeBlock
                 language={"bash"}

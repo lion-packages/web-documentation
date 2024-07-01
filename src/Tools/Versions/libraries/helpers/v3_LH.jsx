@@ -5,6 +5,7 @@ import Title from "../../../../pages/components/Title";
 import { Alert } from "react-bootstrap";
 import LibraryTitle from "../../../../pages/components/LibraryTitle";
 import Example from "../../../../pages/components/Example";
+import SupportVersion from "../../../../pages/components/SupportVersion";
 
 export default function v3_LH() {
   return {
@@ -42,14 +43,7 @@ export default function v3_LH() {
                 development in Linux environments.
               </Alert>
 
-              <Description
-                description={
-                  <Fragment>
-                    Lion-Framework supports PHP versions{" "}
-                    <label className="text-warning">(8.2)</label>
-                  </Fragment>
-                }
-              />
+              <SupportVersion title={"Lion-Helpers"} version={"8.2"} />
 
               <CodeBlock
                 language={"bash"}

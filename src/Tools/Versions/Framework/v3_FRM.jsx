@@ -17,6 +17,7 @@ import ExampleTitle from "../../../pages/components/ExampleTitle";
 import EquivalentTo from "../../../pages/components/EquivalentTo";
 import Notes from "../../../pages/components/Notes";
 import MarginBottom2 from "../../../pages/components/MarginBottom2";
+import SupportVersion from "../../../pages/components/SupportVersion";
 
 export default function v3_FRM() {
   return {
@@ -67,14 +68,7 @@ export default function v3_FRM() {
 
               <Notes />
 
-              <Description
-                description={
-                  <Fragment>
-                    Lion-Framework supports PHP versions{" "}
-                    <label className="text-warning">(8.3)</label>
-                  </Fragment>
-                }
-              />
+              <SupportVersion title={"Lion-Framework"} version={"8.3"} />
 
               <CodeBlock
                 language={"bash"}
