@@ -18,6 +18,7 @@ import EquivalentTo from "../../../pages/components/EquivalentTo";
 import Notes from "../../../pages/components/Notes";
 import MarginBottom2 from "../../../pages/components/MarginBottom2";
 import SupportVersion from "../../../pages/components/SupportVersion";
+import YoutubeVideo from "../../../pages/components/YoutubeVideo";
 
 export default function v3_FRM() {
   return {
@@ -74,17 +75,6 @@ export default function v3_FRM() {
                 language={"bash"}
                 content={"composer create-project lion/framework"}
               />
-
-              <div className="ratio ratio-21x9">
-                <iframe
-                  src="https://www.youtube.com/embed/Vu7NJwwf_Ys?si=sgF5JxEvCWfZxWBB&amp;start=1"
-                  title="Lion-Packages: Framework"
-                  frameborder="0"
-                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                  referrerpolicy="strict-origin-when-cross-origin"
-                  allowfullscreen
-                />
-              </div>
             </Fragment>
           ),
         },
@@ -225,17 +215,6 @@ AES_IV="..."
                   <CodeBlock language={"bash"} content={"php npm dev"} />
                 </Col>
               </Row>
-
-              <div className="ratio ratio-21x9">
-                <iframe
-                  src="https://www.youtube.com/embed/Vu7NJwwf_Ys?si=sgF5JxEvCWfZxWBB&amp;start=1"
-                  title="Lion-Packages: Framework"
-                  frameborder="0"
-                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                  referrerpolicy="strict-origin-when-cross-origin"
-                  allowfullscreen
-                />
-              </div>
             </Fragment>
           ),
         },
@@ -1024,6 +1003,38 @@ AES_IV="..."
             </Fragment>
           ),
         },
+        "youtube-video": {
+          name: "Tutorials on Youtube (Basics)",
+          code: (
+            <Fragment>
+              <Row>
+                {[
+                  "https://www.youtube.com/embed/Vu7NJwwf_Ys?si=sgF5JxEvCWfZxWBB&amp;start=1",
+                  "https://www.youtube.com/embed/9nCcWOHHtM0?si=cAmaxCGvjqtgH2we&amp;start=1",
+                  "https://www.youtube.com/embed/A4TVz2P2DDM?si=nHGucf-XyagEicee&amp;start=1",
+                  "https://www.youtube.com/embed/q_5vgkzfGks?si=3V4F9lrJHmwSH2xb&amp;start=1",
+                  "https://www.youtube.com/embed/QxqqX8Y8xnA?si=KY-34YEg8NCXNWBF&amp;start=1",
+                  "https://www.youtube.com/embed/zdT1tSu0T6M?si=GTKlprOZxBE9uQQF&amp;start=1",
+                  "https://www.youtube.com/embed/tz9DLrOD4kw?si=I9r2mpKvPYg3Y-6q&amp;start=1",
+                  "https://www.youtube.com/embed/2hsp2zvEZnQ?si=W6ESUn1RqPUAirzG&amp;start=1",
+                  "https://www.youtube.com/embed/1pgBZ0jF0qg?si=K7N4Y0isVVdABIQ7&amp;start=1",
+                  "https://www.youtube.com/embed/y-fjC_f-vd0?si=fB7GdMpUlLayaiM0&amp;start=1",
+                  "https://www.youtube.com/embed/OfaMvlXTLrs?si=evU-jmQ6hXyNkbgG&amp;start=1",
+                  "https://www.youtube.com/embed/mb74JmvXq2w?si=BA-t_I7qiP9GSpbB&amp;start=1",
+                  "https://www.youtube.com/embed/KHzb2CUDVqE?si=2340Bu03EW-xCk2r&amp;start=1",
+                ].map((url, index) => (
+                  <Col key={index} xs={12} sm={12} md={6}>
+                    <YoutubeVideo
+                      ratio={"16x9"}
+                      title={"Lion-Packages: Framework"}
+                      url={url}
+                    />
+                  </Col>
+                ))}
+              </Row>
+            </Fragment>
+          ),
+        },
       },
     },
     commands: {
@@ -1054,17 +1065,6 @@ AES_IV="..."
                 language={"bash"}
                 content={"php lion new:command ExampleCommand"}
               />
-
-              <div className="ratio ratio-21x9">
-                <iframe
-                  src="https://www.youtube.com/embed/y-fjC_f-vd0?si=fB7GdMpUlLayaiM0"
-                  title="YouTube video player"
-                  frameborder="0"
-                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                  referrerpolicy="strict-origin-when-cross-origin"
-                  allowfullscreen
-                />
-              </div>
 
               <CodeBlock
                 language={"php"}
@@ -1298,17 +1298,6 @@ Driver::run([
                 }
               />
 
-              <div className="ratio ratio-21x9">
-                <iframe
-                  src="https://www.youtube.com/embed/9nCcWOHHtM0?si=cAmaxCGvjqtgH2we"
-                  title="Lion-Packages - Framework"
-                  frameborder="0"
-                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                  referrerpolicy="strict-origin-when-cross-origin"
-                  allowfullscreen
-                />
-              </div>
-
               <CodeBlock
                 langueage={"php"}
                 content={`<?php
@@ -1417,17 +1406,6 @@ Route::controller(UsersController::class, function (): void {
                   content={"php lion new:controller HomeController"}
                 />
 
-                <div className="ratio ratio-21x9">
-                  <iframe
-                    src="https://www.youtube.com/embed/A4TVz2P2DDM?si=nHGucf-XyagEicee&amp;start=1"
-                    title="Lion-Packages: Framework"
-                    frameborder="0"
-                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                    referrerpolicy="strict-origin-when-cross-origin"
-                    allowfullscreen
-                  />
-                </div>
-
                 <CodeBlock
                   langueage={"php"}
                   content={`<?php
@@ -1523,17 +1501,6 @@ class HomeController
                 }
               />
 
-              <div className="ratio ratio-21x9">
-                <iframe
-                  src="https://www.youtube.com/embed/A4TVz2P2DDM?si=nHGucf-XyagEicee&amp;start=1"
-                  title="Lion-Packages: Framework"
-                  frameborder="0"
-                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                  referrerpolicy="strict-origin-when-cross-origin"
-                  allowfullscreen
-                />
-              </div>
-
               <CodeBlock
                 language={"php"}
                 content={`<?php
@@ -1576,17 +1543,6 @@ Route::get('home', [HomeController::class, 'method_name']);
                 content={"php lion new:service ExampleService"}
               />
 
-              <div className="ratio ratio-21x9">
-                <iframe
-                  src="https://www.youtube.com/embed/QxqqX8Y8xnA?si=KY-34YEg8NCXNWBF&amp;start=1"
-                  title="Lion-Packages: Framework"
-                  frameborder="0"
-                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                  referrerpolicy="strict-origin-when-cross-origin"
-                  allowfullscreen
-                />
-              </div>
-
               <CodeBlock
                 language={"php"}
                 content={`<?php
@@ -1617,17 +1573,6 @@ class ExampleService
               <Description
                 description={"Inject your services for your processes."}
               />
-
-              <div className="ratio ratio-21x9">
-                <iframe
-                  src="https://www.youtube.com/embed/QxqqX8Y8xnA?si=KY-34YEg8NCXNWBF&amp;start=1"
-                  title="Lion-Packages: Framework"
-                  frameborder="0"
-                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                  referrerpolicy="strict-origin-when-cross-origin"
-                  allowfullscreen
-                />
-              </div>
 
               <CodeBlock
                 language={"php"}
@@ -1690,17 +1635,6 @@ class ExampleController
                 content={"php lion new:model HomeModel"}
               />
 
-              <div className="ratio ratio-21x9">
-                <iframe
-                  src="https://www.youtube.com/embed/q_5vgkzfGks?si=3V4F9lrJHmwSH2xb&amp;start=1"
-                  title="Lion-Packages: Framework"
-                  frameborder="0"
-                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                  referrerpolicy="strict-origin-when-cross-origin"
-                  allowfullscreen
-                />
-              </div>
-
               <CodeBlock
                 language={"php"}
                 content={`<?php
@@ -1748,17 +1682,6 @@ class HomeModel
                   "Create the required models and run them on your controllers."
                 }
               />
-
-              <div className="ratio ratio-21x9">
-                <iframe
-                  src="https://www.youtube.com/embed/q_5vgkzfGks?si=3V4F9lrJHmwSH2xb&amp;start=1"
-                  title="Lion-Packages: Framework"
-                  frameborder="0"
-                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                  referrerpolicy="strict-origin-when-cross-origin"
-                  allowfullscreen
-                />
-              </div>
 
               <CodeBlock
                 language={"php"}
@@ -2163,17 +2086,6 @@ class EntityName implements CapsuleInterface
                 content={"php lion new:exception ExampleException"}
               />
 
-              <div className="ratio ratio-21x9">
-                <iframe
-                  src="https://www.youtube.com/embed/tz9DLrOD4kw?si=I9r2mpKvPYg3Y-6q"
-                  title="Lion-Packages: Framework"
-                  frameborder="0"
-                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                  referrerpolicy="strict-origin-when-cross-origin"
-                  allowfullscreen
-                />
-              </div>
-
               <CodeBlock
                 language={"php"}
                 content={`<?php
@@ -2206,17 +2118,6 @@ class ExampleException extends Exception implements ExceptionInterface
           code: (
             <Fragment>
               <Title title="Use Exceptions" />
-
-              <div className="ratio ratio-21x9">
-                <iframe
-                  src="https://www.youtube.com/embed/tz9DLrOD4kw?si=I9r2mpKvPYg3Y-6q"
-                  title="Lion-Packages: Framework"
-                  frameborder="0"
-                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                  referrerpolicy="strict-origin-when-cross-origin"
-                  allowfullscreen
-                />
-              </div>
 
               <CodeBlock
                 language={"php"}
@@ -2406,17 +2307,6 @@ class ExampleService
                 />
               </Fragment>
 
-              <div className="ratio ratio-21x9">
-                <iframe
-                  src="https://www.youtube.com/embed/2hsp2zvEZnQ?si=W6ESUn1RqPUAirzG&amp;start=1"
-                  title="Lion-Packages: Framework"
-                  frameborder="0"
-                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                  referrerpolicy="strict-origin-when-cross-origin"
-                  allowfullscreen
-                />
-              </div>
-
               <Fragment>
                 <Fragment>
                   <Title title={"Migration Table"} />
@@ -2579,17 +2469,6 @@ return new class implements StoreProcedureInterface
                   content={"php lion migrate:fresh --seed"}
                 />
               </Fragment>
-
-              <div className="ratio ratio-21x9">
-                <iframe
-                  src="https://www.youtube.com/embed/2hsp2zvEZnQ?si=W6ESUn1RqPUAirzG&amp;start=1"
-                  title="Lion-Packages: Framework"
-                  frameborder="0"
-                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                  referrerpolicy="strict-origin-when-cross-origin"
-                  allowfullscreen
-                />
-              </div>
             </Fragment>
           ),
         },
@@ -3047,17 +2926,6 @@ return response('session-error', 'message', Request::HTTP_UNAUTHORIZED);
                 </ListGroup.Item>
               </ListGroup>
 
-              <div className="ratio ratio-21x9">
-                <iframe
-                  src="https://www.youtube.com/embed/zdT1tSu0T6M?si=GTKlprOZxBE9uQQF&amp;start=1"
-                  title="Lion-Packages: Framework"
-                  frameborder="0"
-                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                  referrerpolicy="strict-origin-when-cross-origin"
-                  allowfullscreen
-                />
-              </div>
-
               <CodeBlock
                 langueage={"php"}
                 content={`<?php
@@ -3129,17 +2997,6 @@ class ExampleRule extends Rules implements RulesInterface
                   "Add your rules to different routes in controllers."
                 }
               />
-
-              <div className="ratio ratio-21x9">
-                <iframe
-                  src="https://www.youtube.com/embed/zdT1tSu0T6M?si=GTKlprOZxBE9uQQF&amp;start=1"
-                  title="Lion-Packages: Framework"
-                  frameborder="0"
-                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                  referrerpolicy="strict-origin-when-cross-origin"
-                  allowfullscreen
-                />
-              </div>
 
               <CodeBlock
                 langueage={"php"}
@@ -3730,17 +3587,6 @@ Route::middleware(['jwt-exist', 'jwt-authorize'], function() {
                 content={"php lion new:factory ExampleFactory"}
               />
 
-              <div className="ratio ratio-21x9">
-                <iframe
-                  src="https://www.youtube.com/embed/1pgBZ0jF0qg?si=K7N4Y0isVVdABIQ7&amp;start=1"
-                  title="Lion-Package: Framework"
-                  frameborder="0"
-                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                  referrerpolicy="strict-origin-when-cross-origin"
-                  allowfullscreen
-                />
-              </div>
-
               <CodeBlock
                 langueage={"php"}
                 content={`<?php
@@ -3814,17 +3660,6 @@ class ExampleFactory implements FactoryInterface
                 content={"php lion new:seed ExampleSeed"}
               />
 
-              <div className="ratio ratio-21x9">
-                <iframe
-                  src="https://www.youtube.com/embed/1pgBZ0jF0qg?si=K7N4Y0isVVdABIQ7&amp;start=1"
-                  title="Lion-Package: Framework"
-                  frameborder="0"
-                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                  referrerpolicy="strict-origin-when-cross-origin"
-                  allowfullscreen
-                />
-              </div>
-
               <CodeBlock
                 langueage={"php"}
                 content={`<?php
@@ -3879,17 +3714,6 @@ class ExampleSeed implements SeedInterface
               />
 
               <CodeBlock language={"bash"} content={"php lion db:seed"} />
-
-              <div className="ratio ratio-21x9">
-                <iframe
-                  src="https://www.youtube.com/embed/1pgBZ0jF0qg?si=K7N4Y0isVVdABIQ7&amp;start=1"
-                  title="Lion-Package: Framework"
-                  frameborder="0"
-                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                  referrerpolicy="strict-origin-when-cross-origin"
-                  allowfullscreen
-                />
-              </div>
             </Fragment>
           ),
         },
