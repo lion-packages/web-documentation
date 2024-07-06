@@ -28,6 +28,7 @@ import v6_LF from "./Versions/libraries/files/v6_LF";
 import v7_LF from "./Versions/libraries/files/v7_LF";
 import v4_LH from "./Versions/libraries/helpers/v4_LH";
 import v2_LDI from "./Versions/libraries/dependency-injection/v2_LDI";
+import v2_LA from "./Versions/libraries/authentication/v2_LA";
 
 export default function Content() {
   return {
@@ -47,6 +48,7 @@ export default function Content() {
     },
     library: {
       authentication: {
+        v2: v2_LA(),
         v1: v1_LA(),
       },
       command: {
