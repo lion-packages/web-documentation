@@ -4,7 +4,7 @@ import SupportVersion from "../../../../pages/components/SupportVersion";
 import { Fragment } from "react";
 import Title from "../../../../pages/components/Title";
 
-export default function v1_LA() {
+export default function v2_LA() {
   return {
     "getting-started": {
       name: "Getting started",
@@ -40,7 +40,7 @@ export default function v1_LA() {
                 development in Linux environments.
               </Alert>
 
-              <SupportVersion title="Lion-Authentication" version="8.1" />
+              <SupportVersion title="Lion-Authentication" version="8.2" />
 
               <CodeBlock
                 language={"bash"}

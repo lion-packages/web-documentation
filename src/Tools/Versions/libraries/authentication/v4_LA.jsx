@@ -3,8 +3,10 @@ import CodeBlock from "../../../../pages/components/CodeBlock";
 import SupportVersion from "../../../../pages/components/SupportVersion";
 import { Fragment } from "react";
 import Title from "../../../../pages/components/Title";
+import Description from "../../../../pages/components/Description";
+import LibraryTitle from "../../../../pages/components/LibraryTitle";
 
-export default function v1_LA() {
+export default function v4_LA() {
   return {
     "getting-started": {
       name: "Getting started",
@@ -13,20 +15,18 @@ export default function v1_LA() {
         "about-as": {
           name: "About us",
           code: (
-            <>
-              <div className="mb-3">
-                <h3>About us</h3>
-
-                <hr />
-              </div>
+            <Fragment>
+              <Title title={"About us"} />
 
               <Alert variant={"info"}>
                 <strong>Note: </strong>Currently the library is compatible with
                 development in Linux environments.
               </Alert>
 
-              <p className="fs-6">Library to authenticate users in 2 steps.</p>
-            </>
+              <Description
+                description={"Library to authenticate users in 2 steps."}
+              />
+            </Fragment>
           ),
         },
         install: {
@@ -40,7 +40,7 @@ export default function v1_LA() {
                 development in Linux environments.
               </Alert>
 
-              <SupportVersion title="Lion-Authentication" version="8.1" />
+              <SupportVersion title="Lion-Authentication" version="8.3" />
 
               <CodeBlock
                 language={"bash"}
@@ -58,52 +58,48 @@ export default function v1_LA() {
         init: {
           name: "init",
           code: (
-            <>
-              <div className="mb-3">
-                <h3>
-                  Auth2FA::<span className="text-warning h3">init()</span>
-                </h3>
+            <Fragment>
+              <LibraryTitle className="Auth2FA" methodName="init" />
 
-                <hr />
-              </div>
-
-              <p>The init method allows initializing the Auth2FA class.</p>
+              <Description
+                description={
+                  "The init method allows initializing the Auth2FA class."
+                }
+              />
 
               <CodeBlock
                 language="php"
                 content={`<?php
 
-use LionAuthentication\\Auth2FA;
+declare(strict_types=1);
+
+use Lion\\Authentication\\Auth2FA;
 
 Auth2FA::init();
                   `}
               />
-            </>
+            </Fragment>
           ),
         },
         qr: {
           name: "qr",
           code: (
-            <>
-              <div className="mb-3">
-                <h3>
-                  Auth2FA::<span className="text-warning h3">qr()</span>
-                </h3>
+            <Fragment>
+              <LibraryTitle className="Auth2FA" methodName="qr" />
 
-                <hr />
-              </div>
-
-              <p>
-                The method that returns an object with the qr property where its
-                value is a base_64 of the generated qr code and the secret_key
-                property where it takes the secret value to verify the code.
-              </p>
+              <Description
+                description={
+                  "The method that returns an object with the qr property where its value is a base_64 of the generated qr code and the secret_key property where it takes the secret value to verify the code."
+                }
+              />
 
               <CodeBlock
                 language="php"
                 content={`<?php
 
-use LionAuthentication\\Auth2FA;
+declare(strict_types=1);
+
+use Lion\\Authentication\\Auth2FA;
 
 Auth2FA::init()
     ->qr('company_name', 'company_email');
@@ -114,40 +110,42 @@ Auth2FA::init()
                 language="php"
                 content={`<?php
 
-use LionAuthentication\\Auth2FA;
+declare(strict_types=1);
+
+use Lion\\Authentication\\Auth2FA;
 
 Auth2FA::init()
     ->qr('company_name', 'company_email', 200); // default size of 400
 `}
               />
-            </>
+            </Fragment>
           ),
         },
         verify: {
           name: "verify",
           code: (
-            <>
-              <div className="mb-3">
-                <h3>
-                  Auth2FA::<span className="text-warning h3">verify()</span>
-                </h3>
+            <Fragment>
+              <LibraryTitle className="Auth2FA" methodName="verify" />
 
-                <hr />
-              </div>
-
-              <p>The verify method verifies that the code obtained is valid.</p>
+              <Description
+                description={
+                  "The verify method verifies that the code obtained is valid."
+                }
+              />
 
               <CodeBlock
                 language="php"
                 content={`<?php
 
-use LionAuthentication\\Auth2FA;
+declare(strict_types=1);
+
+use Lion\\Authentication\\Auth2FA;
 
 Auth2FA::init()
     ->verify('secret_key', 'secret_code');
 `}
               />
-            </>
+            </Fragment>
           ),
         },
       },
