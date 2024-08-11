@@ -43,6 +43,23 @@ export default function LinuxConfiguration() {
               <Fragment>
                 <div className="mb-3">
                   <a
+                    href="https://git-scm.com/downloads"
+                    className="text-decoration-none"
+                    target="_blank"
+                  >
+                    Git
+                  </a>
+                </div>
+
+                <CodeBlock
+                  language={"bash"}
+                  content={"sudo apt-get install git"}
+                />
+              </Fragment>
+
+              <Fragment>
+                <div className="mb-3">
+                  <a
                     href="https://github.com/ohmyzsh/ohmyzsh/wiki/Installing-ZSH#ubuntu-debian--derivatives-windows-10-wsl--native-linux-kernel-with-windows-10-build-1903"
                     className="text-decoration-none"
                     target="_blank"
@@ -70,23 +87,6 @@ export default function LinuxConfiguration() {
                   content={
                     'sh -c "$(wget https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh -O -)"'
                   }
-                />
-              </Fragment>
-
-              <Fragment>
-                <div className="mb-3">
-                  <a
-                    href="https://git-scm.com/downloads"
-                    className="text-decoration-none"
-                    target="_blank"
-                  >
-                    Git
-                  </a>
-                </div>
-
-                <CodeBlock
-                  language={"bash"}
-                  content={"sudo apt-get install git"}
                 />
               </Fragment>
 
@@ -184,7 +184,22 @@ sudo apt-get update`}
                 </div>
 
                 <Description
-                  description={"Download the required .deb and install it."}
+                  description={
+                    <Fragment>
+                      Download the required .deb and install it.{" "}
+                      <a
+                        href="https://github.com/Yash-Handa/logo-ls/releases"
+                        target="_blank"
+                      >
+                        Logo-ls
+                      </a>
+                    </Fragment>
+                  }
+                />
+
+                <CodeBlock
+                  language={"bash"}
+                  content={"sudo apt install golang-go -y"}
                 />
 
                 <CodeBlock
@@ -197,11 +212,6 @@ sudo apt-get update`}
                   content={
                     "curl https://raw.githubusercontent.com/UTFeight/logo-ls-modernized/master/INSTALL | bash"
                   }
-                />
-
-                <CodeBlock
-                  language={"bash"}
-                  content={"sudo apt install golang-go -y"}
                 />
               </Fragment>
             </Fragment>

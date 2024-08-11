@@ -84,12 +84,7 @@ export default function v3_CMMD() {
       group: "DB",
       childs: [
         {
-          name: "php lion db:crud",
-          desc: "Command to generate controller and model of an entity with their respective CRUD functions.",
-          args: [],
-        },
-        {
-          name: "php lion db:mysql:capsule",
+          name: "php lion db:capsule",
           desc: "Command required for the creation of new Capsules.",
           args: [
             {
@@ -99,6 +94,11 @@ export default function v3_CMMD() {
               desc: "Entity name",
             },
           ],
+        },
+        {
+          name: "php lion db:crud",
+          desc: "Command to generate controller and model of an entity with their respective CRUD functions.",
+          args: [],
         },
         {
           name: "php lion db:rules",
@@ -196,6 +196,17 @@ export default function v3_CMMD() {
                   <label className="text-warning">
                     (multiple values allowed)
                   </label>
+                </Fragment>
+              ),
+            },
+            {
+              name: "-e, --entity",
+              arg: false,
+              optional: true,
+              desc: (
+                <Fragment>
+                  Entity name{" "}
+                  <label className="text-warning">[default: ""]</label>
                 </Fragment>
               ),
             },

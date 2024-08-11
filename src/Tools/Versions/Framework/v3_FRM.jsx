@@ -115,6 +115,10 @@ export default function v3_FRM() {
                   <ListGroupItem variant="dark">
                     Account module to update the user profile.
                   </ListGroupItem>
+
+                  <ListGroupItem variant="dark">
+                    2-Step Security with 2FA.
+                  </ListGroupItem>
                 </ListGroup>
               </div>
 
@@ -194,6 +198,11 @@ AES_IV="..."
                       </Fragment>
                     }
                   />
+
+                  <Alert variant="info">
+                    <strong>Note: </strong>Skip this step if you are using
+                    Docker.
+                  </Alert>
 
                   <CodeBlock language={"bash"} content={"php lion serve"} />
                 </Col>
@@ -460,6 +469,14 @@ AES_IV="..."
                         </div>
                       </Fragment>
                     </Fragment>
+
+                    <div>
+                      │{"    "}├──{" "}
+                      <label className="mb-2">
+                        <span className="file-php"></span>
+                        helpers.php
+                      </label>
+                    </div>
                   </Fragment>
 
                   <Fragment>
@@ -852,13 +869,6 @@ AES_IV="..."
                   <Fragment>
                     <div className="mb-2">
                       ├── <span className="folder"></span>
-                      <label>vendor/</label>
-                    </div>
-                  </Fragment>
-
-                  <Fragment>
-                    <div className="mb-2">
-                      ├── <span className="folder"></span>
                       <label>vite/</label>
                     </div>
 
@@ -1110,9 +1120,6 @@ class ExampleCommand extends Command
      * @param OutputInterface $output [OutputInterface is the interface
      * implemented by all Output classes]
      *
-     * @see InputInterface::bind()
-     * @see InputInterface::validate()
-     *
      * @return void
      */
     protected function initialize(InputInterface $input, OutputInterface $output): void
@@ -1151,11 +1158,9 @@ class ExampleCommand extends Command
      * @param OutputInterface $output [OutputInterface is the interface
      * implemented by all Output classes]
      *
-     * @return int 0 if everything went fine, or an exit code
+     * @return int [0 if everything went fine, or an exit code]
      *
-     * @throws LogicException When this abstract method is not implemented
-     *
-     * @see setCode()
+     * @throws LogicException [When this abstract method is not implemented]
      */
     protected function execute(InputInterface $input, OutputInterface $output): int
     {
@@ -1215,9 +1220,9 @@ use Lion\\Database\\Driver;
  **/
 
 Driver::run([
-    'default' => 'lion_database',
+    'default' => env('DB_NAME', 'lion_database'),
     'connections' => [
-        'lion_database' => [
+        env('DB_NAME', 'lion_database') => [
             'type' => env('DB_TYPE', 'mysql'),
             'host' => env('DB_HOST', 'mysql'),
             'port' => env('DB_PORT', 3306),
@@ -2593,6 +2598,65 @@ return new class implements StoreProcedureInterface
             </Fragment>
           ),
         },
+        test: {
+          name: "Test Project",
+          code: (
+            <Fragment>
+              <Fragment>
+                <Title title={"package.json"} />
+
+                <CodeBlock
+                  language={"javascript"}
+                  content={`"scripts": {
+  "dev": "vite",
+  "build": "vite build",
+  "lint": "eslint . --ext js,jsx --report-unused-disable-directives --max-warnings 0",
+  "preview": "vite preview",
+  "test": "vitest" // add
+},
+`}
+                />
+              </Fragment>
+
+              <Fragment>
+                <Title title={"vite.config.js"} />
+
+                <CodeBlock
+                  language={"javascript"}
+                  content={`import { defineConfig } from "vite";
+import react from "@vitejs/plugin-react";
+
+// https://vitejs.dev/config/
+export default defineConfig({
+  plugins: [react()],
+  envDir: "/var/www/html/.env",
+  server: {
+    host: true,
+    port: 5173,
+    watch: {
+      usePolling: true,
+    },
+  },
+  test: {
+    globals: true,
+    environment: "jsdom",
+    setupFiles: "./src/setupTests.js",
+    css: true,
+    reporters: ["html"],
+  },
+});
+`}
+                />
+              </Fragment>
+
+              <Fragment>
+                <Title title={"Run Tests"} />
+
+                <CodeBlock language={"bash"} content={"php npm test"} />
+              </Fragment>
+            </Fragment>
+          ),
+        },
         run: {
           name: "Run Project",
           code: (
@@ -3929,7 +3993,7 @@ class ExampleSocket implements MessageComponentInterface
     <extensions>
         <bootstrap class="RobinIngelbrecht\PHPUnitPrettyPrint\PhpUnitExtension">
             <parameter name="enableByDefault" value="true" />
-            <parameter name="displayProfiling" value="true" />
+            <parameter name="displayProfiling" value="false" />
             <parameter name="useCompactMode" value="true" />
         </bootstrap>
     </extensions>
@@ -3955,22 +4019,22 @@ class ExampleSocket implements MessageComponentInterface
         </testsuite>
 
         <testsuite name="Unit">
-            <directory>tests/App/Enums</directory>
-            <directory>tests/App/Exceptions</directory>
-            <directory>tests/App/Interfaces</directory>
-            <directory>tests/Database</directory>
+            <directory suffix=".php">tests/App/Enums</directory>
+            <directory suffix=".php">tests/App/Exceptions</directory>
+            <directory suffix=".php">tests/App/Interfaces</directory>
+            <directory suffix=".php">tests/Database</directory>
         </testsuite>
 
         <testsuite name="Integration">
-            <directory>tests/App/Console/Commands</directory>
-            <directory>tests/App/Http/Controllers</directory>
-            <directory>tests/App/Http/Middleware</directory>
-            <directory>tests/App/Http/Services</directory>
-            <directory>tests/App/Models</directory>
+            <directory suffix=".php">tests/App/Console/Commands</directory>
+            <directory suffix=".php">tests/App/Http/Controllers</directory>
+            <directory suffix=".php">tests/App/Http/Middleware</directory>
+            <directory suffix=".php">tests/App/Http/Services</directory>
+            <directory suffix=".php">tests/App/Models</directory>
         </testsuite>
 
         <testsuite name="Functional">
-            <directory>tests/Api</directory>
+            <directory suffix=".php">tests/Api</directory>
         </testsuite>
     </testsuites>
 </phpunit>
@@ -4392,23 +4456,21 @@ use Lion\\Request\\Request;
  * -----------------------------------------------------------------------------
  **/
 
-Request::header('Access-Control-Allow-Origin', '*');
+Request::header('Access-Control-Allow-Origin', env('SERVER_URL_AUD', 'http://localhost:5173'));
 
 Request::header('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE, PATCH, OPTIONS');
 
 Request::header('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content-Type, Accept, Authorization');
 
+Request::header('Access-Control-Max-Age', '3600');
+
 if (Http::OPTIONS === $_SERVER['REQUEST_METHOD']) {
     http_response_code(Http::OK);
 
-    exit;
+    exit(0);
 }
 
 Request::header('Content-Type', 'application/json; charset=UTF-8');
-
-Request::header('Access-Control-Max-Age', '0');
-
-Request::header('Allow', 'GET, POST, PUT, DELETE, PATCH, OPTIONS');
 `}
               />
             </Fragment>
@@ -5145,198 +5207,46 @@ vd($dbname);
             <Fragment>
               <Title title={"Dockerfile"} />
 
-              <CodeBlock
-                language={"dockerfile"}
-                content={`FROM php:8.3-apache
-
-ARG DEBIAN_FRONTEND=noninteractive
-# ----------------------------------------------------------------------------------------------------------------------
-USER root
-
-# Add User
-RUN useradd -m lion && echo 'lion:lion' | chpasswd && usermod -aG sudo lion && usermod -s /bin/bash lion
-
-# Dependencies
-RUN apt-get update -y \\
-    && apt-get install -y sudo nano zsh git default-mysql-client curl wget unzip cron sendmail golang-go \\
-    && apt-get install -y libpng-dev libzip-dev zlib1g-dev libonig-dev supervisor libevent-dev libssl-dev \\
-    && apt-get clean \\
-    && rm -rf /var/lib/apt/lists/*
-
-# Electron-Vite Dependencies
-RUN apt-get update -y \\
-    && apt-get install -y libnss3 mesa-utils libgl1-mesa-glx mesa-utils-extra libx11-xcb1 libxcb-dri3-0 libxtst6 \\
-    && apt-get install -y libasound2 libgtk-3-0 libcups2 libatk-bridge2.0 libatk1.0 libcanberra-gtk-module \\
-    && apt-get install -y libcanberra-gtk3-module dbus libdbus-1-3 dbus-user-session \\
-    && apt-get clean \\
-    && rm -rf /var/lib/apt/lists/*
-
-# Configure PHP-Extensions
-RUN pecl install ev redis xdebug \\
-    && docker-php-ext-install mbstring gd pdo_mysql mysqli zip \\
-    && docker-php-ext-enable gd zip redis xdebug \\
-    && a2enmod rewrite
-
-# Configure Xdebug
-RUN echo "xdebug.mode=develop,coverage,debug" >> /usr/local/etc/php/conf.d/docker-php-ext-xdebug.ini \\
-    && echo "xdebug.remote_autostart=off" >> /usr/local/etc/php/conf.d/docker-php-ext-xdebug.ini \\
-    && echo "xdebug.remote_connect_back=off" >> /usr/local/etc/php/conf.d/docker-php-ext-xdebug.ini \\
-    && echo "xdebug.start_with_request=yes" >> /usr/local/etc/php/conf.d/docker-php-ext-xdebug.ini \\
-    && echo "xdebug.idekey=docker" >> /usr/local/etc/php/conf.d/docker-php-ext-xdebug.ini \\
-    && echo "xdebug.log=/dev/stdout" >> /usr/local/etc/php/conf.d/docker-php-ext-xdebug.ini \\
-    && echo "xdebug.log_level=0" >> /usr/local/etc/php/conf.d/docker-php-ext-xdebug.ini \\
-    && echo "xdebug.client_host=host.docker.internal" >> /usr/local/etc/php/conf.d/docker-php-ext-xdebug.ini \\
-    && echo "xdebug.client_port=9000" >> /usr/local/etc/php/conf.d/docker-php-ext-xdebug.ini
-
-# Install Composer
-RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer
-# ----------------------------------------------------------------------------------------------------------------------
-USER lion
-
-SHELL ["/bin/bash", "--login", "-i", "-c"]
-
-# Install nvm, Node.js and npm
-RUN curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.7/install.sh | bash \\
-    && source /home/lion/.bashrc \\
-    && nvm install 20 \\
-    && npm install -g npm
-
-# Install OhMyZsh
-RUN sh -c "$(wget https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh -O -)"
-# ----------------------------------------------------------------------------------------------------------------------
-USER root
-
-SHELL ["/bin/bash", "--login", "-c"]
-
-# Install logo-ls
-RUN wget https://github.com/Yash-Handa/logo-ls/releases/download/v1.3.7/logo-ls_amd64.deb \\
-    && dpkg -i logo-ls_amd64.deb \\
-    && rm logo-ls_amd64.deb \\
-    && curl https://raw.githubusercontent.com/UTFeight/logo-ls-modernized/master/INSTALL | bash
-
-# Add configuration in .zshrc
-RUN echo 'export NVM_DIR="$HOME/.nvm"' >> /home/lion/.zshrc \\
-    && echo '[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"' >> /home/lion/.zshrc \\
-    && echo '[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"' >> /home/lion/.zshrc \\
-    && echo 'alias ls="logo-ls"' >> /home/lion/.zshrc \\
-    && source /home/lion/.zshrc
-# ----------------------------------------------------------------------------------------------------------------------
-# Copy Data
-COPY . .
-
-COPY supervisord.conf /etc/supervisor/conf.d/supervisord.conf
-# ----------------------------------------------------------------------------------------------------------------------
-# Init Project
-CMD touch storage/logs/server.log storage/logs/socket.log storage/logs/supervisord.log storage/logs/test-coverage.log \\
-    && /usr/bin/supervisord -c /etc/supervisor/conf.d/supervisord.conf
-`}
+              <Description
+                description={
+                  <Fragment>
+                    Use Docker to recreate an entire PHP environment to use
+                    Lion-Framework.{" "}
+                    <a
+                      href={
+                        "https://github.com/lion-packages/framework/blob/main/Dockerfile"
+                      }
+                      target="_blank"
+                    >
+                      Dockerfile
+                    </a>
+                  </Fragment>
+                }
               />
             </Fragment>
           ),
         },
-        "docker compose": {
-          name: "docker compose.yml",
+        "docker-compose": {
+          name: "docker-compose.yml",
           code: (
             <Fragment>
               <Title title={"docker-compose.yml"} />
 
-              <CodeBlock
-                language={"yaml"}
-                content={`services:
-    app:
-        container_name: framework-app
-        build:
-            context: .
-            dockerfile: Dockerfile
-        extra_hosts:
-            - "host.docker.internal:host-gateway"
-        environment:
-            - DISPLAY=\${DISPLAY}
-            - DBUS_SESSION_BUS_ADDRESS=unix:path=/var/run/dbus/system_bus_socket
-        devices:
-            - /dev/dri:/dev/dri
-        ports:
-            - "8000:8000"
-            - "8001:8001"
-            - "8080:8080"
-            - "5173:5173"
-            - "4173:4173"
-        volumes:
-            - ./:/var/www/html
-            - /var/run/dbus:/var/run/dbus
-            - /tmp/.X11-unix:/tmp/.X11-unix
-            - /dev/dri:/dev/dri
-        depends_on:
-            - mysql
-            - phpmyadmin
-            - redis
-        cap_add:
-            - SYS_ADMIN
-        networks:
-            - lion
-
-    redis:
-        image: redis
-        container_name: framework-redis
-        restart: always
-        ports:
-            - "6379:6379"
-        volumes:
-            - redis_data:/var/lib/redis
-        environment:
-            REDIS_HOST: redis
-            REDIS_PASSWORD: lion
-            REDIS_DATABASES: 1
-        networks:
-            - lion
-
-    mailhog:
-        image: mailhog/mailhog
-        container_name: framework-mailhog
-        restart: unless-stopped
-        ports:
-            - "8025:8025"
-            - "1025:1025"
-        networks:
-            - lion
-    mysql:
-        image: mysql
-        container_name: framework-mysql
-        ports:
-            - "3306:3306"
-        environment:
-            MYSQL_DATABASE: lion_database
-            MYSQL_PASSWORD: lion
-            MYSQL_ROOT_PASSWORD: lion
-        volumes:
-            - mysql_data:/var/lib/mysql
-        networks:
-            - lion
-
-    phpmyadmin:
-        image: phpmyadmin/phpmyadmin
-        container_name: framework-phpmyadmin
-        links:
-            - mysql:mysql
-        ports:
-            - 80:80
-        environment:
-            PMA_HOST: mysql
-            MYSQL_USER: root
-            MYSQL_PASSWORD: lion
-            MYSQL_ROOT_PASSWORD: lion
-        networks:
-            - lion
-
-volumes:
-    mysql_data:
-    redis_data:
-        driver: local
-
-networks:
-    lion:
-        driver: bridge
-`}
+              <Description
+                description={
+                  <Fragment>
+                    Use Docker to recreate an entire PHP environment to use
+                    Lion-Framework.{" "}
+                    <a
+                      href={
+                        "https://github.com/lion-packages/framework/blob/main/docker-compose.yml"
+                      }
+                      target="_blank"
+                    >
+                      docker-compose.yml
+                    </a>
+                  </Fragment>
+                }
               />
             </Fragment>
           ),
@@ -5388,7 +5298,10 @@ networks:
 
                 <CodeBlock
                   language={"bash"}
-                  content={"docker exec -it -u lion framework-app zsh"}
+                  content={`docker exec -it -u lion framework-app zsh
+# or
+docker exec -it -u lion framework-app bash
+`}
                 />
               </Fragment>
             </Fragment>
