@@ -31,6 +31,9 @@ import v2_LDI from "./Versions/libraries/dependency-injection/v2_LDI";
 import v2_LA from "./Versions/libraries/authentication/v2_LA";
 import v3_LA from "./Versions/libraries/authentication/v3_LA";
 import v4_LA from "./Versions/libraries/authentication/v4_LA";
+import v2_LSP from "./Versions/libraries/spreadsheet/v2_LSP";
+import v3_LSP from "./Versions/libraries/spreadsheet/v3_LSP";
+import v4_LSP from "./Versions/libraries/spreadsheet/v4_LSP";
 
 export default function Content() {
   return {
@@ -95,6 +98,9 @@ export default function Content() {
         v7: v7_LS(),
       },
       spreadsheet: {
+        v4: v4_LSP(),
+        v3: v3_LSP(),
+        v2: v2_LSP(),
         v1: v1_LSP(),
       },
       test: {

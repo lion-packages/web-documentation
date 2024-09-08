@@ -7,7 +7,7 @@ import Title from "../../../../pages/components/Title";
 import Example from "../../../../pages/components/Example";
 import SupportVersion from "../../../../pages/components/SupportVersion";
 
-export default function v1_LSP() {
+export default function v3_LSP() {
   return {
     "getting-started": {
       name: "Getting started",
@@ -75,7 +75,7 @@ export default function v1_LSP() {
                 language={"php"}
                 content={`<?php
 
-use LionSpreadsheet\\Spreadsheet;
+use Lion\\Spreadsheet\\Spreadsheet;
 
 Spreadsheet::addAlignmentHorizontal('A1:C1', 'center');
 `}
@@ -103,7 +103,7 @@ Spreadsheet::addAlignmentHorizontal('A1:C1', 'center');
                 language={"php"}
                 content={`<?php
 
-use LionSpreadsheet\\Spreadsheet;
+use Lion\\Spreadsheet\\Spreadsheet;
 
 Spreadsheet::addBackground('A1', '000000');
 `}
@@ -142,7 +142,7 @@ Spreadsheet::addBackground(
                 language={"php"}
                 content={`<?php
 
-use LionSpreadsheet\\Spreadsheet;
+use Lion\\Spreadsheet\\Spreadsheet;
 
 Spreadsheet::addBold('A1');
 `}
@@ -170,7 +170,7 @@ Spreadsheet::addBold('A1');
                 language={"php"}
                 content={`<?php
 
-use LionSpreadsheet\\Spreadsheet;
+use Lion\\Spreadsheet\\Spreadsheet;
 use PhpOffice\\PhpSpreadsheet\\Style\\Border;
 
 Spreadsheet::addBorder('A1', Border::BORDER_THIN, '000000');
@@ -208,7 +208,7 @@ Spreadsheet::addBorder('A1:C1', Border::BORDER_THIN, '000000');
                 language={"php"}
                 content={`<?php
 
-use LionSpreadsheet\\Spreadsheet;
+use Lion\\Spreadsheet\\Spreadsheet;
 
 Spreadsheet::addColor('A1', '000000');
 `}
@@ -272,7 +272,7 @@ Spreadsheet::addColor('A1', 'FFFFFF');
                 language={"php"}
                 content={`<?php
 
-use LionSpreadsheet\\Spreadsheet;
+use Lion\\Spreadsheet\\Spreadsheet;
 
 Spreadsheet::addDataValidation(['A1'], [
 	'error_title' => 'Username',
@@ -323,7 +323,7 @@ Spreadsheet::addDataValidation(['A1'], [
                 language={"php"}
                 content={`<?php
 
-use LionSpreadsheet\\Spreadsheet;
+use Lion\\Spreadsheet\\Spreadsheet;
 
 Spreadsheet::changeWorksheet('ANOTHER_WORKSHEET');
 `}
@@ -347,7 +347,7 @@ Spreadsheet::changeWorksheet('ANOTHER_WORKSHEET');
                 language={"php"}
                 content={`<?php
 
-use LionSpreadsheet\\Spreadsheet;
+use Lion\\Spreadsheet\\Spreadsheet;
 
 Spreadsheet::download('my_path', 'file_name');
 `}
@@ -372,7 +372,7 @@ Spreadsheet::download('my_path', 'file_name');
                 language={"php"}
                 content={`<?php
 
-use LionSpreadsheet\\Spreadsheet;
+use Lion\\Spreadsheet\\Spreadsheet;
 
 Spreadsheet::load('myroute/file.xlsx');
 `}
@@ -407,7 +407,7 @@ Spreadsheet::load('myroute/file.xlsx', 'worksheet_name');
                 language={"php"}
                 content={`<?php
 
-use LionSpreadsheet\\Spreadsheet;
+use Lion\\Spreadsheet\\Spreadsheet;
 
 $cell = Spreadsheet::getCell('A1');
 
@@ -433,7 +433,7 @@ var_dump($cell);
                 language={"php"}
                 content={`<?php
 
-use LionSpreadsheet\\Spreadsheet;
+use Lion\\Spreadsheet\\Spreadsheet;
 
 Spreadsheet::setCell('A1', 'Sergio Leon');
 `}
@@ -457,7 +457,7 @@ Spreadsheet::setCell('A1', 'Sergio Leon');
                 language={"php"}
                 content={`<?php
 
-use LionSpreadsheet\\Spreadsheet;
+use Lion\\Spreadsheet\\Spreadsheet;
 
 Spreadsheet::save();
 `}
