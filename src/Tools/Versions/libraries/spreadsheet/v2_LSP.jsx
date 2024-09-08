@@ -7,7 +7,7 @@ import Title from "../../../../pages/components/Title";
 import Example from "../../../../pages/components/Example";
 import SupportVersion from "../../../../pages/components/SupportVersion";
 
-export default function v1_LSP() {
+export default function v2_LSP() {
   return {
     "getting-started": {
       name: "Getting started",
