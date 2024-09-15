@@ -113,7 +113,7 @@ function NavbarNavigation() {
             </Nav.Link>
 
             <Nav.Link
-              href={"https://discord.gg/7qzcCeG8"}
+              href={"https://discord.gg/qNuJdfFf5j"}
               className="text-center"
               target="_blank"
             >
