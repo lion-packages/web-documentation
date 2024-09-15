@@ -38,12 +38,12 @@ function NavbarNavigation() {
       sticky="top"
       variant="dark"
       expand="lg"
-      className="bg-dark-logo"
+      className="bg-dark-logo p-0"
     >
       <Container>
         <LinkContainer to="/">
           <Navbar.Brand onClick={() => setExpanded(false)}>
-            <Image src={logo} width={50} />
+            <Image src={logo} width={55} className="img-fluid" />
           </Navbar.Brand>
         </LinkContainer>
 
@@ -113,7 +113,7 @@ function NavbarNavigation() {
             </Nav.Link>
 
             <Nav.Link
-              href={"https://discord.gg/7qzcCeG8"}
+              href={"https://discord.gg/qNuJdfFf5j"}
               className="text-center"
               target="_blank"
             >
