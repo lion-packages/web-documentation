@@ -46,13 +46,6 @@ export default function v11_LRT() {
 
               <SupportVersion title={"Lion-Route"} version={"8.3"} />
 
-              <CodeBlock
-                language={"bash"}
-                content={"composer require lion/route"}
-              />
-
-              <hr />
-
               <Alert variant="info">
                 <strong>Note: </strong>If you need to manipulate rules on your
                 controller methods, install the following dependencies.
@@ -125,6 +118,8 @@ export default function v11_LRT() {
                   language="php"
                   content={`<?php
 
+declare(strict_types=1);
+
 namespace App\\Http\\Middleware;
 
 use Exception;
@@ -184,6 +179,8 @@ Route::addMiddleware([
                 language="php"
                 content={`<?php
 
+declare(strict_types=1);
+
 use Lion\\Route\\Route;
 use App\\Http\\Controllers\\UsersController;
 
@@ -209,6 +206,88 @@ use App\\Http\\Controllers\\UsersController;
 Route::init();
 
 Route::any('users', [UsersController::class, 'method']);
+
+Route::dispatch();
+`}
+              />
+            </Fragment>
+          ),
+        },
+        controller: {
+          name: "controller",
+          code: (
+            <Fragment>
+              <LibraryTitle className={"Route"} methodName={"controller"} />
+
+              <Description
+                description={"Points to the HTTP routes controller class."}
+              />
+
+              <CodeBlock
+                language="php"
+                content={`<?php
+
+declare(strict_types=1);
+
+use Lion\\Route\\Route;
+use App\\Http\\Controllers\\UsersController;
+
+Route::init();
+
+Route::controller(UsersController::class, function (): void {
+    Route::post('auth/login', 'auth');
+});
+
+Route::dispatch();
+`}
+              />
+            </Fragment>
+          ),
+        },
+        delete: {
+          name: "delete",
+          code: (
+            <Fragment>
+              <LibraryTitle className={"Route"} methodName={"delete"} />
+
+              <Description
+                description={
+                  "The delete function allows you to create an http route or make an http delete request."
+                }
+              />
+
+              <Example
+                number={1}
+                language="php"
+                content={`<?php
+
+declare(strict_types=1);
+
+use Lion\\Route\\Route;
+use App\\Http\\Controllers\\UsersController;
+
+Route::init();
+
+Route::delete('users/{idusers}', function($idusers) {
+    return (new UsersController())
+        ->method($idusers);
+});
+
+Route::dispatch();
+`}
+              />
+
+              <Example
+                number={2}
+                language="php"
+                content={`<?php
+
+use Lion\\Route\\Route;
+use App\\Http\\Controllers\\UsersController;
+
+Route::init();
+
+Route::delete('users/{idusers}', [UsersController::class, 'method']);
 
 Route::dispatch();
 `}
@@ -293,55 +372,6 @@ Route::dispatch();
             </Fragment>
           ),
         },
-        delete: {
-          name: "delete",
-          code: (
-            <Fragment>
-              <LibraryTitle className={"Route"} methodName={"delete"} />
-
-              <Description
-                description={
-                  "The delete function allows you to create an http route or make an http delete request."
-                }
-              />
-
-              <Example
-                number={1}
-                language="php"
-                content={`<?php
-
-use Lion\\Route\\Route;
-use App\\Http\\Controllers\\UsersController;
-
-Route::init();
-
-Route::delete('users/{idusers}', function($idusers) {
-    return (new UsersController())
-        ->method($idusers);
-});
-
-Route::dispatch();
-`}
-              />
-
-              <Example
-                number={2}
-                language="php"
-                content={`<?php
-
-use Lion\\Route\\Route;
-use App\\Http\\Controllers\\UsersController;
-
-Route::init();
-
-Route::delete('users/{idusers}', [UsersController::class, 'method']);
-
-Route::dispatch();
-`}
-              />
-            </Fragment>
-          ),
-        },
         get: {
           name: "get",
           code: (
@@ -358,6 +388,8 @@ Route::dispatch();
                 number={1}
                 language="php"
                 content={`<?php
+
+declare(strict_types=1);
 
 use Lion\\Route\\Route;
 use App\\Http\\Controllers\\UsersController;
@@ -423,6 +455,7 @@ Route::dispatch();
                 language="php"
                 content={
                   "<?php\n\n" +
+                  "declare(strict_types=1);\n\n" +
                   "use Lion\\Route\\Route;\n\n" +
                   "Route::get('routes-filters', fn() => Route::getFilters());\n"
                 }
@@ -446,6 +479,7 @@ Route::dispatch();
                 language="php"
                 content={
                   "<?php\n\n" +
+                  "declare(strict_types=1);\n\n" +
                   "use Lion\\Route\\Route;\n\n" +
                   "Route::get('routes-list', fn() => Route::getFullRoutes());\n"
                 }
@@ -469,6 +503,7 @@ Route::dispatch();
                 language="php"
                 content={
                   "<?php\n\n" +
+                  "declare(strict_types=1);\n\n" +
                   "use Lion\\Route\\Route;\n\n" +
                   "Route::get('routes-list', fn() => Route::getRoutes());\n"
                 }
@@ -492,6 +527,8 @@ Route::dispatch();
                 number={1}
                 language="php"
                 content={`<?php
+
+declare(strict_types=1);
 
 use Lion\\Route\\Route;
 use App\\Http\\Controllers\\UsersController;
@@ -559,6 +596,8 @@ Route::dispatch();
                 language="php"
                 content={`<?php
 
+declare(strict_types=1);
+
 use App\\Http\\Controllers\\Home\\Example;
 use Lion\\Route\\Route;
 
@@ -615,6 +654,8 @@ Route::post('login', [Example::class, 'postMethod'], ['no-auth']);
                 language="php"
                 content={`<?php
 
+declare(strict_types=1);
+
 use Lion\\Route\\Route;
 use App\\Http\\Controllers\\UsersController;
 
@@ -662,6 +703,8 @@ Route::dispatch();
                 number={1}
                 language="php"
                 content={`<?php
+
+declare(strict_types=1);
 
 use Lion\\Route\\Route;
 use App\\Http\\Controllers\\UsersController;
@@ -728,6 +771,8 @@ Route::dispatch();
                 language="php"
                 content={`<?php
 
+declare(strict_types=1);
+
 use Lion\\Route\\Route;
 use App\\Http\\Controllers\\UsersController;
 
@@ -790,6 +835,8 @@ Route::dispatch();
                 number={1}
                 language="php"
                 content={`<?php
+
+declare(strict_types=1);
 
 use Lion\\Route\\Route;
 use App\\Http\\Controllers\\UsersController;
