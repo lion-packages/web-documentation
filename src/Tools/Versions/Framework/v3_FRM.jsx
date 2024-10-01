@@ -4605,54 +4605,14 @@ CRONTAB_PROJECT_PATH="/var/www/html/" # the "/var/www/html/" value for docker`}
           code: (
             <Fragment>
               <Fragment>
-                <Title title={"Schedule Schema"} />
-
-                <Description
-                  description={
-                    "Create the necessary tables in the database to process the queued tasks."
-                  }
-                />
-
-                <CodeBlock
-                  language={"bash"}
-                  content={"php lion migrate:fresh"}
-                />
-              </Fragment>
-
-              <Fragment>
-                <Title title={"Register tasks in queue"} />
-
-                <Description
-                  description={
-                    <Fragment>
-                      Register your tasks with the <strong>TaskQueue</strong>{" "}
-                      helper.
-                    </Fragment>
-                  }
-                />
-
-                <CodeBlock
-                  language={"php"}
-                  content={`<?php
-
-TaskQueue::push('send:email:account-verify', json([
-    'account' => fake()->email(),
-    'code' => fake()->numerify('######'),
-]));
-`}
-                />
-              </Fragment>
-
-              <Fragment>
                 <Title title={"Add queued tasks"} />
 
                 <Description
                   description={
                     <Fragment>
-                      Add tasks based on your queued tasks in{" "}
-                      <Badge bg="secondary">config/queue.php</Badge>. Processes
-                      for tasks have dependency injections, you can also inject
-                      the properties defined in the json. Read{" "}
+                      Queued tasks works with Redis. Processes for tasks have
+                      dependency injections, you can also inject the properties
+                      defined in the json. Read{" "}
                       <Link
                         to={"/docs/library/content"}
                         className="text-decoration-none"
@@ -4667,67 +4627,14 @@ TaskQueue::push('send:email:account-verify', json([
                   language={"php"}
                   content={`<?php
 
-declare(strict_types=1);
-
-use App\\Html\\Email\\VerifyAccountHtml;
-use Lion\\Bundle\\Enums\\LogTypeEnum;
-use Lion\\Bundle\\Enums\\TaskStatusEnum;
+use Lion\\Bundle\\Helpers\\Commands\\Schedule\\Task;
 use Lion\\Bundle\\Helpers\\Commands\\Schedule\\TaskQueue;
-use Lion\\Mailer\\Mailer;
-use Lion\\Mailer\\Priority;
 
-/**
- * -----------------------------------------------------------------------------
- * Queued Tasks
- * -----------------------------------------------------------------------------
- * This is where you can register the processes required for your queued tasks
- * -----------------------------------------------------------------------------
- **/
-
-TaskQueue::add('send:email:account-verify', [App\\Http\\Services\\CustomService::class, 'exampleMethod']);
-
-// or
-
-TaskQueue::add(
-    'send:email:account-verify',
-    (
-        /**
-         * Send emails for account validation
-         *
-         * @param VerifyAccountHtml $verifyAccountHtml
-         * @param object $queue [Queued task object]
-         * @param string $account [Mail account]
-         * @param string $code [Code]
-         *
-         * @return void
-         *
-         * @throws Exception [Catch an exception if the process fails]
-         */
-        function (VerifyAccountHtml $verifyAccountHtml, object $queue, string $account, string $code): void {
-            try {
-                Mailer::account(env('MAIL_NAME'))
-                    ->subject('Registration Confirmation - Please Verify Your Email')
-                    ->from(env('MAIL_USER_NAME'), 'Lion-Packages')
-                    ->addAddress($account)
-                    ->body(
-                        $verifyAccountHtml
-                            ->template()
-                            ->replace('CODE_REPLACE', $code)
-                            ->get()
-                    )
-                    ->priority(Priority::HIGH)
-                    ->send();
-            } catch (Exception $e) {
-                TaskQueue::edit($queue, TaskStatusEnum::FAILED);
-
-                logger($e->getMessage(), LogTypeEnum::ERROR, [
-                    'idtask_queue' => $queue->idtask_queue,
-                    'task_queue_type' => $queue->task_queue_type,
-                    'task_queue_data' => $queue->task_queue_data
-                ], false);
-            }
-        }
-    )
+(new TaskQueue())->push(
+    new Task(AccountService::class, 'myMethod', [
+        'account' => fake()->email(),
+        'code' => fake()->numerify('######'),
+    ])
 );
 `}
                 />
@@ -4828,6 +4735,15 @@ TaskQueue::add(
             <Fragment>
               <Title title={"Functions"} />
 
+              <Description
+                description={
+                  <Fragment>
+                    Add helpers for your web application in{" "}
+                    <Badge bg={"secondary"}>app/helpers.php</Badge>.
+                  </Fragment>
+                }
+              />
+
               <Fragment>
                 <h5 className="text-warning">{"request"}</h5>
 
@@ -4885,11 +4801,13 @@ vd($date);
                   langueage={"php"}
                   content={`<?php
 
-use Lion\\Route\\Route;
+use Lion\\Request\\Http;
 
-$response = fetch(Route::GET, 'my-url.com');
+$response = fetch(Http::GET, 'my-url.com')
+    ->getBody()
+    ->getContents();
 
-vd($response->getBody()->getContents());
+vd($response);
 `}
                 />
               </Fragment>
@@ -5100,6 +5018,8 @@ vd($json);
                   langueage={"php"}
                   content={`<?php
 
+use Exception;
+
 $response = error('message');
 
 if (isError($response)) {
@@ -5121,6 +5041,8 @@ if (isError($response)) {
                 <CodeBlock
                   langueage={"php"}
                   content={`<?php
+
+use Exception;
 
 $response = success('message');
 
@@ -5186,7 +5108,7 @@ $dbname = env('DB_NAME');
 
 vd($dbname);
 
-$dbname = env('DB_NAME', 'test_database');
+$dbname = env('DB_NAME', 'test_database'); // default value: 'test_database'
 
 vd($dbname);
 `}
