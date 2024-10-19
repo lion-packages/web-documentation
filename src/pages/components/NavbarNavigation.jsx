@@ -10,18 +10,14 @@ import { Image } from "react-bootstrap";
 import Content from "../../Tools/Content";
 import { useState } from "react";
 
+const key = Object.keys(Content().framework).shift();
+
 function NavbarNavigation() {
   const [expanded, setExpanded] = useState(false);
 
   const FrameworkLink = () => {
     return (
-      <LinkContainer
-        to={
-          "/docs/framework/" +
-          Object.keys(Content().framework).shift() +
-          "/getting-started/about-as"
-        }
-      >
+      <LinkContainer to={`/docs/framework/${key}/getting-started/about-as`}>
         <Nav.Link
           className="fw-bold d-flex align-items-center justify-content-center"
           onClick={() => setExpanded(!expanded)}
@@ -38,7 +34,8 @@ function NavbarNavigation() {
       sticky="top"
       variant="dark"
       expand="lg"
-      className="bg-dark-logo p-0"
+      className="p-0 navbar-blur"
+      style={{ "--bs-border-opacity": ".4" }}
     >
       <Container>
         <LinkContainer to="/">
@@ -91,7 +88,7 @@ function NavbarNavigation() {
               className="text-center"
               target="_blank"
             >
-              <FaYoutube size={"2.5em"} className="text-danger" />
+              <FaYoutube size={"1.8em"} className="text-danger" />
             </Nav.Link>
 
             <Nav.Link
@@ -101,7 +98,7 @@ function NavbarNavigation() {
               className="text-center"
               target="_blank"
             >
-              <FaLinkedin size={"2.5em"} className="text-primary" />
+              <FaLinkedin size={"1.8em"} className="text-primary" />
             </Nav.Link>
 
             <Nav.Link
@@ -109,7 +106,7 @@ function NavbarNavigation() {
               className="text-center"
               target="_blank"
             >
-              <FaGithub size={"2.5em"} />
+              <FaGithub size={"1.8em"} />
             </Nav.Link>
 
             <Nav.Link
@@ -117,7 +114,7 @@ function NavbarNavigation() {
               className="text-center"
               target="_blank"
             >
-              <FaDiscord size={"2.5em"} className="text-primary" />
+              <FaDiscord size={"1.8em"} className="text-primary" />
             </Nav.Link>
           </Nav>
         </Navbar.Collapse>

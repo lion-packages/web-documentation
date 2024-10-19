@@ -5,15 +5,15 @@ import DashboardCards from "./components/dashboard/DashboardCards";
 
 function DashboardContent() {
   return (
-    <Fragment>
-      <Container className="mt-3 px-4">
+    <div className="bg-blur">
+      <main className="vh-100">
         <DashboardPresentation />
-      </Container>
+      </main>
 
-      <Container className="mt-4 mb-4 px-4 text-white">
+      <Container className="mt-4 mb-4 px-4">
         <DashboardCards />
       </Container>
-    </Fragment>
+    </div>
   );
 }
 
