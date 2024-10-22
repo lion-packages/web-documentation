@@ -77,7 +77,7 @@
 
 .bg-blur {
   position: relative;
-  background: radial-gradient(circle at center, #ff8463, transparent 60%);
+  background: radial-gradient(circle at center, #ff8463, transparent 70%);
   backdrop-filter: blur(10px);
 }
 

@@ -1,6 +1,7 @@
 import { Container } from "react-bootstrap";
 import DashboardPresentation from "./components/dashboard/DashboardPresentation";
 import DashboardServerAndDocker from "./components/dashboard/DashboardServerAndDocker";
+import DashboardRoutesAndApiAndTest from "./components/dashboard/DashboardRoutesAndApiAndTest";
 
 function DashboardContent() {
   return (
@@ -11,6 +12,8 @@ function DashboardContent() {
 
       <Container>
         <DashboardServerAndDocker />
+        
+        <DashboardRoutesAndApiAndTest />
       </Container>
     </div>
   );

@@ -4,7 +4,7 @@ import { FaDocker } from "react-icons/fa";
 
 export default function DashboardServerAndDocker() {
   return (
-    <Fragment>
+    <div className="mb-4">
       <div className="text-center mb-5 text-white text-shadow">
         <h2>Multiple Tools</h2>
 
@@ -68,6 +68,6 @@ export default function DashboardServerAndDocker() {
           </div>
         </Col>
       </Row>
-    </Fragment>
+    </div>
   );
 }
