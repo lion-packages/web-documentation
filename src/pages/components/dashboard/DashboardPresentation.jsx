@@ -2,6 +2,7 @@ import { Link } from "react-router-dom";
 import Content from "../../../Tools/Content";
 import { FaGithub } from "react-icons/fa";
 import { Col } from "react-bootstrap";
+import { IoIosArrowDown } from "react-icons/io";
 
 const key = Object.keys(Content().framework).shift();
 
@@ -18,7 +19,7 @@ export default function DashboardPresentation() {
           single page application or a mobile application.
         </p>
 
-        <div className="d-grid gap-2 d-sm-flex justify-content-sm-center">
+        <div className="d-grid gap-2 d-sm-flex justify-content-sm-center mb-5">
           <Link
             to={`/docs/framework/${key}/getting-started/about-as`}
             className="btn btn-orange-custom btn-lg px-4 gap-3"
@@ -35,6 +36,14 @@ export default function DashboardPresentation() {
             Github
           </a>
         </div>
+
+        <a href={"#initial-section"} className="btn btn-link">
+          <IoIosArrowDown
+            size={"3em"}
+            title="Scroll down"
+            className="text-white"
+          />
+        </a>
       </Col>
     </div>
   );

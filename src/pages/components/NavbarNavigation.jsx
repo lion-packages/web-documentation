@@ -53,6 +53,10 @@ function NavbarNavigation() {
           <Nav className="ms-auto">
             <FrameworkLink />
 
+            <Nav.Link href="#" className="d-none d-xl-block">
+              <div className="vr h-100"></div>
+            </Nav.Link>
+
             {NavigationLinks.map((link, index) =>
               link.type === "link" ? (
                 <LinkContainer to={link.url} key={index}>
@@ -67,8 +71,9 @@ function NavbarNavigation() {
                 <NavDropdown
                   key={index}
                   title={link.display_name}
-                  menuVariant="dark"
+                  menuVariant="blur"
                   align={"end"}
+                  className="fw-bold d-flex align-items-center justify-content-center"
                 >
                   {link.childs.map((child, indexChild) => (
                     <LinkContainer to={child.url} key={indexChild}>

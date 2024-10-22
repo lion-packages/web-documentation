@@ -1,4 +1,6 @@
 import "./assets/css/index.css";
+import "./assets/css/navbar.css";
+
 import { Routes, Route } from "react-router-dom";
 import NavbarNavigation from "./pages/components/NavbarNavigation";
 import AddTabs from "./pages/components/AddTabs";

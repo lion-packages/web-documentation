@@ -1,27 +1,36 @@
+import "../assets/css/dashboard.css";
+
 import { Container } from "react-bootstrap";
 import DashboardPresentation from "./components/dashboard/DashboardPresentation";
 import DashboardServerAndDocker from "./components/dashboard/DashboardServerAndDocker";
 import DashboardRoutesAndApiAndTest from "./components/dashboard/DashboardRoutesAndApiAndTest";
 import DashboardViteAndDatabase from "./components/dashboard/DashboardViteAndDatabase";
 import DashboardTaskInQueueAndCommands from "./components/dashboard/DashboardTaskInQueueAndCommands";
+import { Fragment } from "react";
 
 function DashboardContent() {
   return (
-    <div className="bg-blur">
-      <main className="vh-100 py-5">
+    <Fragment>
+      <div className="bg-blur-center vh-100 py-5">
         <DashboardPresentation />
-      </main>
+      </div>
 
-      <Container>
-        <DashboardServerAndDocker />
+      <div className="bg-blur-left-ellipse" id="initial-section">
+        <Container>
+          <DashboardServerAndDocker />
 
-        <DashboardRoutesAndApiAndTest />
+          <DashboardRoutesAndApiAndTest />
+        </Container>
+      </div>
 
-        <DashboardViteAndDatabase />
+      <div className="bg-blur-right-ellipse">
+        <Container>
+          <DashboardViteAndDatabase />
 
-        <DashboardTaskInQueueAndCommands />
-      </Container>
-    </div>
+          <DashboardTaskInQueueAndCommands />
+        </Container>
+      </div>
+    </Fragment>
   );
 }
 
