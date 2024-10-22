@@ -1,18 +1,14 @@
 import { Fragment } from "react";
 import { Col, Placeholder, Row } from "react-bootstrap";
-import { FaDocker } from "react-icons/fa";
+import { FaDatabase, FaDocker } from "react-icons/fa";
+import { SiVite } from "react-icons/si";
 import CodeBlock from "../CodeBlock";
 
-export default function DashboardServerAndDocker() {
+export default function DashboardViteAndDatabase() {
   return (
     <div className="mb-4">
       <div className="text-center mb-5 text-white text-shadow">
-        <h2>Multiple Tools</h2>
-
-        <p>
-          Lion-Framework allows you to carry out an entire development with
-          simple tools
-        </p>
+        <h2>Structure compatible with everything</h2>
       </div>
 
       <Row className="g-3">
@@ -21,27 +17,22 @@ export default function DashboardServerAndDocker() {
             <div className="mb-3">
               <Placeholder animation="wave">
                 <Placeholder xs={10} className="text-lion-orange" size="lg" />
-
-                <Placeholder xs={8} className="text-lion-orange" size="lg" />
               </Placeholder>
             </div>
 
-            <label className="text-shadow">
-              {"Lion-Framework ready in "}
-              <span className="text-lion-orange">{"0.040 ms"}</span>
-            </label>
+            <SiVite size={"4em"} title="Vite" className="float-start me-3" />
 
             <hr />
 
             <Fragment>
-              <h5 className="text-shadow">{"Instant Server Start"}</h5>
+              <h5 className="text-shadow">{"Vite"}</h5>
 
               <p className="text-secondary text-shadow">
-                Start your server in a matter of milliseconds through the
-                terminal by running a single command.
+                The Build Tool for the Web. Vite is a blazing fast frontend
+                build tool powering the next generation of web applications.
               </p>
 
-              <CodeBlock language={"bash"} content={"php lion serve"} />
+              <CodeBlock language="bash" content="php npm init" />
             </Fragment>
           </div>
         </Col>
@@ -49,23 +40,25 @@ export default function DashboardServerAndDocker() {
         <Col xs={12} sm={12} md={7} lg={8} xl={8} className="text-white">
           <div className="p-4 h-100 bg-transparent-blur rounded border-lion-light">
             <div className="mb-3">
-              <FaDocker size={"4em"} title="Docker" className="me-3" />
+              <FaDatabase
+                size={"4em"}
+                title="Database"
+                className="float-end ms-2"
+              />
 
               <Placeholder animation="wave">
-                <Placeholder xs={7} className="text-lion-orange" size="lg" />
-
-                <Placeholder xs={6} className="text-lion-orange" size="lg" />
+                <Placeholder xs={10} className="text-lion-orange" size="lg" />
               </Placeholder>
             </div>
 
             <hr />
 
             <Fragment>
-              <h5 className="text-shadow">{"Docker"}</h5>
+              <h5 className="text-shadow">{"Databases"}</h5>
 
               <p className="text-secondary text-shadow">
-                Create Docker containers using Lion-Framework, where you can
-                work with MySQL, PostgreSQL and other databases.
+                Compatible with any database engine, if you use Docker compose
+                you can implement any database service to your project.
               </p>
             </Fragment>
           </div>
