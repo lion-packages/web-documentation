@@ -1,8 +1,10 @@
 import { Fragment } from "react";
 import { Col, Placeholder, Row } from "react-bootstrap";
 import { FaDatabase, FaDocker } from "react-icons/fa";
-import { SiVite } from "react-icons/si";
+import { SiPostgresql, SiVite } from "react-icons/si";
 import CodeBlock from "../CodeBlock";
+import { DiMysql } from "react-icons/di";
+import { GrMysql } from "react-icons/gr";
 
 export default function DashboardViteAndDatabase() {
   return (
@@ -60,6 +62,12 @@ export default function DashboardViteAndDatabase() {
                 Compatible with any database engine, if you use Docker compose
                 you can implement any database service to your project.
               </p>
+
+              <div className="text-center">
+                <GrMysql size={"3.2em"} title="MySQL" className="me-3" />
+
+                <SiPostgresql size={"3.2em"} title="PostgreSQL" />
+              </div>
             </Fragment>
           </div>
         </Col>
