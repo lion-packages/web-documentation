@@ -1,13 +1,14 @@
 import { Link } from "react-router-dom";
 import Content from "../../../Tools/Content";
 import { FaGithub } from "react-icons/fa";
+import { Col } from "react-bootstrap";
 
 const key = Object.keys(Content().framework).shift();
 
 export default function DashboardPresentation() {
   return (
     <div className="px-2 py-5 text-center my-5">
-      <div className="col-12 col-sm-12 col-md-8 col-lg-7 mx-auto">
+      <Col xs={12} sm={12} md={8} lg={7} className="mx-auto py-5">
         <h1 className="d-block mx-auto mb-4 display-2 text-white text-shadow">
           {"Lion-Framework"}
         </h1>
@@ -34,7 +35,7 @@ export default function DashboardPresentation() {
             Github
           </a>
         </div>
-      </div>
+      </Col>
     </div>
   );
 }

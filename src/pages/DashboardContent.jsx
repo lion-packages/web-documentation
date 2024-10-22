@@ -1,17 +1,16 @@
 import { Container } from "react-bootstrap";
 import DashboardPresentation from "./components/dashboard/DashboardPresentation";
-import { Fragment } from "react";
-import DashboardCards from "./components/dashboard/DashboardCards";
+import DashboardServerAndDocker from "./components/dashboard/DashboardServerAndDocker";
 
 function DashboardContent() {
   return (
     <div className="bg-blur">
-      <main className="vh-100">
+      <main className="vh-100 py-5">
         <DashboardPresentation />
       </main>
 
-      <Container className="mt-4 mb-4 px-4">
-        <DashboardCards />
+      <Container>
+        <DashboardServerAndDocker />
       </Container>
     </div>
   );
