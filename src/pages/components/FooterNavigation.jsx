@@ -1,7 +1,7 @@
 function FooterNavigation() {
   return (
     <footer
-      className="footer mt-auto py-3 bg-dark-logo border-top border-secondary"
+      className="footer mt-auto pt-5 pb-4 bg-dark-logo border-lion-light-top"
       style={{ "--bs-border-opacity": ".5" }}
     >
       <p className="text-center text-light">
@@ -16,7 +16,7 @@ function FooterNavigation() {
         .
       </p>
 
-      <p className="text-center text-light">Copyright © Lion-Packages</p>
+      <p className="text-center text-light">Copyright © Sergio León. & Lion-Packages Contributors</p>
     </footer>
   );
 }
