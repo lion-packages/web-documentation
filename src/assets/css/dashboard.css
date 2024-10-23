@@ -23,6 +23,17 @@
   backdrop-filter: blur(10px);
 }
 
+.bg-blur-buttom-ellipse {
+  position: relative;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1;
+  background: radial-gradient(ellipse at bottom, #ff8463, transparent 65%);
+  background-color: #111111;
+  backdrop-filter: blur(10px);
+}
+
 .bg-blur-right-ellipse {
   position: relative;
   top: 0;
@@ -106,4 +117,26 @@
     radial-gradient(140.35% 140.35% at 100% 94.74%, #ffffff, #ffffff00),
     radial-gradient(89.94% 89.94% at 18.42% 15.79%, #000000, #00000000);
   box-shadow: 0 1px #ffffffbf inset;
+}
+
+/* ---- Blocks ---- */
+
+.blocks {
+  position: relative; /* Asegúrate de que la posición sea relativa para el efecto de sombra */
+  transition: box-shadow 0.3s ease; /* Transición suave para la sombra */
+}
+
+.blocks:hover {
+  box-shadow: 0 0 10px var(--bg-lion-orange), 0 0 20px var(--bg-lion-orange); /* Sombra al hacer hover */
+}
+
+/* Clase para la sombra inicial, que será invisible hasta el hover */
+.blocks {
+  box-shadow: 0 0 0 transparent; /* Sin sombra inicialmente */
+  transition: box-shadow 0.5s ease; /* Transición suave para la sombra */
+}
+
+/* Para mostrar la sombra durante el hover */
+.blocks:hover {
+  box-shadow: 0 0 10px var(--bg-lion-orange), 0 0 20px var(--bg-lion-orange); /* Sombra al hacer hover */
 }

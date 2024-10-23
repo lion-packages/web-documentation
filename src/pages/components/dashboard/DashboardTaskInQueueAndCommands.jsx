@@ -5,7 +5,7 @@ import { FaTasks, FaTerminal } from "react-icons/fa";
 
 export default function DashboardTaskInQueueAndCommands() {
   return (
-    <div className="mb-4">
+    <div className="mb-5">
       <Row className="g-3">
         <Col xs={12} sm={12} md={5} lg={8} xl={8} className="text-white">
           <div className="rounded bg-transparent-blur border-lion-light p-4">

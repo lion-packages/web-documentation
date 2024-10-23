@@ -1,12 +1,13 @@
 import "../assets/css/dashboard.css";
 
+import { Fragment } from "react";
 import { Container } from "react-bootstrap";
 import DashboardPresentation from "./components/dashboard/DashboardPresentation";
 import DashboardServerAndDocker from "./components/dashboard/DashboardServerAndDocker";
 import DashboardRoutesAndApiAndTest from "./components/dashboard/DashboardRoutesAndApiAndTest";
 import DashboardViteAndDatabase from "./components/dashboard/DashboardViteAndDatabase";
 import DashboardTaskInQueueAndCommands from "./components/dashboard/DashboardTaskInQueueAndCommands";
-import { Fragment } from "react";
+import DashboardTecnologies from "./components/dashboard/DashboardTecnologies";
 
 function DashboardContent() {
   return (
@@ -28,6 +29,12 @@ function DashboardContent() {
           <DashboardViteAndDatabase />
 
           <DashboardTaskInQueueAndCommands />
+        </Container>
+      </div>
+
+      <div className="bg-blur-buttom-ellipse">
+        <Container>
+          <DashboardTecnologies />
         </Container>
       </div>
     </Fragment>
