@@ -1,12 +1,4 @@
 export default [
-  // {
-  //   display_name: "Framework",
-  //   type: "items",
-  //   url: "",
-  //   childs: [
-  //     { display_name: "Getting started", url: "/framework/getting-started" },
-  //   ],
-  // },
   {
     display_name: "Libraries",
     type: "link",
@@ -27,4 +19,14 @@ export default [
     type: "link",
     url: "/linux-configuration",
   },
+  // {
+  //   display_name: "Resources",
+  //   type: "items",
+  //   childs: [
+  //     {
+  //       display_name: "",
+  //       url: "/",
+  //     },
+  //   ],
+  // },
 ];
