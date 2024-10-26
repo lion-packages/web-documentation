@@ -4,7 +4,7 @@ import { LinkContainer } from "react-router-bootstrap";
 function CardLink({ title, uri }) {
   return (
     <LinkContainer to={uri}>
-      <Card bg="dark-blue" role="button">
+      <Card bg="transparent-blur" role="button">
         <Card.Body>
           <Card.Link className={"text-decoration-none"}>
             <Card.Title>

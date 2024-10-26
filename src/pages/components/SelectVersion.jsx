@@ -3,6 +3,8 @@ import { Form, InputGroup } from "react-bootstrap";
 import Content from "../../Tools/Content";
 import { useNavigate, useParams } from "react-router-dom";
 
+const content = Content();
+
 export default function SelectVersion() {
   const { item_version, library = null, tab, code } = useParams();
   const navigate = useNavigate();
@@ -11,13 +13,11 @@ export default function SelectVersion() {
   const [selectedVersion, setSelectedVersion] = useState(item_version);
 
   const getVersions = () => {
-    const content = Content();
-
     if (null === library) {
-      return Object.keys(content.framework);
+      return Object.keys(content.framework.versions);
     }
 
-    return Object.keys(content.library[library]);
+    return Object.keys(content.library[library].versions);
   };
 
   useEffect(() => {

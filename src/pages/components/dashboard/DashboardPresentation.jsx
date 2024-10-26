@@ -4,7 +4,7 @@ import { FaGithub } from "react-icons/fa";
 import { Col } from "react-bootstrap";
 import { IoIosArrowDown } from "react-icons/io";
 
-const key = Object.keys(Content().framework).shift();
+const key = Object.keys(Content().framework.versions).shift();
 
 export default function DashboardPresentation() {
   return (

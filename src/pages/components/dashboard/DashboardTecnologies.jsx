@@ -18,7 +18,7 @@ import { TbAuth2Fa, TbBrandSolidjs } from "react-icons/tb";
 import { Link } from "react-router-dom";
 import Content from "../../../Tools/Content";
 
-const key = Object.keys(Content().framework).shift();
+const key = Object.keys(Content().framework.versions).shift();
 
 export default function DashboardTecnologies() {
   return (
