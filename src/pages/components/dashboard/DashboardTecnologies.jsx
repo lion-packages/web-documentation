@@ -27,7 +27,7 @@ export default function DashboardTecnologies() {
         <h2>Compatibility with your favorite technologies</h2>
       </div>
 
-      <Row className="mb-3">
+      <Row>
         <Col xs={3} sm={3} md={2} lg={1} className="mb-3">
           <div
             className="bg-transparent-blur py-4 rounded border-lion-light h-100 blocks"

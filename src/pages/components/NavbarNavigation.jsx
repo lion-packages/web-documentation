@@ -4,7 +4,7 @@ import Navbar from "react-bootstrap/Navbar";
 import NavDropdown from "react-bootstrap/NavDropdown";
 import { LinkContainer } from "react-router-bootstrap";
 import NavigationLinks from "../../Tools/NavigationLinks";
-import logo from "./../../assets/img/icon-dark.png";
+import logo from "./../../assets/img/ico-trnasparent-orange.png";
 import { FaGithub, FaYoutube, FaLinkedin, FaDiscord } from "react-icons/fa";
 import { Image } from "react-bootstrap";
 import Content from "../../Tools/Content";
