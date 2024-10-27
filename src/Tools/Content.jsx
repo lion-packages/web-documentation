@@ -38,73 +38,119 @@ import v4_LSP from "./Versions/libraries/spreadsheet/v4_LSP";
 export default function Content() {
   return {
     framework: {
-      v3: {
-        docs: v3_FRM(),
-        commands: v3_CMMD(),
-      },
-      v2: {
-        docs: v2_FRM(),
-        commands: v2_CMMD(),
-      },
-      v1: {
-        docs: v1_FRM(),
-        commands: v1_CMMD(),
+      versions: {
+        v3: {
+          docs: v3_FRM(),
+          commands: v3_CMMD(),
+        },
+        v2: {
+          docs: v2_FRM(),
+          commands: v2_CMMD(),
+        },
+        v1: {
+          docs: v1_FRM(),
+          commands: v1_CMMD(),
+        },
       },
     },
     library: {
       authentication: {
-        v4: v4_LA(),
-        v3: v3_LA(),
-        v2: v2_LA(),
-        v1: v1_LA(),
+        description: "Library to authenticate users in 2 steps.",
+        versions: {
+          v4: v4_LA(),
+          v3: v3_LA(),
+          v2: v2_LA(),
+          v1: v1_LA(),
+        },
       },
       command: {
-        v3: v3_CMD(),
+        description:
+          "library created with the function of executing commands from PHP.",
+        versions: {
+          v3: v3_CMD(),
+        },
       },
       database: {
-        v8: v8_LBD(),
+        description:
+          "Package responsible for generating and executing statements for databases (MySQL/PostgreSQL).",
+        versions: {
+          v8: v8_LBD(),
+        },
       },
       "dependency-injection": {
-        v2: v2_LDI(),
-        v1: v1_LDI(),
+        description: "Container for dependency injection with DI-PHP.",
+        versions: {
+          v2: v2_LDI(),
+          v1: v1_LDI(),
+        },
       },
       files: {
-        v7: v7_LF(),
-        v6: v6_LF(),
-        v5: v5_LF(),
-        v4: v4_LF(),
+        description:
+          "Library created with the function of working internal system files.",
+        versions: {
+          v7: v7_LF(),
+          v6: v6_LF(),
+          v5: v5_LF(),
+          v4: v4_LF(),
+        },
       },
       helpers: {
-        v4: v4_LH(),
-        v3: v3_LH(),
-        v2: v2_LH(),
+        description: "Library created to use helpers for strings and arrays",
+        versions: {
+          v4: v4_LH(),
+          v3: v3_LH(),
+          v2: v2_LH(),
+        },
       },
       mailer: {
-        v5: v5_LM(),
+        description:
+          "Library created to facilitate sending email based on different services.",
+        versions: {
+          v5: v5_LM(),
+        },
       },
       request: {
-        v6: v6_LR(),
-        v5: v5_LR(),
+        description:
+          "Library created to request input data and response requests.",
+        versions: {
+          v6: v6_LR(),
+          v5: v5_LR(),
+        },
       },
       route: {
-        v11: v11_LRT(),
-        v10: v10_LRT(),
-        v9: v9_LRT(),
-        v8: v8_LRT(),
+        description:
+          "This library has quick router usage with regular expressions.",
+        versions: {
+          v11: v11_LRT(),
+          v10: v10_LRT(),
+          v9: v9_LRT(),
+          v8: v8_LRT(),
+        },
       },
       security: {
-        v9: v9_LS(),
-        v8: v8_LS(),
-        v7: v7_LS(),
+        description:
+          "Library created with the function of implementing AES and RSA Security functions for PHP, it also includes functions to create JWT.",
+        versions: {
+          v9: v9_LS(),
+          v8: v8_LS(),
+          v7: v7_LS(),
+        },
       },
       spreadsheet: {
-        v4: v4_LSP(),
-        v3: v3_LSP(),
-        v2: v2_LSP(),
-        v1: v1_LSP(),
+        description: "Library to facilitate the use of spreadsheet.",
+        versions: {
+          v4: v4_LSP(),
+          v3: v3_LSP(),
+          v2: v2_LSP(),
+          v1: v1_LSP(),
+        },
       },
       test: {
-        v1: v1_LT(),
+        description:
+          "library to implement testing with helpers that allow easy testing with PHPUnit.",
+        versions: {
+          v1: v1_LT(),
+        },
       },
     },
   };

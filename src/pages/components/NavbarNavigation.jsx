@@ -10,7 +10,7 @@ import { Image } from "react-bootstrap";
 import Content from "../../Tools/Content";
 import { useState } from "react";
 
-const key = Object.keys(Content().framework).shift();
+const key = Object.keys(Content().framework.versions).shift();
 
 function NavbarNavigation() {
   const [expanded, setExpanded] = useState(false);

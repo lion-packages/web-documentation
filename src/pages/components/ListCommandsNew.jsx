@@ -53,7 +53,7 @@ function ListCommandsNew() {
     scroolPage();
   }, []);
 
-  return Content().framework[item_version].commands.map((item, index) => (
+  return Content().framework.versions[item_version].commands.map((item, index) => (
     <div className="mb-3" key={index}>
       <h5 className="text-info">{item.group}</h5>
 

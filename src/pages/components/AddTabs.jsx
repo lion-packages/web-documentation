@@ -29,9 +29,9 @@ export default function AddTabs() {
     let content = null;
 
     if (null === library) {
-      content = Content().framework[item_version].docs;
+      content = Content().framework.versions[item_version].docs;
     } else {
-      content = Content().library[library][item_version];
+      content = Content().library[library].versions[item_version];
     }
 
     return Object.entries(content).filter(([index, item]) =>
