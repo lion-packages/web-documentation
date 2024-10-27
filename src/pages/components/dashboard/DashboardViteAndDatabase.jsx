@@ -22,7 +22,7 @@ export default function DashboardViteAndDatabase() {
               </Placeholder>
             </div>
 
-            <SiVite size={"4em"} title="Vite" className="float-start me-3" />
+            <SiVite size={"3.5em"} title="Vite" className="float-start me-3" />
 
             <hr />
 
@@ -43,13 +43,13 @@ export default function DashboardViteAndDatabase() {
           <div className="p-4 h-100 bg-transparent-blur rounded border-lion-light">
             <div className="mb-3">
               <FaDatabase
-                size={"4em"}
+                size={"3.5em"}
                 title="Database"
                 className="float-end ms-2"
               />
 
               <Placeholder animation="wave">
-                <Placeholder xs={10} className="text-lion-orange" size="lg" />
+                <Placeholder xs={9} className="text-lion-orange" size="lg" />
               </Placeholder>
             </div>
 

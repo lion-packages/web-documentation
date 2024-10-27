@@ -10,7 +10,7 @@ export default function DashboardTaskInQueueAndCommands() {
         <Col xs={12} sm={12} md={5} lg={8} xl={8} className="text-white">
           <div className="rounded bg-transparent-blur border-lion-light p-4">
             <FaTerminal
-              size={"4em"}
+              size={"3.5em"}
               title="Terminal"
               className="float-end ms-3"
             />
@@ -35,7 +35,7 @@ export default function DashboardTaskInQueueAndCommands() {
 
         <Col xs={12} sm={12} md={7} lg={4} xl={4} className="text-white">
           <div className="p-4 h-100 bg-transparent-blur rounded border-lion-light">
-            <FaTasks size={"3.8em"} title="Tasks" className="float-start me-3" />
+            <FaTasks size={"3.5em"} title="Tasks" className="float-start me-3" />
 
             <hr />
 
