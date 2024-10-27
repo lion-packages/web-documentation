@@ -10,7 +10,7 @@ export default function DashboardRoutesAndApiAndTest() {
       <Row className="g-3">
         <Col xs={12} sm={12} md={5} lg={4} xl={3} className="text-white">
           <div className="rounded bg-transparent-blur border-lion-light p-4 h-100">
-            <MdHttp size={"4.5em"} title="HTTP" className="float-start me-2" />
+            <MdHttp size={"4em"} title="HTTP" className="float-start me-2" />
 
             <hr />
 
@@ -45,7 +45,7 @@ export default function DashboardRoutesAndApiAndTest() {
 
         <Col xs={12} sm={12} md={7} lg={4} xl={6} className="text-white">
           <div className="p-4 h-100 bg-transparent-blur rounded border-lion-light">
-            <RiTestTubeFill size={"5em"} title="Test" className="float-end" />
+            <RiTestTubeFill size={"4em"} title="Test" className="float-end" />
 
             <hr />
 
