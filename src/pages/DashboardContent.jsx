@@ -12,7 +12,7 @@ import DashboardTecnologies from "./components/dashboard/DashboardTecnologies";
 function DashboardContent() {
   return (
     <Fragment>
-      <div className="bg-blur-center vh-100 py-5">
+      <div className="bg-blur-center-100 vh-100 py-5">
         <DashboardPresentation />
       </div>
 

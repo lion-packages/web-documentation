@@ -1,22 +1,17 @@
-import { Card } from "react-bootstrap";
 import { LinkContainer } from "react-router-bootstrap";
 
-function CardLink({ title, uri }) {
+export default function CardLink({ title, description, uri }) {
   return (
     <LinkContainer to={uri}>
-      <Card bg="transparent-blur" role="button">
-        <Card.Body>
-          <Card.Link className={"text-decoration-none"}>
-            <Card.Title>
-              <span className={"fs-4 text-warning"}>{title}</span>
+      <div className={"p-4 rounded border-lion-light h-100"} role="button">
+        <span className={"fs-4 text-warning text-shadow"}>{title}</span>
 
-              <i className="bi bi-arrow-right text-white float-end fs-3"></i>
-            </Card.Title>
-          </Card.Link>
-        </Card.Body>
-      </Card>
+        <i className="bi bi-arrow-right text-warning text-shadow float-end fs-3"></i>
+
+        <hr />
+
+        <p className="lead text-white text-shadow">{description}</p>
+      </div>
     </LinkContainer>
   );
 }
-
-export default CardLink;

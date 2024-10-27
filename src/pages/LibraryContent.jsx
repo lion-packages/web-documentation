@@ -7,7 +7,7 @@ const libraries = Content().library;
 
 function LibraryContent() {
   return (
-    <div className="bg-blur-center">
+    <div className="bg-blur-left-ellipse">
       <Container>
         <div className="py-4 text-white">
           <Row>
@@ -18,14 +18,15 @@ function LibraryContent() {
                 <Col
                   xs={12}
                   sm={12}
-                  md={12}
-                  lg={12}
-                  xl={6}
+                  md={6}
+                  lg={6}
+                  xl={4}
                   className="mb-3"
                   key={index}
                 >
                   <CardLink
                     title={`lion/${library}`}
+                    description={libraries[library].description}
                     uri={`/docs/library/${library}/${version}/getting-started/about-as`}
                     textColor={{
                       title: "title-card-link-2",

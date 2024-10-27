@@ -55,6 +55,7 @@ export default function Content() {
     },
     library: {
       authentication: {
+        description: "Library to authenticate users in 2 steps.",
         versions: {
           v4: v4_LA(),
           v3: v3_LA(),
@@ -63,22 +64,29 @@ export default function Content() {
         },
       },
       command: {
+        description:
+          "library created with the function of executing commands from PHP.",
         versions: {
           v3: v3_CMD(),
         },
       },
       database: {
+        description:
+          "Package responsible for generating and executing statements for databases (MySQL/PostgreSQL).",
         versions: {
           v8: v8_LBD(),
         },
       },
       "dependency-injection": {
+        description: "Container for dependency injection with DI-PHP.",
         versions: {
           v2: v2_LDI(),
           v1: v1_LDI(),
         },
       },
       files: {
+        description:
+          "Library created with the function of working internal system files.",
         versions: {
           v7: v7_LF(),
           v6: v6_LF(),
@@ -87,6 +95,7 @@ export default function Content() {
         },
       },
       helpers: {
+        description: "Library created to use helpers for strings and arrays",
         versions: {
           v4: v4_LH(),
           v3: v3_LH(),
@@ -94,17 +103,23 @@ export default function Content() {
         },
       },
       mailer: {
+        description:
+          "Library created to facilitate sending email based on different services.",
         versions: {
           v5: v5_LM(),
         },
       },
       request: {
+        description:
+          "Library created to request input data and response requests.",
         versions: {
           v6: v6_LR(),
           v5: v5_LR(),
         },
       },
       route: {
+        description:
+          "This library has quick router usage with regular expressions.",
         versions: {
           v11: v11_LRT(),
           v10: v10_LRT(),
@@ -113,6 +128,8 @@ export default function Content() {
         },
       },
       security: {
+        description:
+          "Library created with the function of implementing AES and RSA Security functions for PHP, it also includes functions to create JWT.",
         versions: {
           v9: v9_LS(),
           v8: v8_LS(),
@@ -120,6 +137,7 @@ export default function Content() {
         },
       },
       spreadsheet: {
+        description: "Library to facilitate the use of spreadsheet.",
         versions: {
           v4: v4_LSP(),
           v3: v3_LSP(),
@@ -128,6 +146,8 @@ export default function Content() {
         },
       },
       test: {
+        description:
+          "library to implement testing with helpers that allow easy testing with PHPUnit.",
         versions: {
           v1: v1_LT(),
         },
