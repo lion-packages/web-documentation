@@ -42,7 +42,7 @@ export default function v9_LS() {
                 development in Linux environments.
               </Alert>
 
-              <SupportVersion title={"Lion-Security"} version={"8.2"} />
+              <SupportVersion title={"Lion-Security"} version={"8.3"} />
 
               <CodeBlock
                 language={"bash"}
