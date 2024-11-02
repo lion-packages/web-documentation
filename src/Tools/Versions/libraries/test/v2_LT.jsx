@@ -7,7 +7,7 @@ import LibraryTitle from "../../../../pages/components/LibraryTitle";
 import Example from "../../../../pages/components/Example";
 import SupportVersion from "../../../../pages/components/SupportVersion";
 
-export default function v1_LT() {
+export default function v2_LT() {
   return {
     "getting-started": {
       name: "Getting started",
@@ -43,7 +43,7 @@ export default function v1_LT() {
                 development in Linux environments.
               </Alert>
 
-              <SupportVersion title={"Lion-Test"} version={"8.2"} />
+              <SupportVersion title={"Lion-Test"} version={"8.3"} />
 
               <CodeBlock
                 language={"bash"}
@@ -80,10 +80,12 @@ namespace Tests;
 
 use App\\Http\\Controllers\\ExampleController;
 use Lion\\Test\\Test;
+use PHPUnit\\Framework\\Attributes\\Test as Testing;
 
 class ExampleTest extends Test
 {
-    public function testExample(): void
+    #[Testing]    
+    public function example(): void
     {
         $this->assertInstances(new ExampleController(), [
             ExampleController::class
@@ -119,10 +121,12 @@ declare(strict_types=1);
 namespace Tests;
 
 use Lion\\Test\\Test;
+use PHPUnit\\Framework\\Attributes\\Test as Testing;
 
 class ExampleTest extends Test
 {
-    public function testExample(): void
+    #[Testing]
+    public function example(): void
     {
         $responseApi = ...;
 
@@ -161,6 +165,7 @@ declare(strict_types=1);
 namespace Tests;
 
 use Lion\\Test\\Test;
+use PHPUnit\\Framework\\Attributes\\Test as Testing;
 
 class ExampleTest extends Test
 {
@@ -169,7 +174,8 @@ class ExampleTest extends Test
         $this->initReflection(new ExampleController());
     }
 
-    public function testExample(): void
+    #[Testing]
+    public function example(): void
     {
         $this->assertPropertyValue('id', 1);
     }
@@ -200,10 +206,12 @@ declare(strict_types=1);
 namespace Tests;
 
 use Lion\\Test\\Test;
+use PHPUnit\\Framework\\Attributes\\Test as Testing;
 
 class ExampleTest extends Test
 {
-    public function testExample(): void
+    #[Testing]
+    public function example(): void
     {
         $output = $this->assertWithOb("OK", function() {
             echo ("OK");
@@ -234,6 +242,7 @@ declare(strict_types=1);
 namespace Tests;
 
 use Lion\\Test\\Test;
+use PHPUnit\\Framework\\Attributes\\Test as Testing;
 
 class ExampleTest extends Test
 {
@@ -247,7 +256,8 @@ class ExampleTest extends Test
         $this->rmdirRecursively('my_path/');
     }
 
-    public function testExample(): void
+    #[Testing]
+    public function example(): void
     {
         ...
     }
@@ -278,6 +288,7 @@ declare(strict_types=1);
 namespace Tests;
 
 use Lion\\Test\\Test;
+use PHPUnit\\Framework\\Attributes\\Test as Testing;
 
 class ExampleTest extends Test
 {
@@ -291,11 +302,92 @@ class ExampleTest extends Test
         $this->rmdirRecursively('my_path/');
     }
 
-    public function testExample(): void
+    #[Testing]
+    public function example(): void
     {
         $this->createImage(100, 100, 'my_path/', 'my_image.png');
 
         ...
+    }
+}
+`}
+              />
+            </Fragment>
+          ),
+        },
+        "expect-lion-exception": {
+          name: "expectLionException",
+          code: (
+            <Fragment>
+              <LibraryTitle
+                className={"Test"}
+                methodName={"expectLionException"}
+              />
+
+              <Description
+                description={
+                  "Run a process to validate if an exception is thrown. Install lion/exceptions."
+                }
+              />
+
+              <CodeBlock
+                language={"bash"}
+                content={`composer require lion/exceptions`}
+              />
+
+              <CodeBlock
+                language={"php"}
+                content={`<?php
+
+declare(strict_types=1);
+
+namespace Tests;
+
+use Lion\\Exceptions\\Exception;
+use Lion\\Exceptions\\Interfaces\\ExceptionInterface;
+use Lion\\Exceptions\\Traits\\ExceptionTrait;
+use Lion\\Test\\Test;
+use PHPUnit\\Framework\\Attributes\\Test as Testing;
+
+class ExampleTest extends Test
+{
+    private Exception $exception;
+    
+    protected function setUp(): void
+    {
+        $this->exception = new class extends Exception implements ExceptionInterface {
+            use ExceptionTrait;
+        };
+    }
+
+    /**
+     * @throws Exception
+     */
+    #[Testing]
+    public function example(): void
+    {
+        $this
+            ->exception(Exception::class)
+            ->exceptionMessage('ERR')
+            ->exceptionStatus('error')
+            ->exceptionCode(401)
+            ->expectLionException(function (): void {
+                throw new $this->exception('ERR', 'error', 401);
+            });
+    }
+
+    /**
+     * @throws Exception
+     */
+    #[Testing]
+    public function example2(): void
+    {
+        $this
+            ->exception(Exception::class)
+            ->exceptionMessage('ERR')
+            ->exceptionStatus('error')
+            ->exceptionCode(401)
+            ->expectLionException();
     }
 }
 `}
@@ -329,6 +421,7 @@ namespace Tests;
 
 use App\\Http\\Controllers\\ExampleController;
 use Lion\\Test\\Test;
+use PHPUnit\\Framework\\Attributes\\Test as Testing;
 
 class ExampleTest extends Test
 {
@@ -337,7 +430,8 @@ class ExampleTest extends Test
         $this->initReflection(new ExampleController());
     }
 
-    public function testExample(): void
+    #[Testing]
+    public function example(): void
     {
         $returnValue = $this->getPrivateMethod('exampleMethod');
 
@@ -358,6 +452,7 @@ namespace Tests;
 
 use App\\Http\\Controllers\\ExampleController;
 use Lion\\Test\\Test;
+use PHPUnit\\Framework\\Attributes\\Test as Testing;
 
 class ExampleTest extends Test
 {
@@ -366,7 +461,8 @@ class ExampleTest extends Test
         $this->initReflection(new ExampleController());
     }
 
-    public function testExample(): void
+    #[Testing]
+    public function example(): void
     {
         $returnValue = $this->getPrivateMethod('exampleMethod', ['param1', 'param2']);
 
@@ -403,6 +499,7 @@ namespace Tests;
 
 use App\\Http\\Controllers\\ExampleController;
 use Lion\\Test\\Test;
+use PHPUnit\\Framework\\Attributes\\Test as Testing;
 
 class ExampleTest extends Test
 {
@@ -411,7 +508,8 @@ class ExampleTest extends Test
         $this->initReflection(new ExampleController());
     }
 
-    public function testExample(): void
+    #[Testing]
+    public function example(): void
     {
         $id = $this->getPrivateProperty('id');
 
@@ -444,10 +542,12 @@ declare(strict_types=1);
 namespace Tests;
 
 use Lion\\Test\\Test;
+use PHPUnit\\Framework\\Attributes\\Test as Testing;
 
 class ExampleTest extends Test
 {
-    public function testExample(): void
+    #[Testing]
+    public function example(): void
     {
         $responseApi = 'An error occurred while making the request: Client error: GET http://example.com resulted in a 401 Unauthorized response: { "message": "Unauthorized" }';
 
@@ -485,10 +585,12 @@ declare(strict_types=1);
 namespace Tests;
 
 use Lion\\Test\\Test;
+use PHPUnit\\Framework\\Attributes\\Test as Testing;
 
 class ExampleTest extends Test
 {
-    public function testExample(): void
+    #[Testing]
+    public function example(): void
     {
         $exception = $this->getExceptionFromApi(function () {
             // fetch api...
@@ -524,6 +626,7 @@ namespace Tests;
 
 use App\\Http\\Controllers\\ExampleController;
 use Lion\\Test\\Test;
+use PHPUnit\\Framework\\Attributes\\Test as Testing;
 
 class ExampleTest extends Test
 {
@@ -532,9 +635,12 @@ class ExampleTest extends Test
         $this->initReflection(new ExampleController());
     }
 
-    public function testExample(): void
+    #[Testing]
+    public function example(): void
     {
-        ...
+        $return = $this-getprivateMethod('exampleMethod', ['param1', 'param2']);
+
+        $id = $this->getPrivateProperty('id');
     }
 }
               `}
@@ -546,7 +652,10 @@ class ExampleTest extends Test
           name: "rmdirRecursively",
           code: (
             <Fragment>
-              <LibraryTitle className={"Test"} methodName={"rmdirRecursively"} />
+              <LibraryTitle
+                className={"Test"}
+                methodName={"rmdirRecursively"}
+              />
 
               <Description
                 description={
@@ -563,6 +672,7 @@ declare(strict_types=1);
 namespace Tests;
 
 use Lion\\Test\\Test;
+use PHPUnit\\Framework\\Attributes\\Test as Testing;
 
 class ExampleTest extends Test
 {
@@ -571,9 +681,10 @@ class ExampleTest extends Test
         $this->rmdirRecursively('my_path/');
     }
 
-    public function testExample(): void
+    #[Testing]
+    public function example(): void
     {
-        ...
+        mkdir('my_path/', 0777, true);
     }
 }
 `}
@@ -606,6 +717,7 @@ namespace Tests;
 
 use App\\Http\\Controllers\\ExampleController;
 use Lion\\Test\\Test;
+use PHPUnit\\Framework\\Attributes\\Test as Testing;
 
 class ExampleTest extends Test
 {
@@ -614,7 +726,8 @@ class ExampleTest extends Test
         $this->initReflection(new ExampleController());
     }
 
-    public function testExample(): void
+    #[Testing]
+    public function example(): void
     {
         $this->setPrivateProperty('id', 1);
 
