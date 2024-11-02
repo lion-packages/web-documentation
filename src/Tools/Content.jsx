@@ -34,6 +34,7 @@ import v4_LA from "./Versions/libraries/authentication/v4_LA";
 import v2_LSP from "./Versions/libraries/spreadsheet/v2_LSP";
 import v3_LSP from "./Versions/libraries/spreadsheet/v3_LSP";
 import v4_LSP from "./Versions/libraries/spreadsheet/v4_LSP";
+import v2_LT from "./Versions/libraries/test/v2_LT";
 
 export default function Content() {
   return {
@@ -149,6 +150,7 @@ export default function Content() {
         description:
           "library to implement testing with helpers that allow easy testing with PHPUnit.",
         versions: {
+          v2: v2_LT(),
           v1: v1_LT(),
         },
       },
