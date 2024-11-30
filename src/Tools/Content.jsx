@@ -37,6 +37,7 @@ import v4_LSP from "./Versions/libraries/spreadsheet/v4_LSP";
 import v2_LT from "./Versions/libraries/test/v2_LT";
 import v3_LDI from "./Versions/libraries/dependency-injection/v3_LDI";
 import v3_LT from "./Versions/libraries/test/v3_LT";
+import v8_LF from "./Versions/libraries/files/v8_LF";
 
 export default function Content() {
   return {
@@ -92,6 +93,7 @@ export default function Content() {
         description:
           "Library created with the function of working internal system files.",
         versions: {
+          v8: v8_LF(),
           v7: v7_LF(),
           v6: v6_LF(),
           v5: v5_LF(),
