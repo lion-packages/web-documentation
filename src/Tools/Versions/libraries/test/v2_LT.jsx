@@ -6,6 +6,7 @@ import CodeBlock from "../../../../pages/components/CodeBlock";
 import LibraryTitle from "../../../../pages/components/LibraryTitle";
 import Example from "../../../../pages/components/Example";
 import SupportVersion from "../../../../pages/components/SupportVersion";
+import ExampleTitle from "../../../../pages/components/ExampleTitle";
 
 export default function v2_LT() {
   return {
@@ -58,6 +59,97 @@ export default function v2_LT() {
       name: "Test::class",
       type: "sub_modules",
       list: {
+        "assert-header-not-has-key": {
+          name: "assertHeaderNotHasKey",
+          code: (
+            <Fragment>
+              <LibraryTitle
+                className={"Test"}
+                methodName={"assertHeaderNotHasKey"}
+              />
+
+              <Description
+                description={
+                  "Remove the $_SERVER header and assert if it does not exist."
+                }
+              />
+
+              <CodeBlock
+                language={"php"}
+                content={`<?php
+
+declare(strict_types=1);
+
+namespace Tests;
+
+use Lion\\Test\\Test;
+use PHPUnit\\Framework\\Attributes\\Test as Testing;
+
+class ExampleTest extends Test
+{
+    #[Testing]
+    public function example(): void
+    {
+        $_SERVER['HTTP_ACCEPT'] = 'application/json';
+
+        $this->assertHeaderNotHasKey('HTTP_ACCEPT');
+    }
+}              
+`}
+              />
+            </Fragment>
+          ),
+        },
+        "assert-http-body-not-has-key": {
+          name: "assertHttpBodyNotHasKey",
+          code: (
+            <Fragment>
+              <LibraryTitle
+                className={"Test"}
+                methodName={"assertHttpBodyNotHasKey"}
+              />
+
+              <Description
+                description={
+                  "Removes the values of $_POST, $_GET, $_FILES, $_SERVER and asserts that they do not exist."
+                }
+              />
+
+              <CodeBlock
+                language={"php"}
+                content={`<?php
+
+declare(strict_types=1);
+
+namespace Tests;
+
+use Lion\\Test\\Test;
+use PHPUnit\\Framework\\Attributes\\Test as Testing;
+
+class ExampleTest extends Test
+{
+    #[Testing]
+    public function example(): void
+    {
+        $_SERVER['HTTP_ACCEPT'] = 'application/json';
+
+        $_POST['test-post'] = 'test';
+
+        $_GET['test-get'] = 'test';
+
+        $_FILES['test-files'] = 'test';
+
+        $this->assertHttpBodyNotHasKey('test-post');
+        $this->assertHttpBodyNotHasKey('test-get');
+        $this->assertHttpBodyNotHasKey('test-files');
+        $this->assertHttpBodyNotHasKey('HTTP_ACCEPT');
+    }
+}              
+`}
+              />
+            </Fragment>
+          ),
+        },
         "assert-instances": {
           name: "assertInstances",
           code: (
@@ -94,6 +186,72 @@ class ExampleTest extends Test
 }              
 `}
               />
+            </Fragment>
+          ),
+        },
+        "assert-is-date": {
+          name: "assertIsDate",
+          code: (
+            <Fragment>
+              <LibraryTitle className={"Test"} methodName={"assertIsDate"} />
+
+              <Description
+                description={
+                  "Assert that a value is a date in the specified format."
+                }
+              />
+
+              <Fragment>
+                <ExampleTitle number={1} />
+
+                <CodeBlock
+                  language={"php"}
+                  content={`<?php
+
+declare(strict_types=1);
+
+namespace Tests;
+
+use Lion\\Test\\Test;
+use PHPUnit\\Framework\\Attributes\\Test as Testing;
+
+class ExampleTest extends Test
+{
+    #[Testing]
+    public function example(): void
+    {
+        $this->assertIsDate('2024-11-30');
+    }
+}              
+`}
+                />
+              </Fragment>
+
+              <Fragment>
+                <ExampleTitle number={2} />
+
+                <CodeBlock
+                  language={"php"}
+                  content={`<?php
+
+declare(strict_types=1);
+
+namespace Tests;
+
+use Lion\\Test\\Test;
+use PHPUnit\\Framework\\Attributes\\Test as Testing;
+
+class ExampleTest extends Test
+{
+    #[Testing]
+    public function example(): void
+    {
+        $this->assertIsDate('2024-11-30', 'Y-m-d');
+    }
+}              
+`}
+                />
+              </Fragment>
             </Fragment>
           ),
         },
