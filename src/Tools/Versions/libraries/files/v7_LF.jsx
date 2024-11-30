@@ -203,6 +203,32 @@ var_dump($ext);
             </Fragment>
           ),
         },
+        "get-files": {
+          name: "getFiles",
+          code: (
+            <Fragment>
+              <LibraryTitle className="Store" methodName="getFiles" />
+
+              <Description description={"Get files from a defined path."} />
+
+              <CodeBlock
+                language="php"
+                content={`<?php
+
+declare(strict_types=1);
+
+require_once('./vendor/autoload.php');
+
+use Lion\\Files\\Store;
+
+$files = (new Store())->getFiles('path/');
+
+var_dump($files);
+`}
+              />
+            </Fragment>
+          ),
+        },
         "get-name": {
           name: "getName",
           code: (
@@ -227,6 +253,39 @@ $name = (new Store())
     ->getName('path/myfile.txt');
 
 var_dump($name);
+`}
+              />
+            </Fragment>
+          ),
+        },
+        "get-namespace-from-file": {
+          name: "getNamespaceFromFile",
+          code: (
+            <Fragment>
+              <LibraryTitle
+                className="Store"
+                methodName="getNamespaceFromFile"
+              />
+
+              <Description
+                description={
+                  "The getNamespaceFromFile function is available to get the namespace of a specific file."
+                }
+              />
+
+              <CodeBlock
+                language="php"
+                content={`<?php
+
+declare(strict_types=1);
+
+require_once('./vendor/autoload.php');
+
+use Lion\\Files\\Store; 
+
+$namespace = (new Store())->getNamespaceFromFile('app/Http/Controllers/HomeController.php');
+
+var_dump($namespace); // App\\Http\\Controllers\\HomeController
 `}
               />
             </Fragment>

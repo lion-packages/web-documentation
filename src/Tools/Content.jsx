@@ -35,6 +35,7 @@ import v2_LSP from "./Versions/libraries/spreadsheet/v2_LSP";
 import v3_LSP from "./Versions/libraries/spreadsheet/v3_LSP";
 import v4_LSP from "./Versions/libraries/spreadsheet/v4_LSP";
 import v2_LT from "./Versions/libraries/test/v2_LT";
+import v3_LDI from "./Versions/libraries/dependency-injection/v3_LDI";
 
 export default function Content() {
   return {
@@ -81,6 +82,7 @@ export default function Content() {
       "dependency-injection": {
         description: "Container for dependency injection with DI-PHP.",
         versions: {
+          v3: v3_LDI(),
           v2: v2_LDI(),
           v1: v1_LDI(),
         },
