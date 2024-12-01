@@ -36,6 +36,11 @@ import v3_LSP from "./Versions/libraries/spreadsheet/v3_LSP";
 import v4_LSP from "./Versions/libraries/spreadsheet/v4_LSP";
 import v2_LT from "./Versions/libraries/test/v2_LT";
 import v3_LDI from "./Versions/libraries/dependency-injection/v3_LDI";
+import v3_LT from "./Versions/libraries/test/v3_LT";
+import v8_LF from "./Versions/libraries/files/v8_LF";
+import v4_LDI from "./Versions/libraries/dependency-injection/v4_LDI";
+import v10_LS from "./Versions/libraries/security/v10_LS";
+import v11_LS from "./Versions/libraries/security/v11_LS";
 
 export default function Content() {
   return {
@@ -82,6 +87,7 @@ export default function Content() {
       "dependency-injection": {
         description: "Container for dependency injection with DI-PHP.",
         versions: {
+          v4: v4_LDI(),
           v3: v3_LDI(),
           v2: v2_LDI(),
           v1: v1_LDI(),
@@ -91,6 +97,7 @@ export default function Content() {
         description:
           "Library created with the function of working internal system files.",
         versions: {
+          v8: v8_LF(),
           v7: v7_LF(),
           v6: v6_LF(),
           v5: v5_LF(),
@@ -134,6 +141,8 @@ export default function Content() {
         description:
           "Library created with the function of implementing AES and RSA Security functions for PHP, it also includes functions to create JWT.",
         versions: {
+          v11: v11_LS(),
+          v10: v10_LS(),
           v9: v9_LS(),
           v8: v8_LS(),
           v7: v7_LS(),
@@ -152,6 +161,7 @@ export default function Content() {
         description:
           "library to implement testing with helpers that allow easy testing with PHPUnit.",
         versions: {
+          v3: v3_LT(),
           v2: v2_LT(),
           v1: v1_LT(),
         },
