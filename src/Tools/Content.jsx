@@ -39,6 +39,8 @@ import v3_LDI from "./Versions/libraries/dependency-injection/v3_LDI";
 import v3_LT from "./Versions/libraries/test/v3_LT";
 import v8_LF from "./Versions/libraries/files/v8_LF";
 import v4_LDI from "./Versions/libraries/dependency-injection/v4_LDI";
+import v10_LS from "./Versions/libraries/security/v10_LS";
+import v11_LS from "./Versions/libraries/security/v11_LS";
 
 export default function Content() {
   return {
@@ -139,6 +141,8 @@ export default function Content() {
         description:
           "Library created with the function of implementing AES and RSA Security functions for PHP, it also includes functions to create JWT.",
         versions: {
+          v11: v11_LS(),
+          v10: v10_LS(),
           v9: v9_LS(),
           v8: v8_LS(),
           v7: v7_LS(),

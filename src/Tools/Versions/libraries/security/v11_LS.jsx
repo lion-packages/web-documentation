@@ -6,7 +6,7 @@ import Description from "../../../../pages/components/Description";
 import Title from "../../../../pages/components/Title";
 import SupportVersion from "../../../../pages/components/SupportVersion";
 
-export default function v10_LS() {
+export default function v11_LS() {
   return {
     "getting-started": {
       name: "Getting started",
@@ -42,7 +42,7 @@ export default function v10_LS() {
                 development in Linux environments.
               </Alert>
 
-              <SupportVersion title={"Lion-Security"} version={"8.3"} />
+              <SupportVersion title={"Lion-Security"} version={"8.4"} />
 
               <CodeBlock
                 language={"bash"}
