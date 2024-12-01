@@ -38,6 +38,7 @@ import v2_LT from "./Versions/libraries/test/v2_LT";
 import v3_LDI from "./Versions/libraries/dependency-injection/v3_LDI";
 import v3_LT from "./Versions/libraries/test/v3_LT";
 import v8_LF from "./Versions/libraries/files/v8_LF";
+import v4_LDI from "./Versions/libraries/dependency-injection/v4_LDI";
 
 export default function Content() {
   return {
@@ -84,6 +85,7 @@ export default function Content() {
       "dependency-injection": {
         description: "Container for dependency injection with DI-PHP.",
         versions: {
+          v4: v4_LDI(),
           v3: v3_LDI(),
           v2: v2_LDI(),
           v1: v1_LDI(),
