@@ -41,6 +41,7 @@ import v8_LF from "./Versions/libraries/files/v8_LF";
 import v4_LDI from "./Versions/libraries/dependency-injection/v4_LDI";
 import v10_LS from "./Versions/libraries/security/v10_LS";
 import v11_LS from "./Versions/libraries/security/v11_LS";
+import v7_LR from "./Versions/libraries/request/v7_LR";
 
 export default function Content() {
   return {
@@ -123,6 +124,7 @@ export default function Content() {
         description:
           "Library created to request input data and response requests.",
         versions: {
+          v7: v7_LR(),
           v6: v6_LR(),
           v5: v5_LR(),
         },
