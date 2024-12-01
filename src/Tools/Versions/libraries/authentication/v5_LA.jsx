@@ -44,7 +44,9 @@ export default function v5_LA() {
 
               <CodeBlock
                 language={"bash"}
-                content={"composer require lion/authentication pragmarx/google2fa-qrcode bacon/bacon-qr-code"}
+                content={
+                  "composer require lion/authentication pragmarx/google2fa-qrcode bacon/bacon-qr-code"
+                }
               />
             </Fragment>
           ),

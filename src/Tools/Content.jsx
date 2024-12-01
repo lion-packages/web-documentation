@@ -43,6 +43,8 @@ import v10_LS from "./Versions/libraries/security/v10_LS";
 import v11_LS from "./Versions/libraries/security/v11_LS";
 import v7_LR from "./Versions/libraries/request/v7_LR";
 import v5_LA from "./Versions/libraries/authentication/v5_LA";
+import { version } from "react";
+import v1_LE from "./Versions/libraries/exceptions/v1_LE";
 
 export default function Content() {
   return {
@@ -94,6 +96,12 @@ export default function Content() {
           v3: v3_LDI(),
           v2: v2_LDI(),
           v1: v1_LDI(),
+        },
+      },
+      exceptions: {
+        description: "Handling exceptions and serializations.",
+        versions: {
+          v1: v1_LE(),
         },
       },
       files: {
