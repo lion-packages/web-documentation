@@ -42,6 +42,7 @@ import v4_LDI from "./Versions/libraries/dependency-injection/v4_LDI";
 import v10_LS from "./Versions/libraries/security/v10_LS";
 import v11_LS from "./Versions/libraries/security/v11_LS";
 import v7_LR from "./Versions/libraries/request/v7_LR";
+import v5_LA from "./Versions/libraries/authentication/v5_LA";
 
 export default function Content() {
   return {
@@ -65,6 +66,7 @@ export default function Content() {
       authentication: {
         description: "Library to authenticate users in 2 steps.",
         versions: {
+          v5: v5_LA(),
           v4: v4_LA(),
           v3: v3_LA(),
           v2: v2_LA(),
