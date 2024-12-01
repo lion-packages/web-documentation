@@ -45,6 +45,7 @@ import v7_LR from "./Versions/libraries/request/v7_LR";
 import v5_LA from "./Versions/libraries/authentication/v5_LA";
 import { version } from "react";
 import v1_LE from "./Versions/libraries/exceptions/v1_LE";
+import v2_LE from "./Versions/libraries/exceptions/v2_LE";
 
 export default function Content() {
   return {
@@ -101,6 +102,7 @@ export default function Content() {
       exceptions: {
         description: "Handling exceptions and serializations.",
         versions: {
+          v2: v2_LE(),
           v1: v1_LE(),
         },
       },
