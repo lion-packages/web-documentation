@@ -61,7 +61,7 @@ export default function v3_CMD() {
               <div className="mb-3">
                 <h3>
                   Command::
-                  <span className="text-warning h3">errorOutput()</span>
+                  <span className="text-lion-orange h3">errorOutput()</span>
                 </h3>
 
                 <hr />
@@ -124,7 +124,7 @@ class CustomCommand extends Command
               <div className="mb-3">
                 <h3>
                   Command::
-                  <span className="text-warning h3">successOutput()</span>
+                  <span className="text-lion-orange h3">successOutput()</span>
                 </h3>
 
                 <hr />
@@ -190,7 +190,7 @@ class CustomCommand extends Command
               <div className="mb-3">
                 <h3>
                   Command::
-                  <span className="text-warning h3">warningOutput()</span>
+                  <span className="text-lion-orange h3">warningOutput()</span>
                 </h3>
 
                 <hr />
@@ -253,7 +253,7 @@ class CustomCommand extends Command
               <div className="mb-3">
                 <h3>
                   Command::
-                  <span className="text-warning h3">infoOutput()</span>
+                  <span className="text-lion-orange h3">infoOutput()</span>
                 </h3>
 
                 <hr />
@@ -316,7 +316,7 @@ class CustomCommand extends Command
               <div className="mb-3">
                 <h3>
                   Command::
-                  <span className="text-warning h3">purpleOutput()</span>
+                  <span className="text-lion-orange h3">purpleOutput()</span>
                 </h3>
 
                 <hr />
@@ -385,7 +385,7 @@ class CustomCommand extends Command
               <div className="mb-3">
                 <h3>
                   Kernel::
-                  <span className="text-warning h3">getApplication()</span>
+                  <span className="text-lion-orange h3">getApplication()</span>
                 </h3>
 
                 <hr />
@@ -418,7 +418,7 @@ $application = $kernel->getApplication();
               <div className="mb-3">
                 <h3>
                   Kernel::
-                  <span className="text-warning h3">setApplication()</span>
+                  <span className="text-lion-orange h3">setApplication()</span>
                 </h3>
 
                 <hr />
@@ -452,7 +452,7 @@ $kernel->setApplication(new Application());
               <div className="mb-3">
                 <h3>
                   Kernel::
-                  <span className="text-warning h3">commands()</span>
+                  <span className="text-lion-orange h3">commands()</span>
                 </h3>
 
                 <hr />
@@ -487,7 +487,9 @@ $kernel->commands([
               <div className="mb-3">
                 <h3>
                   Kernel::
-                  <span className="text-warning h3">commandsOnObjects()</span>
+                  <span className="text-lion-orange h3">
+                    commandsOnObjects()
+                  </span>
                 </h3>
 
                 <hr />
@@ -523,7 +525,7 @@ $kernel->commandsOnObjects([
               <div className="mb-3">
                 <h3>
                   Kernel::
-                  <span className="text-warning h3">run()</span>
+                  <span className="text-lion-orange h3">run()</span>
                 </h3>
 
                 <hr />
@@ -561,7 +563,7 @@ $kernel->run();
               <div className="mb-3">
                 <h3>
                   Kernel::
-                  <span className="text-warning h3">execute()</span>
+                  <span className="text-lion-orange h3">execute()</span>
                 </h3>
 
                 <hr />

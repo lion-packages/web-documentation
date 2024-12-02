@@ -230,7 +230,7 @@ return [
               <div className="mb-3">
                 <h3>
                   MySQL::
-                  <span className="text-warning h3">getConnections()</span>
+                  <span className="text-lion-orange h3">getConnections()</span>
                 </h3>
 
                 <hr />
@@ -261,7 +261,8 @@ var_dump($connections);
             <>
               <div className="mb-3">
                 <h3>
-                  MySQL::<span className="text-warning h3">connection()</span>
+                  MySQL::
+                  <span className="text-lion-orange h3">connection()</span>
                 </h3>
 
                 <hr />
@@ -697,7 +698,7 @@ var_dump($response);
             <>
               <div className="mb-3">
                 <h3>
-                  MySQL::<span className="text-warning h3">bulk()</span>
+                  MySQL::<span className="text-lion-orange h3">bulk()</span>
                 </h3>
 
                 <hr />
@@ -2930,7 +2931,7 @@ var_dump($response);
               <ul>
                 {args.map((arg, index) => (
                   <li key={index}>
-                    <h6 className="text-warning">{arg.key}:</h6>
+                    <h6 className="text-lion-orange">{arg.key}:</h6>
                     <p>{arg.desc}</p>
                   </li>
                 ))}

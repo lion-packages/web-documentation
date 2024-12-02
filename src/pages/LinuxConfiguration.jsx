@@ -20,7 +20,7 @@ export default function LinuxConfiguration() {
           </div>
 
           <div className="mb-3">
-            <h5 className="text-warning">Add Sudoers</h5>
+            <h5 className="text-lion-orange">Add Sudoers</h5>
 
             <Description description={"Add user to sudoers list."} />
 
@@ -39,7 +39,7 @@ export default function LinuxConfiguration() {
           <hr className="my-5" />
 
           <div className="mb-3">
-            <h5 className="text-warning">Install Dependencies</h5>
+            <h5 className="text-lion-orange">Install Dependencies</h5>
 
             <Fragment>
               <Fragment>

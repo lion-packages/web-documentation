@@ -4745,7 +4745,7 @@ use Lion\\Bundle\\Helpers\\Commands\\Schedule\\TaskQueue;
               />
 
               <Fragment>
-                <h5 className="text-warning">{"request"}</h5>
+                <h5 className="text-lion-orange">{"request"}</h5>
 
                 <Description
                   description={
@@ -4769,7 +4769,7 @@ vd($request);
               </Fragment>
 
               <Fragment>
-                <h5 className="text-warning">{"now"}</h5>
+                <h5 className="text-lion-orange">{"now"}</h5>
 
                 <Description
                   description={
@@ -4789,7 +4789,7 @@ vd($date);
               </Fragment>
 
               <Fragment>
-                <h5 className="text-warning">fetch</h5>
+                <h5 className="text-lion-orange">fetch</h5>
 
                 <Description
                   description={
@@ -4813,7 +4813,7 @@ vd($response);
               </Fragment>
 
               <Fragment>
-                <h5 className="text-warning">storage_path</h5>
+                <h5 className="text-lion-orange">storage_path</h5>
 
                 <Description
                   description={
@@ -4833,7 +4833,7 @@ vd($path);
               </Fragment>
 
               <Fragment>
-                <h5 className="text-warning">finish</h5>
+                <h5 className="text-lion-orange">finish</h5>
 
                 <Description
                   description={
@@ -4853,7 +4853,7 @@ finish($response);
               </Fragment>
 
               <Fragment>
-                <h5 className="text-warning">response</h5>
+                <h5 className="text-lion-orange">response</h5>
 
                 <Description
                   description={
@@ -4873,7 +4873,7 @@ vd($response);
               </Fragment>
 
               <Fragment>
-                <h5 className="text-warning">success</h5>
+                <h5 className="text-lion-orange">success</h5>
 
                 <Description
                   description={
@@ -4893,7 +4893,7 @@ vd($response);
               </Fragment>
 
               <Fragment>
-                <h5 className="text-warning">error</h5>
+                <h5 className="text-lion-orange">error</h5>
 
                 <Description
                   description={
@@ -4913,7 +4913,7 @@ vd($response);
               </Fragment>
 
               <Fragment>
-                <h5 className="text-warning">warning</h5>
+                <h5 className="text-lion-orange">warning</h5>
 
                 <Description
                   description={
@@ -4933,7 +4933,7 @@ vd($response);
               </Fragment>
 
               <Fragment>
-                <h5 className="text-warning">info</h5>
+                <h5 className="text-lion-orange">info</h5>
 
                 <Description
                   description={"Allows you to generate an object of type info."}
@@ -4951,7 +4951,7 @@ vd($response);
               </Fragment>
 
               <Fragment>
-                <h5 className="text-warning">vd</h5>
+                <h5 className="text-lion-orange">vd</h5>
 
                 <Description description={"Function to perform a var_dump."} />
                 <CodeBlock
@@ -4966,7 +4966,7 @@ vd($response);
               </Fragment>
 
               <Fragment>
-                <h5 className="text-warning">logger</h5>
+                <h5 className="text-lion-orange">logger</h5>
 
                 <Description
                   description={"Function to add a line to the log file."}
@@ -4988,7 +4988,7 @@ logger('lorem ipsum dolor sit amet...', LogTypeEnum::WARNING, ['name' => 'Sleon'
               </Fragment>
 
               <Fragment>
-                <h5 className="text-warning">json</h5>
+                <h5 className="text-lion-orange">json</h5>
 
                 <Description
                   description={"Function to convert data to json."}
@@ -5006,7 +5006,7 @@ vd($json);
               </Fragment>
 
               <Fragment>
-                <h5 className="text-warning">{"isError"}</h5>
+                <h5 className="text-lion-orange">{"isError"}</h5>
 
                 <Description
                   description={
@@ -5030,7 +5030,7 @@ if (isError($response)) {
               </Fragment>
 
               <Fragment>
-                <h5 className="text-warning">{"isSuccess"}</h5>
+                <h5 className="text-lion-orange">{"isSuccess"}</h5>
 
                 <Description
                   description={
@@ -5054,7 +5054,7 @@ if (!isSuccess($response)) {
               </Fragment>
 
               <Fragment>
-                <h5 className="text-warning">jwt</h5>
+                <h5 className="text-lion-orange">jwt</h5>
 
                 <Description
                   description={"Gets the HTTP_AUTHORIZATION header token."}
@@ -5072,7 +5072,7 @@ vd($jwt);
               </Fragment>
 
               <Fragment>
-                <h5 className="text-warning">fake</h5>
+                <h5 className="text-lion-orange">fake</h5>
 
                 <Description
                   description={
@@ -5092,7 +5092,7 @@ vd($name);
               </Fragment>
 
               <Fragment>
-                <h5 className="text-warning">env</h5>
+                <h5 className="text-lion-orange">env</h5>
 
                 <Description
                   description={

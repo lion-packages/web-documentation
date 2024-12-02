@@ -92,8 +92,8 @@ export default function AddTabs() {
                           scrollToTop();
                         }}
                       >
-                        <i className="bi bi-arrow-return-right text-warning me-2"></i>
-                        <label className="text-warning">{`${count}.${subCount}`}</label>
+                        <i className="bi bi-arrow-return-right text-lion-orange me-2"></i>
+                        <label className="text-lion-orange">{`${count}.${subCount}`}</label>
                         {" - "}
                         {item.name}
                       </ListGroup.Item>

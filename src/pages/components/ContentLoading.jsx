@@ -35,7 +35,7 @@ export default function ContentLoading() {
           <Card style={{ width: "18rem" }} className="bg-dark-logo">
             <Card.Body>
               <Placeholder as={Card.Title} animation="glow">
-                <Placeholder xs={6} className="text-warning" />
+                <Placeholder xs={6} className="text-lion-orange" />
               </Placeholder>
 
               <Placeholder as={Card.Text} animation="glow">
@@ -55,7 +55,7 @@ export default function ContentLoading() {
           <Card style={{ width: "18rem" }} className="bg-dark-logo">
             <Card.Body>
               <Placeholder as={Card.Title} animation="glow">
-                <Placeholder xs={6} className="text-warning" />
+                <Placeholder xs={6} className="text-lion-orange" />
               </Placeholder>
 
               <Placeholder as={Card.Text} animation="glow">

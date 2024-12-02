@@ -62,7 +62,7 @@ export default function v3_CMMD() {
               desc: (
                 <Fragment>
                   The test suite with coverage report{" "}
-                  <label className="text-warning">[default: "none"]</label>
+                  <label className="text-lion-orange">[default: "none"]</label>
                 </Fragment>
               ),
             },
@@ -123,7 +123,7 @@ export default function v3_CMMD() {
               desc: (
                 <Fragment>
                   Number of executions{" "}
-                  <label className="text-warning">[default: 1]</label>
+                  <label className="text-lion-orange">[default: 1]</label>
                 </Fragment>
               ),
             },
@@ -155,7 +155,7 @@ export default function v3_CMMD() {
               desc: (
                 <Fragment>
                   Do you want to run the seeds?{" "}
-                  <label className="text-warning">[default: "none"]</label>
+                  <label className="text-lion-orange">[default: "none"]</label>
                 </Fragment>
               ),
             },
@@ -182,7 +182,9 @@ export default function v3_CMMD() {
               desc: (
                 <Fragment>
                   Capsule name{" "}
-                  <label className="text-warning">[default: "Example"]</label>
+                  <label className="text-lion-orange">
+                    [default: "Example"]
+                  </label>
                 </Fragment>
               ),
             },
@@ -193,7 +195,7 @@ export default function v3_CMMD() {
               desc: (
                 <Fragment>
                   Defined properties for the capsule{" "}
-                  <label className="text-warning">
+                  <label className="text-lion-orange">
                     (multiple values allowed)
                   </label>
                 </Fragment>
@@ -206,7 +208,7 @@ export default function v3_CMMD() {
               desc: (
                 <Fragment>
                   Entity name{" "}
-                  <label className="text-warning">[default: ""]</label>
+                  <label className="text-lion-orange">[default: ""]</label>
                 </Fragment>
               ),
             },
@@ -235,7 +237,7 @@ export default function v3_CMMD() {
               desc: (
                 <Fragment>
                   Command name{" "}
-                  <label className="text-warning">
+                  <label className="text-lion-orange">
                     [default: "ExampleCommand"]
                   </label>
                 </Fragment>
@@ -254,7 +256,7 @@ export default function v3_CMMD() {
               desc: (
                 <Fragment>
                   Controller name{" "}
-                  <label className="text-warning">
+                  <label className="text-lion-orange">
                     [default: "ExampleController"]
                   </label>
                 </Fragment>
@@ -279,7 +281,7 @@ export default function v3_CMMD() {
               desc: (
                 <Fragment>
                   Scheduled task name{" "}
-                  <label className="text-warning">
+                  <label className="text-lion-orange">
                     [default: "ExampleCron"]
                   </label>
                 </Fragment>
@@ -298,7 +300,7 @@ export default function v3_CMMD() {
               desc: (
                 <Fragment>
                   Enum name{" "}
-                  <label className="text-warning">
+                  <label className="text-lion-orange">
                     [default: "ExampleEnum"]
                   </label>
                 </Fragment>
@@ -317,7 +319,7 @@ export default function v3_CMMD() {
               desc: (
                 <Fragment>
                   Exception name{" "}
-                  <label className="text-warning">
+                  <label className="text-lion-orange">
                     [default: "ExampleException"]
                   </label>
                 </Fragment>
@@ -336,7 +338,7 @@ export default function v3_CMMD() {
               desc: (
                 <Fragment>
                   Factory name{" "}
-                  <label className="text-warning">
+                  <label className="text-lion-orange">
                     [default: "ExampleFactory"]
                   </label>
                 </Fragment>
@@ -355,7 +357,7 @@ export default function v3_CMMD() {
               desc: (
                 <Fragment>
                   HTML name{" "}
-                  <label className="text-warning">
+                  <label className="text-lion-orange">
                     [default: "ExampleHTML"]
                   </label>
                 </Fragment>
@@ -374,7 +376,7 @@ export default function v3_CMMD() {
               desc: (
                 <Fragment>
                   Interface name{" "}
-                  <label className="text-warning">
+                  <label className="text-lion-orange">
                     [default: "ExampleInterface"]
                   </label>
                 </Fragment>
@@ -393,7 +395,7 @@ export default function v3_CMMD() {
               desc: (
                 <Fragment>
                   Middleware name{" "}
-                  <label className="text-warning">
+                  <label className="text-lion-orange">
                     [default: "ExampleMiddleware"]
                   </label>
                 </Fragment>
@@ -424,7 +426,7 @@ export default function v3_CMMD() {
               desc: (
                 <>
                   Model name{" "}
-                  <label className="text-warning">
+                  <label className="text-lion-orange">
                     {'[default: "ExampleModel"]'}
                   </label>
                 </>
@@ -455,7 +457,7 @@ export default function v3_CMMD() {
               desc: (
                 <>
                   Rule name{" "}
-                  <label className="text-warning">
+                  <label className="text-lion-orange">
                     {'[default: "ExampleRule"]'}
                   </label>
                 </>
@@ -474,7 +476,7 @@ export default function v3_CMMD() {
               desc: (
                 <Fragment>
                   Seed name{" "}
-                  <label className="text-warning">
+                  <label className="text-lion-orange">
                     {'[default: "ExampleSeed"]'}
                   </label>
                 </Fragment>
@@ -493,7 +495,7 @@ export default function v3_CMMD() {
               desc: (
                 <Fragment>
                   Service name{" "}
-                  <label className="text-warning">
+                  <label className="text-lion-orange">
                     [default: "ExampleService"]
                   </label>
                 </Fragment>
@@ -512,7 +514,9 @@ export default function v3_CMMD() {
               desc: (
                 <Fragment>
                   SH name{" "}
-                  <label className="text-warning">[default: "Example"]</label>
+                  <label className="text-lion-orange">
+                    [default: "Example"]
+                  </label>
                 </Fragment>
               ),
             },
@@ -529,7 +533,7 @@ export default function v3_CMMD() {
               desc: (
                 <Fragment>
                   Socket name{" "}
-                  <label className="text-warning">
+                  <label className="text-lion-orange">
                     [default: "ExampleSocket"]
                   </label>
                 </Fragment>
@@ -548,7 +552,7 @@ export default function v3_CMMD() {
               desc: (
                 <Fragment>
                   Test name{" "}
-                  <label className="text-warning">
+                  <label className="text-lion-orange">
                     [default: "ExampleTest"]
                   </label>
                 </Fragment>
@@ -567,7 +571,7 @@ export default function v3_CMMD() {
               desc: (
                 <>
                   Trait name{" "}
-                  <label className="text-warning">
+                  <label className="text-lion-orange">
                     {'[default: "ExampleTrait"]'}
                   </label>
                 </>
@@ -601,7 +605,7 @@ export default function v3_CMMD() {
               desc: (
                 <Fragment>
                   Project name{" "}
-                  <label className="text-warning">
+                  <label className="text-lion-orange">
                     [default: "vite-project"]
                   </label>
                 </Fragment>
@@ -620,7 +624,7 @@ export default function v3_CMMD() {
               desc: (
                 <Fragment>
                   Package name{" "}
-                  <label className="text-warning">[default: ""]</label>
+                  <label className="text-lion-orange">[default: ""]</label>
                 </Fragment>
               ),
             },

@@ -19,7 +19,7 @@ export default function Editors() {
         </div>
 
         <div className="mb-4">
-          <h5 className="text-warning">
+          <h5 className="text-lion-orange">
             Font: JetBrains Mono. A typeface for developers
           </h5>
 
@@ -49,7 +49,7 @@ export default function Editors() {
         </div>
 
         <div className="mb-4">
-          <h5 className="text-warning">
+          <h5 className="text-lion-orange">
             Warp: Great software starts on the command line
           </h5>
 
@@ -67,7 +67,7 @@ export default function Editors() {
         </div>
 
         <div className="mb-4">
-          <h5 className="text-warning">Sublime Text 4</h5>
+          <h5 className="text-lion-orange">Sublime Text 4</h5>
 
           <Description
             description={
