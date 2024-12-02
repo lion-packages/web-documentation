@@ -276,9 +276,63 @@ use Lion\\Exceptions\\Serialize;
 
 $serialize = new Serialize();
 
-$serialize->exceptionHandler()
+$serialize->exceptionHandler();
                   `}
               />
+
+              <Fragment>
+                <Description
+                  description={
+                    "You can perform a logical process when capturing exceptions."
+                  }
+                />
+
+                <CodeBlock
+                  language="php"
+                  content={`<?php
+
+declare(strict_types=1);
+
+require_once('./vendor/autoload.php');
+
+use Lion\\Exceptions\\Serialize;
+
+$serialize = new Serialize();
+
+$serialize->exceptionHandler(function (): void {
+    logger(...);
+});
+                  `}
+                />
+              </Fragment>
+
+              <Fragment>
+                <Description
+                  description={
+                    "You can add more data to display in JSON data serialization."
+                  }
+                />
+
+                <CodeBlock
+                  language="php"
+                  content={`<?php
+
+declare(strict_types=1);
+
+require_once('./vendor/autoload.php');
+
+use Lion\\Exceptions\\Serialize;
+
+$callback = function (): void {
+    logger(...);
+};
+
+$serialize = new Serialize();
+
+$serialize->exceptionHandler($callback, true); // Add the line of code and path of the exception file
+                  `}
+                />
+              </Fragment>
             </Fragment>
           ),
         },
