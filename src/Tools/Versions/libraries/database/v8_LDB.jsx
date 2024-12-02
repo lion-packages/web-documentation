@@ -141,27 +141,31 @@ export default function v8_LBD() {
                 language={"php"}
                 content={`<?php
 
-/**
-* ------------------------------------------------------------------------------
-* Start database service
-* ------------------------------------------------------------------------------
-* describe connections to establish connecting to multiple databases
-* ------------------------------------------------------------------------------
-*/
+declare(strict_types=1);
 
-return [
-    'default' => env->DB_NAME,
+use LionDatabase\\Driver;
+
+/**
+ * ------------------------------------------------------------------------------
+ * Start database service
+ * ------------------------------------------------------------------------------
+ * describe connections to establish connecting to multiple databases
+ * ------------------------------------------------------------------------------
+ */
+
+Driver::run([
+    'default' => 'connection-name',
     'connections' => [
-        env->DB_NAME => [
-            'type' => env->DB_TYPE,
-            'host' => env->DB_HOST,
-            'port' => env->DB_PORT,
-            'dbname' => env->DB_NAME,
-            'user' => env->DB_USER,
-            'password' => env->DB_PASSWORD,
+        'connection-name' => [
+            'type' => 'mysql',
+            'host' => 'localhost',
+            'port' => 3306,
+            'dbname' => 'lion_database',
+            'user' => 'root',
+            'password' => 'lion',
         ],
     ],
-];
+]);
 `}
               />
 
@@ -187,31 +191,35 @@ return [
                 language={"php"}
                 content={`<?php
 
-/**
-* ------------------------------------------------------------------------------
-* Start database service
-* ------------------------------------------------------------------------------
-* describe connections to establish connecting to multiple databases
-* ------------------------------------------------------------------------------
-*/
+declare(strict_types=1);
 
-return [
-    'default' => env->DB_NAME,
+use LionDatabase\\Driver;
+
+/**
+ * ------------------------------------------------------------------------------
+ * Start database service
+ * ------------------------------------------------------------------------------
+ * describe connections to establish connecting to multiple databases
+ * ------------------------------------------------------------------------------
+ */
+
+Driver::run([
+    'default' => 'connection-name',
     'connections' => [
-        env->DB_NAME => [
-            'type' => env->DB_TYPE,
-            'host' => env->DB_HOST,
-            'port' => env->DB_PORT,
-            'dbname' => env->DB_NAME,
-            'user' => env->DB_USER,
-            'password' => env->DB_PASSWORD,
+        'connection-name' => [
+            'type' => 'mysql',
+            'host' => 'localhost',
+            'port' => 3306,
+            'dbname' => 'lion_database',
+            'user' => 'root',
+            'password' => 'lion',
             'config' => [
                 PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION,
                 PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_OBJ,
-            ]
+            ],
         ],
     ],
-];
+]);
 `}
               />
             </Fragment>
