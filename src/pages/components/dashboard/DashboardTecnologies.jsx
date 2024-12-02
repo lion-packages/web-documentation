@@ -21,11 +21,32 @@ import Content from "../../../Tools/Content";
 const key = Object.keys(Content().framework.versions).shift();
 
 export default function DashboardTecnologies() {
+  const EmptyRow = () => {
+    return (
+      <Row>
+        {[1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12].map((index) => (
+          <Col xs={3} sm={3} md={2} lg={1} className="mb-3" key={index}>
+            <div
+              className="bg-transparent-blur py-5 rounded border-lion-light h-100 blocks"
+              role="button"
+            ></div>
+          </Col>
+        ))}
+      </Row>
+    );
+  };
+
   return (
     <div className="text-center">
       <div className="mb-5 text-white text-shadow">
         <h2>Compatibility with your favorite technologies</h2>
       </div>
+
+      {/* ----------------------------------------------------------------- */}
+
+      <EmptyRow />
+
+      {/* ----------------------------------------------------------------- */}
 
       <Row>
         <Col xs={3} sm={3} md={2} lg={1} className="mb-3">
@@ -304,6 +325,12 @@ export default function DashboardTecnologies() {
           ></div>
         </Col>
       </Row>
+
+      {/* ----------------------------------------------------------------- */}
+
+      <EmptyRow />
+
+      {/* ----------------------------------------------------------------- */}
 
       <div className="d-grid gap-2 d-sm-flex justify-content-sm-center py-5">
         <Link
