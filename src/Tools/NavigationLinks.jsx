@@ -9,11 +9,11 @@ export default [
     type: "link",
     url: "/standards",
   },
-  {
-    display_name: "Editors",
-    type: "link",
-    url: "/editors",
-  },
+  // {
+  //   display_name: "Editors",
+  //   type: "link",
+  //   url: "/editors",
+  // },
   {
     display_name: "Linux configuration",
     type: "link",

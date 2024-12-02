@@ -22,7 +22,6 @@ function App() {
       <Routes>
         <Route path="*" element={<NotFound />} />
         <Route path="/" element={<DashboardContent />} />
-        <Route path="editors" element={<Editors />} />
         <Route path="standards" element={<Standards />} />
         <Route path="linux-configuration" element={<LinuxConfiguration />} />
 

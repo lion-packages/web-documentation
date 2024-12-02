@@ -16,7 +16,7 @@ export default function v6_6_0_LSQ() {
           code: (
             <>
               <div className="mb-3">
-                <h5 className="text-warning">CONNECTION</h5>
+                <h5 className="text-lion-orange">CONNECTION</h5>
 
                 <p>
                   {" "}
@@ -85,7 +85,7 @@ export default function v6_6_0_LSQ() {
               </div>
 
               <div className="mb-3">
-                <h5 className="pb-2 text-warning">OPERATORS</h5>
+                <h5 className="pb-2 text-lion-orange">OPERATORS</h5>
 
                 <Table striped bordered hover variant="dark">
                   <thead>
@@ -173,7 +173,7 @@ export default function v6_6_0_LSQ() {
           code: (
             <>
               <div className="mb-3">
-                <h5 className="pb-2 text-warning">Example #1</h5>
+                <h5 className="pb-2 text-lion-orange">Example #1</h5>
                 <CodeBlock language="sql" content={"SELECT * FROM my_table"} />
                 <CodeBlock
                   language="php"
@@ -187,7 +187,7 @@ export default function v6_6_0_LSQ() {
               </div>
 
               <div className="mb-3">
-                <h5 className="pb-2 text-warning">Example #2</h5>
+                <h5 className="pb-2 text-lion-orange">Example #2</h5>
                 <CodeBlock
                   language="sql"
                   content={
@@ -220,12 +220,10 @@ export default function v6_6_0_LSQ() {
           code: (
             <>
               <div className="mb-3">
-                <h5 className="pb-2 text-warning">Example #1</h5>
+                <h5 className="pb-2 text-lion-orange">Example #1</h5>
                 <CodeBlock
                   language="sql"
-                  content={
-                    "SELECT CONCAT(name, ' ', lastname) FROM users"
-                  }
+                  content={"SELECT CONCAT(name, ' ', lastname) FROM users"}
                 />
 
                 <CodeBlock
@@ -240,28 +238,28 @@ export default function v6_6_0_LSQ() {
               </div>
 
               <div className="mb-3">
-              <h5 className="pb-2 text-warning">Example #2</h5>
-              <CodeBlock
-                language="sql"
-                content={
-                  "SELECT CONCAT(usr.name, ' ', usr.lastname) AS fullname FROM users AS usr"
-                }
-              />
+                <h5 className="pb-2 text-lion-orange">Example #2</h5>
+                <CodeBlock
+                  language="sql"
+                  content={
+                    "SELECT CONCAT(usr.name, ' ', usr.lastname) AS fullname FROM users AS usr"
+                  }
+                />
 
-              <CodeBlock
-                language="php"
-                content={
-                  "SELECT * FROM my_table\n\n" +
-                  "<?php\n\n" +
-                  "use LionSQL\\Drivers\\MySQL as DB;\n\n" +
-                  "DB::table(DB::as('users', 'usr'))\n" +
-                  "\t->select(\n" +
-                  "\t\tDB::concat(DB::column('name', 'usr'), ' ', DB::column('lastname', 'usr'))\n" +
-                  "\t)\n" +
-                  "\t->getAll();"
-                }
-              />
-            </div>
+                <CodeBlock
+                  language="php"
+                  content={
+                    "SELECT * FROM my_table\n\n" +
+                    "<?php\n\n" +
+                    "use LionSQL\\Drivers\\MySQL as DB;\n\n" +
+                    "DB::table(DB::as('users', 'usr'))\n" +
+                    "\t->select(\n" +
+                    "\t\tDB::concat(DB::column('name', 'usr'), ' ', DB::column('lastname', 'usr'))\n" +
+                    "\t)\n" +
+                    "\t->getAll();"
+                  }
+                />
+              </div>
             </>
           ),
         },
@@ -514,7 +512,7 @@ export default function v6_6_0_LSQ() {
           code: (
             <>
               <div className="mb-3">
-                <h5 className="pb-2 text-warning">Example #1</h5>
+                <h5 className="pb-2 text-lion-orange">Example #1</h5>
                 <CodeBlock
                   language={"sql"}
                   content={"SELECT * FROM my_table LIMIT 1"}
@@ -530,7 +528,7 @@ export default function v6_6_0_LSQ() {
                 />
               </div>
               <div className="mb-3">
-                <h5 className="pb-2 text-warning">Example #2</h5>
+                <h5 className="pb-2 text-lion-orange">Example #2</h5>
                 <CodeBlock
                   language={"sql"}
                   content={"SELECT * FROM my_table LIMIT 0, 10"}
@@ -579,7 +577,7 @@ export default function v6_6_0_LSQ() {
           code: (
             <>
               <div className="mb-3">
-                <h5 className="pb-2 text-warning">Example #1</h5>
+                <h5 className="pb-2 text-lion-orange">Example #1</h5>
                 <CodeBlock
                   language="php"
                   content={
@@ -591,7 +589,7 @@ export default function v6_6_0_LSQ() {
               </div>
 
               <div className="mb-3">
-                <h5 className="pb-2 text-warning">Example #2</h5>
+                <h5 className="pb-2 text-lion-orange">Example #2</h5>
                 <CodeBlock
                   language="php"
                   content={
@@ -612,7 +610,7 @@ export default function v6_6_0_LSQ() {
           code: (
             <>
               <div className="mb-3">
-                <h5 className="pb-2 text-warning">Example #1</h5>
+                <h5 className="pb-2 text-lion-orange">Example #1</h5>
                 <CodeBlock
                   language="sql"
                   content={
@@ -636,7 +634,7 @@ export default function v6_6_0_LSQ() {
               </div>
 
               <div className="mb-3">
-                <h5 className="pb-2 text-warning">Example #2</h5>
+                <h5 className="pb-2 text-lion-orange">Example #2</h5>
                 <CodeBlock
                   language="sql"
                   content={"SELECT column1, column2 FROM table WHERE column1=1"}
@@ -658,7 +656,7 @@ export default function v6_6_0_LSQ() {
               </div>
 
               <div className="mb-3">
-                <h5 className="pb-2 text-warning">Example #3</h5>
+                <h5 className="pb-2 text-lion-orange">Example #3</h5>
                 <CodeBlock
                   language="sql"
                   content={"SELECT * FROM my_table WHERE column1=?"}

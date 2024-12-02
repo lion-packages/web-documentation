@@ -2424,7 +2424,7 @@ return [
               </div>
 
               <div className="mb-3">
-                <h5 className="pb-2 text-warning">{"session"}</h5>
+                <h5 className="pb-2 text-lion-orange">{"session"}</h5>
 
                 <p className="fs-6">
                   You can create sessions, read them and destroy them with the
@@ -2461,7 +2461,7 @@ return [
               </div>
 
               <div className="mb-3">
-                <h5 className="pb-2 text-warning">{"jwt"}</h5>
+                <h5 className="pb-2 text-lion-orange">{"jwt"}</h5>
 
                 <p className="fs-6">
                   Function to check if a jwt is valid, returns an object
@@ -2475,7 +2475,7 @@ return [
               </div>
 
               <div className="mb-3">
-                <h5 className="pb-2 text-warning">{"isError"}</h5>
+                <h5 className="pb-2 text-lion-orange">{"isError"}</h5>
 
                 <p className="fs-6">
                   Function to check if a response object comes with errors.
@@ -2490,7 +2490,7 @@ return [
               </div>
 
               <div className="mb-3">
-                <h5 className="pb-2 text-warning">{"isSuccess"}</h5>
+                <h5 className="pb-2 text-lion-orange">{"isSuccess"}</h5>
 
                 <p className="fs-6">
                   Function to check if a response object is successful.
@@ -2505,7 +2505,7 @@ return [
               </div>
 
               <div className="mb-3">
-                <h5 className="pb-2 text-warning">fetch</h5>
+                <h5 className="pb-2 text-lion-orange">fetch</h5>
 
                 <p className="fs-6">
                   The fetch helper allows you to make http requests, internally
@@ -2519,7 +2519,7 @@ return [
               </div>
 
               <div className="mb-3">
-                <h5 className="pb-2 text-warning">fetchXML</h5>
+                <h5 className="pb-2 text-lion-orange">fetchXML</h5>
 
                 <p className="fs-6">
                   The get helper allows you to make http requests to get xml in
@@ -2533,7 +2533,7 @@ return [
               </div>
 
               <div className="mb-3">
-                <h5 className="pb-2 text-warning">storage_path</h5>
+                <h5 className="pb-2 text-lion-orange">storage_path</h5>
 
                 <p className="fs-6">
                   The storage_path helper allows access to directories and files
@@ -2551,7 +2551,7 @@ return [
               </div>
 
               <div className="mb-3">
-                <h5 className="pb-2 text-warning">finish</h5>
+                <h5 className="pb-2 text-lion-orange">finish</h5>
 
                 <p className="fs-6">
                   The finish helper ends the execution of all processes.
@@ -2564,7 +2564,7 @@ return [
               </div>
 
               <div className="mb-3">
-                <h5 className="pb-2 text-warning">success</h5>
+                <h5 className="pb-2 text-lion-orange">success</h5>
 
                 <p className="fs-6">Function to display a success response.</p>
 
@@ -2575,7 +2575,7 @@ return [
               </div>
 
               <div className="mb-3">
-                <h5 className="pb-2 text-warning">error</h5>
+                <h5 className="pb-2 text-lion-orange">error</h5>
 
                 <p className="fs-6">Function to display a error response.</p>
 
@@ -2586,7 +2586,7 @@ return [
               </div>
 
               <div className="mb-3">
-                <h5 className="pb-2 text-warning">warning</h5>
+                <h5 className="pb-2 text-lion-orange">warning</h5>
 
                 <p className="fs-6">Function to display a warning response.</p>
 
@@ -2597,7 +2597,7 @@ return [
               </div>
 
               <div className="mb-3">
-                <h5 className="pb-2 text-warning">info</h5>
+                <h5 className="pb-2 text-lion-orange">info</h5>
 
                 <p className="fs-6">Function to display a info response.</p>
 
@@ -2608,7 +2608,7 @@ return [
               </div>
 
               <div className="mb-3">
-                <h5 className="pb-2 text-warning">vd</h5>
+                <h5 className="pb-2 text-lion-orange">vd</h5>
 
                 <p className="fs-6">
                   The helper vd executes the function var_dump.
@@ -2621,7 +2621,7 @@ return [
               </div>
 
               <div className="mb-3">
-                <h5 className="pb-2 text-warning">json</h5>
+                <h5 className="pb-2 text-lion-orange">json</h5>
 
                 <p className="fs-6">
                   The json helper converts any value to json.
@@ -2634,7 +2634,7 @@ return [
               </div>
 
               <div className="mb-3">
-                <h5 className="pb-2 text-warning">logger</h5>
+                <h5 className="pb-2 text-lion-orange">logger</h5>
 
                 <p className="fs-6">
                   The logger helper generates a log file stored in{" "}

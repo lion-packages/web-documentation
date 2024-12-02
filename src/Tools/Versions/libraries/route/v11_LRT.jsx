@@ -575,7 +575,7 @@ Route::dispatch();
               />
 
               <Fragment>
-                <h5 className="text-warning">Use Middleware</h5>
+                <h5 className="text-lion-orange">Use Middleware</h5>
 
                 <p>
                   It is identical to filters, we change the name of filter to

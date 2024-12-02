@@ -15,7 +15,7 @@ export default function v4_3_0_LM() {
           link: "init",
           code: (
             <>
-              <h5 className="text-warning">INSTRUCTIONS</h5>
+              <h5 className="text-lion-orange">INSTRUCTIONS</h5>
               <p>
                 The mailer class must be initialized using the init function and
                 its respective parameters, debug 0 indicates that no type of

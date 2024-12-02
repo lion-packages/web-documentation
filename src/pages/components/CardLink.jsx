@@ -4,9 +4,9 @@ export default function CardLink({ title, description, uri }) {
   return (
     <LinkContainer to={uri}>
       <div className={"p-4 rounded border-lion-light h-100"} role="button">
-        <span className={"fs-4 text-warning text-shadow"}>{title}</span>
+        <span className={"fs-4 text-lion-orange text-shadow"}>{title}</span>
 
-        <i className="bi bi-arrow-right text-warning text-shadow float-end fs-3"></i>
+        <i className="bi bi-arrow-right text-lion-orange text-shadow float-end fs-3"></i>
 
         <hr />
 

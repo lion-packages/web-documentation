@@ -61,7 +61,7 @@ export default function v1_LA() {
             <>
               <div className="mb-3">
                 <h3>
-                  Auth2FA::<span className="text-warning h3">init()</span>
+                  Auth2FA::<span className="text-lion-orange h3">init()</span>
                 </h3>
 
                 <hr />
@@ -87,7 +87,7 @@ Auth2FA::init();
             <>
               <div className="mb-3">
                 <h3>
-                  Auth2FA::<span className="text-warning h3">qr()</span>
+                  Auth2FA::<span className="text-lion-orange h3">qr()</span>
                 </h3>
 
                 <hr />
@@ -129,7 +129,7 @@ Auth2FA::init()
             <>
               <div className="mb-3">
                 <h3>
-                  Auth2FA::<span className="text-warning h3">verify()</span>
+                  Auth2FA::<span className="text-lion-orange h3">verify()</span>
                 </h3>
 
                 <hr />

@@ -168,7 +168,7 @@ export default function v1_CMMD() {
               desc: (
                 <>
                   Factory name{" "}
-                  <label className="text-warning">
+                  <label className="text-lion-orange">
                     {"[default: 'ExampleFactory']"}
                   </label>
                 </>
@@ -211,7 +211,7 @@ export default function v1_CMMD() {
               desc: (
                 <>
                   Name or namespace of the Seed{" "}
-                  <label className="text-warning">
+                  <label className="text-lion-orange">
                     {'[default: "ExampleSeed"]'}
                   </label>
                 </>
@@ -248,7 +248,7 @@ export default function v1_CMMD() {
               desc: (
                 <>
                   What columns should you read?{" "}
-                  <label className="text-warning">
+                  <label className="text-lion-orange">
                     {"(multiple values allowed)"}
                   </label>
                 </>
@@ -261,7 +261,7 @@ export default function v1_CMMD() {
               desc: (
                 <>
                   What columns should you read?{" "}
-                  <label className="text-warning">
+                  <label className="text-lion-orange">
                     {"(multiple values allowed)"}
                   </label>
                 </>
@@ -329,7 +329,9 @@ export default function v1_CMMD() {
               desc: (
                 <>
                   Do you want to set a query limit?{" "}
-                  <label className="text-warning">{"[default: 1200]"}</label>
+                  <label className="text-lion-orange">
+                    {"[default: 1200]"}
+                  </label>
                 </>
               ),
             },
@@ -340,7 +342,9 @@ export default function v1_CMMD() {
               desc: (
                 <>
                   Do you want to set a query limit?{" "}
-                  <label className="text-warning">{"[default: 1200]"}</label>
+                  <label className="text-lion-orange">
+                    {"[default: 1200]"}
+                  </label>
                 </>
               ),
             },
@@ -369,7 +373,9 @@ export default function v1_CMMD() {
               desc: (
                 <>
                   Type of migration{" "}
-                  <label className="text-warning">{'[default: "table"]'}</label>
+                  <label className="text-lion-orange">
+                    {'[default: "table"]'}
+                  </label>
                 </>
               ),
             },
@@ -380,7 +386,9 @@ export default function v1_CMMD() {
               desc: (
                 <>
                   Type of migration{" "}
-                  <label className="text-warning">{'[default: "table"]'}</label>
+                  <label className="text-lion-orange">
+                    {'[default: "table"]'}
+                  </label>
                 </>
               ),
             },
@@ -402,7 +410,7 @@ export default function v1_CMMD() {
               desc: (
                 <>
                   Capsule name{" "}
-                  <label className="text-warning">
+                  <label className="text-lion-orange">
                     {'[default: "Example"]'}
                   </label>
                 </>
@@ -421,7 +429,7 @@ export default function v1_CMMD() {
               desc: (
                 <>
                   Command name{" "}
-                  <label className="text-warning">
+                  <label className="text-lion-orange">
                     {'[default: "ExampleCommand"]'}
                   </label>
                 </>
@@ -440,7 +448,7 @@ export default function v1_CMMD() {
               desc: (
                 <>
                   Controller name{" "}
-                  <label className="text-warning">
+                  <label className="text-lion-orange">
                     {'[default: "ExampleController"]'}
                   </label>
                 </>
@@ -471,7 +479,7 @@ export default function v1_CMMD() {
               desc: (
                 <>
                   Enum name{" "}
-                  <label className="text-warning">
+                  <label className="text-lion-orange">
                     {'[default: "ExampleEnum"]'}
                   </label>
                 </>
@@ -490,7 +498,7 @@ export default function v1_CMMD() {
               desc: (
                 <>
                   Interface name{" "}
-                  <label className="text-warning">
+                  <label className="text-lion-orange">
                     {'[default: "ExampleInterface"]'}
                   </label>
                 </>
@@ -509,7 +517,7 @@ export default function v1_CMMD() {
               desc: (
                 <>
                   Middleware name{" "}
-                  <label className="text-warning">
+                  <label className="text-lion-orange">
                     {'[default: "ExampleMiddleware"]'}
                   </label>
                 </>
@@ -528,7 +536,7 @@ export default function v1_CMMD() {
               desc: (
                 <>
                   Model name{" "}
-                  <label className="text-warning">
+                  <label className="text-lion-orange">
                     {'[default: "ExampleModel"]'}
                   </label>
                 </>
@@ -547,7 +555,7 @@ export default function v1_CMMD() {
               desc: (
                 <>
                   Rule name{" "}
-                  <label className="text-warning">
+                  <label className="text-lion-orange">
                     {'[default: "ExampleRule"]'}
                   </label>
                 </>
@@ -566,7 +574,7 @@ export default function v1_CMMD() {
               desc: (
                 <>
                   Test name{" "}
-                  <label className="text-warning">
+                  <label className="text-lion-orange">
                     {'[default: "ExampleTest"]'}
                   </label>
                 </>
@@ -585,7 +593,7 @@ export default function v1_CMMD() {
               desc: (
                 <>
                   Trait name{" "}
-                  <label className="text-warning">
+                  <label className="text-lion-orange">
                     {'[default: "ExampleTrait"]'}
                   </label>
                 </>
@@ -621,7 +629,7 @@ export default function v1_CMMD() {
               desc: (
                 <>
                   Project name{" "}
-                  <label className="text-warning">
+                  <label className="text-lion-orange">
                     {'[default: "example"]'}
                   </label>
                 </>
@@ -646,7 +654,7 @@ export default function v1_CMMD() {
               desc: (
                 <>
                   Package name{" "}
-                  <label className="text-warning">{'[default: ""]'}</label>
+                  <label className="text-lion-orange">{'[default: ""]'}</label>
                 </>
               ),
             },
@@ -741,7 +749,7 @@ export default function v1_CMMD() {
               desc: (
                 <>
                   SH name{" "}
-                  <label className="text-warning">
+                  <label className="text-lion-orange">
                     {'[default: "Example"]'}
                   </label>
                 </>
@@ -770,7 +778,7 @@ export default function v1_CMMD() {
               desc: (
                 <>
                   SH name{" "}
-                  <label className="text-warning">
+                  <label className="text-lion-orange">
                     {'[default: "ExampleSocket"]'}
                   </label>
                 </>
@@ -806,7 +814,9 @@ export default function v1_CMMD() {
               desc: (
                 <>
                   Session must be true or false{" "}
-                  <label className="text-warning">{'[default: "true"]'}</label>
+                  <label className="text-lion-orange">
+                    {'[default: "true"]'}
+                  </label>
                 </>
               ),
             },

@@ -129,7 +129,7 @@ export default function v6_12_0_LS() {
               />
 
               <div className="mb-3">
-                <h5 className="pb-2 text-warning">Example #1.</h5>
+                <h5 className="pb-2 text-lion-orange">Example #1.</h5>
 
                 <p>
                   In this first option we can create the keys automatically in
@@ -152,7 +152,7 @@ export default function v6_12_0_LS() {
               </div>
 
               <div className="mb-3">
-                <h5 className="pb-2 text-warning">Example #2</h5>
+                <h5 className="pb-2 text-lion-orange">Example #2</h5>
 
                 <p>
                   In this second option we can specify which folders we are

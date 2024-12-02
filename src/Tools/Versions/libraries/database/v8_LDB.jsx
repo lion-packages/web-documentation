@@ -141,27 +141,31 @@ export default function v8_LBD() {
                 language={"php"}
                 content={`<?php
 
-/**
-* ------------------------------------------------------------------------------
-* Start database service
-* ------------------------------------------------------------------------------
-* describe connections to establish connecting to multiple databases
-* ------------------------------------------------------------------------------
-*/
+declare(strict_types=1);
 
-return [
-    'default' => env->DB_NAME,
+use LionDatabase\\Driver;
+
+/**
+ * ------------------------------------------------------------------------------
+ * Start database service
+ * ------------------------------------------------------------------------------
+ * describe connections to establish connecting to multiple databases
+ * ------------------------------------------------------------------------------
+ */
+
+Driver::run([
+    'default' => 'connection-name',
     'connections' => [
-        env->DB_NAME => [
-            'type' => env->DB_TYPE,
-            'host' => env->DB_HOST,
-            'port' => env->DB_PORT,
-            'dbname' => env->DB_NAME,
-            'user' => env->DB_USER,
-            'password' => env->DB_PASSWORD,
+        'connection-name' => [
+            'type' => 'mysql',
+            'host' => 'localhost',
+            'port' => 3306,
+            'dbname' => 'lion_database',
+            'user' => 'root',
+            'password' => 'lion',
         ],
     ],
-];
+]);
 `}
               />
 
@@ -187,31 +191,35 @@ return [
                 language={"php"}
                 content={`<?php
 
-/**
-* ------------------------------------------------------------------------------
-* Start database service
-* ------------------------------------------------------------------------------
-* describe connections to establish connecting to multiple databases
-* ------------------------------------------------------------------------------
-*/
+declare(strict_types=1);
 
-return [
-    'default' => env->DB_NAME,
+use LionDatabase\\Driver;
+
+/**
+ * ------------------------------------------------------------------------------
+ * Start database service
+ * ------------------------------------------------------------------------------
+ * describe connections to establish connecting to multiple databases
+ * ------------------------------------------------------------------------------
+ */
+
+Driver::run([
+    'default' => 'connection-name',
     'connections' => [
-        env->DB_NAME => [
-            'type' => env->DB_TYPE,
-            'host' => env->DB_HOST,
-            'port' => env->DB_PORT,
-            'dbname' => env->DB_NAME,
-            'user' => env->DB_USER,
-            'password' => env->DB_PASSWORD,
+        'connection-name' => [
+            'type' => 'mysql',
+            'host' => 'localhost',
+            'port' => 3306,
+            'dbname' => 'lion_database',
+            'user' => 'root',
+            'password' => 'lion',
             'config' => [
                 PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION,
                 PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_OBJ,
-            ]
+            ],
         ],
     ],
-];
+]);
 `}
               />
             </Fragment>
@@ -230,7 +238,7 @@ return [
               <div className="mb-3">
                 <h3>
                   MySQL::
-                  <span className="text-warning h3">getConnections()</span>
+                  <span className="text-lion-orange h3">getConnections()</span>
                 </h3>
 
                 <hr />
@@ -261,7 +269,8 @@ var_dump($connections);
             <>
               <div className="mb-3">
                 <h3>
-                  MySQL::<span className="text-warning h3">connection()</span>
+                  MySQL::
+                  <span className="text-lion-orange h3">connection()</span>
                 </h3>
 
                 <hr />
@@ -697,7 +706,7 @@ var_dump($response);
             <>
               <div className="mb-3">
                 <h3>
-                  MySQL::<span className="text-warning h3">bulk()</span>
+                  MySQL::<span className="text-lion-orange h3">bulk()</span>
                 </h3>
 
                 <hr />
@@ -2930,7 +2939,7 @@ var_dump($response);
               <ul>
                 {args.map((arg, index) => (
                   <li key={index}>
-                    <h6 className="text-warning">{arg.key}:</h6>
+                    <h6 className="text-lion-orange">{arg.key}:</h6>
                     <p>{arg.desc}</p>
                   </li>
                 ))}
