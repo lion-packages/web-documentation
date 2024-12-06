@@ -3,11 +3,11 @@ import { Link } from "react-router-dom";
 import Content from "../../../Tools/Content";
 import { motion } from "framer-motion";
 
+const MotionLink = motion(Link);
+
 const key = Object.keys(Content().framework.versions).shift();
 
 export default function GetStartedButtons() {
-  const MotionLink = motion(Link);
-
   return (
     <div className="d-grid gap-2 d-sm-flex justify-content-sm-center py-5">
       <MotionLink
