@@ -1,11 +1,11 @@
 import { Row } from "react-bootstrap";
-import EmptyTecnologyBlock from "./EmptyTecnologyBlock";
+import EmptyTechnologyBlock from "./EmptyTechnologyBlock";
 
-export default function EmptyTecnologyRow() {
+export default function EmptyTechnologyRow() {
   return (
     <Row>
       {[1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12].map((index) => (
-        <EmptyTecnologyBlock key={index} />
+        <EmptyTechnologyBlock key={index} />
       ))}
     </Row>
   );

@@ -17,8 +17,9 @@ import {
 import { TbAuth2Fa, TbBrandSolidjs } from "react-icons/tb";
 import { Link } from "react-router-dom";
 import Content from "../../../Tools/Content";
-import EmptyTecnologyBlock from "./EmptyTecnologyBlock";
-import EmptyTecnologyRow from "./EmptyTecnologyRow";
+import EmptyTechnologyRow from "./EmptyTechnologyRow";
+import EmptyTechnologyBlock from "./EmptyTechnologyBlock";
+import TechnologyBlock from "./TechnologyBlock";
 
 const key = Object.keys(Content().framework.versions).shift();
 
@@ -31,261 +32,207 @@ export default function DashboardTecnologies() {
 
       {/* ----------------------------------------------------------------- */}
 
-      <EmptyTecnologyRow />
+      <EmptyTechnologyRow />
 
       {/* ----------------------------------------------------------------- */}
 
       <Row>
-        <EmptyTecnologyBlock />
+        <EmptyTechnologyBlock />
 
-        <EmptyTecnologyBlock />
+        <EmptyTechnologyBlock />
 
         <Col xs={3} sm={3} md={2} lg={1} className="mb-3">
-          <div
-            className="bg-transparent-blur py-4 rounded border-lion-light h-100 blocks"
-            role="button"
-          >
+          <TechnologyBlock>
             <SiVitest
               size={"2.5em"}
               title="Vitest"
               className="text-lion-orange"
             />
-          </div>
+          </TechnologyBlock>
         </Col>
 
         <Col xs={3} sm={3} md={2} lg={1} className="mb-3">
-          <div
-            className="bg-transparent-blur py-4 rounded border-lion-light h-100 blocks"
-            role="button"
-          >
+          <TechnologyBlock>
             <FaReact
               size={"2.5em"}
               title="React"
               className="text-lion-orange"
             />
-          </div>
+          </TechnologyBlock>
         </Col>
 
         <Col xs={3} sm={3} md={2} lg={1} className="mb-3">
-          <div
-            className="bg-transparent-blur py-4 rounded border-lion-light h-100 blocks"
-            role="button"
-          >
+          <TechnologyBlock>
             <GrMysql
               size={"2.5em"}
               title="MySQL"
               className="text-lion-orange"
             />
-          </div>
+          </TechnologyBlock>
         </Col>
 
         <Col xs={3} sm={3} md={2} lg={1} className="mb-3">
-          <div
-            className="bg-transparent-blur py-4 rounded border-lion-light h-100 blocks"
-            role="button"
-          >
+          <TechnologyBlock>
             <RiRemixRunFill
               size={"2.5em"}
               title="Remix"
               className="text-lion-orange"
             />
-          </div>
+          </TechnologyBlock>
         </Col>
 
         <Col xs={3} sm={3} md={2} lg={1} className="mb-3">
-          <div
-            className="bg-transparent-blur py-4 rounded border-lion-light h-100 blocks"
-            role="button"
-          >
+          <TechnologyBlock>
             <SiAstro
               size={"2.5em"}
               title="Astro"
               className="text-lion-orange"
             />
-          </div>
+          </TechnologyBlock>
         </Col>
 
         <Col xs={3} sm={3} md={2} lg={1} className="mb-3">
-          <div
-            className="bg-transparent-blur py-4 rounded border-lion-light h-100 blocks"
-            role="button"
-          >
+          <TechnologyBlock>
             <SiPreact
               size={"2.5em"}
               title="Preact"
               className="text-lion-orange"
             />
-          </div>
+          </TechnologyBlock>
         </Col>
 
         <Col xs={3} sm={3} md={2} lg={1} className="mb-3">
-          <div
-            className="bg-transparent-blur py-4 rounded border-lion-light h-100 blocks"
-            role="button"
-          >
+          <TechnologyBlock>
             <SiPostgresql
               size={"2.5em"}
               title="PostgreSQL"
               className="text-lion-orange"
             />
-          </div>
+          </TechnologyBlock>
         </Col>
 
         <Col xs={3} sm={3} md={2} lg={1} className="mb-3">
-          <div
-            className="bg-transparent-blur py-4 rounded border-lion-light h-100 blocks"
-            role="button"
-          >
+          <TechnologyBlock>
             <RiTestTubeFill
               size={"2.5em"}
               title="PHPUnit"
               className="text-lion-orange"
             />
-          </div>
+          </TechnologyBlock>
         </Col>
 
         <Col xs={3} sm={3} md={2} lg={1} className="mb-3">
-          <div
-            className="bg-transparent-blur py-4 rounded border-lion-light h-100 blocks"
-            role="button"
-          >
+          <TechnologyBlock>
             <SiQwik size={"2.5em"} title="Qwik" className="text-lion-orange" />
-          </div>
+          </TechnologyBlock>
         </Col>
 
-        <EmptyTecnologyBlock />
+        <EmptyTechnologyBlock />
       </Row>
 
       {/* ----------------------------------------------------------------- */}
 
       <Row>
-        <EmptyTecnologyBlock />
+        <EmptyTechnologyBlock />
 
         <Col xs={3} sm={3} md={2} lg={1} className="mb-3">
-          <div
-            className="bg-transparent-blur py-4 rounded border-lion-light h-100 blocks"
-            role="button"
-          >
+          <TechnologyBlock>
             <SiRedis
               size={"2.5em"}
               title="Redis"
               className="text-lion-orange"
             />
-          </div>
+          </TechnologyBlock>
         </Col>
 
         <Col xs={3} sm={3} md={2} lg={1} className="mb-3">
-          <div
-            className="bg-transparent-blur py-4 rounded border-lion-light h-100 blocks"
-            role="button"
-          >
+          <TechnologyBlock>
             <SiSvelte
               size={"2.5em"}
               title="Svelte"
               className="text-lion-orange"
             />
-          </div>
+          </TechnologyBlock>
         </Col>
 
         <Col xs={3} sm={3} md={2} lg={1} className="mb-3">
-          <div
-            className="bg-transparent-blur py-4 rounded border-lion-light h-100 blocks"
-            role="button"
-          >
+          <TechnologyBlock>
             <TbBrandSolidjs
               size={"2.5em"}
               title="SolidJS"
               className="text-lion-orange"
             />
-          </div>
+          </TechnologyBlock>
         </Col>
 
         <Col xs={3} sm={3} md={2} lg={1} className="mb-3">
-          <div
-            className="bg-transparent-blur py-4 rounded border-lion-light h-100 blocks"
-            role="button"
-          >
+          <TechnologyBlock>
             <SiAngular
               size={"2.5em"}
               title="Angular"
               className="text-lion-orange"
             />
-          </div>
+          </TechnologyBlock>
         </Col>
 
         <Col xs={3} sm={3} md={2} lg={1} className="mb-3">
-          <div
-            className="bg-transparent-blur py-4 rounded border-lion-light h-100 blocks"
-            role="button"
-          >
+          <TechnologyBlock>
             <FaVuejs
               size={"2.5em"}
               title="VueJS"
               className="text-lion-orange"
             />
-          </div>
+          </TechnologyBlock>
         </Col>
 
         <Col xs={3} sm={3} md={2} lg={1} className="mb-3">
-          <div
-            className="bg-transparent-blur py-4 rounded border-lion-light h-100 blocks"
-            role="button"
-          >
+          <TechnologyBlock>
             <FaDocker
               size={"2.5em"}
               title="Docker"
               className="text-lion-orange"
             />
-          </div>
+          </TechnologyBlock>
         </Col>
 
         <Col xs={3} sm={3} md={2} lg={1} className="mb-3">
-          <div
-            className="bg-transparent-blur py-4 rounded border-lion-light h-100 blocks"
-            role="button"
-          >
+          <TechnologyBlock>
             <TbAuth2Fa
               size={"2.5em"}
               title="2FA"
               className="text-lion-orange"
             />
-          </div>
+          </TechnologyBlock>
         </Col>
 
         <Col xs={3} sm={3} md={2} lg={1} className="mb-3">
-          <div
-            className="bg-transparent-blur py-4 rounded border-lion-light h-100 blocks"
-            role="button"
-          >
+          <TechnologyBlock>
             <SiMongodb
               size={"2.5em"}
               title="MongoDB"
               className="text-lion-orange"
             />
-          </div>
+          </TechnologyBlock>
         </Col>
 
         <Col xs={3} sm={3} md={2} lg={1} className="mb-3">
-          <div
-            className="bg-transparent-blur py-4 rounded border-lion-light h-100 blocks"
-            role="button"
-          >
+          <TechnologyBlock>
             <SiJsonwebtokens
               size={"2.5em"}
               title="Json Web Tokens"
               className="text-lion-orange"
             />
-          </div>
+          </TechnologyBlock>
         </Col>
 
-        <EmptyTecnologyBlock />
+        <EmptyTechnologyBlock />
 
-        <EmptyTecnologyBlock />
+        <EmptyTechnologyBlock />
       </Row>
 
       {/* ----------------------------------------------------------------- */}
 
-      <EmptyTecnologyRow />
+      <EmptyTechnologyRow />
 
       {/* ----------------------------------------------------------------- */}
 

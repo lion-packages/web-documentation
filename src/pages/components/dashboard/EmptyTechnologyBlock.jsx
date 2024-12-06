@@ -1,6 +1,6 @@
 import { Col } from "react-bootstrap";
 
-export default function EmptyTecnologyBlock() {
+export default function EmptyTechnologyBlock() {
   return (
     <Col xs={3} sm={3} md={2} lg={1} className="mb-3">
       <div
