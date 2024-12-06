@@ -3,6 +3,7 @@ import Content from "../../../Tools/Content";
 import { FaGithub } from "react-icons/fa";
 import { Col } from "react-bootstrap";
 import { IoIosArrowDown } from "react-icons/io";
+import { motion } from "framer-motion";
 
 const key = Object.keys(Content().framework.versions).shift();
 
@@ -37,13 +38,18 @@ export default function DashboardPresentation() {
           </a>
         </div>
 
-        <a href={"#initial-section"} className="btn btn-link">
+        <motion.a
+          whileHover={{ scale: 1.2, translateY: 10 }}
+          whileTap={{ scale: 0.8 }}
+          href="#initial-section"
+          className="btn btn-link"
+        >
           <IoIosArrowDown
             size={"3em"}
             title="Scroll down"
             className="text-white"
           />
-        </a>
+        </motion.a>
       </Col>
     </div>
   );
