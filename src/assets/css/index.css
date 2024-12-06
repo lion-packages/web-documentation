@@ -161,6 +161,7 @@ span.hljs-doctag {
 }
 
 .parentDiv {
+  width: auto;
   position: relative;
 }
 

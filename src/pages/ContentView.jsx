@@ -3,6 +3,7 @@ import Content from "../Tools/Content";
 import NotFound from "./NotFound";
 import { useEffect, useState } from "react";
 import ContentLoading from "./components/ContentLoading";
+import { AnimatePresence } from "framer-motion";
 
 const contentData = Content();
 
@@ -21,10 +22,15 @@ export default function ContentView() {
     let item;
 
     if (null === library) {
-      item = contentData.framework?.versions[item_version]?.docs?.[tab]?.list?.[code];
+      item =
+        contentData.framework?.versions[item_version]?.docs?.[tab]?.list?.[
+          code
+        ];
     } else {
       item =
-        contentData.library?.[library]?.versions[item_version]?.[tab]?.list?.[code];
+        contentData.library?.[library]?.versions[item_version]?.[tab]?.list?.[
+          code
+        ];
     }
 
     if (item) {
@@ -42,5 +48,7 @@ export default function ContentView() {
     setLoading(false);
   }, [item_version, tab, code, library]);
 
-  return <div>{loading ? <ContentLoading /> : content}</div>;
+  return (
+    <AnimatePresence>{loading ? <ContentLoading /> : content}</AnimatePresence>
+  );
 }
