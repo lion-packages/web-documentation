@@ -21,16 +21,21 @@ import Content from "../../../Tools/Content";
 const key = Object.keys(Content().framework.versions).shift();
 
 export default function DashboardTecnologies() {
+  const EmptyBlock = () => {
+    return (
+      <Col xs={3} sm={3} md={2} lg={1} className="mb-3">
+        <div
+          className="bg-transparent-blur py-5 rounded border-lion-light h-100 blocks"
+          role="button"
+        ></div>
+      </Col>
+    );
+  };
   const EmptyRow = () => {
     return (
       <Row>
         {[1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12].map((index) => (
-          <Col xs={3} sm={3} md={2} lg={1} className="mb-3" key={index}>
-            <div
-              className="bg-transparent-blur py-5 rounded border-lion-light h-100 blocks"
-              role="button"
-            ></div>
-          </Col>
+          <EmptyBlock key={index} />
         ))}
       </Row>
     );
@@ -49,19 +54,9 @@ export default function DashboardTecnologies() {
       {/* ----------------------------------------------------------------- */}
 
       <Row>
-        <Col xs={3} sm={3} md={2} lg={1} className="mb-3">
-          <div
-            className="bg-transparent-blur py-4 rounded border-lion-light h-100 blocks"
-            role="button"
-          ></div>
-        </Col>
+        <EmptyBlock />
 
-        <Col xs={3} sm={3} md={2} lg={1} className="mb-3">
-          <div
-            className="bg-transparent-blur py-4 rounded border-lion-light h-100 blocks"
-            role="button"
-          ></div>
-        </Col>
+        <EmptyBlock />
 
         <Col xs={3} sm={3} md={2} lg={1} className="mb-3">
           <div
@@ -176,23 +171,13 @@ export default function DashboardTecnologies() {
           </div>
         </Col>
 
-        <Col xs={3} sm={3} md={2} lg={1} className="mb-3">
-          <div
-            className="bg-transparent-blur py-4 rounded border-lion-light h-100 blocks"
-            role="button"
-          ></div>
-        </Col>
+        <EmptyBlock />
       </Row>
 
       {/* ----------------------------------------------------------------- */}
 
       <Row>
-        <Col xs={3} sm={3} md={2} lg={1} className="mb-3">
-          <div
-            className="bg-transparent-blur py-4 rounded border-lion-light h-100 blocks"
-            role="button"
-          ></div>
-        </Col>
+        <EmptyBlock />
 
         <Col xs={3} sm={3} md={2} lg={1} className="mb-3">
           <div
@@ -311,19 +296,9 @@ export default function DashboardTecnologies() {
           </div>
         </Col>
 
-        <Col xs={3} sm={3} md={2} lg={1} className="mb-3">
-          <div
-            className="bg-transparent-blur py-4 rounded border-lion-light h-100 blocks"
-            role="button"
-          ></div>
-        </Col>
+        <EmptyBlock />
 
-        <Col xs={3} sm={3} md={2} lg={1} className="mb-3">
-          <div
-            className="bg-transparent-blur py-4 rounded border-lion-light h-100 blocks"
-            role="button"
-          ></div>
-        </Col>
+        <EmptyBlock />
       </Row>
 
       {/* ----------------------------------------------------------------- */}
@@ -332,7 +307,7 @@ export default function DashboardTecnologies() {
 
       {/* ----------------------------------------------------------------- */}
 
-      <div className="d-grid gap-2 d-sm-flex justify-content-sm-center py-5">
+      <div className="d-grid gap-2 d-sm-flex justify-content-sm-center py-4">
         <Link
           to={`/docs/framework/${key}/getting-started/about-as`}
           className="btn btn-orange-custom btn-lg px-4 gap-3"
