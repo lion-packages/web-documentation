@@ -1,10 +1,7 @@
-import { Link } from "react-router-dom";
-import Content from "../../../Tools/Content";
-import { FaGithub } from "react-icons/fa";
 import { Col } from "react-bootstrap";
 import { IoIosArrowDown } from "react-icons/io";
-
-const key = Object.keys(Content().framework.versions).shift();
+import { motion } from "framer-motion";
+import GetStartedButtons from "./GetStartedButtons";
 
 export default function DashboardPresentation() {
   return (
@@ -19,31 +16,20 @@ export default function DashboardPresentation() {
           single page application or a mobile application.
         </p>
 
-        <div className="d-grid gap-2 d-sm-flex justify-content-sm-center mb-5">
-          <Link
-            to={`/docs/framework/${key}/getting-started/about-as`}
-            className="btn btn-orange-custom btn-lg px-4 gap-3"
-          >
-            Get started
-          </Link>
+        <GetStartedButtons />
 
-          <a
-            href="https://github.com/lion-packages/framework"
-            className="btn btn-white-custom btn-lg px-4"
-            target="_blank"
-          >
-            <FaGithub className="me-2" size={"1.3em"} />
-            Github
-          </a>
-        </div>
-
-        <a href={"#initial-section"} className="btn btn-link">
+        <motion.a
+          whileHover={{ scale: 1.2, translateY: 10 }}
+          whileTap={{ scale: 0.8 }}
+          href="#initial-section"
+          className="btn btn-link"
+        >
           <IoIosArrowDown
             size={"3em"}
             title="Scroll down"
             className="text-white"
           />
-        </a>
+        </motion.a>
       </Col>
     </div>
   );
