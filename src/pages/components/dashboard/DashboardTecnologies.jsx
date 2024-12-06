@@ -18,20 +18,11 @@ import { TbAuth2Fa, TbBrandSolidjs } from "react-icons/tb";
 import { Link } from "react-router-dom";
 import Content from "../../../Tools/Content";
 import EmptyTecnologyBlock from "./EmptyTecnologyBlock";
+import EmptyTecnologyRow from "./EmptyTecnologyRow";
 
 const key = Object.keys(Content().framework.versions).shift();
 
 export default function DashboardTecnologies() {
-  const EmptyRow = () => {
-    return (
-      <Row>
-        {[1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12].map((index) => (
-          <EmptyTecnologyBlock key={index} />
-        ))}
-      </Row>
-    );
-  };
-
   return (
     <div className="text-center">
       <div className="mb-5 text-white text-shadow">
@@ -40,7 +31,7 @@ export default function DashboardTecnologies() {
 
       {/* ----------------------------------------------------------------- */}
 
-      <EmptyRow />
+      <EmptyTecnologyRow />
 
       {/* ----------------------------------------------------------------- */}
 
@@ -294,7 +285,7 @@ export default function DashboardTecnologies() {
 
       {/* ----------------------------------------------------------------- */}
 
-      <EmptyRow />
+      <EmptyTecnologyRow />
 
       {/* ----------------------------------------------------------------- */}
 
