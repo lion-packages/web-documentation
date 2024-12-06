@@ -20,6 +20,7 @@ import Content from "../../../Tools/Content";
 import EmptyTechnologyRow from "./EmptyTechnologyRow";
 import EmptyTechnologyBlock from "./EmptyTechnologyBlock";
 import TechnologyBlock from "./TechnologyBlock";
+import GetStartedButtons from "./GetStartedButtons";
 
 const key = Object.keys(Content().framework.versions).shift();
 
@@ -236,23 +237,7 @@ export default function DashboardTecnologies() {
 
       {/* ----------------------------------------------------------------- */}
 
-      <div className="d-grid gap-2 d-sm-flex justify-content-sm-center py-4">
-        <Link
-          to={`/docs/framework/${key}/getting-started/about-as`}
-          className="btn btn-orange-custom btn-lg px-4 gap-3"
-        >
-          Get started
-        </Link>
-
-        <a
-          href="https://github.com/lion-packages/framework"
-          className="btn btn-white-custom btn-lg px-4"
-          target="_blank"
-        >
-          <FaGithub className="me-2" size={"1.3em"} />
-          Github
-        </a>
-      </div>
+      <GetStartedButtons />
     </div>
   );
 }
