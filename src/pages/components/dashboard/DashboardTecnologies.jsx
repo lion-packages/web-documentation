@@ -17,25 +17,16 @@ import {
 import { TbAuth2Fa, TbBrandSolidjs } from "react-icons/tb";
 import { Link } from "react-router-dom";
 import Content from "../../../Tools/Content";
+import EmptyTecnologyBlock from "./EmptyTecnologyBlock";
 
 const key = Object.keys(Content().framework.versions).shift();
 
 export default function DashboardTecnologies() {
-  const EmptyBlock = () => {
-    return (
-      <Col xs={3} sm={3} md={2} lg={1} className="mb-3">
-        <div
-          className="bg-transparent-blur py-5 rounded border-lion-light h-100 blocks"
-          role="button"
-        ></div>
-      </Col>
-    );
-  };
   const EmptyRow = () => {
     return (
       <Row>
         {[1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12].map((index) => (
-          <EmptyBlock key={index} />
+          <EmptyTecnologyBlock key={index} />
         ))}
       </Row>
     );
@@ -54,9 +45,9 @@ export default function DashboardTecnologies() {
       {/* ----------------------------------------------------------------- */}
 
       <Row>
-        <EmptyBlock />
+        <EmptyTecnologyBlock />
 
-        <EmptyBlock />
+        <EmptyTecnologyBlock />
 
         <Col xs={3} sm={3} md={2} lg={1} className="mb-3">
           <div
@@ -171,13 +162,13 @@ export default function DashboardTecnologies() {
           </div>
         </Col>
 
-        <EmptyBlock />
+        <EmptyTecnologyBlock />
       </Row>
 
       {/* ----------------------------------------------------------------- */}
 
       <Row>
-        <EmptyBlock />
+        <EmptyTecnologyBlock />
 
         <Col xs={3} sm={3} md={2} lg={1} className="mb-3">
           <div
@@ -296,9 +287,9 @@ export default function DashboardTecnologies() {
           </div>
         </Col>
 
-        <EmptyBlock />
+        <EmptyTecnologyBlock />
 
-        <EmptyBlock />
+        <EmptyTecnologyBlock />
       </Row>
 
       {/* ----------------------------------------------------------------- */}
