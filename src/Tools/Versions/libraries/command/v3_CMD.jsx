@@ -446,7 +446,7 @@ $kernel->setApplication(new Application());
           ),
         },
         commands: {
-          name: "Commands",
+          name: "commands",
           code: (
             <>
               <div className="mb-3">
