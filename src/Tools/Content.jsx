@@ -47,6 +47,7 @@ import { version } from "react";
 import v1_LE from "./Versions/libraries/exceptions/v1_LE";
 import v2_LE from "./Versions/libraries/exceptions/v2_LE";
 import v5_LH from "./Versions/libraries/helpers/v5_LH";
+import v4_CMD from "./Versions/libraries/command/v4_CMD";
 
 export default function Content() {
   return {
@@ -81,6 +82,7 @@ export default function Content() {
         description:
           "library created with the function of executing commands from PHP.",
         versions: {
+          v4: v4_CMD(),
           v3: v3_CMD(),
         },
       },
