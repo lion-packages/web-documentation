@@ -4,7 +4,7 @@ import { Fragment } from "react";
 import Title from "../../../../pages/components/Title";
 import SupportVersion from "../../../../pages/components/SupportVersion";
 
-export default function v3_CMD() {
+export default function v4_CMD() {
   return {
     "getting-started": {
       name: "Getting started",
@@ -39,7 +39,7 @@ export default function v3_CMD() {
                 development in Linux environments.
               </Alert>
 
-              <SupportVersion title={"Lion-Command"} version={"8.2"} />
+              <SupportVersion title={"Lion-Command"} version={"8.3"} />
 
               <CodeBlock
                 language={"bash"}

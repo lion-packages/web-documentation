@@ -46,6 +46,9 @@ import v5_LA from "./Versions/libraries/authentication/v5_LA";
 import { version } from "react";
 import v1_LE from "./Versions/libraries/exceptions/v1_LE";
 import v2_LE from "./Versions/libraries/exceptions/v2_LE";
+import v5_LH from "./Versions/libraries/helpers/v5_LH";
+import v4_CMD from "./Versions/libraries/command/v4_CMD";
+import v5_CMD from "./Versions/libraries/command/v5_CMD";
 
 export default function Content() {
   return {
@@ -80,6 +83,8 @@ export default function Content() {
         description:
           "library created with the function of executing commands from PHP.",
         versions: {
+          v5: v5_CMD(),
+          v4: v4_CMD(),
           v3: v3_CMD(),
         },
       },
@@ -120,6 +125,7 @@ export default function Content() {
       helpers: {
         description: "Library created to use helpers for strings and arrays",
         versions: {
+          v5: v5_LH(),
           v4: v4_LH(),
           v3: v3_LH(),
           v2: v2_LH(),
