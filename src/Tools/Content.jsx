@@ -43,17 +43,22 @@ import v10_LS from "./Versions/libraries/security/v10_LS";
 import v11_LS from "./Versions/libraries/security/v11_LS";
 import v7_LR from "./Versions/libraries/request/v7_LR";
 import v5_LA from "./Versions/libraries/authentication/v5_LA";
-import { version } from "react";
 import v1_LE from "./Versions/libraries/exceptions/v1_LE";
 import v2_LE from "./Versions/libraries/exceptions/v2_LE";
 import v5_LH from "./Versions/libraries/helpers/v5_LH";
 import v4_CMD from "./Versions/libraries/command/v4_CMD";
 import v5_CMD from "./Versions/libraries/command/v5_CMD";
+import v4_FRM from "./Versions/Framework/v4_FRM";
+import v4_CMMD from "./Versions/Commands/V4_CMMD";
 
 export default function Content() {
   return {
     framework: {
       versions: {
+        v4: {
+          docs: v4_FRM(),
+          commands: v4_CMMD(),
+        },
         v3: {
           docs: v3_FRM(),
           commands: v3_CMMD(),
