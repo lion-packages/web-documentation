@@ -2886,9 +2886,9 @@ return error('message');
                   language={"php"}
                   content={`<?php
 
-use Lion\\Request\\Request;
+use Lion\\Request\\Http;
 
-return error('message', Request::HTTP_UNAUTHORIZED);
+return error('message', Http::UNAUTHORIZED);
 `}
                 />
 
@@ -2911,9 +2911,10 @@ return error('message', Request::HTTP_UNAUTHORIZED);
                   language={"php"}
                   content={`<?php
 
-use Lion\\Request\\Request;
+use Lion\\Request\\Http;
+use Lion\\Request\\Status;
 
-return response('session-error', 'message', Request::HTTP_UNAUTHORIZED);
+return response(Status::ERROR, 'message', Http::HTTP_UNAUTHORIZED);
 `}
                 />
 
