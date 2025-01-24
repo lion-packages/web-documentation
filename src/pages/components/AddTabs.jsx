@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import {
   Button,
   Col,
@@ -9,14 +9,15 @@ import {
   Row,
 } from "react-bootstrap";
 import { LinkContainer } from "react-router-bootstrap";
-import { Outlet, useParams } from "react-router-dom";
+import { Outlet, useNavigate, useParams } from "react-router-dom";
 import Content from "../../Tools/Content";
 import SelectVersion from "./SelectVersion";
 
 export default function AddTabs() {
-  const { item_version, library = null } = useParams();
+  const { item_version, tab, library = null } = useParams();
   const [show, setShow] = useState(false);
   const [filter_search, setFilter_search] = useState("");
+  const navigate = useNavigate();
 
   const scrollToTop = () => {
     window.scrollTo({
@@ -25,7 +26,7 @@ export default function AddTabs() {
     });
   };
 
-  const filterItems = () => {
+  const getContent = () => {
     let content = null;
 
     if (null === library) {
@@ -34,84 +35,63 @@ export default function AddTabs() {
       content = Content().library[library].versions[item_version];
     }
 
-    return Object.entries(content).filter(([index, item]) =>
-      filterObjectByName(item, filter_search.toLowerCase())
-    );
+    return content;
   };
 
-  const filterObjectByName = (obj, searchTerm) => {
-    if (obj.name.toLowerCase().includes(searchTerm)) {
-      return true;
-    }
-
-    if (obj.list) {
-      const filteredList = Object.values(obj.list).filter((subItem) =>
-        subItem.name.toLowerCase().includes(searchTerm)
-      );
-      return filteredList.length > 0;
-    }
-
-    return false;
+  const filterItems = (content) => {
+    return Object.entries(content).filter(([index, item]) =>
+      item.name.toLowerCase().includes(filter_search.toLowerCase())
+    );
   };
 
   const ListItems = () => {
-    let count = 0;
-
     return (
       <ListGroup>
-        {filterItems().map(([index, tab]) => {
-          count++;
+        {Object.entries(getContent()).map(([tabName, tabObject]) => (
+          <ListGroup.Item
+            action
+            variant="dark"
+            className="border-0"
+            key={tabName}
+            onClick={() => {
+              scrollToTop();
 
-          if ("sub_modules" === tab.type) {
-            let subCount = 0;
+              const firstItem = Object.entries(tabObject.list).shift().shift();
 
-            return (
-              <div key={index}>
-                <ListGroup.Item variant="dark" className="border-0">
-                  {`${count} - ${tab.name}`}
-                </ListGroup.Item>
-
-                {Object.entries(tab.list).map(([indexItem, item]) => {
-                  subCount++;
-
-                  return (
-                    <LinkContainer
-                      to={
-                        library === null
-                          ? `/docs/framework/${item_version}/${index}/${indexItem}`
-                          : `/docs/library/${library}/${item_version}/${index}/${indexItem}`
-                      }
-                      key={`${index}-${indexItem}`}
-                    >
-                      <ListGroup.Item
-                        variant="dark"
-                        action
-                        onClick={() => {
-                          setShow(false);
-
-                          scrollToTop();
-                        }}
-                      >
-                        <i className="bi bi-arrow-return-right text-lion-orange me-2"></i>
-                        <label className="text-lion-orange">{`${count}.${subCount}`}</label>
-                        {" - "}
-                        {item.name}
-                      </ListGroup.Item>
-                    </LinkContainer>
-                  );
-                })}
-              </div>
-            );
-          }
-
-          return (
-            <ListGroup.Item key={index} variant="dark">
-              {`${count} - ${tab.name}`}
-            </ListGroup.Item>
-          );
-        })}
+              navigate(
+                library === null
+                  ? `/docs/framework/${item_version}/${tabName}/${firstItem}`
+                  : `/docs/library/${library}/${item_version}/${tabName}/${firstItem}`
+              );
+            }}
+          >
+            {tabObject.name}
+          </ListGroup.Item>
+        ))}
       </ListGroup>
     );
+  };
+
+  const ListMethodsItems = () => {
+    return filterItems(getContent()[tab].list).map((methods) => (
+      <LinkContainer
+        to={
+          library === null
+            ? `/docs/framework/${item_version}/${tab}/${methods[0]}`
+            : `/docs/library/${library}/${item_version}/${tab}/${methods[0]}`
+        }
+        key={`${methods[0]}`}
+      >
+        <ListGroup.Item
+          variant="dark"
+          action
+          className="p-1"
+          onClick={() => scrollToTop()}
+        >
+          <span className="text-lion-orange">{methods[1].name}</span>
+        </ListGroup.Item>
+      </LinkContainer>
+    ));
   };
 
   return (
@@ -162,16 +142,6 @@ export default function AddTabs() {
           <div className={"sticky-top d-none d-xl-block"}>
             <div className="sticky-top bg-dark-logo py-3">
               <SelectVersion />
-
-              <div className="mb-3">
-                <Form.Control
-                  type="search"
-                  className="form-control-dark"
-                  placeholder="Search..."
-                  value={filter_search}
-                  onChange={(e) => setFilter_search(e.target.value)}
-                />
-              </div>
             </div>
 
             <div className="vh-100 overflow-y-scroll">
@@ -180,8 +150,22 @@ export default function AddTabs() {
           </div>
         </Col>
 
-        <Col xs={12} sm={12} md={12} lg={12} xl={9} xxl={9}>
+        <Col xs={12} sm={12} md={12} lg={12} xl={7} xxl={7}>
           <Outlet />
+        </Col>
+
+        <Col xs={12} sm={12} md={12} lg={12} xl={2} xxl={2}>
+          <div className="mb-3">
+            <Form.Control
+              type="search"
+              className="form-control-dark"
+              placeholder="Search..."
+              value={filter_search}
+              onChange={(e) => setFilter_search(e.target.value)}
+            />
+          </div>
+
+          <ListMethodsItems />
         </Col>
       </Row>
     </Container>
