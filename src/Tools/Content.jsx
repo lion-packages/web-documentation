@@ -51,6 +51,7 @@ import v5_CMD from "./Versions/libraries/command/v5_CMD";
 import v4_FRM from "./Versions/Framework/v4_FRM";
 import v4_CMMD from "./Versions/Commands/V4_CMMD";
 import v10_LBD from "./Versions/libraries/database/v10_LDB";
+import v11_LBD from "./Versions/libraries/database/v11_LDB";
 
 export default function Content() {
   return {
@@ -98,6 +99,7 @@ export default function Content() {
         description:
           "Package responsible for generating and executing statements for databases (MySQL/PostgreSQL).",
         versions: {
+          v11: v11_LBD(),
           v10: v10_LBD(),
           v8: v8_LBD(),
         },
