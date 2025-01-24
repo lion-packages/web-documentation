@@ -14,7 +14,6 @@ import Title from "../../../pages/components/Title";
 import { Fragment } from "react";
 import Description from "../../../pages/components/Description";
 import ExampleTitle from "../../../pages/components/ExampleTitle";
-import EquivalentTo from "../../../pages/components/EquivalentTo";
 import Notes from "../../../pages/components/Notes";
 import MarginBottom2 from "../../../pages/components/MarginBottom2";
 import SupportVersion from "../../../pages/components/SupportVersion";
@@ -1313,6 +1312,7 @@ Driver::run([
 declare(strict_types=1);
 
 use Lion\\Route;
+use stdClass;
 
 /**
  * -----------------------------------------------------------------------------
@@ -1322,7 +1322,7 @@ use Lion\\Route;
  * -----------------------------------------------------------------------------
  */
 
-Route::get('/', fn() => success());
+Route::get('/', fn(): stdClass => success());
 `}
               />
 
@@ -1385,6 +1385,22 @@ Route::controller(UsersController::class, function (): void {
 
               <CodeBlock language={"bash"} content={"php lion route:list"} />
             </>
+          ),
+        },
+        collections: {
+          name: "Postman Collections",
+          code: (
+            <Fragment>
+              <Title title={"Postman Collections"} />
+
+              <p className="fs-6">
+                To export the available routes you must run the local server and
+                execute the export, after this you can observe the collections
+                in <Badge bg="secondary">storage/postman/</Badge>.
+              </p>
+
+              <CodeBlock language={"bash"} content={"php lion route:postman"} />
+            </Fragment>
           ),
         },
       },
@@ -2751,189 +2767,6 @@ Mailer::initialize([
         },
       },
     },
-    request: {
-      name: "Request",
-      type: "sub_modules",
-      list: {
-        use: {
-          name: "Use Request",
-          code: (
-            <Fragment>
-              <Title title="Use Request" />
-
-              <Description
-                description={
-                  <Fragment>
-                    The <Badge bg={"secondary"}>capture</Badge> function of the{" "}
-                    <Badge bg={"secondary"}>Request</Badge> class is used in
-                    order to obtain the data sent in an HTTP request, the system
-                    internally initializes a{" "}
-                    <Badge bg={"secondary"}>request</Badge> constant to obtain
-                    the data. more information in{" "}
-                    <Link
-                      to={"/docs/library/content"}
-                      className="text-decoration-none"
-                    >
-                      Lion-Request
-                    </Link>
-                    .
-                  </Fragment>
-                }
-              />
-
-              <Fragment>
-                <CodeBlock
-                  langueage={"php"}
-                  content={
-                    "<?php\n\n" +
-                    "echo(request('users_name') . ' ' . request('users_last-name'));"
-                  }
-                />
-
-                <EquivalentTo />
-
-                <CodeBlock
-                  langueage={"php"}
-                  content={
-                    "<?php\n\n" +
-                    "echo($_POST['users_name'] . ' ' . $_POST['users_last-name']);"
-                  }
-                />
-              </Fragment>
-            </Fragment>
-          ),
-        },
-      },
-    },
-    response: {
-      name: "Response",
-      type: "sub_modules",
-      list: {
-        use: {
-          name: "Use Response",
-          code: (
-            <Fragment>
-              <Title title={"Response"} />
-
-              <Description
-                description={
-                  <Fragment>
-                    The Response class implements different response functions
-                    on HTTP requests, the system internally initializes a{" "}
-                    <Badge bg={"secondary"}>response</Badge> constant to access
-                    the functions. more information in{" "}
-                    <Link
-                      to={"/docs/library/content"}
-                      className="text-decoration-none"
-                    >
-                      Lion-Request
-                    </Link>
-                    .
-                  </Fragment>
-                }
-              />
-
-              <Fragment>
-                <ExampleTitle number={1} />
-
-                <CodeBlock
-                  language={"php"}
-                  content={`<?php
-
-return success('message');
-`}
-                />
-
-                <EquivalentTo />
-
-                <CodeBlock
-                  language={"json"}
-                  content={`{
-  "code": 200,
-  "status": "success",
-  "message": "message"
-}`}
-                />
-              </Fragment>
-
-              <Fragment>
-                <ExampleTitle number={2} />
-
-                <CodeBlock
-                  language={"php"}
-                  content={`<?php
-
-return error('message');
-`}
-                />
-
-                <EquivalentTo />
-
-                <CodeBlock
-                  language={"json"}
-                  content={`{
-  "code": 500,
-  "status": "error",
-  "message": "message"
-}`}
-                />
-              </Fragment>
-
-              <Fragment>
-                <ExampleTitle number={3} />
-
-                <CodeBlock
-                  language={"php"}
-                  content={`<?php
-
-use Lion\\Request\\Http;
-
-return error('message', Http::UNAUTHORIZED);
-`}
-                />
-
-                <EquivalentTo />
-
-                <CodeBlock
-                  language={"json"}
-                  content={`{
-  "code": 401,
-  "status": "error",
-  "message": "message"
-}`}
-                />
-              </Fragment>
-
-              <Fragment>
-                <ExampleTitle number={4} />
-
-                <CodeBlock
-                  language={"php"}
-                  content={`<?php
-
-use Lion\\Request\\Http;
-use Lion\\Request\\Status;
-
-return response(Status::ERROR, 'message', Http::HTTP_UNAUTHORIZED);
-`}
-                />
-
-                <EquivalentTo />
-
-                <CodeBlock
-                  language={"json"}
-                  content={`{
-  "code": 401,
-  "status": "session-error",
-  "message": "message"
-}`}
-                />
-              </Fragment>
-            </Fragment>
-          ),
-        },
-      },
-    },
     rules: {
       name: "Rules",
       type: "sub_modules",
@@ -3622,10 +3455,13 @@ Routes::setMiddleware([
           code: (
             <Fragment>
               <Title title={"Use Middleware"} />
-
               <Description
                 description={
-                  "You can use your middleware on routes and create more secure web applications."
+                  <Fragment>
+                    You can use your middleware on routes and create more secure
+                    web applications.{" "}
+                    <Link to="/docs/library/content">Lion-Route</Link>
+                  </Fragment>
                 }
               />
 
@@ -3753,6 +3589,7 @@ namespace Database\\Seed;
 use Database\\Factory\\ExampleFactory;
 use Lion\\Bundle\\Interface\\SeedInterface;
 use Lion\\Database\\Drivers\\MySQL as DB;
+use stdClass;
 
 /**
 * Description
@@ -3771,7 +3608,7 @@ class ExampleSeed implements SeedInterface
   /**
    * {@inheritdoc}
    **/
-  public function run(): object
+  public function run(): stdClass
   {
       return DB::table('example')
           ->bulk(ExampleFactory::columns(), ExampleFactory::definition())
@@ -3958,21 +3795,6 @@ class ExampleSocket implements MessageComponentInterface
               />
 
               <Fragment>
-                <Alert variant="info">
-                  <strong>Note: </strong>Install the printer for a prettier
-                  output in the tests.{" "}
-                  <strong>(It is installed by default)</strong>
-                </Alert>
-
-                <CodeBlock
-                  language={"bash"}
-                  content={
-                    "composer require --dev robiningelbrecht/phpunit-pretty-print"
-                  }
-                />
-              </Fragment>
-
-              <Fragment>
                 <Title title={"phpunit.xml"} />
 
                 <CodeBlock
@@ -4100,7 +3922,7 @@ declare(strict_types=1);
 
 namespace Tests;
 
-use Lion\\Test\\Test;
+use Lion\\Bundle\\Test\\Test;
 
 class ExampleTest extends Test
 {
@@ -4144,10 +3966,11 @@ declare(strict_types=1);
 
 namespace Tests\\Global\\App\\Http\\Controllers\\LionDatabase\\MySQL;
 
+use Lion\\Bundle\\Test\\Test;
 use Lion\\Dependency\\Injection\\Container;
 use Lion\\Request\\Http;
 use Lion\\Request\\Status;
-use Lion\\Test\\Test;
+use PHPUnit\\Framework\\Attributes\\Test as Testing;
 
 class ExampleControllerTest extends Test
 {
@@ -4161,7 +3984,8 @@ class ExampleControllerTest extends Test
         $this->container = new Container();
     }
 
-    public function testExample(): void
+    #[Testing]
+    public function example(): void
     {
         $response = $this->container->injectDependenciesMethod($this->exampleController, 'example');
 
@@ -4195,12 +4019,14 @@ namespace Tests\\Global\\App\\Http\\Controllers\\LionDatabase\\MySQL;
 
 use Exception;
 use App\\Exceptions\\ExampleException;
+use Lion\\Bundle\\Test\\Test;
 use Lion\\Request\\Http;
-use Lion\\Test\\Test;
+use PHPUnit\\Framework\\Attributes\\Test as Testing;
 
 class ExampleExceptionTest extends Test
 {
-    public function testExampleException(): void
+    #[Testing]
+    public function exampleException(): void
     {
         $this->expectException(Exception::class);
         $this->expectExceptionMessage('ERR');
@@ -4247,13 +4073,15 @@ declare(strict_types=1);
 namespace Tests\\Global\\App\\Exceptions;
 
 use App\\Exceptions\\ExampleException;
+use Lion\\Bundle\\Test\\Test;
 use Lion\\Request\\Http;
 use Lion\\Request\\Status;
-use Lion\\Test\\Test;
+use PHPUnit\\Framework\\Attributes\\Test as Testing;
 
 class ExampleExceptionTest extends Test
 {
-    public function testExampleException(): void
+    #[Testing]
+    public function exampleException(): void
     {
         // Run the custom exception to add assertions.
 
@@ -4265,7 +4093,8 @@ class ExampleExceptionTest extends Test
             ->expectLionException();
     }
 
-    public function testExampleExceptionWithCustomProcess(): void
+    #[Testing]
+    public function exampleExceptionWithCustomProcess(): void
     {
         // Run a specific process where an exception is expected.
 
@@ -4292,8 +4121,6 @@ class ExampleExceptionTest extends Test
             <Fragment>
               <Title title={"Run Test"} />
 
-              <Notes />
-
               <Fragment>
                 <Description description={"Run all tests via command line."} />
 
@@ -4308,7 +4135,10 @@ class ExampleExceptionTest extends Test
               <Fragment>
                 <Description
                   description={
-                    "Run the reports to observe them from the coverage."
+                    <Fragment>
+                      Run the reports to observe them from the coverage.{" "}
+                      <Badge bg="secondary">{"tests/build/"}</Badge>
+                    </Fragment>
                   }
                 />
 
@@ -4407,28 +4237,6 @@ class ExampleExceptionTest extends Test
               />
 
               <CodeBlock language={"bash"} content={"php lion new:aes"} />
-            </Fragment>
-          ),
-        },
-      },
-    },
-    postman: {
-      name: "Postman",
-      type: "sub_modules",
-      list: {
-        collections: {
-          name: "Postman Collections",
-          code: (
-            <Fragment>
-              <Title title={"Postman Collections"} />
-
-              <p className="fs-6">
-                To export the available routes you must run the local server and
-                execute the export, after this you can observe the collections
-                in <Badge bg="secondary">storage/postman/</Badge>.
-              </p>
-
-              <CodeBlock language={"bash"} content={"php lion route:postman"} />
             </Fragment>
           ),
         },
@@ -4901,9 +4709,7 @@ vd($path);
                   langueage={"php"}
                   content={`<?php
 
-$response = success();
-
-finish($response);
+finish(success());
 `}
                 />
               </Fragment>
@@ -4921,9 +4727,7 @@ finish($response);
                   language={"php"}
                   content={`<?php
 
-$response = response('custom', 'message');
-
-vd($response);
+vd(response('custom', 'message'));
 `}
                 />
               </Fragment>
@@ -4941,9 +4745,7 @@ vd($response);
                   langueage={"php"}
                   content={`<?php
 
-$response = success('message');
-
-vd($response);
+vd(success('message'));
 `}
                 />
               </Fragment>
@@ -4960,10 +4762,8 @@ vd($response);
                 <CodeBlock
                   langueage={"php"}
                   content={`<?php
-                  
-$response = error('message');
 
-vd($response);
+vd(error('message'));
 `}
                 />
               </Fragment>
@@ -4981,9 +4781,7 @@ vd($response);
                   langueage={"php"}
                   content={`<?php
                   
-$response = warning('message');
-
-vd($response);
+vd(warning('message'));
 `}
                 />
               </Fragment>
@@ -4998,10 +4796,8 @@ vd($response);
                 <CodeBlock
                   langueage={"php"}
                   content={`<?php
-                  
-$response = info('message');
 
-vd($response);
+vd(info('message'));
 `}
                 />
               </Fragment>
@@ -5014,9 +4810,7 @@ vd($response);
                   langueage={"php"}
                   content={`<?php
 
-$response = success('message');
-
-vd($response);
+vd(success('message'));
 `}
                 />
               </Fragment>

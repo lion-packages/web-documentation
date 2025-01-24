@@ -73,7 +73,13 @@ export default function AddTabs() {
   };
 
   const ListMethodsItems = () => {
-    return filterItems(getContent()[tab].list).map((methods) => (
+    const content = getContent();
+
+    if (!content[tab] || !content[tab].list) {
+      return [];
+    }
+
+    return filterItems(content[tab].list).map((methods) => (
       <LinkContainer
         to={
           library === null
@@ -93,6 +99,14 @@ export default function AddTabs() {
       </LinkContainer>
     ));
   };
+
+  useEffect(() => {
+    scrollToTop();
+  }, []);
+
+  useEffect(() => {
+    scrollToTop();
+  }, [tab]);
 
   return (
     <Container fluid className="my-4 text-white">
