@@ -52,6 +52,7 @@ import v4_FRM from "./Versions/Framework/v4_FRM";
 import v4_CMMD from "./Versions/Commands/V4_CMMD";
 import v10_LBD from "./Versions/libraries/database/v10_LDB";
 import v11_LBD from "./Versions/libraries/database/v11_LDB";
+import v6_LM from "./Versions/libraries/mailer/v6_LM";
 
 export default function Content() {
   return {
@@ -144,6 +145,7 @@ export default function Content() {
         description:
           "Library created to facilitate sending email based on different services.",
         versions: {
+          v6: v6_LM(),
           v5: v5_LM(),
         },
       },

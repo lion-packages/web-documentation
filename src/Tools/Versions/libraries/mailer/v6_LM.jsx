@@ -7,7 +7,7 @@ import LibraryTitle from "../../../../pages/components/LibraryTitle";
 import Example from "../../../../pages/components/Example";
 import SupportVersion from "../../../../pages/components/SupportVersion";
 
-export default function v5_LM() {
+export default function v6_LM() {
   return {
     "getting-started": {
       name: "Getting started",
@@ -43,11 +43,84 @@ export default function v5_LM() {
                 development in Linux environments.
               </Alert>
 
-              <SupportVersion title={"Lion-Mailer"} version={"8.2"} />
+              <SupportVersion title={"Lion-Mailer"} version={"8.3"} />
 
               <CodeBlock
                 language={"bash"}
                 content={"composer require lion/mailer"}
+              />
+            </Fragment>
+          ),
+        },
+      },
+    },
+    "php-mailer-account": {
+      name: "PhpMailerAccount::class",
+      type: "sub_modules",
+      list: {
+        _construct: {
+          name: "__construct",
+          code: (
+            <Fragment>
+              <LibraryTitle
+                className={"PhpMailerAccount"}
+                methodName={"__construct"}
+              />
+
+              <Description
+                description={"Service to send emails with PHPMailer."}
+              />
+
+              <CodeBlock
+                language={"php"}
+                content={`<?php
+
+declare(strict_types=1);
+
+use Lion\\Mailer\\Accounts\\PhpMailerAccount;
+
+$phpMailerAccount = new PhpMailerAccount(
+    'smtp.mailtrap.io',
+    2525,
+    'username',
+    'password',
+    'tls'
+);
+`}
+              />
+            </Fragment>
+          ),
+        },
+        priority: {
+          name: "priority",
+          code: (
+            <Fragment>
+              <LibraryTitle
+                className={"PhpMailerAccount"}
+                methodName={"priority"}
+              />
+
+              <Description description={"Defines the priority level."} />
+
+              <CodeBlock
+                language={"php"}
+                content={`<?php
+
+declare(strict_types=1);
+
+use Lion\\Mailer\\Accounts\\PhpMailerAccount;
+use Lion\\Mailer\\Priority;
+
+$phpMailerAccount = new PhpMailerAccount(
+    'smtp.mailtrap.io',
+    2525,
+    'username',
+    'password',
+    'tls'
+);
+
+$phpMailerAccount->priority(Priority::LOWEST);
+`}
               />
             </Fragment>
           ),
